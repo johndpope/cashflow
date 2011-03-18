@@ -161,7 +161,9 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) { // OK
-        [mDropboxBackup doRestore:self];
+        // UIAlertView が消えてからすぐに次の View (LoadingView) を表示すると、
+        // 次の View が正しく表示されない。このため少し待たせる
+        [mDropboxBackup performSelector:@selector(doRestore:) withObject:self afterDelay:0.5];
     }
 }
 
