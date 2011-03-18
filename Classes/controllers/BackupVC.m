@@ -55,6 +55,15 @@
     return nil;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return @"The backup data will be stored as CashFlowBackup.db in root folder of Dropbox.";
+    }
+    return nil;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0:
