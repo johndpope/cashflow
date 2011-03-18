@@ -9,11 +9,12 @@
 #import "DataModel.h"
 #import "TransactionListVC.h"
 #import "DBLoadingView.h"
+#import "BackupVC.h"
 
 //#import "AdCell.h"
 
 @interface AssetListViewController : UIViewController
-<DataModelDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate>
+<DataModelDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate, BackupViewDelegate>
 {
     IBOutlet UITableView *mTableView;
     IBOutlet UIBarButtonItem *mBarActionButton;

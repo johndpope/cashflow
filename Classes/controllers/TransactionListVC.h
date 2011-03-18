@@ -10,6 +10,7 @@
 #import "ExportVC.h"
 #import "DataModel.h"
 #import "CalcVC.h"
+#import "BackupVC.h"
 
 #if FREE_VERSION
 #import "GADAdViewController.h"
@@ -19,7 +20,8 @@
 @class AssetListViewController;
 
 @interface TransactionListViewController : UIViewController 
-    <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate
+    <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate,
+    BackupViewDelegate
 #if FREE_VERSION
 , GADAdViewControllerDelegate
 #endif

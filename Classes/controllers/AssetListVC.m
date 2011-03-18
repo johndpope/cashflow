@@ -494,7 +494,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
             break;
             
         case 1:
-            backupVC = [BackupViewController backupViewController];
+            backupVC = [BackupViewController backupViewController:self];
             vc = backupVC;
             break;
             
@@ -533,6 +533,17 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
     }
     else {
         ASSERT(NO);
+    }
+}
+
+#pragma mark BackupViewDelegate
+
+- (void)backupViewFinished:(BackupViewController *)backupViewController
+{
+    [self reload];
+    if (IS_IPAD) {
+        mSplitTransactionListViewController.asset = nil;
+        [mSplitTransactionListViewController reload];
     }
 }
 

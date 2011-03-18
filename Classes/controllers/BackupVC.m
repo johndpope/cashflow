@@ -12,11 +12,17 @@
 
 @implementation BackupViewController
 
-+ (BackupViewController *)backupViewController
++ (BackupViewController *)backupViewController:(id<BackupViewDelegate>)delegate
 {
     BackupViewController *vc =
         [[[BackupViewController alloc] initWithNibName:@"BackupView" bundle:nil] autorelease];
+    [vc setDelegate:delegate];
     return vc;
+}
+
+- (void)setDelegate:(id<BackupViewDelegate>)delegate
+{
+    mDelegate = delegate;
 }
 
 - (void)viewDidLoad
@@ -31,6 +37,7 @@
 - (void)doneAction:(id)sender
 {
     [self.navigationController dismissModalViewControllerAnimated:YES];
+    [mDelegate backupViewFinished:self];
 }
 
 - (void)dealloc

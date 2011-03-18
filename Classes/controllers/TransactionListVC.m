@@ -118,12 +118,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    if (self.asset == nil) {
-        // バックアップ操作をした場合の処理
-        [self.navigationController popViewControllerAnimated:YES];
-        return;
-    }
     [self reload];
 
 #if FREE_VERSION
@@ -457,8 +451,8 @@
             break;
             
         case 1:
-            self.asset = nil; // リストア時に asset が無効になるため、nil にする。
-            backupVC = [BackupViewController backupViewController];
+            self.asset = nil; // リストアする場合に備え、asset を解除しておく
+            backupVC = [BackupViewController backupViewController:self];
             vc = backupVC;
             break;
             
@@ -500,6 +494,19 @@
     [nc release];
 }
 */
+
+#pragma mark BackupViewDelegate
+
+- (void)backupViewFinished:(BackupViewController *)backupViewController
+{
+    if (IS_IPAD) {
+        self.asset = nil; // deselect asset
+        [self reload];
+        [mSplitAssetListViewController reload];
+    } else {
+        [self.navigationController popViewControllerAnimated:NO];
+    }
+}
 
 #pragma mark Split View Delegate
 

@@ -11,14 +11,23 @@
 #import "DBLoadingView.h"
 #import "DropboxBackup.h"
 
+@class BackupViewController;
+
+@protocol BackupViewDelegate
+- (void)backupViewFinished:(BackupViewController *)backupViewController;
+@end
+
 @interface BackupViewController : UITableViewController <DropboxBackupDelegate, UIAlertViewDelegate>
 {
+    id<BackupViewDelegate> mDelegate;
+
     DBLoadingView *mLoadingView;
     DropboxBackup *mDropboxBackup;
 }
 
-+ (BackupViewController *)backupViewController;
++ (BackupViewController *)backupViewController:(id<BackupViewDelegate>)delegate;
 
+- (void)setDelegate:(id<BackupViewDelegate>)delegate;
 - (void)doneAction:(id)sender;
 
 @end
