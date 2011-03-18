@@ -89,6 +89,8 @@
             [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:dbPath];
             break;
     }
+    
+    [mDelegate dropboxBackupStarted];
 }
 
 - (DBRestClient *)restClient

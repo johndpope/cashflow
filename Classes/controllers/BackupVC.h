@@ -21,7 +21,4 @@
 
 - (void)doneAction:(id)sender;
 
-- (void)_showLoadingView;
-- (void)_dismissLoadingView;
-
 @end

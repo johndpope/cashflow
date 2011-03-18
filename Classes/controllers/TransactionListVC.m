@@ -117,9 +117,13 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    //NSLog(@"TransactionListViewController:viewWillAppear");
-
     [super viewWillAppear:animated];
+    
+    if (self.asset == nil) {
+        // バックアップ操作をした場合の処理
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
     [self reload];
 
 #if FREE_VERSION
@@ -453,9 +457,7 @@
             break;
             
         case 1:
-            // dismiss this view before backup
-            [self.navigationController popViewControllerAnimated:YES];
-
+            self.asset = nil; // リストア時に asset が無効になるため、nil にする。
             backupVC = [BackupViewController backupViewController];
             vc = backupVC;
             break;

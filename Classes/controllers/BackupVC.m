@@ -130,7 +130,6 @@
             }
             switch (indexPath.row) {
                 case 0: // backup
-                    [self _showLoadingView];
                     [mDropboxBackup doBackup:self];
                     break;
                     
@@ -162,16 +161,26 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) { // OK
-        [self _showLoadingView];
         [mDropboxBackup doRestore:self];
     }
 }
 
 #pragma mark DropboxBackupDelegate
 
+- (void)dropboxBackupStarted
+{
+    NSLog(@"DropboxBackupStarted");
+    mLoadingView = [[DBLoadingView alloc] initWithTitle:nil];
+    mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
+    [mLoadingView show];
+}
+
 - (void)dropboxBackupFinished
 {
-    [self _dismissLoadingView];
+    NSLog(@"DropboxBackupFinished");
+    [mLoadingView dismissAnimated:NO];
+    [mLoadingView release];
+    mLoadingView = nil;
 }
 
 #pragma mark utils
@@ -179,19 +188,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     if (IS_IPAD) return YES;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)_showLoadingView
-{
-    mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Loading"];
-    [mLoadingView show];
-}
-
-- (void)_dismissLoadingView
-{
-    [mLoadingView dismissAnimated:NO];
-    [mLoadingView release];
-    mLoadingView = nil;
 }
 
 @end
