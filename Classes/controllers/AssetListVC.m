@@ -33,7 +33,7 @@
     mLedger = nil;
 	
     // title 設定
-    self.title = NSLocalizedString(@"Assets", @"");
+    self.title = _L(@"Assets");
 	
     // "+" ボタンを追加
     UIBarButtonItem *plusButton = [[UIBarButtonItem alloc]
@@ -153,7 +153,7 @@
     for (int i = 0; i < [mLedger assetCount]; i++) {
         value += [[mLedger assetAtIndex:i] lastBalance];
     }
-    NSString *lbl = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Total", @""), [CurrencyManager formatCurrency:value]];
+    NSString *lbl = [NSString stringWithFormat:@"%@ %@", _L(@"Total"), [CurrencyManager formatCurrency:value]];
     mBarSumLabel.title = lbl;
 }
 
@@ -263,7 +263,7 @@
             for (i = 0; i < [ledger assetCount]; i++) {
                 value += [[ledger assetAtIndex:i] lastBalance];
             }
-            label = [NSString stringWithFormat:@"            %@", NSLocalizedString(@"Total", @"")];
+            label = [NSString stringWithFormat:@"            %@", _L(@"Total")];
 
             cell.accessoryType = UITableViewCellAccessoryNone;
             cell.imageView.image = nil;
@@ -374,10 +374,10 @@
 
         mAsDelete =
             [[UIActionSheet alloc]
-                initWithTitle:NSLocalizedString(@"ReallyDeleteAsset", @"")
+                initWithTitle:_L(@"ReallyDeleteAsset")
                 delegate:self
                 cancelButtonTitle:@"Cancel"
-                destructiveButtonTitle:NSLocalizedString(@"Delete Asset", @"")
+                destructiveButtonTitle:_L(@"Delete Asset")
                 otherButtonTitles:nil];
         mAsDelete.actionSheetStyle = UIActionSheetStyleDefault;
         [mAsDelete showInView:self.view];
@@ -461,13 +461,13 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
     mAsActionButton = 
         [[UIActionSheet alloc]
          initWithTitle:@"" delegate:self 
-         cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
+         cancelButtonTitle:_L(@"Cancel")
          destructiveButtonTitle:nil
          otherButtonTitles:
-         NSLocalizedString(@"Export", @""),
-         NSLocalizedString(@"Backup", @""),
-         NSLocalizedString(@"Config", @""),
-         NSLocalizedString(@"Info", @""),
+         _L(@"Export"),
+         _L(@"Backup"),
+         _L(@"Config"),
+         _L(@"Info"),
          nil];
     if (IS_IPAD) {
         [mAsActionButton showFromBarButtonItem:mBarActionButton animated:YES];

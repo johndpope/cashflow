@@ -27,7 +27,7 @@
 {
     mValue = [[NSMutableString alloc] init];
 
-    //self.title = NSLocalizedString(@"PIN", @"");
+    //self.title = _L(@"PIN");
     self.navigationItem.rightBarButtonItem = 
         [[[UIBarButtonItem alloc]
              initWithBarButtonSystemItem:UIBarButtonSystemItemDone

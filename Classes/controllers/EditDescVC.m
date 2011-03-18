@@ -32,7 +32,7 @@
         self.contentSizeForViewInPopover = s;
     }
     
-    self.title = NSLocalizedString(@"Name", @"Description");
+    self.title = _L(@"Name");
 
     self.navigationItem.rightBarButtonItem =
         [[[UIBarButtonItem alloc]
@@ -42,7 +42,7 @@
 
     // ここで textField を生成する
     mTextField = [[UITextField alloc] initWithFrame:CGRectMake(12, 12, 300, 24)];
-    mTextField.placeholder = NSLocalizedString(@"Description", @"");
+    mTextField.placeholder = _L(@"Description");
     mTextField.returnKeyType = UIReturnKeyDone;
     mTextField.delegate = self;
     [mTextField addTarget:self action:@selector(onTextChange:)
@@ -117,9 +117,9 @@
 {
     switch (section) {
         case 0:
-            return NSLocalizedString(@"Name", @"");
+            return _L(@"Name");
         case 1:
-            return NSLocalizedString(@"History", @"");
+            return _L(@"History");
     }
     return nil;
 }

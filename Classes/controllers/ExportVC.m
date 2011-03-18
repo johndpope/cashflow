@@ -25,21 +25,21 @@
     [super viewDidLoad];
 
     // Localization
-    [self setTitle:NSLocalizedString(@"Export", @"")];
+    [self setTitle:_L(@"Export")];
 
-    mFormatLabel.text = NSLocalizedString(@"Data format", @"");
-    [mFormatControl setTitle:NSLocalizedString(@"OFX", @"") forSegmentAtIndex:1];
+    mFormatLabel.text = _L(@"Data format");
+    [mFormatControl setTitle:_L(@"OFX") forSegmentAtIndex:1];
 
-    mRangeLabel.text = NSLocalizedString(@"Export data within", @"");
-    [mRangeControl setTitle:NSLocalizedString(@"7 days", @"") forSegmentAtIndex:0];
-    [mRangeControl setTitle:NSLocalizedString(@"30 days", @"") forSegmentAtIndex:1];
-    [mRangeControl setTitle:NSLocalizedString(@"90 days", @"") forSegmentAtIndex:2];
-    [mRangeControl setTitle:NSLocalizedString(@"All", @"") forSegmentAtIndex:3];
+    mRangeLabel.text = _L(@"Export data within");
+    [mRangeControl setTitle:_L(@"7 days") forSegmentAtIndex:0];
+    [mRangeControl setTitle:_L(@"30 days") forSegmentAtIndex:1];
+    [mRangeControl setTitle:_L(@"90 days") forSegmentAtIndex:2];
+    [mRangeControl setTitle:_L(@"All") forSegmentAtIndex:3];
     
-    mMethodLabel.text = NSLocalizedString(@"Export method", @"");
-    [mMethodControl setTitle:NSLocalizedString(@"Mail", @"") forSegmentAtIndex:0];
+    mMethodLabel.text = _L(@"Export method");
+    [mMethodControl setTitle:_L(@"Mail") forSegmentAtIndex:0];
     
-    NSString *exportString = NSLocalizedString(@"Export", @"");
+    NSString *exportString = _L(@"Export");
     [mExportButton setTitle:exportString forState:UIControlStateNormal];
     [mExportButton setTitle:exportString forState:UIControlStateHighlighted];
 
@@ -175,8 +175,8 @@
 	
     if (!result) {
         v = [[UIAlertView alloc] 
-                initWithTitle:NSLocalizedString(@"No data", @"")
-                message:NSLocalizedString(@"No data to be exported.", @"")
+                initWithTitle:_L(@"No data")
+                message:_L(@"No data to be exported.")
                 delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [v show];
         [v autorelease];

@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"Info", @"");
+    self.title = _L(@"Info");
     self.navigationItem.rightBarButtonItem =
     [[[UIBarButtonItem alloc]
       initWithBarButtonSystemItem:UIBarButtonSystemItemDone
@@ -45,11 +45,11 @@
     [mVersionLabel setText:[NSString stringWithFormat:@"Version %@", version]];
 
     [self _setButtonTitle:mPurchaseButton
-                    title:NSLocalizedString(@"Purchase Standard Version", @"")];
+                    title:_L(@"Purchase Standard Version")];
     [self _setButtonTitle:mHelpButton
-                    title:NSLocalizedString(@"Show help page", @"")];
+                    title:_L(@"Show help page")];
     [self _setButtonTitle:mSendMailButton
-                    title:NSLocalizedString(@"Send support mail", @"")];
+                    title:_L(@"Send support mail")];
 }
 
 - (void)_setButtonTitle:(UIButton*)button title:(NSString*)title
@@ -73,7 +73,7 @@
 
 - (IBAction)webButtonTapped
 {
-    NSURL *url = [NSURL URLWithString:NSLocalizedString(@"HelpURL", @"web help url")];
+    NSURL *url = [NSURL URLWithString:_L(@"HelpURL") /*"web help url*/];
     [[UIApplication sharedApplication] openURL:url];
 }
 

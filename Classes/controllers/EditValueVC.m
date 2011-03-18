@@ -33,7 +33,7 @@
         self.contentSizeForViewInPopover = s;
     }
     
-    self.title = NSLocalizedString(@"Amount", @"金額");
+    self.title = _L(@"Amount")+
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self

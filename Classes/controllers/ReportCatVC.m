@@ -59,12 +59,12 @@
     switch (section) {
         case 0:
             title = [NSString stringWithFormat:@"%@ : %@",
-                     NSLocalizedString(@"Outgo", @""),
+                     _L(@"Outgo"),
                      [CurrencyManager formatCurrency:-mReportEntry.totalOutgo]];
             break;
         case 1:
             title = [NSString stringWithFormat:@"%@ : %@",
-                     NSLocalizedString(@"Income", @""),
+                     _L(@"Income"),
                      [CurrencyManager formatCurrency:mReportEntry.totalIncome]];
             
             break;

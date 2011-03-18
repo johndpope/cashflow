@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad
 {
-    self.title = NSLocalizedString(@"Asset", @"");
+    self.title = _L(@"Asset");
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                   target:self
@@ -43,7 +43,7 @@
     [b setBackgroundImage:bg forState:UIControlStateNormal];
 		
     [b setFrame:CGRectMake(10, 280, 300, 44)];
-    [b setTitle:NSLocalizedString(@"Delete Asset", @"") forState:UIControlStateNormal];
+    [b setTitle:_L(@"Delete Asset") forState:UIControlStateNormal];
     [b addTarget:self action:@selector(delButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     delButton = [b retain];
 #endif
@@ -157,21 +157,21 @@
     
     switch (indexPath.row) {
     case ROW_NAME:
-        name.text = NSLocalizedString(@"Asset Name", @"");
+        name.text = _L(@"Asset Name");
         value.text = mAsset.name;
         break;
 
     case ROW_TYPE:
-        name.text = NSLocalizedString(@"Asset Type", @"");
+        name.text = _L(@"Asset Type");
         switch (mAsset.type) {
         case ASSET_CASH:
-            value.text = NSLocalizedString(@"Cash", @"");
+            value.text = _L(@"Cash");
             break;
         case ASSET_BANK:
-            value.text = NSLocalizedString(@"Bank Account", @"");
+            value.text = _L(@"Bank Account");
             break;
         case ASSET_CARD:
-            value.text = NSLocalizedString(@"Credit Card", @"");
+            value.text = _L(@"Credit Card");
             break;
         }
         break;
@@ -196,20 +196,20 @@
 
     switch (indexPath.row) {
     case ROW_NAME:
-        ge = [GenEditTextViewController genEditTextViewController:self title:NSLocalizedString(@"Asset Name", @"") identifier:0];
+        ge = [GenEditTextViewController genEditTextViewController:self title:_L(@"Asset Name") identifier:0];
         ge.text = mAsset.name;
         vc = ge;
         break;
 
     case ROW_TYPE:
         typeArray = [[[NSArray alloc]initWithObjects:
-                                         NSLocalizedString(@"Cash", @""),
-                                     NSLocalizedString(@"Bank Account", @""),
-                                     NSLocalizedString(@"Credit Card", @""),
+                                         _L(@"Cash"),
+                                     _L(@"Bank Account"),
+                                     _L(@"Credit Card"),
                                      nil] autorelease];
         gt = [GenSelectListViewController genSelectListViewController:self 
                                         items:typeArray 
-                                        title:NSLocalizedString(@"Asset Type", @"")
+                                        title:_L(@"Asset Type")
                                         identifier:0];
         gt.selectedIndex = mAsset.type;
         vc = gt;
@@ -240,10 +240,10 @@
 - (void)delButtonTapped
 {
     UIActionSheet *as = [[UIActionSheet alloc]
-                            initWithTitle:NSLocalizedString(@"ReallyDeleteAsset", @"")
+                            initWithTitle:_L(@"ReallyDeleteAsset")
                             delegate:self
                             cancelButtonTitle:@"Cancel"
-                            destructiveButtonTitle:NSLocalizedString(@"Delete Asset", @"")
+                            destructiveButtonTitle:_L(@"Delete Asset")
                             otherButtonTitles:nil];
     as.actionSheetStyle = UIActionSheetStyleDefault;
     [as showInView:self.view];

@@ -57,7 +57,7 @@
             return @"Dropbox";
 
         case 1:
-            return NSLocalizedString(@"Internal web server", @"");
+            return _L(@"Internal web server");
     }
     return nil;
 }
@@ -99,23 +99,23 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    cell.textLabel.text = NSLocalizedString(@"Backup", @"");
+                    cell.textLabel.text = _L(@"Backup");
                     break;
                     
                 case 1:
-                    cell.textLabel.text = NSLocalizedString(@"Restore", @"");
+                    cell.textLabel.text = _L(@"Restore");
                     break;
                     
                 case 2:
-                    cell.textLabel.text = NSLocalizedString(@"Unlink dropbox account", @"");
+                    cell.textLabel.text = _L(@"Unlink dropbox account");
                     break;
             }
             break;
             
         case 1:
             cell.textLabel.text = [NSString stringWithFormat:@"%@ / %@",
-                                   NSLocalizedString(@"Backup", @""),
-                                   NSLocalizedString(@"Restore", @"")];
+                                   _L(@"Backup"),
+                                   _L(@"Restore")];
             break;
     }
 
@@ -141,11 +141,11 @@
                     break;
                     
                 case 1: //restore
-                    alertView = [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Warning", @"")
-                                                            message:NSLocalizedString(@"RestoreWarning", @"")
+                    alertView = [[[UIAlertView alloc] initWithTitle:_L(@"Warning")
+                                                            message:_L(@"RestoreWarning")
                                                            delegate:self 
-                                                  cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
-                                                  otherButtonTitles:NSLocalizedString(@"Ok", @""), nil] autorelease];
+                                                  cancelButtonTitle:_L(@"Cancel")
+                                                  otherButtonTitles:_L(@"Ok"), nil] autorelease];
                     [alertView show];
                     break;
                     
@@ -182,9 +182,9 @@
     
     NSString *msg = nil;
     if (isRestore) {
-        msg = NSLocalizedString(@"Downloading", @"");
+        msg = _L(@"Downloading");
     } else {
-        msg = NSLocalizedString(@"Uploading", @"");
+        msg = _L(@"Uploading");
     }
     mLoadingView = [[DBLoadingView alloc] initWithTitle:msg];
     mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする

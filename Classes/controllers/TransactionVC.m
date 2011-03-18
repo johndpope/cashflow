@@ -32,7 +32,7 @@
 {
     mIsModified = NO;
 
-    self.title = NSLocalizedString(@"Transaction", @"");
+    self.title = _L(@"Transaction");
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                   target:self
@@ -43,10 +43,10 @@
                                                   action:@selector(cancelAction)] autorelease];
 
     mTypeArray = [[NSArray alloc] initWithObjects:
-                                     NSLocalizedString(@"Payment", @""),
-                                 NSLocalizedString(@"Deposit", @""),
-                                 NSLocalizedString(@"Adjustment", @"Balance adjustment"),
-                                 NSLocalizedString(@"Transfer", @""),
+                                     _L(@"Payment"),
+                                 _L(@"Deposit"),
+                                 _L(@"Adjustment"),
+                                 _L(@"Transfer"),
                                  nil];
 	
     // ボタン生成
@@ -71,13 +71,13 @@
         
         if (i == 0) {
             [b setFrame:rect];
-            [b setTitle:NSLocalizedString(@"Delete transaction", @"") forState:UIControlStateNormal];
+            [b setTitle:_L(@"Delete transaction") forState:UIControlStateNormal];
             [b addTarget:self action:@selector(delButtonTapped) forControlEvents:UIControlEventTouchUpInside];
             mDelButton = [b retain];
         } else {
             rect.origin.y += 55;
             [b setFrame:rect];
-            [b setTitle:NSLocalizedString(@"Delete with all past transactions", @"") forState:UIControlStateNormal];
+            [b setTitle:_L(@"Delete with all past transactions") forState:UIControlStateNormal];
             [b addTarget:self action:@selector(delPastButtonTapped) forControlEvents:UIControlEventTouchUpInside];
             mDelPastButton = [b retain];
         }
@@ -201,33 +201,33 @@
     double evalue;
     switch (indexPath.row) {
     case ROW_DATE:
-        name.text = NSLocalizedString(@"Date", @"");
+        name.text = _L(@"Date");
         value.text = [[DataModel dateFormatter] stringFromDate:mEditingEntry.transaction.date];
         break;
 
     case ROW_TYPE:
-        name.text = NSLocalizedString(@"Type", @"Transaction type");
+        name.text = _L(@"Type"); // @"Transaction type"
         value.text = [mTypeArray objectAtIndex:mEditingEntry.transaction.type];
         break;
 		
     case ROW_VALUE:
-        name.text = NSLocalizedString(@"Amount", @"");
+        name.text = _L(@"Amount");
         evalue = mEditingEntry.evalue;
         value.text = [CurrencyManager formatCurrency:evalue];
         break;
 		
     case ROW_DESC:
-        name.text = NSLocalizedString(@"Name", @"Description");
+        name.text = _L(@"Name");
         value.text = mEditingEntry.transaction.description;
         break;
 			
     case ROW_CATEGORY:
-        name.text = NSLocalizedString(@"Category", @"");
+        name.text = _L(@"Category");
         value.text = [[DataModel categories] categoryStringWithKey:mEditingEntry.transaction.category];
         break;
 			
     case ROW_MEMO:
-        name.text = NSLocalizedString(@"Memo", @"");
+        name.text = _L(@"Memo");
         value.text = mEditingEntry.transaction.memo;
         break;
     }
@@ -289,7 +289,7 @@
     case ROW_MEMO:
         editMemoVC = [EditMemoViewController
                          editMemoViewController:self
-                         title:NSLocalizedString(@"Memo", @"") 
+                         title:_L(@"Memo") 
                          identifier:0];
         editMemoVC.text = mEditingEntry.transaction.memo;
         vc = editMemoVC;
@@ -444,7 +444,7 @@
     mAsDelPast = [[UIActionSheet alloc]
                     initWithTitle:nil delegate:self
                     cancelButtonTitle:@"Cancel"
-                    destructiveButtonTitle:NSLocalizedString(@"Delete with all past transactions", @"")
+                    destructiveButtonTitle:_L(@"Delete with all past transactions")
                     otherButtonTitles:nil];
     mAsDelPast.actionSheetStyle = UIActionSheetStyleDefault;
     [mAsDelPast showInView:self.view];
@@ -493,11 +493,11 @@
     if (mIsModified) {
         mAsCancelTransaction =
             [[UIActionSheet alloc]
-                initWithTitle:NSLocalizedString(@"Save this transaction?", @"")
+                initWithTitle:_L(@"Save this transaction?")
                 delegate:self
-             cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
+             cancelButtonTitle:_L(@"Cancel")
                 destructiveButtonTitle:nil
-                otherButtonTitles:NSLocalizedString(@"Yes", @""), NSLocalizedString(@"No", @""), nil];
+                otherButtonTitles:_L(@"Yes"), _L(@"No"), nil];
         mAsCancelTransaction.actionSheetStyle = UIActionSheetStyleDefault;
         [mAsCancelTransaction showInView:self.view];
         [mAsCancelTransaction release];

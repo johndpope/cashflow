@@ -7,6 +7,7 @@
 
 #import "TransactionCell.h"
 #import "DataModel.h"
+#import "AppDelegate.h"
 #import "CurrencyManager.h"
 
 @implementation TransactionCell
@@ -39,7 +40,7 @@
 
 - (TransactionCell *)updateAsInitialBalance:(double)initialBalance
 {
-    [self setDescriptionLabel:NSLocalizedString(@"Initial Balance", @"")];
+    [self setDescriptionLabel:_L(@"Initial Balance")];
     [self setBalanceLabel:initialBalance];
     mValueLabel.text = @"";
     mDateLabel.text = @"";
@@ -70,7 +71,7 @@
 
 - (void)setBalanceLabel:(double)balance
 {
-    mBalanceLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Balance", @""), 
+    mBalanceLabel.text = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), 
                           [CurrencyManager formatCurrency:balance]];
 }
 

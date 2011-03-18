@@ -79,23 +79,23 @@
             mType = REPORT_DAILY;
             // FALLTHROUGH
         case REPORT_DAILY:
-            self.title = NSLocalizedString(@"Daily Report", @"");
+            self.title = _L(@"Daily Report");
             [mDateFormatter setDateFormat:@"yyyy/MM/dd"];
             break;
 
         case REPORT_WEEKLY:
-            self.title = NSLocalizedString(@"Weekly Report", @"");
+            self.title = _L(@"Weekly Report");
             [mDateFormatter setDateFormat:@"yyyy/MM/dd~"];
             break;
 
         case REPORT_MONTHLY:
-            self.title = NSLocalizedString(@"Monthly Report", @"");
+            self.title = _L(@"Monthly Report");
             //[dateFormatter setDateFormat:@"yyyy/MM"];
             [mDateFormatter setDateFormat:@"~yyyy/MM/dd"];
             break;
 
         case REPORT_ANNUAL:
-            self.title = NSLocalizedString(@"Annual Report", @"");
+            self.title = _L(@"Annual Report");
             [mDateFormatter setDateFormat:@"yyyy"];
             break;
     }

@@ -28,7 +28,7 @@
         self.contentSizeForViewInPopover = s;
     }
     
-    self.title = NSLocalizedString(@"Date", @"");
+    self.title = _L(@"Date");
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self

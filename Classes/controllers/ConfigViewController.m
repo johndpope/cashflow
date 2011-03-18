@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.title = NSLocalizedString(@"Config", @"");
+    self.navigationItem.title = _L(@"Config");
 
     self.navigationItem.rightBarButtonItem =
         [[[UIBarButtonItem alloc]
@@ -65,7 +65,7 @@
 #if 0
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return NSLocalizedString(@"Config", @"");
+    return _L(@"Config");
 }
 #endif
 
@@ -102,31 +102,31 @@
         case 0:
             switch (indexPath.row) {
                 case ROW_DATE_TIME_MODE:
-                    text = NSLocalizedString(@"Date style", @"");
+                    text = _L(@"Date style");
                     switch (config.dateTimeMode) {
                         case DateTimeModeWithTime:
-                            detailText = NSLocalizedString(@"Date and time (1 min)", @"");
+                            detailText = _L(@"Date and time (1 min)");
                             break;
                         case DateTimeModeWithTime5min:
-                            detailText = NSLocalizedString(@"Date and time (5 min)", @"");
+                            detailText = _L(@"Date and time (5 min)");
                             break;
                         default:
-                            detailText = NSLocalizedString(@"Date only", @"");                            
+                            detailText = _L(@"Date only");                            
                             break;
                     }
                     break;
 
                 case ROW_CUTOFF_DATE:
-                    text = NSLocalizedString(@"Cutoff date", @"");
+                    text = _L(@"Cutoff date");
                     if (config.cutoffDate == 0) {
-                        detailText = NSLocalizedString(@"End of month", @"");
+                        detailText = _L(@"End of month");
                     } else {
                         detailText = [NSString stringWithFormat:@"%d", config.cutoffDate];
                     }
                     break;
                     
                 case ROW_CURRENCY:
-                    text = NSLocalizedString(@"Currency", @"");
+                    text = _L(@"Currency");
                     NSString *currency = [[CurrencyManager instance] baseCurrency];
                     if (currency == nil) {
                         currency = @"System";
@@ -137,11 +137,11 @@
             break;
             
         case 1:
-            text = NSLocalizedString(@"Edit Categories", @"");
+            text = _L(@"Edit Categories");
             break;
             
         case 2:
-            text = NSLocalizedString(@"Set PIN Code", @"");
+            text = _L(@"Set PIN Code");
             break;
     }
     
@@ -167,28 +167,28 @@
             switch (indexPath.row) {
                 case ROW_DATE_TIME_MODE:
                     typeArray = [[[NSArray alloc] initWithObjects:
-                                  NSLocalizedString(@"Date and time (1 min)", @""),
-                                  NSLocalizedString(@"Date and time (5 min)", @""),
-                                  NSLocalizedString(@"Date only", @""),
+                                  _L(@"Date and time (1 min)"),
+                                  _L(@"Date and time (5 min)"),
+                                  _L(@"Date only"),
                                   nil] autorelease];
                     gt = [GenSelectListViewController
                           genSelectListViewController:self
                           items:typeArray
-                          title:NSLocalizedString(@"Date style", @"")
+                          title:_L(@"Date style")
                           identifier:ROW_DATE_TIME_MODE];
                     gt.selectedIndex = config.dateTimeMode;
                     break;
 
                 case ROW_CUTOFF_DATE:
                     typeArray = [[[NSMutableArray alloc] init] autorelease];
-                    [typeArray addObject:NSLocalizedString(@"End of month", @"")];
+                    [typeArray addObject:_L(@"End of month")];
                     for (int i = 1; i <= 28; i++) {
                         [typeArray addObject:[NSString stringWithFormat:@"%d", i]];
                     }
                     gt = [GenSelectListViewController
                           genSelectListViewController:self
                           items:typeArray
-                          title:NSLocalizedString(@"Cutoff date", @"")
+                          title:_L(@"Cutoff date")
                           identifier:ROW_CUTOFF_DATE];
                     gt.selectedIndex = config.cutoffDate;
                     break;
@@ -199,7 +199,7 @@
                     gt = [GenSelectListViewController
                           genSelectListViewController:self
                           items:typeArray
-                          title:NSLocalizedString(@"Currency", @"")
+                          title:_L(@"Currency")
                           identifier:ROW_CURRENCY];
                     NSString *currency = [[CurrencyManager instance] baseCurrency];
                     gt.selectedIndex = 0;

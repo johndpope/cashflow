@@ -39,7 +39,7 @@
     [super viewDidLoad];
 	
     // title 設定
-    //self.title = NSLocalizedString(@"Transactions", @"");
+    //self.title = _L(@"Transactions");
     if (mAsset == nil) {
         self.title = @"";
     } else {
@@ -207,10 +207,10 @@
 
 #if 0
     UILabel *tableTitle = (UILabel *)[self.tableView tableHeaderView];
-    tableTitle.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Balance", @""), bstr];
+    tableTitle.text = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), bstr];
 #endif
 	
-    mBarBalanceLabel.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Balance", @""), bstr];
+    mBarBalanceLabel.title = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), bstr];
     
     if (IS_IPAD) {
         [mSplitAssetListViewController reload];
@@ -417,12 +417,12 @@
         [[UIActionSheet alloc]
          initWithTitle:@"" 
          delegate:self 
-         cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
+         cancelButtonTitle:_L(@"Cancel")
          destructiveButtonTitle:nil otherButtonTitles:
-         NSLocalizedString(@"Export", @""),
-         NSLocalizedString(@"Backup", @""),
-         NSLocalizedString(@"Config", @""),
-         NSLocalizedString(@"Info", @""),
+         _L(@"Export"),
+         _L(@"Backup"),
+         _L(@"Config"),
+         _L(@"Info"),
          nil];
     if (IS_IPAD) {
         [as showFromBarButtonItem:mBarActionButton animated:YES];
@@ -513,7 +513,7 @@
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController
           withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc
 {
-    barButtonItem.title = NSLocalizedString(@"Assets", @"");
+    barButtonItem.title = _L(@"Assets");
     self.navigationItem.leftBarButtonItem = barButtonItem;
     self.popoverController = pc;
 }

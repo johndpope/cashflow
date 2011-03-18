@@ -32,6 +32,8 @@
 - (void)checkPin;
 
 // Utility
+#define _L(msg)  NSLocalizedString(msg, @"")
+
 #ifdef NDEBUG
 void AssertFailed(const char *filename, int lineno);
 #define ASSERT(x)  if (!(x)) AssertFailed(__FILE__, __LINE__)

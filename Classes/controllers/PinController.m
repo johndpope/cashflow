@@ -75,7 +75,7 @@ static PinController *thePinController = nil;
 
     // create PinViewController
     PinViewController *vc = [self _getPinViewController];
-    vc.title = NSLocalizedString(@"Enter PIN", @"");
+    vc.title = _L(@"Enter PIN");
     vc.enableCancel = NO;
 
     mState = FIRST_PIN_CHECK;
@@ -96,11 +96,11 @@ static PinController *thePinController = nil;
     if (mPin != nil) {
         // check current pin
         mState = ENTER_CURRENT_PIN;
-        vc.title = NSLocalizedString(@"Enter PIN", @"");
+        vc.title = _L(@"Enter PIN");
     } else {
         // enter 1st pin
         mState = ENTER_NEW_PIN1;
-        vc.title = NSLocalizedString(@"Enter new PIN", @"");
+        vc.title = _L(@"Enter new PIN");
     }
         
     mNavigationController = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -136,7 +136,7 @@ static PinController *thePinController = nil;
         else if (mState == ENTER_CURRENT_PIN) {
             mState = ENTER_NEW_PIN1;
             newvc = [self _getPinViewController];        
-            newvc.title = NSLocalizedString(@"Enter new PIN", @"");
+            newvc.title = _L(@"Enter new PIN");
         }
         break;
 
@@ -144,7 +144,7 @@ static PinController *thePinController = nil;
         self.newPin = [NSString stringWithString:vc.value]; // TBD
         mState = ENTER_NEW_PIN2;
         newvc = [self _getPinViewController];        
-        newvc.title = NSLocalizedString(@"Retype new PIN", @"");
+        newvc.title = _L(@"Retype new PIN");
         break;
 
     case ENTER_NEW_PIN2:
@@ -163,8 +163,8 @@ static PinController *thePinController = nil;
     // invalid pin
     if (isBadPin) {
         UIAlertView *v = [[UIAlertView alloc]
-                             initWithTitle:NSLocalizedString(@"Invalid PIN", @"")
-                             message:NSLocalizedString(@"PIN code does not match.", @"")
+                             initWithTitle:_L(@"Invalid PIN")
+                             message:_L(@"PIN code does not match.")
                              delegate:nil
                              cancelButtonTitle:@"Close"
                              otherButtonTitles:nil];

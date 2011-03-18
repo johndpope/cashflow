@@ -25,7 +25,7 @@
 {
     self = [super initWithNibName:@"EditTypeView" bundle:nil];
     if (self) {
-        self.title = NSLocalizedString(@"Type", @"");
+        self.title = _L(@"Type");
         mDstAsset = -1;
     }
     return self;
@@ -96,7 +96,7 @@
         t = @"Transfer";
         break;
     }
-    cell.textLabel.text = NSLocalizedString(t, @"");
+    cell.textLabel.text = _L(t);
 
     return cell;
 }
@@ -123,7 +123,7 @@
     GenSelectListViewController *vc;
     vc = [GenSelectListViewController genSelectListViewController:self
                                     items:assetNames
-                                    title:NSLocalizedString(@"Asset", @"")
+                                      title:_L(@"Asset")
                                     identifier:0];
     vc.selectedIndex = [ledger assetIndexWithKey:mDstAsset];
 

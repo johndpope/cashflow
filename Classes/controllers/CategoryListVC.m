@@ -35,7 +35,7 @@
     }
 	
     // title 設定
-    self.title = NSLocalizedString(@"Categories", @"");
+    self.title = _L(@"Categories");
 
     // Edit ボタンを追加
     self.navigationItem.rightBarButtonItem = [self editButtonItem];
@@ -90,7 +90,7 @@
     }
 
     if (indexPath.row >= [[DataModel instance].categories count]) {
-        cell.textLabel.text = NSLocalizedString(@"Add category", @"");
+        cell.textLabel.text = _L(@"Add category");
     } else {
         Category *c = [[DataModel instance].categories categoryAtIndex:indexPath.row];
         cell.textLabel.text = c.name;
@@ -131,7 +131,7 @@
     }
     GenEditTextViewController *vc = [GenEditTextViewController
                                         genEditTextViewController:self
-                                        title:NSLocalizedString(@"Category", @"")
+                                        title:_L(@"Category")
                                         identifier:idx];
     if (idx >= 0) {
         Category *category = [[DataModel instance].categories categoryAtIndex:idx];
@@ -194,7 +194,7 @@
 {
     if (indexPath.row >= [[DataModel instance].categories count]) {
         // add
-        GenEditTextViewController *vc = [GenEditTextViewController genEditTextViewController:self title:NSLocalizedString(@"Category", @"") identifier:-1];
+        GenEditTextViewController *vc = [GenEditTextViewController genEditTextViewController:self title:_L(@"Category") identifier:-1];
         [self.navigationController pushViewController:vc animated:YES];
     }
 	
