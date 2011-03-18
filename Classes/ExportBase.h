@@ -10,6 +10,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 
 #import "DropboxSDK.h"
+#import "DBLoadingView.h"
 
 #import "ExportServer.h"
 #import "Asset.h"
@@ -26,6 +27,7 @@
     
     // for dropbox
     DBRestClient *mRestClient;
+    DBLoadingView *mLoadingView;
 }
 
 @property(nonatomic,retain) NSDate *firstDate;

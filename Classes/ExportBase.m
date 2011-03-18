@@ -152,6 +152,10 @@
     NSString *srcPath = [[Database instance] dbPath:[self fileName]];
 
     [self.restClient uploadFile:[self fileName] toPath:@"/" fromPath:srcPath];
+
+    mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Uploading"];
+    mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
+    [mLoadingView show];
 }
 
 - (DBRestClient *)restClient
@@ -178,12 +182,20 @@
 // backup finished
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath
 {
+    [mLoadingView dismissAnimated:NO];
+    [mLoadingView release];
+    mLoadingView = nil;    
+    
     [self _showResult:@"Export done."];
 }
 
 // backup failed
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error
 {
+    [mLoadingView dismissAnimated:NO];
+    [mLoadingView release];
+    mLoadingView = nil;    
+    
     [self _showResult:@"Export failed!"];
 }
 
