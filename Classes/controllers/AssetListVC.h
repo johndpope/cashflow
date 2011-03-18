@@ -8,7 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "DataModel.h"
 #import "TransactionListVC.h"
-#import "BackupServer.h"
+#import "DBLoadingView.h"
+
 //#import "AdCell.h"
 
 @interface AssetListViewController : UIViewController
@@ -19,13 +20,11 @@
     IBOutlet UIBarButtonItem *mBarSumLabel;
 
     BOOL mIsLoadDone;
-    UIView *mLoadingView;
-    UIActivityIndicatorView *mActivityIndicator;
+    DBLoadingView *mLoadingView;
     
     Ledger *mLedger;
 
     NSArray *mIconArray;
-    BackupServer *mBackupServer;
 
     BOOL mAsDisplaying;
     UIActionSheet *mAsActionButton;

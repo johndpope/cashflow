@@ -121,7 +121,7 @@
             }
             switch (indexPath.row) {
                 case 0: // backup
-                    [self _showActivityIndicator];
+                    [self _showLoadingView];
                     [mDropboxBackup doBackup:self];
                     break;
                     
@@ -153,7 +153,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) { // OK
-        [self _showActivityIndicator];
+        [self _showLoadingView];
         [mDropboxBackup doRestore:self];
     }
 }
@@ -162,7 +162,7 @@
 
 - (void)dropboxBackupFinished
 {
-    [self _dismissActivityIndicator];
+    [self _dismissLoadingView];
 }
 
 #pragma mark utils
@@ -172,37 +172,16 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)_showActivityIndicator
+- (void)_showLoadingView
 {
-    // ActivityIndicator を表示させる
-    UIView *parent;
-    if (IS_IPAD) {
-        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        parent = appDelegate.splitViewController.view;
-    } else {
-        parent = self.navigationController.view;
-    }
-    
-    CGRect frame = [parent frame];
-    frame.origin.x = 0;
-    frame.origin.y = 0;
-    mLoadingView = [[UIView alloc] initWithFrame:frame];
-    [mLoadingView setBackgroundColor:[UIColor blackColor]];
-    [mLoadingView setAlpha:0.5];
-    mLoadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [parent addSubview:mLoadingView];
-    
-    UIActivityIndicatorView *ai = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
-    [mLoadingView addSubview:ai];
-    [ai setFrame:CGRectMake ((frame.size.width / 2) - 20, (frame.size.height/2)-60, 40, 40)];
-    ai.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
-    UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    [ai startAnimating];
+    mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Loading"];
+    [mLoadingView show];
 }
 
-- (void)_dismissActivityIndicator
+- (void)_dismissLoadingView
 {
-    [mLoadingView removeFromSuperview];
+    [mLoadingView dismissAnimated:NO];
+    [mLoadingView release];
     mLoadingView = nil;
 }
 

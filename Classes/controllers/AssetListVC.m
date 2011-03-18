@@ -74,30 +74,9 @@
     mIsLoadDone = NO;
     [[DataModel instance] startLoad:self];
     
-    // ActivityIndicator を表示させる
-    UIView *parent;
-    if (IS_IPAD) {
-        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        parent = appDelegate.splitViewController.view;
-    } else {
-        parent = self.navigationController.view;
-    }
-    
-    CGRect frame = [parent frame];
-    frame.origin.x = 0;
-    frame.origin.y = 0;
-    mLoadingView = [[UIView alloc] initWithFrame:frame];
-    [mLoadingView setBackgroundColor:[UIColor blackColor]];
-    [mLoadingView setAlpha:0.5];
-    mLoadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [parent addSubview:mLoadingView];
-    
-    mActivityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [mLoadingView addSubview:mActivityIndicator];
-    [mActivityIndicator setFrame:CGRectMake ((frame.size.width / 2) - 20, (frame.size.height/2)-60, 40, 40)];
-    mActivityIndicator.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
-        UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    [mActivityIndicator startAnimating]; 
+    // Loading View を表示させる
+    mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Loading"];
+    [mLoadingView show];
 }
 
 #pragma mark DataModelDelegate
@@ -113,9 +92,10 @@
 
 - (void)_dataModelLoadedOnMainThread:(id)dummy
 {
-    // ActivityIndicator を消す
-    [mActivityIndicator stopAnimating];
-    [mLoadingView removeFromSuperview];
+    // dismiss loading view
+    [mLoadingView dismissAnimated:NO];
+    [mLoadingView release];
+    mLoadingView = nil;
 
     [self reload];
     [self _showInitialAsset];

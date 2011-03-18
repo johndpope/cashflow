@@ -8,11 +8,12 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+#import "DBLoadingView.h"
 #import "DropboxBackup.h"
 
 @interface BackupViewController : UITableViewController <DropboxBackupDelegate, UIAlertViewDelegate>
 {
-    UIView *mLoadingView;
+    DBLoadingView *mLoadingView;
     DropboxBackup *mDropboxBackup;
 }
 
@@ -20,7 +21,7 @@
 
 - (void)doneAction:(id)sender;
 
-- (void)_showActivityIndicator;
-- (void)_dismissActivityIndicator;
+- (void)_showLoadingView;
+- (void)_dismissLoadingView;
 
 @end
