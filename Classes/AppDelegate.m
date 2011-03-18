@@ -54,12 +54,12 @@
     [DBSession setSharedSession:dbSession];
 
     // Configure and show the window
+    [window makeKeyAndVisible];
     if (IS_IPAD) {
         [window addSubview:splitViewController.view];
     } else {
         [window addSubview:[navigationController view]];
     }
-    [window makeKeyAndVisible];
 
     // PIN チェック
     [self checkPin];
