@@ -453,6 +453,9 @@
             break;
             
         case 1:
+            // dismiss this view before backup
+            [self.navigationController popViewControllerAnimated:YES];
+
             backupVC = [BackupViewController backupViewController];
             vc = backupVC;
             break;
