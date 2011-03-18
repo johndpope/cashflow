@@ -9,6 +9,8 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
+#import "DropboxSDK.h"
+
 #import "ExportServer.h"
 #import "Asset.h"
 
