@@ -161,8 +161,13 @@
     default:
         result = [ex sendMail:self];
         break;
-//#ifndef FREE_VERSION
+
     case 1:
+        result = [ex sendToDropbox:self];
+        break;
+
+//#ifndef FREE_VERSION
+    case 2:
         result = [ex sendWithWebServer];
         break;
 //#endif
