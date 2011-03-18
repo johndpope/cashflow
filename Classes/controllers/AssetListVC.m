@@ -76,6 +76,7 @@
     
     // Loading View を表示させる
     mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Loading"];
+    [mLoadingView setOrientation:self.interfaceOrientation];
     mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
     [mLoadingView show];
 }

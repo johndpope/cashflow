@@ -81,16 +81,16 @@
              uploadFile:BACKUP_FILENAME
              toPath:@"/"
              fromPath:dbPath];
+            [mDelegate dropboxBackupStarted:NO];
             break;
 
         case MODE_RESTORE:
             // shutdown database
             [DataModel finalize];
             [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:dbPath];
+            [mDelegate dropboxBackupStarted:YES];
             break;
     }
-    
-    [mDelegate dropboxBackupStarted];
 }
 
 - (DBRestClient *)restClient

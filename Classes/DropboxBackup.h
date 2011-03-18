@@ -10,7 +10,7 @@
 #import "DataModel.h"
 
 @protocol DropboxBackupDelegate
-- (void)dropboxBackupStarted;
+- (void)dropboxBackupStarted:(BOOL)isRestore;
 - (void)dropboxBackupFinished;
 @end
 
