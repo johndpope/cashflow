@@ -6,6 +6,7 @@
  */
 
 #import "ExportBase.h"
+#import "AppDelegate.h"
 #import "DropboxSDK.h"
 
 @implementation ExportBase
@@ -83,27 +84,27 @@
     if (url != nil) {
         result = [mWebServer startServer];
     } else {
-        message = NSLocalizedString(@"Network is unreachable.", @"");
+        message = _L(@"Network is unreachable.");
     }
 
     UIAlertView *v;
     if (!result) {
         if (message == nil) {
-            NSLocalizedString(@"Cannot start web server.", @"");
+            _L(@"Cannot start web server.");
         }
 
         // error!
         v = [[UIAlertView alloc]
                 initWithTitle:@"Error"
                 message:message
-                delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"") otherButtonTitles:nil];
+                delegate:nil cancelButtonTitle:_L(@"Dismiss") otherButtonTitles:nil];
     } else {
-        message = [NSString stringWithFormat:NSLocalizedString(@"WebExportNotation", @""), url];
+        message = [NSString stringWithFormat:_L(@"WebExportNotation"), url];
 	
         v = [[UIAlertView alloc] 
-                initWithTitle:NSLocalizedString(@"Export", @"")
+                initWithTitle:_L(@"Export")
                 message:message
-                delegate:self cancelButtonTitle:NSLocalizedString(@"Dismiss", @"") otherButtonTitles:nil];
+                delegate:self cancelButtonTitle:_L(@"Dismiss") otherButtonTitles:nil];
     }
 
     [v show];

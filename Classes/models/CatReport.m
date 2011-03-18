@@ -6,6 +6,7 @@
  */
 
 #import "Report.h"
+#import "AppDelegate.h"
 
 @implementation CatReport
 
@@ -46,7 +47,7 @@
 - (NSString *)title
 {
     if (mCategory < 0) {
-        return NSLocalizedString(@"No category", @"");
+        return _L(@"No category");
     }
     return [[DataModel categories] categoryStringWithKey:mCategory];
 }

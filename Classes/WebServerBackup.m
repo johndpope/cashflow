@@ -7,6 +7,7 @@
 
 #import "WebServerBackup.h"
 #import "BackupServer.h"
+#import "AppDelegate.h"
 
 @implementation WebServerBackup
 
@@ -20,28 +21,28 @@
     if (url != nil) {
         result = [mBackupServer startServer];
     } else {
-        message = NSLocalizedString(@"Network is unreachable.", @"");
+        message = _L(@"Network is unreachable.");
     }
     
     UIAlertView *v;
     if (!result) {
         if (message == nil) {
-            message = NSLocalizedString(@"Cannot start web server.", @"");
+            message = _L(@"Cannot start web server.");
         }
         
         [mBackupServer release];
         v = [[UIAlertView alloc]
              initWithTitle:@"Error"
              message:message
-             delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"")
+             delegate:nil cancelButtonTitle:_L(@"Dismiss")
              otherButtonTitles:nil];
     } else {
-        message = [NSString stringWithFormat:NSLocalizedString(@"BackupNotation", @""), url];
+        message = [NSString stringWithFormat:_L(@"BackupNotation"), url];
         
         v = [[UIAlertView alloc]
-             initWithTitle:NSLocalizedString(@"Backup and restore", @"")
+             initWithTitle:_L(@"Backup and restore")
              message:message
-             delegate:self cancelButtonTitle:NSLocalizedString(@"Dismiss", @"")
+             delegate:self cancelButtonTitle:_L(@"Dismiss")
              otherButtonTitles:nil];
     }
     [v show];

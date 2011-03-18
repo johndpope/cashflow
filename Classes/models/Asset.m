@@ -188,7 +188,7 @@
     if (ret) {
         // newly created...
         Asset *as = [[[Asset alloc] init] autorelease];
-        as.name = NSLocalizedString(@"Cash", @"");
+        as.name = _L(@"Cash");
         as.type = ASSET_CASH;
         as.initialBalance = 0;
         as.sorder = 0;

@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DataModel.h"
+#import "AppDelegate.h"
 #import "SupportMail.h"
 #import "UIDevice-Hardware.h"
 
@@ -24,7 +25,7 @@
     [vc setSubject:@"[CashFlow Support]"];
     [vc setToRecipients:[NSArray arrayWithObject:@"cashflow-support@tmurakam.org"]];
     NSString *body = [NSString stringWithFormat:@"%@\n\n", 
-                               NSLocalizedString(@"(Write an inquiry here.)", @"")];
+                               _L(@"(Write an inquiry here.)")];
     [vc setMessageBody:body isHTML:NO];
     
     NSMutableString *info = [NSMutableString stringWithString:@""];
