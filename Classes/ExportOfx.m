@@ -18,39 +18,26 @@
     [super dealloc];
 }
 
-- (BOOL)sendMail:(UIViewController *)parent
+- (NSString *)mailSubject
 {
-    // generate OFX data
-    NSData *data = [self generateBody];
-    if (data == nil) {
-        return NO;
-    }
-    
-    if (![MFMailComposeViewController canSendMail]) {
-        return NO;
-    }
-    
-    MFMailComposeViewController *vc = [[MFMailComposeViewController alloc] init];
-    vc.mailComposeDelegate = self;
-    
-    [vc setSubject:@"CashFlow OFX Data"];
-
-    [vc addAttachmentData:data mimeType:@"application/x-ofx" fileName:@"CashFlow.ofx"];
-    [parent presentModalViewController:vc animated:YES];
-    [vc release];
-    return YES;
+    return @"CashFlow OFX Data";
 }
 
-- (BOOL)sendWithWebServer
+- (NSString *)fileName
 {
-    NSData *body = [self generateBody];
-    if (body == nil) {
-        return NO;
-    }
-	
-    [self sendWithWebServer:body contentType:@"application/x-ofx" filename:@"cashflow.ofx"];
-    return YES;
+    return @"CashFlow.ofx";
 }
+
+- (NSString *)mimeType
+{
+    return @"application/x-ofx";
+}
+
+- (NSString *)contentType
+{
+    return @"application/x-ofx";
+}
+
 
 - (NSData *)generateBody
 {

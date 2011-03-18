@@ -10,38 +10,24 @@
 
 @implementation ExportCsv
 
-- (BOOL)sendMail:(UIViewController *)parent
+- (NSString *)mailSubject
 {
-    // generate CSV data
-    NSData *body = [self generateBody];
-    if (body == nil) {
-        return NO;
-    }
-
-    if (![MFMailComposeViewController canSendMail]) {
-        return NO;
-    }
-        
-    MFMailComposeViewController *vc = [[MFMailComposeViewController alloc] init];
-    vc.mailComposeDelegate = self;
-    
-    [vc setSubject:@"CashFlow CSV Data"];
-
-    [vc addAttachmentData:body mimeType:@"text/comma-separeted-value" fileName:@"CashFlow.txt"];
-    [parent presentModalViewController:vc animated:YES];
-    [vc release];
-    return YES;
+    return "CashFlow CSV Data";
 }
 
-- (BOOL)sendWithWebServer
+- (NSString *)fileName
 {
-    NSData *body = [self generateBody];
-    if (body == nil) {
-        return NO;
-    }
-	
-    [self sendWithWebServer:body contentType:@"text/csv" filename:@"cashflow.txt"];
-    return YES;
+    return @"CashFlow.txt";
+}
+
+- (NSString *)mimeType
+{
+    return @"text/comma-separated-value"; // for email
+}
+
+- (NSString *)contentType
+{
+    return @"text/csv"; // for web server : TODO: use comma-separated-value?
 }
 
 - (NSData *)generateBody

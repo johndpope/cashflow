@@ -16,22 +16,36 @@
   [str replaceOccurrencesOfString: from withString: to \
   options:NSLiteralSearch range:NSMakeRange(0, [str length])]
 	
-@interface ExportBase : NSObject <UIAlertViewDelegate, MFMailComposeViewControllerDelegate> {
+@interface ExportBase : NSObject <UIAlertViewDelegate, MFMailComposeViewControllerDelegate, DBLoginControllerDelegate, DBRestClientDelegate> {
     NSDate *mFirstDate;
     NSArray *mAssets;
 
     ExportServer *mWebServer;
+    
+    // for dropbox
+    DBRestClient *mRestClient;
 }
 
 @property(nonatomic,retain) NSDate *firstDate;
 @property(nonatomic,assign) NSArray *assets;
 
-- (NSData*)generateBody;
+@property(nonatomic,readonly) DBRectClient *restClient;
+
+// public methods
 - (BOOL)sendMail:(UIViewController*)parent;
+- (BOOL)sendToDropbox:(UIViewController*)parent;
 - (BOOL)sendWithWebServer;
 
-//- (void)EncodeMailBody:(NSMutableString*)str;
-- (void)sendWithWebServer:(NSData *)contentBody contentType:(NSString *)contentType filename:(NSString *)filename;
+// You must override following methods
+- (NSString *)mailSubject;
+- (NSString*)fileName;
+- (NSString *)mimeType;
+- (NSString *)contentType;
+- (NSData*)generateBody;
+
+// internal
+- (void)_sendToDropbox;
+- (void)_showResult:(NSString *)message;
 
 @end
 
