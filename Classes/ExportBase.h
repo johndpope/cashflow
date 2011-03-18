@@ -31,7 +31,7 @@
 @property(nonatomic,retain) NSDate *firstDate;
 @property(nonatomic,assign) NSArray *assets;
 
-@property(nonatomic,readonly) DBRectClient *restClient;
+@property(nonatomic,readonly) DBRestClient *restClient;
 
 // public methods
 - (BOOL)sendMail:(UIViewController*)parent;

@@ -12,7 +12,7 @@
 
 - (NSString *)mailSubject
 {
-    return "CashFlow CSV Data";
+    return @"CashFlow CSV Data";
 }
 
 - (NSString *)fileName

@@ -19,9 +19,6 @@
     NSCalendar *mGregCalendar;
 }
 
-- (BOOL)sendMail:(UIViewController*)parent;
-- (BOOL)sendWithWebServer;
-
 // private
 - (void)_bankMessageSetResponse:(NSMutableString *)data asset:(Asset *)asset;
 - (NSString*)_typeStringWithAssetEntry:(AssetEntry*)e;

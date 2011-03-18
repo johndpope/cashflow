@@ -14,10 +14,5 @@
 @interface ExportCsv : ExportBase {
 }
 
-- (BOOL)sendMail:(UIViewController *)parent;
-- (BOOL)sendWithWebServer;
-
-//- (NSMutableString *)generateMailUrl;
-
 @end
 

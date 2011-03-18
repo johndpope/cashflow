@@ -13,7 +13,7 @@
 @synthesize firstDate = mFirstDate;
 @synthesize assets = mAssets;
 
-- (NSString *)subject { return nil; }
+- (NSString *)mailSubject { return nil; }
 - (NSString *)fileName { return nil; }
 - (NSString *)mimeType { return nil; }
 - (NSString *)contentType { return nil; }
@@ -45,7 +45,7 @@
     MFMailComposeViewController *vc = [[MFMailComposeViewController alloc] init];
     vc.mailComposeDelegate = self;
     
-    [vc setSubject:[self subject]];
+    [vc setSubject:[self mailSubject]];
 
     [vc addAttachmentData:data mimeType:[self mimeType] fileName:[self fileName]];
     [parent presentModalViewController:vc animated:YES];
@@ -129,15 +129,15 @@
     }
 
     // save to temporary file
-    NSString *path = [[Database instance] dbPath:[self filename]];
+    NSString *path = [[Database instance] dbPath:[self fileName]];
     if (![data writeToFile:path atomically:NO]) {
         NSLog(@"Error: can't save temporary file!");
-        return;
+        return NO;
     }
 
     DBSession *session = [DBSession sharedSession];
     if (![session isLinked]) {
-        DBLoginController *controller = [[DBloginController new] autorelease];
+        DBLoginController *controller = [[DBLoginController new] autorelease];
         controller.delegate = self;
         [controller presentFromController:parent];
     } else {
@@ -149,9 +149,9 @@
 
 - (void)_sendToDropbox
 {
-    NSString *srcPath = [[Database instance] dbPath:[self filename]];
+    NSString *srcPath = [[Database instance] dbPath:[self fileName]];
 
-    [self.restClient uploadFile:self.tmpFileName toPath:@"/" fromPath:srcPath];
+    [self.restClient uploadFile:[self fileName] toPath:@"/" fromPath:srcPath];
 }
 
 - (DBRestClient *)restClient
