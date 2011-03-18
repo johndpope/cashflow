@@ -52,6 +52,13 @@
 "Export" = "Экспорт";
 "Backup" = "Резервная копия";
 "Restore" = "Restore";
+
+"Unlink dropbox account" = "Unlink dropbox account";
+"Internal web server" = "Internal web server";
+
+"Warning" = "Warning";
+"RestoreWarning" = "This will overwrite all current data.";
+
 "WebExportNotation" = "Перейдите по следующему адресу в браузере вашего компьютера:\n%@\nЗатемс качайте файл и нажмите кнопку Завершить.";
 "BackupNotation" = "Перейдите по следующему адресу в браузере вашего компьютера:\n%@\nЗатемс качайте файл и нажмите кнопку Завершить.";
 "Network is unreachable." = "Сеть не доступна.";

@@ -56,6 +56,9 @@
 "Unlink dropbox account" = "Unlink dropbox account";
 "Internal web server" = "Internal web server";
 
+"Warning" = "Warning";
+"RestoreWarning" = "This will overwrite all current data.";
+
 "WebExportNotation" = "Access following URL with browser of your PC:\n%@\nAfter download the file, tap Dismiss button.";
 "BackupNotation" = "Access following URL with browser of your PC:\n%@\nAfter download the file, tap Dismiss button.";
 "Network is unreachable." = "Network is unreachable.";

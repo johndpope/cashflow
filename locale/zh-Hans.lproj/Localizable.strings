@@ -52,6 +52,13 @@
 "Export" = "输出";
 "Backup" = "Backup";
 "Restore" = "Restore";
+
+"Unlink dropbox account" = "Unlink dropbox account";
+"Internal web server" = "Internal web server";
+
+"Warning" = "Warning";
+"RestoreWarning" = "This will overwrite all current data.";
+
 "WebExportNotation" = "在PC上的浏览器中输入下列的网址：\n%@\n下载档桉后，点一下关闭按钮。";
 "BackupNotation" = "在PC上的浏览器中输入下列的网址：\n%@\n下载档桉后，点一下关闭按钮。";
 "Network is unreachable." = "Network is unreachable.";

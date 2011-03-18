@@ -126,11 +126,11 @@
                     break;
                     
                 case 1: //restore
-                    alertView = [[[UIAlertView alloc] initWithTitle:@"Confirm" 
-                                                            message:@"This will overwrite all current data." 
+                    alertView = [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Warning", @"")
+                                                            message:NSLocalizedString(@"RestoreWarning", @"")
                                                            delegate:self 
-                                                  cancelButtonTitle:@"Cancel" 
-                                                  otherButtonTitles:@"OK", nil] autorelease];
+                                                  cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
+                                                  otherButtonTitles:NSLocalizedString(@"Ok", @""), nil] autorelease];
                     [alertView show];
                     break;
                     

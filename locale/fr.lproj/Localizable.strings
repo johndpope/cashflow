@@ -52,6 +52,13 @@
 "Export" = "Exportet";
 "Backup" = "Backup";
 "Restore" = "Restore";
+
+"Unlink dropbox account" = "Unlink dropbox account";
+"Internal web server" = "Internal web server";
+
+"Warning" = "Warning";
+"RestoreWarning" = "This will overwrite all current data.";
+
 "WebExportNotation" = "Accédez a l’adresse URL suivant avec votre PC:\n%@\n Après avoir téléchargé le fichier, tapez sur le bouton Rejeter.";
 "BackupNotation" = "Accédez a l’adresse URL suivant avec votre PC:\n%@\n Après avoir téléchargé le fichier, tapez sur le bouton Rejeter.";
 "Network is unreachable." = "Network is unreachable.";
