@@ -499,12 +499,11 @@
 
 - (void)backupViewFinished:(BackupViewController *)backupViewController
 {
+    self.asset = nil; // deselect asset
+    
     if (IS_IPAD) {
-        self.asset = nil; // deselect asset
         [self reload];
         [mSplitAssetListViewController reload];
-    } else {
-        [self.navigationController popViewControllerAnimated:NO];
     }
 }
 

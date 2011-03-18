@@ -66,7 +66,7 @@
 {
     switch (section) {
         case 0:
-            return @"The backup data will be stored as CashFlowBackup.db in root folder of Dropbox.";
+            return _L(@"The backup data will be stored as CashFlowBackup.db in root folder of Dropbox.");
     }
     return nil;
 }

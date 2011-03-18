@@ -55,6 +55,7 @@
 
 "Unlink dropbox account" = "Dropboxアカウントの解除";
 "Internal web server" = "内蔵Webサーバ";
+"The backup data will be stored as CashFlowBackup.db in root folder of Dropbox." = "バックアップはDropboxのルートフォルダにCashFlowBackup.dbというファイル名で作成されます";
 
 "Warning" = "警告";
 "RestoreWarning" = "リストアにより全データが上書きされます";
