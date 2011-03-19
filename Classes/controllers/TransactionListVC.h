@@ -31,7 +31,9 @@
     IBOutlet UIBarButtonItem *mBarBalanceLabel;
     IBOutlet UIBarButtonItem *mBarActionButton;
 	
-    Asset *mAsset;
+    int mAssetKey;
+    Asset *mAssetCache;
+    
 #if FREE_VERSION
     GADAdViewController *mAdViewController;
 #endif
@@ -45,7 +47,8 @@
 
 //- (UITableView*)tableView;
 @property(nonatomic,retain) UITableView *tableView;
-@property(nonatomic,assign) Asset *asset;
+@property(nonatomic,assign) int assetKey;
+@property(nonatomic,readonly) Asset *asset;
 @property(nonatomic,retain) UIPopoverController *popoverController;
 
 - (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath;

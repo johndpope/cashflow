@@ -119,12 +119,12 @@
 
     // TransactionListView を表示
     if (IS_IPAD) {
-        mSplitTransactionListViewController.asset = asset;
+        mSplitTransactionListViewController.assetKey = asset.pid;
         [mSplitTransactionListViewController reload];
     } else if (asset != nil) {
         TransactionListViewController *vc = 
         [[[TransactionListViewController alloc] init] autorelease];
-        vc.asset = asset;
+        vc.assetKey = asset.pid;
         [self.navigationController pushViewController:vc animated:NO];
     }
 }
@@ -304,12 +304,12 @@
 
     // TransactionListView を表示
     if (IS_IPAD) {
-        mSplitTransactionListViewController.asset = asset;
+        mSplitTransactionListViewController.assetKey = asset.pid;
         [mSplitTransactionListViewController reload];
     } else {
         TransactionListViewController *vc = 
             [[[TransactionListViewController alloc] init] autorelease];
-        vc.asset = asset;
+        vc.assetKey = asset.pid;
 
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -394,8 +394,8 @@
     [mLedger deleteAsset:mAssetToBeDelete];
     
     if (IS_IPAD) {
-        if (mSplitTransactionListViewController.asset == mAssetToBeDelete) {
-            mSplitTransactionListViewController.asset = nil;
+        if (mSplitTransactionListViewController.assetKey == mAssetToBeDelete.pid) {
+            mSplitTransactionListViewController.assetKey = -1;
             [mSplitTransactionListViewController reload];
         }
     }
@@ -543,7 +543,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 {
     [self reload];
     if (IS_IPAD) {
-        mSplitTransactionListViewController.asset = nil;
+        mSplitTransactionListViewController.assetKey = -1;
         [mSplitTransactionListViewController reload];
     }
 }

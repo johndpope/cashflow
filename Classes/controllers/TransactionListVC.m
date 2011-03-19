@@ -23,13 +23,25 @@
 @implementation TransactionListViewController
 
 @synthesize tableView = mTableView;
-@synthesize asset = mAsset;
+@synthesize assetKey = mAssetKey;
 @synthesize popoverController = mPopoverController;
 
 - (id)init
 {
     self = [super initWithNibName:@"TransactionListView" bundle:nil];
     return self;
+}
+
+- (Asset *)asset
+{
+    if (mAssetKey < 0) {
+        return nil;
+    }
+    if (mAssetCache != nil && mAssetCache.pid == mAssetKey) {
+        return mAssetCache;
+    }
+    mAssetCache = [[[DataModel instance] ledger] assetWithKey:mAssetKey];
+    return mAssetCache;
 }
 
 - (void)viewDidLoad
@@ -40,10 +52,10 @@
 	
     // title 設定
     //self.title = _L(@"Transactions");
-    if (mAsset == nil) {
+    if (self.asset == nil) {
         self.title = @"";
     } else {
-        self.title = mAsset.name;
+        self.title = self.asset.name;
     }
 	
     // "+" ボタンを追加
@@ -202,7 +214,7 @@
 
 - (void)updateBalance
 {
-    double lastBalance = [mAsset lastBalance];
+    double lastBalance = [self.asset lastBalance];
     NSString *bstr = [CurrencyManager formatCurrency:lastBalance];
 
 #if 0
@@ -230,9 +242,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (mAsset == nil) return 0;
+    if (self.asset == nil) return 0;
     
-    int n = [mAsset entryCount] + 1;
+    int n = [self.asset entryCount] + 1;
     return n;
 }
 
@@ -244,7 +256,7 @@
 // 指定セル位置に該当する entry Index を返す
 - (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath
 {
-    int idx = ([mAsset entryCount] - 1) - indexPath.row;
+    int idx = ([self.asset entryCount] - 1) - indexPath.row;
     return idx;
 }
 
@@ -256,7 +268,7 @@
     if (idx < 0) {
         return nil;  // initial balance
     } 
-    AssetEntry *e = [mAsset entryAt:idx];
+    AssetEntry *e = [self.asset entryAt:idx];
     return e;
 }
 
@@ -277,7 +289,7 @@
         cell = [[TransactionCell transactionCell:tv] updateWithAssetEntry:e];
     }
     else {
-        cell = [[TransactionCell transactionCell:tv] updateAsInitialBalance:mAsset.initialBalance];
+        cell = [[TransactionCell transactionCell:tv] updateAsInitialBalance:self.asset.initialBalance];
     }
 
     return cell;
@@ -297,7 +309,7 @@
         // initial balance cell
         CalculatorViewController *v = [[[CalculatorViewController alloc] init] autorelease];
         v.delegate = self;
-        v.value = mAsset.initialBalance;
+        v.value = self.asset.initialBalance;
 
         UINavigationController *nv = [[[UINavigationController alloc] initWithRootViewController:v] autorelease];
         
@@ -323,16 +335,16 @@
 // 初期残高変更処理
 - (void)calculatorViewChanged:(CalculatorViewController *)vc
 {
-    mAsset.initialBalance = vc.value;
-    [mAsset updateInitialBalance];
-    [mAsset rebuild];
+    self.asset.initialBalance = vc.value;
+    [self.asset updateInitialBalance];
+    [self.asset rebuild];
     [self reload];
 }
 
 // 新規トランザクション追加
 - (void)addTransaction
 {
-    if (mAsset == nil) return;
+    if (self.asset == nil) return;
     
     TransactionViewController *vc = [[[TransactionViewController alloc] init] autorelease];
     vc.asset = self.asset;
@@ -343,7 +355,7 @@
 // Editボタン処理
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
-    if (mAsset == nil) return;
+    if (self.asset == nil) return;
     
     [super setEditing:editing animated:animated];
 	
@@ -378,7 +390,7 @@
     }
 	
     if (style == UITableViewCellEditingStyleDelete) {
-        [mAsset deleteEntryAt:entryIndex];
+        [self.asset deleteEntryAt:entryIndex];
 	
         [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self updateBalance];
@@ -393,7 +405,7 @@
 #pragma mark Show Report
 - (void)showReport:(id)sender
 {
-    ReportViewController *reportVC = [[[ReportViewController alloc] initWithAsset:mAsset] autorelease];
+    ReportViewController *reportVC = [[[ReportViewController alloc] initWithAsset:self.asset] autorelease];
 
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:reportVC];
     if (IS_IPAD) {
@@ -446,12 +458,11 @@
     
     switch (buttonIndex) {
         case 0:
-            exportVC = [[[ExportVC alloc] initWithAsset:mAsset] autorelease];
+            exportVC = [[[ExportVC alloc] initWithAsset:self.asset] autorelease];
             vc = exportVC;
             break;
             
         case 1:
-            self.asset = nil; // リストアする場合に備え、asset を解除しておく
             backupVC = [BackupViewController backupViewController:self];
             vc = backupVC;
             break;
@@ -499,7 +510,8 @@
 
 - (void)backupViewFinished:(BackupViewController *)backupViewController
 {
-    self.asset = nil; // deselect asset
+    // リストアされた場合、mAssetCacheは無効になっている
+    mAssetCache = nil;
     
     if (IS_IPAD) {
         [self reload];
