@@ -11,6 +11,7 @@
 #import "GenSelectListVC.h"
 #import "CategoryListVC.h"
 #import "PinController.h"
+#import "DropboxBackup.h"
 
 @implementation ConfigViewController
 
@@ -59,7 +60,7 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 #if 0
@@ -89,10 +90,11 @@
 
     cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellid] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid] autorelease];
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
+    cell.imageView.image = nil;
+    
     Config *config = [Config instance];
 
     NSString *text = nil;
@@ -143,6 +145,15 @@
         case 2:
             text = _L(@"Set PIN Code");
             break;
+            
+        case 3:
+            text = _L(@"Unlink dropbox account");
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"dropbox" ofType:@"png"];
+            UIImage *image = [UIImage imageWithContentsOfFile:path];
+            cell.imageView.image = image;
+            break;
     }
     
     cell.textLabel.text = text;
@@ -159,6 +170,7 @@
     NSMutableArray *typeArray;
     CategoryListViewController *categoryVC;
     PinController *pinController;
+    DropboxBackup *dbb;
 
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
@@ -227,8 +239,12 @@
             pinController = [[[PinController alloc] init] autorelease];
             [pinController modifyPin:self];
             break;
+            
+        case 3:
+            dbb = [[[DropboxBackup alloc] init:nil] autorelease];
+            [dbb unlink];
+            break;
     }
-
 }
 
 - (BOOL)genSelectListViewChanged:(GenSelectListViewController *)vc identifier:(int)id

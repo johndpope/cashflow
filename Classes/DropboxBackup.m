@@ -50,9 +50,9 @@
     DBSession *session = [DBSession sharedSession];
     if ([session isLinked]) {
         [session unlink];
-
-        [self _showResult:@"Your dropbox account has been unlinked"];
     }
+
+    [self _showResult:@"Your dropbox account has been unlinked"];
 }
 
 - (void)_login
@@ -135,7 +135,7 @@
 - (void)_showResult:(NSString *)message
 {
     [[[[UIAlertView alloc] 
-       initWithTitle:@"Backup" message:message
+       initWithTitle:@"Dropbox" message:message
        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]
         autorelease]
         show];

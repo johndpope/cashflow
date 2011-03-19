@@ -75,7 +75,7 @@
     switch (section) {
         case 0:
             // dropbox : backup and restore
-            return 3;
+            return 2;
             
         case 1:
             // internal web backup
@@ -104,10 +104,6 @@
                     
                 case 1:
                     cell.textLabel.text = _L(@"Restore");
-                    break;
-                    
-                case 2:
-                    cell.textLabel.text = _L(@"Unlink dropbox account");
                     break;
             }
             break;
@@ -147,10 +143,6 @@
                                                   cancelButtonTitle:_L(@"Cancel")
                                                   otherButtonTitles:_L(@"Ok"), nil] autorelease];
                     [alertView show];
-                    break;
-                    
-                case 2: // unlink dropbox account
-                    [mDropboxBackup unlink];
                     break;
             }
             break;
