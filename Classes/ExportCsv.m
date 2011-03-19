@@ -17,7 +17,7 @@
 
 - (NSString *)fileName
 {
-    return @"CashFlow.txt";
+    return @"CashFlow.csv";
 }
 
 - (NSString *)mimeType
@@ -52,6 +52,9 @@
                 return nil;
             }
         }
+        
+        NSDateFormatter *dateFormatter = [DataModel dateFormatter:NO];
+        
         for (; i < max; i++) {
             AssetEntry *e = [asset entryAt:i];
 
@@ -59,7 +62,7 @@
             
             NSMutableString *d = [[NSMutableString alloc] init];
             [d appendFormat:@"%d,", e.transaction.pid];
-            [d appendFormat:@"%@,", [[DataModel dateFormatter] stringFromDate:e.transaction.date]];
+            [d appendFormat:@"%@,", [dateFormatter stringFromDate:e.transaction.date]];
             [d appendFormat:@"%.2f,", e.value];
             [d appendFormat:@"%.2f,", e.balance];
             [d appendFormat:@"%@,", e.transaction.description];

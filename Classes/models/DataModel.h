@@ -44,7 +44,8 @@
 + (Categories *)categories;
 
 + (NSDateFormatter *)dateFormatter;
-+ (NSDateFormatter *)_dateFormatterWithDayOfWeek:(NSDateFormatterStyle)timeStyle;
++ (NSDateFormatter *)dateFormatter:(BOOL)withDayOfWeek;
++ (NSDateFormatter *)dateFormatter:(NSDateFormatterStyle)timeStyle withDayOfWeek:(BOOL)withDayOfWeek;
 
 
 // initializer

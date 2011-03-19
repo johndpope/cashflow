@@ -134,27 +134,37 @@ static DataModel *theDataModel = nil;
 //
 // DateFormatter
 //
+
 + (NSDateFormatter *)dateFormatter
 {
-    static NSDateFormatter *dfDateTime = nil;
     static NSDateFormatter *dfDateOnly = nil;
-
-    if (!dfDateTime) {
-        dfDateTime = [self _dateFormatterWithDayOfWeek:NSDateFormatterShortStyle];
-        [dfDateTime retain];
-    }
-    if (!dfDateOnly) {
-        dfDateOnly = [self _dateFormatterWithDayOfWeek:NSDateFormatterNoStyle];
-        [dfDateOnly retain];
-    }
-
+    static NSDateFormatter *dfDateTime = nil;
+    
     if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
+        if (dfDateOnly == nil) {
+            dfDateOnly = [self dateFormatter:NSDateFormatterNoStyle withDayOfWeek:YES];
+            [dfDateOnly retain];
+        }
         return dfDateOnly;
-    }
-    return dfDateTime;
+    } else {
+        if (dfDateTime == nil) {
+            dfDateTime = [self dateFormatter:NSDateFormatterShortStyle withDayOfWeek:YES];
+            [dfDateTime retain];
+        }
+        return dfDateTime;
+    }    
 }
 
-+ (NSDateFormatter *)_dateFormatterWithDayOfWeek:(NSDateFormatterStyle)timeStyle
++ (NSDateFormatter *)dateFormatter:(BOOL)withDayOfWeek
+{
+    if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
+        return [self dateFormatter:NSDateFormatterNoStyle withDayOfWeek:withDayOfWeek];
+    } else {
+        return [self dateFormatter:NSDateFormatterShortStyle withDayOfWeek:withDayOfWeek];
+    }
+}
+
++ (NSDateFormatter *)dateFormatter:(NSDateFormatterStyle)timeStyle withDayOfWeek:(BOOL)withDayOfWeek
 {
     NSDateFormatter *df = [[[NSDateFormatter alloc] init] autorelease];
     [df setDateStyle:NSDateFormatterMediumStyle];
@@ -163,9 +173,11 @@ static DataModel *theDataModel = nil;
     NSMutableString *s = [NSMutableString stringWithCapacity:30];
     [s setString:[df dateFormat]];
 
-    [s replaceOccurrencesOfString:@"MMM d, y" withString:@"EEE, MMM d, y" options:NSLiteralSearch range:NSMakeRange(0, [s length])];
-    [s replaceOccurrencesOfString:@"yyyy/MM/dd" withString:@"yyyy/MM/dd(EEEEE)" options:NSLiteralSearch range:NSMakeRange(0, [s length])];
-    
+    if (withDayOfWeek) {
+        [s replaceOccurrencesOfString:@"MMM d, y" withString:@"EEE, MMM d, y" options:NSLiteralSearch range:NSMakeRange(0, [s length])];
+        [s replaceOccurrencesOfString:@"yyyy/MM/dd" withString:@"yyyy/MM/dd(EEEEE)" options:NSLiteralSearch range:NSMakeRange(0, [s length])];
+    }
+
     [df setDateFormat:s];
     return df;
 }
