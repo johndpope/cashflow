@@ -286,6 +286,18 @@
 		3E55367D133466B200D288D9 /* dropbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E553679133466B200D288D9 /* dropbox@2x.png */; };
 		3E55367E133466B200D288D9 /* dropbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E553679133466B200D288D9 /* dropbox@2x.png */; };
 		3E55367F133466B200D288D9 /* dropbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E553679133466B200D288D9 /* dropbox@2x.png */; };
+		3E5536841334872500D288D9 /* dropboxBackup.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536801334872400D288D9 /* dropboxBackup.png */; };
+		3E5536851334872500D288D9 /* dropboxBackup.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536801334872400D288D9 /* dropboxBackup.png */; };
+		3E5536861334872500D288D9 /* dropboxBackup.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536801334872400D288D9 /* dropboxBackup.png */; };
+		3E5536871334872500D288D9 /* dropboxBackup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536811334872400D288D9 /* dropboxBackup@2x.png */; };
+		3E5536881334872500D288D9 /* dropboxBackup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536811334872400D288D9 /* dropboxBackup@2x.png */; };
+		3E5536891334872500D288D9 /* dropboxBackup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536811334872400D288D9 /* dropboxBackup@2x.png */; };
+		3E55368A1334872500D288D9 /* dropboxRestore.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536821334872500D288D9 /* dropboxRestore.png */; };
+		3E55368B1334872500D288D9 /* dropboxRestore.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536821334872500D288D9 /* dropboxRestore.png */; };
+		3E55368C1334872500D288D9 /* dropboxRestore.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536821334872500D288D9 /* dropboxRestore.png */; };
+		3E55368D1334872500D288D9 /* dropboxRestore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536831334872500D288D9 /* dropboxRestore@2x.png */; };
+		3E55368E1334872500D288D9 /* dropboxRestore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536831334872500D288D9 /* dropboxRestore@2x.png */; };
+		3E55368F1334872500D288D9 /* dropboxRestore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5536831334872500D288D9 /* dropboxRestore@2x.png */; };
 		3E5868240EEFFB6E00951C2F /* EditMemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5868230EEFFB6E00951C2F /* EditMemoView.xib */; };
 		3E588D460EC34CFE00D3853D /* AssetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E588D450EC34CFE00D3853D /* AssetView.xib */; };
 		3E5B83A90EC359440035AF05 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B83A80EC359440035AF05 /* MainWindow.xib */; };
@@ -749,6 +761,10 @@
 		3E55366E13344D2900D288D9 /* cash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cash@2x.png"; sourceTree = "<group>"; };
 		3E553678133466B200D288D9 /* dropbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropbox.png; sourceTree = "<group>"; };
 		3E553679133466B200D288D9 /* dropbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropbox@2x.png"; sourceTree = "<group>"; };
+		3E5536801334872400D288D9 /* dropboxBackup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropboxBackup.png; sourceTree = "<group>"; };
+		3E5536811334872400D288D9 /* dropboxBackup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropboxBackup@2x.png"; sourceTree = "<group>"; };
+		3E5536821334872500D288D9 /* dropboxRestore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropboxRestore.png; sourceTree = "<group>"; };
+		3E5536831334872500D288D9 /* dropboxRestore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropboxRestore@2x.png"; sourceTree = "<group>"; };
 		3E5868230EEFFB6E00951C2F /* EditMemoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMemoView.xib; sourceTree = "<group>"; };
 		3E588D450EC34CFE00D3853D /* AssetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetView.xib; sourceTree = "<group>"; };
 		3E5A8D7E0EAE34B200118C3C /* Info-free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-free.plist"; path = "../Info-free.plist"; sourceTree = "<group>"; };
@@ -1334,6 +1350,10 @@
 				3E85A724132E5A28002C44DF /* report@2x.png */,
 				3E553678133466B200D288D9 /* dropbox.png */,
 				3E553679133466B200D288D9 /* dropbox@2x.png */,
+				3E5536801334872400D288D9 /* dropboxBackup.png */,
+				3E5536811334872400D288D9 /* dropboxBackup@2x.png */,
+				3E5536821334872500D288D9 /* dropboxRestore.png */,
+				3E5536831334872500D288D9 /* dropboxRestore@2x.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -1576,6 +1596,10 @@
 				3E55367513344D2900D288D9 /* cash@2x.png in Resources */,
 				3E55367A133466B200D288D9 /* dropbox.png in Resources */,
 				3E55367D133466B200D288D9 /* dropbox@2x.png in Resources */,
+				3E5536841334872500D288D9 /* dropboxBackup.png in Resources */,
+				3E5536871334872500D288D9 /* dropboxBackup@2x.png in Resources */,
+				3E55368A1334872500D288D9 /* dropboxRestore.png in Resources */,
+				3E55368D1334872500D288D9 /* dropboxRestore@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1651,6 +1675,10 @@
 				3E55367613344D2900D288D9 /* cash@2x.png in Resources */,
 				3E55367B133466B200D288D9 /* dropbox.png in Resources */,
 				3E55367E133466B200D288D9 /* dropbox@2x.png in Resources */,
+				3E5536851334872500D288D9 /* dropboxBackup.png in Resources */,
+				3E5536881334872500D288D9 /* dropboxBackup@2x.png in Resources */,
+				3E55368B1334872500D288D9 /* dropboxRestore.png in Resources */,
+				3E55368E1334872500D288D9 /* dropboxRestore@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1701,6 +1729,10 @@
 				3E55367713344D2900D288D9 /* cash@2x.png in Resources */,
 				3E55367C133466B200D288D9 /* dropbox.png in Resources */,
 				3E55367F133466B200D288D9 /* dropbox@2x.png in Resources */,
+				3E5536861334872500D288D9 /* dropboxBackup.png in Resources */,
+				3E5536891334872500D288D9 /* dropboxBackup@2x.png in Resources */,
+				3E55368C1334872500D288D9 /* dropboxRestore.png in Resources */,
+				3E55368F1334872500D288D9 /* dropboxRestore@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

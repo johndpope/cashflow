@@ -94,16 +94,19 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
     }
 
+    NSString *imageName = nil;
     
     switch (indexPath.section) {
         case 0:
             switch (indexPath.row) {
                 case 0:
                     cell.textLabel.text = _L(@"Backup");
+                    imageName = @"dropboxBackup";
                     break;
                     
                 case 1:
                     cell.textLabel.text = _L(@"Restore");
+                    imageName = @"dropboxRestore";
                     break;
             }
             break;
@@ -113,6 +116,11 @@
                                    _L(@"Backup"),
                                    _L(@"Restore")];
             break;
+    }
+    
+    if (imageName) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:@"png"];
+        cell.imageView.image = [UIImage imageWithContentsOfFile:path];
     }
 
     return cell;
