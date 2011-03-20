@@ -464,7 +464,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
          cancelButtonTitle:_L(@"Cancel")
          destructiveButtonTitle:nil
          otherButtonTitles:
-         _L(@"Export"),
+         [NSString stringWithFormat:@"%@ (%@)", _L(@"Export"), _L(@"All")],
          [NSString stringWithFormat:@"%@ / %@", _L(@"Backup"), _L(@"Restore")],
          _L(@"Config"),
          _L(@"Info"),
