@@ -49,7 +49,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Icon.png</string>
+							<string key="NSResourceName">artwork.jpg</string>
 						</object>
 					</object>
 					<object class="IBUILabel" id="959586379">
@@ -81,7 +81,7 @@
 					<object class="IBUILabel" id="338173572">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{99, 70}, {201, 23}}</string>
+						<string key="NSFrame">{{99, 70}, {201, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="7075274"/>
@@ -96,7 +96,7 @@
 						<string key="IBUIText">Version 1.1</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Verdana</string>
-							<double key="NSSize">18</double>
+							<double key="NSSize">24</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<reference key="IBUITextColor" ref="113343996"/>
@@ -119,10 +119,10 @@
 						<string type="base64-UTF8" key="IBUIText">Q29weXJpZ2h0IMKpIDIwMDgtMjAxMQpUYWt1eWEgTXVyYWthbWk</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Verdana</string>
-							<double key="NSSize">13</double>
+							<double key="NSSize">14</double>
 							<int key="NSfFlags">16</int>
 						</object>
-						<object class="NSColor" key="IBUITextColor">
+						<object class="NSColor" key="IBUITextColor" id="291799193">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
 						</object>
@@ -238,10 +238,7 @@ b3RvLmNvbS9MdXNoaWs</string>
 							<double key="NSSize">11</double>
 							<int key="NSfFlags">16</int>
 						</object>
-						<object class="NSColor" key="IBUITextColor">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
-						</object>
+						<reference key="IBUITextColor" ref="291799193"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
@@ -509,8 +506,8 @@ b3RvLmNvbS9MdXNoaWs</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">Icon.png</string>
-			<string key="NS.object.0">{57, 57}</string>
+			<string key="NS.key.0">artwork.jpg</string>
+			<string key="NS.object.0">{512, 512}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">300</string>
 	</data>

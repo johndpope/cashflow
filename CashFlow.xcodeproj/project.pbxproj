@@ -523,6 +523,8 @@
 		3EED9135132A236D009DE68B /* ViewControllerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9133132A236D009DE68B /* ViewControllerTestCase.m */; };
 		3EF054831182DCB200411C71 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF054821182DCB200411C71 /* MainWindow-iPad.xib */; };
 		3EF054841182DCB200411C71 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF054821182DCB200411C71 /* MainWindow-iPad.xib */; };
+		3EF1716F133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
+		3EF17170133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EFD00340F95E31D00F4B4C4 /* EditTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */; };
 		3EFD00350F95E31D00F4B4C4 /* EditTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */; };
 		3EFEFE0F1324ED2100EF369E /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE091324ED2100EF369E /* Icon-72.png */; };
@@ -851,6 +853,7 @@
 		3EEED4E112F59C1200C67F4C /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EEED4E212F59C2E00C67F4C /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EF054821182DCB200411C71 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		3EF1716E133A2528002C818E /* artwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = artwork.jpg; sourceTree = "<group>"; };
 		3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTypeView.xib; sourceTree = "<group>"; };
 		3EFEFE091324ED2100EF369E /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		3EFEFE0A1324ED2100EF369E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -1325,6 +1328,7 @@
 		3EB5406B0E8E907B00608B77 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3EF1716E133A2528002C818E /* artwork.jpg */,
 				3EFEFE091324ED2100EF369E /* Icon-72.png */,
 				3EFEFE0A1324ED2100EF369E /* Icon.png */,
 				3EFEFE0B1324ED2100EF369E /* Icon@2x.png */,
@@ -1606,6 +1610,7 @@
 				3E3A74671335CEC900B68377 /* Default@2x.png in Resources */,
 				3E3A74721335D03F00B68377 /* Default-Landscape~ipad.png in Resources */,
 				3E3A74741335D03F00B68377 /* Default-Portrait~ipad.png in Resources */,
+				3EF1716F133A2528002C818E /* artwork.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1686,6 +1691,7 @@
 				3E3A74681335CEC900B68377 /* Default@2x.png in Resources */,
 				3E3A74731335D03F00B68377 /* Default-Landscape~ipad.png in Resources */,
 				3E3A74751335D03F00B68377 /* Default-Portrait~ipad.png in Resources */,
+				3EF17170133A2528002C818E /* artwork.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
