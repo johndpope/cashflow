@@ -1,22 +1,41 @@
-The CashFlow is a simple cash management software. You can manage your
-daily cash income/outgo, and can fix balance with simple
-operation. You can input description of transaction from history, much
-less keyboard operation.
+'CashFlow' is a simple asset management software.
+You can manage your daily cash income/outgo, bank, credit card accounts.
 
-The transaction data can be exported with CSV or OFX format, so you
-can import it with any money management software on your PC. The data
-can be exported with e-mail, or downloaded with browser of your PC
-using internal web server of the CashFlow.
+Features of CashFlow:
+
+1. Simple and easy to record transactions
+
+You can easily input your daily transactions. You can choose
+description of transaction from history, much less keyboard operations.
+Also you can fix balance with simple operation.
+
+2. Support multiple accounts
+
+You can manager multiple cash / bank / credit card accounts.
+CashFlow supports transfer transaction between the assets.
+
+3. Report functions
+
+You can check daily/weekly/monthly/annual reports.
+
+4. Export functions
+
+All data can be exported with CSV and OFX format, so you can use
+them with your PC. The export can send via e-mail, dropbox, and
+internal web server.
+
+5. Support Dropbox
+
+You can export, backup and restore via your Dropbox account.
 
 ----
-The CashFlow Free is a simple cash management software. You can manage
-your daily cash income/outgo, and can fix balance with simple
-operation. You can input description of transaction from history, much
-less keyboard operation.
-
-The transaction data can be exported with CSV format via e-mail.
-
 This is a free version of CashFlow. With paid-for version of CashFlow,
-you can export transactions with OFX format, and you can download it
-with browser of your PC using internal web server of the CashFlow.
+you can hide advertisements.
 
+----
+What's new in ver 4.0
+
+- Support Dropbox (Export, Backup and Restore)
+- New report functions (Daily/Annual report, Pie chart, check all transactions for each category)
+- Export all assets with CSV/OFX.
+- New icon.
