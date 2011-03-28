@@ -140,7 +140,13 @@
     
     CGRect frame = mTableView.bounds;
     
-    CGSize adSize = GAD_SIZE_320x50;
+    CGSize adSize;
+    if (IS_IPAD) {
+        adSize = GAD_SIZE_468x60;
+        //adSize = GAD_SIZE_728x90;
+    } else {
+        adSize = GAD_SIZE_320x50;
+    }
     
     // 画面下部固定で広告を作成する
     CGRect aframe = frame;
@@ -155,8 +161,10 @@
     mGADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     
     [self.view addSubview:mGADBannerView];
-    
-    [mGADBannerView loadRequest:[GADRequest request]];
+
+    GADRequest *req = [GADRequest request];
+    //req.testing = YES;
+    [mGADBannerView loadRequest:req];
     
     // 広告領域分だけ、tableView の下部をあける
     CGRect tframe = frame;
