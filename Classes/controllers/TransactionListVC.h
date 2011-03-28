@@ -13,8 +13,7 @@
 #import "BackupVC.h"
 
 #if FREE_VERSION
-#import "GADAdViewController.h"
-#import "GADAdSenseParameters.h"
+#import "GADBannerView.h"
 #endif
 
 @class AssetListViewController;
@@ -22,9 +21,6 @@
 @interface TransactionListViewController : UIViewController 
     <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate,
     BackupViewDelegate
-#if FREE_VERSION
-, GADAdViewControllerDelegate
-#endif
 >
 {
     IBOutlet UITableView *mTableView;
@@ -35,7 +31,7 @@
     Asset *mAssetCache;
     
 #if FREE_VERSION
-    GADAdViewController *mAdViewController;
+    GADBannerView *mGADBannerView;
 #endif
     
     BOOL mAsDisplaying;

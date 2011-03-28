@@ -72,35 +72,12 @@
     //self.navigationItem.leftBarButtonItem = [self editButtonItem];
 	
     mAsDisplaying = NO;
-
-#if FREE_VERSION
-    mAdViewController = nil;
-#endif
 }
 
 - (void)viewDidUnload
 {
     //NSLog(@"TransactionListViewController:viewDidUnload");
-
-#if FREE_VERSION
-    [mAdViewController release];
-    mAdViewController = nil;
-#endif
 }
-
-#if FREE_VERSION
-// GADAdViewControllerDelegate
-- (UIViewController *)viewControllerForModalPresentation:(GADAdViewController *)adController
-{
-    return self.navigationController;
-}
-
-- (GADAdClickAction)adControllerActionModelForAdClick:(GADAdViewController *)adController
-{
-    return GAD_ACTION_DISPLAY_INTERNAL_WEBSITE_VIEW;
-}
-
-#endif
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -109,9 +86,6 @@
 - (void)dealloc {
     [mTableView release];
     [mPopoverController release];
-#if FREE_VERSION
-    [mAdViewController release];
-#endif
     
     [super dealloc];
 }
@@ -133,7 +107,7 @@
     [self reload];
 
 #if FREE_VERSION
-    if (mAdViewController == nil) {
+    if (mGADBannerView == nil) {
         [self _replaceAd];
     }
 #endif
@@ -142,6 +116,8 @@
 - (void)_replaceAd
 {
 #if FREE_VERSION
+    
+#if 0
     // Google Adsense バグ暫定対処
     // AdSense が起動時に正しく表示されずクラッシュする場合があるため、
     // 前回正しく表示できていない場合は初回表示させない
@@ -160,48 +136,32 @@
         [mAdViewController release];
         mAdViewController = nil;
     }
+#endif
     
     CGRect frame = mTableView.bounds;
     
+    CGSize adSize = GAD_SIZE_320x50;
+    
     // 画面下部固定で広告を作成する
-    mAdViewController= [[GADAdViewController alloc] initWithDelegate:self];
-    if (IS_IPAD) {
-        //adViewController.adSize = kGADAdSize468x60;
-        mAdViewController.adSize = kGADAdSize320x50;
-    } else {
-        mAdViewController.adSize = kGADAdSize320x50;
-    }
-    mAdViewController.autoRefreshSeconds = 180;
-    
-    NSDictionary *attributes = [AdUtil adAttributes];
-    
-    @try {
-        [mAdViewController loadGoogleAd:attributes];
-    }
-    @catch (NSException * e) {
-        NSLog(@"loadGoogleAd: exception: %@", [e description]);
-    }
-    
-    UIView *adView = mAdViewController.view;
-    float adViewWidth = [adView bounds].size.width;
-    float adViewHeight = [adView bounds].size.height;
-    
     CGRect aframe = frame;
-    aframe.origin.x = (frame.size.width - adViewWidth) / 2;
-    aframe.origin.y = frame.size.height - adViewHeight;
-    aframe.size.height = adViewHeight;
-    aframe.size.width = adViewWidth;
-    adView.frame = aframe;
-    adView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    [self.view addSubview:adView];
+    aframe.origin.x = (frame.size.width - adSize.width) / 2;
+    aframe.origin.y = frame.size.height - adSize.height;
+    aframe.size = adSize;
+    
+    mGADBannerView = [[[GADBannerView alloc] initWithFrame:aframe] autorelease];
+    
+    mGADBannerView.adUnitID = ADMOB_PUBLISHER_ID;
+    mGADBannerView.rootViewController = self;
+    mGADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    
+    [self.view addSubview:mGADBannerView];
+    
+    [mGADBannerView loadRequest:[GADRequest request]];
     
     // 広告領域分だけ、tableView の下部をあける
     CGRect tframe = frame;
-    tframe.size.height -= adViewHeight;
+    tframe.size.height -= adSize.height;
     mTableView.frame = tframe;
-    
-    [defaults setInteger:1 forKey:@"ShowAds"];
-    [defaults synchronize];
 #endif
 }
 
