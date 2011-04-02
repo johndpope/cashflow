@@ -19,8 +19,10 @@
 @class AssetListViewController;
 
 @interface TransactionListViewController : UIViewController 
-    <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate,
-    BackupViewDelegate
+    <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate, BackupViewDelegate
+#if FREE_VERSION
+    ,GADBannerViewDelegate
+#endif
 >
 {
     IBOutlet UITableView *mTableView;
@@ -32,6 +34,8 @@
     
 #if FREE_VERSION
     GADBannerView *mGADBannerView;
+    BOOL mIsAdDisplayed;
+    CGSize mAdSize;
 #endif
     
     BOOL mAsDisplaying;

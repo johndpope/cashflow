@@ -140,21 +140,21 @@
     
     CGRect frame = mTableView.bounds;
     
-    CGSize adSize;
     if (IS_IPAD) {
-        adSize = GAD_SIZE_468x60;
-        //adSize = GAD_SIZE_728x90;
+        mAdSize = GAD_SIZE_468x60;
+        //mAdSize = GAD_SIZE_728x90;
     } else {
-        adSize = GAD_SIZE_320x50;
+        mAdSize = GAD_SIZE_320x50;
     }
     
     // 画面下部固定で広告を作成する
     CGRect aframe = frame;
-    aframe.origin.x = (frame.size.width - adSize.width) / 2;
-    aframe.origin.y = frame.size.height - adSize.height;
-    aframe.size = adSize;
+    aframe.origin.x = (frame.size.width - mAdSize.width) / 2;
+    aframe.origin.y = frame.size.height - mAdSize.height;
+    aframe.size = mAdSize;
     
     mGADBannerView = [[[GADBannerView alloc] initWithFrame:aframe] autorelease];
+    mGADBannerView.delegate = self;
     
     mGADBannerView.adUnitID = ADMOB_PUBLISHER_ID;
     mGADBannerView.rootViewController = self;
@@ -164,14 +164,25 @@
 
     GADRequest *req = [GADRequest request];
     //req.testing = YES;
+    mIsAdDisplayed = NO;
     [mGADBannerView loadRequest:req];
     
-    // 広告領域分だけ、tableView の下部をあける
-    CGRect tframe = frame;
-    tframe.size.height -= adSize.height;
-    mTableView.frame = tframe;
 #endif
 }
+
+#if FREE_VERSION
+- (void)adViewDidReceiveAd:(GADBannerView *)view
+{
+    if (!mIsAdDisplayed) {
+        mIsAdDisplayed = YES;
+
+        // 広告領域分だけ、tableView の下部をあける
+        CGRect frame = mTableView.bounds;
+        frame.size.height -= mAdSize.height;
+        mTableView.frame = frame;
+    }
+}
+#endif
 
 - (void)viewDidAppear:(BOOL)animated
 {

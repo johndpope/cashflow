@@ -484,6 +484,7 @@
 		3EC1B28613291EA700721A71 /* ReportCatDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02EBF713226FDC0086F492 /* ReportCatDetailVC.m */; };
 		3EC1B28813291F3500721A71 /* AssetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC1B28713291F3500721A71 /* AssetTests.m */; };
 		3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; };
+		3ECD5A871347603800B499A6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3ECF38040EA9CF4900420060 /* ExportServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF38030EA9CF4900420060 /* ExportServer.m */; };
 		3ED0AA9B132A28060032B9DC /* AssetListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EA011310EC344CC008CEEB7 /* AssetListView.xib */; };
 		3ED0AA9C132A28100032B9DC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B83A80EC359440035AF05 /* MainWindow.xib */; };
@@ -836,6 +837,7 @@
 		3EC1B23C13291A9800721A71 /* CurrencyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyManagerTests.m; sourceTree = "<group>"; };
 		3EC1B28713291F3500721A71 /* AssetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetTests.m; sourceTree = "<group>"; };
 		3EC572D61107451F00A551D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		3ECD5A861347603800B499A6 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		3ECF38030EA9CF4900420060 /* ExportServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportServer.m; sourceTree = "<group>"; };
 		3ECF38080EA9CFB600420060 /* ExportServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportServer.h; sourceTree = "<group>"; };
 		3ED30E711323B53E007E46DC /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
@@ -895,6 +897,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ECD5A871347603800B499A6 /* iAd.framework in Frameworks */,
 				3EE62A2B10D7EA0100EB7399 /* MediaPlayer.framework in Frameworks */,
 				3E8B25B60F348C090007929E /* Foundation.framework in Frameworks */,
 				3E8B25B70F348C090007929E /* UIKit.framework in Frameworks */,
@@ -1011,6 +1014,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3ECD5A861347603800B499A6 /* iAd.framework */,
 				3E338212133211C500861610 /* Security.framework */,
 				3E94339E0EC1E7650033D50A /* libsqlite3.0.dylib */,
 				3E13EE58114007D600523938 /* AVFoundation.framework */,
