@@ -50,26 +50,32 @@
 #pragma mark TableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSString *title = nil;
+    NSString *head;
+    double value;
+    
     switch (section) {
         case 0:
-            title = [NSString stringWithFormat:@"%@ : %@",
-                     _L(@"Outgo"),
-                     [CurrencyManager formatCurrency:-mReportEntry.totalOutgo]];
+            head = _L(@"Outgo");
+            value = mReportEntry.totalOutgo;
             break;
         case 1:
-            title = [NSString stringWithFormat:@"%@ : %@",
-                     _L(@"Income"),
-                     [CurrencyManager formatCurrency:mReportEntry.totalIncome]];
+            head = _L(@"Income");
+            value = mReportEntry.totalIncome;
+            break;
             
+        case 2:
+            head = _L(@"Total");
+            value = mReportEntry.totalOutgo + mReportEntry.totalIncome;
             break;
     }
-    
+                      
+    NSString *title = [NSString stringWithFormat:@"%@ : %@", head,
+                       [CurrencyManager formatCurrency:value]];
     return title;
 }
 
@@ -77,12 +83,14 @@
     int rows = 0;
 
     switch (section) {
-    case 0:
-        rows = [mReportEntry.outgoCatReports count];
-        break;
-    case 1:
-        rows = [mReportEntry.incomeCatReports count];
-        break;
+        case 0:
+            rows = [mReportEntry.outgoCatReports count];
+            break;
+        case 1:
+            rows = [mReportEntry.incomeCatReports count];
+            break;
+        case 2:
+            return 0;
     }
 
     if (rows > 0) {
