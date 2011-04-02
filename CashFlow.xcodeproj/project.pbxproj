@@ -272,6 +272,10 @@
 		3E4A7D28131FB94B0008C37D /* DateFormatter2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D24131FB94B0008C37D /* DateFormatter2.m */; };
 		3E4A7D2D131FB9680008C37D /* Dbstmt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D2C131FB9680008C37D /* Dbstmt.m */; };
 		3E4A7D2E131FB9680008C37D /* Dbstmt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D2C131FB9680008C37D /* Dbstmt.m */; };
+		3E4C67721347939600DA87F6 /* AdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4C67711347939600DA87F6 /* AdManager.m */; };
+		3E4C67731347939600DA87F6 /* AdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4C67711347939600DA87F6 /* AdManager.m */; };
+		3E4C67741347939600DA87F6 /* AdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4C67711347939600DA87F6 /* AdManager.m */; };
+		3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E4DA8B30EAB6DE4001FBB70 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */; };
 		3E55366F13344D2900D288D9 /* bank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E55366C13344D2900D288D9 /* bank@2x.png */; };
 		3E55367013344D2900D288D9 /* bank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E55366C13344D2900D288D9 /* bank@2x.png */; };
@@ -758,6 +762,8 @@
 		3E4A7D24131FB94B0008C37D /* DateFormatter2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateFormatter2.m; sourceTree = "<group>"; };
 		3E4A7D2B131FB9680008C37D /* Dbstmt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dbstmt.h; sourceTree = "<group>"; };
 		3E4A7D2C131FB9680008C37D /* Dbstmt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dbstmt.m; sourceTree = "<group>"; };
+		3E4C67701347939600DA87F6 /* AdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdManager.h; sourceTree = "<group>"; };
+		3E4C67711347939600DA87F6 /* AdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdManager.m; sourceTree = "<group>"; };
 		3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		3E55366C13344D2900D288D9 /* bank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bank@2x.png"; sourceTree = "<group>"; };
 		3E55366D13344D2900D288D9 /* card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card@2x.png"; sourceTree = "<group>"; };
@@ -890,6 +896,7 @@
 				3E197BF7121271D200105B20 /* SystemConfiguration.framework in Frameworks */,
 				3E33821A1332123200861610 /* AVFoundation.framework in Frameworks */,
 				3EAF414B1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */,
+				3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1068,6 +1075,8 @@
 		3E0AD6D21214160600CFDDAC /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3E4C67701347939600DA87F6 /* AdManager.h */,
+				3E4C67711347939600DA87F6 /* AdManager.m */,
 				3E0AD6E41214169700CFDDAC /* AssetListVC.h */,
 				3E0AD6E51214169700CFDDAC /* AssetListVC.m */,
 				3E0AD6E61214169700CFDDAC /* AssetVC.h */,
@@ -1878,6 +1887,7 @@
 				3E3381EE133210B700861610 /* NSString+Dropbox.m in Sources */,
 				3E3382241332284000861610 /* DropboxBackup.m in Sources */,
 				3E3382291332298400861610 /* BackupVC.m in Sources */,
+				3E4C67721347939600DA87F6 /* AdManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1979,6 +1989,7 @@
 				3E3381EF133210B700861610 /* NSString+Dropbox.m in Sources */,
 				3E3382251332284000861610 /* DropboxBackup.m in Sources */,
 				3E33822A1332298400861610 /* BackupVC.m in Sources */,
+				3E4C67731347939600DA87F6 /* AdManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2092,6 +2103,7 @@
 				3E3381F0133210B700861610 /* NSString+Dropbox.m in Sources */,
 				3E3382261332284000861610 /* DropboxBackup.m in Sources */,
 				3E33822B1332298400861610 /* BackupVC.m in Sources */,
+				3E4C67741347939600DA87F6 /* AdManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

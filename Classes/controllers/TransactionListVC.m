@@ -125,7 +125,7 @@
     if (mIsAdDisplayed) return;
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.0 &&
-        mADBannerView == nil) {
+        mADBannerView == nil && mGADBannerView == nil) {
         [self _loadIAd];
     } else if (mGADBannerView == nil) {
         [self _loadAdMob];
@@ -140,14 +140,18 @@
     NSLog(@"start load iAd");
     CGRect frame = mTableView.bounds;
     
-    mAdSize = CGSizeMake(320, 50);
+    if (IS_IPAD) {
+        mAdSize = CGSizeMake(766, 66);
+    } else {
+        mAdSize = CGSizeMake(320, 50);
+            }
     CGRect aframe = frame;
     aframe.origin.x = (frame.size.width - mAdSize.width) / 2;
     aframe.origin.y = frame.size.height; // 画面外
     aframe.size = mAdSize;
     
     mADBannerView = [[ADBannerView alloc] initWithFrame:aframe];
-    mADBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifier320x50;
+    mADBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
     mADBannerView.delegate = self;
     mADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [self.view addSubview:mADBannerView];
@@ -161,13 +165,14 @@
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
     NSLog(@"iAd loaded");
-    [self _adLoaded:mADBannerView];
+    [self _showAd:mADBannerView];
 }
 
 /** iAd取得失敗 */
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
     NSLog(@"iAd load failed");
+    [self _hideAd:mADBannerView];
     [mADBannerView removeFromSuperview];
     [mADBannerView release];
     mADBannerView = nil;
@@ -217,7 +222,7 @@
 - (void)adViewDidReceiveAd:(GADBannerView *)view
 {
     NSLog(@"AdMob loaded");
-    [self _adLoaded:mGADBannerView];
+    [self _showAd:mGADBannerView];
 }
 
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
@@ -225,7 +230,7 @@
     NSLog(@"AdMob load failed");
 }
 
-- (void)_adLoaded:(UIView *)adView
+- (void)_showAd:(UIView *)adView
 {
     if (!mIsAdDisplayed) {
         mIsAdDisplayed = YES;
@@ -237,12 +242,37 @@
         tframe.origin.x = 0;
         tframe.origin.y = 0;
         tframe.size.height -= mAdSize.height;
-        mTableView.frame = tframe;
+        mTableView.bounds = tframe;
 
         // 広告をアニメーション表示させる
         CGRect aframe = frame;
         aframe.origin.x = (aframe.size.width - mAdSize.width) / 2;
         aframe.origin.y = aframe.size.height - mAdSize.height;
+        aframe.size = mAdSize;
+        
+        [UIView beginAnimations:@"ShowAd" context:NULL];
+        adView.frame = aframe;
+        [UIView commitAnimations];
+    }
+}
+
+- (void)_hideAd:(UIView *)adView
+{
+    if (mIsAdDisplayed) {
+        mIsAdDisplayed = NO;
+        
+        CGRect frame = mTableView.bounds;
+        
+        // tableView のサイズをもとに戻す
+        frame.origin.x = 0;
+        frame.origin.y = 0;
+        frame.size.height += mAdSize.height;
+        mTableView.bounds = frame;
+        
+        // 広告を画面外に移動する
+        CGRect aframe = frame;
+        aframe.origin.x = (aframe.size.width - mAdSize.width) / 2;
+        aframe.origin.y = aframe.size.height;
         aframe.size = mAdSize;
         
         [UIView beginAnimations:@"ShowAd" context:NULL];

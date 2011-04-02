@@ -68,7 +68,8 @@
 - (void)_startLoadAd;
 - (void)_loadIAd;
 - (void)_loadAdMob;
-- (void)_adLoaded:(UIView *)adView;
+- (void)_showAd:(UIView *)adView;
+- (void)_hideAd:(UIView *)adView;
 #endif
 
 @end
