@@ -151,6 +151,9 @@
     mADBannerView.delegate = self;
     mADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [self.view addSubview:mADBannerView];
+    //[self.view sendSubviewToBack:mADBannerView];
+    [self.view bringSubviewToFront:mToolbar];
+    
     mIsAdDisplayed = NO;
 }
 
@@ -202,10 +205,12 @@
     mGADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     
     [self.view addSubview:mGADBannerView];
-
-    GADRequest *req = [GADRequest request];
-    req.testing = YES;
+    [self.view bringSubviewToFront:mToolbar];
+    
     mIsAdDisplayed = NO;
+    
+    GADRequest *req = [GADRequest request];
+    //req.testing = YES;
     [mGADBannerView loadRequest:req];
 }
 
@@ -225,9 +230,6 @@
     if (!mIsAdDisplayed) {
         mIsAdDisplayed = YES;
 
-        // ツールバーを最前面にしておく
-        [self.view bringSubviewToFront:mToolbar];
-        
         CGRect frame = mTableView.bounds;
         
         // 広告領域分だけ、tableView の下部をあける
