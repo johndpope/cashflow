@@ -56,7 +56,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *head;
-    double value;
+    double value = 0.0;
     
     switch (section) {
         case 0:
