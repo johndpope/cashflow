@@ -87,6 +87,11 @@
     [mTableView release];
     [mPopoverController release];
     
+#if FREE_VERSION
+    [mADBannerView release];
+    [mGADBannerView release];
+#endif
+    
     [super dealloc];
 }
 
@@ -107,36 +112,72 @@
     [self reload];
 
 #if FREE_VERSION
-    if (mGADBannerView == nil) {
-        [self _replaceAd];
-    }
+    [self _startLoadAd];
 #endif
 }
 
-- (void)_replaceAd
-{
 #if FREE_VERSION
+/**
+ * 広告表示開始
+ */
+- (void)_startLoadAd
+{
+    if (mIsAdDisplayed) return;
     
-#if 0
-    // Google Adsense バグ暫定対処
-    // AdSense が起動時に正しく表示されずクラッシュする場合があるため、
-    // 前回正しく表示できていない場合は初回表示させない
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    int n = [defaults integerForKey:@"ShowAds"];
-    if (n == 0) {
-        [defaults setInteger:1 forKey:@"ShowAds"]; // show next time
-        [defaults synchronize];
-        return;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.0 &&
+        mADBannerView == nil) {
+        [self _loadIAd];
+    } else if (mGADBannerView == nil) {
+        [self _loadAdMob];
     }
-    [defaults setInteger:0 forKey:@"ShowAds"];
-    [defaults synchronize];
+}
+
+/**
+ * iAd 表示開始
+ */
+- (void)_loadIAd
+{
+    NSLog(@"start load iAd");
+    CGRect frame = mTableView.bounds;
     
-    if (mAdViewController != nil) {
-        [mAdViewController.view removeFromSuperview];
-        [mAdViewController release];
-        mAdViewController = nil;
-    }
-#endif
+    mAdSize = CGSizeMake(320, 50);
+    CGRect aframe = frame;
+    aframe.origin.x = (frame.size.width - mAdSize.width) / 2;
+    aframe.origin.y = frame.size.height; // 画面外
+    aframe.size = mAdSize;
+    
+    mADBannerView = [[ADBannerView alloc] initWithFrame:aframe];
+    mADBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifier320x50;
+    mADBannerView.delegate = self;
+    mADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    [self.view addSubview:mADBannerView];
+    mIsAdDisplayed = NO;
+}
+
+/** iAd表示成功 */
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    NSLog(@"iAd loaded");
+    [self _adLoaded:mADBannerView];
+}
+
+/** iAd取得失敗 */
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"iAd load failed");
+    [mADBannerView removeFromSuperview];
+    [mADBannerView release];
+    mADBannerView = nil;
+    
+    [self _loadAdMob];
+}
+
+/**
+ * AdMob 表示開始
+ */
+- (void)_loadAdMob
+{
+    NSLog(@"start load AdMob");
     
     CGRect frame = mTableView.bounds;
     
@@ -150,10 +191,10 @@
     // 画面下部固定で広告を作成する
     CGRect aframe = frame;
     aframe.origin.x = (frame.size.width - mAdSize.width) / 2;
-    aframe.origin.y = frame.size.height - mAdSize.height;
+    aframe.origin.y = frame.size.height; // 画面外
     aframe.size = mAdSize;
     
-    mGADBannerView = [[[GADBannerView alloc] initWithFrame:aframe] autorelease];
+    mGADBannerView = [[GADBannerView alloc] initWithFrame:aframe];
     mGADBannerView.delegate = self;
     
     mGADBannerView.adUnitID = ADMOB_PUBLISHER_ID;
@@ -163,23 +204,48 @@
     [self.view addSubview:mGADBannerView];
 
     GADRequest *req = [GADRequest request];
-    //req.testing = YES;
+    req.testing = YES;
     mIsAdDisplayed = NO;
     [mGADBannerView loadRequest:req];
-    
-#endif
 }
 
-#if FREE_VERSION
 - (void)adViewDidReceiveAd:(GADBannerView *)view
+{
+    NSLog(@"AdMob loaded");
+    [self _adLoaded:mGADBannerView];
+}
+
+- (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    NSLog(@"AdMob load failed");
+}
+
+- (void)_adLoaded:(UIView *)adView
 {
     if (!mIsAdDisplayed) {
         mIsAdDisplayed = YES;
 
-        // 広告領域分だけ、tableView の下部をあける
+        // ツールバーを最前面にしておく
+        [self.view bringSubviewToFront:mToolbar];
+        
         CGRect frame = mTableView.bounds;
-        frame.size.height -= mAdSize.height;
-        mTableView.frame = frame;
+        
+        // 広告領域分だけ、tableView の下部をあける
+        CGRect tframe = frame;
+        tframe.origin.x = 0;
+        tframe.origin.y = 0;
+        tframe.size.height -= mAdSize.height;
+        mTableView.frame = tframe;
+
+        // 広告をアニメーション表示させる
+        CGRect aframe = frame;
+        aframe.origin.x = (aframe.size.width - mAdSize.width) / 2;
+        aframe.origin.y = aframe.size.height - mAdSize.height;
+        aframe.size = mAdSize;
+        
+        [UIView beginAnimations:@"ShowAd" context:NULL];
+        adView.frame = aframe;
+        [UIView commitAnimations];
     }
 }
 #endif

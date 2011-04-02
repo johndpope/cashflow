@@ -13,6 +13,7 @@
 #import "BackupVC.h"
 
 #if FREE_VERSION
+#import <iAd/iAd.h>
 #import "GADBannerView.h"
 #endif
 
@@ -21,18 +22,20 @@
 @interface TransactionListViewController : UIViewController 
     <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate, BackupViewDelegate
 #if FREE_VERSION
-    ,GADBannerViewDelegate
+    , ADBannerViewDelegate, GADBannerViewDelegate
 #endif
 >
 {
     IBOutlet UITableView *mTableView;
     IBOutlet UIBarButtonItem *mBarBalanceLabel;
     IBOutlet UIBarButtonItem *mBarActionButton;
+    IBOutlet UIToolbar *mToolbar;
 	
     int mAssetKey;
     Asset *mAssetCache;
     
 #if FREE_VERSION
+    ADBannerView *mADBannerView;
     GADBannerView *mGADBannerView;
     BOOL mIsAdDisplayed;
     CGSize mAdSize;
@@ -61,6 +64,11 @@
 - (IBAction)doAction:(id)sender;
 //- (IBAction)showHelp:(id)sender;
 
-- (void)_replaceAd;
+#if FREE_VERSION
+- (void)_startLoadAd;
+- (void)_loadIAd;
+- (void)_loadAdMob;
+- (void)_adLoaded:(UIView *)adView;
+#endif
 
 @end
