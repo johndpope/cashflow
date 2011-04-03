@@ -14,6 +14,9 @@
 #define DateTimeModeWithTime5min 1  // 日＋時
 #define DateTimeModeDateOnly 2  // 日のみ
     int mDateTimeMode;
+    
+    // 週の開始日 : 日曜 - 0, 月曜 - 1
+    int mStartOfWeek;
 
     // 締め日 (1～29)、月末を指定する場合は 0
     int mCutoffDate;
@@ -23,6 +26,7 @@
 }
 
 @property(nonatomic,assign) int dateTimeMode;
+@property(nonatomic,assign) int startOfWeek;
 @property(nonatomic,assign) int cutoffDate;
 @property(nonatomic,assign) int lastReportType;
 

@@ -73,8 +73,10 @@
         case REPORT_WEEKLY:
             dateComponents = [greg components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekdayCalendarUnit | NSDayCalendarUnit) fromDate:firstDate];
             nextStartDay = [greg dateFromComponents:dateComponents];
-            int weekday = [dateComponents weekday];
-            [steps setDay:-weekday+1];
+            
+            int weekday = [dateComponents weekday]; // 日曜が 1, 土曜が 7
+            [steps setDay:- (weekday - 1) + [Config instance].startOfWeek];
+            
             nextStartDay = [greg dateByAddingComponents:steps toDate:nextStartDay options:0];
             [steps setDay:7];
             break;

@@ -10,6 +10,7 @@
 @implementation Config
 
 @synthesize dateTimeMode = mDateTimeMode;
+@synthesize startOfWeek = mStartOfWeek;
 @synthesize cutoffDate = mCutoffDate;
 @synthesize lastReportType = mLastReportType;
 
@@ -38,6 +39,8 @@ static Config *sConfig = nil;
         mDateTimeMode = DateTimeModeWithTime;
     }
 
+    mStartOfWeek = [defaults integerForKey:@"StartOfWeek"];
+    
     mCutoffDate = [defaults integerForKey:@"CutoffDate"];
     if (mCutoffDate < 0 || mCutoffDate > 28) {
         mCutoffDate = 0;
@@ -52,7 +55,8 @@ static Config *sConfig = nil;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     [defaults setInteger:mDateTimeMode forKey:@"DateTimeMode"];
-    [defaults setInteger:mCutoffDate   forKey:@"CutoffDate"];
+    [defaults setInteger:mStartOfWeek forKey:@"StartOfWeek"];
+    [defaults setInteger:mCutoffDate forKey:@"CutoffDate"];
     [defaults setInteger:mLastReportType forKey:@"LastReportType"];
 
     [defaults synchronize];

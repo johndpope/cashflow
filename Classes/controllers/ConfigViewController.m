@@ -73,15 +73,16 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 3;
+        return 4;
     }
         
     return 1;
 }
 
 #define ROW_DATE_TIME_MODE 0
-#define ROW_CUTOFF_DATE 1
-#define ROW_CURRENCY 2
+#define ROW_START_OF_WEEK 1
+#define ROW_CUTOFF_DATE 2
+#define ROW_CURRENCY 3
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -118,6 +119,15 @@
                     }
                     break;
 
+                case ROW_START_OF_WEEK:
+                    text = _L(@"Start of week");
+                    if (config.startOfWeek == 0) {
+                        detailText = _L(@"Sunday");
+                    } else {
+                        detailText = _L(@"Monday");
+                    }
+                    break;
+                    
                 case ROW_CUTOFF_DATE:
                     text = _L(@"Cutoff date");
                     if (config.cutoffDate == 0) {
@@ -191,6 +201,19 @@
                     gt.selectedIndex = config.dateTimeMode;
                     break;
 
+                case ROW_START_OF_WEEK:
+                    typeArray = [[[NSMutableArray alloc] initWithObjects:
+                                  _L(@"Sunday"),
+                                  _L(@"Monday"),
+                                  nil] autorelease];
+                    gt = [GenSelectListViewController
+                          genSelectListViewController:self
+                          items:typeArray
+                          title:_L(@"Start of week")
+                          identifier:ROW_START_OF_WEEK];
+                    gt.selectedIndex = config.startOfWeek;
+                    break;
+                    
                 case ROW_CUTOFF_DATE:
                     typeArray = [[[NSMutableArray alloc] init] autorelease];
                     [typeArray addObject:_L(@"End of month")];
@@ -255,6 +278,10 @@
     switch (id) {
         case ROW_DATE_TIME_MODE:
             config.dateTimeMode = vc.selectedIndex;
+            break;
+
+        case ROW_START_OF_WEEK:
+            config.startOfWeek = vc.selectedIndex;
             break;
 
         case ROW_CUTOFF_DATE:
