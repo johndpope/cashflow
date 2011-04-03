@@ -74,8 +74,11 @@
             dateComponents = [greg components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekdayCalendarUnit | NSDayCalendarUnit) fromDate:firstDate];
             nextStartDay = [greg dateFromComponents:dateComponents];
             
-            int weekday = [dateComponents weekday]; // 日曜が 1, 土曜が 7
-            [steps setDay:- (weekday - 1) + [Config instance].startOfWeek];
+            // 日曜が 1, 土曜が 7
+            int weekday = [dateComponents weekday];
+            
+            // 前週の指定曜日に設定
+            [steps setDay:- (weekday - 1) - 7+ [Config instance].startOfWeek];
             
             nextStartDay = [greg dateByAddingComponents:steps toDate:nextStartDay options:0];
             [steps setDay:7];
