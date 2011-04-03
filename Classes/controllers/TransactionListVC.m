@@ -16,10 +16,6 @@
 #import "AssetListVC.h"
 #import "BackupVC.h"
 
-#if FREE_VERSION
-#import "AdUtil.h"
-#endif
-
 @implementation TransactionListViewController
 
 @synthesize tableView = mTableView;
