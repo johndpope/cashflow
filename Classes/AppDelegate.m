@@ -64,6 +64,9 @@
     // PIN チェック
     [self checkPin];
     
+    // 乱数初期化
+    srand([[NSDate date] timeIntervalSinceReferenceDate]);
+    
     NSLog(@"applicationDidFinishLaunching: done");
 }
 

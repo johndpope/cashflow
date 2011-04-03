@@ -8,9 +8,13 @@
 #import "AdManager.h"
 #import "AppDelegate.h"
 
+#define AD_IS_TEST  YES
+
 @implementation AdManager
 
 @synthesize adSize = mAdSize;
+
+static int sIAdSuccededCount = 0;
 
 - (id)init:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController
 {
@@ -34,8 +38,15 @@
 - (void)startLoadAd
 {
     if (mADBannerView == nil && mGADBannerView == nil) {
+        // iAd は iOS 4.0 以上のみ
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.0) {
-            [self _loadIAd];
+            // 過去 iAd のロードに1回でも成功していれば iAd を
+            // そうでない場合は、一定確率で AdMob をロードする
+            if (sIAdSuccededCount > 0 || (rand() % 100) < 50) {
+                [self _loadIAd];
+            } else {
+                [self _loadAdMob];
+            }
         } else {
             [self _loadAdMob];
         }
@@ -61,12 +72,17 @@
     mADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     
     mIsAdDisplayed = NO;
+    
+    [mDelegate adManager:self setAd:mADBannerView];
 }
 
 /** iAd表示成功 */
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
     NSLog(@"iAd loaded");
+    
+    sIAdSuccededCount++;
+    
     if (!mIsAdDisplayed) {
         mIsAdDisplayed = YES;
         [mDelegate adManager:self showAd:mADBannerView];
@@ -77,11 +93,13 @@
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
     NSLog(@"iAd load failed");
+    
     if (mIsAdDisplayed) {
         mIsAdDisplayed = NO;
         [mDelegate adManager:self hideAd:mADBannerView];
     }
-
+    [mDelegate adManager:self removeAd:mADBannerView];
+    
     [mADBannerView release];
     mADBannerView = nil;
     
@@ -102,17 +120,21 @@
         mAdSize = GAD_SIZE_320x50;
     }
     
-    mGADBannerView = [[GADBannerView alloc] init];
+    CGRect frame = CGRectMake(0, 0, mAdSize.width, mAdSize.height);
+    mGADBannerView = [[GADBannerView alloc] initWithFrame:frame];
     mGADBannerView.delegate = self;
     
     mGADBannerView.adUnitID = ADMOB_PUBLISHER_ID;
     mGADBannerView.rootViewController = mRootViewController;
     mGADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    [mDelegate adManager:self setAd:mGADBannerView];
     
     mIsAdDisplayed = NO;
     
     GADRequest *req = [GADRequest request];
-    //req.testing = YES;
+    if (AD_IS_TEST) {
+        req.testing = YES;
+    }
     [mGADBannerView loadRequest:req];
 }
 
@@ -128,7 +150,17 @@
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
 {
     NSLog(@"AdMob load failed");
-    // do nothing...
+    
+    if (mIsAdDisplayed) {
+        mIsAdDisplayed = NO;
+        [mDelegate adManager:self hideAd:mGADBannerView];
+    }
+    [mDelegate adManager:self removeAd:mGADBannerView];
+    
+    [mGADBannerView release];
+    mGADBannerView = nil;
+    
+    [self _loadIAd];
 }
 
 @end

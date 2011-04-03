@@ -16,8 +16,10 @@
 @class AdManager;
 
 @protocol AdManagerDelegate
+- (void)adManager:(AdManager*)adManager setAd:(UIView *)adView;
 - (void)adManager:(AdManager*)adManager showAd:(UIView *)adView;
 - (void)adManager:(AdManager*)adManager hideAd:(UIView *)adView;
+- (void)adManager:(AdManager*)adManager removeAd:(UIView *)adView;
 @end
 
 @interface AdManager : NSObject <ADBannerViewDelegate, GADBannerViewDelegate>

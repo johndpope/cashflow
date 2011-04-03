@@ -15,6 +15,7 @@
 #if FREE_VERSION
 #import <iAd/iAd.h>
 #import "GADBannerView.h"
+#import "AdManager.h"
 #endif
 
 @class AssetListViewController;
@@ -22,7 +23,7 @@
 @interface TransactionListViewController : UIViewController 
     <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate, BackupViewDelegate
 #if FREE_VERSION
-    , ADBannerViewDelegate, GADBannerViewDelegate
+    , AdManagerDelegate
 #endif
 >
 {
@@ -35,10 +36,7 @@
     Asset *mAssetCache;
     
 #if FREE_VERSION
-    ADBannerView *mADBannerView;
-    GADBannerView *mGADBannerView;
-    BOOL mIsAdDisplayed;
-    CGSize mAdSize;
+    AdManager *mAdManager;
 #endif
     
     BOOL mAsDisplaying;
@@ -63,13 +61,5 @@
 - (IBAction)showReport:(id)sender;
 - (IBAction)doAction:(id)sender;
 //- (IBAction)showHelp:(id)sender;
-
-#if FREE_VERSION
-- (void)_startLoadAd;
-- (void)_loadIAd;
-- (void)_loadAdMob;
-- (void)_showAd:(UIView *)adView;
-- (void)_hideAd:(UIView *)adView;
-#endif
 
 @end
