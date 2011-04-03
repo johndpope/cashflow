@@ -70,10 +70,18 @@
     NSLog(@"applicationDidFinishLaunching: done");
 }
 
+// Background に入る前の処理
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    // Background に入るまえに PIN コード表示を行っておく
+    // 復帰時だと、前の画面が一瞬表示されたあとで PIN 画面がでてしまうので遅い
+    [self checkPin];
+}
+
 // Background から復帰するときの処理
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [self checkPin];
+    //[self checkPin];
 }
 
 - (void)checkPin
@@ -88,7 +96,6 @@
     }
 }
 
-
 //
 // 終了処理 : データ保存
 //
@@ -98,11 +105,7 @@
     [Database shutdown];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    //[DataModel finalize];
-    //[Database shutdown];
-}
+
 
 - (void)dealloc {
     [navigationController release];
