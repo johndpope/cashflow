@@ -54,6 +54,9 @@
         mCatReports = ary;
         [mCatReports retain];
     }
+    
+    // force redraw the cell
+    [self setNeedsDisplay];
 }
 
 /**
