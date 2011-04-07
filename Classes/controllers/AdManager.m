@@ -155,12 +155,18 @@ static int sIAdSuccededCount = 0;
         mIsAdDisplayed = NO;
         [mDelegate adManager:self hideAd:mGADBannerView];
     }
+#if 0
+    // iAd に切り替える場合の処理
     [mDelegate adManager:self removeAd:mGADBannerView];
     
-    [mGADBannerView release];
+    mGADBannerView.delegate = nil; // clear delegate to avoid crash!
+
+    // delegate 内で release するとクラッシュする模様。autorelease で遅延させる。
+    [mGADBannerView autorelease];
     mGADBannerView = nil;
     
     [self _loadIAd];
+#endif
 }
 
 @end
