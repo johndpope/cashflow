@@ -39,3 +39,11 @@ What's new in ver 4.0
 - New report functions (Daily/Annual report, Pie chart, check all transactions for each category)
 - Export all assets with CSV/OFX.
 - New icon.
+
+----
+ver 4.1
+
+- Add configuration for start of week.
+- Show total value in category report.
+- Bug fixed: Sometimes pie chart does not show correctly.
+- Change advertisement.
