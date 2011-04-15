@@ -206,11 +206,30 @@ sub getSymbolPathFor_dsymUuid{
     $dsymdir = quotemeta($dsymdir);	# quote the result to handle spaces in path and executable names
     print STDERR "dsym directory: $dsymdir\n" if $opt{v};
     
+    my $pathToDsym;
+    my $dsymBaseName;
+    my $executable;
+    
     # Find the executable from the dsym.
-    $dsymdir =~ /(.*)\/(.*).dSYM/;
-    my $pathToDsym = $1;
-    my $dsymBaseName = $2;
-    my $executable = $dsymBaseName;
+    if ($dsymdir =~ /(.*)\/(.*).dSYM/) {
+        $pathToDsym = $1;
+        $dsymBaseName = $2;
+        $executable = $dsymBaseName;
+    } else {
+    	print STDERR "No match for dsymdir\n\n" if $opt{v};
+    	my @files = glob("$dsymdir/*/*");
+    	my $file;
+        foreach $file (@files) {
+            print STDERR "$file\n";
+            if ($file =~ /(.*)\/(.*).dSYM$/) {
+                print STDERR "using $file\n";
+                $pathToDsym = quotemeta($1);
+                $dsymBaseName = $2;
+                $executable = $dsymBaseName;
+                last;
+            }
+        }
+    }
     $executable =~ s/\..*//g;	# strip off the suffix, if any
     
 	print STDERR "Executable: $executable\n\n" if $opt{v};
@@ -218,6 +237,9 @@ sub getSymbolPathFor_dsymUuid{
 	$executable =~ s/\\//g; # remove \ characters from the executable name.
     chomp($executable); # remove newline character if any from the executable path.
     my @paths = glob "$pathToDsym/$dsymBaseName/{,$executable,Contents/MacOS/$executable}";
+    print STDERR "pathToDsym: $pathToDsym\n" if $opt{v};
+    print STDERR "dsymBaseName: $dsymBaseName\n" if $opt{v};
+    print STDERR "executable: $executable\n" if $opt{v};
     print STDERR "paths: @paths\n" if $opt{v};
     
     my @executablePath = grep { -x && ! -d } glob "$pathToDsym/$dsymBaseName/{,$executable,Contents/MacOS/$executable}";
@@ -227,9 +249,24 @@ sub getSymbolPathFor_dsymUuid{
 	print STDERR "spotLightSearchForExecutable: @spotLightSearchForExecutable\n\n" if $opt{v};
 	print STDERR "Executable: $executable\n\n" if $opt{v};
 	foreach (@spotLightSearchForExecutable) {
-		$_ =~ s/\/$//;
-		chomp($_);
-		$_ = $_."/".$executable;
+        $_ =~ s/\/$//;
+        chomp($_);
+	    if ($_ =~ /.*.xcarchive/) {
+	        my $path = quotemeta("$_");
+	        $path = $path."/*/*/*/$executable";
+            print STDERR "searching $path\n" if $opt{v};        	        
+	        my @files = glob("$path");
+	        my $file;
+	        foreach $file (@files) {
+            	print STDERR "Found $file\n" if $opt{v};        
+	        }
+	        if (@files) {
+	            $_ = $files[0];
+            	print STDERR "Found executable in .xcarchive: $_\n" if $opt{v};
+	        }
+	    } else {
+            $_ = $_."/".$executable;
+        }
 	}
 	@executablePath = (@executablePath,@spotLightSearchForExecutable); 
 	print STDERR "executablePath = @executablePath\n\n" if $opt{v};
@@ -243,8 +280,8 @@ sub getSymbolPathFor_dsymUuid{
 		while (defined($exec = shift @executablePath) ){
 			if ( !matchesUUID($exec, $uuid, $arch) ) {
 				print STDERR "UUID of executable is: $uuid\n" if $opt{v};
-				print STDERR "Executable name: $exec\n\n" if $opt{v};
-				print STDERR "UUID doesn't match dsym for executable $exec\n" if $opt{v};
+				print STDERR "Executable name: $exec\n" if $opt{v};
+				print STDERR "UUID doesn't match dsym for executable $exec\n\n" if $opt{v};
 				
 			} else {
 				print STDERR "Found executable $exec\n" if $opt{v};
@@ -264,7 +301,7 @@ sub matchesUUID
     my ($path, $uuid, $arch) = @_;
     
     if ( ! -f $path ) {
-        print STDERR "## $path doesn't exist " if $opt{v};
+        print STDERR "## $path doesn't exist \n" if $opt{v};
         return 0;
     }
     
@@ -632,7 +669,7 @@ sub parse_OSVersion {
 	if ( $section =~ /\s([0-9\.]+)/ ) {
 		return ($1, "")
 	}
-    die "Error: can't parse OS Version string '$section'";
+    die "Error: can't parse OS Version string $section";
 }
 
 # Map from the "Code Type" field of the crash log, to a Mac OS X
