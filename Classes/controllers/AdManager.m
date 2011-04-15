@@ -13,6 +13,7 @@
 @implementation AdManager
 
 @synthesize adSize = mAdSize;
+@synthesize delegate = mDelegate;
 
 static int sIAdSuccededCount = 0;
 
@@ -20,15 +21,22 @@ static int sIAdSuccededCount = 0;
 {
     self = [super init];
     if (self) {
-        mDelegate = delegate;
+        self.delegate = delegate;
         mRootViewController = rootViewController;
     }
     return self;
 }
 
 - (void)dealloc {
-    [mADBannerView release];
-    [mGADBannerView release];
+    if (mADBannerView != nil) {
+        mADBannerView.delegate = nil;
+        [mADBannerView release];
+    }
+    if (mGADBannerView != nil) {
+        mGADBannerView.delegate = nil;
+        mGADBannerView.rootViewController = nil;
+        [mGADBannerView release];
+    }
     [super dealloc];
 }
 

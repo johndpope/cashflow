@@ -36,6 +36,7 @@
 
 //- (UITableView*)tableView;
 @property(nonatomic,readonly) CGSize adSize;
+@property(nonatomic,assign) id<AdManagerDelegate> delegate;
 
 - (id)init:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController;
 

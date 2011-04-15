@@ -88,6 +88,7 @@
     [mPopoverController release];
     
 #if FREE_VERSION
+    mAdManager.delegate = nil;
     [mAdManager release];
 #endif
     
