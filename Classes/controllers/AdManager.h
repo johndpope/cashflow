@@ -37,16 +37,16 @@
     BOOL mIsGAdBannerLoaded;
 }
 
-@property(nonatomic,assign) id<AdManagerDelegate> delegate;
-
 + (AdManager *)sharedInstance;
 
 - (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController;
 - (void)detach;
 - (void)showAd;
 
-//- (void)startLoadAd;
-- (void)_loadIAd;
-- (void)_loadAdMob;
+- (void)_createIAd;
+- (void)_releaseIAd;
+
+- (void)_createAdMob;
+- (void)_releaseAdMob;
 
 @end

@@ -12,8 +12,6 @@
 
 @implementation AdManager
 
-@synthesize delegate = mDelegate;
-
 static AdManager *theAdManager;
 
 + (AdManager *)sharedInstance
@@ -28,46 +26,31 @@ static AdManager *theAdManager;
 {
     self = [super init];
     if (self != nil) {
-        [self _loadIAd];
-        [self _loadAdMob];
+        [self _createIAd];
+        [self _createAdMob];
     }
     return self;
 }
 
 - (void)dealloc {
-    if (mIADBannerView != nil) {
-        mIADBannerView.delegate = nil;
-        [mIADBannerView release];
-    }
-    
-    if (mGADBannerView != nil) {
-        mGADBannerView.delegate = nil;
-        mGADBannerView.rootViewController = nil;
-        [mGADBannerView release];
-    }
+    [self _releaseIAd];
+    [self _releaseAdMob];
     
     [super dealloc];
 }
 
 - (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController
 {
-    self.delegate = delegate;
+    mDelegate = delegate;
     mIsIAdShowing = NO;
     mIsGAdShowing = NO;
 
-    /*
-       iAd がロードされている場合、AdMob はここで解放し、以降 refresh がかからないようにする
-     */
-    if (mIADBannerView != nil && [mIADBannerView isBannerLoaded] && mGADBannerView != nil) {
-        mGADBannerView.delegate = nil;
-        mGADBannerView.rootViewController = nil;
-        [mGADBannerView release];
-        mGADBannerView = nil;
-        
-        mIsGAdBannerLoaded = NO;
-    }
-    
     if (mIADBannerView != nil) {
+        if ([mIADBannerView isBannerLoaded]) {
+            /* iAd がロードされている場合、AdMob はここで解放し、以降 refresh がかからないようにする */
+            [self _releaseAdMob];
+        }
+    
         [mDelegate adManager:self setAd:mIADBannerView adSize:mIAdSize];
     }
 
@@ -75,6 +58,12 @@ static AdManager *theAdManager;
         mGADBannerView.rootViewController = rootViewController;
         [mDelegate adManager:self setAd:mGADBannerView adSize:mGAdSize];
     }
+}
+
+- (void)detach
+{
+    mDelegate = nil;
+    mGADBannerView.rootViewController = nil; // TODO これ大丈夫？
 }
 
 /**
@@ -124,19 +113,12 @@ static AdManager *theAdManager;
     }
 }
 
-- (void)detach
-{
-    self.delegate = nil;
-    
-    mGADBannerView.rootViewController = nil; // TODO これ大丈夫？
-}
-
 #pragma mark - Internal
 
 /**
  * iAd 表示開始
  */
-- (void)_loadIAd
+- (void)_createIAd
 {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.0) {
         if (IS_IPAD) {
@@ -153,9 +135,21 @@ static AdManager *theAdManager;
 }
 
 /**
+ * iAd 解放
+ */
+- (void)_releaseIAd
+{
+    if (mIADBannerView != nil) {
+        mIADBannerView.delegate = nil;
+        [mIADBannerView release];
+        mIADBannerView = nil;
+    }
+}
+
+/**
  * AdMob 表示開始
  */
-- (void)_loadAdMob
+- (void)_createAdMob
 {
     NSLog(@"start load AdMob");
     
@@ -175,6 +169,21 @@ static AdManager *theAdManager;
     mGADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 }
 
+/**
+ * AdMob 解放
+ */
+- (void)_releaseAdMob
+{
+    mIsGAdBannerLoaded = NO;
+
+    if (mGADBannerView != nil) {
+        mGADBannerView.delegate = nil;
+        mGADBannerView.rootViewController = nil;
+        [mGADBannerView release];
+        mGADBannerView = nil;
+    }
+}
+
 #pragma mark - iAd : ADBannerViewDelegate
 
 /** iAd表示成功 */
@@ -191,19 +200,11 @@ static AdManager *theAdManager;
 /** iAd取得失敗 */
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
-    NSLog(@"iAd load failed");
-    
     if ([mIADBannerView isBannerLoaded]) {
-        NSLog(@"but prev iAd is effective.");
-        return;
+        NSLog(@"iAd auto refresh failed");
+    } else {
+        NSLog(@"iAd initial load failed");
     }
-
-#if 0    
-    if (mIsIAdShowing) {
-        mIsIAdShowing = NO;
-        [mDelegate adManager:self hideAd:mIADBannerView adSize:mIAdSize];
-    }
-#endif
 }
 
 #pragma mark - AdMob : GADBannerViewDelegate
@@ -224,16 +225,9 @@ static AdManager *theAdManager;
     if (mGADBannerView.hasAutoRefreshed) {
         // auto refresh failed, but previous ad is effective.    
         NSLog(@"AdMob auto refresh failed");
-        return;
+    } else {
+        NSLog(@"AdMob initial load failed");
     }
-    
-    NSLog(@"AdMob load failed");
-#if 0
-    if (mIsGAdShowing) {
-        mIsGAdShowing = NO;
-        [mDelegate adManager:self hideAd:mGADBannerView adSize:mGAdSize];
-    }
-#endif
 }
 
 @end
