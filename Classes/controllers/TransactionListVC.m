@@ -112,7 +112,7 @@
     [self reload];
 
 #if FREE_VERSION
-    [mAdManager replaceAd];
+    [mAdManager showAd];
 #endif
 }
 

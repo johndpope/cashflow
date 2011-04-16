@@ -43,7 +43,7 @@
 
 - (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController;
 - (void)detach;
-- (void)replaceAd;
+- (void)showAd;
 
 //- (void)startLoadAd;
 - (void)_loadIAd;
