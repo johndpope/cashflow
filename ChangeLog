@@ -1,3 +1,9 @@
+2011-04-16 : Takuya Murakami
+
+	* ver 4.1.2 GM (CahsFlow Free)
+	* バグ修正: iOS4.0/4.1 で iAd がクラッシュする問題を修正
+	* iAd / AdMob の表示方法を変更、AdManager を singleton 化
+	
 2011-04-07 : Takuya Murakami
 
 	* ver 4.1.1 GM
