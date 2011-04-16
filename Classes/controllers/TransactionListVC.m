@@ -78,7 +78,9 @@
 - (void)viewDidUnload
 {
     NSLog(@"TransactionListViewController:viewDidUnload");
+#if FREE_VERSION
     [mAdManager detach];
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
