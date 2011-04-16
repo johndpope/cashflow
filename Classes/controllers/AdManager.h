@@ -16,31 +16,36 @@
 @class AdManager;
 
 @protocol AdManagerDelegate
-- (void)adManager:(AdManager*)adManager setAd:(UIView *)adView;
-- (void)adManager:(AdManager*)adManager showAd:(UIView *)adView;
-- (void)adManager:(AdManager*)adManager hideAd:(UIView *)adView;
-- (void)adManager:(AdManager*)adManager removeAd:(UIView *)adView;
+- (void)adManager:(AdManager*)adManager setAd:(UIView *)adView adSize:(CGSize)adSize;
+- (void)adManager:(AdManager*)adManager showAd:(UIView *)adView adSize:(CGSize)adSize;
+- (void)adManager:(AdManager*)adManager hideAd:(UIView *)adView adSize:(CGSize)adSize;
 @end
 
 @interface AdManager : NSObject <ADBannerViewDelegate, GADBannerViewDelegate>
 {
-    UIViewController *mRootViewController;
-    
-    ADBannerView *mADBannerView;
-    GADBannerView *mGADBannerView;
-    BOOL mIsAdDisplayed;
-    CGSize mAdSize;
-
     id<AdManagerDelegate> mDelegate;
+    
+    // iAd
+    ADBannerView *mIADBannerView;
+    CGSize mIAdSize;
+    BOOL mIsIAdDisplayed;
+    
+    // AdMob
+    GADBannerView *mGADBannerView;
+    CGSize mGAdSize;
+    BOOL mIsGAdDisplayed;
+    BOOL mIsGAdBannerLoaded;
 }
 
-//- (UITableView*)tableView;
-@property(nonatomic,readonly) CGSize adSize;
 @property(nonatomic,assign) id<AdManagerDelegate> delegate;
 
-- (id)init:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController;
++ (AdManager *)sharedInstance;
 
-- (void)startLoadAd;
+- (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController;
+- (void)detach;
+- (void)replaceAd;
+
+//- (void)startLoadAd;
 - (void)_loadIAd;
 - (void)_loadAdMob;
 

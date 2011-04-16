@@ -70,7 +70,8 @@
     mAsDisplaying = NO;
 
 #if FREE_VERSION
-    mAdManager = [[AdManager alloc] init:self rootViewController:self];
+    mAdManager = [AdManager sharedInstance];
+    [mAdManager attach:self rootViewController:self];
 #endif
 }
 
@@ -88,8 +89,7 @@
     [mPopoverController release];
     
 #if FREE_VERSION
-    mAdManager.delegate = nil;
-    [mAdManager release];
+    [mAdManager detach];
 #endif
     
     [super dealloc];
@@ -112,7 +112,7 @@
     [self reload];
 
 #if FREE_VERSION
-    [mAdManager startLoadAd];
+    [mAdManager replaceAd];
 #endif
 }
 
@@ -120,15 +120,15 @@
 /**
  * 広告セット(まだ表示はしない)
  */
-- (void)adManager:(AdManager *)adManager setAd:(UIView *)adView
+- (void)adManager:(AdManager *)adManager setAd:(UIView *)adView adSize:(CGSize)adSize
 {
     CGRect frame = mTableView.bounds;
 
     // 広告の位置を画面外に設定
     CGRect aframe = frame;
-    aframe.origin.x = (frame.size.width - adManager.adSize.width) / 2;
+    aframe.origin.x = (frame.size.width - adSize.width) / 2;
     aframe.origin.y = frame.size.height; // 画面外
-    aframe.size = adManager.adSize;
+    aframe.size = adSize;
     
     adView.frame = aframe;
     adView.hidden = YES;
@@ -139,7 +139,7 @@
 /**
  * 広告表示
  */
-- (void)adManager:(AdManager *)adManager showAd:(UIView *)adView
+- (void)adManager:(AdManager *)adManager showAd:(UIView *)adView adSize:(CGSize)adSize
 {
     CGRect frame = mTableView.bounds;
 
@@ -147,14 +147,14 @@
     CGRect tframe = frame;
     tframe.origin.x = 0;
     tframe.origin.y = 0;
-    tframe.size.height -= adManager.adSize.height;
+    tframe.size.height -= adSize.height;
     mTableView.frame = tframe;
 
     // 広告の位置
     CGRect aframe = frame;
-    aframe.origin.x = (frame.size.width - adManager.adSize.width) / 2;
-    aframe.origin.y = frame.size.height - adManager.adSize.height;
-    aframe.size = adManager.adSize;
+    aframe.origin.x = (frame.size.width - adSize.width) / 2;
+    aframe.origin.y = frame.size.height - adSize.height;
+    aframe.size = adSize;
     
     // 広告をアニメーション表示させる
     adView.hidden = NO;
@@ -166,7 +166,7 @@
 /**
  * 広告を隠す
  */
-- (void)adManager:(AdManager *)adManager hideAd:(UIView *)adView
+- (void)adManager:(AdManager *)adManager hideAd:(UIView *)adView adSize:(CGSize)adSize
 {
     adView.hidden = YES;
     
@@ -175,14 +175,14 @@
     // tableView のサイズをもとに戻す
     frame.origin.x = 0;
     frame.origin.y = 0;
-    frame.size.height += adManager.adSize.height;
+    frame.size.height += adSize.height;
     mTableView.frame = frame;
     
     // 広告の位置
     CGRect aframe = frame;
-    aframe.origin.x = (frame.size.width - adManager.adSize.width) / 2;
+    aframe.origin.x = (frame.size.width - adSize.width) / 2;
     aframe.origin.y = frame.size.height;
-    aframe.size = adManager.adSize;
+    aframe.size = adSize;
     
     // 広告をアニメーション表示させる
     adView.hidden = NO;
@@ -190,11 +190,6 @@
     adView.frame = aframe;
     [UIView commitAnimations];
     adView.hidden = YES;
-}
-
-- (void)adManager:(AdManager *)adManager removeAd:(UIView *)adView
-{
-    [adView removeFromSuperview];
 }
 
 #endif
