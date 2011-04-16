@@ -78,7 +78,7 @@ static AdManager *theAdManager;
         return;
     }
     
-    // iAd がロード済みの場合は、iAd に切り替える
+    // iAd がロード済みの場合は、iAd を表示する
     if (mIADBannerView != nil && [mIADBannerView isBannerLoaded]) {
         if (mIsGAdShowing) {
             // AdMob が表示されている場合は hide する
