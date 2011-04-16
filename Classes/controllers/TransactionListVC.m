@@ -42,7 +42,7 @@
 
 - (void)viewDidLoad
 {
-    //NSLog(@"TransactionListViewController:viewDidLoad");
+    NSLog(@"TransactionListViewController:viewDidLoad");
 
     [super viewDidLoad];
 	
@@ -77,7 +77,8 @@
 
 - (void)viewDidUnload
 {
-    //NSLog(@"TransactionListViewController:viewDidUnload");
+    NSLog(@"TransactionListViewController:viewDidUnload");
+    [mAdManager detach];
 }
 
 - (void)didReceiveMemoryWarning {
