@@ -28,12 +28,12 @@
     // iAd
     ADBannerView *mIADBannerView;
     CGSize mIAdSize;
-    BOOL mIsIAdDisplayed;
+    BOOL mIsIAdShowing;
     
     // AdMob
     GADBannerView *mGADBannerView;
     CGSize mGAdSize;
-    BOOL mIsGAdDisplayed;
+    BOOL mIsGAdShowing;
     BOOL mIsGAdBannerLoaded;
 }
 
