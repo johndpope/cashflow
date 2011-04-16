@@ -75,6 +75,7 @@ static AdManager *theAdManager;
     
     // iAd がすでに表示されている場合は何もしない
     if (mIsIAdShowing) {
+        NSLog(@"showAd: iAd already showing");
         return;
     }
     
@@ -82,10 +83,12 @@ static AdManager *theAdManager;
     if (mIADBannerView != nil && [mIADBannerView isBannerLoaded]) {
         if (mIsGAdShowing) {
             // AdMob が表示されている場合は hide する
+            NSLog(@"showAd: hide AdMob");
             mIsGAdShowing = NO;
             [mDelegate adManager:self hideAd:mGADBannerView adSize:mGAdSize];
         }
-        
+
+        NSLog(@"showAd: show iAd");
         [mDelegate adManager:self showAd:mIADBannerView adSize:mIAdSize];
         mIsIAdShowing = YES;
     }
@@ -93,23 +96,28 @@ static AdManager *theAdManager;
     else if (mGADBannerView != nil) {
         // AdMob が表示済みの場合は何もしない
         if (mIsGAdShowing) {
+            NSLog(@"showAd: AdMob already showing");
             return;
         }
 
         // AdMob がロード済みの場合はこれを表示させる
         else if (mIsGAdBannerLoaded) {
+            NSLog(@"showAd: show AdMob");
             [mDelegate adManager:self showAd:mGADBannerView adSize:mGAdSize];
             mIsGAdShowing = YES;
         }
     
         // AdMob のリクエストを開始する
         else {
+            NSLog(@"showAd: start load AdMob");
             GADRequest *req = [GADRequest request];
             if (AD_IS_TEST) {
                 req.testing = YES;
             }
             [mGADBannerView loadRequest:req];
         }
+    } else {
+        NSLog(@"showAd: no ad to show");
     }
 }
 
@@ -120,15 +128,22 @@ static AdManager *theAdManager;
  */
 - (void)_createIAd
 {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.0) {
+    float systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if (systemVersion >= 4.0) {
+        NSLog(@"create iAd");
         if (IS_IPAD) {
             mIAdSize = CGSizeMake(766, 66);
         } else {
             mIAdSize = CGSizeMake(320, 50);
         }
     
-        mIADBannerView = [[ADBannerView alloc] init];
-        mIADBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
+        mIADBannerView = [[ADBannerView alloc] initWithFrame:CGRectZero];
+        if (systemVersion >= 4.2) {
+            // ADBannerContentSizeIdentifierPortait は iOS 4.2 以降でしか使えない
+            mIADBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
+        } else {
+            mIADBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifier320x50;
+        }
         mIADBannerView.delegate = self;
         mIADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     }
@@ -139,6 +154,7 @@ static AdManager *theAdManager;
  */
 - (void)_releaseIAd
 {
+    NSLog(@"release iAd");
     if (mIADBannerView != nil) {
         mIADBannerView.delegate = nil;
         [mIADBannerView release];
@@ -151,7 +167,7 @@ static AdManager *theAdManager;
  */
 - (void)_createAdMob
 {
-    NSLog(@"start load AdMob");
+    NSLog(@"create AdMob");
     
     if (IS_IPAD) {
         mGAdSize = GAD_SIZE_468x60;
@@ -174,6 +190,7 @@ static AdManager *theAdManager;
  */
 - (void)_releaseAdMob
 {
+    NSLog(@"release AdMob");
     mIsGAdBannerLoaded = NO;
 
     if (mGADBannerView != nil) {
@@ -202,8 +219,17 @@ static AdManager *theAdManager;
 {
     if ([mIADBannerView isBannerLoaded]) {
         NSLog(@"iAd auto refresh failed");
-    } else {
-        NSLog(@"iAd initial load failed");
+        return; // do not hide ad
+    }
+
+    NSLog(@"iAd load failed");
+    if (mIsIAdShowing) {
+        NSLog(@"hide iAd"); // 広告リロードの場合でも、isBannerLoaded = NO の場合がある。
+        mIsIAdShowing = NO;
+        [mDelegate adManager:self hideAd:mIADBannerView adSize:mIAdSize];
+        
+        // try to show AdMob
+        [self showAd];
     }
 }
 
