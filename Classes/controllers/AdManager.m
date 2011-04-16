@@ -12,161 +12,248 @@
 
 @implementation AdManager
 
-@synthesize adSize = mAdSize;
+static AdManager *theAdManager;
 
-static int sIAdSuccededCount = 0;
++ (AdManager *)sharedInstance
+{
+    if (theAdManager == nil) {
+        theAdManager = [AdManager new];
+    }
+    return theAdManager;
+}
 
-- (id)init:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController
+- (id)init
 {
     self = [super init];
-    if (self) {
-        mDelegate = delegate;
-        mRootViewController = rootViewController;
+    if (self != nil) {
+        [self _createIAd];
+        [self _createAdMob];
     }
     return self;
 }
 
 - (void)dealloc {
-    [mADBannerView release];
-    [mGADBannerView release];
+    [self _releaseIAd];
+    [self _releaseAdMob];
+    
     [super dealloc];
 }
 
-/**
- * 広告表示開始
- */
-- (void)startLoadAd
+- (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController
 {
-    if (mADBannerView == nil && mGADBannerView == nil) {
-        // iAd は iOS 4.0 以上のみ
-        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.0) {
-            // 過去 iAd のロードに1回でも成功していれば iAd を
-            // そうでない場合は、一定確率で AdMob をロードする
-            if (sIAdSuccededCount > 0 || (rand() % 100) < 50) {
-                [self _loadIAd];
-            } else {
-                [self _loadAdMob];
-            }
-        } else {
-            [self _loadAdMob];
+    mDelegate = delegate;
+    mIsIAdShowing = NO;
+    mIsGAdShowing = NO;
+
+    if (mIADBannerView != nil) {
+        if ([mIADBannerView isBannerLoaded]) {
+            /* iAd がロードされている場合、AdMob はここで解放し、以降 refresh がかからないようにする */
+            [self _releaseAdMob];
         }
+    
+        [mDelegate adManager:self setAd:mIADBannerView adSize:mIAdSize];
+    }
+
+    if (mGADBannerView != nil) {
+        mGADBannerView.rootViewController = rootViewController;
+        [mDelegate adManager:self setAd:mGADBannerView adSize:mGAdSize];
     }
 }
+
+- (void)detach
+{
+    mDelegate = nil;
+    mGADBannerView.rootViewController = nil; // TODO これ大丈夫？
+}
+
+/**
+ * 広告を表示する
+ */
+- (void)showAd
+{
+    if (mDelegate == nil) return;
+    
+    // iAd がすでに表示されている場合は何もしない
+    if (mIsIAdShowing) {
+        NSLog(@"showAd: iAd already showing");
+        return;
+    }
+    
+    // iAd がロード済みの場合は、iAd を表示する
+    if (mIADBannerView != nil && [mIADBannerView isBannerLoaded]) {
+        if (mIsGAdShowing) {
+            // AdMob が表示されている場合は hide する
+            NSLog(@"showAd: hide AdMob");
+            mIsGAdShowing = NO;
+            [mDelegate adManager:self hideAd:mGADBannerView adSize:mGAdSize];
+        }
+
+        NSLog(@"showAd: show iAd");
+        [mDelegate adManager:self showAd:mIADBannerView adSize:mIAdSize];
+        mIsIAdShowing = YES;
+    }
+    
+    else if (mGADBannerView != nil) {
+        // AdMob が表示済みの場合は何もしない
+        if (mIsGAdShowing) {
+            NSLog(@"showAd: AdMob already showing");
+            return;
+        }
+
+        // AdMob がロード済みの場合はこれを表示させる
+        else if (mIsGAdBannerLoaded) {
+            NSLog(@"showAd: show AdMob");
+            [mDelegate adManager:self showAd:mGADBannerView adSize:mGAdSize];
+            mIsGAdShowing = YES;
+        }
+    
+        // AdMob のリクエストを開始する
+        else {
+            NSLog(@"showAd: start load AdMob");
+            GADRequest *req = [GADRequest request];
+            if (AD_IS_TEST) {
+                req.testing = YES;
+            }
+            [mGADBannerView loadRequest:req];
+        }
+    } else {
+        NSLog(@"showAd: no ad to show");
+    }
+}
+
+#pragma mark - Internal
 
 /**
  * iAd 表示開始
  */
-- (void)_loadIAd
+- (void)_createIAd
 {
-    NSLog(@"start load iAd");
+    float systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if (systemVersion >= 4.0) {
+        NSLog(@"create iAd");
+        if (IS_IPAD) {
+            mIAdSize = CGSizeMake(766, 66);
+        } else {
+            mIAdSize = CGSizeMake(320, 50);
+        }
+    
+        mIADBannerView = [[ADBannerView alloc] initWithFrame:CGRectZero];
+        if (systemVersion >= 4.2) {
+            // ADBannerContentSizeIdentifierPortait は iOS 4.2 以降でしか使えない
+            mIADBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
+        } else {
+            mIADBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifier320x50;
+        }
+        mIADBannerView.delegate = self;
+        mIADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    }
+}
+
+/**
+ * iAd 解放
+ */
+- (void)_releaseIAd
+{
+    NSLog(@"release iAd");
+    if (mIADBannerView != nil) {
+        mIADBannerView.delegate = nil;
+        [mIADBannerView release];
+        mIADBannerView = nil;
+    }
+}
+
+/**
+ * AdMob 表示開始
+ */
+- (void)_createAdMob
+{
+    NSLog(@"create AdMob");
     
     if (IS_IPAD) {
-        mAdSize = CGSizeMake(766, 66);
+        mGAdSize = GAD_SIZE_468x60;
+        //mAdSize = GAD_SIZE_728x90;
     } else {
-        mAdSize = CGSizeMake(320, 50);
+        mGAdSize = GAD_SIZE_320x50;
     }
     
-    mADBannerView = [[ADBannerView alloc] init];
-    mADBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
-    mADBannerView.delegate = self;
-    mADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    CGRect frame = CGRectMake(0, 0, mGAdSize.width, mGAdSize.height);
+    mGADBannerView = [[GADBannerView alloc] initWithFrame:frame];
+    mGADBannerView.delegate = self;
     
-    mIsAdDisplayed = NO;
-    
-    [mDelegate adManager:self setAd:mADBannerView];
+    mGADBannerView.adUnitID = ADMOB_PUBLISHER_ID;
+    mGADBannerView.rootViewController = nil; // この時点では不明
+    mGADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 }
+
+/**
+ * AdMob 解放
+ */
+- (void)_releaseAdMob
+{
+    NSLog(@"release AdMob");
+    mIsGAdBannerLoaded = NO;
+
+    if (mGADBannerView != nil) {
+        mGADBannerView.delegate = nil;
+        mGADBannerView.rootViewController = nil;
+        [mGADBannerView release];
+        mGADBannerView = nil;
+    }
+}
+
+#pragma mark - iAd : ADBannerViewDelegate
 
 /** iAd表示成功 */
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
     NSLog(@"iAd loaded");
     
-    sIAdSuccededCount++;
-    
-    if (!mIsAdDisplayed) {
-        mIsAdDisplayed = YES;
-        [mDelegate adManager:self showAd:mADBannerView];
+    if (mDelegate != nil && !mIsGAdShowing && !mIsIAdShowing) {
+        mIsIAdShowing = YES;
+        [mDelegate adManager:self showAd:mIADBannerView adSize:mIAdSize];
     }
 }
 
 /** iAd取得失敗 */
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
-    NSLog(@"iAd load failed");
-    
-    if (mIsAdDisplayed) {
-        mIsAdDisplayed = NO;
-        [mDelegate adManager:self hideAd:mADBannerView];
+    if ([mIADBannerView isBannerLoaded]) {
+        NSLog(@"iAd auto refresh failed");
+        return; // do not hide ad
     }
-    [mDelegate adManager:self removeAd:mADBannerView];
-    
-    [mADBannerView release];
-    mADBannerView = nil;
-    
-    [self _loadAdMob];
+
+    NSLog(@"iAd load failed");
+    if (mIsIAdShowing) {
+        NSLog(@"hide iAd"); // 広告リロードの場合でも、isBannerLoaded = NO の場合がある。
+        mIsIAdShowing = NO;
+        [mDelegate adManager:self hideAd:mIADBannerView adSize:mIAdSize];
+        
+        // try to show AdMob
+        [self showAd];
+    }
 }
 
-/**
- * AdMob 表示開始
- */
-- (void)_loadAdMob
-{
-    NSLog(@"start load AdMob");
-    
-    if (IS_IPAD) {
-        mAdSize = GAD_SIZE_468x60;
-        //mAdSize = GAD_SIZE_728x90;
-    } else {
-        mAdSize = GAD_SIZE_320x50;
-    }
-    
-    CGRect frame = CGRectMake(0, 0, mAdSize.width, mAdSize.height);
-    mGADBannerView = [[GADBannerView alloc] initWithFrame:frame];
-    mGADBannerView.delegate = self;
-    
-    mGADBannerView.adUnitID = ADMOB_PUBLISHER_ID;
-    mGADBannerView.rootViewController = mRootViewController;
-    mGADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    [mDelegate adManager:self setAd:mGADBannerView];
-    
-    mIsAdDisplayed = NO;
-    
-    GADRequest *req = [GADRequest request];
-    if (AD_IS_TEST) {
-        req.testing = YES;
-    }
-    [mGADBannerView loadRequest:req];
-}
+#pragma mark - AdMob : GADBannerViewDelegate
 
 - (void)adViewDidReceiveAd:(GADBannerView *)view
 {
     NSLog(@"AdMob loaded");
-    if (!mIsAdDisplayed) {
-        mIsAdDisplayed = YES;
-        [mDelegate adManager:self showAd:mGADBannerView];
+    mIsGAdBannerLoaded = YES;
+    
+    if (mDelegate != nil && !mIsGAdShowing && !mIsIAdShowing) {
+        mIsGAdShowing = YES;
+        [mDelegate adManager:self showAd:mGADBannerView adSize:mGAdSize];
     }
 }
 
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
 {
-    NSLog(@"AdMob load failed");
-    
-    if (mIsAdDisplayed) {
-        mIsAdDisplayed = NO;
-        [mDelegate adManager:self hideAd:mGADBannerView];
+    if (mGADBannerView.hasAutoRefreshed) {
+        // auto refresh failed, but previous ad is effective.    
+        NSLog(@"AdMob auto refresh failed");
+    } else {
+        NSLog(@"AdMob initial load failed");
     }
-#if 0
-    // iAd に切り替える場合の処理
-    [mDelegate adManager:self removeAd:mGADBannerView];
-    
-    mGADBannerView.delegate = nil; // clear delegate to avoid crash!
-
-    // delegate 内で release するとクラッシュする模様。autorelease で遅延させる。
-    [mGADBannerView autorelease];
-    mGADBannerView = nil;
-    
-    [self _loadIAd];
-#endif
 }
 
 @end
