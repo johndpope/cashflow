@@ -30,12 +30,13 @@ static AdManager *theAdManager;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         int n = [defaults integerForKey:@"ShowAds"];
         if (n == 0) {
-            mIsShowSucceded = NO;
+            mIsShowAdSucceeded = NO;
         } else {
-            mIsShowSucceded = YES;
+            mIsShowAdSucceeded = YES;
 
             // プロパティ上は NO にセットしておく(途中クラッシュ対処)
             [defaults setInteger:0 forKey:@"ShowAds"];
+            [defaults synchronize];
         }
 
         [self _createIAd];
@@ -51,17 +52,18 @@ static AdManager *theAdManager;
     [super dealloc];
 }
 
-- (BOOL)isShowAdSucceded
+- (BOOL)isShowAdSucceeded
 {
-    return mIsShowAdSucceded;
+    return mIsShowAdSucceeded;
 }
 
-- (void)setIsShowAdSucceded:(BOOL)value
+- (void)setIsShowAdSucceeded:(BOOL)value
 {
     mIsShowAdSucceeded = value;
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setInteger:(value ? 1 : 0) forKey:@"ShowAds"];
+    [defaults synchronize];
 }
 
 - (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController
