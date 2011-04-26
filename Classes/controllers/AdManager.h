@@ -25,6 +25,8 @@
 {
     id<AdManagerDelegate> mDelegate;
     
+    BOOL mIsShowAdSucceded;
+    
     // iAd
     ADBannerView *mIADBannerView;
     CGSize mIAdSize;
@@ -36,6 +38,8 @@
     BOOL mIsGAdShowing;
     BOOL mIsGAdBannerLoaded;
 }
+
+@property(nonatomic,assign) BOOL isShowAdSucceded;
 
 + (AdManager *)sharedInstance;
 

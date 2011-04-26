@@ -70,19 +70,6 @@
     mAsDisplaying = NO;
 
 #if FREE_VERSION
-    // AdMob クラッシュ暫定対処
-    // 広告が起動時に正しく表示されずクラッシュする場合があるため、
-    // 前回正しく表示できていない場合は初回表示させない
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    int n = [defaults integerForKey:@"ShowAds"];
-    if (n == 0) {
-        [defaults setInteger:1 forKey:@"ShowAds"]; // show next time
-        [defaults synchronize];
-        return;
-    }
-    [defaults setInteger:0 forKey:@"ShowAds"];
-    [defaults synchronize];
-
     mAdManager = [AdManager sharedInstance];
     [mAdManager attach:self rootViewController:self];
 #endif
@@ -128,7 +115,16 @@
     [self reload];
 
 #if FREE_VERSION
-    [mAdManager showAd];
+    if (!mAdManager.isShowAdSucceeded) {
+        // AdMob クラッシュ暫定対処
+        // 広告が起動時に正しく表示されずクラッシュする場合があるため、
+        // 前回正しく表示できていない場合は初回表示させない。
+        // ただし、次回は必ず表示を try させる
+        mAdManager.isShowAdSucceeded = YES; // show next time
+    } else {
+        // 表示開始
+        [mAdManager showAd];
+    }
 #endif
 }
 
@@ -177,10 +173,6 @@
     [UIView beginAnimations:@"ShowAd" context:NULL];
     adView.frame = aframe;
     [UIView commitAnimations];
-
-    // 広告表示成功
-    [defaults setInteger:1 forKey:@"ShowAds"];
-    [defaults synchronize];
 }
 
 /**
@@ -210,10 +202,6 @@
     adView.frame = aframe;
     [UIView commitAnimations];
     adView.hidden = YES;
-
-    // 広告表示成功
-    [defaults setInteger:1 forKey:@"ShowAds"];
-    [defaults synchronize];
 }
 
 #endif

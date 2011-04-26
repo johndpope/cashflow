@@ -26,6 +26,18 @@ static AdManager *theAdManager;
 {
     self = [super init];
     if (self != nil) {
+        // 前回広告ロードが成功したかどうかを取得
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        int n = [defaults integerForKey:@"ShowAds"];
+        if (n == 0) {
+            mIsShowSucceded = NO;
+        } else {
+            mIsShowSucceded = YES;
+
+            // プロパティ上は NO にセットしておく(途中クラッシュ対処)
+            [defaults setInteger:0 forKey:@"ShowAds"];
+        }
+
         [self _createIAd];
         [self _createAdMob];
     }
@@ -37,6 +49,19 @@ static AdManager *theAdManager;
     [self _releaseAdMob];
     
     [super dealloc];
+}
+
+- (BOOL)isShowAdSucceded
+{
+    return mIsShowAdSucceded;
+}
+
+- (void)setIsShowAdSucceded:(BOOL)value
+{
+    mIsShowAdSucceeded = value;
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:(value ? 1 : 0) forKey:@"ShowAds"];
 }
 
 - (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController
@@ -183,6 +208,8 @@ static AdManager *theAdManager;
     mGADBannerView.adUnitID = ADMOB_PUBLISHER_ID;
     mGADBannerView.rootViewController = nil; // この時点では不明
     mGADBannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+
+    // まだリクエストは発行しない
 }
 
 /**
@@ -211,6 +238,7 @@ static AdManager *theAdManager;
     if (mDelegate != nil && !mIsGAdShowing && !mIsIAdShowing) {
         mIsIAdShowing = YES;
         [mDelegate adManager:self showAd:mIADBannerView adSize:mIAdSize];
+        self.isShowAdSucceeded = YES;
     }
 }
 
@@ -244,6 +272,8 @@ static AdManager *theAdManager;
         mIsGAdShowing = YES;
         [mDelegate adManager:self showAd:mGADBannerView adSize:mGAdSize];
     }
+
+    self.isShowAdSucceeded = YES;
 }
 
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
