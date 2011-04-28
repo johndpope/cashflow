@@ -48,29 +48,28 @@
         int i = 0;
         if (mFirstDate != nil) {
             i = [asset firstEntryByDate:mFirstDate];
-            if (i < 0) {
-                return nil;
-            }
         }
-        
-        NSDateFormatter *dateFormatter = [DataModel dateFormatter:NO];
-        
-        for (; i < max; i++) {
-            AssetEntry *e = [asset entryAt:i];
 
-            if (mFirstDate != nil && [e.transaction.date compare:mFirstDate] == NSOrderedAscending) continue;
+        if (i >= 0) {
+            NSDateFormatter *dateFormatter = [DataModel dateFormatter:NO];
+        
+            for (; i < max; i++) {
+                AssetEntry *e = [asset entryAt:i];
+
+                if (mFirstDate != nil && [e.transaction.date compare:mFirstDate] == NSOrderedAscending) continue;
             
-            NSMutableString *d = [[NSMutableString alloc] init];
-            [d appendFormat:@"%d,", e.transaction.pid];
-            [d appendFormat:@"%@,", [dateFormatter stringFromDate:e.transaction.date]];
-            [d appendFormat:@"%.2f,", e.value];
-            [d appendFormat:@"%.2f,", e.balance];
-            [d appendFormat:@"%@,", e.transaction.description];
-            [d appendFormat:@"%@,", [[DataModel instance].categories categoryStringWithKey:e.transaction.category]];
-            [d appendFormat:@"%@", e.transaction.memo];
-            [d appendString:@"\n"];
-            [data appendString:d];
-            [d release];
+                NSMutableString *d = [[NSMutableString alloc] init];
+                [d appendFormat:@"%d,", e.transaction.pid];
+                [d appendFormat:@"%@,", [dateFormatter stringFromDate:e.transaction.date]];
+                [d appendFormat:@"%.2f,", e.value];
+                [d appendFormat:@"%.2f,", e.balance];
+                [d appendFormat:@"%@,", e.transaction.description];
+                [d appendFormat:@"%@,", [[DataModel instance].categories categoryStringWithKey:e.transaction.category]];
+                [d appendFormat:@"%@", e.transaction.memo];
+                [d appendString:@"\n"];
+                [data appendString:d];
+                [d release];
+            }
         }
         [data appendString:@"\n"];
     }
