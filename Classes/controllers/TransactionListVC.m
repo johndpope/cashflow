@@ -70,6 +70,16 @@
     mAsDisplaying = NO;
 
 #if FREE_VERSION
+    static NSTimeInterval adDisableTime = 0;
+    
+    NSTimeInterval current = [NSDate timeIntervalSinceReferenceDate];
+    
+    if ([AppDelegate isPrevCrashed] && (adDisableTime == 0 || current - adDisableTime < 60 * 60)) {
+        // 前回クラッシュしていた場合は、一定時間広告を出さない
+        adDisableTime = current;
+        return;
+    }
+        
     mAdManager = [AdManager sharedInstance];
     [mAdManager attach:self rootViewController:self];
 #endif
@@ -113,18 +123,10 @@
 {
     [super viewWillAppear:animated];
     [self reload];
-
+    
 #if FREE_VERSION
-    if (!mAdManager.isShowAdSucceeded) {
-        // AdMob クラッシュ暫定対処
-        // 広告が起動時に正しく表示されずクラッシュする場合があるため、
-        // 前回正しく表示できていない場合は初回表示させない。
-        // ただし、次回は必ず表示を try させる
-        mAdManager.isShowAdSucceeded = YES; // show next time
-    } else {
-        // 表示開始
-        [mAdManager showAd];
-    }
+    // 表示開始
+    [mAdManager showAd];
 #endif
 }
 

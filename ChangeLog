@@ -1,3 +1,8 @@
+2011-04-29 : Takuya Murakami
+
+	* 広告クラッシュ時は、次回起動時に一定時間広告を表示させない
+	* クラッシュレポート強制送信
+
 2011-04-16 : Takuya Murakami
 
 	* ver 4.1.2 GM (CahsFlow Free)
