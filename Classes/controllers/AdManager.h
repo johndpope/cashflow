@@ -13,6 +13,10 @@
 
 #define ADMOB_KEYWORDS @"マネー,預金,キャッシュ,クレジット,小遣い,貯金,資産+管理,money,deposit,cash,credit,allowance,spending+money,pocket+money,savings,saving+money,asset+management"
 
+// AdMob wrapper (to avoid crash)
+@interface AdMobView : GADBannerView <GADBannerViewDelegate>
+@end
+
 @class AdManager;
 
 @protocol AdManagerDelegate
@@ -33,10 +37,10 @@
     BOOL mIsIAdShowing;
     
     // AdMob
-    GADBannerView *mGADBannerView;
-    CGSize mGAdSize;
-    BOOL mIsGAdShowing;
-    BOOL mIsGAdBannerLoaded;
+    AdMobView *mAdMobView;
+    CGSize mAdMobSize;
+    BOOL mIsAdMobShowing;
+    BOOL mIsAdMobBannerLoaded;
 }
 
 @property(nonatomic,assign) BOOL isShowAdSucceeded;
