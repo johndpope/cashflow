@@ -108,6 +108,7 @@
 - (void)_bankMessageSetResponse:(NSMutableString *)data asset:(Asset *)asset
 {
     int max = [asset entryCount];
+    if (max == 0) return; // no entries
     
     int firstIndex = 0;
     if (mFirstDate != nil) {
