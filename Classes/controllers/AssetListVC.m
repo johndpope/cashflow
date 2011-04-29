@@ -393,10 +393,11 @@
         return; // cancelled;
     }
 	
+    int pid = mAssetToBeDelete.pid;
     [mLedger deleteAsset:mAssetToBeDelete];
     
     if (IS_IPAD) {
-        if (mSplitTransactionListViewController.assetKey == mAssetToBeDelete.pid) {
+        if (mSplitTransactionListViewController.assetKey == pid) {
             mSplitTransactionListViewController.assetKey = -1;
             [mSplitTransactionListViewController reload];
         }
