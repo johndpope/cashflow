@@ -36,11 +36,15 @@
     if (mAssetKey < 0) {
         return nil;
     }
+#if 0
+    // 安全のため、cache を使わないようにした
     if (mAssetCache != nil && mAssetCache.pid == mAssetKey) {
         return mAssetCache;
     }
     mAssetCache = [[[DataModel instance] ledger] assetWithKey:mAssetKey];
     return mAssetCache;
+#endif
+    return  [[[DataModel instance] ledger] assetWithKey:mAssetKey];
 }
 
 - (void)viewDidLoad
@@ -517,7 +521,7 @@
 - (void)backupViewFinished:(BackupViewController *)backupViewController
 {
     // リストアされた場合、mAssetCacheは無効になっている
-    mAssetCache = nil;
+    //mAssetCache = nil;
     
     if (IS_IPAD) {
         [self reload];
