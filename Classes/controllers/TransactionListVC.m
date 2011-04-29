@@ -25,6 +25,9 @@
 - (id)init
 {
     self = [super initWithNibName:@"TransactionListView" bundle:nil];
+    if (self) {
+        mAssetKey = -1;
+    }
     return self;
 }
 

@@ -118,14 +118,16 @@
     }
 
     // TransactionListView を表示
-    if (IS_IPAD) {
-        mSplitTransactionListViewController.assetKey = asset.pid;
-        [mSplitTransactionListViewController reload];
-    } else if (asset != nil) {
-        TransactionListViewController *vc = 
-        [[[TransactionListViewController alloc] init] autorelease];
-        vc.assetKey = asset.pid;
-        [self.navigationController pushViewController:vc animated:NO];
+    if (asset != nil) {
+        if (IS_IPAD) {
+            mSplitTransactionListViewController.assetKey = asset.pid;
+            [mSplitTransactionListViewController reload];
+        } else { 
+            TransactionListViewController *vc = 
+                [[[TransactionListViewController alloc] init] autorelease];
+            vc.assetKey = asset.pid;
+            [self.navigationController pushViewController:vc animated:NO];
+        }
     }
 }
 
