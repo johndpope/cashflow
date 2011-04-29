@@ -36,6 +36,7 @@
     if (mAssetKey < 0) {
         return nil;
     }
+    
 #if 0
     // 安全のため、cache を使わないようにした
     if (mAssetCache != nil && mAssetCache.pid == mAssetKey) {
