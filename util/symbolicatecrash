@@ -45,15 +45,15 @@ my %entity2char = (
 
 # Array of all the supported architectures.
 my %architectures = (
-	ARM      =>  "armv6",
-	X86      =>  "i386",
-	"X86-64" =>  "x86_64",
-	PPC      =>  "ppc",
-	"PPC-64" =>  "ppc64",
-	"ARMV4T" =>  "armv4t",
-	"ARMV5"  =>  "armv5",
-	"ARMV6"  =>  "armv6",
-	"ARMV7"  =>  "armv7",
+    ARM      =>  "armv6",
+    X86      =>  "i386",
+    "X86-64" =>  "x86_64",
+    PPC      =>  "ppc",
+    "PPC-64" =>  "ppc64",
+    "ARMV4T" =>  "armv4t",
+    "ARMV5"  =>  "armv5",
+    "ARMV6"  =>  "armv6",
+    "ARMV7"  =>  "armv7",
 );
 #############################
 
@@ -140,24 +140,24 @@ sub getSymbolDirPaths {
         print STDERR "Symbol directory paths:  @pathResults\n" if $opt{v};
         push(@result, @pathResults);
     }
-	
-	## start with most specific "version build", then just build, last just version.
-	my @pathsForOSbuild = grep { /$osVersion \($osBuild\)/ } @result;
-	if ( @pathsForOSbuild <= 0 ) {
-		@pathsForOSbuild = grep { /$osBuild/ } @result;
-	}
-	if ( @pathsForOSbuild <= 0 ) {
-		@pathsForOSbuild = grep { /$osVersion/ } @result;
-	}
+    
+    ## start with most specific "version build", then just build, last just version.
+    my @pathsForOSbuild = grep { /$osVersion \($osBuild\)/ } @result;
+    if ( @pathsForOSbuild <= 0 ) {
+        @pathsForOSbuild = grep { /$osBuild/ } @result;
+    }
+    if ( @pathsForOSbuild <= 0 ) {
+        @pathsForOSbuild = grep { /$osVersion/ } @result;
+    }
 
-	if ( @pathsForOSbuild <= 0 ) {
-		print STDERR "Symbol directory path(s) not found for $osVersion ($osBuild):  @pathsForOSbuild\n" if $opt{v};
+    if ( @pathsForOSbuild <= 0 ) {
+        print STDERR "Symbol directory path(s) not found for $osVersion ($osBuild):  @pathsForOSbuild\n" if $opt{v};
         # hmm, didn't find a path for the specific build, so return all the paths we got.
         return @result;
     }
-	
-	print STDERR "Symbol directory path(s) for $osVersion ($osBuild):  @pathsForOSbuild\n" if $opt{v};
-	return @pathsForOSbuild;
+    
+    print STDERR "Symbol directory path(s) for $osVersion ($osBuild):  @pathsForOSbuild\n" if $opt{v};
+    return @pathsForOSbuild;
 }
 
 sub getSymbolPathFor_searchpaths {
@@ -203,93 +203,77 @@ sub getSymbolPathFor_dsymUuid{
     my $dsymdir = `$cmd`;
     chomp $dsymdir;
     $dsymdir or return undef;
-    $dsymdir = quotemeta($dsymdir);	# quote the result to handle spaces in path and executable names
+    $dsymdir = quotemeta($dsymdir);    # quote the result to handle spaces in path and executable names
     print STDERR "dsym directory: $dsymdir\n" if $opt{v};
     
-    my $pathToDsym;
-    my $dsymBaseName;
+    # Murakami modified : Xcode4 archive 対応
+    my @executablePath;
     my $executable;
-    
-    # Find the executable from the dsym.
-    if ($dsymdir =~ /(.*)\/(.*).dSYM/) {
-        $pathToDsym = $1;
-        $dsymBaseName = $2;
-        $executable = $dsymBaseName;
-    } else {
-    	print STDERR "No match for dsymdir\n\n" if $opt{v};
-    	my @files = glob("$dsymdir/*/*");
-    	my $file;
-        foreach $file (@files) {
-            print STDERR "$file\n";
-            if ($file =~ /(.*)\/(.*).dSYM$/) {
-                print STDERR "using $file\n";
-                $pathToDsym = quotemeta($1);
-                $dsymBaseName = $2;
-                $executable = $dsymBaseName;
-                last;
-            }
-        }
+
+    if ($dsymdir =~ /\.xcarchive$/) {
+        # executable の名前を取得する
+        my @tmpdirs = glob "$dsymdir/dSYMs/*.dSYM";
+
+        $tmpdirs[0] =~ /(.*)\/(.*).dSYM/;
+        $executable = $2;
+        $executable =~ s/\..*//g;    # strip off the suffix, if any
+
+        print STDERR "Executable: $executable\n\n" if $opt{v};
+
+        # executable のパスを取得する
+        @executablePath = glob "$dsymdir/Products/Applications/$executable.app/$executable";
     }
-    $executable =~ s/\..*//g;	# strip off the suffix, if any
+    else {
+        # こっちはオリジナルのコード
+
+        # Find the executable from the dsym.
+        $dsymdir =~ /(.*)\/(.*).dSYM/;
+        my $pathToDsym = $1;
+        my $dsymBaseName = $2;
+        $executable = $dsymBaseName;
+        $executable =~ s/\..*//g;    # strip off the suffix, if any
     
-	print STDERR "Executable: $executable\n\n" if $opt{v};
-	
-	$executable =~ s/\\//g; # remove \ characters from the executable name.
-    chomp($executable); # remove newline character if any from the executable path.
-    my @paths = glob "$pathToDsym/$dsymBaseName/{,$executable,Contents/MacOS/$executable}";
-    print STDERR "pathToDsym: $pathToDsym\n" if $opt{v};
-    print STDERR "dsymBaseName: $dsymBaseName\n" if $opt{v};
-    print STDERR "executable: $executable\n" if $opt{v};
-    print STDERR "paths: @paths\n" if $opt{v};
+        print STDERR "Executable: $executable\n\n" if $opt{v};
     
-    my @executablePath = grep { -x && ! -d } glob "$pathToDsym/$dsymBaseName/{,$executable,Contents/MacOS/$executable}";
-	
-	# Fix for <rdar://problem/6871493>, we shouldn't really need the executable name as we are using the uuid's, but as this has been working this way for some time now, we are continuing...
-	my @spotLightSearchForExecutable = `mdfind $executable.app`; # To cover the case where the DSYM's and .app are no located in the same location.
-	print STDERR "spotLightSearchForExecutable: @spotLightSearchForExecutable\n\n" if $opt{v};
-	print STDERR "Executable: $executable\n\n" if $opt{v};
-	foreach (@spotLightSearchForExecutable) {
+        $executable =~ s/\\//g; # remove \ characters from the executable name.
+        chomp($executable); # remove newline character if any from the executable path.
+        my @paths = glob "$pathToDsym/$dsymBaseName/{,$executable,Contents/MacOS/$executable}";
+        print STDERR "paths: @paths\n" if $opt{v};
+    
+        @executablePath = grep { -x && ! -d } glob "$pathToDsym/$dsymBaseName/$executable";
+    }
+    
+    # Fix for <rdar://problem/6871493>, we shouldn't really need the executable name as we are using the uuid's, but as this has been working this way for some time now, we are continuing...
+    my @spotLightSearchForExecutable = `mdfind $executable.app`; # To cover the case where the DSYM's and .app are no located in the same location.
+    print STDERR "spotLightSearchForExecutable: @spotLightSearchForExecutable\n\n" if $opt{v};
+    print STDERR "Executable: $executable\n\n" if $opt{v};
+    foreach (@spotLightSearchForExecutable) {
         $_ =~ s/\/$//;
         chomp($_);
-	    if ($_ =~ /.*.xcarchive/) {
-	        my $path = quotemeta("$_");
-	        $path = $path."/*/*/*/$executable";
-            print STDERR "searching $path\n" if $opt{v};        	        
-	        my @files = glob("$path");
-	        my $file;
-	        foreach $file (@files) {
-            	print STDERR "Found $file\n" if $opt{v};        
-	        }
-	        if (@files) {
-	            $_ = $files[0];
-            	print STDERR "Found executable in .xcarchive: $_\n" if $opt{v};
-	        }
-	    } else {
-            $_ = $_."/".$executable;
-        }
-	}
-	@executablePath = (@executablePath,@spotLightSearchForExecutable); 
-	print STDERR "executablePath = @executablePath\n\n" if $opt{v};
+        $_ = $_."/".$executable;
+    }
+    @executablePath = (@executablePath,@spotLightSearchForExecutable); 
+    print STDERR "executablePath = @executablePath\n\n" if $opt{v};
     my $executableCount = @executablePath;
-	print STDERR "executableCount = $executableCount\n\n" if $opt{v};
+    print STDERR "executableCount = $executableCount\n\n" if $opt{v};
     if ( $executableCount > 1 ) {
         print STDERR "Found more than one executable for a dsym: @executablePath\n" if $opt{v};
     }
     if ( $executableCount >= 1 ) {
-		my $exec;
-		while (defined($exec = shift @executablePath) ){
-			if ( !matchesUUID($exec, $uuid, $arch) ) {
-				print STDERR "UUID of executable is: $uuid\n" if $opt{v};
-				print STDERR "Executable name: $exec\n" if $opt{v};
-				print STDERR "UUID doesn't match dsym for executable $exec\n\n" if $opt{v};
-				
-			} else {
-				print STDERR "Found executable $exec\n" if $opt{v};
-				return $exec;
-			}
-		}
+        my $exec;
+        while (defined($exec = shift @executablePath) ){
+            if ( !matchesUUID($exec, $uuid, $arch) ) {
+                print STDERR "UUID of executable is: $uuid\n" if $opt{v};
+                print STDERR "Executable name: $exec\n\n" if $opt{v};
+                print STDERR "UUID doesn't match dsym for executable $exec\n" if $opt{v};
+                
+            } else {
+                print STDERR "Found executable $exec\n" if $opt{v};
+                return $exec;
+            }
+        }
     }
-	
+    
     print STDERR "Did not find executable for dsym\n" if $opt{v};
     return undef;
 }
@@ -301,7 +285,7 @@ sub matchesUUID
     my ($path, $uuid, $arch) = @_;
     
     if ( ! -f $path ) {
-        print STDERR "## $path doesn't exist \n" if $opt{v};
+        print STDERR "## $path doesn't exist " if $opt{v};
         return 0;
     }
     
@@ -312,15 +296,15 @@ sub matchesUUID
         
         if ( $test =~ /^0x/ ) {
             # old style 0xnn 0xnn 0xnn ... on two lines
-			$test =  join("", split /\s*0x/, $test);
-			
-			$test =~ s/0x//g;     ## remove 0x
-			$test =~ s/\s//g;     ## remove spaces
-		} else {
-			# new style XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-			$test =~ s/-//g;     ## remove -
-			$test = lc($test);
-		}
+            $test =  join("", split /\s*0x/, $test);
+            
+            $test =~ s/0x//g;     ## remove 0x
+            $test =~ s/\s//g;     ## remove spaces
+        } else {
+            # new style XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+            $test =~ s/-//g;     ## remove -
+            $test = lc($test);
+        }
         
         if ( $test eq $uuid ) {
             ## See that it isn't stripped.  Even fully stripped apps have one symbol, so ensure that there is more than one.
@@ -332,11 +316,11 @@ sub matchesUUID
                 
             print STDERR "## $path appears to be stripped, skipping.\n" if $opt{v};
         } else {
-			print STDERR "Given UUID $uuid for '$path' is really UUID $test\n" if $opt{v};
-		}
+            print STDERR "Given UUID $uuid for '$path' is really UUID $test\n" if $opt{v};
+        }
     } else {
-            print "Can't understand the output from otool ($TEST_uuid -> '$otool -arch $arch -l $path')";
-	}
+        die "Can't understand the output from otool ($TEST_uuid -> '$otool -arch $arch -l $path')";
+    }
 
     return 0;
 }
@@ -469,15 +453,16 @@ sub parse_sections {
     return \%sections;
 }
 
+# クラッシュログの Binary Images セクションを解析する
 sub parse_images {
     my ($log_ref, $report_version) = @_;
     
     my $section = parse_section($log_ref,'Binary Images Description',multiline=>1);
     if (!defined($section)) {
-    	$section = parse_section($log_ref,'Binary Images',multiline=>1); # new format
+        $section = parse_section($log_ref,'Binary Images',multiline=>1); # new format
     }
     if (!defined($section)) {
-    	die "Error: Can't find \"Binary Images\" section in log file";
+        die "Error: Can't find \"Binary Images\" section in log file";
     }
     
     my @lines = split /\n/, $section;
@@ -523,45 +508,45 @@ sub parse_images {
     
     for my $line (@lines) {
         next if $line =~ /PEF binary:/; # ignore these
+
+    $line =~ s/(&(\w+);?)/$entity2char{$2} || $1/eg;
         
-	$line =~ s/(&(\w+);?)/$entity2char{$2} || $1/eg;
+    if ($line =~ /$pat/ox) {
         
-	if ($line =~ /$pat/ox) {
-	    
             # Dereference references 
             my %image;
             while((my $key, my $val) = each(%captures)) {
                 $image{$key} = ${$captures{$key}} || '';
-				#print "image{$key} = $image{$key}\n";
+                #print "image{$key} = $image{$key}\n";
             }
-		
-		$image{uuid} = lc $image{uuid};
-		$image{arch} = $image{arch} || $default_arch;
-		
-		# Just take the first instance.  That tends to be the app.
-        my $bundlename = $image{bundlename};
-        $app = $bundlename if (!defined $app && defined $image{plus} && length $image{plus});
         
-		# frameworks and apps (and whatever) may share the same name, so disambiguate
-        if ( defined($images{$bundlename}) ) {
-			# follow the chain of hash items until the end
-            my $nextIDKey = $bundlename;
-             while ( length($nextIDKey) ) {
-                 last if ( !length($images{$nextIDKey}{nextID}) );
-                 $nextIDKey = $images{$nextIDKey}{nextID};
-             }
-			
-			 # add ourselves to that chain
-            $images{$nextIDKey}{nextID} = $image{base};
-			
-			# and store under the key we just recorded
-            $bundlename = $bundlename . $image{base};
-        }
-		
-		# we are the end of the nextID chain
-		$image{nextID} = "";
+            $image{uuid} = lc $image{uuid};
+            $image{arch} = $image{arch} || $default_arch;
+        
+            # Just take the first instance.  That tends to be the app.
+            my $bundlename = $image{bundlename};
+            $app = $bundlename if (!defined $app && defined $image{plus} && length $image{plus});
+        
+            # frameworks and apps (and whatever) may share the same name, so disambiguate
+            if ( defined($images{$bundlename}) ) {
+                # follow the chain of hash items until the end
+                my $nextIDKey = $bundlename;
+                while ( length($nextIDKey) ) {
+                    last if ( !length($images{$nextIDKey}{nextID}) );
+                    $nextIDKey = $images{$nextIDKey}{nextID};
+                }
             
-		$images{$bundlename} = \%image;
+                # add ourselves to that chain
+                $images{$nextIDKey}{nextID} = $image{base};
+            
+                # and store under the key we just recorded
+                $bundlename = $bundlename . $image{base};
+            }
+        
+            # we are the end of the nextID chain
+            $image{nextID} = "";
+            
+            $images{$bundlename} = \%image;
         }
     }
     
@@ -603,9 +588,9 @@ sub parse_backtrace {
         }x ) {
             my($bundle,$replace,$address) = ($1,$2,$3);
             #print STDERR "Parse_bt: $bundle,$replace,$address\n" if ($opt{v});
-			
-			# disambiguate within our hash of binaries
-			$bundle = findImageByNameAndAddress($images, $bundle, $address);
+            
+            # disambiguate within our hash of binaries
+            $bundle = findImageByNameAndAddress($images, $bundle, $address);
             
             # skip unless we know about the image of this frame
             next unless 
@@ -634,10 +619,10 @@ sub slurp_file {
     
     # - or "" mean read from stdin, otherwise use the given filename
     if($file && $file ne '-') {
-    	open $fh,"<",$file or die "while reading $file, $! : ";
+        open $fh,"<",$file or die "while reading $file, $! : ";
     } else {
-    	open $fh,"<&STDIN" or die "while readin STDIN, $! : ";
-    	$readingFromStdin = 1;
+        open $fh,"<&STDIN" or die "while readin STDIN, $! : ";
+        $readingFromStdin = 1;
     }
     
     $data = <$fh>;
@@ -650,7 +635,7 @@ sub slurp_file {
     # in their HTML.  This doesn't work out well when parsing
     # so we'll translate those characters to spaces.
     for ($data) {
-    	$_ =~ s/\xc2\xa0/ /g;
+        $_ =~ s/\xc2\xa0/ /g;
     }
     
     close $fh or die $!;
@@ -660,16 +645,16 @@ sub slurp_file {
 sub parse_OSVersion {
     my ($log_ref) = @_;
     my $section = parse_section($log_ref,'OS Version');
-	if ( $section =~ /\s([0-9\.]+)\s+\(Build (\w+)/ ) {
-		return ($1, $2)
-	}
-	if ( $section =~ /\s([0-9\.]+)\s+\((\w+)/ ) {
-		return ($1, $2)
-	}
-	if ( $section =~ /\s([0-9\.]+)/ ) {
-		return ($1, "")
-	}
-    die "Error: can't parse OS Version string $section";
+    if ( $section =~ /\s([0-9\.]+)\s+\(Build (\w+)/ ) {
+        return ($1, $2)
+    }
+    if ( $section =~ /\s([0-9\.]+)\s+\((\w+)/ ) {
+        return ($1, $2)
+    }
+    if ( $section =~ /\s([0-9\.]+)/ ) {
+        return ($1, "")
+    }
+    die "Error: can't parse OS Version string '$section'";
 }
 
 # Map from the "Code Type" field of the crash log, to a Mac OS X
@@ -765,8 +750,8 @@ sub fetch_symbolled_binaries {
         # app can't slide
         next if $b eq $bundle;
         
-	print STDERR "\r${pre}checking address range for $b$post" if $opt{v};
-	$pre .= ".";
+    print STDERR "\r${pre}checking address range for $b$post" if $opt{v};
+    $pre .= ".";
         
         # check for sliding. set slide offset if so
         if (-e '/usr/bin/size') {
@@ -848,13 +833,13 @@ sub symbolize_frames {
         foreach my $symbolled_frame (@symbolled_frames) {
             
             $symbolled_frame =~ s/\s*\(in .*?\)//; # clean up -- don't need to repeat the lib here
-			
-			# find the correct frame -- the order should match since we got the address list with keys
+            
+            # find the correct frame -- the order should match since we got the address list with keys
             my ($k,$frame) = each(%$frames);
-			
-			if ( $symbolled_frame !~ /^\d/ ) {
-				# only symbolicate if we fetched something other than an address
-				$$frame{symbolled} = $symbolled_frame;
+            
+            if ( $symbolled_frame !~ /^\d/ ) {
+                # only symbolicate if we fetched something other than an address
+                $$frame{symbolled} = $symbolled_frame;
                 $references++;
             }
             

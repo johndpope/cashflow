@@ -33,7 +33,7 @@
     IBOutlet UIToolbar *mToolbar;
 	
     int mAssetKey;
-    Asset *mAssetCache;
+    //Asset *mAssetCache;
     
 #if FREE_VERSION
     AdManager *mAdManager;

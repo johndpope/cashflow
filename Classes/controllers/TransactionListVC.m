@@ -25,6 +25,9 @@
 - (id)init
 {
     self = [super initWithNibName:@"TransactionListView" bundle:nil];
+    if (self) {
+        mAssetKey = -1;
+    }
     return self;
 }
 
@@ -33,11 +36,16 @@
     if (mAssetKey < 0) {
         return nil;
     }
+    
+#if 0
+    // 安全のため、cache を使わないようにした
     if (mAssetCache != nil && mAssetCache.pid == mAssetKey) {
         return mAssetCache;
     }
     mAssetCache = [[[DataModel instance] ledger] assetWithKey:mAssetKey];
     return mAssetCache;
+#endif
+    return  [[[DataModel instance] ledger] assetWithKey:mAssetKey];
 }
 
 - (void)viewDidLoad
@@ -70,6 +78,16 @@
     mAsDisplaying = NO;
 
 #if FREE_VERSION
+    static NSTimeInterval adDisableTime = 0;
+    
+    NSTimeInterval current = [NSDate timeIntervalSinceReferenceDate];
+    
+    if ([AppDelegate isPrevCrashed] && (adDisableTime == 0 || current - adDisableTime < 60 * 60)) {
+        // 前回クラッシュしていた場合は、一定時間広告を出さない
+        adDisableTime = current;
+        return;
+    }
+        
     mAdManager = [AdManager sharedInstance];
     [mAdManager attach:self rootViewController:self];
 #endif
@@ -113,8 +131,9 @@
 {
     [super viewWillAppear:animated];
     [self reload];
-
+    
 #if FREE_VERSION
+    // 表示開始
     [mAdManager showAd];
 #endif
 }
@@ -503,7 +522,7 @@
 - (void)backupViewFinished:(BackupViewController *)backupViewController
 {
     // リストアされた場合、mAssetCacheは無効になっている
-    mAssetCache = nil;
+    //mAssetCache = nil;
     
     if (IS_IPAD) {
         [self reload];

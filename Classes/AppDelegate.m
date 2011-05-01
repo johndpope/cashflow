@@ -24,6 +24,13 @@
 @synthesize navigationController;
 @synthesize splitViewController;
 
+static BOOL sIsPrevCrashed;
+
++ (BOOL)isPrevCrashed
+{
+    return sIsPrevCrashed;
+}
+
 - (id)init {
     self = [super init];
     return self;
@@ -39,10 +46,14 @@
 
     // send crash report
     NSURL *reportUrl = [NSURL URLWithString:@"http://itemshelf.com/cgi-bin/crashreport.cgi"];
-    [[CrashReportSender sharedCrashReportSender] 
-        sendCrashReportToURL:reportUrl
-        delegate:self 
-        activateFeedback:NO];
+    CrashReportSender *csr = [CrashReportSender sharedCrashReportSender];
+    if ([csr hasPendingCrashReport]) {
+        // 前回クラッシュしている
+        sIsPrevCrashed = YES;
+        [csr sendCrashReportToURL:reportUrl delegate:self activateFeedback:NO];
+    } else {
+        sIsPrevCrashed = NO;
+    }
     
     // Dropbox config
     DBSession *dbSession =

@@ -218,7 +218,8 @@
         [self registerOnline];
     } else if ([self hasPendingCrashReport]) {
         [self unregisterOnline];
-        
+
+#if 0 // 暫定対処：強制的にレポートを送る
         if (![[NSUserDefaults standardUserDefaults] boolForKey: kAutomaticallySendCrashReports]) {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"CrashDataFoundTitle", @"Title showing in the alert box when crash report data has been found")
                                                           message:NSLocalizedString(@"CrashDataFoundDescription", @"Description explaining that crash data has been found and ask the user if the data might be uplaoded to the developers server")
@@ -229,7 +230,10 @@
             [alertView setTag: CrashAlertTypeSend];
             [alertView show];
             [alertView release];
-        } else {
+        }
+        else
+#endif
+        {
             [self _sendCrashReports];
         }
     }

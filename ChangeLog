@@ -1,9 +1,19 @@
+2011-04-29 : Takuya Murakami
+
+	* 広告クラッシュ時は、次回起動時に一定時間広告を表示させない
+	* クラッシュレポート強制送信
+	* OFX 生成時にクラッシュすることがあった問題を修正
+	* CSV 生成時にデータが出力されないことがあった問題を修正
+	* 資産数０のときの処理を修正 (主にiPad)
+	* 資産削除時にクラッシュする問題を修正
+	* TransactionListView で asset cache を使用しないようにした
+
 2011-04-16 : Takuya Murakami
 
 	* ver 4.1.2 GM (CahsFlow Free)
 	* バグ修正: iOS4.0/4.1 で iAd がクラッシュする問題を修正
 	* iAd / AdMob の表示方法を変更、AdManager を singleton 化
-	
+
 2011-04-07 : Takuya Murakami
 
 	* ver 4.1.1 GM

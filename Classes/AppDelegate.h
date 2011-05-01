@@ -30,6 +30,7 @@
 @property (nonatomic, readonly) UISplitViewController *splitViewController;
 
 - (void)checkPin;
++ (BOOL)isPrevCrashed;
 
 // Utility
 #define _L(msg)  NSLocalizedString(msg, @"")
