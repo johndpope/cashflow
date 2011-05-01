@@ -20,7 +20,7 @@
 }
 
 // private
-- (void)_bankMessageSetResponse:(NSMutableString *)data asset:(Asset *)asset;
+- (void)_statementTransactionResponse:(NSMutableString *)data asset:(Asset *)asset;
 - (NSString*)_typeStringWithAssetEntry:(AssetEntry*)e;
 - (NSString*)_dateStr:(NSDate*)date;
 - (NSString*)_dateStrWithAssetEntry:(AssetEntry*)e;

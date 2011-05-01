@@ -88,9 +88,12 @@
     [data appendString:@" </SONRS>\n"];
     [data appendString:@"</SIGNONMSGSRSV1>\n"];
 
+    /* 口座情報(バンクメッセージレスポンス) */
+    [data appendString:@"<BANKMSGSRSV1>\n"];
     for (Asset *asset in mAssets) {
-        [self _bankMessageSetResponse:data asset:asset];
+        [self _statementTransactionResponse:data asset:asset];
     }
+    [data appendString:@"</BANKMSGSRSV1>\n"];
         
     [data appendString:@"</OFX>\n"];
 
@@ -103,9 +106,9 @@
 }
 
 /**
- Bank Message Set Response の生成
+ * statement transaction response (預金口座型明細情報)の生成
  */
-- (void)_bankMessageSetResponse:(NSMutableString *)data asset:(Asset *)asset
+- (void)_statementTransactionResponse:(NSMutableString *)data asset:(Asset *)asset
 {
     int max = [asset entryCount];
     if (max == 0) return; // no entries
@@ -120,9 +123,6 @@
 	
     AssetEntry *firstEntry = [asset entryAt:firstIndex];
     AssetEntry *lastEntry  = [asset entryAt:max-1];
-    
-    /* 口座情報(バンクメッセージレスポンス) */
-    [data appendString:@"<BANKMSGSRSV1>\n"];
 
     /* 預金口座型明細情報作成 */
     [data appendString:@" <STMTTRNRS>\n"];
@@ -181,10 +181,9 @@
     [data appendFormat:@"    <DTASOF>%@</DTASOF>\n", [self _dateStrWithAssetEntry:lastEntry]];
     [data appendString:@"   </LEDGERBAL>\n"];
 
-    /* OFX 終了 */
+    /* STMTTRNRS終了 */
     [data appendString:@"  </STMTRS>\n"];
     [data appendString:@" </STMTTRNRS>\n"];
-    [data appendString:@"</BANKMSGSRSV1>\n"];
 }
 
 /**
