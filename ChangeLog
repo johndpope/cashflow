@@ -1,3 +1,7 @@
+2011-05-01 : Takuya Murakami
+
+	* Google AdMob Ads SDK ver 4.0.4 -> 4.1.0 にアップデート
+
 2011-04-29 : Takuya Murakami
 
 	* 広告クラッシュ時は、次回起動時に一定時間広告を表示させない
