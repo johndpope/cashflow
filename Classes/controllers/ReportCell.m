@@ -24,6 +24,7 @@
         cell = (ReportCell *)vc.view;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        [[cell retain] autorelease];
         [vc release];
     }
     return cell;
