@@ -15,6 +15,7 @@
 #define ASSET_CASH  0
 #define ASSET_BANK  1
 #define	ASSET_CARD  2
+#define ASSET_INVEST 3
 
 #define MAX_TRANSACTIONS	5000
 
@@ -27,6 +28,11 @@
     NSMutableArray *mEntries; // AssetEntry の配列
     //double mLastBalance;
 }
+
++ (int)numAssetTypes;
++ (NSString*)typeNamesArray;
++ (NSString*)typeNameWithType:(int)type;
++ (NSString*)iconNameWithType:(int)type;
 
 - (void)rebuild;
 

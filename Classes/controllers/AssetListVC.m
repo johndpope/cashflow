@@ -48,21 +48,16 @@
     self.navigationItem.leftBarButtonItem = [self editButtonItem];
 	
     // icon image をロード
-    NSString *imagePath;
+    mIconArray = [NSMutableArray new];
+    int n = [Asset numAssetTypes];
 
-    imagePath = [[NSBundle mainBundle] pathForResource:@"cash" ofType:@"png"];
-    UIImage *icon1 = [UIImage imageWithContentsOfFile:imagePath];
-    ASSERT(icon1 != nil);
-	
-    imagePath = [[NSBundle mainBundle] pathForResource:@"bank" ofType:@"png"];
-    UIImage *icon2 = [UIImage imageWithContentsOfFile:imagePath];
-    ASSERT(icon2 != nil);
-    
-    imagePath = [[NSBundle mainBundle] pathForResource:@"card" ofType:@"png"];
-    UIImage *icon3 = [UIImage imageWithContentsOfFile:imagePath];
-    ASSERT(icon3 != nil);
-    
-    mIconArray = [[NSArray alloc] initWithObjects:icon1, icon2, icon3, nil];
+    for (int i = 0; i < n; i++) {
+        NSString *iconName = [Asset iconNameWithType:i];
+        NSString *imagePath = [[NSBundle mainBundle] pathForResource:iconName ofType:@"png"];
+        UIImage *icon = [UIImage imageWithContentsOfFile:imagePath];
+        ASSERT(icon != nil);
+        [mIconArray addObject:icon];
+    }
 
     if (IS_IPAD) {
         CGSize s = self.contentSizeForViewInPopover;
