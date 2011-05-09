@@ -23,7 +23,7 @@
     static NSArray *typeNames = nil;
 
     if (typeNames == nil) {
-        typeArray = 
+        typeNames = 
             [[NSArray alloc] initWithObjects:
                              _L(@"Cash"),
                              _L(@"Bank Account"),
@@ -31,7 +31,7 @@
                              _L(@"Investment Account"),
                              nil];
     }
-    return typeArray;
+    return typeNames;
 }
 
 + (NSString*)typeNameWithType:(int)type

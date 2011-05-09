@@ -30,7 +30,7 @@
 }
 
 + (int)numAssetTypes;
-+ (NSString*)typeNamesArray;
++ (NSArray*)typeNamesArray;
 + (NSString*)typeNameWithType:(int)type;
 + (NSString*)iconNameWithType:(int)type;
 
