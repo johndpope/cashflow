@@ -89,8 +89,9 @@
 
 /* Asset types */
 "Cash" = "Bar";
-"Bank Account" = "Bank Account";
+"Bank Account" = "Bankkonto";
 "Credit Card" = "Kreditkarte";
+"Investment Account" = "Anlagekonto";
 
 /* export view */
 "Data format" = "Datenformat";
