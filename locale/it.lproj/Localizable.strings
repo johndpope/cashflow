@@ -90,6 +90,7 @@
 "Cash" = "Contanti";
 "Bank Account" = "Account Banca";
 "Credit Card" = "Carta di Credito";
+"Investment Account" = "Conto d'investimento";
 
 /* export view */
 "Data format" = "Formato File";

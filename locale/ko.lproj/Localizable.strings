@@ -91,6 +91,7 @@
 "Cash" = "현금";
 "Bank Account" = "은행 계좌";
 "Credit Card" = "신용카드";
+"Investment Account" = "투자 계정";
 
 /* export view */
 "Data format" = "데이터 포맷";

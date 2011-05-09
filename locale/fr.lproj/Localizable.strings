@@ -91,6 +91,7 @@
 "Cash" = "Liquide";
 "Bank Account" = "Compte en banque";
 "Credit Card" = "Carte de crédit";
+"Investment Account" = "Compte de placement";
 
 /* export view */
 "Data format" = "Format de donnée";
