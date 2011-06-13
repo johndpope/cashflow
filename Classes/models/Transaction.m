@@ -25,7 +25,7 @@
 
 - (id)init
 {
-    [super init];
+    self = [super init];
 
     self.asset = -1;
     self.dstAsset = -1;
@@ -57,7 +57,7 @@
 
 - (id)initWithDate: (NSDate*)dt description:(NSString*)desc value:(double)v
 {
-    [super init];
+    self = [super init];
 
     self.asset = -1;
     self.dstAsset = -1;
