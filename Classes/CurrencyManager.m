@@ -23,7 +23,7 @@
 
 - (id)init
 {
-    [super init];
+    self = [super init];
 
     NSNumberFormatter *nf;
 

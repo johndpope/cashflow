@@ -16,7 +16,7 @@
 
 -(id)init
 {
-    [super init];
+    self = [super init];
     mCategories = nil;
 
     return self;

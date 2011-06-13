@@ -42,7 +42,7 @@ static DataModel *theDataModel = nil;
 
 - (id)init
 {
-    [super init];
+    self = [super init];
 
     mJournal = [[Journal alloc] init];
     mLedger = [[Ledger alloc] init];
