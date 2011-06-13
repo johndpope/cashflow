@@ -1,3 +1,7 @@
+2011-06-13 : Takuya Murakami
+
+	* OFX エクスポート時の日付処理ミスを修正
+
 2011-05-07 : Takuya Murakami
 
 	* バグ修正: table view cell のメモリ管理バグ (Issue #10)
