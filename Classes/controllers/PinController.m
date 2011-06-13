@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 @implementation PinController
-@synthesize pin = mPin, newPin = mNewPin;
+@synthesize pin = mPin, pinNew = mPinNew;
 
 #define FIRST_PIN_CHECK 0
 #define ENTER_CURRENT_PIN 1
@@ -32,7 +32,7 @@ static PinController *thePinController = nil;
     self = [super init];
     if (self) {
         mState = -1;
-        self.newPin = nil;
+        self.pinNew = nil;
         mNavigationController = nil;
 
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -48,7 +48,7 @@ static PinController *thePinController = nil;
 - (void)dealloc
 {
     [mPin release];
-    [mNewPin release];
+    [mPinNew release];
     [mNavigationController release];
     [super dealloc];
 }
@@ -141,18 +141,18 @@ static PinController *thePinController = nil;
         break;
 
     case ENTER_NEW_PIN1:
-        self.newPin = [NSString stringWithString:vc.value]; // TBD
+        self.pinNew = [NSString stringWithString:vc.value]; // TBD
         mState = ENTER_NEW_PIN2;
         newvc = [self _getPinViewController];        
         newvc.title = _L(@"Retype new PIN");
         break;
 
     case ENTER_NEW_PIN2:
-        NSLog(@"%@", mNewPin);
-        if ([vc.value isEqualToString:mNewPin]) {
+        NSLog(@"%@", mPinNew);
+        if ([vc.value isEqualToString:mPinNew]) {
             // set new pin
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:mNewPin forKey:@"PinCode"];
+            [defaults setObject:mPinNew forKey:@"PinCode"];
             [defaults synchronize];
         } else {
             isBadPin = YES;
