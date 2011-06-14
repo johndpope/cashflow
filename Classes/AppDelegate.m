@@ -76,8 +76,13 @@ static BOOL sIsPrevCrashed;
     [tracker startTrackerWithAccountID:ua dispatchPeriod:60 delegate:nil];
     
     UIDevice *dev = [UIDevice currentDevice];
-    [tracker trackPageview:[NSString stringWithFormat:@"/device/model/%@", [dev model]] withError:nil];
-    [tracker trackPageview:[NSString stringWithFormat:@"/device/version/%@", [dev systemVersion]] withError:nil];
+    [tracker setCustomVariableAtIndex:1 name:@"model" value:[dev model] withError:nil];
+    [tracker setCustomVariableAtIndex:1 name:@"systemVersion" value:[dev systemVersion] withError:nil];
+    
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
+    [tracker setCustomVariableAtIndex:1 name:@"appVersion" value:version withError:nil];
+    
+    [tracker trackPageview:@"/applicationDidFinishLaunching" withError:nil];
 
     // Configure and show the window
     [window makeKeyAndVisible];
