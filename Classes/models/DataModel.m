@@ -42,7 +42,7 @@ static DataModel *theDataModel = nil;
 
 - (id)init
 {
-    [super init];
+    self = [super init];
 
     mJournal = [[Journal alloc] init];
     mLedger = [[Ledger alloc] init];
@@ -112,7 +112,7 @@ static DataModel *theDataModel = nil;
 
     [Transaction migrate];
     [Asset migrate];
-    [Category migrate];
+    [TCategory migrate];
     [DescLRU migrate];
     
     [DescLRUManager migrate];

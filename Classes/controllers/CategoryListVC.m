@@ -92,7 +92,7 @@
     if (indexPath.row >= [[DataModel instance].categories count]) {
         cell.textLabel.text = _L(@"Add category");
     } else {
-        Category *c = [[DataModel instance].categories categoryAtIndex:indexPath.row];
+        TCategory *c = [[DataModel instance].categories categoryAtIndex:indexPath.row];
         cell.textLabel.text = c.name;
     }
 
@@ -136,7 +136,7 @@
                                         title:_L(@"Category")
                                         identifier:idx];
     if (idx >= 0) {
-        Category *category = [[DataModel instance].categories categoryAtIndex:idx];
+        TCategory *category = [[DataModel instance].categories categoryAtIndex:idx];
         vc.text = category.name;
     }
 	
@@ -150,7 +150,7 @@
         [[DataModel instance].categories addCategory:vc.text];
     } else {
         // 変更
-        Category *c = [[DataModel instance].categories categoryAtIndex:identifier];
+        TCategory *c = [[DataModel instance].categories categoryAtIndex:identifier];
         c.name = vc.text;
         [[DataModel instance].categories updateCategory:c];
     }
