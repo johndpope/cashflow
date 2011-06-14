@@ -20,6 +20,11 @@
 		3E035E9B1182B6E000711865 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
 		3E0887F00E6EAC5C00739AC9 /* EditDescView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887EF0E6EAC5C00739AC9 /* EditDescView.xib */; };
 		3E0887F60E6EAC8900739AC9 /* EditDateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887F50E6EAC8900739AC9 /* EditDateView.xib */; };
+		3E0AC6AB13A78664006F505C /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */; };
+		3E0AC6AC13A78664006F505C /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */; };
+		3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
+		3E0AC6AF13A786F7006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
+		3E0AC6B013A786FC006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
 		3E0AD6BE121415DE00CFDDAC /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6A7121415DD00CFDDAC /* Asset.m */; };
 		3E0AD6BF121415DE00CFDDAC /* AssetEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6A9121415DD00CFDDAC /* AssetEntry.m */; };
 		3E0AD6C0121415DE00CFDDAC /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6AB121415DD00CFDDAC /* Category.m */; };
@@ -571,6 +576,9 @@
 		3E035E9A1182B6E000711865 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3E0887EF0E6EAC5C00739AC9 /* EditDescView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDescView.xib; sourceTree = "<group>"; };
 		3E0887F50E6EAC8900739AC9 /* EditDateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDateView.xib; sourceTree = "<group>"; };
+		3E0AC6A913A78664006F505C /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
+		3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		3E0AC6AD13A786E8006F505C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3E0AD6A6121415DD00CFDDAC /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
 		3E0AD6A7121415DD00CFDDAC /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
 		3E0AD6A8121415DD00CFDDAC /* AssetEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetEntry.h; sourceTree = "<group>"; };
@@ -887,6 +895,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */,
 				3E338213133211C500861610 /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -903,6 +912,7 @@
 				3E33821A1332123200861610 /* AVFoundation.framework in Frameworks */,
 				3EAF414B1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */,
 				3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */,
+				3E0AC6AB13A78664006F505C /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -926,6 +936,8 @@
 				3EE8551412123DA400A6B3CF /* CrashReporter.framework in Frameworks */,
 				3E3382181332122700861610 /* Security.framework in Frameworks */,
 				3EAF414C1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */,
+				3E0AC6AC13A78664006F505C /* libGoogleAnalytics.a in Frameworks */,
+				3E0AC6AF13A786F7006F505C /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,6 +961,7 @@
 				3E3382191332122700861610 /* Security.framework in Frameworks */,
 				3EAF414D1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */,
 				3E4C67761348C6E100DA87F6 /* iAd.framework in Frameworks */,
+				3E0AC6B013A786FC006F505C /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,6 +989,7 @@
 				3EB5406B0E8E907B00608B77 /* images */,
 				3EAF41431340BCC000814FFA /* AdMob */,
 				3E3381371332108800861610 /* DropBoxSDK */,
+				3E0AC68C13A785EB006F505C /* GoogleAnalytics */,
 				3EC1B22B13291A6D00721A71 /* CashFlowTest */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -1028,6 +1042,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E0AC6AD13A786E8006F505C /* CFNetwork.framework */,
 				3ECD5A861347603800B499A6 /* iAd.framework */,
 				3E338212133211C500861610 /* Security.framework */,
 				3E94339E0EC1E7650033D50A /* libsqlite3.0.dylib */,
@@ -1047,6 +1062,15 @@
 			name = Frameworks;
 			path = System/Library/Frameworks;
 			sourceTree = SDKROOT;
+		};
+		3E0AC68C13A785EB006F505C /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				3E0AC6A913A78664006F505C /* GANTracker.h */,
+				3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
 		};
 		3E0AD6A5121415C300CFDDAC /* models */ = {
 			isa = PBXGroup;
@@ -2162,6 +2186,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlow;
 			};
@@ -2179,6 +2204,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlow;
 				VALIDATE_PRODUCT = YES;
@@ -2201,6 +2227,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 			};
@@ -2219,6 +2246,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 			};

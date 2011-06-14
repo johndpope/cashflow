@@ -1,0 +1,12 @@
+iPhone Analytics SDK Changelog
+
+--------------------------------------------
+Version: 1.1 (February, 2011)
+--------------------------------------------
+* Added support for Custom Variables.
+* Added a NoThumb version of the library.
+
+--------------------------------------------
+Version: 1.0 (July, 2010)
+--------------------------------------------
+* iOS4 support for iPhone-Analytics.
