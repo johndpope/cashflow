@@ -18,7 +18,7 @@
 
 - (id)init
 {
-    [super init];
+    self = [super init];
     mType = REPORT_MONTHLY;
     mReportEntries = nil;
     return self;

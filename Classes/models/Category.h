@@ -7,9 +7,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Database.h"
-#import "CategoryBase.h"
+#import "TCategoryBase.h"
 
-@interface Category : CategoryBase {
+@interface TCategory : TCategoryBase {
 }
 @end
 
@@ -19,12 +19,12 @@
 
 - (void)reload;
 - (int)count;
-- (Category*)categoryAtIndex:(int)n;
+- (TCategory*)categoryAtIndex:(int)n;
 - (int)categoryIndexWithKey:(int)key;
 - (NSString*)categoryStringWithKey:(int)key;
 
--(Category*)addCategory:(NSString *)name;
--(void)updateCategory:(Category*)category;
+-(TCategory*)addCategory:(NSString *)name;
+-(void)updateCategory:(TCategory*)category;
 -(void)deleteCategoryAtIndex:(int)index;
 -(void)reorderCategory:(int)from to:(int)to;
 -(void)renumber;

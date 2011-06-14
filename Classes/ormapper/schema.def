@@ -16,7 +16,7 @@ Transactions: Transaction, TransactionBase
         description :TEXT
         memo :TEXT
 
-Categories: Category, CategoryBase
+Categories: TCategory, TCategoryBase
         name :TEXT
         sorder :INTEGER
 
