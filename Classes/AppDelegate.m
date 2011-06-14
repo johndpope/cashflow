@@ -12,6 +12,7 @@
 #import "PinController.h"
 #import "CrashReportSender.h"
 #import "DropboxSDK.h"
+#import "GANTracker.h"
 
 #import "DropboxSecret.h"
 
@@ -63,6 +64,20 @@ static BOOL sIsPrevCrashed;
             autorelease];
     dbSession.delegate = self;
     [DBSession setSharedSession:dbSession];
+    
+    // Google analytics
+    GANTracker *tracker = [GANTracker sharedTracker];
+    NSString *ua;
+#if FREE_VERSION
+    ua = @"UA-413697-22";
+#else
+    ua = @"UA-413697-23";
+#endif
+    [tracker startTrackerWithAccountID:ua dispatchPeriod:60 delegate:nil];
+    
+    UIDevice *dev = [UIDevice currentDevice];
+    [tracker trackPageview:[NSString stringWithFormat:@"/device/model/%@", [dev model]] withError:nil];
+    [tracker trackPageview:[NSString stringWithFormat:@"/device/version/%@", [dev systemVersion]] withError:nil];
 
     // Configure and show the window
     [window makeKeyAndVisible];
