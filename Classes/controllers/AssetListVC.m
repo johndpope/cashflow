@@ -24,8 +24,10 @@
 - (void)viewDidLoad
 {
     //NSLog(@"AssetListViewController:viewDidLoad");
-
     [super viewDidLoad];
+    
+    [AppDelegate trackPageview:@"/AssetListViewController"];
+     
     mTableView.rowHeight = 48;
     mPinChecked = NO;
     mAsDisplaying = NO;

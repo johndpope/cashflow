@@ -25,6 +25,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [AppDelegate trackPageview:@"/ReportCatViewController"];
+    
     self.navigationItem.rightBarButtonItem =
         [[[UIBarButtonItem alloc]
              initWithBarButtonSystemItem:UIBarButtonSystemItemDone

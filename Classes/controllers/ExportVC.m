@@ -23,6 +23,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [AppDelegate trackPageview:@"/ExportViewController"];
 
     // Localization
     [self setTitle:_L(@"Export")];

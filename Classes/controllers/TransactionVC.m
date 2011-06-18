@@ -30,6 +30,10 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
+    [AppDelegate trackPageview:@"/TransactionViewController"];
+    
     mIsModified = NO;
 
     self.title = _L(@"Transaction");

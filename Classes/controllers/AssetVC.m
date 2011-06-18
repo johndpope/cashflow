@@ -25,6 +25,10 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
+    [AppDelegate trackPageview:@"/AssetViewController"];
+    
     self.title = _L(@"Asset");
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemSave
