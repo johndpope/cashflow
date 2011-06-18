@@ -2181,6 +2181,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
@@ -2199,6 +2200,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
@@ -2222,6 +2224,7 @@
 					DEBUG,
 				);
 				INFOPLIST_FILE = "Info-free.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
@@ -2241,6 +2244,7 @@
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = FREE_VERSION;
 				INFOPLIST_FILE = "Info-free.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
