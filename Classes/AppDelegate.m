@@ -140,8 +140,6 @@ static BOOL sIsPrevCrashed;
     [Database shutdown];
 }
 
-
-
 - (void)dealloc {
     [navigationController release];
     [window release];
@@ -174,6 +172,20 @@ static BOOL sIsPrevCrashed;
     }        
 }
 
+#pragma mark GoogleAnalytics
++ (void)trackPageview:(NSString *)url
+{
+    NSError *err;
+    
+    GANTracker *tracker = [GANTracker sharedTracker];
+    [tracker trackPageview:url withError:&err];
+}
+
++ (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(int)value
+{
+    GANTracker *tracker = [GANTracker sharedTracker];
+    [tracker trackEvent:category action:action label:label value:value withError:nil];
+}
 
 #pragma mark Debug
 
