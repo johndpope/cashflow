@@ -73,14 +73,18 @@ static BOOL sIsPrevCrashed;
 #else
     ua = @"UA-413697-23";
 #endif
-    [tracker startTrackerWithAccountID:ua dispatchPeriod:60 delegate:nil];
+    [tracker startTrackerWithAccountID:ua dispatchPeriod:30 delegate:nil];
     
-    UIDevice *dev = [UIDevice currentDevice];
-    [tracker setCustomVariableAtIndex:1 name:@"model" value:[dev model] withError:nil];
-    [tracker setCustomVariableAtIndex:1 name:@"systemVersion" value:[dev systemVersion] withError:nil];
-    
+    // set custom variables
     NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
     [tracker setCustomVariableAtIndex:1 name:@"appVersion" value:version withError:nil];
+    
+    UIDevice *dev = [UIDevice currentDevice];
+    NSString *model = [dev model];
+    NSString *systemVersion = [dev systemVersion];
+    //NSString *systemDesc = [NSString stringWithFormat:@"%@ %@", [dev model], [dev systemVersion]];
+    [tracker setCustomVariableAtIndex:2 name:@"model" value:model withError:nil];
+    [tracker setCustomVariableAtIndex:3 name:@"systemVersion" value:systemVersion withError:nil];
     
     [tracker trackPageview:@"/applicationDidFinishLaunching" withError:nil];
 
