@@ -28,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [AppDelegate trackPageview:@"/InfoViewController"];
+    
     self.title = _L(@"Info");
     self.navigationItem.rightBarButtonItem =
     [[[UIBarButtonItem alloc]
@@ -73,12 +75,16 @@
 
 - (IBAction)webButtonTapped
 {
+    [AppDelegate trackPageview:@"/ViewController/Help"];
+    
     NSURL *url = [NSURL URLWithString:_L(@"HelpURL") /*"web help url*/];
     [[UIApplication sharedApplication] openURL:url];
 }
 
 - (IBAction)purchaseStandardVersion
 {
+    [AppDelegate trackPageview:@"/ViewController/purchaseStandardVersion"];
+    
     NSURL *url = [NSURL URLWithString:@"http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=290776107&mt=8"];
     [[UIApplication sharedApplication] openURL:url];
 }

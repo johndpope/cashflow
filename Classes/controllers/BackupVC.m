@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [AppDelegate trackPageview:@"/BackupViewController"];
     
     self.navigationItem.rightBarButtonItem =
         [[[UIBarButtonItem alloc]
@@ -141,10 +142,12 @@
             }
             switch (indexPath.row) {
                 case 0: // backup
+                    [AppDelegate trackPageview:@"/BackupViewController/DropboxBackup"];
                     [mDropboxBackup doBackup:self];
                     break;
                     
                 case 1: //restore
+                    [AppDelegate trackPageview:@"/BackupViewController/DropboxRestore"];
                     alertView = [[[UIAlertView alloc] initWithTitle:_L(@"Warning")
                                                             message:_L(@"RestoreWarning")
                                                            delegate:self 
@@ -157,6 +160,7 @@
 
         case 1:
             // internal web server
+            [AppDelegate trackPageview:@"/BackupViewController/WebBackup"];
             webBackup = [[[WebServerBackup alloc] init] autorelease];
             [webBackup execute];
             break;

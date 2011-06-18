@@ -32,6 +32,9 @@
 - (void)checkPin;
 + (BOOL)isPrevCrashed;
 
++ (void)trackPageview:(NSString *)url;
++ (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(int)value;
+
 // Utility
 #define _L(msg)  NSLocalizedString(msg, @"")
 

@@ -12,6 +12,7 @@
 #import "PinController.h"
 #import "CrashReportSender.h"
 #import "DropboxSDK.h"
+#import "GANTracker.h"
 
 #import "DropboxSecret.h"
 
@@ -63,6 +64,29 @@ static BOOL sIsPrevCrashed;
             autorelease];
     dbSession.delegate = self;
     [DBSession setSharedSession:dbSession];
+    
+    // Google analytics
+    GANTracker *tracker = [GANTracker sharedTracker];
+    NSString *ua;
+#if FREE_VERSION
+    ua = @"UA-413697-22";
+#else
+    ua = @"UA-413697-23";
+#endif
+    [tracker startTrackerWithAccountID:ua dispatchPeriod:30 delegate:nil];
+    
+    // set custom variables
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
+    [tracker setCustomVariableAtIndex:1 name:@"appVersion" value:version withError:nil];
+    
+    UIDevice *dev = [UIDevice currentDevice];
+    NSString *model = [dev model];
+    NSString *systemVersion = [dev systemVersion];
+    //NSString *systemDesc = [NSString stringWithFormat:@"%@ %@", [dev model], [dev systemVersion]];
+    [tracker setCustomVariableAtIndex:2 name:@"model" value:model withError:nil];
+    [tracker setCustomVariableAtIndex:3 name:@"systemVersion" value:systemVersion withError:nil];
+    
+    [tracker trackPageview:@"/applicationDidFinishLaunching" withError:nil];
 
     // Configure and show the window
     [window makeKeyAndVisible];
@@ -116,8 +140,6 @@ static BOOL sIsPrevCrashed;
     [Database shutdown];
 }
 
-
-
 - (void)dealloc {
     [navigationController release];
     [window release];
@@ -150,6 +172,20 @@ static BOOL sIsPrevCrashed;
     }        
 }
 
+#pragma mark GoogleAnalytics
++ (void)trackPageview:(NSString *)url
+{
+    NSError *err;
+    
+    GANTracker *tracker = [GANTracker sharedTracker];
+    [tracker trackPageview:url withError:&err];
+}
+
++ (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(int)value
+{
+    GANTracker *tracker = [GANTracker sharedTracker];
+    [tracker trackEvent:category action:action label:label value:value withError:nil];
+}
 
 #pragma mark Debug
 
