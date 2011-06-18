@@ -31,6 +31,7 @@
 
 - (void)checkPin;
 + (BOOL)isPrevCrashed;
++ (NSString *)appVersion;
 
 + (void)trackPageview:(NSString *)url;
 + (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(int)value;

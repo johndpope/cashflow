@@ -43,7 +43,7 @@
     mPurchaseButton.hidden = YES;
 #endif
 	
-    NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
+    NSString *version = [AppDelegate appVersion];
     [mVersionLabel setText:[NSString stringWithFormat:@"Version %@", version]];
 
     [self _setButtonTitle:mPurchaseButton

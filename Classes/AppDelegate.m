@@ -32,6 +32,15 @@ static BOOL sIsPrevCrashed;
     return sIsPrevCrashed;
 }
 
+//
+// バージョン番号文字列を返す
+//
++ (NSString *)appVersion
+{
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"];
+    return version;
+}
+
 - (id)init {
     self = [super init];
     return self;
@@ -76,7 +85,7 @@ static BOOL sIsPrevCrashed;
     [tracker startTrackerWithAccountID:ua dispatchPeriod:30 delegate:nil];
     
     // set custom variables
-    NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
+    NSString *version = [AppDelegate appVersion];
     [tracker setCustomVariableAtIndex:1 name:@"appVersion" value:version withError:nil];
     
     UIDevice *dev = [UIDevice currentDevice];
