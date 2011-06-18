@@ -1,7 +1,16 @@
+2011-06-18 : Takuya Murakami
+
+	* ver 4.1.4
+	* Google analytics 対応
+
 2011-06-13 : Takuya Murakami
 
 	* OFX エクスポート時の日付処理ミスを修正
 
+2011-05-09 : Takuya Murakami
+
+	* 投資口座追加
+	
 2011-05-07 : Takuya Murakami
 
 	* バグ修正: table view cell のメモリ管理バグ (Issue #10)
