@@ -206,19 +206,32 @@ sub getSymbolPathFor_dsymUuid{
     $dsymdir = quotemeta($dsymdir);    # quote the result to handle spaces in path and executable names
     print STDERR "dsym directory: $dsymdir\n" if $opt{v};
     
+    # Murakami modified : dsymdir が２個見つかった場合の処理
+    # .xcarchive だけを残す
+    if ($dsymdir =~ /([^\n]+\.xcarchive)/) {
+        $dsymdir = $1;
+        print STDERR "@ Choose dsymdir : $dsymdir\n";
+    }
+
     # Murakami modified : Xcode4 archive 対応
     my @executablePath;
     my $executable;
 
     if ($dsymdir =~ /\.xcarchive$/) {
+        print STDERR "@ Try to get executable in dsymdir : $dsymdir\n";
+
         # executable の名前を取得する
         my @tmpdirs = glob "$dsymdir/dSYMs/*.dSYM";
+        my $tmpdirsize = @tmpdirs;
+        if ($tmpdirsize == 0) {
+            return undef;
+        }
 
         $tmpdirs[0] =~ /(.*)\/(.*).dSYM/;
         $executable = $2;
         $executable =~ s/\..*//g;    # strip off the suffix, if any
 
-        print STDERR "Executable: $executable\n\n" if $opt{v};
+        print STDERR "@ Executable found : $executable\n\n" if $opt{v};
 
         # executable のパスを取得する
         @executablePath = glob "$dsymdir/Products/Applications/$executable.app/$executable";

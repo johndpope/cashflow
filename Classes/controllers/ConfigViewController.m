@@ -25,6 +25,8 @@
 {
     [super viewDidLoad];
 
+    [AppDelegate trackPageview:@"/ConfigViewController"];
+    
     self.navigationItem.title = _L(@"Config");
 
     self.navigationItem.rightBarButtonItem =

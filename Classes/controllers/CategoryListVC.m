@@ -27,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [AppDelegate trackPageview:@"/CategoryListViewController"];
 
     if (IS_IPAD) {
         CGSize s = self.contentSizeForViewInPopover;
@@ -65,7 +67,7 @@
 - (void)viewDidDisappear:(BOOL)animated {
 }
 
-#pragma mark TableViewDataSource
+#pragma mark - TableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -92,7 +94,7 @@
     if (indexPath.row >= [[DataModel instance].categories count]) {
         cell.textLabel.text = _L(@"Add category");
     } else {
-        Category *c = [[DataModel instance].categories categoryAtIndex:indexPath.row];
+        TCategory *c = [[DataModel instance].categories categoryAtIndex:indexPath.row];
         cell.textLabel.text = c.name;
     }
 
@@ -108,6 +110,8 @@
 	
     return cell;
 }
+
+#pragma mark Cell tap action
 
 //
 // セルをクリックしたときの処理
@@ -134,7 +138,7 @@
                                         title:_L(@"Category")
                                         identifier:idx];
     if (idx >= 0) {
-        Category *category = [[DataModel instance].categories categoryAtIndex:idx];
+        TCategory *category = [[DataModel instance].categories categoryAtIndex:idx];
         vc.text = category.name;
     }
 	
@@ -148,12 +152,14 @@
         [[DataModel instance].categories addCategory:vc.text];
     } else {
         // 変更
-        Category *c = [[DataModel instance].categories categoryAtIndex:identifier];
+        TCategory *c = [[DataModel instance].categories categoryAtIndex:identifier];
         c.name = vc.text;
         [[DataModel instance].categories updateCategory:c];
     }
     [self.tableView reloadData];
 }
+
+#pragma mark Edit cells
 
 // Editボタン処理
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -205,19 +211,34 @@
     }
 }
 
-// 並べ替え処理
+#pragma mark Sort cells
+
+// 並べ替え可能チェック
 - (BOOL)tableView:(UITableView *)tv canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row >= [[DataModel instance].categories count]) {
-        return NO;
+        return NO; // 追加列は移動不可
     }
     return YES;
 }
 
+// 移動先チェック
+- (NSIndexPath *)tableView:(UITableView *)tv targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    if (proposedDestinationIndexPath.row >= [[DataModel instance].categories count]) {
+        // 移動先が「追加」列の場合は、移動不可
+        return sourceIndexPath;
+    }
+    return proposedDestinationIndexPath;
+}
+
+// セル移動
 - (void)tableView:(UITableView *)tv moveRowAtIndexPath:(NSIndexPath*)from toIndexPath:(NSIndexPath*)to
 {
     [[DataModel instance].categories reorderCategory:from.row to:to.row];
 }
+
+#pragma mark - Rotation
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     if (IS_IPAD) return YES;

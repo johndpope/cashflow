@@ -20,6 +20,7 @@
     if (cell == nil) {
         UIViewController *vc = [[UIViewController alloc] initWithNibName:@"TransactionCell" bundle:nil];
         cell = (TransactionCell *)vc.view;
+        [[cell retain] autorelease];
         [vc release];
     }
     return cell;

@@ -53,6 +53,8 @@
     NSLog(@"TransactionListViewController:viewDidLoad");
 
     [super viewDidLoad];
+    
+    [AppDelegate trackPageview:@"/TransactionListViewController"];
 	
     // title 設定
     //self.title = _L(@"Transactions");

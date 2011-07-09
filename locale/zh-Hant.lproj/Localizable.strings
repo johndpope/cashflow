@@ -91,6 +91,7 @@
 "Cash" = "現金";
 "Bank Account" = "銀行帳戶";
 "Credit Card" = "信用卡";
+"Investment Account" = "投資帳戶";
 
 /* export view */
 "Data format" = "資料格式";

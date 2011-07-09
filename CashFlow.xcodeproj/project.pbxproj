@@ -20,6 +20,11 @@
 		3E035E9B1182B6E000711865 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
 		3E0887F00E6EAC5C00739AC9 /* EditDescView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887EF0E6EAC5C00739AC9 /* EditDescView.xib */; };
 		3E0887F60E6EAC8900739AC9 /* EditDateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887F50E6EAC8900739AC9 /* EditDateView.xib */; };
+		3E0AC6AB13A78664006F505C /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */; };
+		3E0AC6AC13A78664006F505C /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */; };
+		3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
+		3E0AC6AF13A786F7006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
+		3E0AC6B013A786FC006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
 		3E0AD6BE121415DE00CFDDAC /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6A7121415DD00CFDDAC /* Asset.m */; };
 		3E0AD6BF121415DE00CFDDAC /* AssetEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6A9121415DD00CFDDAC /* AssetEntry.m */; };
 		3E0AD6C0121415DE00CFDDAC /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6AB121415DD00CFDDAC /* Category.m */; };
@@ -83,17 +88,17 @@
 		3E0AD778121416CB00CFDDAC /* DescLRUManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD776121416CB00CFDDAC /* DescLRUManager.m */; };
 		3E0AD779121416CB00CFDDAC /* DescLRUManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD776121416CB00CFDDAC /* DescLRUManager.m */; };
 		3E0AD7941214173500CFDDAC /* AssetBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7801214173500CFDDAC /* AssetBase.m */; };
-		3E0AD7951214173500CFDDAC /* CategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7821214173500CFDDAC /* CategoryBase.m */; };
 		3E0AD7961214173500CFDDAC /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7841214173500CFDDAC /* Database.m */; };
 		3E0AD7981214173500CFDDAC /* DescLRU.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7881214173500CFDDAC /* DescLRU.m */; };
 		3E0AD7991214173500CFDDAC /* ORRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD78A1214173500CFDDAC /* ORRecord.m */; };
 		3E0AD79A1214173500CFDDAC /* TransactionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD78C1214173500CFDDAC /* TransactionBase.m */; };
 		3E0AD79B1214173500CFDDAC /* AssetBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7801214173500CFDDAC /* AssetBase.m */; };
-		3E0AD79C1214173500CFDDAC /* CategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7821214173500CFDDAC /* CategoryBase.m */; };
 		3E0AD79D1214173500CFDDAC /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7841214173500CFDDAC /* Database.m */; };
 		3E0AD79F1214173500CFDDAC /* DescLRU.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7881214173500CFDDAC /* DescLRU.m */; };
 		3E0AD7A01214173500CFDDAC /* ORRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD78A1214173500CFDDAC /* ORRecord.m */; };
 		3E0AD7A11214173500CFDDAC /* TransactionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD78C1214173500CFDDAC /* TransactionBase.m */; };
+		3E0F16AE13A66A5C0091E6F8 /* TCategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F16AD13A66A5C0091E6F8 /* TCategoryBase.m */; };
+		3E0F16AF13A66A5C0091E6F8 /* TCategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F16AD13A66A5C0091E6F8 /* TCategoryBase.m */; };
 		3E13EE59114007D600523938 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E13EE58114007D600523938 /* AVFoundation.framework */; };
 		3E17800613263CBD00D74DED /* CatReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17800213263CBD00D74DED /* CatReport.m */; };
 		3E17800713263CBD00D74DED /* ReportEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17800313263CBD00D74DED /* ReportEntry.m */; };
@@ -435,7 +440,6 @@
 		3EC1B24E13291DE500721A71 /* CatReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17800213263CBD00D74DED /* CatReport.m */; };
 		3EC1B24F13291DE500721A71 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6B5121415DD00CFDDAC /* Transaction.m */; };
 		3EC1B25013291DFC00721A71 /* AssetBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7801214173500CFDDAC /* AssetBase.m */; };
-		3EC1B25113291DFC00721A71 /* CategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7821214173500CFDDAC /* CategoryBase.m */; };
 		3EC1B25213291DFC00721A71 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7841214173500CFDDAC /* Database.m */; };
 		3EC1B25313291DFC00721A71 /* Dbstmt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D2C131FB9680008C37D /* Dbstmt.m */; };
 		3EC1B25413291DFC00721A71 /* DescLRU.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7881214173500CFDDAC /* DescLRU.m */; };
@@ -517,6 +521,10 @@
 		3ED30E741323B53E007E46DC /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED30E711323B53E007E46DC /* TransactionCell.xib */; };
 		3ED97C150F1A0D8D0063A578 /* WebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED97C140F1A0D8D0063A578 /* WebServer.m */; };
 		3ED97C280F1A0E8E0063A578 /* BackupServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED97C270F1A0E8E0063A578 /* BackupServer.m */; };
+		3EDC576B1378105B00876DE8 /* invest.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC57691378105B00876DE8 /* invest.png */; };
+		3EDC576C1378105B00876DE8 /* invest.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC57691378105B00876DE8 /* invest.png */; };
+		3EDC576D1378105B00876DE8 /* invest@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC576A1378105B00876DE8 /* invest@2x.png */; };
+		3EDC576E1378105B00876DE8 /* invest@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC576A1378105B00876DE8 /* invest@2x.png */; };
 		3EDC72BB0EBB493100366F1E /* SimpleTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC72BA0EBB493100366F1E /* SimpleTableView.xib */; };
 		3EDDAC750E89148500268AED /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDAC740E89148500268AED /* redButton.png */; };
 		3EDDADAB0E8925AB00268AED /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDADAA0E8925AB00268AED /* InfoView.xib */; };
@@ -567,6 +575,9 @@
 		3E035E9A1182B6E000711865 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3E0887EF0E6EAC5C00739AC9 /* EditDescView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDescView.xib; sourceTree = "<group>"; };
 		3E0887F50E6EAC8900739AC9 /* EditDateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDateView.xib; sourceTree = "<group>"; };
+		3E0AC6A913A78664006F505C /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
+		3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		3E0AC6AD13A786E8006F505C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3E0AD6A6121415DD00CFDDAC /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
 		3E0AD6A7121415DD00CFDDAC /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
 		3E0AD6A8121415DD00CFDDAC /* AssetEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetEntry.h; sourceTree = "<group>"; };
@@ -631,8 +642,6 @@
 		3E0AD776121416CB00CFDDAC /* DescLRUManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescLRUManager.m; sourceTree = "<group>"; };
 		3E0AD77F1214173500CFDDAC /* AssetBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetBase.h; sourceTree = "<group>"; };
 		3E0AD7801214173500CFDDAC /* AssetBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetBase.m; sourceTree = "<group>"; };
-		3E0AD7811214173500CFDDAC /* CategoryBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryBase.h; sourceTree = "<group>"; };
-		3E0AD7821214173500CFDDAC /* CategoryBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryBase.m; sourceTree = "<group>"; };
 		3E0AD7831214173500CFDDAC /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		3E0AD7841214173500CFDDAC /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		3E0AD7871214173500CFDDAC /* DescLRU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescLRU.h; sourceTree = "<group>"; };
@@ -641,6 +650,8 @@
 		3E0AD78A1214173500CFDDAC /* ORRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRecord.m; sourceTree = "<group>"; };
 		3E0AD78B1214173500CFDDAC /* TransactionBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionBase.h; sourceTree = "<group>"; };
 		3E0AD78C1214173500CFDDAC /* TransactionBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionBase.m; sourceTree = "<group>"; };
+		3E0F16AC13A66A5C0091E6F8 /* TCategoryBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCategoryBase.h; sourceTree = "<group>"; };
+		3E0F16AD13A66A5C0091E6F8 /* TCategoryBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCategoryBase.m; sourceTree = "<group>"; };
 		3E13EE58114007D600523938 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3E17800213263CBD00D74DED /* CatReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatReport.m; sourceTree = "<group>"; };
 		3E17800313263CBD00D74DED /* ReportEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportEntry.m; sourceTree = "<group>"; };
@@ -851,6 +862,8 @@
 		3ED97C140F1A0D8D0063A578 /* WebServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServer.m; sourceTree = "<group>"; };
 		3ED97C260F1A0E8E0063A578 /* BackupServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupServer.h; sourceTree = "<group>"; };
 		3ED97C270F1A0E8E0063A578 /* BackupServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupServer.m; sourceTree = "<group>"; };
+		3EDC57691378105B00876DE8 /* invest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invest.png; sourceTree = "<group>"; };
+		3EDC576A1378105B00876DE8 /* invest@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invest@2x.png"; sourceTree = "<group>"; };
 		3EDC72BA0EBB493100366F1E /* SimpleTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleTableView.xib; sourceTree = "<group>"; };
 		3EDDAC740E89148500268AED /* redButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redButton.png; sourceTree = "<group>"; };
 		3EDDADAA0E8925AB00268AED /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
@@ -881,6 +894,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */,
 				3E338213133211C500861610 /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -897,6 +911,7 @@
 				3E33821A1332123200861610 /* AVFoundation.framework in Frameworks */,
 				3EAF414B1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */,
 				3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */,
+				3E0AC6AB13A78664006F505C /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,6 +935,8 @@
 				3EE8551412123DA400A6B3CF /* CrashReporter.framework in Frameworks */,
 				3E3382181332122700861610 /* Security.framework in Frameworks */,
 				3EAF414C1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */,
+				3E0AC6AC13A78664006F505C /* libGoogleAnalytics.a in Frameworks */,
+				3E0AC6AF13A786F7006F505C /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,6 +960,7 @@
 				3E3382191332122700861610 /* Security.framework in Frameworks */,
 				3EAF414D1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */,
 				3E4C67761348C6E100DA87F6 /* iAd.framework in Frameworks */,
+				3E0AC6B013A786FC006F505C /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -970,6 +988,7 @@
 				3EB5406B0E8E907B00608B77 /* images */,
 				3EAF41431340BCC000814FFA /* AdMob */,
 				3E3381371332108800861610 /* DropBoxSDK */,
+				3E0AC68C13A785EB006F505C /* GoogleAnalytics */,
 				3EC1B22B13291A6D00721A71 /* CashFlowTest */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -1022,6 +1041,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E0AC6AD13A786E8006F505C /* CFNetwork.framework */,
 				3ECD5A861347603800B499A6 /* iAd.framework */,
 				3E338212133211C500861610 /* Security.framework */,
 				3E94339E0EC1E7650033D50A /* libsqlite3.0.dylib */,
@@ -1041,6 +1061,15 @@
 			name = Frameworks;
 			path = System/Library/Frameworks;
 			sourceTree = SDKROOT;
+		};
+		3E0AC68C13A785EB006F505C /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				3E0AC6A913A78664006F505C /* GANTracker.h */,
+				3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
 		};
 		3E0AD6A5121415C300CFDDAC /* models */ = {
 			isa = PBXGroup;
@@ -1139,8 +1168,6 @@
 			children = (
 				3E0AD77F1214173500CFDDAC /* AssetBase.h */,
 				3E0AD7801214173500CFDDAC /* AssetBase.m */,
-				3E0AD7811214173500CFDDAC /* CategoryBase.h */,
-				3E0AD7821214173500CFDDAC /* CategoryBase.m */,
 				3E0AD7831214173500CFDDAC /* Database.h */,
 				3E0AD7841214173500CFDDAC /* Database.m */,
 				3E4A7D2B131FB9680008C37D /* Dbstmt.h */,
@@ -1151,6 +1178,8 @@
 				3E0AD78A1214173500CFDDAC /* ORRecord.m */,
 				3E0AD78B1214173500CFDDAC /* TransactionBase.h */,
 				3E0AD78C1214173500CFDDAC /* TransactionBase.m */,
+				3E0F16AC13A66A5C0091E6F8 /* TCategoryBase.h */,
+				3E0F16AD13A66A5C0091E6F8 /* TCategoryBase.m */,
 			);
 			path = ormapper;
 			sourceTree = "<group>";
@@ -1366,6 +1395,8 @@
 				3E55366C13344D2900D288D9 /* bank@2x.png */,
 				3E9A3B3C0EC47ABA005A4664 /* card.png */,
 				3E55366D13344D2900D288D9 /* card@2x.png */,
+				3EDC57691378105B00876DE8 /* invest.png */,
+				3EDC576A1378105B00876DE8 /* invest@2x.png */,
 				3EB8EA4F0F1F7919000A8276 /* config.png */,
 				3E895E9213252A8E00251E36 /* report-daily.png */,
 				3E895E9313252A8E00251E36 /* report-daily@2x.png */,
@@ -1631,6 +1662,8 @@
 				3E3A74721335D03F00B68377 /* Default-Landscape~ipad.png in Resources */,
 				3E3A74741335D03F00B68377 /* Default-Portrait~ipad.png in Resources */,
 				3EF1716F133A2528002C818E /* artwork.jpg in Resources */,
+				3EDC576B1378105B00876DE8 /* invest.png in Resources */,
+				3EDC576D1378105B00876DE8 /* invest@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1712,6 +1745,8 @@
 				3E3A74731335D03F00B68377 /* Default-Landscape~ipad.png in Resources */,
 				3E3A74751335D03F00B68377 /* Default-Portrait~ipad.png in Resources */,
 				3EF17170133A2528002C818E /* artwork.jpg in Resources */,
+				3EDC576C1378105B00876DE8 /* invest.png in Resources */,
+				3EDC576E1378105B00876DE8 /* invest@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1839,7 +1874,6 @@
 				3E0AD73B1214169700CFDDAC /* TransactionVC.m in Sources */,
 				3E0AD778121416CB00CFDDAC /* DescLRUManager.m in Sources */,
 				3E0AD7941214173500CFDDAC /* AssetBase.m in Sources */,
-				3E0AD7951214173500CFDDAC /* CategoryBase.m in Sources */,
 				3E0AD7961214173500CFDDAC /* Database.m in Sources */,
 				3E0AD7981214173500CFDDAC /* DescLRU.m in Sources */,
 				3E0AD7991214173500CFDDAC /* ORRecord.m in Sources */,
@@ -1888,6 +1922,7 @@
 				3E3382241332284000861610 /* DropboxBackup.m in Sources */,
 				3E3382291332298400861610 /* BackupVC.m in Sources */,
 				3E4C67721347939600DA87F6 /* AdManager.m in Sources */,
+				3E0F16AE13A66A5C0091E6F8 /* TCategoryBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1941,7 +1976,6 @@
 				3E0AD7511214169700CFDDAC /* TransactionVC.m in Sources */,
 				3E0AD779121416CB00CFDDAC /* DescLRUManager.m in Sources */,
 				3E0AD79B1214173500CFDDAC /* AssetBase.m in Sources */,
-				3E0AD79C1214173500CFDDAC /* CategoryBase.m in Sources */,
 				3E0AD79D1214173500CFDDAC /* Database.m in Sources */,
 				3E0AD79F1214173500CFDDAC /* DescLRU.m in Sources */,
 				3E0AD7A01214173500CFDDAC /* ORRecord.m in Sources */,
@@ -1990,6 +2024,7 @@
 				3E3382251332284000861610 /* DropboxBackup.m in Sources */,
 				3E33822A1332298400861610 /* BackupVC.m in Sources */,
 				3E4C67731347939600DA87F6 /* AdManager.m in Sources */,
+				3E0F16AF13A66A5C0091E6F8 /* TCategoryBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2013,7 +2048,6 @@
 				3EC1B24E13291DE500721A71 /* CatReport.m in Sources */,
 				3EC1B24F13291DE500721A71 /* Transaction.m in Sources */,
 				3EC1B25013291DFC00721A71 /* AssetBase.m in Sources */,
-				3EC1B25113291DFC00721A71 /* CategoryBase.m in Sources */,
 				3EC1B25213291DFC00721A71 /* Database.m in Sources */,
 				3EC1B25313291DFC00721A71 /* Dbstmt.m in Sources */,
 				3EC1B25413291DFC00721A71 /* DescLRU.m in Sources */,
@@ -2147,9 +2181,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlow;
 			};
@@ -2164,9 +2200,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlow;
 				VALIDATE_PRODUCT = YES;
@@ -2186,9 +2224,11 @@
 					DEBUG,
 				);
 				INFOPLIST_FILE = "Info-free.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 			};
@@ -2204,9 +2244,11 @@
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = FREE_VERSION;
 				INFOPLIST_FILE = "Info-free.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 			};

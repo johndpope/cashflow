@@ -15,12 +15,12 @@
 {
     int mState;
     NSString *mPin;
-    NSString *mNewPin;
+    NSString *mPinNew;
     UINavigationController *mNavigationController;
 }
 
 @property(nonatomic,retain) NSString *pin;
-@property(nonatomic,retain) NSString *newPin;
+@property(nonatomic,retain) NSString *pinNew;
 
 + (PinController *)pinController;
 

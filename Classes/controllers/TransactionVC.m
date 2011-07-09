@@ -30,6 +30,10 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
+    [AppDelegate trackPageview:@"/TransactionViewController"];
+    
     mIsModified = NO;
 
     self.title = _L(@"Transaction");
@@ -420,7 +424,7 @@
     if (vc.selectedIndex < 0) {
         mEditingEntry.transaction.category = -1;
     } else {
-        Category *c = [[DataModel categories] categoryAtIndex:vc.selectedIndex];
+        TCategory *c = [[DataModel categories] categoryAtIndex:vc.selectedIndex];
         mEditingEntry.transaction.category = c.pid;
     }
     [self _dismissPopover];

@@ -25,7 +25,7 @@
     
     Ledger *mLedger;
 
-    NSArray *mIconArray;
+    NSMutableArray *mIconArray;
 
     BOOL mAsDisplaying;
     UIActionSheet *mAsActionButton;

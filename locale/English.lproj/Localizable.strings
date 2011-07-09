@@ -91,6 +91,7 @@
 "Cash" = "Cash";
 "Bank Account" = "Bank Account";
 "Credit Card" = "Credit Card";
+"Investment Account" = "Investment Account";
 
 /* export view */
 "Data format" = "Data format";

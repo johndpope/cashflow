@@ -51,7 +51,9 @@
             if (lastDate == nil) {
                 lastDate = e.transaction.date;
             }
-            else if ([lastDate compare:e.transaction.date] == NSOrderedDescending) {
+
+            // lastDate < e.transaction.date ならは lastDate に代入
+            else if ([lastDate compare:e.transaction.date] == NSOrderedAscending) {
                 lastDate = e.transaction.date;
             }
         }
@@ -149,10 +151,10 @@
     [data appendString:@"   <BANKTRANLIST>\n"];
     [data appendString:@"    <DTSTART>"];
     [data appendString:[self _dateStrWithAssetEntry:firstEntry]];
-    [data appendString:@"\n"];
+    [data appendString:@"</DTSTART>\n"];
     [data appendString:@"    <DTEND>"];
     [data appendString:[self _dateStrWithAssetEntry:lastEntry]];
-    [data appendString:@"\n"];
+    [data appendString:@"</DTEND>\n"];
     
     /* トランザクション */
     int i;

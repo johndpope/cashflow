@@ -25,6 +25,10 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
+    [AppDelegate trackPageview:@"/AssetViewController"];
+    
     self.title = _L(@"Asset");
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemSave
@@ -163,17 +167,7 @@
 
     case ROW_TYPE:
         name.text = _L(@"Asset Type");
-        switch (mAsset.type) {
-        case ASSET_CASH:
-            value.text = _L(@"Cash");
-            break;
-        case ASSET_BANK:
-            value.text = _L(@"Bank Account");
-            break;
-        case ASSET_CARD:
-            value.text = _L(@"Credit Card");
-            break;
-        }
+        value.text = [Asset typeNameWithType:mAsset.type];
         break;
     }
 
@@ -202,11 +196,7 @@
         break;
 
     case ROW_TYPE:
-        typeArray = [[[NSArray alloc]initWithObjects:
-                                         _L(@"Cash"),
-                                     _L(@"Bank Account"),
-                                     _L(@"Credit Card"),
-                                     nil] autorelease];
+        typeArray = [Asset typeNamesArray];
         gt = [GenSelectListViewController genSelectListViewController:self 
                                         items:typeArray 
                                         title:_L(@"Asset Type")

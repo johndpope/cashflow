@@ -13,9 +13,58 @@
 
 @implementation Asset
 
++ (int)numAssetTypes
+{
+    return 4;
+}
+
++ (NSArray*)typeNamesArray
+{
+    static NSArray *typeNames = nil;
+
+    if (typeNames == nil) {
+        typeNames = 
+            [[NSArray alloc] initWithObjects:
+                             _L(@"Cash"),
+                             _L(@"Bank Account"),
+                             _L(@"Credit Card"),
+                             _L(@"Investment Account"),
+                             nil];
+    }
+    return typeNames;
+}
+
++ (NSString*)typeNameWithType:(int)type
+{
+    NSArray *typeNames = [Asset typeNamesArray];
+
+    if (type < 0 || type >= [typeNames count]) {
+        NSLog(@"WARNING: typeNameWithType: type out of range");
+        return nil;
+    }
+    return [typeNames objectAtIndex:type];
+}
+
++ (NSString*)iconNameWithType:(int)type
+{
+    switch (type) {
+        case ASSET_CASH:
+            return @"cash";
+        case ASSET_BANK:
+            return @"bank";
+        case ASSET_CARD:
+            return @"card";
+        case ASSET_INVEST:
+            return @"invest";
+    }
+
+    ASSERT(NO);
+    return nil; // ERROR!
+}
+
 - (id)init
 {
-    [super init];
+    self = [super init];
     
     mEntries = [[NSMutableArray alloc] init];
     mType = ASSET_CASH;
