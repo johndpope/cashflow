@@ -39,8 +39,8 @@
 // Utility
 #define _L(msg)  NSLocalizedString(msg, @"")
 
-#ifdef NDEBUG
 void AssertFailed(const char *filename, int lineno);
+#ifdef NDEBUG
 #define ASSERT(x)  if (!(x)) AssertFailed(__FILE__, __LINE__)
 #else
 #define ASSERT(x) /**/
