@@ -6,6 +6,7 @@
 //  Copyright 2010 Dropbox, Inc. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 
 @protocol DBNetworkRequestDelegate;
 

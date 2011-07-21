@@ -6,6 +6,8 @@
 //  Copyright 2010 Dropbox, Inc. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 #import "MPOAuthCredentialConcreteStore.h"
 
 extern NSString* kDBDropboxAPIHost;

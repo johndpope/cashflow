@@ -6,6 +6,8 @@
 //  Copyright 2009 matrixPointer. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 #import "MPOAuthAuthenticationMethodOAuth.h"
 #import "MPOAuthAPI.h"
 #import "MPOAuthAPIRequestLoader.h"
