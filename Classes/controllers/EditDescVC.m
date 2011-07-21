@@ -35,10 +35,10 @@
     self.title = _L(@"Name");
 
     self.navigationItem.rightBarButtonItem =
-        [[[UIBarButtonItem alloc]
+        [[UIBarButtonItem alloc]
              initWithBarButtonSystemItem:UIBarButtonSystemItemDone
              target:self
-             action:@selector(doneAction)] autorelease];
+             action:@selector(doneAction)];
 
     // ここで textField を生成する
     mTextField = [[UITextField alloc] initWithFrame:CGRectMake(12, 12, 300, 24)];
@@ -53,14 +53,6 @@
     // dummy func must exist for textFieldShouldReturn event to be called
 }
 
-- (void)dealloc
-{
-    [mTableView release];
-    [mTextField release];
-    [mDescription release];
-    [mDescArray release];
-    [super dealloc];
-}
 
 // 表示前の処理
 //  処理するトランザクションをロードしておく
@@ -69,9 +61,7 @@
     mTextField.text = self.description;
     [super viewWillAppear:animated];
 
-    [mDescArray release];
     mDescArray = [DescLRUManager getDescLRUs:mCategory];
-    [mDescArray retain];
 
     // キーボードを消す ###
     [mTextField resignFirstResponder];
@@ -141,7 +131,7 @@
 {
     UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"textFieldCell"];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"textFieldCell"] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"textFieldCell"];
         [cell.contentView addSubview:mTextField];
     }
     return cell;
@@ -151,7 +141,7 @@
 {   
     UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"descCell"];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"descCell"] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"descCell"];
     }
     DescLRU *lru = [mDescArray objectAtIndex:row];
     cell.textLabel.text = lru.description;

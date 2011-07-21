@@ -20,12 +20,6 @@
 - (NSString *)contentType { return nil; }
 - (NSData*)generateBody { return nil; }
 
-- (void)dealloc
-{
-    [mFirstDate release];
-    [mWebServer release];
-    [super dealloc];
-}
 
 /////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -50,7 +44,6 @@
 
     [vc addAttachmentData:data mimeType:[self mimeType] fileName:[self fileName]];
     [parent presentModalViewController:vc animated:YES];
-    [vc release];
     return YES;
 }
 
@@ -108,7 +101,6 @@
     }
 
     [v show];
-    [v release];
 
     return YES;
 }
@@ -138,7 +130,7 @@
 
     DBSession *session = [DBSession sharedSession];
     if (![session isLinked]) {
-        DBLoginController *controller = [[DBLoginController new] autorelease];
+        DBLoginController *controller = [DBLoginController new];
         controller.delegate = self;
         [controller presentFromController:parent];
     } else {
@@ -184,7 +176,6 @@
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath
 {
     [mLoadingView dismissAnimated:NO];
-    [mLoadingView release];
     mLoadingView = nil;    
     
     [self _showResult:@"Export done."];
@@ -194,7 +185,6 @@
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error
 {
     [mLoadingView dismissAnimated:NO];
-    [mLoadingView release];
     mLoadingView = nil;    
     
     [self _showResult:@"Export failed!"];
@@ -202,10 +192,9 @@
 
 - (void)_showResult:(NSString *)message
 {
-    [[[[UIAlertView alloc] 
+    [[[UIAlertView alloc] 
        initWithTitle:@"Dropbox" message:message
        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]
-        autorelease]
         show];
 }
 

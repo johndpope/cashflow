@@ -41,17 +41,12 @@
         self.contentSizeForViewInPopover = s;
     }
     self.title = _L(@"Amount"); // 金額
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self
-                                                  action:@selector(doneAction)] autorelease];
+                                                  action:@selector(doneAction)];
 }
 
-- (void)dealloc
-{
-    [mNumberFormatter release];
-    [super dealloc];
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {

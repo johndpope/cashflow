@@ -32,7 +32,7 @@
 
 - (NSData *)generateBody
 {
-    NSMutableString *data = [[[NSMutableString alloc] initWithCapacity:1024] autorelease];
+    NSMutableString *data = [[NSMutableString alloc] initWithCapacity:1024];
     
     for (Asset *asset in mAssets) {
         if ([mAssets count] > 1) {
@@ -68,7 +68,6 @@
                 [d appendFormat:@"%@", e.transaction.memo];
                 [d appendString:@"\n"];
                 [data appendString:d];
-                [d release];
             }
         }
         [data appendString:@"\n"];

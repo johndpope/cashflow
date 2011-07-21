@@ -16,13 +16,6 @@
 
 #define BUFSZ   4096
 
-- (void)dealloc
-{
-    [mContentType release];
-    [mContentBody release];
-    [mFilename release];
-    [super dealloc];
-}
 
 - (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(int)bodylen
 {

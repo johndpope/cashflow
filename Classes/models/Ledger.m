@@ -78,10 +78,9 @@
 
 - (void)reorderAsset:(int)from to:(int)to
 {
-    Asset *as = [[mAssets objectAtIndex:from] retain];
+    Asset *as = [mAssets objectAtIndex:from];
     [mAssets removeObjectAtIndex:from];
     [mAssets insertObject:as atIndex:to];
-    [as release];
 	
     // renumbering sorder
     Database *db = [Database instance];

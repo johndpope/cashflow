@@ -22,8 +22,6 @@
         cell = (ReportCatCell *)vc.view;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        [[cell retain] autorelease];
-        [vc release];
     }
     return cell;
 }
@@ -34,9 +32,6 @@
     return 32;
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 - (NSString *)name
 {

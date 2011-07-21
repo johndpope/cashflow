@@ -21,7 +21,7 @@
 	
 @interface ExportBase : NSObject <UIAlertViewDelegate, MFMailComposeViewControllerDelegate, DBLoginControllerDelegate, DBRestClientDelegate> {
     NSDate *mFirstDate;
-    NSArray *mAssets;
+    NSArray *__unsafe_unretained mAssets;
 
     ExportServer *mWebServer;
     

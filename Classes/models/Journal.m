@@ -25,19 +25,10 @@
     return self;
 }
 
-- (void)dealloc 
-{
-    [mEntries release];
-    [super dealloc];
-}
 
 - (void)reload
 {
-    if (mEntries) {
-        [mEntries release];
-    }
     mEntries = [Transaction find_all:@"ORDER BY date, key"];
-    [mEntries retain];
     
     // upgrade data
     CashflowDatabase *db = (CashflowDatabase *)[Database instance];
@@ -55,7 +46,7 @@
 /**
    NSFastEnumeration protocol
 */
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])stackbuf count:(NSUInteger)len
 {
     return [mEntries countByEnumeratingWithState:state objects:stackbuf count:len];
 }

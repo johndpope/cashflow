@@ -14,9 +14,9 @@
 
 + (GenEditTextViewController *)genEditTextViewController:(id<GenEditTextViewDelegate>)delegate title:(NSString*)title identifier:(int)id
 {
-    GenEditTextViewController *vc = [[[GenEditTextViewController alloc]
+    GenEditTextViewController *vc = [[GenEditTextViewController alloc]
                                          initWithNibName:@"GenEditTextView"
-                                         bundle:[NSBundle mainBundle]] autorelease];
+                                         bundle:[NSBundle mainBundle]];
     vc.delegate = delegate;
     vc.title = title;
     vc.identifier = id;
@@ -37,20 +37,16 @@
     
     mTextField.placeholder = self.title;
 	
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self
-                                                  action:@selector(doneAction)] autorelease];
+                                                  action:@selector(doneAction)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)dealloc {
-    [mText release];
-    [super dealloc];
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {

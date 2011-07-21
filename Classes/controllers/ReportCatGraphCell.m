@@ -18,7 +18,7 @@
 
     ReportCatGraphCell *cell = (ReportCatGraphCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[[ReportCatGraphCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+        cell = [[ReportCatGraphCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     return cell;
 }
@@ -28,11 +28,6 @@
     return CELL_HEIGHT;
 }
 
-- (void)dealloc
-{
-    [mCatReports release];
-    [super dealloc];
-}
 
 /**
    レポート設定
@@ -50,9 +45,7 @@
     }
 
     if (mCatReports != ary) {
-        [mCatReports release];
         mCatReports = ary;
-        [mCatReports retain];
     }
     
     // force redraw the cell

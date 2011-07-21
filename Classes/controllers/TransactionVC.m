@@ -37,14 +37,14 @@
     mIsModified = NO;
 
     self.title = _L(@"Transaction");
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                   target:self
-                                                  action:@selector(saveAction)] autorelease];
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
+                                                  action:@selector(saveAction)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                   target:self
-                                                  action:@selector(cancelAction)] autorelease];
+                                                  action:@selector(cancelAction)];
 
     mTypeArray = [[NSArray alloc] initWithObjects:
                                      _L(@"Payment"),
@@ -77,13 +77,13 @@
             [b setFrame:rect];
             [b setTitle:_L(@"Delete transaction") forState:UIControlStateNormal];
             [b addTarget:self action:@selector(delButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-            mDelButton = [b retain];
+            mDelButton = b;
         } else {
             rect.origin.y += 55;
             [b setFrame:rect];
             [b setTitle:_L(@"Delete with all past transactions") forState:UIControlStateNormal];
             [b addTarget:self action:@selector(delPastButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-            mDelPastButton = [b retain];
+            mDelPastButton = b;
         }
 
         b.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
@@ -92,16 +92,6 @@
     }
 }
 
-- (void)dealloc
-{
-    self.editingEntry = nil;
-	
-    [mTypeArray release];
-    [mDelButton release];
-    [mDelPastButton release];
-	
-    [super dealloc];
-}
 
 // 処理するトランザクションをロードしておく
 - (void)setTransactionIndex:(int)n
@@ -112,11 +102,11 @@
 
     if (mTransactionIndex < 0) {
         // 新規トランザクション
-        self.editingEntry = [[[AssetEntry alloc] initWithTransaction:nil withAsset:mAsset] autorelease];
+        self.editingEntry = [[AssetEntry alloc] initWithTransaction:nil withAsset:mAsset];
     } else {
         // 変更
         AssetEntry *orig = [mAsset entryAt:mTransactionIndex];
-        self.editingEntry = [[orig copy] autorelease];
+        self.editingEntry = [orig copy];
     }
 }
 
@@ -174,7 +164,7 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:MyIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:MyIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
@@ -261,14 +251,14 @@
 
     switch (indexPath.row) {
     case ROW_DATE:
-        editDateVC = [[[EditDateViewController alloc] init] autorelease];
+        editDateVC = [[EditDateViewController alloc] init];
         editDateVC.delegate = self;
         editDateVC.date = mEditingEntry.transaction.date;
         vc = editDateVC;
         break;
 
     case ROW_TYPE:
-        editTypeVC = [[[EditTypeViewController alloc] init] autorelease];
+        editTypeVC = [[EditTypeViewController alloc] init];
         editTypeVC.delegate = self;
         editTypeVC.type = mEditingEntry.transaction.type;
         editTypeVC.dstAsset = [mEditingEntry dstAsset];
@@ -276,14 +266,14 @@
         break;
 
     case ROW_VALUE:
-        calcVC = [[[CalculatorViewController alloc] init] autorelease];
+        calcVC = [[CalculatorViewController alloc] init];
         calcVC.delegate = self;
         calcVC.value = mEditingEntry.evalue;
         vc = calcVC;
         break;
 
     case ROW_DESC:
-        editDescVC = [[[EditDescViewController alloc] init] autorelease];
+        editDescVC = [[EditDescViewController alloc] init];
         editDescVC.delegate = self;
         editDescVC.description = mEditingEntry.transaction.description;
         editDescVC.category = mEditingEntry.transaction.category;
@@ -300,7 +290,7 @@
         break;
 
     case ROW_CATEGORY:
-        editCategoryVC = [[[CategoryListViewController alloc] init] autorelease];
+        editCategoryVC = [[CategoryListViewController alloc] init];
         editCategoryVC.isSelectMode = YES;
         editCategoryVC.delegate = self;
         editCategoryVC.selectedIndex = [[DataModel categories] categoryIndexWithKey:mEditingEntry.transaction.category];
@@ -309,11 +299,8 @@
     }
     
     if (IS_IPAD) { // TBD
-        nc = [[[UINavigationController alloc] initWithRootViewController:vc] autorelease];
+        nc = [[UINavigationController alloc] initWithRootViewController:vc];
         
-        if (mCurrentPopoverController != nil) {
-            [mCurrentPopoverController release];
-        }
         mCurrentPopoverController = [[UIPopoverController alloc] initWithContentViewController:nc];
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -327,7 +314,6 @@
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     if (IS_IPAD && mCurrentPopoverController != nil) {
-        [mCurrentPopoverController release];
         mCurrentPopoverController = nil;
     }
 }
@@ -452,7 +438,6 @@
                     otherButtonTitles:nil];
     mAsDelPast.actionSheetStyle = UIActionSheetStyleDefault;
     [mAsDelPast showInView:self.view];
-    [mAsDelPast release];
 }
 
 - (void)_asDelPast:(NSInteger)buttonIndex
@@ -504,7 +489,6 @@
                 otherButtonTitles:_L(@"Yes"), _L(@"No"), nil];
         mAsCancelTransaction.actionSheetStyle = UIActionSheetStyleDefault;
         [mAsCancelTransaction showInView:self.view];
-        [mAsCancelTransaction release];
     } else {
         [self.navigationController popViewControllerAnimated:YES];
     }

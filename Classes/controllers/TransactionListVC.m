@@ -71,7 +71,6 @@
                                       action:@selector(addTransaction)];
 	
     self.navigationItem.rightBarButtonItem = plusButton;
-    [plusButton release];
 	
     // Edit ボタンを追加
     // TBD
@@ -108,14 +107,11 @@
 }
 
 - (void)dealloc {
-    [mTableView release];
-    [mPopoverController release];
     
 #if FREE_VERSION
     [mAdManager detach];
 #endif
     
-    [super dealloc];
 }
 
 - (void)reload
@@ -320,11 +316,11 @@
     int idx = [self entryIndexWithIndexPath:indexPath];
     if (idx == -1) {
         // initial balance cell
-        CalculatorViewController *v = [[[CalculatorViewController alloc] init] autorelease];
+        CalculatorViewController *v = [[CalculatorViewController alloc] init];
         v.delegate = self;
         v.value = self.asset.initialBalance;
 
-        UINavigationController *nv = [[[UINavigationController alloc] initWithRootViewController:v] autorelease];
+        UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:v];
         
         if (!IS_IPAD) {
             [self presentModalViewController:nv animated:YES];
@@ -332,13 +328,13 @@
             if (self.popoverController) {
                 [self.popoverController dismissPopoverAnimated:YES];
             }
-            self.popoverController = [[[UIPopoverController alloc] initWithContentViewController:nv] autorelease];
+            self.popoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
             [self.popoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:self.view
                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
     } else if (idx >= 0) {
         // transaction view を表示
-        TransactionViewController *vc = [[[TransactionViewController alloc] init] autorelease];
+        TransactionViewController *vc = [[TransactionViewController alloc] init];
         vc.asset = self.asset;
         [vc setTransactionIndex:idx];
         [self.navigationController pushViewController:vc animated:YES];
@@ -359,7 +355,7 @@
 {
     if (self.asset == nil) return;
     
-    TransactionViewController *vc = [[[TransactionViewController alloc] init] autorelease];
+    TransactionViewController *vc = [[TransactionViewController alloc] init];
     vc.asset = self.asset;
     [vc setTransactionIndex:-1];
     [self.navigationController pushViewController:vc animated:YES];
@@ -418,7 +414,7 @@
 #pragma mark Show Report
 - (void)showReport:(id)sender
 {
-    ReportViewController *reportVC = [[[ReportViewController alloc] initWithAsset:self.asset] autorelease];
+    ReportViewController *reportVC = [[ReportViewController alloc] initWithAsset:self.asset];
 
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:reportVC];
     if (IS_IPAD) {
@@ -427,7 +423,6 @@
     
     //[self.navigationController pushViewController:vc animated:YES];
     [self.navigationController presentModalViewController:nv animated:YES];
-    [nv release];
 }
 
 #pragma mark Action sheet handling
@@ -454,7 +449,6 @@
     } else {
         [as showInView:[self view]];
     }
-    [as release];
 }
 
 - (void)actionSheet:(UIActionSheet*)as clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -471,7 +465,7 @@
     
     switch (buttonIndex) {
         case 0:
-            exportVC = [[[ExportVC alloc] initWithAsset:self.asset] autorelease];
+            exportVC = [[ExportVC alloc] initWithAsset:self.asset];
             vc = exportVC;
             break;
             
@@ -481,12 +475,12 @@
             break;
             
         case 2:
-            configVC = [[[ConfigViewController alloc] init] autorelease];
+            configVC = [[ConfigViewController alloc] init];
             vc = configVC;
             break;
             
         case 3:
-            infoVC = [[[InfoVC alloc] init] autorelease];
+            infoVC = [[InfoVC alloc] init];
             vc = infoVC;
             break;
             
@@ -501,7 +495,6 @@
     
     //[self.navigationController pushViewController:vc animated:YES];
     [self.navigationController presentModalViewController:nv animated:YES];
-    [nv release];
 }
 
 /*

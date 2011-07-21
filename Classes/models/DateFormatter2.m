@@ -15,7 +15,7 @@
 
     // JP locale では特に 12時間制のときの日付フォーマットがおかしいので、
     // US locale にする
-    [self setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"US"] autorelease]];
+    [self setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"US"]];
     return self;
 }
 

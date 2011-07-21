@@ -22,17 +22,10 @@
     return self;
 }
 
--(void)dealloc
-{
-    [mCategories release];
-    [super dealloc];
-}
 
 -(void)reload
 {
-    [mCategories release];
     mCategories = [TCategory find_all:@"ORDER BY sorder"];
-    [mCategories retain];
 }
 
 -(int)count
@@ -73,7 +66,6 @@
     TCategory *c = [[TCategory alloc] init];
     c.name = name;
     [mCategories addObject:c];
-    [c release];
 
     [self renumber];
 
@@ -96,10 +88,9 @@
 
 - (void)reorderCategory:(int)from to:(int)to
 {
-    TCategory *c = [[mCategories objectAtIndex:from] retain];
+    TCategory *c = [mCategories objectAtIndex:from];
     [mCategories removeObjectAtIndex:from];
     [mCategories insertObject:c atIndex:to];
-    [c release];
 	
     [self renumber];
 }

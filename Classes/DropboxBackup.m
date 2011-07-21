@@ -25,11 +25,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [mRestClient release];
-    [super dealloc];
-}
 
 - (void)doBackup:(UIViewController *)viewController
 {
@@ -62,7 +57,7 @@
     // ログイン処理
     if (![session isLinked]) {
         // 未ログイン
-        DBLoginController *controller = [[DBLoginController new] autorelease];
+        DBLoginController *controller = [DBLoginController new];
         controller.delegate = self;
         [controller presentFromController:mViewController];
     } else {
@@ -134,10 +129,9 @@
 
 - (void)_showResult:(NSString *)message
 {
-    [[[[UIAlertView alloc] 
+    [[[UIAlertView alloc] 
        initWithTitle:@"Dropbox" message:message
        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]
-        autorelease]
         show];
 }
 

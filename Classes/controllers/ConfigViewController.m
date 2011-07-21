@@ -30,10 +30,10 @@
     self.navigationItem.title = _L(@"Config");
 
     self.navigationItem.rightBarButtonItem =
-        [[[UIBarButtonItem alloc]
+        [[UIBarButtonItem alloc]
              initWithBarButtonSystemItem:UIBarButtonSystemItemDone
              target:self
-             action:@selector(doneAction:)] autorelease];
+             action:@selector(doneAction:)];
 }
 
 - (void)doneAction:(id)sender
@@ -41,10 +41,6 @@
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -93,7 +89,7 @@
 
     cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.imageView.image = nil;
@@ -190,11 +186,11 @@
         case 0:
             switch (indexPath.row) {
                 case ROW_DATE_TIME_MODE:
-                    typeArray = [[[NSArray alloc] initWithObjects:
+                    typeArray = [[NSArray alloc] initWithObjects:
                                   _L(@"Date and time (1 min)"),
                                   _L(@"Date and time (5 min)"),
                                   _L(@"Date only"),
-                                  nil] autorelease];
+                                  nil];
                     gt = [GenSelectListViewController
                           genSelectListViewController:self
                           items:typeArray
@@ -204,10 +200,10 @@
                     break;
 
                 case ROW_START_OF_WEEK:
-                    typeArray = [[[NSMutableArray alloc] initWithObjects:
+                    typeArray = [[NSMutableArray alloc] initWithObjects:
                                   _L(@"Sunday"),
                                   _L(@"Monday"),
-                                  nil] autorelease];
+                                  nil];
                     gt = [GenSelectListViewController
                           genSelectListViewController:self
                           items:typeArray
@@ -217,7 +213,7 @@
                     break;
                     
                 case ROW_CUTOFF_DATE:
-                    typeArray = [[[NSMutableArray alloc] init] autorelease];
+                    typeArray = [[NSMutableArray alloc] init];
                     [typeArray addObject:_L(@"End of month")];
                     for (int i = 1; i <= 28; i++) {
                         [typeArray addObject:[NSString stringWithFormat:@"%d", i]];
@@ -231,7 +227,7 @@
                     break;
                     
                 case ROW_CURRENCY:
-                    typeArray = [[[NSMutableArray alloc] initWithArray:[[CurrencyManager instance] currencies]] autorelease];
+                    typeArray = [[NSMutableArray alloc] initWithArray:[[CurrencyManager instance] currencies]];
                     [typeArray insertObject:@"System" atIndex:0];
                     gt = [GenSelectListViewController
                           genSelectListViewController:self
@@ -255,18 +251,18 @@
             break;
             
         case 1:
-            categoryVC = [[[CategoryListViewController alloc] init] autorelease];
+            categoryVC = [[CategoryListViewController alloc] init];
             categoryVC.isSelectMode = NO;
             [self.navigationController pushViewController:categoryVC animated:YES];
             break;
             
         case 2:
-            pinController = [[[PinController alloc] init] autorelease];
+            pinController = [[PinController alloc] init];
             [pinController modifyPin:self];
             break;
             
         case 3:
-            dbb = [[[DropboxBackup alloc] init:nil] autorelease];
+            dbb = [[DropboxBackup alloc] init:nil];
             [dbb unlink];
             break;
     }

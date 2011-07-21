@@ -44,7 +44,6 @@
                                       action:@selector(addAsset)];
 	
     self.navigationItem.rightBarButtonItem = plusButton;
-    [plusButton release];
 	
     // Edit ボタンを追加
     self.navigationItem.leftBarButtonItem = [self editButtonItem];
@@ -93,7 +92,6 @@
 {
     // dismiss loading view
     [mLoadingView dismissAnimated:NO];
-    [mLoadingView release];
     mLoadingView = nil;
 
     [self reload];
@@ -121,7 +119,7 @@
             [mSplitTransactionListViewController reload];
         } else { 
             TransactionListViewController *vc = 
-                [[[TransactionListViewController alloc] init] autorelease];
+                [[TransactionListViewController alloc] init];
             vc.assetKey = asset.pid;
             [self.navigationController pushViewController:vc animated:NO];
         }
@@ -133,11 +131,6 @@
     //[super didReceiveMemoryWarning];
 }
 
-- (void)dealloc {
-    [mTableView release];
-    [mIconArray release];
-    [super dealloc];
-}
 
 - (void)reload
 {
@@ -234,7 +227,7 @@
     cell = [tv dequeueReusableCellWithIdentifier:cellid];
 
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
         //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		
         cell.textLabel.font = [UIFont systemFontOfSize:16.0];
@@ -307,7 +300,7 @@
         [mSplitTransactionListViewController reload];
     } else {
         TransactionListViewController *vc = 
-            [[[TransactionListViewController alloc] init] autorelease];
+            [[TransactionListViewController alloc] init];
         vc.assetKey = asset.pid;
 
         [self.navigationController pushViewController:vc animated:YES];
@@ -317,7 +310,7 @@
 // アクセサリボタンをタップしたときの処理 : アセット変更
 - (void)tableView:(UITableView *)tv accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    AssetViewController *vc = [[[AssetViewController alloc] init] autorelease];
+    AssetViewController *vc = [[AssetViewController alloc] init];
     int assetIndex = [self _assetIndex:indexPath];
     if (assetIndex >= 0) {
         [vc setAssetIndex:indexPath.row];
@@ -328,7 +321,7 @@
 // 新規アセット追加
 - (void)addAsset
 {
-    AssetViewController *vc = [[[AssetViewController alloc] init] autorelease];
+    AssetViewController *vc = [[AssetViewController alloc] init];
     [vc setAssetIndex:-1];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -380,7 +373,6 @@
                 otherButtonTitles:nil];
         mAsDelete.actionSheetStyle = UIActionSheetStyleDefault;
         [mAsDelete showInView:self.view];
-        [mAsDelete release];
     }
 }
 
@@ -437,14 +429,13 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 
 - (void)showReport:(id)sender
 {
-    ReportViewController *reportVC = [[[ReportViewController alloc] initWithAsset:nil] autorelease];
+    ReportViewController *reportVC = [[ReportViewController alloc] initWithAsset:nil];
     
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:reportVC];
     if (IS_IPAD) {
         nv.modalPresentationStyle = UIModalPresentationPageSheet;
     }
     [self.navigationController presentModalViewController:nv animated:YES];
-    [nv release];
 }
 
 
@@ -474,7 +465,6 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
     } else {
         [mAsActionButton showInView:[self view]];
     }
-    [mAsActionButton release];
 }
 
 - (void)_actionActionButton:(NSInteger)buttonIndex
@@ -489,8 +479,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
     
     switch (buttonIndex) {
         case 0:
-            exportVC = [[[ExportVC alloc] initWithAsset:nil]
-                        autorelease];
+            exportVC = [[ExportVC alloc] initWithAsset:nil];
             vc = exportVC;
             break;
             
@@ -500,12 +489,12 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
             break;
             
         case 2:
-            configVC = [[[ConfigViewController alloc] init] autorelease];
+            configVC = [[ConfigViewController alloc] init];
             vc = configVC;
             break;
             
         case 3:
-            infoVC = [[[InfoVC alloc] init] autorelease];
+            infoVC = [[InfoVC alloc] init];
             vc = infoVC;
             break;
             
@@ -518,7 +507,6 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
         nv.modalPresentationStyle = UIModalPresentationFormSheet; //UIModalPresentationPageSheet;
     }
     [self.navigationController presentModalViewController:nv animated:YES];
-    [nv release];
 }
 
 // actionSheet ハンドラ

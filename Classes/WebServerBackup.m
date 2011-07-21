@@ -30,7 +30,6 @@
             message = _L(@"Cannot start web server.");
         }
         
-        [mBackupServer release];
         v = [[UIAlertView alloc]
              initWithTitle:@"Error"
              message:message
@@ -46,18 +45,15 @@
              otherButtonTitles:nil];
     }
     [v show];
-    [v release];
     
-    [self retain]; // release in alert view delegate
+     // release in alert view delegate
 }
 
 - (void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     [mBackupServer stopServer];
-    [mBackupServer release];
     mBackupServer = nil;
 
-    [self release];
 }
 
 @end

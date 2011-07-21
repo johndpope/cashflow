@@ -16,7 +16,7 @@
 
 @interface GenSelectListViewController : UITableViewController
 {
-    id<GenSelectListViewDelegate> mDelegate;
+    id<GenSelectListViewDelegate> __unsafe_unretained mDelegate;
     int mIdentifier;
 	
     NSArray *mItems;

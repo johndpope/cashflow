@@ -55,11 +55,9 @@ static Database *sDatabase = nil;
 + (void)_setInstance:(Database *)database
 {
     if (sDatabase != nil) {
-        [sDatabase release];
         NSLog(@"WARNING: Old Database instance was released.");
     }
     sDatabase = database;
-    [sDatabase retain];
 }
 
 /**
@@ -67,7 +65,6 @@ static Database *sDatabase = nil;
 */
 + (void)shutdown
 {
-    [sDatabase release];
     sDatabase = nil;
 }
 
@@ -97,7 +94,6 @@ static Database *sDatabase = nil;
     if (mHandle != nil) {
         sqlite3_close(mHandle);
     }
-    [super dealloc];
 }
 
 /**
@@ -155,7 +151,7 @@ static Database *sDatabase = nil;
         //ASSERT(0);
     }
 
-    dbstmt *dbs = [[[dbstmt alloc] initWithStmt:stmt] autorelease];
+    dbstmt *dbs = [[dbstmt alloc] initWithStmt:stmt];
     //dbs.handle = self.handle;
     return dbs;
 }
@@ -232,7 +228,7 @@ static Database *sDatabase = nil;
         [dateFormatter setDateFormat: @"yyyyMMddHHmmss"];
 
         // Avoid trivial bug for 'AM/PM' handling for some locales.
-        [dateFormatter setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"US"] autorelease]];
+        [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"US"]];
     }
     return dateFormatter;
 }

@@ -14,9 +14,9 @@
 
 + (GenSelectListViewController *)genSelectListViewController:(id<GenSelectListViewDelegate>)delegate items:(NSArray*)ary title:(NSString*)title identifier:(int)id
 {
-    GenSelectListViewController *vc = [[[GenSelectListViewController alloc]
+    GenSelectListViewController *vc = [[GenSelectListViewController alloc]
                                          initWithNibName:@"GenSelectListView"
-                                         bundle:[NSBundle mainBundle]] autorelease];
+                                         bundle:[NSBundle mainBundle]];
     vc.delegate = delegate;
     vc.items = ary;
     vc.title = title;
@@ -25,11 +25,6 @@
     return vc;
 }
 
-- (void)dealloc
-{
-    [mItems release];
-    [super dealloc];
-}
 
 - (void)viewDidLoad
 {
@@ -63,7 +58,7 @@
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
     }
     if (indexPath.row == self.selectedIndex) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;

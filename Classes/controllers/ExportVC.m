@@ -65,10 +65,10 @@
     mMethodControl.selectedSegmentIndex = [defaults integerForKey:@"exportMethod"];	
 
     self.navigationItem.rightBarButtonItem =
-        [[[UIBarButtonItem alloc]
+        [[UIBarButtonItem alloc]
              initWithBarButtonSystemItem:UIBarButtonSystemItemDone
              target:self
-             action:@selector(doneAction:)] autorelease];
+             action:@selector(doneAction:)];
 }
 
 - (void)doneAction:(id)sender
@@ -80,9 +80,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -121,7 +118,7 @@
 	
     NSDate *date = nil;
     if (range > 0) {
-        date = [[[NSDate alloc] init] autorelease];
+        date = [[NSDate alloc] init];
         date = [date dateByAddingTimeInterval:(- range * 24.0 * 60 * 60)];
     }
 	
@@ -181,7 +178,6 @@
                 message:_L(@"No data to be exported.")
                 delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [v show];
-        [v autorelease];
     }
 }
 

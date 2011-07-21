@@ -35,7 +35,7 @@
 
     NSMutableString *mValue;
     BOOL mEnableCancel;
-    id<PinViewDelegate> mDelegate;
+    id<PinViewDelegate> __unsafe_unretained mDelegate;
 }
 
 @property(nonatomic,assign) id<PinViewDelegate> delegate;

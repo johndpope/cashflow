@@ -29,18 +29,18 @@
 
     //self.title = _L(@"PIN");
     self.navigationItem.rightBarButtonItem = 
-        [[[UIBarButtonItem alloc]
+        [[UIBarButtonItem alloc]
              initWithBarButtonSystemItem:UIBarButtonSystemItemDone
              target:self
-             action:@selector(doneAction:)] autorelease];
+             action:@selector(doneAction:)];
 
     self.navigationItem.leftBarButtonItem = nil;
     if (mEnableCancel) {
         self.navigationItem.leftBarButtonItem = 
-            [[[UIBarButtonItem alloc]
+            [[UIBarButtonItem alloc]
                  initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                  target:self
-                 action:@selector(cancelAction:)] autorelease];
+                 action:@selector(cancelAction:)];
     }
 }
 
@@ -49,11 +49,6 @@
     [super viewWillDisappear:animated];
 }
 
-- (void)dealloc
-{
-    [mValue release];
-    [super dealloc];
-}
 
 - (IBAction)onNumButtonDown:(id)sender
 {
@@ -98,7 +93,6 @@
         [p appendString:@"●"];
     }
     mValueLabel.text = p;
-    [p release];
 
     if ([mDelegate pinViewCheckPin:self]) {
         [self doneAction:nil];

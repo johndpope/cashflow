@@ -29,10 +29,10 @@
     }
     
     self.title = _L(@"Date");
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self
-                                                  action:@selector(doneAction)] autorelease];
+                                                  action:@selector(doneAction)];
 
     if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
         mDatePicker.datePickerMode = UIDatePickerModeDate;
@@ -47,11 +47,6 @@
     [mDatePicker setTimeZone:[NSTimeZone systemTimeZone]];
 }
 
-- (void)dealloc
-{
-    [mDate release];
-    [super dealloc];
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {

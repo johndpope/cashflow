@@ -24,8 +24,6 @@
         cell = (ReportCell *)vc.view;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        [[cell retain] autorelease];
-        [vc release];
     }
     return cell;
 }
@@ -35,17 +33,12 @@
     return 44; // 62
 }
 
-- (void)dealloc {
-    [mName release];
-    [super dealloc];
-}
 
 - (void)setName:(NSString *)n
 {
     if (mName == n) return;
 
-    [mName release];
-    mName = [n retain];
+    mName = n;
 
     mNameLabel.text = mName;
 }
