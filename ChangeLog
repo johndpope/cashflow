@@ -1,3 +1,8 @@
+2011-07-21 : Takuya Murakami
+
+	* Dropbox SDK ターゲット分割 (ARC予備対応)
+	* library 内カテゴリ使用のため -ObjC -all_load オプション追加
+
 2011-06-18 : Takuya Murakami
 
 	* ver 4.1.4
