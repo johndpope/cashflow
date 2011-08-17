@@ -8,6 +8,8 @@
 
 /* This file contains error codes and the dropbox error domain */
 
+#import <UIKit/UIKit.h>
+
 extern NSString* DBErrorDomain;
 
 // Error codes in the dropbox.com domain represent the HTTP status code if less than 1000
