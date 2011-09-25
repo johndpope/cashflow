@@ -9,7 +9,13 @@
 #import "Database.h"
 #import "AppDelegate.h"
 
+#import <TargetConditionals.h>
+
+#if TARGET_IPHONE_SIMULATOR
+#define	BACKUP_FILENAME	@"CashFlowBackup-simulator.db"
+#else
 #define	BACKUP_FILENAME	@"CashFlowBackup.db"
+#endif
 
 #define MODE_BACKUP 0
 #define MODE_RESTORE 1
