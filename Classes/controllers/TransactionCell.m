@@ -18,8 +18,8 @@
 
     TransactionCell *cell = (TransactionCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        UIViewController *vc = [[UIViewController alloc] initWithNibName:@"TransactionCell" bundle:nil];
-        cell = (TransactionCell *)vc.view;
+        NSArray *ary = [[NSBundle mainBundle] loadNibNamed:@"TransactionCell" owner:nil options:nil];
+        cell = (TransactionCell *)[ary objectAtIndex:0];
     }
     return cell;
 }
