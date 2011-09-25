@@ -20,12 +20,10 @@
 
     ReportCell *cell = (ReportCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        UIViewController *vc = [[UIViewController alloc] initWithNibName:@"ReportCell" bundle:nil];
-        cell = (ReportCell *)vc.view;
+        NSArray *ary = [[NSBundle mainBundle] loadNibNamed:@"ReportCell" owner:nil options:nil];
+        cell = (ReportCell *)[ary objectAtIndex:0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        [[cell retain] autorelease];
-        [vc release];
     }
     return cell;
 }
