@@ -50,6 +50,8 @@
                     title:_L(@"Purchase Standard Version")];
     [self _setButtonTitle:mHelpButton
                     title:_L(@"Show help page")];
+    [self _setButtonTitle:mFacebookButton
+                    title:_L(@"Open facebook page")];
     [self _setButtonTitle:mSendMailButton
                     title:_L(@"Send support mail")];
 }
@@ -75,6 +77,11 @@
     [AppDelegate trackPageview:@"/ViewController/Help"];
     
     NSURL *url = [NSURL URLWithString:_L(@"HelpURL") /*"web help url*/];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (IBAction)facebookButtonTapped:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"http://facebook.com/CashFlowApp"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
