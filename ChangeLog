@@ -1,6 +1,15 @@
+2011-09-26 : Takuya Murakami
+
+	* ver 4.1.6 (v37)
+	
+2011-09-25 : Takuya Murakami
+
+	* TransactionCell, ReportCell, ReportCatCell の Identifier 設定
+	* TransactionCell の各ラベルを opaque に(高速化のため)
+	
 2011-08-17 : Takuya Murakami
 
-	* ver 4.1.5
+	* ver 4.1.5 (v36)
 	* AdMob ライブラリ更新 (4.1.0 -> 4.1.1) : iPad 表示不具合修正
 
 2011-07-21 : Takuya Murakami
