@@ -13,11 +13,13 @@
 
     IBOutlet UIButton *mPurchaseButton;
     IBOutlet UIButton *mHelpButton;
+    IBOutlet UIButton *mFacebookButton;
     IBOutlet UIButton *mSendMailButton;
 }
 
 - (void)doneAction:(id)sender;
 - (IBAction)webButtonTapped;
+- (IBAction)facebookButtonTapped:(id)sender;
 - (IBAction)purchaseStandardVersion;
 - (IBAction)sendSupportMail;
 
