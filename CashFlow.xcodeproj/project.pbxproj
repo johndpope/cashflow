@@ -184,6 +184,8 @@
 		3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E4C67761348C6E100DA87F6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E4DA8B30EAB6DE4001FBB70 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */; };
+		3E4E0B0E1430AE7900151566 /* DBLinkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4E0B0B1430AE7200151566 /* DBLinkButton.m */; };
+		3E4E0B0F1430AE7D00151566 /* DBLinkButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E4E0B0A1430AE7200151566 /* DBLinkButton.h */; };
 		3E55366F13344D2900D288D9 /* bank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E55366C13344D2900D288D9 /* bank@2x.png */; };
 		3E55367013344D2900D288D9 /* bank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E55366C13344D2900D288D9 /* bank@2x.png */; };
 		3E55367113344D2900D288D9 /* bank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E55366C13344D2900D288D9 /* bank@2x.png */; };
@@ -777,6 +779,8 @@
 		3E4C67701347939600DA87F6 /* AdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdManager.h; sourceTree = "<group>"; };
 		3E4C67711347939600DA87F6 /* AdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdManager.m; sourceTree = "<group>"; };
 		3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		3E4E0B0A1430AE7200151566 /* DBLinkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBLinkButton.h; path = DropboxSDK/DBLinkButton.h; sourceTree = "<group>"; };
+		3E4E0B0B1430AE7200151566 /* DBLinkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBLinkButton.m; path = DropboxSDK/DBLinkButton.m; sourceTree = "<group>"; };
 		3E55366C13344D2900D288D9 /* bank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bank@2x.png"; sourceTree = "<group>"; };
 		3E55366D13344D2900D288D9 /* card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card@2x.png"; sourceTree = "<group>"; };
 		3E55366E13344D2900D288D9 /* cash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cash@2x.png"; sourceTree = "<group>"; };
@@ -1218,6 +1222,8 @@
 		3E3381371332108800861610 /* DropBoxSDK */ = {
 			isa = PBXGroup;
 			children = (
+				3E4E0B0A1430AE7200151566 /* DBLinkButton.h */,
+				3E4E0B0B1430AE7200151566 /* DBLinkButton.m */,
 				3E338138133210B700861610 /* DBAccountInfo.h */,
 				3E338139133210B700861610 /* DBAccountInfo.m */,
 				3E33813A133210B700861610 /* DBCreateAccountController.h */,
@@ -1549,6 +1555,7 @@
 				3EDC158A13D85D7900B35736 /* NSURL+MPURLParameterAdditions.h in Headers */,
 				3EDC158C13D85D7900B35736 /* NSURLResponse+Encoding.h in Headers */,
 				3EDC158F13D85D9A00B35736 /* Base64Transcoder.h in Headers */,
+				3E4E0B0F1430AE7D00151566 /* DBLinkButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2166,6 +2173,7 @@
 				3EDC158B13D85D7900B35736 /* NSURL+MPURLParameterAdditions.m in Sources */,
 				3EDC158D13D85D7900B35736 /* NSURLResponse+Encoding.m in Sources */,
 				3EDC158E13D85D9400B35736 /* Base64Transcoder.c in Sources */,
+				3E4E0B0E1430AE7900151566 /* DBLinkButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
