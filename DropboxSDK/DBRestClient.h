@@ -6,7 +6,6 @@
 //  Copyright 2010 Dropbox, Inc. All rights reserved.
 //
 
-
 #import "DBSession.h"
 
 @protocol DBRestClientDelegate;
