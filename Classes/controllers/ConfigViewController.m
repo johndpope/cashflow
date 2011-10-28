@@ -186,7 +186,7 @@
         case 0:
             switch (indexPath.row) {
                 case ROW_DATE_TIME_MODE:
-                    typeArray = [[NSArray alloc] initWithObjects:
+                    typeArray = [[NSMutableArray alloc] initWithObjects:
                                   _L(@"Date and time (1 min)"),
                                   _L(@"Date and time (5 min)"),
                                   _L(@"Date only"),
