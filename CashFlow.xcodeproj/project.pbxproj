@@ -1005,6 +1005,7 @@
 		3E85A722132E54D6002C44DF /* Support files */ = {
 			isa = PBXGroup;
 			children = (
+				3E3382231332284000861610 /* DropboxSecret.h */,
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
 				3E98A66711E8367B00B7F289 /* CurrencyManager.h */,
@@ -1031,7 +1032,6 @@
 				3E7109B3121108ED00C47539 /* SupportMail.m */,
 				3E3382211332284000861610 /* DropboxBackup.h */,
 				3E3382221332284000861610 /* DropboxBackup.m */,
-				3E3382231332284000861610 /* DropboxSecret.h */,
 				3EF5F4FD145AEB78006C3F3A /* DBLoadingView.h */,
 				3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */,
 				3E197B0E121268CF00105B20 /* CrashReportSender.h */,
@@ -1895,7 +1895,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
@@ -1932,7 +1932,7 @@
 					"\"$(SRCROOT)/plcrashreporter\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";

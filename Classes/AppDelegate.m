@@ -154,7 +154,11 @@ static BOOL sIsPrevCrashed;
     if ([[DBSession sharedSession] handleOpenURL:url]) {
         if ([[DBSession sharedSession] isLinked]) {
             NSLog(@"Dropbox linked successfully");
-            v = [[UIAlertView alloc] initWithTitle:@"Dropbox" message:@"Login successful" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+            v = [[UIAlertView alloc] initWithTitle:@"Dropbox" 
+                                           message:@"Login successful, please retry backup or export." 
+                                          delegate:nil 
+                                 cancelButtonTitle:@"Close" 
+                                 otherButtonTitles:nil];
             [v show];
         } else {
             // TODO:
