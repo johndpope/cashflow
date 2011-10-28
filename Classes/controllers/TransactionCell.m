@@ -24,9 +24,6 @@
     return cell;
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 - (TransactionCell *)updateWithAssetEntry:(AssetEntry *)entry
 {

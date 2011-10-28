@@ -17,7 +17,7 @@
 @interface GenEditTextViewController : UIViewController {
     IBOutlet UITextField *mTextField;
 	
-    id<GenEditTextViewDelegate> mDelegate;
+    id<GenEditTextViewDelegate> __unsafe_unretained mDelegate;
     NSString *mText;
     int mIdentifier;
 }

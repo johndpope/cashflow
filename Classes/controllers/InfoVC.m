@@ -32,10 +32,10 @@
     
     self.title = _L(@"Info");
     self.navigationItem.rightBarButtonItem =
-    [[[UIBarButtonItem alloc]
+    [[UIBarButtonItem alloc]
       initWithBarButtonSystemItem:UIBarButtonSystemItemDone
       target:self
-      action:@selector(doneAction:)] autorelease];
+      action:@selector(doneAction:)];
 
 #ifdef FREE_VERSION
     [mNameLabel setText:@"CashFlow Free"];
@@ -66,9 +66,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 - (void)doneAction:(id)sender
 {
@@ -101,12 +98,11 @@
     SupportMail *m = [[SupportMail alloc] init];
     if (![m sendMail:self]) {
         UIAlertView *v =
-            [[[UIAlertView alloc]
+            [[UIAlertView alloc]
              initWithTitle:@"Error" message:@"Can't send email" delegate:nil
-              cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+              cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [v show];
     }
-    [m release];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

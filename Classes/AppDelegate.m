@@ -67,10 +67,9 @@ static BOOL sIsPrevCrashed;
     
     // Dropbox config
     DBSession *dbSession =
-        [[[DBSession alloc]
+        [[DBSession alloc]
              initWithConsumerKey:DROPBOX_CONSUMER_KEY
-                  consumerSecret:DROPBOX_CONSUMER_SECRET]
-            autorelease];
+                  consumerSecret:DROPBOX_CONSUMER_SECRET];
     dbSession.delegate = self;
     [DBSession setSharedSession:dbSession];
     
@@ -149,11 +148,6 @@ static BOOL sIsPrevCrashed;
     [Database shutdown];
 }
 
-- (void)dealloc {
-    [navigationController release];
-    [window release];
-    [super dealloc];
-}
 
 #pragma mark CrashReportSenderDelegate
 
@@ -173,7 +167,7 @@ static BOOL sIsPrevCrashed;
 
 - (void)sessionDidReceiveAuthorizationFailure:(DBSession*)session
 {
-    DBLoginController* loginController = [[DBLoginController new] autorelease];
+    DBLoginController* loginController = [DBLoginController new];
     if (IS_IPAD) {
         [loginController presentFromController:splitViewController]; // # TBD
     } else {
@@ -206,7 +200,6 @@ void AssertFailed(const char *filename, int lineno)
                                   [NSString stringWithCString:filename encoding:NSUTF8StringEncoding] , lineno]
                          delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
     [v show];
-    [v release];
 }
 
 @end

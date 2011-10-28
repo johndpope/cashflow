@@ -16,11 +16,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [mName release];
-    [super dealloc];
-}
 
 /**
   @brief Migrate database table
@@ -210,7 +205,7 @@
 + (Asset *)find_first_stmt:(dbstmt *)stmt
 {
     if ([stmt step] == SQLITE_ROW) {
-        AssetBase *e = [[[[self class] alloc] init] autorelease];
+        AssetBase *e = [[[self class] alloc] init];
         [e _loadRow:stmt];
         return (Asset *)e;
     }
@@ -225,13 +220,12 @@
 */
 + (NSMutableArray *)find_all_stmt:(dbstmt *)stmt
 {
-    NSMutableArray *array = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
 
     while ([stmt step] == SQLITE_ROW) {
         AssetBase *e = [[[self class] alloc] init];
         [e _loadRow:stmt];
         [array addObject:e];
-        [e release];
     }
     return array;
 }

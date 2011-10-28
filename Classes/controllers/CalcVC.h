@@ -53,7 +53,7 @@ typedef enum {
     IBOutlet UIButton *button_Divide;
     IBOutlet UIButton *button_Equal;
 
-    id<CalculatorViewDelegate> mDelegate;
+    id<CalculatorViewDelegate> __unsafe_unretained mDelegate;
     double mValue;
 
     calcState mState;

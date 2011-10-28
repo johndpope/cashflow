@@ -32,8 +32,8 @@ static int sortCatReport(id x, id y, void *context);
     if (self == nil) return nil;
 
     mAssetKey = assetKey;
-    mStart = [start retain];
-    mEnd = [end retain];
+    mStart = start;
+    mEnd = end;
 
     mTotalIncome = 0.0;
     mTotalOutgo = 0.0;
@@ -55,24 +55,16 @@ static int sortCatReport(id x, id y, void *context);
             catkey = [categories categoryAtIndex:i].pid;
         }
 
-        cr = [[[CatReport alloc] initWithCategory:catkey withAsset:assetKey] autorelease];
+        cr = [[CatReport alloc] initWithCategory:catkey withAsset:assetKey];
         [mIncomeCatReports addObject:cr];
 
-        cr = [[[CatReport alloc] initWithCategory:catkey withAsset:assetKey] autorelease];
+        cr = [[CatReport alloc] initWithCategory:catkey withAsset:assetKey];
         [mOutgoCatReports addObject:cr];
     }
 
     return self;
 }
 
-- (void)dealloc 
-{
-    [mStart release];
-    [mEnd release];
-    [mIncomeCatReports release];
-    [mOutgoCatReports release];
-    [super dealloc];
-}
 
 /**
    取引をレポートに追加

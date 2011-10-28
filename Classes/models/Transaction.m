@@ -31,11 +31,11 @@
     self.dstAsset = -1;
     
     // 現在時刻で作成
-    NSDate *dt = [[[NSDate alloc] init] autorelease];
+    NSDate *dt = [[NSDate alloc] init];
     
     if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
         // 時刻を 0:00:00 に設定
-        NSCalendar *greg = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+        NSCalendar *greg = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         NSDateComponents *dc = [greg components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:dt];
         dt = [greg dateFromComponents:dc];
     }
@@ -50,10 +50,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (id)initWithDate: (NSDate*)dt description:(NSString*)desc value:(double)v
 {

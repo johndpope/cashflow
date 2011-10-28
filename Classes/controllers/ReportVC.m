@@ -41,10 +41,10 @@
     [AppDelegate trackPageview:@"/ReportViewController"];
 
     self.navigationItem.rightBarButtonItem =
-        [[[UIBarButtonItem alloc]
+        [[UIBarButtonItem alloc]
              initWithBarButtonSystemItem:UIBarButtonSystemItemDone
              target:self
-             action:@selector(doneAction:)] autorelease];
+             action:@selector(doneAction:)];
 }
 
 - (void)doneAction:(id)sender
@@ -56,13 +56,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)dealloc
-{
-    [mDesignatedAsset release];
-    [mReports release];
-    [mDateFormatter release];
-    [super dealloc];
-}
 
 /**
    レポート(再)生成
@@ -195,7 +188,7 @@
     int count = [mReports.reportEntries count];
     ReportEntry *re = [mReports.reportEntries objectAtIndex:count - indexPath.row - 1];
 
-    CatReportViewController *vc = [[[CatReportViewController alloc] init] autorelease];
+    CatReportViewController *vc = [[CatReportViewController alloc] init];
     vc.title = [self _reportTitle:re];
     vc.reportEntry = re;
     [self.navigationController pushViewController:vc animated:YES];

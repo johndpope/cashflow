@@ -27,11 +27,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [mTransactions release];
-    [super dealloc];
-}
 
 - (void)addTransaction:(Transaction*)t
 {

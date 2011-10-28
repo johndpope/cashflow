@@ -98,7 +98,7 @@
         {
             _crashFiles = [[NSMutableArray alloc] init];
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-            _crashesDir = [[NSString stringWithFormat:@"%@", [[paths objectAtIndex:0] stringByAppendingPathComponent:@"/crashes/"]] retain];
+            _crashesDir = [NSString stringWithFormat:@"%@", [[paths objectAtIndex:0] stringByAppendingPathComponent:@"/crashes/"]];
 
             NSFileManager *fm = [NSFileManager defaultManager];
 			
@@ -128,13 +128,9 @@
 
 - (void) dealloc
 {
-    [super dealloc];
-    [_crashesDir release];
-    [_crashFiles release];
     if (_submitTimer != nil)
     {
         [_submitTimer invalidate];
-        [_submitTimer release];
     }
 }
 
@@ -177,7 +173,6 @@
 {
     if ([self hasPendingCrashReport])
     {
-        [_submissionURL autorelease];
         _submissionURL = [submissionURL copy];
         
         _crashReportFeedbackActivated = activateFeedback;
@@ -280,7 +275,6 @@
         {
             [alertView setTag: CrashAlertTypeFeedback];
             [alertView show];
-            [alertView release];
         }
     }
 }
@@ -331,7 +325,6 @@
         *error = parseError;
     }
 	
-    [parser release];
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
@@ -424,7 +417,7 @@
 		
         if ([crashData length] > 0)
         {
-            PLCrashReport *report = [[[PLCrashReport alloc] initWithData:crashData error:&error] autorelease];
+            PLCrashReport *report = [[PLCrashReport alloc] initWithData:crashData error:&error];
 			
             NSString *crashLogString = [self _crashLogStringForReport:report];
 			
@@ -692,7 +685,7 @@
         [_delegate connectionOpened];
     }
 	
-    [[NSURLConnection connectionWithRequest:request delegate:self] retain];
+    [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
 #pragma mark NSURLConnection Delegate
@@ -711,9 +704,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    [_responseData release];
     _responseData = nil;
-    [connection autorelease];
 
     if (_delegate != nil && [_delegate respondsToSelector:@selector(connectionClosed)])
     {
@@ -737,12 +728,9 @@
 		
         [parser parse];
 		
-        [parser release];
     }
 	
-    [_responseData release];
     _responseData = nil;
-    [connection autorelease];
 
     if (_delegate != nil && [_delegate respondsToSelector:@selector(connectionClosed)])
     {
@@ -783,7 +771,7 @@
 		
         // We could send the report from here, but we'll just print out
         // some debugging info instead
-        PLCrashReport *report = [[[PLCrashReport alloc] initWithData: [crashData retain] error: &error] autorelease];
+        PLCrashReport *report = [[PLCrashReport alloc] initWithData: crashData error: &error];
         if (report == nil) {
             NSLog(@"Could not parse crash report");
             goto finish;

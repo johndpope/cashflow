@@ -24,11 +24,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [mReportEntries release];
-    [super dealloc];
-}
 
 /**
  レポート生成
@@ -40,12 +35,9 @@
 {
     mType = type;
 	
-    if (mReportEntries != nil) {
-        [mReportEntries release];
-    }
     mReportEntries = [[NSMutableArray alloc] init];
 
-    NSCalendar *greg = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+    NSCalendar *greg = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	
     // レポートの開始日と終了日を取得
     int assetKey;
@@ -62,7 +54,7 @@
     NSDateComponents *dateComponents, *steps;
     NSDate *nextStartDay = nil;
 	
-    steps = [[[NSDateComponents alloc] init] autorelease];
+    steps = [[NSDateComponents alloc] init];
     switch (mType) {
         case REPORT_DAILY:;
             dateComponents = [greg components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:firstDate];
@@ -128,8 +120,8 @@
         nextStartDay = [greg dateByAddingComponents:steps toDate:nextStartDay options:0];
 
         // Report 生成
-        ReportEntry *r = [[[ReportEntry alloc] initWithAsset:assetKey
-                            start:start end:nextStartDay] autorelease];
+        ReportEntry *r = [[ReportEntry alloc] initWithAsset:assetKey
+                            start:start end:nextStartDay];
         [mReportEntries addObject:r];
 
         // レポート上限数を制限

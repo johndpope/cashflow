@@ -19,7 +19,7 @@
         return NO;
     }
     
-    MFMailComposeViewController *vc = [[[MFMailComposeViewController alloc] init] autorelease];
+    MFMailComposeViewController *vc = [[MFMailComposeViewController alloc] init];
     vc.mailComposeDelegate = self;
     
     [vc setSubject:@"[CashFlow Support]"];
@@ -53,14 +53,13 @@
     
     [parent presentModalViewController:vc animated:YES];
     
-    [self retain]; // release in callback
+     // release in callback
     return YES;
 }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
     [controller dismissModalViewControllerAnimated:YES];
-    [self release];
 }
 
 @end

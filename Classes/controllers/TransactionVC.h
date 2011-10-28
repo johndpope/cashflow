@@ -25,7 +25,7 @@
 {
     int mTransactionIndex;
     AssetEntry *mEditingEntry;
-    Asset *mAsset;
+    Asset *__unsafe_unretained mAsset;
 
     BOOL mIsModified;
 

@@ -24,7 +24,7 @@
     ExportCsv *mCsv;
     ExportOfx *mOfx;
 
-    Asset *mAsset;
+    Asset *__unsafe_unretained mAsset;
 }
 
 @property(nonatomic,assign) Asset *asset;

@@ -45,18 +45,10 @@ static PinController *thePinController = nil;
     return self;
 }
 
-- (void)dealloc
-{
-    [mPin release];
-    [mPinNew release];
-    [mNavigationController release];
-    [super dealloc];
-}
     
 - (void)_allDone
 {
     [mNavigationController dismissModalViewControllerAnimated:YES];
-    [self autorelease];
     thePinController = nil;
 }
 
@@ -71,7 +63,6 @@ static PinController *thePinController = nil;
         currentVc = currentVc.modalViewController;
     }
     
-    [self retain];
 
     // create PinViewController
     PinViewController *vc = [self _getPinViewController];
@@ -89,7 +80,6 @@ static PinController *thePinController = nil;
 {
     ASSERT(state == -1);
 
-    [self retain];
 
     PinViewController *vc = [self _getPinViewController];
     
@@ -169,7 +159,6 @@ static PinController *thePinController = nil;
                              cancelButtonTitle:@"Close"
                              otherButtonTitles:nil];
         [v show];
-        [v release];
     }
     if (retry) {
         return;
@@ -185,7 +174,7 @@ static PinController *thePinController = nil;
 
 - (PinViewController *)_getPinViewController
 {
-    PinViewController *vc = [[[PinViewController alloc] init] autorelease];
+    PinViewController *vc = [[PinViewController alloc] init];
     vc.enableCancel = YES;
     vc.delegate = self;
     return vc;

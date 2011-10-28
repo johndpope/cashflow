@@ -17,11 +17,6 @@
 @synthesize value = mValue;
 @synthesize balance = mBalance;
 
-- (void)dealloc
-{
-    [mTransaction release];
-    [super dealloc];
-}
 
 - (id)init
 {
@@ -43,7 +38,7 @@
     
     if (t == nil) {
         // 新規エントリ生成
-        self.transaction = [[[Transaction alloc] init] autorelease];
+        self.transaction = [[Transaction alloc] init];
         mTransaction.asset = self.assetKey;
     }
     else {
@@ -205,7 +200,7 @@
     e.assetKey = self.assetKey;
     e.value = self.value;
     e.balance = self.balance;
-    e.transaction = [[self.transaction copy] autorelease];
+    e.transaction = [self.transaction copy];
 
     return e;
 }
