@@ -67,9 +67,7 @@ static BOOL sIsPrevCrashed;
     
     // Dropbox config
     DBSession *dbSession =
-        [[DBSession alloc]
-             initWithConsumerKey:DROPBOX_CONSUMER_KEY
-                  consumerSecret:DROPBOX_CONSUMER_SECRET];
+        [[DBSession alloc] initWithAppKey:DROPBOX_APP_KEY appSecret:DROPBOX_APP_SECRET root:kDBRootDropbox];
     dbSession.delegate = self;
     [DBSession setSharedSession:dbSession];
     

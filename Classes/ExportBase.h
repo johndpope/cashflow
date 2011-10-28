@@ -8,9 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
-
-#import "DropboxSDK.h"
-#import "DBLoadingView.h"
+#import <DropboxSDK/DropboxSDK.h>
 
 #import "ExportServer.h"
 #import "Asset.h"
