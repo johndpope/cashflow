@@ -12,6 +12,7 @@
 
 #import "ExportServer.h"
 #import "Asset.h"
+#import "DBLoadingView.h"
 
 #define REPLACE(from, to) \
   [str replaceOccurrencesOfString: from withString: to \
@@ -25,6 +26,7 @@
     
     // for dropbox
     DBRestClient *mRestClient;
+    DBLoadingView *mLoadingView;
 }
 
 @property(nonatomic,retain) NSDate *firstDate;

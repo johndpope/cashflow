@@ -142,7 +142,7 @@
 {
     NSString *srcPath = [[Database instance] dbPath:[self fileName]];
 
-    [self.restClient uploadFile:[self fileName] toPath:@"/" fromPath:srcPath];
+    [self.restClient uploadFile:[self fileName] toPath:@"/" withParentRev:nil fromPath:srcPath];
 
     mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Uploading"];
     mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする

@@ -50,7 +50,7 @@
 {
     DBSession *session = [DBSession sharedSession];
     if ([session isLinked]) {
-        [session unlink];
+        [session unlinkAll];
     }
 
     [self _showResult:@"Your dropbox account has been unlinked"];
@@ -79,6 +79,7 @@
             [self.restClient
              uploadFile:BACKUP_FILENAME
              toPath:@"/"
+             withParentRev:nil
              fromPath:dbPath];
             [mDelegate dropboxBackupStarted:NO];
             break;

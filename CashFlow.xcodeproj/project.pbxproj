@@ -410,6 +410,9 @@
 		3EF5F436145AE0A3006C3F3A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
 		3EF5F437145AE0A3006C3F3A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
 		3EF5F438145AE0A3006C3F3A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
+		3EF5F4FF145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
+		3EF5F500145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
+		3EF5F501145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
 		3EFD00340F95E31D00F4B4C4 /* EditTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */; };
 		3EFD00350F95E31D00F4B4C4 /* EditTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */; };
 		3EFEFE0F1324ED2100EF369E /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE091324ED2100EF369E /* Icon-72.png */; };
@@ -669,6 +672,8 @@
 		3EF054821182DCB200411C71 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		3EF1716E133A2528002C818E /* artwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = artwork.jpg; sourceTree = "<group>"; };
 		3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = /Users/tmurakam/dev/cashflow/Dropbox/DropboxSDK.framework; sourceTree = "<absolute>"; };
+		3EF5F4FD145AEB78006C3F3A /* DBLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLoadingView.h; sourceTree = "<group>"; };
+		3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLoadingView.m; sourceTree = "<group>"; };
 		3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTypeView.xib; sourceTree = "<group>"; };
 		3EFEFE091324ED2100EF369E /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		3EFEFE0A1324ED2100EF369E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -1027,6 +1032,8 @@
 				3E3382211332284000861610 /* DropboxBackup.h */,
 				3E3382221332284000861610 /* DropboxBackup.m */,
 				3E3382231332284000861610 /* DropboxSecret.h */,
+				3EF5F4FD145AEB78006C3F3A /* DBLoadingView.h */,
+				3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */,
 				3E197B0E121268CF00105B20 /* CrashReportSender.h */,
 				3E197B0F121268CF00105B20 /* CrashReportSender.m */,
 			);
@@ -1533,6 +1540,7 @@
 				3E3382291332298400861610 /* BackupVC.m in Sources */,
 				3E4C67721347939600DA87F6 /* AdManager.m in Sources */,
 				3E0F16AE13A66A5C0091E6F8 /* TCategoryBase.m in Sources */,
+				3EF5F4FF145AEB78006C3F3A /* DBLoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1602,6 +1610,7 @@
 				3E33822A1332298400861610 /* BackupVC.m in Sources */,
 				3E4C67731347939600DA87F6 /* AdManager.m in Sources */,
 				3E0F16AF13A66A5C0091E6F8 /* TCategoryBase.m in Sources */,
+				3EF5F500145AEB78006C3F3A /* DBLoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1682,6 +1691,7 @@
 				3E3382261332284000861610 /* DropboxBackup.m in Sources */,
 				3E33822B1332298400861610 /* BackupVC.m in Sources */,
 				3E4C67741347939600DA87F6 /* AdManager.m in Sources */,
+				3EF5F501145AEB78006C3F3A /* DBLoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1724,7 +1734,6 @@
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/dropbox-ios-sdk-1.0\"",
 					"\"$(SRCROOT)/Dropbox\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1748,7 +1757,6 @@
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/dropbox-ios-sdk-1.0\"",
 					"\"$(SRCROOT)/Dropbox\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1773,7 +1781,6 @@
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/dropbox-ios-sdk-1.0\"",
 					"\"$(SRCROOT)/Dropbox\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1801,7 +1808,6 @@
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/dropbox-ios-sdk-1.0\"",
 					"\"$(SRCROOT)/Dropbox\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1829,7 +1835,6 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SRCROOT)/plcrashreporter\"",
 					"$(inherited)",
-					"\"$(SRCROOT)/dropbox-ios-sdk-1.0\"",
 					"\"$(SRCROOT)/Dropbox\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1857,7 +1862,6 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SRCROOT)/plcrashreporter\"",
 					"$(inherited)",
-					"\"$(SRCROOT)/dropbox-ios-sdk-1.0\"",
 					"\"$(SRCROOT)/Dropbox\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
