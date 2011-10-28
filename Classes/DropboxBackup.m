@@ -63,9 +63,7 @@
     // ログイン処理
     if (![session isLinked]) {
         // 未ログイン
-        DBLoginController *controller = [DBLoginController new];
-        controller.delegate = self;
-        [controller presentFromController:mViewController];
+        [session link];
     } else {
         // ログイン済み
         [self _exec];
@@ -143,16 +141,6 @@
 
 - (void)dataModelLoaded
 {
-    [mDelegate dropboxBackupFinished];
-}
-
-#pragma mark DBLoginControllerDelegate methods
-
-- (void)loginControllerDidLogin:(DBLoginController*)controller {
-    [self _exec];
-}
-
-- (void)loginControllerDidCancel:(DBLoginController*)controller {
     [mDelegate dropboxBackupFinished];
 }
 

@@ -5,9 +5,9 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import <DropboxSDK/DropboxSDK.h>
 #import "ExportBase.h"
 #import "AppDelegate.h"
-#import "DropboxSDK.h"
 
 @implementation ExportBase
 
@@ -130,12 +130,10 @@
 
     DBSession *session = [DBSession sharedSession];
     if (![session isLinked]) {
-        DBLoginController *controller = [DBLoginController new];
-        controller.delegate = self;
-        [controller presentFromController:parent];
-    } else {
-        [self _sendToDropbox];
+        [session link];
+        return NO;
     }
+    [self _sendToDropbox];
 
     return YES;
 }
@@ -158,16 +156,6 @@
     	mRestClient.delegate = self;
     }
     return mRestClient;
-}
-
-#pragma mark DBLoginControllerDelegate methods
-
-- (void)loginControllerDidLogin:(DBLoginController*)controller {
-    [self _sendToDropbox];
-}
-
-- (void)loginControllerDidCancel:(DBLoginController*)controller {
-    // do nothing...
 }
 
 #pragma mark DBRestClientDelegate

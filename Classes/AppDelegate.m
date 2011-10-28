@@ -5,13 +5,14 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import <DropboxSDK/DropboxSDK.h>
+
 #import "AppDelegate.h"
 #import "TransactionListVC.h"
 #import "DataModel.h"
 #import "Transaction.h"
 #import "PinController.h"
 #import "CrashReportSender.h"
-#import "DropboxSDK.h"
 #import "GANTracker.h"
 
 #import "DropboxSecret.h"
@@ -68,7 +69,7 @@ static BOOL sIsPrevCrashed;
     // Dropbox config
     DBSession *dbSession =
         [[DBSession alloc] initWithAppKey:DROPBOX_APP_KEY appSecret:DROPBOX_APP_SECRET root:kDBRootDropbox];
-    dbSession.delegate = self;
+    //dbSession.delegate = self;
     [DBSession setSharedSession:dbSession];
     
     // Google analytics
@@ -146,6 +147,22 @@ static BOOL sIsPrevCrashed;
     [Database shutdown];
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    UIAlertView *v;
+    
+    if ([[DBSession sharedSession] handleOpenURL:url]) {
+        if ([[DBSession sharedSession] isLinked]) {
+            NSLog(@"Dropbox linked successfully");
+            v = [[UIAlertView alloc] initWithTitle:@"Dropbox" message:@"Login successful" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+            [v show];
+        } else {
+            // TODO:
+        }
+        return YES;
+    }
+    return NO;
+}
 
 #pragma mark CrashReportSenderDelegate
 
@@ -162,7 +179,7 @@ static BOOL sIsPrevCrashed;
 
 
 #pragma mark DBSessionDelegate methods
-
+/* obsoleted
 - (void)sessionDidReceiveAuthorizationFailure:(DBSession*)session
 {
     DBLoginController* loginController = [DBLoginController new];
@@ -172,6 +189,7 @@ static BOOL sIsPrevCrashed;
         [loginController presentFromController:navigationController];
     }        
 }
+*/
 
 #pragma mark GoogleAnalytics
 + (void)trackPageview:(NSString *)url
