@@ -8,18 +8,17 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
-
-#import "DropboxSDK.h"
-#import "DBLoadingView.h"
+#import <DropboxSDK/DropboxSDK.h>
 
 #import "ExportServer.h"
 #import "Asset.h"
+#import "DBLoadingView.h"
 
 #define REPLACE(from, to) \
   [str replaceOccurrencesOfString: from withString: to \
   options:NSLiteralSearch range:NSMakeRange(0, [str length])]
 	
-@interface ExportBase : NSObject <UIAlertViewDelegate, MFMailComposeViewControllerDelegate, DBLoginControllerDelegate, DBRestClientDelegate> {
+@interface ExportBase : NSObject <UIAlertViewDelegate, MFMailComposeViewControllerDelegate, DBRestClientDelegate> {
     NSDate *mFirstDate;
     NSArray *__unsafe_unretained mAssets;
 
