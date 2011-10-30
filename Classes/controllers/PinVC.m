@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     mValue = [[NSMutableString alloc] init];
+    
+    mValueLabel.text = @"";
 
     //self.title = _L(@"PIN");
     self.navigationItem.rightBarButtonItem = 

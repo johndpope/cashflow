@@ -257,7 +257,7 @@
             break;
             
         case 2:
-            pinController = [[PinController alloc] init];
+            pinController = [PinController pinController];
             [pinController modifyPin:self];
             break;
             
