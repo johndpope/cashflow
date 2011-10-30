@@ -74,22 +74,17 @@
 {
     NSString *dbPath = [[Database instance] dbPath:DBNAME];
 
-    switch (mMode) {
-        case MODE_BACKUP:
-            [self.restClient
-             uploadFile:BACKUP_FILENAME
-             toPath:@"/"
-             withParentRev:nil
-             fromPath:dbPath];
-            [mDelegate dropboxBackupStarted:NO];
-            break;
-
-        case MODE_RESTORE:
-            // shutdown database
-            [DataModel finalize];
-            [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:dbPath];
-            [mDelegate dropboxBackupStarted:YES];
-            break;
+    if (mMode == MODE_BACKUP) {
+        // 現在のバージョンを取得する
+        [self.restClient loadRevisionsForFile:@"/" BACKUP_FILENAME];
+        //[self.restClient loadMetadata:@"/" BACKUP_FILENAME];
+        [mDelegate dropboxBackupStarted:NO];
+    }
+    else if (mMode == MODE_RESTORE) {
+        // shutdown database
+        [DataModel finalize];
+        [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:dbPath];
+        [mDelegate dropboxBackupStarted:YES];
     }
 }
 
@@ -104,9 +99,41 @@
 
 #pragma mrk DBRestClientDelegate
 
-// backup finished
-- (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath
+// Backup : 現在のファイルバージョン取得
+- (void)restClient:(DBRestClient *)client loadedRevisions:(NSArray *)revisions forFile:(NSString *)path
 {
+    if (mMode == MODE_BACKUP && [path isEqualToString:@"/" BACKUP_FILENAME]) {
+        for (DBMetadata *m in revisions) {
+            NSLog(@"revision: %lld %@", m.revision, m.rev);
+        }
+        
+        DBMetadata *file = [revisions objectAtIndex:0];
+        [self _uploadBackupWithParentRev:file.rev];
+    }
+}
+
+- (void)restClient:(DBRestClient *)client loadRevisionsFailedWithError:(NSError *)error
+{
+    // 前リビジョンなし
+    if (mMode == MODE_BACKUP) {
+        [self _uploadBackupWithParentRev:nil];
+    }
+}
+
+- (void)_uploadBackupWithParentRev:(NSString *)rev
+{
+    // start backup
+    NSString *dbPath = [[Database instance] dbPath:DBNAME];
+    [self.restClient uploadFile:BACKUP_FILENAME
+                         toPath:@"/"
+                  withParentRev:rev
+                       fromPath:dbPath];
+}
+
+// backup finished
+- (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath metadata:(DBMetadata *)metadata
+{
+    NSLog(@"upload success: new rev : %lld %@", metadata.revision, metadata.rev);
     [self _showResult:@"Backup done."];
     [mDelegate dropboxBackupFinished];
 }
