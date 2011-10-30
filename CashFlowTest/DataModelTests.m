@@ -32,7 +32,7 @@
     AssertEqualInt(0, [dm.journal.entries count]);
 
     Asset *as = [dm.ledger.assets objectAtIndex:0];
-    AssertEqualObjects(@"Cash", as.name);
+    AssertEqualObjects(NSLocalizedString(@"Cash", nil), as.name);
                   
     AssertEqualInt(0, [dm.categories count]);
 }
