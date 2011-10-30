@@ -45,7 +45,7 @@
     [manager setBaseCurrency:@"JPY"];
     NSString *s = [CurrencyManager formatCurrency:1234];
     //AssertEqualObjects(@"¥1,234", s);
-    AssertEqualObjects(@"¥1,234", s);
+    AssertEqualObjects(@"￥1,234", s);
 }
 
 - (void)testEUR
