@@ -56,7 +56,11 @@ static PinController *thePinController = nil;
 {
     ASSERT(state == -1);
 
-    if (mPin == nil) return; // do nothing
+    if (mPin == nil) {
+        // no need to check pin.
+        thePinController = nil;
+        return;
+    }
 
     // get topmost modal view controller
     while (currentVc.modalViewController != nil) {
