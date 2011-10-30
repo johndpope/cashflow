@@ -45,9 +45,9 @@
     Class class = NSClassFromString(className);
     if (nibName) {
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-        return [[[class alloc] initWithNibName:nibName bundle:bundle] autorelease];
+        return [[class alloc] initWithNibName:nibName bundle:bundle];
     } else {
-        return [[class new] autorelease];
+        return [class new];
     }
 }
 
@@ -74,7 +74,7 @@
 
 - (UIViewController *)createBaseViewController
 {
-    UINavigationController *vc = [[[UINavigationController alloc] initWithRootViewController:self.viewController] autorelease];
+    UINavigationController *vc = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     return vc;
 }
     

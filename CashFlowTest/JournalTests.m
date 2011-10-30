@@ -54,7 +54,7 @@
     journal = [DataModel journal];
 
     // 途中に挿入する
-    Transaction *t = [[[Transaction alloc] init] autorelease];
+    Transaction *t = [Transaction new];
     t.pid = 7;
     t.asset = 1;
     t.type = 0;
@@ -74,7 +74,7 @@
     journal = [DataModel journal];
 
     // 途中に挿入する
-    Transaction *t = [[[Transaction alloc] init] autorelease];
+    Transaction *t = [Transaction new];
     t.pid = 999;
     t.asset = 3;
     t.type = 0;
@@ -82,7 +82,6 @@
     t.date = [TestCommon dateWithString:@"20090201000000"]; // last
     
     Transaction *orig = [journal.entries objectAtIndex:3];
-    [orig retain];
     AssertEqualInt(4, orig.pid);
 
     [journal replaceTransaction:orig withObject:t];
@@ -91,15 +90,13 @@
     Transaction *tt = [journal.entries objectAtIndex:5];
     //ASSERT_EQUAL(t, tt);
     AssertEqualInt(t.pid, tt.pid);
-
-    [orig release];
 }
 
 - (void)testDeleteTransaction
 {
     [TestCommon installDatabase:@"testdata1"];
     journal = [DataModel journal];
-    Asset *asset = [[[Asset alloc] init] autorelease];
+    Asset *asset = [Asset new];
 
     // 資産間取引を削除 (pid == 4 の取引)
     asset.pid = 2;
@@ -131,7 +128,7 @@
 {
     [TestCommon installDatabase:@"testdata1"];
     journal = [DataModel journal];
-    Asset *asset = [[[Asset alloc] init] autorelease];
+    Asset *asset = [Asset new];
     
     // 資産間取引を削除 (pid == 4 の取引)、ただし、testDeleteTransaction とは逆方向
     asset.pid = 1;
@@ -157,7 +154,7 @@
 {
     [TestCommon installDatabase:@"testdata1"];
     journal = [DataModel journal];
-    Asset *asset = [[[Asset alloc] init] autorelease];
+    Asset *asset = [Asset new];
 
     AssertEqualInt(6, [journal.entries count]);
 

@@ -18,12 +18,6 @@
 {
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
-
 #pragma mark -
 #pragma mark Helpers
 
@@ -35,10 +29,10 @@
 - (void)testAllocNew
 {
     AssetEntry *e;
-    Asset *a = [[[Asset alloc] init] autorelease];
+    Asset *a = [Asset new];
     a.pid = 999;
 
-    e = [[[AssetEntry alloc] initWithTransaction:nil withAsset:a] autorelease];
+    e = [[AssetEntry alloc] initWithTransaction:nil withAsset:a];
 
     AssertEquals(e.assetKey, 999);
     AssertEquals(e.value, 0.0);
@@ -55,15 +49,15 @@
 // transaction 指定あり、通常
 - (void)testAllocExisting
 {
-    Asset *a = [[[Asset alloc] init] autorelease];
+    Asset *a = [Asset new];
     a.pid = 111;
-    Transaction *t = [[[Transaction alloc] init] autorelease];
+    Transaction *t = [Transaction new];
     t.type = TYPE_TRANSFER;
     t.asset = 111;
     t.dstAsset = 222;
     t.value = 10000.0;
 
-    AssetEntry *e = [[[AssetEntry alloc] initWithTransaction:t withAsset:a] autorelease];
+    AssetEntry *e = [[AssetEntry alloc] initWithTransaction:t withAsset:a];
 
     AssertEquals(e.assetKey, 111);
     AssertEquals(e.value, 10000.0);
@@ -80,15 +74,15 @@
 // transaction 指定あり、逆
 - (void)testAllocExistingReverse
 {
-    Asset *a = [[[Asset alloc] init] autorelease];
+    Asset *a = [Asset new];
     a.pid = 111;
-    Transaction *t = [[[Transaction alloc] init] autorelease];
+    Transaction *t = [Transaction new];
     t.type = TYPE_TRANSFER;
     t.asset = 222;
     t.dstAsset = 111;
     t.value = 10000.0;
 
-    AssetEntry *e = [[[AssetEntry alloc] initWithTransaction:t withAsset:a] autorelease];
+    AssetEntry *e = [[AssetEntry alloc] initWithTransaction:t withAsset:a];
 
     AssertEquals(e.assetKey, 111);
     AssertEquals(e.value, -10000.0);
@@ -104,13 +98,13 @@
 
 - (void)testEvalueNormal
 {
-    Asset *a = [[[Asset alloc] init] autorelease];
+    Asset *a = [Asset new];
     a.pid = 111;
-    Transaction *t = [[[Transaction alloc] init] autorelease];
+    Transaction *t = [Transaction new];
     t.asset = 111;
     t.dstAsset = -1;
 
-    AssetEntry *e = [[[AssetEntry alloc] initWithTransaction:t withAsset:a] autorelease];
+    AssetEntry *e = [[AssetEntry alloc] initWithTransaction:t withAsset:a];
     e.balance = 99999.0;
 
     t.type = TYPE_INCOME;

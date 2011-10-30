@@ -5,7 +5,7 @@
 #import "Report.h"
 
 @interface ReportTest : SenTestCase {
-    Report *reports;
+    Report *mReports;
 }
 @end
 
@@ -16,20 +16,20 @@
     [TestCommon installDatabase:@"testdata1"];
     [DataModel instance];
     
-    reports = [[Report alloc] init];
+    mReports = [[Report alloc] init];
 }
 
 - (void)tearDown
 {
-    [reports release];
+    mReports = nil;
 }
 
 - (void)testMonthly
 {
-    [reports generate:REPORT_MONTHLY asset:nil];
+    [mReports generate:REPORT_MONTHLY asset:nil];
 
-    AssertEqualInt(1, [reports.reportEntries count]);
-    ReportEntry *report = [reports.reportEntries objectAtIndex:0];
+    AssertEqualInt(1, [mReports.reportEntries count]);
+    ReportEntry *report = [mReports.reportEntries objectAtIndex:0];
 
     //NSString *s = [TestCommon stringWithDate:report.date];
     //Assert([s isEqualToString:@"200901010000"]);

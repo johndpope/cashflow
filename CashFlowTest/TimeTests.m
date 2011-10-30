@@ -18,7 +18,7 @@
 
 - (void)testAPMPM
 {
-    NSDateFormatter *f = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter *f = [NSDateFormatter new];
     [f setDateFormat:@"HH"];
     NSDate *d = [NSDate dateWithTimeIntervalSinceReferenceDate:60*60*13];
 
@@ -27,7 +27,7 @@
     [f setLocale:nil];
     NSLog(@"%@", [f stringFromDate:d]);
     
-#define T(x) [f setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@ #x] autorelease]]; NSLog(@"%s %@", #x, [f stringFromDate:d])
+#define T(x) [f setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@ #x]]; NSLog(@"%s %@", #x, [f stringFromDate:d])
     T(ja_JP);
 }
 

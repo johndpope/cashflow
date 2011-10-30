@@ -41,20 +41,10 @@
 
 - (void)editDescViewChanged:(EditDescViewController*)v
 {
-    if (mDescription != v.description) {
-        [mDescription release];
-        mDescription = v.description;
-        [mDescription retain];
-    }
+    mDescription = v.description;
 }
 
 #pragma mark -
-
-- (void)dealloc
-{
-    [mDescription release];
-    [super dealloc];
-}
 
 - (void)setUp
 {
@@ -82,7 +72,7 @@
 - (void)tearDown
 {
     //[vc viewWillDisappear:YES];
-    [mDescription release];
+    mDescription = nil;
     [super tearDown];
 }
 

@@ -99,7 +99,7 @@
     AssertEqualDouble(9000, [asset lastBalance]);
 
     // 新規エントリ
-    AssetEntry *ae = [[[AssetEntry alloc] initWithTransaction:nil withAsset:asset] autorelease];
+    AssetEntry *ae = [[AssetEntry alloc] initWithTransaction:nil withAsset:asset];
 
     ae.assetKey = asset.pid;
     ae.transaction.type = TYPE_ADJ;
