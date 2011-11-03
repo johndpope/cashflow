@@ -408,6 +408,11 @@
 		3EF054831182DCB200411C71 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF054821182DCB200411C71 /* MainWindow-iPad.xib */; };
 		3EF054841182DCB200411C71 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF054821182DCB200411C71 /* MainWindow-iPad.xib */; };
 		3EF12E5A13D86BDD009D1722 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC153113D85CFA00B35736 /* SenTestingKit.framework */; };
+		3EF1523E1462C2B300C724E4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC153113D85CFA00B35736 /* SenTestingKit.framework */; };
+		3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EF152441462C2B300C724E4 /* InfoPlist.strings */; };
+		3EF152491462C2B300C724E4 /* LogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152481462C2B300C724E4 /* LogicTests.m */; };
 		3EF1716F133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF17170133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF5F438145AE0A3006C3F3A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
@@ -681,6 +686,12 @@
 		3EEED4E112F59C1200C67F4C /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EEED4E212F59C2E00C67F4C /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EF054821182DCB200411C71 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		3EF1523D1462C2B300C724E4 /* LogicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EF152431462C2B300C724E4 /* LogicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LogicTests-Info.plist"; sourceTree = "<group>"; };
+		3EF152451462C2B300C724E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3EF152471462C2B300C724E4 /* LogicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogicTests.h; sourceTree = "<group>"; };
+		3EF152481462C2B300C724E4 /* LogicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogicTests.m; sourceTree = "<group>"; };
+		3EF1524A1462C2B300C724E4 /* LogicTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogicTests-Prefix.pch"; sourceTree = "<group>"; };
 		3EF1716E133A2528002C818E /* artwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = artwork.jpg; sourceTree = "<group>"; };
 		3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = /Users/tmurakam/dev/cashflow/Dropbox/DropboxSDK.framework; sourceTree = "<absolute>"; };
 		3EF5F4FD145AEB78006C3F3A /* DBLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLoadingView.h; sourceTree = "<group>"; };
@@ -776,6 +787,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3EF152391462C2B200C724E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EF1523E1462C2B300C724E4 /* SenTestingKit.framework in Frameworks */,
+				3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */,
+				3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -785,6 +806,7 @@
 				1D6058910D05DD3D006BFB54 /* CashFlow.app */,
 				3E8B25C20F348C090007929E /* CashFlowFree.app */,
 				3EC1B22713291A6D00721A71 /* CashFlowTest.octest */,
+				3EF1523D1462C2B300C724E4 /* LogicTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -801,6 +823,7 @@
 				3EAF41431340BCC000814FFA /* AdMob */,
 				3E0AC68C13A785EB006F505C /* GoogleAnalytics */,
 				3EC1B22B13291A6D00721A71 /* CashFlowTest */,
+				3EF152411462C2B300C724E4 /* LogicTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */,
@@ -1180,6 +1203,26 @@
 			path = "Resources-iPad";
 			sourceTree = "<group>";
 		};
+		3EF152411462C2B300C724E4 /* LogicTests */ = {
+			isa = PBXGroup;
+			children = (
+				3EF152471462C2B300C724E4 /* LogicTests.h */,
+				3EF152481462C2B300C724E4 /* LogicTests.m */,
+				3EF152421462C2B300C724E4 /* Supporting Files */,
+			);
+			path = LogicTests;
+			sourceTree = "<group>";
+		};
+		3EF152421462C2B300C724E4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3EF152431462C2B300C724E4 /* LogicTests-Info.plist */,
+				3EF152441462C2B300C724E4 /* InfoPlist.strings */,
+				3EF1524A1462C2B300C724E4 /* LogicTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1236,6 +1279,24 @@
 			productReference = 3EC1B22713291A6D00721A71 /* CashFlowTest.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		3EF1523C1462C2B200C724E4 /* LogicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EF1524D1462C2B300C724E4 /* Build configuration list for PBXNativeTarget "LogicTests" */;
+			buildPhases = (
+				3EF152381462C2B200C724E4 /* Sources */,
+				3EF152391462C2B200C724E4 /* Frameworks */,
+				3EF1523A1462C2B200C724E4 /* Resources */,
+				3EF1523B1462C2B200C724E4 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LogicTests;
+			productName = LogicTests;
+			productReference = 3EF1523D1462C2B300C724E4 /* LogicTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1274,6 +1335,7 @@
 				1D6058900D05DD3D006BFB54 /* CashFlow */,
 				3E8B25780F348C090007929E /* CashFlowFree */,
 				3EC1B22613291A6D00721A71 /* CashFlowTest */,
+				3EF1523C1462C2B200C724E4 /* LogicTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1467,10 +1529,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3EF1523A1462C2B200C724E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		3EC1B22513291A6D00721A71 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		3EF1523B1462C2B200C724E4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1708,6 +1791,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3EF152381462C2B200C724E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EF152491462C2B300C724E4 /* LogicTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1740,6 +1831,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				3EC1B22F13291A6D00721A71 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3EF152441462C2B300C724E4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EF152451462C2B300C724E4 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1893,6 +1992,52 @@
 			};
 			name = Release;
 		};
+		3EF1524B1462C2B300C724E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LogicTests/LogicTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "LogicTests/LogicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		3EF1524C1462C2B300C724E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LogicTests/LogicTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "LogicTests/LogicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2001,6 +2146,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		3EF1524D1462C2B300C724E4 /* Build configuration list for PBXNativeTarget "LogicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EF1524B1462C2B300C724E4 /* Debug */,
+				3EF1524C1462C2B300C724E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CashFlow" */ = {
 			isa = XCConfigurationList;
