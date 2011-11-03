@@ -453,6 +453,13 @@
 		3EF152771462C38800C724E4 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
 		3EF152781462C3A200C724E4 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7BB135115399C5004B7D03 /* Config.m */; };
 		3EF152791462C3B000C724E4 /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
+		3EF1527A1462C9CD00C724E4 /* LedgerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A649132A224A007AB4AB /* LedgerTests.m */; };
+		3EF1527B1462C9D000C724E4 /* ReportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A64A132A224A007AB4AB /* ReportTests.m */; };
+		3EF1527C1462C9D400C724E4 /* TimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A64B132A224A007AB4AB /* TimeTests.m */; };
+		3EF1527D1462C9DE00C724E4 /* TransactionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A64C132A224A007AB4AB /* TransactionTests.m */; };
+		3EF1527E1462C9E100C724E4 /* AssetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC1B28713291F3500721A71 /* AssetTests.m */; };
+		3EF1527F1462C9E400C724E4 /* CurrencyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC1B23C13291A9800721A71 /* CurrencyManagerTests.m */; };
+		3EF152801462C9F900C724E4 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
 		3EF1716F133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF17170133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF5F438145AE0A3006C3F3A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
@@ -1880,6 +1887,13 @@
 				3EF152691462C36700C724E4 /* Transaction.m in Sources */,
 				3EF152781462C3A200C724E4 /* Config.m in Sources */,
 				3EF152791462C3B000C724E4 /* TestCommon.m in Sources */,
+				3EF1527A1462C9CD00C724E4 /* LedgerTests.m in Sources */,
+				3EF1527B1462C9D000C724E4 /* ReportTests.m in Sources */,
+				3EF1527C1462C9D400C724E4 /* TimeTests.m in Sources */,
+				3EF1527D1462C9DE00C724E4 /* TransactionTests.m in Sources */,
+				3EF1527E1462C9E100C724E4 /* AssetTests.m in Sources */,
+				3EF1527F1462C9E400C724E4 /* CurrencyManagerTests.m in Sources */,
+				3EF152801462C9F900C724E4 /* CurrencyManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
