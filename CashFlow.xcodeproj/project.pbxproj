@@ -413,6 +413,47 @@
 		3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EF152441462C2B300C724E4 /* InfoPlist.strings */; };
 		3EF152491462C2B300C724E4 /* LogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152481462C2B300C724E4 /* LogicTests.m */; };
+		3EF1524F1462C30E00C724E4 /* AssetEntryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A644132A224A007AB4AB /* AssetEntryTests.m */; };
+		3EF152501462C31200C724E4 /* DataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A645132A224A007AB4AB /* DataModelTests.m */; };
+		3EF152511462C31500C724E4 /* DescLRUManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A646132A224A007AB4AB /* DescLRUManagerTests.m */; };
+		3EF152521462C31800C724E4 /* JournalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A648132A224A007AB4AB /* JournalTests.m */; };
+		3EF152531462C31B00C724E4 /* testdata1.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3E88EAAD132F371300B160A0 /* testdata1.sql */; };
+		3EF152561462C35900C724E4 /* AssetBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7801214173500CFDDAC /* AssetBase.m */; };
+		3EF152571462C35900C724E4 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7841214173500CFDDAC /* Database.m */; };
+		3EF152581462C35900C724E4 /* Dbstmt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D2C131FB9680008C37D /* Dbstmt.m */; };
+		3EF152591462C35900C724E4 /* DescLRU.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7881214173500CFDDAC /* DescLRU.m */; };
+		3EF1525A1462C35900C724E4 /* ORRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD78A1214173500CFDDAC /* ORRecord.m */; };
+		3EF1525B1462C35900C724E4 /* TransactionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD78C1214173500CFDDAC /* TransactionBase.m */; };
+		3EF1525C1462C35900C724E4 /* TCategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F16AD13A66A5C0091E6F8 /* TCategoryBase.m */; };
+		3EF1525D1462C36700C724E4 /* CashflowDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D22131FB94B0008C37D /* CashflowDatabase.m */; };
+		3EF1525E1462C36700C724E4 /* DateFormatter2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D24131FB94B0008C37D /* DateFormatter2.m */; };
+		3EF1525F1462C36700C724E4 /* DescLRUManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD776121416CB00CFDDAC /* DescLRUManager.m */; };
+		3EF152601462C36700C724E4 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6A7121415DD00CFDDAC /* Asset.m */; };
+		3EF152611462C36700C724E4 /* AssetEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6A9121415DD00CFDDAC /* AssetEntry.m */; };
+		3EF152621462C36700C724E4 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6AB121415DD00CFDDAC /* Category.m */; };
+		3EF152631462C36700C724E4 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6AD121415DD00CFDDAC /* DataModel.m */; };
+		3EF152641462C36700C724E4 /* Journal.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6AF121415DD00CFDDAC /* Journal.m */; };
+		3EF152651462C36700C724E4 /* Ledger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6B1121415DD00CFDDAC /* Ledger.m */; };
+		3EF152661462C36700C724E4 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6B3121415DD00CFDDAC /* Report.m */; };
+		3EF152671462C36700C724E4 /* ReportEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17800313263CBD00D74DED /* ReportEntry.m */; };
+		3EF152681462C36700C724E4 /* CatReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17800213263CBD00D74DED /* CatReport.m */; };
+		3EF152691462C36700C724E4 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6B5121415DD00CFDDAC /* Transaction.m */; };
+		3EF1526A1462C37500C724E4 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
+		3EF1526B1462C37900C724E4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
+		3EF1526C1462C37D00C724E4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; };
+		3EF1526D1462C38000C724E4 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E94339E0EC1E7650033D50A /* libsqlite3.0.dylib */; };
+		3EF1526E1462C38800C724E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E13EE58114007D600523938 /* AVFoundation.framework */; };
+		3EF1526F1462C38800C724E4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6F5D5E0EB8C30B0082F50A /* AudioToolbox.framework */; };
+		3EF152701462C38800C724E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		3EF152711462C38800C724E4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB554B3103B92D700BA13D4 /* QuartzCore.framework */; };
+		3EF152721462C38800C724E4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB55574103B96CE00BA13D4 /* CoreLocation.framework */; };
+		3EF152731462C38800C724E4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB5552D103B930D00BA13D4 /* AddressBook.framework */; };
+		3EF152741462C38800C724E4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
+		3EF152751462C38800C724E4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; };
+		3EF152761462C38800C724E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
+		3EF152771462C38800C724E4 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
+		3EF152781462C3A200C724E4 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7BB135115399C5004B7D03 /* Config.m */; };
+		3EF152791462C3B000C724E4 /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
 		3EF1716F133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF17170133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF5F438145AE0A3006C3F3A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
@@ -441,6 +482,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		3E53929C146254D7006B37D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = CashFlow;
+		};
+		3EF152541462C33F00C724E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
@@ -794,6 +842,20 @@
 				3EF1523E1462C2B300C724E4 /* SenTestingKit.framework in Frameworks */,
 				3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */,
 				3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */,
+				3EF1526A1462C37500C724E4 /* DropboxSDK.framework in Frameworks */,
+				3EF1526B1462C37900C724E4 /* CFNetwork.framework in Frameworks */,
+				3EF1526C1462C37D00C724E4 /* Security.framework in Frameworks */,
+				3EF1526D1462C38000C724E4 /* libsqlite3.0.dylib in Frameworks */,
+				3EF1526E1462C38800C724E4 /* AVFoundation.framework in Frameworks */,
+				3EF1526F1462C38800C724E4 /* AudioToolbox.framework in Frameworks */,
+				3EF152701462C38800C724E4 /* CoreGraphics.framework in Frameworks */,
+				3EF152711462C38800C724E4 /* QuartzCore.framework in Frameworks */,
+				3EF152721462C38800C724E4 /* CoreLocation.framework in Frameworks */,
+				3EF152731462C38800C724E4 /* AddressBook.framework in Frameworks */,
+				3EF152741462C38800C724E4 /* MediaPlayer.framework in Frameworks */,
+				3EF152751462C38800C724E4 /* MessageUI.framework in Frameworks */,
+				3EF152761462C38800C724E4 /* SystemConfiguration.framework in Frameworks */,
+				3EF152771462C38800C724E4 /* CrashReporter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1291,6 +1353,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3EF152551462C33F00C724E4 /* PBXTargetDependency */,
 			);
 			name = LogicTests;
 			productName = LogicTests;
@@ -1534,6 +1597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */,
+				3EF152531462C31B00C724E4 /* testdata1.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1796,6 +1860,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EF152491462C2B300C724E4 /* LogicTests.m in Sources */,
+				3EF1524F1462C30E00C724E4 /* AssetEntryTests.m in Sources */,
+				3EF152501462C31200C724E4 /* DataModelTests.m in Sources */,
+				3EF152511462C31500C724E4 /* DescLRUManagerTests.m in Sources */,
+				3EF152521462C31800C724E4 /* JournalTests.m in Sources */,
+				3EF152561462C35900C724E4 /* AssetBase.m in Sources */,
+				3EF152571462C35900C724E4 /* Database.m in Sources */,
+				3EF152581462C35900C724E4 /* Dbstmt.m in Sources */,
+				3EF152591462C35900C724E4 /* DescLRU.m in Sources */,
+				3EF1525A1462C35900C724E4 /* ORRecord.m in Sources */,
+				3EF1525B1462C35900C724E4 /* TransactionBase.m in Sources */,
+				3EF1525C1462C35900C724E4 /* TCategoryBase.m in Sources */,
+				3EF1525D1462C36700C724E4 /* CashflowDatabase.m in Sources */,
+				3EF1525E1462C36700C724E4 /* DateFormatter2.m in Sources */,
+				3EF1525F1462C36700C724E4 /* DescLRUManager.m in Sources */,
+				3EF152601462C36700C724E4 /* Asset.m in Sources */,
+				3EF152611462C36700C724E4 /* AssetEntry.m in Sources */,
+				3EF152621462C36700C724E4 /* Category.m in Sources */,
+				3EF152631462C36700C724E4 /* DataModel.m in Sources */,
+				3EF152641462C36700C724E4 /* Journal.m in Sources */,
+				3EF152651462C36700C724E4 /* Ledger.m in Sources */,
+				3EF152661462C36700C724E4 /* Report.m in Sources */,
+				3EF152671462C36700C724E4 /* ReportEntry.m in Sources */,
+				3EF152681462C36700C724E4 /* CatReport.m in Sources */,
+				3EF152691462C36700C724E4 /* Transaction.m in Sources */,
+				3EF152781462C3A200C724E4 /* Config.m in Sources */,
+				3EF152791462C3B000C724E4 /* TestCommon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1806,6 +1896,11 @@
 			isa = PBXTargetDependency;
 			target = 1D6058900D05DD3D006BFB54 /* CashFlow */;
 			targetProxy = 3E53929C146254D7006B37D4 /* PBXContainerItemProxy */;
+		};
+		3EF152551462C33F00C724E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* CashFlow */;
+			targetProxy = 3EF152541462C33F00C724E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1999,6 +2094,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/Dropbox\"",
+					"\"$(SRCROOT)/plcrashreporter\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2025,6 +2122,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/Dropbox\"",
+					"\"$(SRCROOT)/plcrashreporter\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
