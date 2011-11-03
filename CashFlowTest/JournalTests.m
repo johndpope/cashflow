@@ -12,7 +12,7 @@
 - (void)setUp
 {
     [super setUp];
-    [TestCommon deleteDatabase];
+    [TestCommon initDatabase];
     journal = [DataModel journal];
 }
 

@@ -12,9 +12,7 @@
 
 - (void)setUp
 {
-    [TestCommon deleteDatabase];
-    dm = [DataModel instance];
-    [dm load];
+    [TestCommon initDatabase];
 }
 
 - (void)tearDown
