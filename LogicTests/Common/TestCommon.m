@@ -42,6 +42,14 @@
     [Database shutdown];
 }
 
+// 空のデータベースから開始する
++ (void)initDatabase
+{
+    [TestCommon deleteDatabase];
+    [self _createDocumentsDir];
+    [[DataModel instance] load];
+}
+
 // データベースをインストールする
 + (BOOL)installDatabase:(NSString *)sqlFileName
 {
@@ -55,13 +63,7 @@
         return NO;
     }
     
-    // Document ディレクトリを作成する (単体テストだとなぜかできてない)
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSString *dbdir = [[Database instance] dbPath:@""];
-    if (![fm fileExistsAtPath:dbdir]) {
-        [fm createDirectoryAtPath:dbdir withIntermediateDirectories:NO
-                       attributes:nil error:NULL];
-    }
+    [self _createDocumentsDir];
 
     NSString *dbPath = [[Database instance] dbPath:@"CashFlow.db"];
     //NSLog(@"install db: %@", dbPath);
@@ -100,6 +102,17 @@
 #endif
     
     return YES;
+}
+
+// Document ディレクトリを作成する (単体テストだとなぜかできてない)
++ (void)_createDocumentsDir
+{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *dbdir = [[Database instance] dbPath:@""];
+    if (![fm fileExistsAtPath:dbdir]) {
+        [fm createDirectoryAtPath:dbdir withIntermediateDirectories:NO
+                       attributes:nil error:NULL];
+    }
 }
 
 @end

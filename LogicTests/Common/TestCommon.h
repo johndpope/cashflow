@@ -31,6 +31,9 @@
 + (NSString *)stringWithDate:(NSDate *)date;
 
 + (void)deleteDatabase;
++ (void)initDatabase;
 + (BOOL)installDatabase:(NSString *)sqlFileName;
+
++ (void)_createDocumentsDir;
 
 @end
