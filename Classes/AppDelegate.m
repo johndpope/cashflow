@@ -147,6 +147,9 @@ static BOOL sIsPrevCrashed;
     [Database shutdown];
 }
 
+//
+// Dropbox link 完了時の処理
+//
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     UIAlertView *v;
@@ -180,20 +183,6 @@ static BOOL sIsPrevCrashed;
 {
     _application.networkActivityIndicatorVisible = NO;
 }
-
-
-#pragma mark DBSessionDelegate methods
-/* obsoleted
-- (void)sessionDidReceiveAuthorizationFailure:(DBSession*)session
-{
-    DBLoginController* loginController = [DBLoginController new];
-    if (IS_IPAD) {
-        [loginController presentFromController:splitViewController]; // # TBD
-    } else {
-        [loginController presentFromController:navigationController];
-    }        
-}
-*/
 
 #pragma mark GoogleAnalytics
 + (void)trackPageview:(NSString *)url

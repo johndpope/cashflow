@@ -434,6 +434,16 @@
 		3EFEFE9C1324F3C800EF369E /* ReportCatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE991324F3C800EF369E /* ReportCatCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3E53929C146254D7006B37D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = CashFlow;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1219,6 +1229,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3E53929D146254D7006B37D4 /* PBXTargetDependency */,
 			);
 			name = CashFlowTest;
 			productName = CashFlowTest;
@@ -1698,6 +1709,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E53929D146254D7006B37D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* CashFlow */;
+			targetProxy = 3E53929C146254D7006B37D4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3E2CBD9F0F1615470025A682 /* Localizable.strings */ = {
