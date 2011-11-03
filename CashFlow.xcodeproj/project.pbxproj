@@ -193,14 +193,6 @@
 		3E7109B7121108ED00C47539 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B5121108ED00C47539 /* UIDevice-Hardware.m */; };
 		3E7109B8121108ED00C47539 /* SupportMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B3121108ED00C47539 /* SupportMail.m */; };
 		3E7109B9121108ED00C47539 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B5121108ED00C47539 /* UIDevice-Hardware.m */; };
-		3E71A64D132A224A007AB4AB /* AssetEntryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A644132A224A007AB4AB /* AssetEntryTests.m */; };
-		3E71A64E132A224A007AB4AB /* DataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A645132A224A007AB4AB /* DataModelTests.m */; };
-		3E71A64F132A224A007AB4AB /* DescLRUManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A646132A224A007AB4AB /* DescLRUManagerTests.m */; };
-		3E71A651132A224A007AB4AB /* JournalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A648132A224A007AB4AB /* JournalTests.m */; };
-		3E71A652132A224A007AB4AB /* LedgerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A649132A224A007AB4AB /* LedgerTests.m */; };
-		3E71A653132A224A007AB4AB /* ReportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A64A132A224A007AB4AB /* ReportTests.m */; };
-		3E71A654132A224A007AB4AB /* TimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A64B132A224A007AB4AB /* TimeTests.m */; };
-		3E71A655132A224A007AB4AB /* TransactionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A64C132A224A007AB4AB /* TransactionTests.m */; };
 		3E774E3E1188807900687776 /* AssetListView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774E3D1188807900687776 /* AssetListView-ipad.xib */; };
 		3E774E3F1188807900687776 /* AssetListView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774E3D1188807900687776 /* AssetListView-ipad.xib */; };
 		3E774EEA11888C6600687776 /* PinView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774EE911888C6600687776 /* PinView-ipad.xib */; };
@@ -294,7 +286,6 @@
 		3EC1B22913291A6D00721A71 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		3EC1B22A13291A6D00721A71 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		3EC1B23013291A6D00721A71 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EC1B22E13291A6D00721A71 /* InfoPlist.strings */; };
-		3EC1B23D13291A9800721A71 /* CurrencyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC1B23C13291A9800721A71 /* CurrencyManagerTests.m */; };
 		3EC1B23F13291BE700721A71 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
 		3EC1B24213291DC900721A71 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E94339E0EC1E7650033D50A /* libsqlite3.0.dylib */; };
 		3EC1B24313291DE500721A71 /* CashflowDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D22131FB94B0008C37D /* CashflowDatabase.m */; };
@@ -362,7 +353,6 @@
 		3EC1B28413291EA700721A71 /* ReportCatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7051214169700CFDDAC /* ReportCatCell.m */; };
 		3EC1B28513291EA700721A71 /* ReportCatGraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17805E132641D700D74DED /* ReportCatGraphCell.m */; };
 		3EC1B28613291EA700721A71 /* ReportCatDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02EBF713226FDC0086F492 /* ReportCatDetailVC.m */; };
-		3EC1B28813291F3500721A71 /* AssetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC1B28713291F3500721A71 /* AssetTests.m */; };
 		3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3ECD5A871347603800B499A6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3ECF38040EA9CF4900420060 /* ExportServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF38030EA9CF4900420060 /* ExportServer.m */; };
@@ -412,10 +402,6 @@
 		3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EF152441462C2B300C724E4 /* InfoPlist.strings */; };
-		3EF1524F1462C30E00C724E4 /* AssetEntryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A644132A224A007AB4AB /* AssetEntryTests.m */; };
-		3EF152501462C31200C724E4 /* DataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A645132A224A007AB4AB /* DataModelTests.m */; };
-		3EF152511462C31500C724E4 /* DescLRUManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A646132A224A007AB4AB /* DescLRUManagerTests.m */; };
-		3EF152521462C31800C724E4 /* JournalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A648132A224A007AB4AB /* JournalTests.m */; };
 		3EF152531462C31B00C724E4 /* testdata1.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3E88EAAD132F371300B160A0 /* testdata1.sql */; };
 		3EF152561462C35900C724E4 /* AssetBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7801214173500CFDDAC /* AssetBase.m */; };
 		3EF152571462C35900C724E4 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7841214173500CFDDAC /* Database.m */; };
@@ -453,13 +439,17 @@
 		3EF152771462C38800C724E4 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
 		3EF152781462C3A200C724E4 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7BB135115399C5004B7D03 /* Config.m */; };
 		3EF152791462C3B000C724E4 /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
-		3EF1527A1462C9CD00C724E4 /* LedgerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A649132A224A007AB4AB /* LedgerTests.m */; };
-		3EF1527B1462C9D000C724E4 /* ReportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A64A132A224A007AB4AB /* ReportTests.m */; };
-		3EF1527C1462C9D400C724E4 /* TimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A64B132A224A007AB4AB /* TimeTests.m */; };
-		3EF1527D1462C9DE00C724E4 /* TransactionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A64C132A224A007AB4AB /* TransactionTests.m */; };
-		3EF1527E1462C9E100C724E4 /* AssetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC1B28713291F3500721A71 /* AssetTests.m */; };
-		3EF1527F1462C9E400C724E4 /* CurrencyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC1B23C13291A9800721A71 /* CurrencyManagerTests.m */; };
 		3EF152801462C9F900C724E4 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
+		3EF1528B1462CA8500C724E4 /* AssetEntryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152811462CA8500C724E4 /* AssetEntryTests.m */; };
+		3EF1528C1462CA8500C724E4 /* AssetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152821462CA8500C724E4 /* AssetTests.m */; };
+		3EF1528D1462CA8500C724E4 /* CurrencyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152831462CA8500C724E4 /* CurrencyManagerTests.m */; };
+		3EF1528E1462CA8500C724E4 /* DataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152841462CA8500C724E4 /* DataModelTests.m */; };
+		3EF1528F1462CA8500C724E4 /* DescLRUManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152851462CA8500C724E4 /* DescLRUManagerTests.m */; };
+		3EF152901462CA8500C724E4 /* JournalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152861462CA8500C724E4 /* JournalTests.m */; };
+		3EF152911462CA8500C724E4 /* LedgerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152871462CA8500C724E4 /* LedgerTests.m */; };
+		3EF152921462CA8500C724E4 /* ReportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152881462CA8500C724E4 /* ReportTests.m */; };
+		3EF152931462CA8500C724E4 /* TimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152891462CA8500C724E4 /* TimeTests.m */; };
+		3EF152941462CA8500C724E4 /* TransactionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1528A1462CA8500C724E4 /* TransactionTests.m */; };
 		3EF1716F133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF17170133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF5F438145AE0A3006C3F3A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
@@ -661,14 +651,6 @@
 		3E7109B3121108ED00C47539 /* SupportMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportMail.m; sourceTree = "<group>"; };
 		3E7109B4121108ED00C47539 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
 		3E7109B5121108ED00C47539 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
-		3E71A644132A224A007AB4AB /* AssetEntryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetEntryTests.m; sourceTree = "<group>"; };
-		3E71A645132A224A007AB4AB /* DataModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelTests.m; sourceTree = "<group>"; };
-		3E71A646132A224A007AB4AB /* DescLRUManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescLRUManagerTests.m; sourceTree = "<group>"; };
-		3E71A648132A224A007AB4AB /* JournalTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JournalTests.m; sourceTree = "<group>"; };
-		3E71A649132A224A007AB4AB /* LedgerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerTests.m; sourceTree = "<group>"; };
-		3E71A64A132A224A007AB4AB /* ReportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportTests.m; sourceTree = "<group>"; };
-		3E71A64B132A224A007AB4AB /* TimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTests.m; sourceTree = "<group>"; };
-		3E71A64C132A224A007AB4AB /* TransactionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTests.m; sourceTree = "<group>"; };
 		3E774E3D1188807900687776 /* AssetListView-ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "AssetListView-ipad.xib"; sourceTree = "<group>"; };
 		3E774EE911888C6600687776 /* PinView-ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "PinView-ipad.xib"; sourceTree = "<group>"; };
 		3E7BB12C11539997004B7D03 /* ConfigView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigView.xib; sourceTree = "<group>"; };
@@ -714,8 +696,6 @@
 		3EC1B22D13291A6D00721A71 /* CashFlowTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CashFlowTest-Info.plist"; sourceTree = "<group>"; };
 		3EC1B22F13291A6D00721A71 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3EC1B23113291A6D00721A71 /* CashFlowTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CashFlowTest-Prefix.pch"; sourceTree = "<group>"; };
-		3EC1B23C13291A9800721A71 /* CurrencyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyManagerTests.m; sourceTree = "<group>"; };
-		3EC1B28713291F3500721A71 /* AssetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetTests.m; sourceTree = "<group>"; };
 		3EC572D61107451F00A551D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3ECD5A861347603800B499A6 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		3ECF38030EA9CF4900420060 /* ExportServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportServer.m; sourceTree = "<group>"; };
@@ -744,6 +724,16 @@
 		3EF152431462C2B300C724E4 /* LogicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LogicTests-Info.plist"; sourceTree = "<group>"; };
 		3EF152451462C2B300C724E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3EF1524A1462C2B300C724E4 /* LogicTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogicTests-Prefix.pch"; sourceTree = "<group>"; };
+		3EF152811462CA8500C724E4 /* AssetEntryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetEntryTests.m; sourceTree = "<group>"; };
+		3EF152821462CA8500C724E4 /* AssetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetTests.m; sourceTree = "<group>"; };
+		3EF152831462CA8500C724E4 /* CurrencyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyManagerTests.m; sourceTree = "<group>"; };
+		3EF152841462CA8500C724E4 /* DataModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelTests.m; sourceTree = "<group>"; };
+		3EF152851462CA8500C724E4 /* DescLRUManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescLRUManagerTests.m; sourceTree = "<group>"; };
+		3EF152861462CA8500C724E4 /* JournalTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JournalTests.m; sourceTree = "<group>"; };
+		3EF152871462CA8500C724E4 /* LedgerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerTests.m; sourceTree = "<group>"; };
+		3EF152881462CA8500C724E4 /* ReportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportTests.m; sourceTree = "<group>"; };
+		3EF152891462CA8500C724E4 /* TimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTests.m; sourceTree = "<group>"; };
+		3EF1528A1462CA8500C724E4 /* TransactionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTests.m; sourceTree = "<group>"; };
 		3EF1716E133A2528002C818E /* artwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = artwork.jpg; sourceTree = "<group>"; };
 		3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = /Users/tmurakam/dev/cashflow/Dropbox/DropboxSDK.framework; sourceTree = "<absolute>"; };
 		3EF5F4FD145AEB78006C3F3A /* DBLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLoadingView.h; sourceTree = "<group>"; };
@@ -888,8 +878,8 @@
 				3EB5406B0E8E907B00608B77 /* images */,
 				3EAF41431340BCC000814FFA /* AdMob */,
 				3E0AC68C13A785EB006F505C /* GoogleAnalytics */,
-				3EC1B22B13291A6D00721A71 /* CashFlowTest */,
 				3EF152411462C2B300C724E4 /* LogicTests */,
+				3EC1B22B13291A6D00721A71 /* CashFlowTest */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */,
@@ -1212,16 +1202,6 @@
 		3EC1B22B13291A6D00721A71 /* CashFlowTest */ = {
 			isa = PBXGroup;
 			children = (
-				3E71A644132A224A007AB4AB /* AssetEntryTests.m */,
-				3E71A645132A224A007AB4AB /* DataModelTests.m */,
-				3E71A646132A224A007AB4AB /* DescLRUManagerTests.m */,
-				3E71A648132A224A007AB4AB /* JournalTests.m */,
-				3E71A649132A224A007AB4AB /* LedgerTests.m */,
-				3E71A64A132A224A007AB4AB /* ReportTests.m */,
-				3E71A64B132A224A007AB4AB /* TimeTests.m */,
-				3E71A64C132A224A007AB4AB /* TransactionTests.m */,
-				3EC1B28713291F3500721A71 /* AssetTests.m */,
-				3EC1B23C13291A9800721A71 /* CurrencyManagerTests.m */,
 				3EED912F132A2353009DE68B /* controller */,
 				3EED912E132A233D009DE68B /* Common */,
 				3E1E7D3E132A301100678AF7 /* testdata */,
@@ -1272,6 +1252,16 @@
 		3EF152411462C2B300C724E4 /* LogicTests */ = {
 			isa = PBXGroup;
 			children = (
+				3EF152811462CA8500C724E4 /* AssetEntryTests.m */,
+				3EF152821462CA8500C724E4 /* AssetTests.m */,
+				3EF152831462CA8500C724E4 /* CurrencyManagerTests.m */,
+				3EF152841462CA8500C724E4 /* DataModelTests.m */,
+				3EF152851462CA8500C724E4 /* DescLRUManagerTests.m */,
+				3EF152861462CA8500C724E4 /* JournalTests.m */,
+				3EF152871462CA8500C724E4 /* LedgerTests.m */,
+				3EF152881462CA8500C724E4 /* ReportTests.m */,
+				3EF152891462CA8500C724E4 /* TimeTests.m */,
+				3EF1528A1462CA8500C724E4 /* TransactionTests.m */,
 				3EF152421462C2B300C724E4 /* Supporting Files */,
 			);
 			path = LogicTests;
@@ -1779,7 +1769,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EC1B23D13291A9800721A71 /* CurrencyManagerTests.m in Sources */,
 				3EC1B23F13291BE700721A71 /* CurrencyManager.m in Sources */,
 				3EC1B24313291DE500721A71 /* CashflowDatabase.m in Sources */,
 				3EC1B24413291DE500721A71 /* DateFormatter2.m in Sources */,
@@ -1837,15 +1826,6 @@
 				3EC1B28413291EA700721A71 /* ReportCatCell.m in Sources */,
 				3EC1B28513291EA700721A71 /* ReportCatGraphCell.m in Sources */,
 				3EC1B28613291EA700721A71 /* ReportCatDetailVC.m in Sources */,
-				3EC1B28813291F3500721A71 /* AssetTests.m in Sources */,
-				3E71A64D132A224A007AB4AB /* AssetEntryTests.m in Sources */,
-				3E71A64E132A224A007AB4AB /* DataModelTests.m in Sources */,
-				3E71A64F132A224A007AB4AB /* DescLRUManagerTests.m in Sources */,
-				3E71A651132A224A007AB4AB /* JournalTests.m in Sources */,
-				3E71A652132A224A007AB4AB /* LedgerTests.m in Sources */,
-				3E71A653132A224A007AB4AB /* ReportTests.m in Sources */,
-				3E71A654132A224A007AB4AB /* TimeTests.m in Sources */,
-				3E71A655132A224A007AB4AB /* TransactionTests.m in Sources */,
 				3EED9134132A236D009DE68B /* TestCommon.m in Sources */,
 				3EED9135132A236D009DE68B /* ViewControllerTestCase.m in Sources */,
 				3E7D18CD132C4CFE007A325C /* EditDescVCTests.m in Sources */,
@@ -1861,10 +1841,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EF1524F1462C30E00C724E4 /* AssetEntryTests.m in Sources */,
-				3EF152501462C31200C724E4 /* DataModelTests.m in Sources */,
-				3EF152511462C31500C724E4 /* DescLRUManagerTests.m in Sources */,
-				3EF152521462C31800C724E4 /* JournalTests.m in Sources */,
 				3EF152561462C35900C724E4 /* AssetBase.m in Sources */,
 				3EF152571462C35900C724E4 /* Database.m in Sources */,
 				3EF152581462C35900C724E4 /* Dbstmt.m in Sources */,
@@ -1887,13 +1863,17 @@
 				3EF152691462C36700C724E4 /* Transaction.m in Sources */,
 				3EF152781462C3A200C724E4 /* Config.m in Sources */,
 				3EF152791462C3B000C724E4 /* TestCommon.m in Sources */,
-				3EF1527A1462C9CD00C724E4 /* LedgerTests.m in Sources */,
-				3EF1527B1462C9D000C724E4 /* ReportTests.m in Sources */,
-				3EF1527C1462C9D400C724E4 /* TimeTests.m in Sources */,
-				3EF1527D1462C9DE00C724E4 /* TransactionTests.m in Sources */,
-				3EF1527E1462C9E100C724E4 /* AssetTests.m in Sources */,
-				3EF1527F1462C9E400C724E4 /* CurrencyManagerTests.m in Sources */,
 				3EF152801462C9F900C724E4 /* CurrencyManager.m in Sources */,
+				3EF1528B1462CA8500C724E4 /* AssetEntryTests.m in Sources */,
+				3EF1528C1462CA8500C724E4 /* AssetTests.m in Sources */,
+				3EF1528D1462CA8500C724E4 /* CurrencyManagerTests.m in Sources */,
+				3EF1528E1462CA8500C724E4 /* DataModelTests.m in Sources */,
+				3EF1528F1462CA8500C724E4 /* DescLRUManagerTests.m in Sources */,
+				3EF152901462CA8500C724E4 /* JournalTests.m in Sources */,
+				3EF152911462CA8500C724E4 /* LedgerTests.m in Sources */,
+				3EF152921462CA8500C724E4 /* ReportTests.m in Sources */,
+				3EF152931462CA8500C724E4 /* TimeTests.m in Sources */,
+				3EF152941462CA8500C724E4 /* TransactionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
