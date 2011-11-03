@@ -412,7 +412,6 @@
 		3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EF152441462C2B300C724E4 /* InfoPlist.strings */; };
-		3EF152491462C2B300C724E4 /* LogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152481462C2B300C724E4 /* LogicTests.m */; };
 		3EF1524F1462C30E00C724E4 /* AssetEntryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A644132A224A007AB4AB /* AssetEntryTests.m */; };
 		3EF152501462C31200C724E4 /* DataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A645132A224A007AB4AB /* DataModelTests.m */; };
 		3EF152511462C31500C724E4 /* DescLRUManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E71A646132A224A007AB4AB /* DescLRUManagerTests.m */; };
@@ -737,8 +736,6 @@
 		3EF1523D1462C2B300C724E4 /* LogicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF152431462C2B300C724E4 /* LogicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LogicTests-Info.plist"; sourceTree = "<group>"; };
 		3EF152451462C2B300C724E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3EF152471462C2B300C724E4 /* LogicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogicTests.h; sourceTree = "<group>"; };
-		3EF152481462C2B300C724E4 /* LogicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogicTests.m; sourceTree = "<group>"; };
 		3EF1524A1462C2B300C724E4 /* LogicTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogicTests-Prefix.pch"; sourceTree = "<group>"; };
 		3EF1716E133A2528002C818E /* artwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = artwork.jpg; sourceTree = "<group>"; };
 		3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = /Users/tmurakam/dev/cashflow/Dropbox/DropboxSDK.framework; sourceTree = "<absolute>"; };
@@ -1268,8 +1265,6 @@
 		3EF152411462C2B300C724E4 /* LogicTests */ = {
 			isa = PBXGroup;
 			children = (
-				3EF152471462C2B300C724E4 /* LogicTests.h */,
-				3EF152481462C2B300C724E4 /* LogicTests.m */,
 				3EF152421462C2B300C724E4 /* Supporting Files */,
 			);
 			path = LogicTests;
@@ -1859,7 +1854,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EF152491462C2B300C724E4 /* LogicTests.m in Sources */,
 				3EF1524F1462C30E00C724E4 /* AssetEntryTests.m in Sources */,
 				3EF152501462C31200C724E4 /* DataModelTests.m in Sources */,
 				3EF152511462C31500C724E4 /* DescLRUManagerTests.m in Sources */,

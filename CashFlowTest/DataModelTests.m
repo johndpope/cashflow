@@ -13,6 +13,7 @@
 - (void)setUp
 {
     [TestCommon initDatabase];
+    dm = [DataModel instance];
 }
 
 - (void)tearDown
