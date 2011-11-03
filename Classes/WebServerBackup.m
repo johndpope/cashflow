@@ -11,10 +11,14 @@
 
 @implementation WebServerBackup
 
+static WebServerBackup *sWebServerBackup = nil;
+
 - (void)execute
 {
     BOOL result = NO;
     NSString *message = nil;
+ 
+    sWebServerBackup = self;
     
     mBackupServer = [[BackupServer alloc] init];
     NSString *url = [mBackupServer serverUrl];
@@ -54,6 +58,8 @@
     [mBackupServer stopServer];
     mBackupServer = nil;
 
+    // release
+    sWebServerBackup = nil;
 }
 
 @end
