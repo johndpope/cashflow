@@ -4,7 +4,7 @@
 "Amount" = "Сумма";
 "Balance" = "Баланс";
 "Date" = "Дата";
-"Deposit" = "Пополнить";
+"Deposit" = "Пополнение";
 "Info" = "Информация";
 "Name" = "Название";
 "Memo" = "Заметки";
@@ -41,26 +41,26 @@
 "Transfer" = "Перемещение";
 
 "Report" = "Отчет";
-"Daily Report" = "ежедневный отчет";
+"Daily Report" = "Ежедневный отчет";
 "Weekly Report" = "Еженедельный отчет";
 "Monthly Report" = "Ежемесячный отчет";
-"Annual Report" = "годовой отчет";
+"Annual Report" = "Годовой отчет";
 
 /* Не нужно переводить HelpURL */
 "HelpURL" = "http://iphone.tmurakam.org/cashflow/help-4.html";
 
 "Export" = "Экспорт";
 "Backup" = "Резервная копия";
-"Restore" = "Restore";
+"Restore" = "Восстановить";
 
-"Unlink dropbox account" = "Unlink dropbox account";
-"Internal web server" = "Internal web server";
+"Unlink dropbox account" = "Удалить учетную запись dropbox";
+"Internal web server" = "Встроенный web-сервер";
 
-"Warning" = "Warning";
-"RestoreWarning" = "This will overwrite all current data.";
+"Warning" = "Предупреждение";
+"RestoreWarning" = "Будут перезаписаны все текущие данные.";
 
-"WebExportNotation" = "Перейдите по следующему адресу в браузере вашего компьютера:\n%@\nЗатемс качайте файл и нажмите кнопку Завершить.";
-"BackupNotation" = "Перейдите по следующему адресу в браузере вашего компьютера:\n%@\nЗатемс качайте файл и нажмите кнопку Завершить.";
+"WebExportNotation" = "Перейдите по следующему адресу в браузере вашего компьютера:\n%@\nЗатем скачайте файл и нажмите кнопку Завершить.";
+"BackupNotation" = "Перейдите по следующему адресу в браузере вашего компьютера:\n%@\nЗатем скачайте файл и нажмите кнопку Завершить.";
 "Network is unreachable." = "Сеть не доступна.";
 "Cannot start web server." = "Невозможно запустить Веб-сервер.";
 
@@ -142,11 +142,11 @@
 "Sending" = "Отправляется ...";
 
 /* InfoViewController */
-"Purchase Standard Version" = "Purchase Standard Version";
-"Show help page" = "Show help page";
-"Open facebook page" = "Open facebook page";
-"Send support mail" = "Send support mail";
+"Purchase Standard Version" = "Купить полную версию";
+"Show help page" = "Открыть страницу 'Помощь'";
+"Open facebook page" = "Открыть страницу на Facebook";
+"Send support mail" = "Отправить письмо с предложениями";
 
-"Start of week" = "Start of week";
-"Sunday" = "Sunday";
-"Monday" = "Monday";
+"Start of week" = "Начало недели";
+"Sunday" = "Воскресенье";
+"Monday" = "Понедельник";
