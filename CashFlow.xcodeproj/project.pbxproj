@@ -1744,6 +1744,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Takuya Murakami";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1759,6 +1760,7 @@
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlow;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3F03926B-390C-4549-AFD7-92DBC7036E87";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1794,6 +1796,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Takuya Murakami";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1810,6 +1813,7 @@
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0EF05ADA-DE9F-4DA7-BCDF-7C481ED4C641";
 			};
 			name = Release;
 		};
@@ -1965,7 +1969,7 @@
 					armv6,
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Takuya Murakami (VV8J2CGNUJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/plcrashreporter\"",
@@ -1987,7 +1991,6 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = CashFlow;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E483B35-EF98-4CFB-8BA2-078496191745";
 				SDKROOT = iphoneos;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				TARGETED_DEVICE_FAMILY = "1,2";
