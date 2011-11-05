@@ -23,9 +23,8 @@ static PinController *thePinController = nil;
 {
     if (thePinController == nil) {
         thePinController = [PinController new];
-        return thePinController;
     }
-    return nil;
+    return thePinController;
 }
 
 - (id)init
