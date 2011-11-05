@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad
 {
-    mValue = [[NSMutableString alloc] init];
+    mValue = [NSMutableString new];
     
     mValueLabel.text = @"";
 
@@ -61,14 +61,13 @@
 - (IBAction)onNumButtonPressed:(id)sender
 {
     NSString *ch = nil;
-    int len;
 
     if (sender == button_Clear) {
         [mValue setString:@""];
     }
     else if (sender == button_BS) {
         // バックスペース
-        len = mValue.length;
+        int len = mValue.length;
         if (len > 0) {
             [mValue deleteCharactersInRange:NSMakeRange(len-1, 1)];
         }
@@ -84,12 +83,17 @@
     else if (sender == button_7) ch = @"7";
     else if (sender == button_8) ch = @"8";
     else if (sender == button_9) ch = @"9";
+    
+    [self _onKeyIn:ch];
+}
 
+- (void)_onKeyIn:(NSString *)ch
+{
     if (ch != nil) {
         [mValue appendString:ch];
     }
 	
-    len = mValue.length;
+    int len = mValue.length;
     NSMutableString *p = [[NSMutableString alloc] initWithCapacity:len];
     for (int i = 0; i < len; i++) {
         [p appendString:@"●"];
