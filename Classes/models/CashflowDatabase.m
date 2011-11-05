@@ -14,7 +14,7 @@
 {
     Database *db = [self _instance];
     if (db == nil) {
-        db = [[CashflowDatabase alloc] init];
+        db = [CashflowDatabase new];
         [self _setInstance:db];
     }
     return db;

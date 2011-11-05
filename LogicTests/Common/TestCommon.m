@@ -5,6 +5,9 @@
 
 @implementation TestCommon
 
+// テスト用の data base 名
+static NSString *kTestDbName = @"CashFlowTest.db";
+
 + (DateFormatter2 *)dateFormatter
 {
     static DateFormatter2 *df = nil;
@@ -26,12 +29,22 @@
     return [[TestCommon dateFormatter] stringFromDate:date];
 }
 
+/**
+ * テスト用のデータベース名を設定する (sandbox)
+ */
++ (void)_setupTestDbName
+{
+    [DataModel setDbName:kTestDbName];
+}
+
 // データベースを削除する
 + (void)deleteDatabase
 {
+    [TestCommon _setupTestDbName];
+    
     [DataModel finalize];
 
-    NSString *dbPath = [[Database instance] dbPath:@"CashFlow.db"];
+    NSString *dbPath = [[Database instance] dbPath:kTestDbName];
 
     if ([[NSFileManager defaultManager] removeItemAtPath:dbPath error:NULL]) {
         //NSLog(@"db removed: %@", dbPath);
@@ -65,7 +78,7 @@
     
     [self _createDocumentsDir];
 
-    NSString *dbPath = [[Database instance] dbPath:@"CashFlow.db"];
+    NSString *dbPath = [[Database instance] dbPath:kTestDbName];
     //NSLog(@"install db: %@", dbPath);
     
     // load sql

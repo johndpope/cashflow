@@ -30,7 +30,7 @@
 
 + (void)addDescLRU:(NSString *)description category:(int)category
 {
-    NSDate *now = [[NSDate alloc] init];
+    NSDate *now = [NSDate new];
     [self addDescLRU:description category:category date:now];
 }
 
@@ -43,7 +43,7 @@
 
     if (lru == nil) {
         // create new LRU
-        lru = [[DescLRU alloc] init];
+        lru = [DescLRU new];
         lru.description = description;
     }
     lru.category = category;

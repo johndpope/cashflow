@@ -23,11 +23,12 @@
 
 static DataModel *theDataModel = nil;
 
+static NSString *theDbName = DBNAME;
+
 + (DataModel *)instance
 {
     if (!theDataModel) {
-        theDataModel = [[DataModel alloc] init];
-        //[theDataModel load];
+        theDataModel = [DataModel new];
     }
     return theDataModel;
 }
@@ -37,6 +38,12 @@ static DataModel *theDataModel = nil;
     if (theDataModel) {
         theDataModel = nil;
     }
+}
+
+// for unit testing
++ (void)setDbName:(NSString *)dbname
+{
+    theDbName = dbname;
 }
 
 - (id)init
@@ -96,7 +103,7 @@ static DataModel *theDataModel = nil;
     Database *db = [Database instance];
 
     // Load from DB
-    if (![db open:DBNAME]) {
+    if (![db open:theDbName]) {
     }
 
     [Transaction migrate];

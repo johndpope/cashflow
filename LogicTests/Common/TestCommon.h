@@ -34,6 +34,7 @@
 + (void)initDatabase;
 + (BOOL)installDatabase:(NSString *)sqlFileName;
 
++ (void)_setupTestDbName;
 + (void)_createDocumentsDir;
 
 @end

@@ -194,6 +194,7 @@
 		3E7109B8121108ED00C47539 /* SupportMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B3121108ED00C47539 /* SupportMail.m */; };
 		3E7109B9121108ED00C47539 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B5121108ED00C47539 /* UIDevice-Hardware.m */; };
 		3E74799E1464E5D0000C6A7C /* AssetListVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E74799D1464E5D0000C6A7C /* AssetListVCTests.m */; };
+		3E74799F1464EF34000C6A7C /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7841214173500CFDDAC /* Database.m */; };
 		3E774E3E1188807900687776 /* AssetListView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774E3D1188807900687776 /* AssetListView-ipad.xib */; };
 		3E774E3F1188807900687776 /* AssetListView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774E3D1188807900687776 /* AssetListView-ipad.xib */; };
 		3E774EEA11888C6600687776 /* PinView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774EE911888C6600687776 /* PinView-ipad.xib */; };
@@ -301,7 +302,6 @@
 		3EC1B24E13291DE500721A71 /* CatReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17800213263CBD00D74DED /* CatReport.m */; };
 		3EC1B24F13291DE500721A71 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6B5121415DD00CFDDAC /* Transaction.m */; };
 		3EC1B25013291DFC00721A71 /* AssetBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7801214173500CFDDAC /* AssetBase.m */; };
-		3EC1B25213291DFC00721A71 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7841214173500CFDDAC /* Database.m */; };
 		3EC1B25313291DFC00721A71 /* Dbstmt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D2C131FB9680008C37D /* Dbstmt.m */; };
 		3EC1B25413291DFC00721A71 /* DescLRU.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7881214173500CFDDAC /* DescLRU.m */; };
 		3EC1B25513291DFC00721A71 /* ORRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD78A1214173500CFDDAC /* ORRecord.m */; };
@@ -1787,7 +1787,6 @@
 				3EC1B24E13291DE500721A71 /* CatReport.m in Sources */,
 				3EC1B24F13291DE500721A71 /* Transaction.m in Sources */,
 				3EC1B25013291DFC00721A71 /* AssetBase.m in Sources */,
-				3EC1B25213291DFC00721A71 /* Database.m in Sources */,
 				3EC1B25313291DFC00721A71 /* Dbstmt.m in Sources */,
 				3EC1B25413291DFC00721A71 /* DescLRU.m in Sources */,
 				3EC1B25513291DFC00721A71 /* ORRecord.m in Sources */,
@@ -1838,6 +1837,7 @@
 				3E704A0B145D42D6006EC30F /* TCategoryBase.m in Sources */,
 				3EF152961462CB1500C724E4 /* EditDescVCTests.m in Sources */,
 				3E74799E1464E5D0000C6A7C /* AssetListVCTests.m in Sources */,
+				3E74799F1464EF34000C6A7C /* Database.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
