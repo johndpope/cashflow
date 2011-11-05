@@ -193,6 +193,7 @@
 		3E7109B7121108ED00C47539 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B5121108ED00C47539 /* UIDevice-Hardware.m */; };
 		3E7109B8121108ED00C47539 /* SupportMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B3121108ED00C47539 /* SupportMail.m */; };
 		3E7109B9121108ED00C47539 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B5121108ED00C47539 /* UIDevice-Hardware.m */; };
+		3E74799E1464E5D0000C6A7C /* AssetListVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E74799D1464E5D0000C6A7C /* AssetListVCTests.m */; };
 		3E774E3E1188807900687776 /* AssetListView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774E3D1188807900687776 /* AssetListView-ipad.xib */; };
 		3E774E3F1188807900687776 /* AssetListView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774E3D1188807900687776 /* AssetListView-ipad.xib */; };
 		3E774EEA11888C6600687776 /* PinView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774EE911888C6600687776 /* PinView-ipad.xib */; };
@@ -651,6 +652,7 @@
 		3E7109B3121108ED00C47539 /* SupportMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportMail.m; sourceTree = "<group>"; };
 		3E7109B4121108ED00C47539 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
 		3E7109B5121108ED00C47539 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
+		3E74799D1464E5D0000C6A7C /* AssetListVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetListVCTests.m; sourceTree = "<group>"; };
 		3E774E3D1188807900687776 /* AssetListView-ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "AssetListView-ipad.xib"; sourceTree = "<group>"; };
 		3E774EE911888C6600687776 /* PinView-ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "PinView-ipad.xib"; sourceTree = "<group>"; };
 		3E7BB12C11539997004B7D03 /* ConfigView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigView.xib; sourceTree = "<group>"; };
@@ -1194,6 +1196,7 @@
 		3EC1B22B13291A6D00721A71 /* ApplicationTests */ = {
 			isa = PBXGroup;
 			children = (
+				3E74799D1464E5D0000C6A7C /* AssetListVCTests.m */,
 				3EF152951462CB1500C724E4 /* EditDescVCTests.m */,
 				3EED912E132A233D009DE68B /* Common */,
 				3EC1B22C13291A6D00721A71 /* Supporting Files */,
@@ -1834,6 +1837,7 @@
 				3EF5F501145AEB78006C3F3A /* DBLoadingView.m in Sources */,
 				3E704A0B145D42D6006EC30F /* TCategoryBase.m in Sources */,
 				3EF152961462CB1500C724E4 /* EditDescVCTests.m in Sources */,
+				3E74799E1464E5D0000C6A7C /* AssetListVCTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
