@@ -16,7 +16,7 @@
 - (UIViewController *)createViewController
 {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    vc = [[[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:bundle] autorelease];
+    vc = [[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:bundle];
     return vc;
 }
 
@@ -43,7 +43,8 @@
     // AssetListViewController では、データロードは別スレッドで行われる
     // ここでデータロード完了を待つようにする
     // ただし、setUp からは呼べない(ViewController のハンドラがまだ呼ばれていない)
-    while (![DataModel instance].isLoadDone) {
+    DataModel *dm = [DataModel instance];
+    while (!dm.isLoadDone) {
         [NSThread sleepForTimeInterval:0.01];
     }
 }

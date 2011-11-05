@@ -116,12 +116,14 @@
 
     int n = [self.vc tableView:self.vc.tableView numberOfRowsInSection:1];
     AssertEqualInt(6, n);
-
-    UITableViewCell *cell;
-    cell = [self _cellForRow:0 section:1];
-    AssertEqualObjects(@"test5", cell.textLabel.text);
-    cell = [self _cellForRow:5 section:1];
-    AssertEqualObjects(@"test0", cell.textLabel.text);
+    
+    if (n == 6) {
+        UITableViewCell *cell;
+        cell = [self _cellForRow:0 section:1];
+        AssertEqualObjects(@"test5", cell.textLabel.text);
+        cell = [self _cellForRow:5 section:1];
+        AssertEqualObjects(@"test0", cell.textLabel.text);
+    }
 }
 
 - (void)testSpecificCategory
@@ -140,11 +142,13 @@
     int n = [self.vc tableView:self.vc.tableView numberOfRowsInSection:1];
     AssertEqualInt(2, n);
 
-    UITableViewCell *cell;
-    cell = [self _cellForRow:0 section:1];
-    AssertEqualObjects(@"test4", cell.textLabel.text);
-    cell = [self _cellForRow:1 section:1];
-    AssertEqualObjects(@"test1", cell.textLabel.text);
+    if (n == 2) {
+        UITableViewCell *cell;
+        cell = [self _cellForRow:0 section:1];
+        AssertEqualObjects(@"test4", cell.textLabel.text);
+        cell = [self _cellForRow:1 section:1];
+        AssertEqualObjects(@"test1", cell.textLabel.text);
+    }
 }
 
 - (void)testClickCell

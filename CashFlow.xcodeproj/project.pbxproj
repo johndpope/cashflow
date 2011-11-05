@@ -1194,7 +1194,7 @@
 		3EC1B22B13291A6D00721A71 /* ApplicationTests */ = {
 			isa = PBXGroup;
 			children = (
-				3EED912F132A2353009DE68B /* controller */,
+				3EF152951462CB1500C724E4 /* EditDescVCTests.m */,
 				3EED912E132A233D009DE68B /* Common */,
 				3EC1B22C13291A6D00721A71 /* Supporting Files */,
 			);
@@ -1218,14 +1218,6 @@
 				3EED9133132A236D009DE68B /* ViewControllerTestCase.m */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		3EED912F132A2353009DE68B /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				3EF152951462CB1500C724E4 /* EditDescVCTests.m */,
-			);
-			path = controller;
 			sourceTree = "<group>";
 		};
 		3EF054671182D9CC00411C71 /* Resources-iPad */ = {
@@ -2249,6 +2241,7 @@
 				3EF1524C1462C2B300C724E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CashFlow" */ = {
 			isa = XCConfigurationList;
