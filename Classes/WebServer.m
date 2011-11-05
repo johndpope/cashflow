@@ -18,7 +18,6 @@
 - (void)dealloc
 {
     [self stopServer];
-    [super dealloc];
 }
 
 /**
@@ -57,10 +56,9 @@
         return NO;
     }
 
-    [self retain];
     mThread = [[NSThread alloc] initWithTarget:self selector:@selector(threadMain:) object:nil];
     [mThread start];
-    [mThread release]; // ###
+     // ###
 	
     return YES;
 }
@@ -118,33 +116,31 @@
 */
 - (void)threadMain:(id)dummy
 {	
-    NSAutoreleasePool *pool;
-    pool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
 	
-    int s;
-    socklen_t len;
-    struct sockaddr_in caddr;
+        int s;
+        socklen_t len;
+        struct sockaddr_in caddr;
 	
-    for (;;) {
-        len = sizeof(caddr);
-        s = accept(mListenSock, (struct sockaddr *)&caddr, &len);
-        if (s < 0) {
-            break;
+        for (;;) {
+            len = sizeof(caddr);
+            s = accept(mListenSock, (struct sockaddr *)&caddr, &len);
+            if (s < 0) {
+                break;
+            }
+
+            [self handleHttpRequest:s];
+
+            close(s);
         }
 
-        [self handleHttpRequest:s];
-
-        close(s);
-    }
-
-    if (mListenSock >= 0) {
-        close(mListenSock);
-    }
-    mListenSock = -1;
+        if (mListenSock >= 0) {
+            close(mListenSock);
+        }
+        mListenSock = -1;
 	
-    [pool release];
+    }
 
-    [self release];
     [NSThread exit];
 }
 

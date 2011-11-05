@@ -11,12 +11,6 @@
 
 @implementation ExportOfx
 
-- (void)dealloc
-{
-    [mDateFormatter release];
-    [mGregCalendar release];
-    [super dealloc];
-}
 
 - (NSString *)mailSubject
 {
@@ -41,7 +35,7 @@
 
 - (NSData *)generateBody
 {
-    NSMutableString *data = [[[NSMutableString alloc] initWithCapacity:1024] autorelease];
+    NSMutableString *data = [[NSMutableString alloc] initWithCapacity:1024];
     
     // get last date
     NSDate *lastDate = nil;
@@ -136,7 +130,7 @@
 
     [data appendString:@"  <STMTRS>\n"];
 	
-    NSNumberFormatter *fmt = [[[NSNumberFormatter alloc] init] autorelease];
+    NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
     NSString *ccode = [fmt currencyCode];
     [data appendFormat:@"   <CURDEF>%@</CURDEF>\n", ccode];
 
@@ -242,7 +236,7 @@
  */
 - (NSString *)_escapeXmlString:(NSString *)s
 {
-    NSMutableString *str = [[[NSMutableString alloc] init] autorelease];
+    NSMutableString *str = [[NSMutableString alloc] init];
     [str setString:s];
     REPLACE(@"&", @"&amp;");
     REPLACE(@"<", @"&lt;");

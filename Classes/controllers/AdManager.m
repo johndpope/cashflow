@@ -20,7 +20,6 @@
 
 - (void)dealloc {
     self.delegate = nil;
-    [super dealloc];
 }
 @end
 
@@ -66,7 +65,6 @@ static AdManager *theAdManager;
     [self _releaseIAd];
     [self _releaseAdMob];
     
-    [super dealloc];
 }
 
 - (BOOL)isShowAdSucceeded
@@ -201,7 +199,6 @@ static AdManager *theAdManager;
     NSLog(@"release iAd");
     if (mIADBannerView != nil) {
         mIADBannerView.delegate = nil;
-        [mIADBannerView release];
         mIADBannerView = nil;
     }
 }
@@ -242,7 +239,6 @@ static AdManager *theAdManager;
     if (mAdMobView != nil) {
         mAdMobView.delegate = nil;
         mAdMobView.rootViewController = nil;
-        [mAdMobView release];
         mAdMobView = nil;
     }
 }

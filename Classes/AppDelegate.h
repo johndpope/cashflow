@@ -6,15 +6,16 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <DropboxSDK/DropboxSDK.h>
+
 #import "DataModel.h"
 #import "AssetListVC.h"
 #import "TransactionListVC.h"
 #import "CurrencyManager.h"
-#import "DropboxSDK.h"
 
 #define DBNAME  @"CashFlow.db"
 
-@interface AppDelegate : NSObject <UIApplicationDelegate, DBSessionDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate> {
     IBOutlet UIWindow *window;
     IBOutlet UINavigationController *navigationController;
     UIApplication *_application;

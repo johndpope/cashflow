@@ -23,11 +23,12 @@
 
 static DataModel *theDataModel = nil;
 
+static NSString *theDbName = DBNAME;
+
 + (DataModel *)instance
 {
     if (!theDataModel) {
-        theDataModel = [[DataModel alloc] init];
-        //[theDataModel load];
+        theDataModel = [DataModel new];
     }
     return theDataModel;
 }
@@ -35,9 +36,14 @@ static DataModel *theDataModel = nil;
 + (void)finalize
 {
     if (theDataModel) {
-        [theDataModel release];
         theDataModel = nil;
     }
+}
+
+// for unit testing
++ (void)setDbName:(NSString *)dbname
+{
+    theDbName = dbname;
 }
 
 - (id)init
@@ -52,14 +58,6 @@ static DataModel *theDataModel = nil;
     return self;
 }
 
-- (void)dealloc 
-{
-    [mJournal release];
-    [mLedger release];
-    [mCategories release];
-
-    [super dealloc];
-}
 
 + (Journal *)journal
 {
@@ -83,22 +81,20 @@ static DataModel *theDataModel = nil;
     
     NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(loadThread:) object:nil];
     [thread start];
-    [thread release];
 }
 
 - (void)loadThread:(id)dummy
 {
-    NSAutoreleasePool *pool;
-    pool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
 
-    [self load];
+        [self load];
+        
+        mIsLoadDone = YES;
+        if (mDelegate) {
+            [mDelegate dataModelLoaded];
+        }
     
-    mIsLoadDone = YES;
-    if (mDelegate) {
-        [mDelegate dataModelLoaded];
     }
-    
-    [pool release];
     [NSThread exit];
 }
 
@@ -107,7 +103,7 @@ static DataModel *theDataModel = nil;
     Database *db = [Database instance];
 
     // Load from DB
-    if (![db open:DBNAME]) {
+    if (![db open:theDbName]) {
     }
 
     [Transaction migrate];
@@ -143,13 +139,11 @@ static DataModel *theDataModel = nil;
     if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
         if (dfDateOnly == nil) {
             dfDateOnly = [self dateFormatter:NSDateFormatterNoStyle withDayOfWeek:YES];
-            [dfDateOnly retain];
         }
         return dfDateOnly;
     } else {
         if (dfDateTime == nil) {
             dfDateTime = [self dateFormatter:NSDateFormatterShortStyle withDayOfWeek:YES];
-            [dfDateTime retain];
         }
         return dfDateTime;
     }    
@@ -166,7 +160,7 @@ static DataModel *theDataModel = nil;
 
 + (NSDateFormatter *)dateFormatter:(NSDateFormatterStyle)timeStyle withDayOfWeek:(BOOL)withDayOfWeek
 {
-    NSDateFormatter *df = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateStyle:NSDateFormatterMediumStyle];
     [df setTimeStyle:timeStyle];
     

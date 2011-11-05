@@ -30,10 +30,10 @@
     [AppDelegate trackPageview:@"/AssetViewController"];
     
     self.title = _L(@"Asset");
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                   target:self
-                                                  action:@selector(saveAction)] autorelease];
+                                                  action:@selector(saveAction)];
 
     // ボタン生成
 #if 0
@@ -53,21 +53,12 @@
 #endif
 }
 
-- (void)dealloc
-{
-    [mDelButton release];
-	
-    [super dealloc];
-}
 
 // 処理するトランザクションをロードしておく
 - (void)setAssetIndex:(int)n
 {
     mAssetIndex = n;
 
-    if (mAsset != nil) {
-        [mAsset release];
-    }
     if (mAssetIndex < 0) {
         // 新規
         mAsset = [[Asset alloc] init];
@@ -129,7 +120,7 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:MyIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:MyIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
@@ -259,7 +250,6 @@
 
     if (mAssetIndex < 0) {
         [ledger addAsset:mAsset];
-        [mAsset release];
     } else {
         [ledger updateAsset:mAsset];
     }

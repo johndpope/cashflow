@@ -15,12 +15,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [mDescription release];
-    [mLastUse release];
-    [super dealloc];
-}
 
 /**
   @brief Migrate database table
@@ -185,7 +179,7 @@
 + (DescLRU *)find_first_stmt:(dbstmt *)stmt
 {
     if ([stmt step] == SQLITE_ROW) {
-        DescLRU *e = [[[[self class] alloc] init] autorelease];
+        DescLRU *e = [[[self class] alloc] init];
         [e _loadRow:stmt];
         return (DescLRU *)e;
     }
@@ -200,13 +194,12 @@
 */
 + (NSMutableArray *)find_all_stmt:(dbstmt *)stmt
 {
-    NSMutableArray *array = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *array = [NSMutableArray new];
 
     while ([stmt step] == SQLITE_ROW) {
-        DescLRU *e = [[[self class] alloc] init];
+        DescLRU *e = [[self class] new];
         [e _loadRow:stmt];
         [array addObject:e];
-        [e release];
     }
     return array;
 }

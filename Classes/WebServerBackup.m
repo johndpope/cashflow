@@ -11,10 +11,14 @@
 
 @implementation WebServerBackup
 
+static WebServerBackup *sWebServerBackup = nil;
+
 - (void)execute
 {
     BOOL result = NO;
     NSString *message = nil;
+ 
+    sWebServerBackup = self;
     
     mBackupServer = [[BackupServer alloc] init];
     NSString *url = [mBackupServer serverUrl];
@@ -30,7 +34,6 @@
             message = _L(@"Cannot start web server.");
         }
         
-        [mBackupServer release];
         v = [[UIAlertView alloc]
              initWithTitle:@"Error"
              message:message
@@ -46,18 +49,17 @@
              otherButtonTitles:nil];
     }
     [v show];
-    [v release];
     
-    [self retain]; // release in alert view delegate
+     // release in alert view delegate
 }
 
 - (void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     [mBackupServer stopServer];
-    [mBackupServer release];
     mBackupServer = nil;
 
-    [self release];
+    // release
+    sWebServerBackup = nil;
 }
 
 @end

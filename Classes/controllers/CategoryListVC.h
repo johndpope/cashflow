@@ -21,7 +21,7 @@
     BOOL mIsSelectMode;
     int mSelectedIndex;
 	
-    id<CategoryListViewDelegate> mDelegate;
+    id<CategoryListViewDelegate> __unsafe_unretained mDelegate;
 }
 
 @property(nonatomic,assign) BOOL isSelectMode;

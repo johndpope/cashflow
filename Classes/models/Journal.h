@@ -23,8 +23,6 @@
 
 - (void)reload;
 
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len;
-
 - (void)insertTransaction:(Transaction*)tr;
 - (void)replaceTransaction:(Transaction *)from withObject:(Transaction*)to;
 - (BOOL)deleteTransaction:(Transaction *)tr withAsset:(Asset *)asset;

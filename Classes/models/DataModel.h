@@ -39,6 +39,8 @@
 + (DataModel *)instance;
 + (void)finalize;
 
++ (void)setDbName:(NSString *)dbname; // for unit testing...
+
 + (Journal *)journal;
 + (Ledger *)ledger;
 + (Categories *)categories;

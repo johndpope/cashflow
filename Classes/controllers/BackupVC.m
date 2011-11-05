@@ -15,7 +15,7 @@
 + (BackupViewController *)backupViewController:(id<BackupViewDelegate>)delegate
 {
     BackupViewController *vc =
-        [[[BackupViewController alloc] initWithNibName:@"BackupView" bundle:nil] autorelease];
+        [[BackupViewController alloc] initWithNibName:@"BackupView" bundle:nil];
     [vc setDelegate:delegate];
     return vc;
 }
@@ -31,8 +31,8 @@
     [AppDelegate trackPageview:@"/BackupViewController"];
     
     self.navigationItem.rightBarButtonItem =
-        [[[UIBarButtonItem alloc]
-          initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)] autorelease];
+        [[UIBarButtonItem alloc]
+          initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
 }
 
 - (void)doneAction:(id)sender
@@ -41,11 +41,6 @@
     [mDelegate backupViewFinished:self];
 }
 
-- (void)dealloc
-{
-    [mDropboxBackup release];
-    [super dealloc];
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
     return 2;
@@ -92,7 +87,7 @@
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
     }
 
     NSString *imageName = nil;
@@ -148,11 +143,11 @@
                     
                 case 1: //restore
                     [AppDelegate trackPageview:@"/BackupViewController/DropboxRestore"];
-                    alertView = [[[UIAlertView alloc] initWithTitle:_L(@"Warning")
+                    alertView = [[UIAlertView alloc] initWithTitle:_L(@"Warning")
                                                             message:_L(@"RestoreWarning")
                                                            delegate:self 
                                                   cancelButtonTitle:_L(@"Cancel")
-                                                  otherButtonTitles:_L(@"Ok"), nil] autorelease];
+                                                  otherButtonTitles:_L(@"Ok"), nil];
                     [alertView show];
                     break;
             }
@@ -161,7 +156,7 @@
         case 1:
             // internal web server
             [AppDelegate trackPageview:@"/BackupViewController/WebBackup"];
-            webBackup = [[[WebServerBackup alloc] init] autorelease];
+            webBackup = [[WebServerBackup alloc] init];
             [webBackup execute];
             break;
     }
@@ -200,7 +195,6 @@
 {
     NSLog(@"DropboxBackupFinished");
     [mLoadingView dismissAnimated:NO];
-    [mLoadingView release];
     mLoadingView = nil;
 }
 

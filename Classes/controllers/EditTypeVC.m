@@ -31,10 +31,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)viewDidLoad
 {
@@ -72,7 +68,7 @@
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
     }
     if (indexPath.row == mType) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -114,7 +110,7 @@
     // 資産間移動
     Ledger *ledger = [DataModel ledger];
     int assetCount = [ledger assetCount];
-    NSMutableArray *assetNames = [[[NSMutableArray alloc] initWithCapacity:assetCount] autorelease];
+    NSMutableArray *assetNames = [[NSMutableArray alloc] initWithCapacity:assetCount];
     for (int i = 0; i < assetCount; i++) {
         Asset *asset = [ledger assetAtIndex:i];
         [assetNames addObject:asset.name];

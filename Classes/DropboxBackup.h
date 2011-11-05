@@ -6,7 +6,7 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "DropboxSDK.h"
+#import <DropboxSDK/DropboxSDK.h>
 #import "DataModel.h"
 
 @protocol DropboxBackupDelegate
@@ -14,7 +14,7 @@
 - (void)dropboxBackupFinished;
 @end
 
-@interface DropboxBackup : NSObject <DBRestClientDelegate, DBLoginControllerDelegate, DataModelDelegate>
+@interface DropboxBackup : NSObject <DBRestClientDelegate, DataModelDelegate>
 {
     id<DropboxBackupDelegate> mDelegate;
     
@@ -34,5 +34,6 @@
 - (void)_login;
 - (void)_exec;
 - (void)_showResult:(NSString *)message;
+- (void)_uploadBackupWithParentRev:(NSString *)rev;
 
 @end

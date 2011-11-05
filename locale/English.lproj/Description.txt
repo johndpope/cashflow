@@ -33,6 +33,33 @@ This is a free version of CashFlow. With paid-for version of CashFlow,
 you can hide advertisements.
 
 ----
+What's new in ver 5.0
+
+Note:
+With this version, login method for Dropbox was changed.
+If you install the official Dropbox application, CashFlow
+uses it for login, or web browser is used.
+
+I strongly recommend you to backup your data to dropbox 
+before version up.
+
+If you can't login dropbox with cashflow, select "unlink dropbox
+account" in "config" section of cashflow.
+
+Changes:
+- Modify dropbox login (link) method.
+- Support iOS 5.
+- Minor bug fixes.
+
+----
+What's new in ver 4.1
+
+- Add configuration for start of week.
+- Show total value in category report.
+- Bug fixed: Sometimes pie chart does not show correctly.
+- Change advertisement.
+
+----
 What's new in ver 4.0
 
 - Support Dropbox (Export, Backup and Restore)
@@ -40,10 +67,3 @@ What's new in ver 4.0
 - Export all assets with CSV/OFX.
 - New icon.
 
-----
-ver 4.1
-
-- Add configuration for start of week.
-- Show total value in category report.
-- Bug fixed: Sometimes pie chart does not show correctly.
-- Change advertisement.

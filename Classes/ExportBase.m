@@ -5,9 +5,9 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import <DropboxSDK/DropboxSDK.h>
 #import "ExportBase.h"
 #import "AppDelegate.h"
-#import "DropboxSDK.h"
 
 @implementation ExportBase
 
@@ -20,12 +20,6 @@
 - (NSString *)contentType { return nil; }
 - (NSData*)generateBody { return nil; }
 
-- (void)dealloc
-{
-    [mFirstDate release];
-    [mWebServer release];
-    [super dealloc];
-}
 
 /////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -50,7 +44,6 @@
 
     [vc addAttachmentData:data mimeType:[self mimeType] fileName:[self fileName]];
     [parent presentModalViewController:vc animated:YES];
-    [vc release];
     return YES;
 }
 
@@ -108,7 +101,6 @@
     }
 
     [v show];
-    [v release];
 
     return YES;
 }
@@ -138,12 +130,10 @@
 
     DBSession *session = [DBSession sharedSession];
     if (![session isLinked]) {
-        DBLoginController *controller = [[DBLoginController new] autorelease];
-        controller.delegate = self;
-        [controller presentFromController:parent];
-    } else {
-        [self _sendToDropbox];
+        [session link];
+        return NO;
     }
+    [self _sendToDropbox];
 
     return YES;
 }
@@ -152,7 +142,7 @@
 {
     NSString *srcPath = [[Database instance] dbPath:[self fileName]];
 
-    [self.restClient uploadFile:[self fileName] toPath:@"/" fromPath:srcPath];
+    [self.restClient uploadFile:[self fileName] toPath:@"/" withParentRev:nil fromPath:srcPath];
 
     mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Uploading"];
     mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
@@ -168,23 +158,12 @@
     return mRestClient;
 }
 
-#pragma mark DBLoginControllerDelegate methods
-
-- (void)loginControllerDidLogin:(DBLoginController*)controller {
-    [self _sendToDropbox];
-}
-
-- (void)loginControllerDidCancel:(DBLoginController*)controller {
-    // do nothing...
-}
-
 #pragma mark DBRestClientDelegate
 
 // backup finished
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath
 {
     [mLoadingView dismissAnimated:NO];
-    [mLoadingView release];
     mLoadingView = nil;    
     
     [self _showResult:@"Export done."];
@@ -194,7 +173,6 @@
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error
 {
     [mLoadingView dismissAnimated:NO];
-    [mLoadingView release];
     mLoadingView = nil;    
     
     [self _showResult:@"Export failed!"];
@@ -202,10 +180,9 @@
 
 - (void)_showResult:(NSString *)message
 {
-    [[[[UIAlertView alloc] 
+    [[[UIAlertView alloc] 
        initWithTitle:@"Dropbox" message:message
        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]
-        autorelease]
         show];
 }
 

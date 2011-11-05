@@ -14,7 +14,7 @@
 {
     Database *db = [self _instance];
     if (db == nil) {
-        db = [[[CashflowDatabase alloc] init] autorelease];
+        db = [CashflowDatabase new];
         [self _setInstance:db];
     }
     return db;
@@ -38,7 +38,7 @@
     
     // Set US locale, because JP locale for date formatter is buggy,
     // especially for 12 hour settings.
-    NSLocale *us = [[[NSLocale alloc] initWithLocaleIdentifier:@"US"] autorelease];
+    NSLocale *us = [[NSLocale alloc] initWithLocaleIdentifier:@"US"];
     [dateFormatter setLocale:us];
 
     // backward compat.
@@ -54,11 +54,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [dateFormatter release];
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark Utilities

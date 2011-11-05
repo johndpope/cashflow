@@ -32,9 +32,6 @@
     return 32;
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 - (NSString *)name
 {

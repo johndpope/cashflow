@@ -72,20 +72,12 @@
     return self;
 }
 
-- (void)dealloc 
-{
-    [mEntries release];
-    [super dealloc];
-}
 
 //
 // 仕訳帳(journal)から転記しなおす
 //
 - (void)rebuild
 {
-    if (mEntries != nil) {
-        [mEntries release];
-    }
 
     mEntries = [[NSMutableArray alloc] init];
 
@@ -121,7 +113,6 @@
             }
 
             [mEntries addObject:e];
-            [e release];
         }
     }
 
@@ -236,7 +227,7 @@
     
     if (ret) {
         // newly created...
-        Asset *as = [[[Asset alloc] init] autorelease];
+        Asset *as = [[Asset alloc] init];
         as.name = _L(@"Cash");
         as.type = ASSET_CASH;
         as.initialBalance = 0;

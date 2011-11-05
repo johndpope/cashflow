@@ -24,7 +24,7 @@
     UITextField *mTextField;
     NSMutableArray *mDescArray;
 
-    id<EditDescViewDelegate> mDelegate;
+    id<EditDescViewDelegate> __unsafe_unretained mDelegate;
     NSString *mDescription;
     int mCategory;
 }

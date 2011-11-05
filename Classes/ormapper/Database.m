@@ -55,11 +55,9 @@ static Database *sDatabase = nil;
 + (void)_setInstance:(Database *)database
 {
     if (sDatabase != nil) {
-        [sDatabase release];
         NSLog(@"WARNING: Old Database instance was released.");
     }
     sDatabase = database;
-    [sDatabase retain];
 }
 
 /**
@@ -67,7 +65,6 @@ static Database *sDatabase = nil;
 */
 + (void)shutdown
 {
-    [sDatabase release];
     sDatabase = nil;
 }
 
@@ -97,7 +94,6 @@ static Database *sDatabase = nil;
     if (mHandle != nil) {
         sqlite3_close(mHandle);
     }
-    [super dealloc];
 }
 
 /**
@@ -113,11 +109,18 @@ static Database *sDatabase = nil;
     NSString *dbPath = [self dbPath:dbname];
     BOOL isExistedDb = [fileManager fileExistsAtPath:dbPath];
 
-    if (sqlite3_open([dbPath UTF8String], &mHandle) != 0) {
+    int err = sqlite3_open([dbPath UTF8String], &mHandle);
+    if (err != 0) {
         // ouch!
+        NSLog(@"sqlite3_open error:%d (%s)", err, sqlite3_errmsg(mHandle));
+        
         // re-create database
         [fileManager removeItemAtPath:dbPath error:NULL];
-        sqlite3_open([dbPath UTF8String], &mHandle);
+        err = sqlite3_open([dbPath UTF8String], &mHandle);
+        if (err != 0) {
+            NSLog(@"sqlite3_open error:%d (%s)", err, sqlite3_errmsg(mHandle));
+            // TODO:...
+        }
 
         isExistedDb = NO;
     }
@@ -148,14 +151,19 @@ static Database *sDatabase = nil;
 */
 - (dbstmt *)prepare:(NSString *)sql
 {
+    if (mHandle == nil) {
+        NSLog(@"dbstmt:prepare something bad, mHandle = nil!");
+        return nil;
+    }
+    
     sqlite3_stmt *stmt;
     int result = sqlite3_prepare_v2(mHandle, [sql UTF8String], -1, &stmt, NULL);
     if (result != SQLITE_OK) {
-        //LOG(@"sqlite3: %s", sqlite3_errmsg(mHandle));
-        //ASSERT(0);
+        NSLog(@"sqlite3: %s", sqlite3_errmsg(mHandle));
+        return nil;
     }
 
-    dbstmt *dbs = [[[dbstmt alloc] initWithStmt:stmt] autorelease];
+    dbstmt *dbs = [[dbstmt alloc] initWithStmt:stmt];
     //dbs.handle = self.handle;
     return dbs;
 }
@@ -232,7 +240,7 @@ static Database *sDatabase = nil;
         [dateFormatter setDateFormat: @"yyyyMMddHHmmss"];
 
         // Avoid trivial bug for 'AM/PM' handling for some locales.
-        [dateFormatter setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"US"] autorelease]];
+        [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"US"]];
     }
     return dateFormatter;
 }

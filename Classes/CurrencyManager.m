@@ -87,7 +87,7 @@
 
 + (NSString *)systemCurrency
 {
-    NSNumberFormatter *nf = [[[NSNumberFormatter alloc] init] autorelease];
+    NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
     [nf setNumberStyle:NSNumberFormatterCurrencyStyle];
     return [nf currencyCode];
 }
@@ -95,9 +95,7 @@
 - (void)setBaseCurrency:(NSString *)currency
 {
     if (mBaseCurrency != currency) {
-        [mBaseCurrency release];
         mBaseCurrency = currency;
-        [mBaseCurrency retain];
         
         if (currency == nil) {
             currency = [CurrencyManager systemCurrency];

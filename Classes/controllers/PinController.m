@@ -11,6 +11,7 @@
 @implementation PinController
 @synthesize pin = mPin, pinNew = mPinNew;
 
+#define INITIAL -1
 #define FIRST_PIN_CHECK 0
 #define ENTER_CURRENT_PIN 1
 #define ENTER_NEW_PIN1 2
@@ -21,10 +22,9 @@ static PinController *thePinController = nil;
 + (PinController *)pinController
 {
     if (thePinController == nil) {
-        thePinController = [[PinController alloc] init];
-        return thePinController;
+        thePinController = [PinController new];
     }
-    return nil;
+    return thePinController;
 }
 
 - (id)init
@@ -45,33 +45,31 @@ static PinController *thePinController = nil;
     return self;
 }
 
-- (void)dealloc
-{
-    [mPin release];
-    [mPinNew release];
-    [mNavigationController release];
-    [super dealloc];
-}
     
 - (void)_allDone
 {
     [mNavigationController dismissModalViewControllerAnimated:YES];
-    [self autorelease];
     thePinController = nil;
 }
 
+//
+// 起動時の Pin チェックを開始
+//
 - (void)firstPinCheck:(UIViewController *)currentVc
 {
-    ASSERT(state == -1);
+    ASSERT(state == INITIAL);
 
-    if (mPin == nil) return; // do nothing
+    if (mPin == nil) {
+        // no need to check pin.
+        thePinController = nil;
+        return;
+    }
 
     // get topmost modal view controller
     while (currentVc.modalViewController != nil) {
         currentVc = currentVc.modalViewController;
     }
     
-    [self retain];
 
     // create PinViewController
     PinViewController *vc = [self _getPinViewController];
@@ -87,9 +85,7 @@ static PinController *thePinController = nil;
 
 - (void)modifyPin:(UIViewController *)currentVc
 {
-    ASSERT(state == -1);
-
-    [self retain];
+    ASSERT(state == INITIAL);
 
     PinViewController *vc = [self _getPinViewController];
     
@@ -169,7 +165,6 @@ static PinController *thePinController = nil;
                              cancelButtonTitle:@"Close"
                              otherButtonTitles:nil];
         [v show];
-        [v release];
     }
     if (retry) {
         return;
@@ -185,7 +180,7 @@ static PinController *thePinController = nil;
 
 - (PinViewController *)_getPinViewController
 {
-    PinViewController *vc = [[[PinViewController alloc] init] autorelease];
+    PinViewController *vc = [PinViewController new];
     vc.enableCancel = YES;
     vc.delegate = self;
     return vc;

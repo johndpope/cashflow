@@ -17,7 +17,7 @@
 @interface EditMemoViewController : UIViewController {
     IBOutlet UITextView *mTextView;
 	
-    id<EditMemoViewDelegate> mDelegate;
+    id<EditMemoViewDelegate> __unsafe_unretained mDelegate;
     NSString *mText;
     int mIdentifier;
 }

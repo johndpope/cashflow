@@ -35,7 +35,7 @@
 
     NSMutableString *mValue;
     BOOL mEnableCancel;
-    id<PinViewDelegate> mDelegate;
+    id<PinViewDelegate> __unsafe_unretained mDelegate;
 }
 
 @property(nonatomic,assign) id<PinViewDelegate> delegate;
@@ -44,6 +44,7 @@
 
 - (IBAction)onNumButtonDown:(id)sender;
 - (IBAction)onNumButtonPressed:(id)sender;
+- (void)_onKeyIn:(NSString *)ch;
 - (void)doneAction:(id)sender;
 - (void)cancelAction:(id)sender;
 
