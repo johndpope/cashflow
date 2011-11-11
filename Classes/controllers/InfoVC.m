@@ -95,7 +95,7 @@
 
 - (IBAction)sendSupportMail
 {
-    SupportMail *m = [[SupportMail alloc] init];
+    SupportMail *m = [SupportMail getInstance];
     if (![m sendMail:self]) {
         UIAlertView *v =
             [[UIAlertView alloc]
