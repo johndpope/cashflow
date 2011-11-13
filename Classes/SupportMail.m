@@ -13,13 +13,27 @@
 
 @implementation SupportMail
 
+static SupportMail *theInstance;
+
++ (SupportMail *)getInstance{
+    if (theInstance == nil) {
+        theInstance = [SupportMail new];
+    }
+    return theInstance;
+}
+
+- (void)dealloc
+{
+    NSLog(@"SupportMail: dealloc");
+}
+
 - (BOOL)sendMail:(UIViewController *)parent
 {
     if (![MFMailComposeViewController canSendMail]) {
         return NO;
     }
     
-    MFMailComposeViewController *vc = [[MFMailComposeViewController alloc] init];
+    MFMailComposeViewController *vc = [MFMailComposeViewController new];
     vc.mailComposeDelegate = self;
     
     [vc setSubject:@"[CashFlow Support]"];
@@ -52,14 +66,16 @@
     [vc addAttachmentData:d mimeType:@"text/plain" fileName:@"SupportInfo.txt"];
     
     [parent presentModalViewController:vc animated:YES];
-    
-     // release in callback
+
     return YES;
 }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
     [controller dismissModalViewControllerAnimated:YES];
+    
+    // release instance
+    theInstance = nil;
 }
 
 @end

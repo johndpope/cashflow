@@ -12,6 +12,7 @@
 @interface SupportMail : NSObject <MFMailComposeViewControllerDelegate> {
 }
 
++ (SupportMail *)getInstance;
 - (BOOL)sendMail:(UIViewController *)parent;
 
 @end
