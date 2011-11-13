@@ -15,10 +15,16 @@
 
 static SupportMail *theInstance;
 
-+ (SupportMail *)getInstance
-{
-    theInstance = [SupportMail new];
++ (SupportMail *)getInstance{
+    if (theInstance == nil) {
+        theInstance = [SupportMail new];
+    }
     return theInstance;
+}
+
+- (void)dealloc
+{
+    NSLog(@"SupportMail: dealloc");
 }
 
 - (BOOL)sendMail:(UIViewController *)parent
@@ -67,7 +73,9 @@ static SupportMail *theInstance;
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
     [controller dismissModalViewControllerAnimated:YES];
-    theInstance = null;
+    
+    // release instance
+    theInstance = nil;
 }
 
 @end

@@ -11,7 +11,6 @@
 
 @implementation InfoVC
 
-
 - (id)init
 {
     self = [super initWithNibName:@"InfoView" bundle:nil];
