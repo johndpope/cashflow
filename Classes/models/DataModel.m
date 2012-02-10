@@ -191,7 +191,7 @@ static NSString *theDbName = DBNAME;
     return t.category;
 }
 
-#define BACKUP_FILE_IDENT @"-- CashFlow Backup Format rev. 2"
+#define BACKUP_FILE_IDENT @"-- CashFlow Backup Format rev. 2 --"
 
 - (NSString *)getBackupSqlPath
 {
