@@ -128,6 +128,8 @@
         return;
     }
 
+    // start backup
+    NSLog(@"uploading file: %@", backupPath);
     [self.restClient uploadFile:BACKUP_FILENAME
                          toPath:@"/"
                   withParentRev:rev
