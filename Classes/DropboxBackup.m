@@ -155,7 +155,7 @@
     // SQL から書き戻す
     DataModel *m = [DataModel instance];
     
-    if (![m restoreDatabaseFromSql:[DataModel getBackupSqlPath]]) {
+    if (![m restoreDatabaseFromSql:[m getBackupSqlPath]]) {
         [self _showResult:@"Restore failed."];
         return;
     }

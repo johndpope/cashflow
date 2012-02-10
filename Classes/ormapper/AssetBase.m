@@ -337,7 +337,7 @@
     [s appendString:@");\n"];
 
     NSMutableArray *ary = [self find_all:nil];
-    for (Asset *e in ary) {
+    for (AssetBase *e in ary) {
         [e getInsertSql:s];
         [s appendString:@"\n"];
     }
@@ -346,9 +346,9 @@
 /**
  * get "INSERT" SQL
  */
-- (void)getInsertSql:(NSMutableString )*s
+- (void)getInsertSql:(NSMutableString *)s
 {
-    [s appendFormat:@"INSERT INTO %@ VALUES(%d", [self tableName], mPid];
+    [s appendFormat:@"INSERT INTO Assets VALUES(%d", mPid];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:mName]];
     [s appendString:@","];

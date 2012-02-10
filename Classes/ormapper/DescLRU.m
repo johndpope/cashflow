@@ -315,9 +315,9 @@
 /**
  * get "INSERT" SQL
  */
-- (void)getInsertSql:(NSMutableString )*s
+- (void)getInsertSql:(NSMutableString *)s
 {
-    [s appendFormat:@"INSERT INTO %@ VALUES(%d", [self tableName], mPid];
+    [s appendFormat:@"INSERT INTO DescLRUs VALUES(%d", mPid];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:mDescription]];
     [s appendString:@","];
