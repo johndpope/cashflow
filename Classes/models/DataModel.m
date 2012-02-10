@@ -191,4 +191,55 @@ static NSString *theDbName = DBNAME;
     return t.category;
 }
 
+#define BACKUP_FILE_IDENT @"-- CashFlow Backup Format rev. 2"
+
+- (NSString *)getBackupSqlPath
+{
+    return [Database dbPath:@"CashflowBackup.sql"];
+}
+
+/**
+ * SQL でファイルに書きだす
+ */
+- (BOOL)backupDatabaseToSql:(NSString *)path
+{
+    NSMutableString *sql = [NSMutableString new];
+    
+    [sql append:BACKUP_FILE_IDENT];
+    [sql appendString:@"\n"];
+
+    [Asset getTableSql:sql];
+    [Transaction getTableSql:sql];
+    [TCategory getTableSql:sql];
+    [DescLRU getTableSql:sql];
+
+    return [sql writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:NULL];
+}
+
+/**
+ * ファイルから SQL を読みだして実行する
+ */
+- (BOOL)restoreDatabaseFromSql:(NSString *)path
+{
+    NSString *sql = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    if (sql == nil) {
+        return NO;
+    }
+
+    // check ident
+    if (![sql hasPrefix:BACKUP_FILE_IDENT]) {
+        NSLog(@"Invalid backup data ident");
+        return NO;
+    }
+
+    Database *db = [Database instance];
+    [db beginTransaction];
+    if (![db exec:sql]) {
+        [db rollbackTransaction];
+        return NO;
+    }
+    [db commitTransaction];
+    return YES;
+}
+
 @end

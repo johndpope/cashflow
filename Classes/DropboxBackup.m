@@ -12,9 +12,9 @@
 #import <TargetConditionals.h>
 
 #if TARGET_IPHONE_SIMULATOR
-#define	BACKUP_FILENAME	@"CashFlowBackup-simulator.db"
+#define	BACKUP_FILENAME	@"CashFlowBackup-simulator.sql"
 #else
-#define	BACKUP_FILENAME	@"CashFlowBackup.db"
+#define	BACKUP_FILENAME	@"CashFlowBackup.sql"
 #endif
 
 #define MODE_BACKUP 0
@@ -72,7 +72,7 @@
 
 - (void)_exec
 {
-    NSString *dbPath = [[Database instance] dbPath:DBNAME];
+    NSString *backupPath = [[DataModel instance] getBackupSqlPath];
 
     if (mMode == MODE_BACKUP) {
         // 現在のバージョンを取得する
@@ -81,9 +81,7 @@
         [mDelegate dropboxBackupStarted:NO];
     }
     else if (mMode == MODE_RESTORE) {
-        // shutdown database
-        [DataModel finalize];
-        [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:dbPath];
+        [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:backupPath];
         [mDelegate dropboxBackupStarted:YES];
     }
 }
@@ -122,12 +120,18 @@
 
 - (void)_uploadBackupWithParentRev:(NSString *)rev
 {
-    // start backup
-    NSString *dbPath = [[Database instance] dbPath:DBNAME];
+    DataModel *m = [DataModel instance];
+    NSString *backupPath = [m getBackupSqlPath];
+
+    if (![m backupDatabaseToSql:backupPath]) {
+        [self _showResult:@"Cannot create backup data. Storage full?"];
+        return;
+    }
+
     [self.restClient uploadFile:BACKUP_FILENAME
                          toPath:@"/"
                   withParentRev:rev
-                       fromPath:dbPath];
+                       fromPath:backupPath];
 }
 
 // backup finished
@@ -148,8 +152,16 @@
 // restore done
 - (void)restClient:(DBRestClient*)client loadedFile:(NSString*)destPath
 {
+    // SQL から書き戻す
+    DataModel *m = [DataModel instance];
+    
+    if (![m restoreDatabaseFromSql:[DataModel getBackupSqlPath]]) {
+        [self _showResult:@"Restore failed."];
+        return;
+    }
+
     [self _showResult:@"Restore done."];
-    [[DataModel instance] startLoad:self];
+    [m startLoad:self];
 }
 
 // restore failed
