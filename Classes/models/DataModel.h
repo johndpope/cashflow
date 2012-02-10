@@ -63,4 +63,9 @@
 
 - (int)categoryWithDescription:(NSString *)desc;
 
+// sql backup operation
+- (BOOL)backupDatabaseToSql:(NSString *)path;
+- (BOOL)restoreDatabaseFromSql:(NSString *)path;
+- (NSString *)getBackupSqlPath;
+
 @end

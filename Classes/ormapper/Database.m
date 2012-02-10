@@ -109,18 +109,11 @@ static Database *sDatabase = nil;
     NSString *dbPath = [self dbPath:dbname];
     BOOL isExistedDb = [fileManager fileExistsAtPath:dbPath];
 
-    int err = sqlite3_open([dbPath UTF8String], &mHandle);
-    if (err != 0) {
+    if (sqlite3_open([dbPath UTF8String], &mHandle) != 0) {
         // ouch!
-        NSLog(@"sqlite3_open error:%d (%s)", err, sqlite3_errmsg(mHandle));
-        
         // re-create database
         [fileManager removeItemAtPath:dbPath error:NULL];
-        err = sqlite3_open([dbPath UTF8String], &mHandle);
-        if (err != 0) {
-            NSLog(@"sqlite3_open error:%d (%s)", err, sqlite3_errmsg(mHandle));
-            // TODO:...
-        }
+        sqlite3_open([dbPath UTF8String], &mHandle);
 
         isExistedDb = NO;
     }
@@ -132,7 +125,7 @@ static Database *sDatabase = nil;
 /**
    Execute SQL statement
 */
-- (void)exec:(NSString *)sql
+- (BOOL)exec:(NSString *)sql
 {
     //ASSERT(mHandle != 0);
 
@@ -140,7 +133,9 @@ static Database *sDatabase = nil;
     int result = sqlite3_exec(mHandle, [sql UTF8String], NULL, NULL, NULL);
     if (result != SQLITE_OK) {
         //LOG(@"sqlite3: %s", sqlite3_errmsg(mHandle));
+        return NO;
     }
+    return YES;
 }
 
 /**
@@ -151,16 +146,11 @@ static Database *sDatabase = nil;
 */
 - (dbstmt *)prepare:(NSString *)sql
 {
-    if (mHandle == nil) {
-        NSLog(@"dbstmt:prepare something bad, mHandle = nil!");
-        return nil;
-    }
-    
     sqlite3_stmt *stmt;
     int result = sqlite3_prepare_v2(mHandle, [sql UTF8String], -1, &stmt, NULL);
     if (result != SQLITE_OK) {
-        NSLog(@"sqlite3: %s", sqlite3_errmsg(mHandle));
-        return nil;
+        //LOG(@"sqlite3: %s", sqlite3_errmsg(mHandle));
+        //ASSERT(0);
     }
 
     dbstmt *dbs = [[dbstmt alloc] initWithStmt:stmt];

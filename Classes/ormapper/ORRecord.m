@@ -43,8 +43,6 @@
     return self;
 }
 
-/** Destructor */
-
 /**
    Migrate database table
 
@@ -167,6 +165,14 @@
 + (void)delete_all
 {
     // must be override
+}
+
+/**
+   Quote SQL string
+*/
+- (NSString *)quoteSqlString:(NSString *)string
+{
+    return [NSString stringWithFormat:@"'%@'", [string stringByReplacingOccurrencesOfString:@"'" withString:@"''"]];
 }
 
 @end
