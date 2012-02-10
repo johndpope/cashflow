@@ -195,7 +195,7 @@ static NSString *theDbName = DBNAME;
 
 - (NSString *)getBackupSqlPath
 {
-    return [Database dbPath:@"CashflowBackup.sql"];
+    return [[Database instance] dbPath:@"CashflowBackup.sql"];
 }
 
 /**
@@ -205,7 +205,7 @@ static NSString *theDbName = DBNAME;
 {
     NSMutableString *sql = [NSMutableString new];
     
-    [sql append:BACKUP_FILE_IDENT];
+    [sql appendString:BACKUP_FILE_IDENT];
     [sql appendString:@"\n"];
 
     [Asset getTableSql:sql];
