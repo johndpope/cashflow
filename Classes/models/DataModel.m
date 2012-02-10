@@ -221,6 +221,12 @@ static NSString *theDbName = DBNAME;
  */
 - (BOOL)restoreDatabaseFromSql:(NSString *)path
 {
+    Database *db = [Database instance];
+
+    // 先に VACUUM を実行しておく
+    [db exec:@"VACUUM;"];
+
+    // SQL をファイルから読み込む
     NSString *sql = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     if (sql == nil) {
         return NO;
@@ -232,13 +238,17 @@ static NSString *theDbName = DBNAME;
         return NO;
     }
 
-    Database *db = [Database instance];
+    // SQL 実行
     [db beginTransaction];
     if (![db exec:sql]) {
         [db rollbackTransaction];
         return NO;
     }
     [db commitTransaction];
+
+    // 再度 VACUUM を実行
+    [db exec:@"VACUUM;"];
+
     return YES;
 }
 
