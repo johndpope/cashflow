@@ -195,7 +195,7 @@ static NSString *theDbName = DBNAME;
 
 - (NSString *)getBackupSqlPath
 {
-    return [[Database instance] dbPath:@"CashflowBackup.sql"];
+    return [[Database instance] dbPath:@"CashFlowBackup.sql"];
 }
 
 /**
