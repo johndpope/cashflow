@@ -124,6 +124,7 @@
 {
     // start backup
     NSString *dbPath = [[Database instance] dbPath:DBNAME];
+    NSLog(@"uploading file: %@", dbPath);
     [self.restClient uploadFile:BACKUP_FILENAME
                          toPath:@"/"
                   withParentRev:rev
