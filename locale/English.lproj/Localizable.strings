@@ -150,3 +150,15 @@
 "Start of week" = "Start of week";
 "Sunday" = "Sunday";
 "Monday" = "Monday";
+
+"Uploading" = "Uploading";
+"Downloading" = "Downloading";
+"Syncing" = "Syncing";
+"backup_done" = "Backup done.";
+"backup_failed" = "Backup failed.";
+"restore_done" = "Restore done.";
+"restore_failed" = "Restore failed.";
+"Sync" = "Sync";
+"no_need_to_sync" = "No need to sync.";
+"sync_fail_conflict" = "Sync failed, both local/remote data were modified.";
+

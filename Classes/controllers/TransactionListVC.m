@@ -440,7 +440,7 @@
          cancelButtonTitle:_L(@"Cancel")
          destructiveButtonTitle:nil otherButtonTitles:
          _L(@"Export"),
-         [NSString stringWithFormat:@"%@ / %@", _L(@"Backup"), _L(@"Restore")],
+         [NSString stringWithFormat:@"%@ / %@", _L(@"Sync"), _L(@"Backup")],
          _L(@"Config"),
          _L(@"Info"),
          nil];

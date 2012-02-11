@@ -118,7 +118,7 @@
     switch (mMode) {
         case MODE_SYNC:
             if (mIsLocalModified && isRemoteModified) {
-                [self _showResult:@"Sync failed, both local/remote data were modified."];
+                [self _showResult:_L(@"sync_fail_conflict")];
                 [mDelegate dropboxBackupFinished];
             } else if (mIsLocalModified) {
                 // upload
@@ -128,7 +128,7 @@
                 [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:[[DataModel instance] getBackupSqlPath]];
             } else {
                 // no need to sync
-                [self _showResult:@"No need to sync."];
+                [self _showResult:_L(@"no_need_to_sync")];
                 [mDelegate dropboxBackupFinished];
             }
             break;
@@ -192,14 +192,14 @@
     [dm setLastSyncRemoteRev:metadata.rev];
     [dm setSyncFinished];
     
-    [self _showResult:@"Backup done."];
+    [self _showResult:_L(@"backup_done")];
     [mDelegate dropboxBackupFinished];
 }
 
 // backup failed
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error
 {
-    [self _showResult:@"Backup failed!"];
+    [self _showResult:_L(@"backup_failed")];
     [mDelegate dropboxBackupFinished];
 }
 
@@ -213,7 +213,7 @@
     BOOL result = [dm restoreDatabaseFromSql:path];
     [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
     if (!result) {
-        [self _showResult:@"Restore failed."];
+        [self _showResult:_L(@"restore_failed")];
         [mDelegate dropboxBackupFinished];
         return;
     }
@@ -222,14 +222,14 @@
     [dm setLastSyncRemoteRev:mRemoteRev];
     [dm setSyncFinished];
      
-    [self _showResult:@"Restore done."];
+    [self _showResult:_L(@"restore_done")];
     [dm startLoad:self];
 }
 
 // restore failed
 - (void)restClient:(DBRestClient*)client loadFileFailedWithError:(NSError*)error
 {
-    [self _showResult:@"Restore failed!"];
+    [self _showResult:_L(@"restore_failed")];
     [[DataModel instance] startLoad:self];
 }
 
