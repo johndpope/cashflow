@@ -131,6 +131,7 @@
                 [self _showResult:@"No need to sync."];
                 [mDelegate dropboxBackupFinished];
             }
+            break;
             
         case MODE_BACKUP:
             [self _uploadBackupWithParentRev:mRemoteRev];

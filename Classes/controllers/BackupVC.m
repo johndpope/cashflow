@@ -70,8 +70,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            // dropbox : backup and restore
-            return 2;
+            // dropbox : sync, backup and restore
+            return 3;
             
         case 1:
             // internal web backup
@@ -96,11 +96,16 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    cell.textLabel.text = _L(@"Backup");
+                    cell.textLabel.text = _L(@"Sync");
                     imageName = @"dropboxBackup";
                     break;
                     
                 case 1:
+                    cell.textLabel.text = _L(@"Backup");
+                    imageName = @"dropboxBackup";
+                    break;
+                    
+                case 2:
                     cell.textLabel.text = _L(@"Restore");
                     imageName = @"dropboxRestore";
                     break;
@@ -136,12 +141,17 @@
                 mDropboxBackup = [[DropboxBackup alloc] init:self];
             }
             switch (indexPath.row) {
-                case 0: // backup
+                case 0: // sync
+                    [AppDelegate trackPageview:@"/BackupViewController/DropboxSync"];
+                    [mDropboxBackup doSync:self];
+                    break;
+                    
+                case 1: // backup
                     [AppDelegate trackPageview:@"/BackupViewController/DropboxBackup"];
                     [mDropboxBackup doBackup:self];
                     break;
                     
-                case 1: //restore
+                case 2: //restore
                     [AppDelegate trackPageview:@"/BackupViewController/DropboxRestore"];
                     alertView = [[UIAlertView alloc] initWithTitle:_L(@"Warning")
                                                             message:_L(@"RestoreWarning")
