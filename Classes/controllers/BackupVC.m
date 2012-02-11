@@ -97,7 +97,7 @@
             switch (indexPath.row) {
                 case 0:
                     cell.textLabel.text = _L(@"Sync");
-                    imageName = @"dropboxBackup";
+                    imageName = @"dropboxSync";
                     break;
                     
                 case 1:
