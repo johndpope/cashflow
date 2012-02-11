@@ -119,7 +119,7 @@
     DataModel *m = [DataModel instance];
     NSString *path = [m getBackupSqlPath];
 
-    int f = open([path UTF8String], O_CREAT | O_WRONLY);
+    int f = open([path UTF8String], O_CREAT | O_WRONLY, 0644);
     if (f < 0) {
         // TBD;
         return;

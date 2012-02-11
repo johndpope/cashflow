@@ -164,6 +164,7 @@
     [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
     if (!result) {
         [self _showResult:@"Restore failed."];
+        [mDelegate dropboxBackupFinished];
         return;
     }
 
