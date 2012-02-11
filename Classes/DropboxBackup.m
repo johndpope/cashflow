@@ -139,6 +139,8 @@
 // backup finished
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath metadata:(DBMetadata *)metadata
 {
+    [[NSFileManager defaultManager] removeItemAtPath:[[DataModel instance] getBackupSqlPath] error:nil];
+    
     NSLog(@"upload success: new rev : %lld %@", metadata.revision, metadata.rev);
     [self _showResult:@"Backup done."];
     [mDelegate dropboxBackupFinished];
@@ -156,8 +158,11 @@
 {
     // SQL から書き戻す
     DataModel *m = [DataModel instance];
-    
-    if (![m restoreDatabaseFromSql:[m getBackupSqlPath]]) {
+    NSString *path = [m getBackupSqlPath];
+
+    BOOL result = [m restoreDatabaseFromSql:path];
+    [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+    if (!result) {
         [self _showResult:@"Restore failed."];
         return;
     }
