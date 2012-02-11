@@ -15,7 +15,7 @@
 #import "DescLRUManager.h"
 
 @interface DataModel()
-- (NSString *)_lastModificationDateForDatabase;
+- (NSDate *)_lastModificationDateOfDatabase;
 @end
 
 @implementation DataModel

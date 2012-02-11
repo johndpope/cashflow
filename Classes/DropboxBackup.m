@@ -17,10 +17,6 @@
 #define	BACKUP_FILENAME	@"CashFlowBackup.sql"
 #endif
 
-#define MODE_BACKUP 0
-#define MODE_RESTORE 1
-#define MODE_SYNC 2
-
 @interface DropboxBackup()
 - (void)_login;
 - (void)_exec;
@@ -39,6 +35,12 @@
     return self;
 }
 
+- (void)doSync:(UIViewController *)viewController
+{
+    mMode = MODE_SYNC;
+    mViewController = viewController;
+    [self _login];
+}
 
 - (void)doBackup:(UIViewController *)viewController
 {
@@ -85,16 +87,7 @@
     // 現在のバージョンを取得する
     [self.restClient loadRevisionsForFile:@"/" BACKUP_FILENAME];
     
-    switch (mMode) {
-        case MODE_BACKUP:
-        case MODE_SYNC:
-            [mDelegate dropboxBackupStarted:NO];
-            break;
-            
-        case MODE_RESTORE:
-            [mDelegate dropboxBackupStarted:YES];
-            break;
-    }
+    [mDelegate dropboxBackupStarted:mMode];
 }
 
 - (DBRestClient *)restClient
@@ -120,7 +113,25 @@
     DBMetadata *file = [revisions objectAtIndex:0];
     mRemoteRev = file.rev;
     
+    BOOL isRemoteModified = [[DataModel instance] isRemoteModifiedAfterSync:mRemoteRev];
+    
     switch (mMode) {
+        case MODE_SYNC:
+            if (mIsLocalModified && isRemoteModified) {
+                [self _showResult:@"Sync failed, both local/remote data were modified."];
+                [mDelegate dropboxBackupFinished];
+            } else if (mIsLocalModified) {
+                // upload
+                [self _uploadBackupWithParentRev:mRemoteRev];
+            } else if (isRemoteModified) {
+                // download
+                [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:[[DataModel instance] getBackupSqlPath]];
+            } else {
+                // no need to sync
+                [self _showResult:@"No need to sync."];
+                [mDelegate dropboxBackupFinished];
+            }
+            
         case MODE_BACKUP:
             [self _uploadBackupWithParentRev:mRemoteRev];
             break;

@@ -175,15 +175,23 @@
 
 #pragma mark DropboxBackupDelegate
 
-- (void)dropboxBackupStarted:(BOOL)isRestore
+- (void)dropboxBackupStarted:(int)mode
 {
     NSLog(@"DropboxBackupStarted");
     
     NSString *msg = nil;
-    if (isRestore) {
-        msg = _L(@"Downloading");
-    } else {
-        msg = _L(@"Uploading");
+    switch (mode) {
+        case MODE_SYNC:
+            msg = _L(@"Syncing");
+            break;
+
+        case MODE_BACKUP:
+            msg = _L(@"Uploading");
+            break;
+            
+        case MODE_RESTORE:
+            msg = _L(@"Downloading");
+            break;
     }
     mLoadingView = [[DBLoadingView alloc] initWithTitle:msg];
     mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
