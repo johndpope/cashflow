@@ -14,7 +14,7 @@
 
 @implementation BackupServer
 
-#define BACKUP_NAME @"CashflowBackup.sql"
+#define BACKUP_NAME @"CashFlowBackup.sql"
 
 - (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(int)bodylen
 {

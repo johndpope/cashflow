@@ -1,3 +1,7 @@
+2012-02-11 : Takuya Murakami
+
+	* バックアップデータフォーマットを SQL に変更
+	
 2011-11-13 : Takuya Murakami
 
 	* ver 5.0.1 (v42)
