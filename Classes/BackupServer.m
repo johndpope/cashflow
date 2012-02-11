@@ -119,7 +119,7 @@
     DataModel *m = [DataModel instance];
     NSString *path = [m getBackupSqlPath];
 
-    int f = open([path UTF8String], O_WRONLY);
+    int f = open([path UTF8String], O_CREAT | O_WRONLY);
     if (f < 0) {
         // TBD;
         return;
@@ -136,16 +136,21 @@
     if (![m restoreDatabaseFromSql:path]) {
         [self send:s string:@"HTTP/1.0 200 OK\r\nContent-Type:text/html\r\n\r\n"];
         [self send:s string:@"This is not cashflow backup file. Try again."];
+        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
         return;
     }
-
+    [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+    
     // send reply
     [self send:s string:@"HTTP/1.0 200 OK\r\nContent-Type:text/html\r\n\r\n"];
     [self send:s string:@"Restore completed. Please restart the application."];
 
     // terminate application ...
     //[[UIApplication sharedApplication] terminate];
-    exit(0);
+    //exit(0);
+    
+    // ロードを行う
+    [[DataModel instance] load];
 }
 
 @end
