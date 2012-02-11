@@ -265,6 +265,8 @@ static NSString *theDbName = DBNAME;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:rev forKey:KEY_LAST_SYNC_REMOTE_REV];
+    
+    NSLog(@"set last sync remote rev: %@", rev);
 }
 
 - (BOOL)isRemoteModifiedAfterSync:(NSString *)currev
@@ -283,32 +285,35 @@ static NSString *theDbName = DBNAME;
     return ![lastrev isEqualToString:currev];
 }
 
-- (NSString *)_lastModificationDateOfDatabase
+- (NSDate *)_lastModificationDateOfDatabase
 {
     Database *db = [Database instance];
     NSString *dbpath = [db dbPath:theDbName];
     NSFileManager *manager = [NSFileManager defaultManager];
     NSDictionary *attrs = [manager attributesOfItemAtPath:dbpath error:nil];
-    NSString *date = [attrs objectForKey:NSFileModificationDate];
+    NSDate *date = [attrs objectForKey:NSFileModificationDate];
     return date;
 }
 
 - (void)setSyncFinished
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[self _lastModificationDateOfDatabase] forKey:KEY_LAST_MODIFIED_DATE_OF_DB];
+    NSDate *lastdate = [self _lastModificationDateOfDatabase];
+    [defaults setObject:lastdate forKey:KEY_LAST_MODIFIED_DATE_OF_DB];
+    
+    NSLog(@"sync finished: DB modification date is %@", lastdate);
 }
 
 - (BOOL)isModifiedAfterSync
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *lastdate = [defaults objectForKey:KEY_LAST_MODIFIED_DATE_OF_DB];
+    NSDate *lastdate = [defaults objectForKey:KEY_LAST_MODIFIED_DATE_OF_DB];
     if (lastdate == nil) {
         // まだ同期したことがない。local は変更されているものとみなす。
         return YES;
     }
-    NSString *curdate = [self _lastModificationDateOfDatabase];
-    return ![curdate isEqualToString:lastdate];
+    NSDate *curdate = [self _lastModificationDateOfDatabase];
+    return ![curdate isEqualToDate:lastdate];
 }
 
 @end

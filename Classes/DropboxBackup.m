@@ -80,6 +80,8 @@
 
 - (void)_exec
 {
+    mIsLocalModified = [[DataModel instance] isModifiedAfterSync];
+    
     // 現在のバージョンを取得する
     [self.restClient loadRevisionsForFile:@"/" BACKUP_FILENAME];
     

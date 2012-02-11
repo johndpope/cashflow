@@ -24,6 +24,9 @@
     
     // リモートのリビジョン
     NSString *mRemoteRev;
+    
+    // 前回の同期以降、ローカル DB が変更されているかどうか
+    BOOL mIsLocalModified;
 }
 
 @property(readonly) DBRestClient *restClient;
