@@ -19,6 +19,14 @@
 
 #define MODE_BACKUP 0
 #define MODE_RESTORE 1
+#define MODE_SYNC 2
+
+@interface DropboxBackup()
+- (void)_login;
+- (void)_exec;
+- (void)_showResult:(NSString *)message;
+- (void)_uploadBackupWithParentRev:(NSString *)rev;
+@end
 
 @implementation DropboxBackup
 
@@ -74,7 +82,7 @@
 {
     NSString *backupPath = [[DataModel instance] getBackupSqlPath];
 
-    if (mMode == MODE_BACKUP) {
+    if (mMode == MODE_BACKUP || mMode == MODE_SYNC) {
         // 現在のバージョンを取得する
         [self.restClient loadRevisionsForFile:@"/" BACKUP_FILENAME];
         //[self.restClient loadMetadata:@"/" BACKUP_FILENAME];
@@ -113,11 +121,12 @@
 - (void)restClient:(DBRestClient *)client loadRevisionsFailedWithError:(NSError *)error
 {
     // 前リビジョンなし
-    if (mMode == MODE_BACKUP) {
+    if (mMode == MODE_BACKUP || mMode == MODE_SYNC) {
         [self _uploadBackupWithParentRev:nil];
     }
 }
 
+// バックアップファイルをアップロードする
 - (void)_uploadBackupWithParentRev:(NSString *)rev
 {
     DataModel *m = [DataModel instance];

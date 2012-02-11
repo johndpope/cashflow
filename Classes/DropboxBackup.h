@@ -31,9 +31,4 @@
 - (void)doRestore:(UIViewController *)viewController;
 - (void)unlink;
 
-- (void)_login;
-- (void)_exec;
-- (void)_showResult:(NSString *)message;
-- (void)_uploadBackupWithParentRev:(NSString *)rev;
-
 @end
