@@ -21,6 +21,9 @@
     UIViewController *mViewController;
     DBRestClient *mRestClient;
     int mMode;
+    
+    // リモートのリビジョン
+    NSString *mRemoteRev;
 }
 
 @property(readonly) DBRestClient *restClient;

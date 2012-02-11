@@ -80,17 +80,18 @@
 
 - (void)_exec
 {
-    NSString *backupPath = [[DataModel instance] getBackupSqlPath];
-
-    if (mMode == MODE_BACKUP || mMode == MODE_SYNC) {
-        // 現在のバージョンを取得する
-        [self.restClient loadRevisionsForFile:@"/" BACKUP_FILENAME];
-        //[self.restClient loadMetadata:@"/" BACKUP_FILENAME];
-        [mDelegate dropboxBackupStarted:NO];
-    }
-    else if (mMode == MODE_RESTORE) {
-        [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:backupPath];
-        [mDelegate dropboxBackupStarted:YES];
+    // 現在のバージョンを取得する
+    [self.restClient loadRevisionsForFile:@"/" BACKUP_FILENAME];
+    
+    switch (mMode) {
+        case MODE_BACKUP:
+        case MODE_SYNC:
+            [mDelegate dropboxBackupStarted:NO];
+            break;
+            
+        case MODE_RESTORE:
+            [mDelegate dropboxBackupStarted:YES];
+            break;
     }
 }
 
@@ -105,24 +106,43 @@
 
 #pragma mrk DBRestClientDelegate
 
-// Backup : 現在のファイルバージョン取得
+// バージョン取得
 - (void)restClient:(DBRestClient *)client loadedRevisions:(NSArray *)revisions forFile:(NSString *)path
 {
-    if (mMode == MODE_BACKUP && [path isEqualToString:@"/" BACKUP_FILENAME]) {
-        for (DBMetadata *m in revisions) {
-            NSLog(@"revision: %lld %@", m.revision, m.rev);
-        }
-        
-        DBMetadata *file = [revisions objectAtIndex:0];
-        [self _uploadBackupWithParentRev:file.rev];
+    if (![path isEqualToString:@"/" BACKUP_FILENAME]) return;
+    
+    // 最新版のリビジョンを保存
+    for (DBMetadata *m in revisions) {
+        NSLog(@"revision: %lld %@", m.revision, m.rev);
+    }
+    DBMetadata *file = [revisions objectAtIndex:0];
+    mRemoteRev = file.rev;
+    
+    switch (mMode) {
+        case MODE_BACKUP:
+            [self _uploadBackupWithParentRev:mRemoteRev];
+            break;
+            
+        case MODE_RESTORE:
+            [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:[[DataModel instance] getBackupSqlPath]];
+            break;
     }
 }
 
+// バージョン取得失敗 (ファイルなし)
 - (void)restClient:(DBRestClient *)client loadRevisionsFailedWithError:(NSError *)error
 {
-    // 前リビジョンなし
-    if (mMode == MODE_BACKUP || mMode == MODE_SYNC) {
-        [self _uploadBackupWithParentRev:nil];
+    mRemoteRev = nil;
+    
+    switch (mMode) {
+        case MODE_BACKUP:
+        case MODE_SYNC:
+            [self _uploadBackupWithParentRev:nil];
+            break;
+            
+        case MODE_RESTORE:
+            [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:[[DataModel instance] getBackupSqlPath]];
+            break;
     }
 }
 
@@ -148,9 +168,16 @@
 // backup finished
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath metadata:(DBMetadata *)metadata
 {
-    [[NSFileManager defaultManager] removeItemAtPath:[[DataModel instance] getBackupSqlPath] error:nil];
+    DataModel *dm = [DataModel instance];
+    
+    [[NSFileManager defaultManager] removeItemAtPath:[dm getBackupSqlPath] error:nil];
     
     NSLog(@"upload success: new rev : %lld %@", metadata.revision, metadata.rev);
+    
+    // 同期情報を保存
+    [dm setLastSyncRemoteRev:metadata.rev];
+    [dm setSyncFinished];
+    
     [self _showResult:@"Backup done."];
     [mDelegate dropboxBackupFinished];
 }
@@ -166,10 +193,10 @@
 - (void)restClient:(DBRestClient*)client loadedFile:(NSString*)destPath
 {
     // SQL から書き戻す
-    DataModel *m = [DataModel instance];
-    NSString *path = [m getBackupSqlPath];
+    DataModel *dm = [DataModel instance];
+    NSString *path = [dm getBackupSqlPath];
 
-    BOOL result = [m restoreDatabaseFromSql:path];
+    BOOL result = [dm restoreDatabaseFromSql:path];
     [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
     if (!result) {
         [self _showResult:@"Restore failed."];
@@ -177,8 +204,12 @@
         return;
     }
 
+    // 同期情報を保存
+    [dm setLastSyncRemoteRev:mRemoteRev];
+    [dm setSyncFinished];
+     
     [self _showResult:@"Restore done."];
-    [m startLoad:self];
+    [dm startLoad:self];
 }
 
 // restore failed

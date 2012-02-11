@@ -269,6 +269,11 @@ static NSString *theDbName = DBNAME;
 
 - (BOOL)isRemoteModifiedAfterSync:(NSString *)currev
 {
+    if (currev == nil) {
+        // リモートが存在しない場合は、変更されていないとみなす。
+        return NO;
+    }
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *lastrev = [defaults objectForKey:KEY_LAST_SYNC_REMOTE_REV];
     if (lastrev == nil) {
