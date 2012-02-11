@@ -15,6 +15,7 @@
 #import "ConfigViewController.h"
 #import "AssetListVC.h"
 #import "BackupVC.h"
+#import "Database.h"
 
 @implementation TransactionListViewController
 
@@ -129,6 +130,8 @@
 {
     [super viewWillAppear:animated];
     [self reload];
+    
+    [[Database instance] updateModificationDate]; // TODO : ここでやるのは正しくないが、、、
     
 #if FREE_VERSION
     // 表示開始

@@ -147,6 +147,8 @@
     }
     NSString *lbl = [NSString stringWithFormat:@"%@ %@", _L(@"Total"), [CurrencyManager formatCurrency:value]];
     mBarSumLabel.title = lbl;
+    
+    [[Database instance] updateModificationDate]; // TODO : ここでやるのは正しくないが、、、
 }
 
 - (void)viewWillAppear:(BOOL)animated

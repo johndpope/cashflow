@@ -36,6 +36,9 @@
 */
 @interface Database : NSObject {
     sqlite3 *mHandle; ///< Database handle
+
+    BOOL mIsDirty;
+    NSString *mDbPath; ///< Current database file path
 }
 
 @property(nonatomic,readonly) sqlite3 *handle;
@@ -60,6 +63,9 @@
 
 - (NSString *)dbPath:(NSString *)dbname;
 - (BOOL)open:(NSString *)dbname;
+
+- (void)setModified;
+- (void)updateModificationDate;
 
 // utilities
 - (NSDateFormatter *)dateFormatter;

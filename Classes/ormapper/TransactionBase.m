@@ -353,8 +353,6 @@
 
 - (void)_insert
 {
-    [super _insert];
-
     Database *db = [Database instance];
     dbstmt *stmt;
     
@@ -373,14 +371,14 @@
     self.pid = [db lastInsertRowId];
 
     //[db commitTransaction];
+
+    [[Database instance] setModified];
 }
 
 #pragma mark Update operations
 
 - (void)_update
 {
-    [super _update];
-
     Database *db = [Database instance];
     //[db beginTransaction];
 
@@ -406,6 +404,8 @@
 
     [stmt step];
     //[db commitTransaction];
+
+    [[Database instance] setModified];
 }
 
 #pragma mark Delete operations
@@ -420,6 +420,8 @@
     dbstmt *stmt = [db prepare:@"DELETE FROM Transactions WHERE key = ?;"];
     [stmt bindInt:0 val:mPid];
     [stmt step];
+
+    [[Database instance] setModified];
 }
 
 /**
@@ -434,6 +436,8 @@
     }
     NSString *sql = [NSString stringWithFormat:@"DELETE FROM Transactions %@;", cond];
     [db exec:sql];
+
+    [[Database instance] setModified];
 }
 
 + (void)delete_all
