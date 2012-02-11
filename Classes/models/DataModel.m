@@ -14,6 +14,10 @@
 #import "Config.h"
 #import "DescLRUManager.h"
 
+@interface DataModel()
+- (NSString *)_lastModificationDateForDatabase;
+@end
+
 @implementation DataModel
 
 @synthesize journal = mJournal;
@@ -250,6 +254,56 @@ static NSString *theDbName = DBNAME;
     [db exec:@"VACUUM;"];
 
     return YES;
+}
+
+#pragma mark Sync operations
+
+#define KEY_LAST_SYNC_REMOTE_REV        @"LastSyncRemoteRev"
+#define KEY_LAST_MODIFIED_DATE_OF_DB    @"LastModifiedDateOfDatabase"
+
+- (void)setLastSyncRemoteRev:(NSString *)rev
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:rev forKey:KEY_LAST_SYNC_REMOTE_REV];
+}
+
+- (BOOL)isRemoteModifiedAfterSync:(NSString *)currev
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *lastrev = [defaults objectForKey:KEY_LAST_SYNC_REMOTE_REV];
+    if (lastrev == nil) {
+        // まだ同期したことがない。remote は変更されているものとみなす
+        return YES;
+    }
+    return ![lastrev isEqualToString:currev];
+}
+
+- (NSString *)_lastModificationDateOfDatabase
+{
+    Database *db = [Database instance];
+    NSString *dbpath = [db dbPath:theDbName];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSDictionary *attrs = [manager attributesOfItemAtPath:dbpath error:nil];
+    NSString *date = [attrs objectForKey:NSFileModificationDate];
+    return date;
+}
+
+- (void)setSyncFinished
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[self _lastModificationDateOfDatabase] forKey:KEY_LAST_MODIFIED_DATE_OF_DB];
+}
+
+- (BOOL)isModifiedAfterSync
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *lastdate = [defaults objectForKey:KEY_LAST_MODIFIED_DATE_OF_DB];
+    if (lastdate == nil) {
+        // まだ同期したことがない。local は変更されているものとみなす。
+        return YES;
+    }
+    NSString *curdate = [self _lastModificationDateOfDatabase];
+    return ![curdate isEqualToString:lastdate];
 }
 
 @end
