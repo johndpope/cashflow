@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [AppDelegate trackPageview:@"/BackupViewController"];
+    //[AppDelegate trackPageview:@"/BackupViewController"];
     
     self.navigationItem.rightBarButtonItem =
         [[UIBarButtonItem alloc]

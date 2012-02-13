@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     
-    [AppDelegate trackPageview:@"/AssetViewController"];
+    //[AppDelegate trackPageview:@"/AssetViewController"];
     
     self.title = _L(@"Asset");
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]

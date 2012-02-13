@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    [AppDelegate trackPageview:@"/CategoryListViewController"];
+    //[AppDelegate trackPageview:@"/CategoryListViewController"];
 
     if (IS_IPAD) {
         CGSize s = self.contentSizeForViewInPopover;

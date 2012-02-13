@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     
-    [AppDelegate trackPageview:@"/CalcViewController"];
+    //[AppDelegate trackPageview:@"/CalcViewController"];
     
     if (IS_IPAD) {
         CGSize s = self.contentSizeForViewInPopover;

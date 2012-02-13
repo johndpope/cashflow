@@ -55,7 +55,7 @@
 
     [super viewDidLoad];
     
-    [AppDelegate trackPageview:@"/TransactionListViewController"];
+    //[AppDelegate trackPageview:@"/TransactionListViewController"];
 	
     // title 設定
     //self.title = _L(@"Transactions");
