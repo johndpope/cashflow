@@ -151,7 +151,9 @@
 "Sunday" = "Sunday";
 "Monday" = "Monday";
 
+"Upload" = "Upload";
 "Uploading" = "Uploading";
+"Download" = "Download";
 "Downloading" = "Downloading";
 "Syncing" = "Syncing";
 "backup_done" = "Backup done.";
@@ -160,5 +162,7 @@
 "restore_failed" = "Restore failed.";
 "Sync" = "Sync";
 "no_need_to_sync" = "No need to sync.";
-"sync_fail_conflict" = "Sync failed, both local/remote data were modified.";
+"sync_conflict" = "Data conflict: both local/remote data were modified.";
+"Use local (upload)" = "Use local (upload)";
+"Use remote (download)" = "Use remote (download)";
 

@@ -101,12 +101,14 @@
                     break;
                     
                 case 1:
-                    cell.textLabel.text = _L(@"Backup");
+                    //cell.textLabel.text = _L(@"Backup");
+                    cell.textLabel.text = _L(@"Upload");
                     imageName = @"dropboxBackup";
                     break;
                     
                 case 2:
-                    cell.textLabel.text = _L(@"Restore");
+                    //cell.textLabel.text = _L(@"Restore");
+                    cell.textLabel.text = _L(@"Download");
                     imageName = @"dropboxRestore";
                     break;
             }
@@ -176,6 +178,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    // リストア確認
     if (buttonIndex == 1) { // OK
         // UIAlertView が消えてからすぐに次の View (LoadingView) を表示すると、
         // 次の View が正しく表示されない。このため少し待たせる
@@ -216,6 +219,35 @@
     mLoadingView = nil;
 }
 
+// 衝突が発生した場合の処理
+- (void)dropboxBackupConflicted
+{
+    NSLog(@"DropboxBackupConflicted");
+    [mLoadingView dismissAnimated:NO];
+    mLoadingView = nil;
+    
+    UIActionSheet *as =
+    [[UIActionSheet alloc] initWithTitle:_L(@"sync_conflict")
+                                delegate:self
+                       cancelButtonTitle:_L(@"Cancel")
+                  destructiveButtonTitle:nil
+                       otherButtonTitles:_L(@"Use local (upload)"), _L(@"Use remote (download)"), nil];
+    [as showInView:[self view]];
+}
+
+- (void)actionSheet:(UIActionSheet*)as clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            [mDropboxBackup performSelector:@selector(doBackup:) withObject:self afterDelay:0.5];
+            break;
+            
+        case 1:
+            [mDropboxBackup performSelector:@selector(doRestore:) withObject:self afterDelay:0.5];
+            break;
+    }
+}
+    
 #pragma mark utils
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

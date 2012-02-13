@@ -152,7 +152,9 @@
 "Sunday" = "日曜日";
 "Monday" = "月曜日";
 
+"Upload" = "アップロード";
 "Uploading" = "アップロード中";
+"Download" = "ダウンロード";
 "Downloading" = "ダウンロード中";
 "Syncing" = "同期中";
 "backup_done" = "バックアップ完了";
@@ -161,5 +163,7 @@
 "restore_failed" = "リストア失敗";
 "Sync" = "同期";
 "no_need_to_sync" = "同期の必要はありません";
-"sync_fail_conflict" = "同期失敗。ローカル/リモート双方のデータが変更されています。バックアップ/リストアいずれかを実行してください。";
+"sync_conflict" = "データ衝突: ローカル/リモート双方のデータが変更されています。";
+"Use local (upload)" = "ローカルを使用 (アップロード)";
+"Use remote (download)" = "リモートを使用 (ダウンロード)";
 

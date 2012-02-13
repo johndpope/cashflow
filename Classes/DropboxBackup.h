@@ -16,6 +16,7 @@
 @protocol DropboxBackupDelegate
 - (void)dropboxBackupStarted:(int)mode;
 - (void)dropboxBackupFinished;
+- (void)dropboxBackupConflicted;
 @end
 
 @interface DropboxBackup : NSObject <DBRestClientDelegate, DataModelDelegate>

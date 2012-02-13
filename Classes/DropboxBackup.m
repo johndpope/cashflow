@@ -118,8 +118,8 @@
     switch (mMode) {
         case MODE_SYNC:
             if (mIsLocalModified && isRemoteModified) {
-                [self _showResult:_L(@"sync_fail_conflict")];
-                [mDelegate dropboxBackupFinished];
+                // 衝突
+                [mDelegate dropboxBackupConflicted];
             } else if (mIsLocalModified) {
                 // upload
                 [self _uploadBackupWithParentRev:mRemoteRev];
