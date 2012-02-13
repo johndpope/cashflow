@@ -157,10 +157,10 @@
 "Download" = "ダウンロード";
 "Downloading" = "ダウンロード中";
 "Syncing" = "同期中";
-"backup_done" = "バックアップ完了";
-"backup_failed" = "バックアップ失敗";
-"restore_done" = "リストア完了";
-"restore_failed" = "リストア失敗";
+"upload_done" = "アップロード完了";
+"upload_failed" = "アップロード失敗";
+"download_done" = "ダウンロード完了";
+"download_failed" = "ダウンロード失敗";
 "Sync" = "同期";
 "no_need_to_sync" = "同期の必要はありません";
 "sync_conflict" = "データ衝突: ローカル/リモート双方のデータが変更されています。";

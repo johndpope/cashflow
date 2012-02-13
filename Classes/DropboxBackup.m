@@ -192,14 +192,14 @@
     [dm setLastSyncRemoteRev:metadata.rev];
     [dm setSyncFinished];
     
-    [self _showResult:_L(@"backup_done")];
+    [self _showResult:_L(@"upload_done")];
     [mDelegate dropboxBackupFinished];
 }
 
 // backup failed
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error
 {
-    [self _showResult:_L(@"backup_failed")];
+    [self _showResult:_L(@"upload_failed")];
     [mDelegate dropboxBackupFinished];
 }
 
@@ -213,7 +213,7 @@
     BOOL result = [dm restoreDatabaseFromSql:path];
     [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
     if (!result) {
-        [self _showResult:_L(@"restore_failed")];
+        [self _showResult:_L(@"download_failed")];
         [mDelegate dropboxBackupFinished];
         return;
     }
@@ -222,14 +222,14 @@
     [dm setLastSyncRemoteRev:mRemoteRev];
     [dm setSyncFinished];
      
-    [self _showResult:_L(@"restore_done")];
+    [self _showResult:_L(@"download_done")];
     [dm startLoad:self];
 }
 
 // restore failed
 - (void)restClient:(DBRestClient*)client loadFileFailedWithError:(NSError*)error
 {
-    [self _showResult:_L(@"restore_failed")];
+    [self _showResult:_L(@"download_failed")];
     [[DataModel instance] startLoad:self];
 }
 

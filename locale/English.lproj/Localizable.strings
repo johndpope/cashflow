@@ -156,10 +156,10 @@
 "Download" = "Download";
 "Downloading" = "Downloading";
 "Syncing" = "Syncing";
-"backup_done" = "Backup done.";
-"backup_failed" = "Backup failed.";
-"restore_done" = "Restore done.";
-"restore_failed" = "Restore failed.";
+"upload_done" = "Upload done.";
+"upload_failed" = "Upload failed.";
+"download_done" = "Download done.";
+"download_failed" = "Download failed.";
 "Sync" = "Sync";
 "no_need_to_sync" = "No need to sync.";
 "sync_conflict" = "Data conflict: both local/remote data were modified.";
