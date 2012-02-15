@@ -133,7 +133,7 @@
     CurrencyManager *cm = [CurrencyManager instance];
     NSString *ccode = [cm baseCurrency];
     if (ccode == nil) {
-        ccode = [cm systemCurrency];
+        ccode = [CurrencyManager systemCurrency];
     }
     [data appendFormat:@"   <CURDEF>%@</CURDEF>\n", ccode];
 
