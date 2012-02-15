@@ -130,8 +130,11 @@
 
     [data appendString:@"  <STMTRS>\n"];
 	
-    NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
-    NSString *ccode = [fmt currencyCode];
+    CurrencyManager *cm = [CurrencyManager instance];
+    NSString *ccode = [cm baseCurrency];
+    if (ccode == nil) {
+        ccode = [cm systemCurrency];
+    }
     [data appendFormat:@"   <CURDEF>%@</CURDEF>\n", ccode];
 
     [data appendString:@"   <BANKACCTFROM>\n"];

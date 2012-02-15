@@ -1,7 +1,15 @@
+2012-02-15 : Takuya Murakami
+
+	* OFX エクスポート時の通貨を、ユーザ設定通貨にした。
+
+2012-02-14 : Takuya Murakami
+
+	* データ同期機能追加
+
 2012-02-11 : Takuya Murakami
 
 	* バックアップデータフォーマットを SQL に変更
-	
+
 2011-11-13 : Takuya Murakami
 
 	* ver 5.0.1 (v42)
@@ -20,10 +28,10 @@
 2011-10-30 : Takuya Murakami
 
 	* ARC関連バグ修正: PinController 扱いミス
-	
+
 	* ver 5.0 beta 1 (v40)
 	* Dropbox 修正
-	
+
 2011-10-29 : Takuya Murakami
 
 	* AdMob ライブラリ更新 (4.1.1 -> 5.0.4)
@@ -34,18 +42,18 @@
 	* AdMob ライブラリ更新 (4.1.1 -> 5.0.3)
 	* Dropbox SDK 0.3 -> 1.0 に更新
 	* Dropbox SDK 1.0 対応 : UI変更、URL スキーム追加
-	
+
 2011-09-26 : Takuya Murakami
 
 	* ver 4.1.6 (v37)
 	* Dropbox SDK 0.2 → 0.3 に更新
 	* Facebookを開くボタンを追加
-	
+
 2011-09-25 : Takuya Murakami
 
 	* TransactionCell, ReportCell, ReportCatCell の Identifier 設定
 	* TransactionCell の各ラベルを opaque に(高速化のため)
-	
+
 2011-08-17 : Takuya Murakami
 
 	* ver 4.1.5 (v36)
@@ -68,7 +76,7 @@
 2011-05-09 : Takuya Murakami
 
 	* 投資口座追加
-	
+
 2011-05-07 : Takuya Murakami
 
 	* バグ修正: table view cell のメモリ管理バグ (Issue #10)
@@ -80,7 +88,7 @@
 	* Google AdMob Ads SDK ver 4.0.4 -> 4.1.0 にアップデート
 
 2011-04-29 : Takuya Murakami
-	
+
 	* ver 4.1.3
 	* 広告クラッシュ時は、次回起動時に一定時間広告を表示させない
 	* クラッシュレポート強制送信

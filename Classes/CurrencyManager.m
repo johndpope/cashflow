@@ -1,7 +1,7 @@
 // -*-  Mode:ObjC; c-basic-offset:4; tab-width:8; indent-tabs-mode:nil -*-
 /*
  * CashFlow for iOS
- * Copyright (C) 2008-2011, Takuya Murakami, All rights reserved.
+ * Copyright (C) 2008-2012, Takuya Murakami, All rights reserved.
  * For conditions of distribution and use, see LICENSE file.
  */
 
@@ -12,6 +12,9 @@
 @synthesize baseCurrency = mBaseCurrency;
 @synthesize currencies = mCurrencies;
 
+/**
+ * CurrencyManager のインスタンスを返す
+ */
 + (CurrencyManager *)instance
 {
     static CurrencyManager *theInstance = nil;
@@ -85,13 +88,19 @@
     return self;
 }
 
+/**
+ * システムデフォルトの通貨コードを返す
+ */
 + (NSString *)systemCurrency
 {
-    NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
+    NSNumberFormatter *nf = [NSNumberFormatter new];
     [nf setNumberStyle:NSNumberFormatterCurrencyStyle];
     return [nf currencyCode];
 }
 
+/**
+ * ベース通貨コードを設定する
+ */
 - (void)setBaseCurrency:(NSString *)currency
 {
     if (mBaseCurrency != currency) {
@@ -106,6 +115,9 @@
     }
 }
 
+/**
+ * 通貨を文字列にフォーマットする
+ */
 + (NSString *)formatCurrency:(double)value
 {
     return [[CurrencyManager instance] _formatCurrency:value];
