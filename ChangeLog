@@ -1,3 +1,7 @@
+2012-02-16 : Takuya Murakami
+
+	* ver 5.1.0 (v43)
+
 2012-02-15 : Takuya Murakami
 
 	* OFX エクスポート時の通貨を、ユーザ設定通貨にした。
