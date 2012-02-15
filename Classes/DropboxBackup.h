@@ -9,9 +9,14 @@
 #import <DropboxSDK/DropboxSDK.h>
 #import "DataModel.h"
 
+#define MODE_BACKUP 0
+#define MODE_RESTORE 1
+#define MODE_SYNC 2
+
 @protocol DropboxBackupDelegate
-- (void)dropboxBackupStarted:(BOOL)isRestore;
+- (void)dropboxBackupStarted:(int)mode;
 - (void)dropboxBackupFinished;
+- (void)dropboxBackupConflicted;
 @end
 
 @interface DropboxBackup : NSObject <DBRestClientDelegate, DataModelDelegate>
@@ -21,19 +26,21 @@
     UIViewController *mViewController;
     DBRestClient *mRestClient;
     int mMode;
+    
+    // リモートのリビジョン
+    NSString *mRemoteRev;
+    
+    // 前回の同期以降、ローカル DB が変更されているかどうか
+    BOOL mIsLocalModified;
 }
 
 @property(readonly) DBRestClient *restClient;
 
 - (id)init:(id<DropboxBackupDelegate>)delegate;
 
+- (void)doSync:(UIViewController *)viewController;
 - (void)doBackup:(UIViewController *)viewController;
 - (void)doRestore:(UIViewController *)viewController;
 - (void)unlink;
-
-- (void)_login;
-- (void)_exec;
-- (void)_showResult:(NSString *)message;
-- (void)_uploadBackupWithParentRev:(NSString *)rev;
 
 @end

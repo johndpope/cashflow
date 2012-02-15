@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
 
-    [AppDelegate trackPageview:@"/ConfigViewController"];
+    //[AppDelegate trackPageview:@"/ConfigViewController"];
     
     self.navigationItem.title = _L(@"Config");
 

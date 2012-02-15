@@ -15,6 +15,7 @@
 #import "ConfigViewController.h"
 #import "AssetListVC.h"
 #import "BackupVC.h"
+#import "Database.h"
 
 @implementation TransactionListViewController
 
@@ -54,7 +55,7 @@
 
     [super viewDidLoad];
     
-    [AppDelegate trackPageview:@"/TransactionListViewController"];
+    //[AppDelegate trackPageview:@"/TransactionListViewController"];
 	
     // title 設定
     //self.title = _L(@"Transactions");
@@ -129,6 +130,8 @@
 {
     [super viewWillAppear:animated];
     [self reload];
+    
+    [[Database instance] updateModificationDate]; // TODO : ここでやるのは正しくないが、、、
     
 #if FREE_VERSION
     // 表示開始
@@ -440,7 +443,7 @@
          cancelButtonTitle:_L(@"Cancel")
          destructiveButtonTitle:nil otherButtonTitles:
          _L(@"Export"),
-         [NSString stringWithFormat:@"%@ / %@", _L(@"Backup"), _L(@"Restore")],
+         [NSString stringWithFormat:@"%@ / %@", _L(@"Sync"), _L(@"Backup")],
          _L(@"Config"),
          _L(@"Info"),
          nil];

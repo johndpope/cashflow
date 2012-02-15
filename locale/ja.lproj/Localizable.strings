@@ -55,7 +55,7 @@
 
 "Unlink dropbox account" = "Dropboxアカウントの解除";
 "Internal web server" = "内蔵Webサーバ";
-"The backup data will be stored as CashFlowBackup.db in root folder of Dropbox." = "バックアップはDropboxのルートフォルダにCashFlowBackup.dbというファイル名で作成されます";
+"The backup data will be stored as CashFlowBackup.sql in root folder of Dropbox." = "バックアップはDropboxのルートフォルダにCashFlowBackup.sqlというファイル名で作成されます";
 
 "Warning" = "警告";
 "RestoreWarning" = "リストアにより全データが上書きされます";
@@ -151,3 +151,19 @@
 "Start of week" = "週の始め";
 "Sunday" = "日曜日";
 "Monday" = "月曜日";
+
+"Upload" = "アップロード";
+"Uploading" = "アップロード中";
+"Download" = "ダウンロード";
+"Downloading" = "ダウンロード中";
+"Syncing" = "同期中";
+"upload_done" = "アップロード完了";
+"upload_failed" = "アップロード失敗";
+"download_done" = "ダウンロード完了";
+"download_failed" = "ダウンロード失敗";
+"Sync" = "同期";
+"no_need_to_sync" = "同期の必要はありません";
+"sync_conflict" = "データ衝突: ローカル/リモート双方のデータが変更されています。";
+"Use local (upload)" = "ローカルを使用 (アップロード)";
+"Use remote (download)" = "リモートを使用 (ダウンロード)";
+

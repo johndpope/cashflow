@@ -26,7 +26,7 @@
     //NSLog(@"AssetListViewController:viewDidLoad");
     [super viewDidLoad];
     
-    [AppDelegate trackPageview:@"/AssetListViewController"];
+    //[AppDelegate trackPageview:@"/AssetListViewController"];
      
     mTableView.rowHeight = 48;
     mPinChecked = NO;
@@ -147,6 +147,8 @@
     }
     NSString *lbl = [NSString stringWithFormat:@"%@ %@", _L(@"Total"), [CurrencyManager formatCurrency:value]];
     mBarSumLabel.title = lbl;
+    
+    [[Database instance] updateModificationDate]; // TODO : ここでやるのは正しくないが、、、
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -456,7 +458,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
          destructiveButtonTitle:nil
          otherButtonTitles:
          [NSString stringWithFormat:@"%@ (%@)", _L(@"Export"), _L(@"All")],
-         [NSString stringWithFormat:@"%@ / %@", _L(@"Backup"), _L(@"Restore")],
+         [NSString stringWithFormat:@"%@ / %@", _L(@"Sync"), _L(@"Backup")],
          _L(@"Config"),
          _L(@"Info"),
          nil];

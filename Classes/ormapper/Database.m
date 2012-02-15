@@ -42,7 +42,7 @@ static Database *sDatabase = nil;
 + (Database *)instance
 {
     if (sDatabase == nil) {
-        sDatabase = [[[self class] alloc] init];
+        sDatabase = [[self class] new];
     }
     return sDatabase;
 }
@@ -76,6 +76,7 @@ static Database *sDatabase = nil;
     self = [super init];
     if (self != nil) {
         mHandle = nil;
+        mIsDirty = false;
     }
     return self;
 }
@@ -106,21 +107,14 @@ static Database *sDatabase = nil;
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
     // Load from DB
-    NSString *dbPath = [self dbPath:dbname];
-    BOOL isExistedDb = [fileManager fileExistsAtPath:dbPath];
+    mDbPath = [self dbPath:dbname];
+    BOOL isExistedDb = [fileManager fileExistsAtPath:mDbPath];
 
-    int err = sqlite3_open([dbPath UTF8String], &mHandle);
-    if (err != 0) {
+    if (sqlite3_open([mDbPath UTF8String], &mHandle) != 0) {
         // ouch!
-        NSLog(@"sqlite3_open error:%d (%s)", err, sqlite3_errmsg(mHandle));
-        
         // re-create database
-        [fileManager removeItemAtPath:dbPath error:NULL];
-        err = sqlite3_open([dbPath UTF8String], &mHandle);
-        if (err != 0) {
-            NSLog(@"sqlite3_open error:%d (%s)", err, sqlite3_errmsg(mHandle));
-            // TODO:...
-        }
+        [fileManager removeItemAtPath:mDbPath error:NULL];
+        sqlite3_open([mDbPath UTF8String], &mHandle);
 
         isExistedDb = NO;
     }
@@ -132,7 +126,7 @@ static Database *sDatabase = nil;
 /**
    Execute SQL statement
 */
-- (void)exec:(NSString *)sql
+- (BOOL)exec:(NSString *)sql
 {
     //ASSERT(mHandle != 0);
 
@@ -140,7 +134,9 @@ static Database *sDatabase = nil;
     int result = sqlite3_exec(mHandle, [sql UTF8String], NULL, NULL, NULL);
     if (result != SQLITE_OK) {
         //LOG(@"sqlite3: %s", sqlite3_errmsg(mHandle));
+        return NO;
     }
+    return YES;
 }
 
 /**
@@ -151,16 +147,11 @@ static Database *sDatabase = nil;
 */
 - (dbstmt *)prepare:(NSString *)sql
 {
-    if (mHandle == nil) {
-        NSLog(@"dbstmt:prepare something bad, mHandle = nil!");
-        return nil;
-    }
-    
     sqlite3_stmt *stmt;
     int result = sqlite3_prepare_v2(mHandle, [sql UTF8String], -1, &stmt, NULL);
     if (result != SQLITE_OK) {
-        NSLog(@"sqlite3: %s", sqlite3_errmsg(mHandle));
-        return nil;
+        //LOG(@"sqlite3: %s", sqlite3_errmsg(mHandle));
+        //ASSERT(0);
     }
 
     dbstmt *dbs = [[dbstmt alloc] initWithStmt:stmt];
@@ -221,6 +212,29 @@ static Database *sDatabase = nil;
 
     NSLog(@"dbPath = %@", dbPath);
     return dbPath;
+}
+
+/**
+   Modification hook
+*/
+- (void)setModified
+{
+    mIsDirty = YES;
+}
+
+/**
+   Update modification date of database
+*/
+- (void)updateModificationDate
+{
+    if (mIsDirty) {
+        mIsDirty = NO;
+
+        NSFileManager *m = [NSFileManager defaultManager];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[m attributesOfItemAtPath:mDbPath error:nil]];
+        [dict setObject:[NSDate new] forKey:NSFileModificationDate];
+        [m setAttributes:dict ofItemAtPath:mDbPath error:nil];
+    }
 }
 
 #pragma mark -

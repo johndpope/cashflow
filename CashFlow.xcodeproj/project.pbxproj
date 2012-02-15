@@ -113,6 +113,10 @@
 		3E2710450EAA196A00E57E51 /* ExportBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2710400EAA196A00E57E51 /* ExportBase.m */; };
 		3E2710460EAA196A00E57E51 /* ExportCsv.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2710420EAA196A00E57E51 /* ExportCsv.m */; };
 		3E2710470EAA196A00E57E51 /* ExportOfx.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2710440EAA196A00E57E51 /* ExportOfx.m */; };
+		3E2C6C9B14E6B0270064049B /* dropboxSync.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E2C6C9914E6B0270064049B /* dropboxSync.png */; };
+		3E2C6C9C14E6B0270064049B /* dropboxSync.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E2C6C9914E6B0270064049B /* dropboxSync.png */; };
+		3E2C6C9D14E6B0270064049B /* dropboxSync@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E2C6C9A14E6B0270064049B /* dropboxSync@2x.png */; };
+		3E2C6C9E14E6B0270064049B /* dropboxSync@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E2C6C9A14E6B0270064049B /* dropboxSync@2x.png */; };
 		3E2CBDA00F1615470025A682 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E2CBD9F0F1615470025A682 /* Localizable.strings */; };
 		3E338213133211C500861610 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; };
 		3E3382181332122700861610 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; };
@@ -492,6 +496,8 @@
 		3E2710420EAA196A00E57E51 /* ExportCsv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportCsv.m; sourceTree = "<group>"; };
 		3E2710430EAA196A00E57E51 /* ExportOfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportOfx.h; sourceTree = "<group>"; };
 		3E2710440EAA196A00E57E51 /* ExportOfx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportOfx.m; sourceTree = "<group>"; };
+		3E2C6C9914E6B0270064049B /* dropboxSync.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dropboxSync.png; path = images/dropboxSync.png; sourceTree = SOURCE_ROOT; };
+		3E2C6C9A14E6B0270064049B /* dropboxSync@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dropboxSync@2x.png"; path = "images/dropboxSync@2x.png"; sourceTree = SOURCE_ROOT; };
 		3E2CBDA20F16155D0025A682 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3E2CBDA30F16155F0025A682 /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3E2CBDA40F1615610025A682 /* fr */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; fileEncoding = 4; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1051,6 +1057,8 @@
 				3E85A724132E5A28002C44DF /* report@2x.png */,
 				3E553678133466B200D288D9 /* dropbox.png */,
 				3E553679133466B200D288D9 /* dropbox@2x.png */,
+				3E2C6C9914E6B0270064049B /* dropboxSync.png */,
+				3E2C6C9A14E6B0270064049B /* dropboxSync@2x.png */,
 				3E5536801334872400D288D9 /* dropboxBackup.png */,
 				3E5536811334872400D288D9 /* dropboxBackup@2x.png */,
 				3E5536821334872500D288D9 /* dropboxRestore.png */,
@@ -1347,6 +1355,8 @@
 				3EF1716F133A2528002C818E /* artwork.jpg in Resources */,
 				3EDC576B1378105B00876DE8 /* invest.png in Resources */,
 				3EDC576D1378105B00876DE8 /* invest@2x.png in Resources */,
+				3E2C6C9B14E6B0270064049B /* dropboxSync.png in Resources */,
+				3E2C6C9D14E6B0270064049B /* dropboxSync@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1419,6 +1429,8 @@
 				3EF17170133A2528002C818E /* artwork.jpg in Resources */,
 				3EDC576C1378105B00876DE8 /* invest.png in Resources */,
 				3EDC576E1378105B00876DE8 /* invest@2x.png in Resources */,
+				3E2C6C9C14E6B0270064049B /* dropboxSync.png in Resources */,
+				3E2C6C9E14E6B0270064049B /* dropboxSync@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

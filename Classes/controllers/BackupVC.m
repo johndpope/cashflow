@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [AppDelegate trackPageview:@"/BackupViewController"];
+    //[AppDelegate trackPageview:@"/BackupViewController"];
     
     self.navigationItem.rightBarButtonItem =
         [[UIBarButtonItem alloc]
@@ -62,7 +62,7 @@
 {
     switch (section) {
         case 0:
-            return _L(@"The backup data will be stored as CashFlowBackup.db in root folder of Dropbox.");
+            return _L(@"The backup data will be stored as CashFlowBackup.sql in root folder of Dropbox.");
     }
     return nil;
 }
@@ -70,8 +70,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            // dropbox : backup and restore
-            return 2;
+            // dropbox : sync, backup and restore
+            return 3;
             
         case 1:
             // internal web backup
@@ -96,12 +96,19 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    cell.textLabel.text = _L(@"Backup");
-                    imageName = @"dropboxBackup";
+                    cell.textLabel.text = _L(@"Sync");
+                    imageName = @"dropboxSync";
                     break;
                     
                 case 1:
-                    cell.textLabel.text = _L(@"Restore");
+                    //cell.textLabel.text = _L(@"Backup");
+                    cell.textLabel.text = _L(@"Upload");
+                    imageName = @"dropboxBackup";
+                    break;
+                    
+                case 2:
+                    //cell.textLabel.text = _L(@"Restore");
+                    cell.textLabel.text = _L(@"Download");
                     imageName = @"dropboxRestore";
                     break;
             }
@@ -136,12 +143,17 @@
                 mDropboxBackup = [[DropboxBackup alloc] init:self];
             }
             switch (indexPath.row) {
-                case 0: // backup
+                case 0: // sync
+                    [AppDelegate trackPageview:@"/BackupViewController/DropboxSync"];
+                    [mDropboxBackup doSync:self];
+                    break;
+                    
+                case 1: // backup
                     [AppDelegate trackPageview:@"/BackupViewController/DropboxBackup"];
                     [mDropboxBackup doBackup:self];
                     break;
                     
-                case 1: //restore
+                case 2: //restore
                     [AppDelegate trackPageview:@"/BackupViewController/DropboxRestore"];
                     alertView = [[UIAlertView alloc] initWithTitle:_L(@"Warning")
                                                             message:_L(@"RestoreWarning")
@@ -166,6 +178,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    // リストア確認
     if (buttonIndex == 1) { // OK
         // UIAlertView が消えてからすぐに次の View (LoadingView) を表示すると、
         // 次の View が正しく表示されない。このため少し待たせる
@@ -175,15 +188,23 @@
 
 #pragma mark DropboxBackupDelegate
 
-- (void)dropboxBackupStarted:(BOOL)isRestore
+- (void)dropboxBackupStarted:(int)mode
 {
     NSLog(@"DropboxBackupStarted");
     
     NSString *msg = nil;
-    if (isRestore) {
-        msg = _L(@"Downloading");
-    } else {
-        msg = _L(@"Uploading");
+    switch (mode) {
+        case MODE_SYNC:
+            msg = _L(@"Syncing");
+            break;
+
+        case MODE_BACKUP:
+            msg = _L(@"Uploading");
+            break;
+            
+        case MODE_RESTORE:
+            msg = _L(@"Downloading");
+            break;
     }
     mLoadingView = [[DBLoadingView alloc] initWithTitle:msg];
     mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
@@ -198,6 +219,35 @@
     mLoadingView = nil;
 }
 
+// 衝突が発生した場合の処理
+- (void)dropboxBackupConflicted
+{
+    NSLog(@"DropboxBackupConflicted");
+    [mLoadingView dismissAnimated:NO];
+    mLoadingView = nil;
+    
+    UIActionSheet *as =
+    [[UIActionSheet alloc] initWithTitle:_L(@"sync_conflict")
+                                delegate:self
+                       cancelButtonTitle:_L(@"Cancel")
+                  destructiveButtonTitle:nil
+                       otherButtonTitles:_L(@"Use local (upload)"), _L(@"Use remote (download)"), nil];
+    [as showInView:[self view]];
+}
+
+- (void)actionSheet:(UIActionSheet*)as clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            [mDropboxBackup performSelector:@selector(doBackup:) withObject:self afterDelay:0.5];
+            break;
+            
+        case 1:
+            [mDropboxBackup performSelector:@selector(doRestore:) withObject:self afterDelay:0.5];
+            break;
+    }
+}
+    
 #pragma mark utils
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

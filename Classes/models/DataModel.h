@@ -63,4 +63,15 @@
 
 - (int)categoryWithDescription:(NSString *)desc;
 
+// sql backup operation
+- (BOOL)backupDatabaseToSql:(NSString *)path;
+- (BOOL)restoreDatabaseFromSql:(NSString *)path;
+- (NSString *)getBackupSqlPath;
+
+// for sync
+- (void)setLastSyncRemoteRev:(NSString *)rev;
+- (BOOL)isRemoteModifiedAfterSync:(NSString *)currev;
+- (void)setSyncFinished;
+- (BOOL)isModifiedAfterSync;
+
 @end

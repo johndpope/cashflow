@@ -14,6 +14,8 @@
 
 @implementation BackupServer
 
+#define BACKUP_NAME @"CashFlowBackup.sql"
+
 - (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(int)bodylen
 {
     // Request to '/' url.
@@ -23,7 +25,7 @@
     }
 
     // download
-    else if ([filereq hasPrefix:@"/" DBNAME]) {
+    else if ([filereq hasPrefix:@"/" BACKUP_NAME]) {
         [self sendBackup:s];
     }
             
@@ -42,7 +44,7 @@
 
     [self send:s string:@"<html><body>"];
     [self send:s string:@"<h1>Backup</h1>"];
-    [self send:s string:@"<form method=\"get\" action=\"/" DBNAME "\"><input type=submit value=\"Backup\"></form>"];
+    [self send:s string:@"<form method=\"get\" action=\"/" BACKUP_NAME "\"><input type=submit value=\"Backup\"></form>"];
 
     [self send:s string:@"<h1>Restore</h1>"];
     [self send:s string:@"<form method=\"post\" enctype=\"multipart/form-data\"action=\"/restore\">"];
@@ -57,7 +59,14 @@
 */
 - (void)sendBackup:(int)s
 {
-    NSString *path = [[Database instance] dbPath:DBNAME];
+    DataModel *m = [DataModel instance];
+    NSString *path = [m getBackupSqlPath];
+
+    if (![m backupDatabaseToSql:path]) {
+        // write local file error...
+        // TBD
+        return;
+    }
 
     int f = open([path UTF8String], O_RDONLY);
     if (f < 0) {
@@ -106,16 +115,11 @@
     }
     if (!end) return;
 
-    // Check data format
-    if (strncmp(start, "SQLite format 3", 15) != 0) {
-        [self send:s string:@"HTTP/1.0 200 OK\r\nContent-Type:text/html\r\n\r\n"];
-        [self send:s string:@"This is not cashflow database file. Try again."];
-        return;
-    }
+    // Save data between start and end.
+    DataModel *m = [DataModel instance];
+    NSString *path = [m getBackupSqlPath];
 
-    // okay, save data between start and end.
-    NSString *path = [[Database instance] dbPath:DBNAME];
-    int f = open([path UTF8String], O_WRONLY);
+    int f = open([path UTF8String], O_CREAT | O_WRONLY, 0644);
     if (f < 0) {
         // TBD;
         return;
@@ -128,13 +132,25 @@
     }
     close(f);
 
+    // restore
+    if (![m restoreDatabaseFromSql:path]) {
+        [self send:s string:@"HTTP/1.0 200 OK\r\nContent-Type:text/html\r\n\r\n"];
+        [self send:s string:@"This is not cashflow backup file. Try again."];
+        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+        return;
+    }
+    [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+    
     // send reply
     [self send:s string:@"HTTP/1.0 200 OK\r\nContent-Type:text/html\r\n\r\n"];
     [self send:s string:@"Restore completed. Please restart the application."];
 
     // terminate application ...
     //[[UIApplication sharedApplication] terminate];
-    exit(0);
+    //exit(0);
+    
+    // ロードを行う
+    [[DataModel instance] load];
 }
 
 @end

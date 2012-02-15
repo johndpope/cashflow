@@ -12,13 +12,17 @@
 #import <TargetConditionals.h>
 
 #if TARGET_IPHONE_SIMULATOR
-#define	BACKUP_FILENAME	@"CashFlowBackup-simulator.db"
+#define	BACKUP_FILENAME	@"CashFlowBackup-simulator.sql"
 #else
-#define	BACKUP_FILENAME	@"CashFlowBackup.db"
+#define	BACKUP_FILENAME	@"CashFlowBackup.sql"
 #endif
 
-#define MODE_BACKUP 0
-#define MODE_RESTORE 1
+@interface DropboxBackup()
+- (void)_login;
+- (void)_exec;
+- (void)_showResult:(NSString *)message;
+- (void)_uploadBackupWithParentRev:(NSString *)rev;
+@end
 
 @implementation DropboxBackup
 
@@ -31,6 +35,12 @@
     return self;
 }
 
+- (void)doSync:(UIViewController *)viewController
+{
+    mMode = MODE_SYNC;
+    mViewController = viewController;
+    [self _login];
+}
 
 - (void)doBackup:(UIViewController *)viewController
 {
@@ -72,20 +82,12 @@
 
 - (void)_exec
 {
-    NSString *dbPath = [[Database instance] dbPath:DBNAME];
-
-    if (mMode == MODE_BACKUP) {
-        // 現在のバージョンを取得する
-        [self.restClient loadRevisionsForFile:@"/" BACKUP_FILENAME];
-        //[self.restClient loadMetadata:@"/" BACKUP_FILENAME];
-        [mDelegate dropboxBackupStarted:NO];
-    }
-    else if (mMode == MODE_RESTORE) {
-        // shutdown database
-        [DataModel finalize];
-        [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:dbPath];
-        [mDelegate dropboxBackupStarted:YES];
-    }
+    mIsLocalModified = [[DataModel instance] isModifiedAfterSync];
+    
+    // 現在のバージョンを取得する
+    [self.restClient loadRevisionsForFile:@"/" BACKUP_FILENAME];
+    
+    [mDelegate dropboxBackupStarted:mMode];
 }
 
 - (DBRestClient *)restClient
@@ -99,63 +101,135 @@
 
 #pragma mrk DBRestClientDelegate
 
-// Backup : 現在のファイルバージョン取得
+// バージョン取得
 - (void)restClient:(DBRestClient *)client loadedRevisions:(NSArray *)revisions forFile:(NSString *)path
 {
-    if (mMode == MODE_BACKUP && [path isEqualToString:@"/" BACKUP_FILENAME]) {
-        for (DBMetadata *m in revisions) {
-            NSLog(@"revision: %lld %@", m.revision, m.rev);
-        }
-        
-        DBMetadata *file = [revisions objectAtIndex:0];
-        [self _uploadBackupWithParentRev:file.rev];
+    if (![path isEqualToString:@"/" BACKUP_FILENAME]) return;
+    
+    // 最新版のリビジョンを保存
+    for (DBMetadata *m in revisions) {
+        NSLog(@"revision: %lld %@", m.revision, m.rev);
+    }
+    DBMetadata *file = [revisions objectAtIndex:0];
+    mRemoteRev = file.rev;
+    
+    BOOL isRemoteModified = [[DataModel instance] isRemoteModifiedAfterSync:mRemoteRev];
+    
+    switch (mMode) {
+        case MODE_SYNC:
+            if (mIsLocalModified && isRemoteModified) {
+                // 衝突
+                [mDelegate dropboxBackupConflicted];
+            } else if (mIsLocalModified) {
+                // upload
+                [self _uploadBackupWithParentRev:mRemoteRev];
+            } else if (isRemoteModified) {
+                // download
+                [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:[[DataModel instance] getBackupSqlPath]];
+            } else {
+                // no need to sync
+                [self _showResult:_L(@"no_need_to_sync")];
+                [mDelegate dropboxBackupFinished];
+            }
+            break;
+            
+        case MODE_BACKUP:
+            [self _uploadBackupWithParentRev:mRemoteRev];
+            break;
+            
+        case MODE_RESTORE:
+            [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:[[DataModel instance] getBackupSqlPath]];
+            break;
     }
 }
 
+// バージョン取得失敗 (ファイルなし)
 - (void)restClient:(DBRestClient *)client loadRevisionsFailedWithError:(NSError *)error
 {
-    // 前リビジョンなし
-    if (mMode == MODE_BACKUP) {
-        [self _uploadBackupWithParentRev:nil];
+    mRemoteRev = nil;
+    
+    switch (mMode) {
+        case MODE_BACKUP:
+        case MODE_SYNC:
+            [self _uploadBackupWithParentRev:nil];
+            break;
+            
+        case MODE_RESTORE:
+            [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:[[DataModel instance] getBackupSqlPath]];
+            break;
     }
 }
 
+// バックアップファイルをアップロードする
 - (void)_uploadBackupWithParentRev:(NSString *)rev
 {
+    DataModel *m = [DataModel instance];
+    NSString *backupPath = [m getBackupSqlPath];
+
+    if (![m backupDatabaseToSql:backupPath]) {
+        [self _showResult:@"Cannot create backup data. Storage full?"];
+        return;
+    }
+
     // start backup
-    NSString *dbPath = [[Database instance] dbPath:DBNAME];
+    NSLog(@"uploading file: %@", backupPath);
     [self.restClient uploadFile:BACKUP_FILENAME
                          toPath:@"/"
                   withParentRev:rev
-                       fromPath:dbPath];
+                       fromPath:backupPath];
 }
 
 // backup finished
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath metadata:(DBMetadata *)metadata
 {
+    DataModel *dm = [DataModel instance];
+    
+    [[NSFileManager defaultManager] removeItemAtPath:[dm getBackupSqlPath] error:nil];
+    
     NSLog(@"upload success: new rev : %lld %@", metadata.revision, metadata.rev);
-    [self _showResult:@"Backup done."];
+    
+    // 同期情報を保存
+    [dm setLastSyncRemoteRev:metadata.rev];
+    [dm setSyncFinished];
+    
+    [self _showResult:_L(@"upload_done")];
     [mDelegate dropboxBackupFinished];
 }
 
 // backup failed
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error
 {
-    [self _showResult:@"Backup failed!"];
+    [self _showResult:_L(@"upload_failed")];
     [mDelegate dropboxBackupFinished];
 }
 
 // restore done
 - (void)restClient:(DBRestClient*)client loadedFile:(NSString*)destPath
 {
-    [self _showResult:@"Restore done."];
-    [[DataModel instance] startLoad:self];
+    // SQL から書き戻す
+    DataModel *dm = [DataModel instance];
+    NSString *path = [dm getBackupSqlPath];
+
+    BOOL result = [dm restoreDatabaseFromSql:path];
+    [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+    if (!result) {
+        [self _showResult:_L(@"download_failed")];
+        [mDelegate dropboxBackupFinished];
+        return;
+    }
+
+    // 同期情報を保存
+    [dm setLastSyncRemoteRev:mRemoteRev];
+    [dm setSyncFinished];
+     
+    [self _showResult:_L(@"download_done")];
+    [dm startLoad:self];
 }
 
 // restore failed
 - (void)restClient:(DBRestClient*)client loadFileFailedWithError:(NSError*)error
 {
-    [self _showResult:@"Restore failed!"];
+    [self _showResult:_L(@"download_failed")];
     [[DataModel instance] startLoad:self];
 }
 

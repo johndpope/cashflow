@@ -17,7 +17,7 @@
 - (void)backupViewFinished:(BackupViewController *)backupViewController;
 @end
 
-@interface BackupViewController : UITableViewController <DropboxBackupDelegate, UIAlertViewDelegate>
+@interface BackupViewController : UITableViewController <DropboxBackupDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 {
     id<BackupViewDelegate> mDelegate;
 

@@ -14,6 +14,10 @@
 #import "Config.h"
 #import "DescLRUManager.h"
 
+@interface DataModel()
+- (NSDate *)_lastModificationDateOfDatabase;
+@end
+
 @implementation DataModel
 
 @synthesize journal = mJournal;
@@ -189,6 +193,127 @@ static NSString *theDbName = DBNAME;
         return -1;
     }
     return t.category;
+}
+
+#define BACKUP_FILE_IDENT @"-- CashFlow Backup Format rev. 2 --"
+
+- (NSString *)getBackupSqlPath
+{
+    return [[Database instance] dbPath:@"CashFlowBackup.sql"];
+}
+
+/**
+ * SQL でファイルに書きだす
+ */
+- (BOOL)backupDatabaseToSql:(NSString *)path
+{
+    NSMutableString *sql = [NSMutableString new];
+    
+    [sql appendString:BACKUP_FILE_IDENT];
+    [sql appendString:@"\n"];
+
+    [Asset getTableSql:sql];
+    [Transaction getTableSql:sql];
+    [TCategory getTableSql:sql];
+    [DescLRU getTableSql:sql];
+
+    return [sql writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:NULL];
+}
+
+/**
+ * ファイルから SQL を読みだして実行する
+ */
+- (BOOL)restoreDatabaseFromSql:(NSString *)path
+{
+    Database *db = [Database instance];
+
+    // 先に VACUUM を実行しておく
+    [db exec:@"VACUUM;"];
+
+    // SQL をファイルから読み込む
+    NSString *sql = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    if (sql == nil) {
+        return NO;
+    }
+
+    // check ident
+    if (![sql hasPrefix:BACKUP_FILE_IDENT]) {
+        NSLog(@"Invalid backup data ident");
+        return NO;
+    }
+
+    // SQL 実行
+    [db beginTransaction];
+    if (![db exec:sql]) {
+        [db rollbackTransaction];
+        return NO;
+    }
+    [db commitTransaction];
+
+    // 再度 VACUUM を実行
+    [db exec:@"VACUUM;"];
+
+    return YES;
+}
+
+#pragma mark Sync operations
+
+#define KEY_LAST_SYNC_REMOTE_REV        @"LastSyncRemoteRev"
+#define KEY_LAST_MODIFIED_DATE_OF_DB    @"LastModifiedDateOfDatabase"
+
+- (void)setLastSyncRemoteRev:(NSString *)rev
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:rev forKey:KEY_LAST_SYNC_REMOTE_REV];
+    
+    NSLog(@"set last sync remote rev: %@", rev);
+}
+
+- (BOOL)isRemoteModifiedAfterSync:(NSString *)currev
+{
+    if (currev == nil) {
+        // リモートが存在しない場合は、変更されていないとみなす。
+        return NO;
+    }
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *lastrev = [defaults objectForKey:KEY_LAST_SYNC_REMOTE_REV];
+    if (lastrev == nil) {
+        // まだ同期したことがない。remote は変更されているものとみなす
+        return YES;
+    }
+    return ![lastrev isEqualToString:currev];
+}
+
+- (NSDate *)_lastModificationDateOfDatabase
+{
+    Database *db = [Database instance];
+    NSString *dbpath = [db dbPath:theDbName];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSDictionary *attrs = [manager attributesOfItemAtPath:dbpath error:nil];
+    NSDate *date = [attrs objectForKey:NSFileModificationDate];
+    return date;
+}
+
+- (void)setSyncFinished
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *lastdate = [self _lastModificationDateOfDatabase];
+    [defaults setObject:lastdate forKey:KEY_LAST_MODIFIED_DATE_OF_DB];
+    
+    NSLog(@"sync finished: DB modification date is %@", lastdate);
+}
+
+- (BOOL)isModifiedAfterSync
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *lastdate = [defaults objectForKey:KEY_LAST_MODIFIED_DATE_OF_DB];
+    if (lastdate == nil) {
+        // まだ同期したことがない。local は変更されているものとみなす。
+        return YES;
+    }
+    NSDate *curdate = [self _lastModificationDateOfDatabase];
+    return ![curdate isEqualToDate:lastdate];
 }
 
 @end

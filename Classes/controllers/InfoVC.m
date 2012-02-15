@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [AppDelegate trackPageview:@"/InfoViewController"];
+    //[AppDelegate trackPageview:@"/InfoViewController"];
     
     self.title = _L(@"Info");
     self.navigationItem.rightBarButtonItem =
@@ -80,6 +80,8 @@
 }
 
 - (IBAction)facebookButtonTapped:(id)sender {
+    [AppDelegate trackPageview:@"/ViewController/facebook"];
+
     NSURL *url = [NSURL URLWithString:@"http://facebook.com/CashFlowApp"];
     [[UIApplication sharedApplication] openURL:url];
 }

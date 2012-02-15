@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
     
-    [AppDelegate trackPageview:@"/TransactionViewController"];
+    //[AppDelegate trackPageview:@"/TransactionViewController"];
     
     mIsModified = NO;
 

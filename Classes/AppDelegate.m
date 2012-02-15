@@ -80,7 +80,7 @@ static BOOL sIsPrevCrashed;
 #else
     ua = @"UA-413697-23";
 #endif
-    [tracker startTrackerWithAccountID:ua dispatchPeriod:30 delegate:nil];
+    [tracker startTrackerWithAccountID:ua dispatchPeriod:120 delegate:nil];
     
     // set custom variables
     NSString *version = [AppDelegate appVersion];
