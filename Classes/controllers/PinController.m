@@ -46,10 +46,13 @@ static PinController *thePinController = nil;
 }
 
     
-- (void)_allDone
+- (void)_allDone:(PinViewController *)pinViewController;
 {
+    if (pinViewController != nil) {
+        pinViewController.delegate = nil;
+    }
     [mNavigationController dismissModalViewControllerAnimated:YES];
-    thePinController = nil;
+    thePinController = nil; // delete myself
 }
 
 //
@@ -113,7 +116,7 @@ static PinController *thePinController = nil;
 - (void)pinViewFinished:(PinViewController *)vc isCancel:(BOOL)isCancel
 {
     if (isCancel) {
-        [self _allDone];
+        [self _allDone:vc];
         return;
     }
 
@@ -174,7 +177,7 @@ static PinController *thePinController = nil;
     if (newvc) {
         [mNavigationController pushViewController:newvc animated:YES];
     } else {
-        [self _allDone];
+        [self _allDone:vc];
     }
 }
 
