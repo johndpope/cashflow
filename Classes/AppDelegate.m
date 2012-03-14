@@ -18,6 +18,8 @@
 #import "DropboxSecret.h"
 
 @interface AppDelegate() <CrashReportSenderDelegate>
+- (void)setupGoogleAnalytics;
+- (void)delayedLaunchProcess:(NSTimer *)timer;
 @end
 
 @implementation AppDelegate
@@ -55,16 +57,8 @@ static BOOL sIsPrevCrashed;
     NSLog(@"applicationDidFinishLaunching");
     _application = application;
 
-    // send crash report
-    NSURL *reportUrl = [NSURL URLWithString:@"http://itemshelf.com/cgi-bin/crashreport.cgi"];
     CrashReportSender *csr = [CrashReportSender sharedCrashReportSender];
-    if ([csr hasPendingCrashReport]) {
-        // 前回クラッシュしている
-        sIsPrevCrashed = YES;
-        [csr sendCrashReportToURL:reportUrl delegate:self activateFeedback:NO];
-    } else {
-        sIsPrevCrashed = NO;
-    }
+    sIsPrevCrashed = [csr hasPendingCrashReport];
     
     // Dropbox config
     DBSession *dbSession =
@@ -72,6 +66,31 @@ static BOOL sIsPrevCrashed;
     //dbSession.delegate = self;
     [DBSession setSharedSession:dbSession];
     
+    [self setupGoogleAnalytics];
+
+    // Configure and show the window
+    [window makeKeyAndVisible];
+    if (IS_IPAD) {
+        [window addSubview:splitViewController.view];
+    } else {
+        [window addSubview:[navigationController view]];
+    }
+
+    // PIN チェック
+    [self checkPin];
+    
+    // 乱数初期化
+    srand([[NSDate date] timeIntervalSinceReferenceDate]);
+    
+    // 遅延実行
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(delayedLaunchProcess:) userInfo:nil repeats:NO];
+    
+    NSLog(@"applicationDidFinishLaunching: done");
+}
+
+// Google Analytics 設定
+- (void)setupGoogleAnalytics
+{
     // Google analytics
     GANTracker *tracker = [GANTracker sharedTracker];
     NSString *ua;
@@ -92,24 +111,23 @@ static BOOL sIsPrevCrashed;
     //NSString *systemDesc = [NSString stringWithFormat:@"%@ %@", [dev model], [dev systemVersion]];
     [tracker setCustomVariableAtIndex:2 name:@"model" value:model withError:nil];
     [tracker setCustomVariableAtIndex:3 name:@"systemVersion" value:systemVersion withError:nil];
-    
-    [tracker trackPageview:@"/applicationDidFinishLaunching" withError:nil];
+}
 
-    // Configure and show the window
-    [window makeKeyAndVisible];
-    if (IS_IPAD) {
-        [window addSubview:splitViewController.view];
-    } else {
-        [window addSubview:[navigationController view]];
+// 起動時の遅延実行処理
+- (void)delayedLaunchProcess:(NSTimer *)timer
+{
+    NSLog(@"delayedLaunchProcess");
+    
+    // send crash report
+    CrashReportSender *csr = [CrashReportSender sharedCrashReportSender];
+    if ([csr hasPendingCrashReport]) {
+        // 前回クラッシュしている
+        NSURL *reportUrl = [NSURL URLWithString:@"http://itemshelf.com/cgi-bin/crashreport.cgi"];
+        [csr sendCrashReportToURL:reportUrl delegate:self activateFeedback:NO];
     }
-
-    // PIN チェック
-    [self checkPin];
     
-    // 乱数初期化
-    srand([[NSDate date] timeIntervalSinceReferenceDate]);
-    
-    NSLog(@"applicationDidFinishLaunching: done");
+    GANTracker *tracker = [GANTracker sharedTracker];
+    [tracker trackPageview:@"/applicationLaunched" withError:nil];    
 }
 
 // Background に入る前の処理
