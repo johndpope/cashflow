@@ -1772,7 +1772,7 @@
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlow;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3F03926B-390C-4549-AFD7-92DBC7036E87";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8E62577C-700D-40A6-A386-6C3EFAE66BFA";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1825,7 +1825,7 @@
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0EF05ADA-DE9F-4DA7-BCDF-7C481ED4C641";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B3B1BC0-A3FF-4063-98F1-831E430A55E7";
 			};
 			name = Release;
 		};
