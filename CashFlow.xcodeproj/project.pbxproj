@@ -49,7 +49,6 @@
 		3E0AD72C1214169700CFDDAC /* EditDescVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F11214169700CFDDAC /* EditDescVC.m */; };
 		3E0AD72D1214169700CFDDAC /* EditMemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F31214169700CFDDAC /* EditMemoVC.m */; };
 		3E0AD72E1214169700CFDDAC /* EditTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F51214169700CFDDAC /* EditTypeVC.m */; };
-		3E0AD72F1214169700CFDDAC /* EditValueVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F71214169700CFDDAC /* EditValueVC.m */; };
 		3E0AD7301214169700CFDDAC /* ExportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F91214169700CFDDAC /* ExportVC.m */; };
 		3E0AD7311214169700CFDDAC /* GenEditTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6FB1214169700CFDDAC /* GenEditTextVC.m */; };
 		3E0AD7321214169700CFDDAC /* GenSelectListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6FD1214169700CFDDAC /* GenSelectListVC.m */; };
@@ -71,7 +70,6 @@
 		3E0AD7421214169700CFDDAC /* EditDescVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F11214169700CFDDAC /* EditDescVC.m */; };
 		3E0AD7431214169700CFDDAC /* EditMemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F31214169700CFDDAC /* EditMemoVC.m */; };
 		3E0AD7441214169700CFDDAC /* EditTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F51214169700CFDDAC /* EditTypeVC.m */; };
-		3E0AD7451214169700CFDDAC /* EditValueVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F71214169700CFDDAC /* EditValueVC.m */; };
 		3E0AD7461214169700CFDDAC /* ExportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F91214169700CFDDAC /* ExportVC.m */; };
 		3E0AD7471214169700CFDDAC /* GenEditTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6FB1214169700CFDDAC /* GenEditTextVC.m */; };
 		3E0AD7481214169700CFDDAC /* GenSelectListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6FD1214169700CFDDAC /* GenSelectListVC.m */; };
@@ -442,8 +440,6 @@
 		3E0AD6F31214169700CFDDAC /* EditMemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMemoVC.m; sourceTree = "<group>"; };
 		3E0AD6F41214169700CFDDAC /* EditTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTypeVC.h; sourceTree = "<group>"; };
 		3E0AD6F51214169700CFDDAC /* EditTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTypeVC.m; sourceTree = "<group>"; };
-		3E0AD6F61214169700CFDDAC /* EditValueVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditValueVC.h; sourceTree = "<group>"; };
-		3E0AD6F71214169700CFDDAC /* EditValueVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditValueVC.m; sourceTree = "<group>"; };
 		3E0AD6F81214169700CFDDAC /* ExportVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportVC.h; sourceTree = "<group>"; };
 		3E0AD6F91214169700CFDDAC /* ExportVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportVC.m; sourceTree = "<group>"; };
 		3E0AD6FA1214169700CFDDAC /* GenEditTextVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenEditTextVC.h; sourceTree = "<group>"; };
@@ -908,8 +904,6 @@
 				3E0AD6F31214169700CFDDAC /* EditMemoVC.m */,
 				3E0AD6F41214169700CFDDAC /* EditTypeVC.h */,
 				3E0AD6F51214169700CFDDAC /* EditTypeVC.m */,
-				3E0AD6F61214169700CFDDAC /* EditValueVC.h */,
-				3E0AD6F71214169700CFDDAC /* EditValueVC.m */,
 				3E0AD6F81214169700CFDDAC /* ExportVC.h */,
 				3E0AD6F91214169700CFDDAC /* ExportVC.m */,
 				3E0AD6FA1214169700CFDDAC /* GenEditTextVC.h */,
@@ -1519,7 +1513,6 @@
 				3E0AD72C1214169700CFDDAC /* EditDescVC.m in Sources */,
 				3E0AD72D1214169700CFDDAC /* EditMemoVC.m in Sources */,
 				3E0AD72E1214169700CFDDAC /* EditTypeVC.m in Sources */,
-				3E0AD72F1214169700CFDDAC /* EditValueVC.m in Sources */,
 				3E0AD7301214169700CFDDAC /* ExportVC.m in Sources */,
 				3E0AD7311214169700CFDDAC /* GenEditTextVC.m in Sources */,
 				3E0AD7321214169700CFDDAC /* GenSelectListVC.m in Sources */,
@@ -1589,7 +1582,6 @@
 				3E0AD7421214169700CFDDAC /* EditDescVC.m in Sources */,
 				3E0AD7431214169700CFDDAC /* EditMemoVC.m in Sources */,
 				3E0AD7441214169700CFDDAC /* EditTypeVC.m in Sources */,
-				3E0AD7451214169700CFDDAC /* EditValueVC.m in Sources */,
 				3E0AD7461214169700CFDDAC /* ExportVC.m in Sources */,
 				3E0AD7471214169700CFDDAC /* GenEditTextVC.m in Sources */,
 				3E0AD7481214169700CFDDAC /* GenSelectListVC.m in Sources */,
