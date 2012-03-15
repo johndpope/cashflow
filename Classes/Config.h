@@ -9,6 +9,8 @@
 
 @interface Config : NSObject
 {
+    @private
+
     // 日時モード
 #define DateTimeModeWithTime 0  // 日＋時
 #define DateTimeModeWithTime5min 1  // 日＋時

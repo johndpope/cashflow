@@ -46,9 +46,5 @@
 - (NSString *)contentType;
 - (NSData*)generateBody;
 
-// internal
-- (void)_sendToDropbox;
-- (void)_showResult:(NSString *)message;
-
 @end
 

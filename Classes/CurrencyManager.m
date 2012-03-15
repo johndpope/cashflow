@@ -7,6 +7,10 @@
 
 #import "CurrencyManager.h"
 
+@interface CurrencyManager
+- (NSString *)_formatCurrency:(double)value;
+@end
+
 @implementation CurrencyManager
 
 @synthesize baseCurrency = mBaseCurrency;
