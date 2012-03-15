@@ -71,12 +71,4 @@ typedef enum {
 - (IBAction)onButtonDown:(id)sender;
 - (IBAction)onButtonPressed:(id)sender;
 
-// private method
-- (void)doneAction;
-- (void)updateLabel;
-- (void)allClear;
-- (void)onInputOperator:(calcOperator)op;
-- (void)onInputNumeric:(int)num;
-- (void)roundInputValue;
-
 @end

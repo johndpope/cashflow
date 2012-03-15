@@ -12,6 +12,16 @@
 #import "CalcVC.h"
 #import "AppDelegate.h"
 
+// private method
+@interface CalculatorViewController()
+- (void)doneAction;
+- (void)updateLabel;
+- (void)allClear;
+- (void)onInputOperator:(calcOperator)op;
+- (void)onInputNumeric:(int)num;
+- (void)roundInputValue;
+@end
+
 @implementation CalculatorViewController
 
 @synthesize delegate = mDelegate;
