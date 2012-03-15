@@ -45,4 +45,9 @@
 - (IBAction)onNumButtonDown:(id)sender;
 - (IBAction)onNumButtonPressed:(id)sender;
 
+// private, but called from test.
+- (void)doneAction:(id)sender;
+- (void)cancelAction:(id)sender;
+- (void)onKeyIn:(NSString *)ch;
+
 @end

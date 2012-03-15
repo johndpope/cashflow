@@ -10,12 +10,6 @@
 #import "PinVC.h"
 #import "AppDelegate.h"
 
-@interface PinViewController()
-- (void)_onKeyIn:(NSString *)ch;
-- (void)doneAction:(id)sender;
-- (void)cancelAction:(id)sender;
-@end
-
 @implementation PinViewController
 @synthesize value = mValue, enableCancel = mEnableCancel, delegate = mDelegate;
 
@@ -90,10 +84,10 @@
     else if (sender == button_8) ch = @"8";
     else if (sender == button_9) ch = @"9";
     
-    [self _onKeyIn:ch];
+    [self onKeyIn:ch];
 }
 
-- (void)_onKeyIn:(NSString *)ch
+- (void)onKeyIn:(NSString *)ch
 {
     if (ch != nil) {
         [mValue appendString:ch];
