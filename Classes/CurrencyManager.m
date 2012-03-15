@@ -7,7 +7,7 @@
 
 #import "CurrencyManager.h"
 
-@interface CurrencyManager
+@interface CurrencyManager()
 - (NSString *)_formatCurrency:(double)value;
 @end
 

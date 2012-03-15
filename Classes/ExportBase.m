@@ -9,7 +9,7 @@
 #import "ExportBase.h"
 #import "AppDelegate.h"
 
-@interface ExportBase
+@interface ExportBase()
 - (void)_sendToDropbox;
 - (void)_showResult:(NSString *)message;
 @end
