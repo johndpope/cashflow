@@ -26,6 +26,14 @@
 
 #pragma mark - AdManager implementation
 
+@interface AdManager()
+- (void)_createIAd;
+- (void)_releaseIAd;
+
+- (void)_createAdMob;
+- (void)_releaseAdMob;
+@end
+
 @implementation AdManager
 
 static AdManager *theAdManager;
@@ -64,7 +72,6 @@ static AdManager *theAdManager;
 - (void)dealloc {
     [self _releaseIAd];
     [self _releaseAdMob];
-    
 }
 
 - (BOOL)isShowAdSucceeded
@@ -81,6 +88,9 @@ static AdManager *theAdManager;
     [defaults synchronize];
 }
 
+/**
+ * 広告を ViewController に attach する
+ */
 - (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController
 {
     mDelegate = delegate;

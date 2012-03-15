@@ -41,19 +41,9 @@
 
 @property(nonatomic,retain) UITableView *tableView;
 
-- (void)_dataModelLoadedOnMainThread:(id)dummy;
-- (void)_showInitialAsset;
-
 - (void)reload;
-
-- (int)_assetIndex:(NSIndexPath*)indexPath;
-
 - (void)addAsset;
-
-- (void)_actionDelete:(NSInteger)buttonIndex;
-
 - (IBAction)showReport:(id)sender;
 - (IBAction)doAction:(id)sender;
-- (void)_actionActionButton:(NSInteger)buttonIndex;
 
 @end

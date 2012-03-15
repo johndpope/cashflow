@@ -17,6 +17,14 @@
 #import "PinController.h"
 #import "ConfigViewController.h"
 
+@interface AssetListViewController()
+- (void)_dataModelLoadedOnMainThread:(id)dummy;
+//- (void)_showInitialAsset;
+- (int)_assetIndex:(NSIndexPath*)indexPath;
+- (void)_actionDelete:(NSInteger)buttonIndex;
+- (void)_actionActionButton:(NSInteger)buttonIndex;
+@end
+
 @implementation AssetListViewController
 
 @synthesize tableView = mTableView;
