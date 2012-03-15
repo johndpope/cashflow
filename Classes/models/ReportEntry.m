@@ -10,6 +10,10 @@
 #import "Database.h"
 #import "Config.h"
 
+@interface ReportEntry()
+- (double)_sortAndTotalUp:(NSMutableArray*)array;
+@end
+
 @implementation ReportEntry
 
 @synthesize start = mStart, end = mEnd;

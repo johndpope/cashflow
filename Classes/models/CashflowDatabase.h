@@ -21,6 +21,7 @@
    Wrapper class of sqlite3 database
 */
 @interface CashflowDatabase : Database {
+    @private
     NSDateFormatter *dateFormatter;
     DateFormatter2 *dateFormatter2;
     NSDateFormatter *dateFormatter3;

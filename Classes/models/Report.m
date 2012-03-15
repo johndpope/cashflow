@@ -13,6 +13,12 @@
 /////////////////////////////////////////////////////////////////////
 // Report
 
+@interface Report()
+// private
+- (NSDate*)firstDateOfAsset:(int)asset;
+- (NSDate*)lastDateOfAsset:(int)asset;
+@end
+
 @implementation Report
 @synthesize reportEntries = mReportEntries, type = mType;
 

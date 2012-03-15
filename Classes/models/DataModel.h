@@ -18,6 +18,8 @@
 
 @interface DataModel : NSObject
 {
+    @private
+
     // Journal
     Journal *mJournal;
 

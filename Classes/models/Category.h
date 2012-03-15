@@ -14,6 +14,7 @@
 @end
 
 @interface Categories : NSObject {
+    @private
     NSMutableArray *mCategories;
 }
 

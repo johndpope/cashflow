@@ -25,6 +25,7 @@
 // 資産 (総勘定元帳の勘定に相当)
 // 
 @interface Asset : AssetBase {
+    @private
     NSMutableArray *mEntries; // AssetEntry の配列
     //double mLastBalance;
 }
@@ -40,7 +41,6 @@
 - (AssetEntry *)entryAt:(int)n;
 - (void)insertEntry:(AssetEntry *)tr;
 - (void)replaceEntryAtIndex:(int)index withObject:(AssetEntry *)t;
-- (void)_deleteEntryAt:(int)n;
 - (void)deleteEntryAt:(int)n;
 - (void)deleteOldEntriesBefore:(NSDate*)date;
 - (int)firstEntryByDate:(NSDate*)date;
