@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad
 {
-    //NSLog(@"AssetListViewController:viewDidLoad");
+    NSLog(@"AssetListViewController:viewDidLoad");
     [super viewDidLoad];
     
     //[AppDelegate trackPageview:@"/AssetListViewController"];
@@ -75,20 +75,35 @@
     }
     
     // データロード開始
-    mIsLoadDone = NO;
-    [[DataModel instance] startLoad:self];
+    DataModel *dm = [DataModel instance];
+    mIsLoadDone = dm.isLoadDone;
+    if (!mIsLoadDone) {
+        [dm startLoad:self];
     
-    // Loading View を表示させる
-    mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Loading"];
-    [mLoadingView setOrientation:self.interfaceOrientation];
-    mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
-    [mLoadingView show];
+        // Loading View を表示させる
+        mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Loading"];
+        [mLoadingView setOrientation:self.interfaceOrientation];
+        mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
+        [mLoadingView show];
+    }
+}
+
+- (void)viewDidUnload {
+    NSLog(@"AssetLivewViewController:viewDidUnload");
+    [super viewDidUnload];
+
+    mIconArray = nil;
+}
+
+- (void)didReceiveMemoryWarning {
+    NSLog(@"AssetListViewController:didReceiveMemoryWarning");
+    [super didReceiveMemoryWarning];
 }
 
 #pragma mark DataModelDelegate
 - (void)dataModelLoaded
 {
-    //NSLog(@"AssetListViewController:dataModelLoaded");
+    NSLog(@"AssetListViewController:dataModelLoaded");
 
     mIsLoadDone = YES;
     mLedger = [DataModel ledger];
@@ -140,12 +155,6 @@
     }
 }
 #endif
-
-- (void)didReceiveMemoryWarning {
-    NSLog(@"AssetListViewController:didReceiveMemoryWarning");
-    //[super didReceiveMemoryWarning];
-}
-
 
 - (void)reload
 {

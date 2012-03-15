@@ -53,6 +53,7 @@
 }
 
 - (void)viewDidUnload {
+    [super viewDidUnload];
 }
 
 #pragma mark Table view methods
