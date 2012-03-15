@@ -1,6 +1,7 @@
 2012-03-15 : Takuya Murakami
 
 	* 安定性向上 : 起動時に、初回資産に移動しないようにした
+	* メモリ不足時処理を修正: [super viewDidUnload] 忘れなど。
 
 2012-02-28 : Takuya Murakami
 
