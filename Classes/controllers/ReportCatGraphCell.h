@@ -25,9 +25,4 @@
 // internal
 - (void)drawRect:(CGRect)rect; // override
 
-- (void)_drawCircleGraph:(CGContextRef)context;
-- (void)_drawLegend:(CGContextRef)context;
-
-
-
 @end

@@ -10,6 +10,12 @@
 #import "PinVC.h"
 #import "AppDelegate.h"
 
+@interface PinViewController()
+- (void)_onKeyIn:(NSString *)ch;
+- (void)doneAction:(id)sender;
+- (void)cancelAction:(id)sender;
+@end
+
 @implementation PinViewController
 @synthesize value = mValue, enableCancel = mEnableCancel, delegate = mDelegate;
 

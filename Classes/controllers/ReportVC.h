@@ -28,10 +28,6 @@
 - (id)initWithAsset:(Asset*)asset type:(int)type;    // designated initializer
 - (id)initWithAsset:(Asset*)asset; 
 
-- (void)doneAction:(id)sender;
-- (void)_updateReport;
-- (NSString *)_reportTitle:(ReportEntry *)report;
-
 - (IBAction)setReportDaily:(id)sender;
 - (IBAction)setReportWeekly:(id)sender;
 - (IBAction)setReportMonthly:(id)sender;

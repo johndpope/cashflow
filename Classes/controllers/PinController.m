@@ -8,6 +8,11 @@
 #import "PinController.h"
 #import "AppDelegate.h"
 
+@interface PinController()
+- (void)_allDone:(PinViewController *)pinViewController;
+- (PinViewController *)_getPinViewController;
+@end
+
 @implementation PinController
 @synthesize pin = mPin, pinNew = mPinNew;
 
