@@ -116,6 +116,9 @@ static AdManager *theAdManager;
 {
     mDelegate = nil;
     mAdMobView.rootViewController = nil; // TODO これ大丈夫？
+
+    [mIADBannerView removeFromSuperview];
+    [mAdMobView removeFromSuperview];
 }
 
 /**
