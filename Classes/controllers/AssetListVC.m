@@ -95,9 +95,15 @@
     mLoadingView = nil;
 
     [self reload];
-    [self _showInitialAsset];
+    //[self _showInitialAsset];
 }
 
+/**
+   '12/3/15
+   安定性向上のため、最後に使った資産に遷移しないようにした。
+   起動時に TransactionListVC で固まるケースが多いため。
+*/
+#if 0
 - (void)_showInitialAsset
 {
     // 最後に使った Asset に遷移する
@@ -125,6 +131,7 @@
         }
     }
 }
+#endif
 
 - (void)didReceiveMemoryWarning {
     NSLog(@"AssetListViewController:didReceiveMemoryWarning");
@@ -171,10 +178,12 @@
          isInitial = NO;
      } 
     else if (!IS_IPAD) {
+#if 0        
         // 初回以外：初期起動する画面を資産一覧画面に戻しておく
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setInteger:-1 forKey:@"firstShowAssetIndex"];
         [defaults synchronize];
+#endif
     }
 }
 
@@ -290,9 +299,11 @@
     if (assetIndex < 0) return;
 
     // save preference
+#if 0
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setInteger:assetIndex forKey:@"firstShowAssetIndex"];
     [defaults synchronize];
+#endif
 	
     Asset *asset = [mLedger assetAtIndex:assetIndex];
 
