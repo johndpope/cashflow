@@ -8,6 +8,17 @@
 #import "TransactionVC.h"
 #import "AppDelegate.h"
 
+// private methods
+@interface TransactionViewController()
+- (void)_asDelPast:(int)buttonIndex;
+- (void)_asCancelTransaction:(int)buttonIndex;
+
+- (UITableViewCell *)getCellForField:(NSIndexPath*)indexPath tableView:(UITableView *)tableView;
+//- (UITableViewCell *)getCellForDelButton:(UITableView *)tableView isDeleteAll:(Boolean)flag;
+
+- (void)_dismissPopover;
+@end
+
 @implementation TransactionViewController
 
 @synthesize editingEntry = mEditingEntry;
