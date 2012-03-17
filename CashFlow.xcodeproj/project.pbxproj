@@ -251,6 +251,10 @@
 		3E9A3B3B0EC47AAB005A4664 /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A3B3A0EC47AAB005A4664 /* bank.png */; };
 		3E9A3B3D0EC47ABA005A4664 /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A3B3C0EC47ABA005A4664 /* card.png */; };
 		3EA011320EC344CC008CEEB7 /* AssetListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EA011310EC344CC008CEEB7 /* AssetListView.xib */; };
+		3EA1A46015149410004144B6 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA1A45E15149410004144B6 /* Icon-72@2x.png */; };
+		3EA1A46115149410004144B6 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA1A45E15149410004144B6 /* Icon-72@2x.png */; };
+		3EA1A46215149410004144B6 /* Icon-free-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */; };
+		3EA1A46315149410004144B6 /* Icon-free-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */; };
 		3EAEBC870F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */; };
 		3EAEBC880F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */; };
 		3EAF414B1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAF414A1340BCED00814FFA /* libGoogleAdMobAds.a */; };
@@ -570,6 +574,8 @@
 		3E9A3B3A0EC47AAB005A4664 /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bank.png; sourceTree = "<group>"; };
 		3E9A3B3C0EC47ABA005A4664 /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
 		3EA011310EC344CC008CEEB7 /* AssetListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetListView.xib; sourceTree = "<group>"; };
+		3EA1A45E15149410004144B6 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-free-72@2x.png"; sourceTree = "<group>"; };
 		3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenSelectListView.xib; sourceTree = "<group>"; };
 		3EAF41441340BCED00814FFA /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADBannerView.h; path = AdMob/GADBannerView.h; sourceTree = "<group>"; };
 		3EAF41451340BCED00814FFA /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADBannerViewDelegate.h; path = AdMob/GADBannerViewDelegate.h; sourceTree = "<group>"; };
@@ -1018,6 +1024,8 @@
 		3EB5406B0E8E907B00608B77 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3EA1A45E15149410004144B6 /* Icon-72@2x.png */,
+				3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */,
 				3EF1716E133A2528002C818E /* artwork.jpg */,
 				3EFEFE091324ED2100EF369E /* Icon-72.png */,
 				3EFEFE0A1324ED2100EF369E /* Icon.png */,
@@ -1315,12 +1323,14 @@
 				3E774EEB11888C6600687776 /* PinView-ipad.xib in Resources */,
 				3ED30E731323B53E007E46DC /* TransactionCell.xib in Resources */,
 				3E43FC6F1324E8130059B198 /* ReportView.xib in Resources */,
-				3EFEFE0F1324ED2100EF369E /* Icon-72.png in Resources */,
 				3EFEFE101324ED2100EF369E /* Icon.png in Resources */,
 				3EFEFE111324ED2100EF369E /* Icon@2x.png in Resources */,
-				3EFEFE1B1324ED2E00EF369E /* Icon-free-72.png in Resources */,
+				3EFEFE0F1324ED2100EF369E /* Icon-72.png in Resources */,
+				3EA1A46015149410004144B6 /* Icon-72@2x.png in Resources */,
 				3EFEFE1C1324ED2E00EF369E /* Icon-free.png in Resources */,
 				3EFEFE1D1324ED2E00EF369E /* Icon-free@2x.png in Resources */,
+				3EFEFE1B1324ED2E00EF369E /* Icon-free-72.png in Resources */,
+				3EA1A46215149410004144B6 /* Icon-free-72@2x.png in Resources */,
 				3EFEFE5D1324EEAA00EF369E /* ReportCell.xib in Resources */,
 				3EFEFE9B1324F3C800EF369E /* ReportCatCell.xib in Resources */,
 				3E895E8513252A8000251E36 /* report-annual.png in Resources */,
@@ -1389,12 +1399,14 @@
 				3E774EEA11888C6600687776 /* PinView-ipad.xib in Resources */,
 				3ED30E741323B53E007E46DC /* TransactionCell.xib in Resources */,
 				3E43FC6E1324E8130059B198 /* ReportView.xib in Resources */,
-				3EFEFE121324ED2100EF369E /* Icon-72.png in Resources */,
 				3EFEFE131324ED2100EF369E /* Icon.png in Resources */,
 				3EFEFE141324ED2100EF369E /* Icon@2x.png in Resources */,
-				3EFEFE1E1324ED2E00EF369E /* Icon-free-72.png in Resources */,
+				3EFEFE121324ED2100EF369E /* Icon-72.png in Resources */,
+				3EA1A46115149410004144B6 /* Icon-72@2x.png in Resources */,
 				3EFEFE1F1324ED2E00EF369E /* Icon-free.png in Resources */,
 				3EFEFE201324ED2E00EF369E /* Icon-free@2x.png in Resources */,
+				3EFEFE1E1324ED2E00EF369E /* Icon-free-72.png in Resources */,
+				3EA1A46315149410004144B6 /* Icon-free-72@2x.png in Resources */,
 				3EFEFE5E1324EEAA00EF369E /* ReportCell.xib in Resources */,
 				3EFEFE9C1324F3C800EF369E /* ReportCatCell.xib in Resources */,
 				3E895E8613252A8000251E36 /* report-annual.png in Resources */,
