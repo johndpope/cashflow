@@ -10,6 +10,11 @@
 
 #define CELL_HEIGHT     120   /* iOS, not retina */
 
+@interface ReportCatGraphCell()
+- (void)_drawCircleGraph:(CGContextRef)context;
+- (void)_drawLegend:(CGContextRef)context;
+@end
+
 @implementation ReportCatGraphCell
 
 + (ReportCatGraphCell *)reportCatGraphCell:(UITableView *)tableView

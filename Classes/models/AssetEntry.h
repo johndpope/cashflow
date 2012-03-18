@@ -12,6 +12,7 @@
 // 各資産（勘定）のエントリ
 //
 @interface AssetEntry : NSObject {
+    @private
     int mAssetKey;
     double mValue;
     double mBalance;
@@ -26,7 +27,6 @@
 @property(nonatomic,assign) double evalue;
 
 - (id)initWithTransaction:(Transaction *)t withAsset:(Asset *)asset;
-- (void)_setupTransaction;
 - (BOOL)changeType:(int)type assetKey:(int)as dstAssetKey:(int)das;
 - (int)dstAsset;
 - (void)setDstAsset:(int)as;

@@ -10,6 +10,11 @@
 #import "AppDelegate.h"
 #import "DescLRUManager.h"
 
+@interface EditDescViewController()
+- (UITableViewCell *)_textFieldCell:(UITableView*)tv;
+- (UITableViewCell *)_descCell:(UITableView*)tv row:(int)row;
+@end
+
 @implementation EditDescViewController
 
 @synthesize delegate = mDelegate, description = mDescription, category = mCategory, tableView = mTableView;

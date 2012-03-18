@@ -84,10 +84,10 @@
     else if (sender == button_8) ch = @"8";
     else if (sender == button_9) ch = @"9";
     
-    [self _onKeyIn:ch];
+    [self onKeyIn:ch];
 }
 
-- (void)_onKeyIn:(NSString *)ch
+- (void)onKeyIn:(NSString *)ch
 {
     if (ch != nil) {
         [mValue appendString:ch];

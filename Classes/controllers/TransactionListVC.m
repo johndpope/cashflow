@@ -98,6 +98,8 @@
 - (void)viewDidUnload
 {
     NSLog(@"TransactionListViewController:viewDidUnload");
+    [super viewDidUnload];
+
 #if FREE_VERSION
     [mAdManager detach];
 #endif

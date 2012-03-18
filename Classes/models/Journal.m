@@ -12,6 +12,10 @@
 #import "Journal.h"
 #import "CashflowDatabase.h"
 
+@interface Journal()
+- (void)_sortByDate;
+@end
+
 @implementation Journal
 
 @synthesize entries = mEntries;

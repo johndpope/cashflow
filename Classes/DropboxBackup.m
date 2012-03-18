@@ -17,6 +17,9 @@
 #define	BACKUP_FILENAME	@"CashFlowBackup.sql"
 #endif
 
+#define BACKUP_DIR      @"/"
+#define BACKUP_FULLPATH BACKUP_DIR BACKUP_FILENAME
+
 @interface DropboxBackup()
 - (void)_login;
 - (void)_exec;
@@ -85,7 +88,7 @@
     mIsLocalModified = [[DataModel instance] isModifiedAfterSync];
     
     // 現在のバージョンを取得する
-    [self.restClient loadRevisionsForFile:@"/" BACKUP_FILENAME];
+    [self.restClient loadRevisionsForFile:BACKUP_FULLPATH];
     
     [mDelegate dropboxBackupStarted:mMode];
 }
@@ -104,7 +107,7 @@
 // バージョン取得
 - (void)restClient:(DBRestClient *)client loadedRevisions:(NSArray *)revisions forFile:(NSString *)path
 {
-    if (![path isEqualToString:@"/" BACKUP_FILENAME]) return;
+    if (![path isEqualToString:BACKUP_FULLPATH]) return;
     
     // 最新版のリビジョンを保存
     for (DBMetadata *m in revisions) {
@@ -125,7 +128,7 @@
                 [self _uploadBackupWithParentRev:mRemoteRev];
             } else if (isRemoteModified) {
                 // download
-                [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:[[DataModel instance] getBackupSqlPath]];
+                [self.restClient loadFile:BACKUP_FULLPATH intoPath:[[DataModel instance] getBackupSqlPath]];
             } else {
                 // no need to sync
                 [self _showResult:_L(@"no_need_to_sync")];
@@ -138,7 +141,7 @@
             break;
             
         case MODE_RESTORE:
-            [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:[[DataModel instance] getBackupSqlPath]];
+            [self.restClient loadFile:BACKUP_FULLPATH intoPath:[[DataModel instance] getBackupSqlPath]];
             break;
     }
 }
@@ -155,7 +158,7 @@
             break;
             
         case MODE_RESTORE:
-            [self.restClient loadFile:@"/" BACKUP_FILENAME intoPath:[[DataModel instance] getBackupSqlPath]];
+            [self.restClient loadFile:BACKUP_FULLPATH intoPath:[[DataModel instance] getBackupSqlPath]];
             break;
     }
 }
@@ -174,7 +177,7 @@
     // start backup
     NSLog(@"uploading file: %@", backupPath);
     [self.restClient uploadFile:BACKUP_FILENAME
-                         toPath:@"/"
+                         toPath:BACKUP_DIR
                   withParentRev:rev
                        fromPath:backupPath];
 }
@@ -185,14 +188,21 @@
     DataModel *dm = [DataModel instance];
     
     [[NSFileManager defaultManager] removeItemAtPath:[dm getBackupSqlPath] error:nil];
+
+    if ([metadata.path isEqualToString:BACKUP_FULLPATH]) {
+        NSLog(@"upload success: new rev : %lld %@", metadata.revision, metadata.rev);
     
-    NSLog(@"upload success: new rev : %lld %@", metadata.revision, metadata.rev);
+        // 同期情報を保存
+        [dm setLastSyncRemoteRev:metadata.rev];
+        [dm setSyncFinished];
     
-    // 同期情報を保存
-    [dm setLastSyncRemoteRev:metadata.rev];
-    [dm setSyncFinished];
-    
-    [self _showResult:_L(@"upload_done")];
+        [self _showResult:_L(@"upload_done")];
+    } else {
+        // バックアップファイル名が変わってしまっている
+        // ⇒ 同時バックアップのため衝突が発生
+        NSLog(@"upload failed because of conflict");
+        [self _showResult:_L(@"upload_failed")];
+    }
     [mDelegate dropboxBackupFinished];
 }
 

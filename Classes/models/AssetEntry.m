@@ -10,6 +10,10 @@
 #import "AppDelegate.h"
 #import "Asset.h"
 
+@interface AssetEntry()
+- (void)_setupTransaction;
+@end
+
 @implementation AssetEntry
 
 @synthesize assetKey = mAssetKey;

@@ -27,8 +27,4 @@
 - (void)firstPinCheck:(UIViewController *)currentVc;
 - (void)modifyPin:(UIViewController *)currentVc;
 
-// internal
-- (void)_allDone;
-- (PinViewController *)_getPinViewController;
-
 @end

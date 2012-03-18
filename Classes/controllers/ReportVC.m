@@ -11,6 +11,12 @@
 #import "ReportCell.h"
 #import "Config.h"
 
+@interface ReportViewController()
+- (void)doneAction:(id)sender;
+- (void)_updateReport;
+- (NSString *)_reportTitle:(ReportEntry *)report;
+@end
+
 @implementation ReportViewController
 
 @synthesize tableView = mTableView;

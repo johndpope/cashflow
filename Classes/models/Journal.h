@@ -16,6 +16,7 @@
 // 仕訳帳
 // 
 @interface Journal : NSObject <NSFastEnumeration> {
+    @private
     NSMutableArray *mEntries;
 }
 
@@ -27,7 +28,5 @@
 - (void)replaceTransaction:(Transaction *)from withObject:(Transaction*)to;
 - (BOOL)deleteTransaction:(Transaction *)tr withAsset:(Asset *)asset;
 - (void)deleteAllTransactionsWithAsset:(Asset *)asset;
-
-- (void)_sortByDate;
 
 @end

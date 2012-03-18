@@ -11,6 +11,10 @@
 #import "Asset.h"
 #import "DataModel.h"
 
+@interface Asset()
+- (void)_deleteEntryAt:(int)n;
+@end
+
 @implementation Asset
 
 + (int)numAssetTypes

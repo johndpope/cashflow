@@ -16,6 +16,7 @@
 @class Asset;
 
 @interface Transaction : TransactionBase <NSCopying> {
+    @private
     // for balance adjustment
     BOOL mHasBalance;
     double mBalance;

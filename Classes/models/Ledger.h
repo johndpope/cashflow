@@ -15,7 +15,9 @@
 
 @interface Ledger : NSObject
 {
-    // Asset
+    @private
+
+    // Assets
     NSMutableArray *mAssets;
 }
 

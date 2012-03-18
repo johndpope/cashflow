@@ -26,6 +26,7 @@
    レポート
 */
 @interface Report : NSObject {
+    @private
     /** レポート種別 (REPORT_XXX) */
     int mType;
 
@@ -39,16 +40,14 @@
 - (void)generate:(int)type asset:(Asset *)asset;
 - (double)getMaxAbsValue;
 
-// private
-- (NSDate*)firstDateOfAsset:(int)asset;
-- (NSDate*)lastDateOfAsset:(int)asset;
-
 @end
 
 /**
    各期間毎のレポートエントリ
 */
 @interface ReportEntry : NSObject {
+    @private
+
     /** 資産キー */
     int mAssetKey;
     
@@ -91,8 +90,6 @@
 - (BOOL)addTransaction:(Transaction*)t;
 - (void)sortAndTotalUp;
 
-- (double)_sortAndTotalUp:(NSMutableArray*)array;
-
 @end
 
 /**
@@ -101,6 +98,8 @@
    本エントリは、期間(ReportEntry)毎、カテゴリ毎に１つ生成
 */
 @interface CatReport : NSObject {
+    @private
+
     /** カテゴリ (-1 は未分類) */
     int mCategory;
     

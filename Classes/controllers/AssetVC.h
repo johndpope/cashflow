@@ -21,11 +21,7 @@
     UIButton *mDelButton;
 }
 
-//@property(nonatomic,assign) Asset *asset;
-
 - (void)setAssetIndex:(int)n;
 - (void)saveAction;
-
-//- (void)delButtonTapped;
 
 @end

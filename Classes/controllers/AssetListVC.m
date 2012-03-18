@@ -17,13 +17,21 @@
 #import "PinController.h"
 #import "ConfigViewController.h"
 
+@interface AssetListViewController()
+- (void)_dataModelLoadedOnMainThread:(id)dummy;
+//- (void)_showInitialAsset;
+- (int)_assetIndex:(NSIndexPath*)indexPath;
+- (void)_actionDelete:(NSInteger)buttonIndex;
+- (void)_actionActionButton:(NSInteger)buttonIndex;
+@end
+
 @implementation AssetListViewController
 
 @synthesize tableView = mTableView;
 
 - (void)viewDidLoad
 {
-    //NSLog(@"AssetListViewController:viewDidLoad");
+    NSLog(@"AssetListViewController:viewDidLoad");
     [super viewDidLoad];
     
     //[AppDelegate trackPageview:@"/AssetListViewController"];
@@ -67,20 +75,35 @@
     }
     
     // データロード開始
-    mIsLoadDone = NO;
-    [[DataModel instance] startLoad:self];
+    DataModel *dm = [DataModel instance];
+    mIsLoadDone = dm.isLoadDone;
+    if (!mIsLoadDone) {
+        [dm startLoad:self];
     
-    // Loading View を表示させる
-    mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Loading"];
-    [mLoadingView setOrientation:self.interfaceOrientation];
-    mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
-    [mLoadingView show];
+        // Loading View を表示させる
+        mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Loading"];
+        [mLoadingView setOrientation:self.interfaceOrientation];
+        mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
+        [mLoadingView show];
+    }
+}
+
+- (void)viewDidUnload {
+    NSLog(@"AssetLivewViewController:viewDidUnload");
+    [super viewDidUnload];
+
+    mIconArray = nil;
+}
+
+- (void)didReceiveMemoryWarning {
+    NSLog(@"AssetListViewController:didReceiveMemoryWarning");
+    [super didReceiveMemoryWarning];
 }
 
 #pragma mark DataModelDelegate
 - (void)dataModelLoaded
 {
-    //NSLog(@"AssetListViewController:dataModelLoaded");
+    NSLog(@"AssetListViewController:dataModelLoaded");
 
     mIsLoadDone = YES;
     mLedger = [DataModel ledger];
@@ -95,9 +118,15 @@
     mLoadingView = nil;
 
     [self reload];
-    [self _showInitialAsset];
+    //[self _showInitialAsset];
 }
 
+/**
+   '12/3/15
+   安定性向上のため、最後に使った資産に遷移しないようにした。
+   起動時に TransactionListVC で固まるケースが多いため。
+*/
+#if 0
 - (void)_showInitialAsset
 {
     // 最後に使った Asset に遷移する
@@ -125,12 +154,7 @@
         }
     }
 }
-
-- (void)didReceiveMemoryWarning {
-    NSLog(@"AssetListViewController:didReceiveMemoryWarning");
-    //[super didReceiveMemoryWarning];
-}
-
+#endif
 
 - (void)reload
 {
@@ -171,10 +195,12 @@
          isInitial = NO;
      } 
     else if (!IS_IPAD) {
+#if 0        
         // 初回以外：初期起動する画面を資産一覧画面に戻しておく
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setInteger:-1 forKey:@"firstShowAssetIndex"];
         [defaults synchronize];
+#endif
     }
 }
 
@@ -182,8 +208,10 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+#if 0
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
+#endif
 }
 
 #pragma mark TableViewDataSource
@@ -290,9 +318,11 @@
     if (assetIndex < 0) return;
 
     // save preference
+#if 0
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setInteger:assetIndex forKey:@"firstShowAssetIndex"];
     [defaults synchronize];
+#endif
 	
     Asset *asset = [mLedger assetAtIndex:assetIndex];
 

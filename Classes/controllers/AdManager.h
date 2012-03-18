@@ -27,7 +27,7 @@
 
 @interface AdManager : NSObject <ADBannerViewDelegate, GADBannerViewDelegate>
 {
-    id<AdManagerDelegate> mDelegate;
+    id<AdManagerDelegate> __unsafe_unretained mDelegate;
     
     BOOL mIsShowAdSucceeded;
     
@@ -50,11 +50,5 @@
 - (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController;
 - (void)detach;
 - (void)showAd;
-
-- (void)_createIAd;
-- (void)_releaseIAd;
-
-- (void)_createAdMob;
-- (void)_releaseAdMob;
 
 @end

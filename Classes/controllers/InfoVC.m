@@ -9,6 +9,10 @@
 #import "InfoVC.h"
 #import "SupportMail.h"
 
+@interface InfoVC()
+- (void)_setButtonTitle:(UIButton*)button title:(NSString*)title;
+@end
+
 @implementation InfoVC
 
 - (id)init

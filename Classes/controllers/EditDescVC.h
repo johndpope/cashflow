@@ -30,14 +30,11 @@
 }
 
 @property(nonatomic,assign) id<EditDescViewDelegate> delegate;
-@property(nonatomic,retain)	NSString *description;
-@property(nonatomic,assign)	int category;
+@property(nonatomic,retain) NSString *description;
+@property(nonatomic,assign) int category;
 
 @property(nonatomic,readonly) UITableView *tableView; // for test
 
 - (void)doneAction;
-
-- (UITableViewCell *)_textFieldCell:(UITableView*)tv;
-- (UITableViewCell *)_descCell:(UITableView*)tv row:(int)row;
 
 @end

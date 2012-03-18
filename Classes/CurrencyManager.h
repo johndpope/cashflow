@@ -9,6 +9,8 @@
 
 @interface CurrencyManager : NSObject
 {
+    @private
+
     NSString *mBaseCurrency;
     NSArray *mCurrencies;
 
@@ -22,10 +24,6 @@
 
 + (NSString *)systemCurrency;
 + (NSString *)formatCurrency:(double)value;
-
-// private
-- (NSString *)_formatCurrency:(double)value;
-
 
 @end
 

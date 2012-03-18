@@ -23,6 +23,4 @@
 - (IBAction)purchaseStandardVersion;
 - (IBAction)sendSupportMail;
 
-- (void)_setButtonTitle:(UIButton*)button title:(NSString*)title;
-
 @end

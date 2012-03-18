@@ -106,11 +106,11 @@
 
 - (void)testAutoFinish
 {
-    [self.vc _onKeyIn:@"1"];
-    [self.vc _onKeyIn:@"2"];
-    [self.vc _onKeyIn:@"3"];
+    [self.vc onKeyIn:@"1"];
+    [self.vc onKeyIn:@"2"];
+    [self.vc onKeyIn:@"3"];
     AssertFalse(mIsFinished);
-    [self.vc _onKeyIn:@"4"];
+    [self.vc onKeyIn:@"4"];
     Assert(mIsFinished);
     AssertFalse(mIsCanceled);
 }
