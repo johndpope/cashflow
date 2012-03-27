@@ -14,7 +14,6 @@
 - (void)_asCancelTransaction:(int)buttonIndex;
 
 - (UITableViewCell *)getCellForField:(NSIndexPath*)indexPath tableView:(UITableView *)tableView;
-//- (UITableViewCell *)getCellForDelButton:(UITableView *)tableView isDeleteAll:(Boolean)flag;
 
 - (void)_dismissPopover;
 @end
@@ -32,6 +31,9 @@
 #define ROW_MEMO  5
 
 #define NUM_ROWS 6
+
+// for debug
+#define REFCOUNT(x) CFGetRetainCount((__bridge void *)(x))
 
 - (id)init
 {
@@ -63,11 +65,14 @@
                                  _L(@"Adjustment"),
                                  _L(@"Transfer"),
                                  nil];
-	
+
     // ボタン生成
-    UIButton *b;
+    // TODO:
+    // b を unsafe unretained にしておかないと、オブジェクトのリファレンスカウンタが足りなくなりクラッシュする。
+    // ARC 周りのバグか？
+    __unsafe_unretained UIButton *b;
     UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
-				
+
     int i;
     for (i = 0; i < 2; i++) {
         b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -99,10 +104,9 @@
 
         b.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self.view addSubview:b];
-        //[self.view bringSubviewToFront:b];
+        b = nil; // 念のため
     }
 }
-
 
 // 処理するトランザクションをロードしておく
 - (void)setTransactionIndex:(int)n
@@ -143,6 +147,12 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    /*
+    [mDelButton removeFromSuperview];
+    mDelButton = nil;
+    [mDelPastButton removeFromSuperview];
+    mDelPastButton = nil;
+    */
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -178,26 +188,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:MyIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-        /*
-        name = [[[UILabel alloc] initWithFrame:CGRectMake(0, 6, 110, 32)] autorelease];
-        name.tag = 1;
-        name.font = [UIFont systemFontOfSize: 14.0];
-        name.textColor = [UIColor blueColor];
-        name.textAlignment = UITextAlignmentRight;
-        name.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [cell.contentView addSubview:name];
-
-        value = [[[UILabel alloc] initWithFrame:CGRectMake(90, 6, 210, 32)] autorelease];
-        value.tag = 2;
-        value.font = [UIFont systemFontOfSize: 16.0];
-        value.textColor = [UIColor blackColor];
-        value.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [cell.contentView addSubview:value];
-         */
-    } else {
-        //name  = (UILabel *)[cell.contentView viewWithTag:1];
-        //value = (UILabel *)[cell.contentView viewWithTag:2];
     }
 
     name = cell.textLabel;

@@ -40,8 +40,8 @@
     UIPopoverController *mCurrentPopoverController;
 }
 
-@property(nonatomic,assign) Asset *asset;
-@property(nonatomic,retain) AssetEntry *editingEntry;
+@property(nonatomic,unsafe_unretained) Asset *asset;
+@property(nonatomic,strong) AssetEntry *editingEntry;
 
 - (void)setTransactionIndex:(int)n;
 - (void)saveAction;
