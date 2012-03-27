@@ -32,6 +32,9 @@
 
 #define NUM_ROWS 6
 
+// for debug
+#define REFCOUNT(x) CFGetRetainCount((__bridge void *)(x))
+
 - (id)init
 {
     self = [super initWithNibName:@"TransactionView" bundle:nil];
@@ -62,11 +65,14 @@
                                  _L(@"Adjustment"),
                                  _L(@"Transfer"),
                                  nil];
-	
+
     // ボタン生成
-    UIButton *b;
+    // TODO:
+    // b を unsafe unretained にしておかないと、オブジェクトのリファレンスカウンタが足りなくなりクラッシュする。
+    // ARC 周りのバグか？
+    __unsafe_unretained UIButton *b;
     UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
-				
+
     int i;
     for (i = 0; i < 2; i++) {
         b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -98,10 +104,9 @@
 
         b.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self.view addSubview:b];
-        //[self.view bringSubviewToFront:b];
+        b = nil; // 念のため
     }
 }
-
 
 // 処理するトランザクションをロードしておく
 - (void)setTransactionIndex:(int)n
@@ -142,6 +147,12 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    /*
+    [mDelButton removeFromSuperview];
+    mDelButton = nil;
+    [mDelPastButton removeFromSuperview];
+    mDelPastButton = nil;
+    */
 }
 
 /////////////////////////////////////////////////////////////////////////////////
