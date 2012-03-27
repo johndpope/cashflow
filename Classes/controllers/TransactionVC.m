@@ -14,7 +14,6 @@
 - (void)_asCancelTransaction:(int)buttonIndex;
 
 - (UITableViewCell *)getCellForField:(NSIndexPath*)indexPath tableView:(UITableView *)tableView;
-//- (UITableViewCell *)getCellForDelButton:(UITableView *)tableView isDeleteAll:(Boolean)flag;
 
 - (void)_dismissPopover;
 @end
@@ -178,26 +177,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:MyIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-        /*
-        name = [[[UILabel alloc] initWithFrame:CGRectMake(0, 6, 110, 32)] autorelease];
-        name.tag = 1;
-        name.font = [UIFont systemFontOfSize: 14.0];
-        name.textColor = [UIColor blueColor];
-        name.textAlignment = UITextAlignmentRight;
-        name.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [cell.contentView addSubview:name];
-
-        value = [[[UILabel alloc] initWithFrame:CGRectMake(90, 6, 210, 32)] autorelease];
-        value.tag = 2;
-        value.font = [UIFont systemFontOfSize: 16.0];
-        value.textColor = [UIColor blackColor];
-        value.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [cell.contentView addSubview:value];
-         */
-    } else {
-        //name  = (UILabel *)[cell.contentView viewWithTag:1];
-        //value = (UILabel *)[cell.contentView viewWithTag:2];
     }
 
     name = cell.textLabel;

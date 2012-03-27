@@ -14,7 +14,7 @@
 
 + (TransactionCell *)transactionCell:(UITableView *)tableView
 {
-    NSString *identifier = @"TransactionCell";
+    static NSString *identifier = @"TransactionCell";
 
     TransactionCell *cell = (TransactionCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
