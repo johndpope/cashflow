@@ -1,3 +1,10 @@
+2012-03-27 : Takuya Murakami
+
+	* ver 5.1.2 (v45) (Free版のみ)
+	* ARCバグ? TransactionVC がクラッシュする問題を修正
+	  TableView に貼りつけた２つのボタンが二重解放されていた。
+	  リファレンスカウントが想定よりも -1 になっていたため。
+	
 2012-03-17 : Takuya Murakami
 
 	* ver 5.1.1 (v44)
