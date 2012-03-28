@@ -15,6 +15,10 @@
 @end
 
 @implementation ReportEntry
+{
+    /** 資産キー */
+    int mAssetKey;
+}
 
 @synthesize start = mStart, end = mEnd;
 @synthesize totalIncome = mTotalIncome, totalOutgo = mTotalOutgo;
