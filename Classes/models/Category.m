@@ -13,6 +13,9 @@
 @end
 
 @implementation Categories
+{
+    NSMutableArray *mCategories;
+}
 
 -(id)init
 {

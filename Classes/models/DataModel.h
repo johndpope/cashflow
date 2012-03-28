@@ -17,10 +17,6 @@
 @end
 
 @interface DataModel : NSObject
-{
-    @private
-    id<DataModelDelegate> mDelegate;
-}
 
 @property(nonatomic,strong) Journal *journal;
 @property(nonatomic,strong) Ledger *ledger;

@@ -16,6 +16,10 @@
 @end
 
 @implementation Asset
+{
+    NSMutableArray *mEntries; // AssetEntry の配列
+    //double mLastBalance;
+}
 
 + (int)numAssetTypes
 {

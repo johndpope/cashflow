@@ -23,6 +23,11 @@
 @end
 
 @implementation CashflowDatabase
+{
+    NSDateFormatter *dateFormatter;
+    DateFormatter2 *dateFormatter2;
+    NSDateFormatter *dateFormatter3;
+}
 
 @synthesize needFixDateFormat;
 

@@ -20,14 +20,7 @@
 /**
    Wrapper class of sqlite3 database
 */
-@interface CashflowDatabase : Database {
-    @private
-    NSDateFormatter *dateFormatter;
-    DateFormatter2 *dateFormatter2;
-    NSDateFormatter *dateFormatter3;
-    
-    BOOL needFixDateFormat;
-}
+@interface CashflowDatabase : Database
 
 @property(nonatomic,readonly) BOOL needFixDateFormat;
 

@@ -19,6 +19,9 @@
 @end
 
 @implementation DataModel
+{
+    id<DataModelDelegate> mDelegate;
+}
 
 @synthesize journal = mJournal;
 @synthesize ledger = mLedger;
