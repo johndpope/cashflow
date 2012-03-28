@@ -65,8 +65,8 @@ typedef enum {
     calcOperator mStoredOperator;
 }
 
-@property(nonatomic,assign) id<CalculatorViewDelegate> delegate;
-@property(nonatomic,assign) double value;
+@property(nonatomic,unsafe_unretained) id<CalculatorViewDelegate> delegate;
+@property(nonatomic) double value;
 
 - (IBAction)onButtonDown:(id)sender;
 - (IBAction)onButtonPressed:(id)sender;

@@ -22,9 +22,9 @@
     int mIdentifier;
 }
 
-@property(nonatomic,assign) id<EditMemoViewDelegate> delegate;
-@property(nonatomic,assign) int identifier;
-@property(nonatomic,retain) NSString *text;
+@property(nonatomic,unsafe_unretained) id<EditMemoViewDelegate> delegate;
+@property(nonatomic) int identifier;
+@property(nonatomic) NSString *text;
 
 + (EditMemoViewController *)editMemoViewController:(id<EditMemoViewDelegate>)delegate title:(NSString*)title identifier:(int)id;
 - (void)doneAction;

@@ -14,7 +14,7 @@
     CatReport *mCatReport;
 }
 
-@property(nonatomic,retain) CatReport *catReport;
+@property(nonatomic) CatReport *catReport;
 
 - (void)doneAction:(id)sender;
 

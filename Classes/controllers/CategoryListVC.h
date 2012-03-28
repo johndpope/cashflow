@@ -24,8 +24,8 @@
     id<CategoryListViewDelegate> __unsafe_unretained mDelegate;
 }
 
-@property(nonatomic,assign) BOOL isSelectMode;
-@property(nonatomic,assign) int selectedIndex;
-@property(nonatomic,assign) id<CategoryListViewDelegate> delegate;
+@property(nonatomic) BOOL isSelectMode;
+@property(nonatomic) int selectedIndex;
+@property(nonatomic,unsafe_unretained) id<CategoryListViewDelegate> delegate;
 
 @end

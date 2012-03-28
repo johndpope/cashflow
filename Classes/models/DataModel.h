@@ -33,9 +33,9 @@
     BOOL mIsLoadDone;
 }
 
-@property(nonatomic,retain) Journal *journal;
-@property(nonatomic,retain) Ledger *ledger;
-@property(nonatomic,retain) Categories *categories;
+@property(nonatomic) Journal *journal;
+@property(nonatomic) Ledger *ledger;
+@property(nonatomic) Categories *categories;
 @property(readonly) BOOL isLoadDone;
 
 + (DataModel *)instance;

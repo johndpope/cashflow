@@ -20,11 +20,11 @@
     Transaction *mTransaction;
 }
 
-@property(nonatomic,assign) int assetKey;
-@property(nonatomic,retain) Transaction *transaction;
-@property(nonatomic,assign) double value;
-@property(nonatomic,assign) double balance;
-@property(nonatomic,assign) double evalue;
+@property(nonatomic) int assetKey;
+@property(nonatomic) Transaction *transaction;
+@property(nonatomic) double value;
+@property(nonatomic) double balance;
+@property(nonatomic) double evalue;
 
 - (id)initWithTransaction:(Transaction *)t withAsset:(Asset *)asset;
 - (BOOL)changeType:(int)type assetKey:(int)as dstAssetKey:(int)das;

@@ -29,9 +29,9 @@
     int mCategory;
 }
 
-@property(nonatomic,assign) id<EditDescViewDelegate> delegate;
-@property(nonatomic,retain) NSString *description;
-@property(nonatomic,assign) int category;
+@property(nonatomic,unsafe_unretained) id<EditDescViewDelegate> delegate;
+@property(nonatomic) NSString *description;
+@property(nonatomic) int category;
 
 @property(nonatomic,readonly) UITableView *tableView; // for test
 

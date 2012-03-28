@@ -26,8 +26,8 @@
     IBOutlet TransactionListViewController *transactionListViewController;
 }
 
-@property (nonatomic, retain) UIWindow *window;
-@property (nonatomic, retain) UINavigationController *navigationController;
+@property (nonatomic) UIWindow *window;
+@property (nonatomic) UINavigationController *navigationController;
 @property (nonatomic, readonly) UISplitViewController *splitViewController;
 
 - (void)checkPin;

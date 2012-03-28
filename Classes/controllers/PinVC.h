@@ -38,9 +38,9 @@
     id<PinViewDelegate> __unsafe_unretained mDelegate;
 }
 
-@property(nonatomic,assign) id<PinViewDelegate> delegate;
-@property(nonatomic,retain) NSMutableString *value;
-@property(nonatomic,assign) BOOL enableCancel;
+@property(nonatomic,unsafe_unretained) id<PinViewDelegate> delegate;
+@property(nonatomic) NSMutableString *value;
+@property(nonatomic) BOOL enableCancel;
 
 - (IBAction)onNumButtonDown:(id)sender;
 - (IBAction)onNumButtonPressed:(id)sender;

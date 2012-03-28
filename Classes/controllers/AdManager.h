@@ -43,7 +43,7 @@
     BOOL mIsAdMobBannerLoaded;
 }
 
-@property(nonatomic,assign) BOOL isShowAdSucceeded;
+@property(nonatomic) BOOL isShowAdSucceeded;
 
 + (AdManager *)sharedInstance;
 

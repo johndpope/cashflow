@@ -23,10 +23,10 @@
     int mSelectedIndex;
 }
 
-@property(nonatomic,assign) id<GenSelectListViewDelegate> delegate;
-@property(nonatomic,assign) int identifier;
-@property(nonatomic,retain) NSArray *items;
-@property(nonatomic,assign) int selectedIndex;
+@property(nonatomic,unsafe_unretained) id<GenSelectListViewDelegate> delegate;
+@property(nonatomic) int identifier;
+@property(nonatomic) NSArray *items;
+@property(nonatomic) int selectedIndex;
 
 + (GenSelectListViewController *)genSelectListViewController:(id<GenSelectListViewDelegate>)delegate items:(NSArray*)ary title:(NSString*)title identifier:(int)id;
 

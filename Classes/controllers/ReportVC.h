@@ -22,8 +22,8 @@
     NSDateFormatter *mDateFormatter;
 }
 
-@property(nonatomic,retain) UITableView *tableView;
-@property(nonatomic,retain) Asset *designatedAsset;
+@property(nonatomic) UITableView *tableView;
+@property(nonatomic) Asset *designatedAsset;
 
 - (id)initWithAsset:(Asset*)asset type:(int)type;    // designated initializer
 - (id)initWithAsset:(Asset*)asset; 

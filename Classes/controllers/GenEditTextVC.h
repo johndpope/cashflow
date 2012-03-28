@@ -22,9 +22,9 @@
     int mIdentifier;
 }
 
-@property(nonatomic,assign) id<GenEditTextViewDelegate> delegate;
-@property(nonatomic,assign) int identifier;
-@property(nonatomic,retain) NSString *text;
+@property(nonatomic,unsafe_unretained) id<GenEditTextViewDelegate> delegate;
+@property(nonatomic) int identifier;
+@property(nonatomic) NSString *text;
 
 + (GenEditTextViewController *)genEditTextViewController:(id<GenEditTextViewDelegate>)delegate title:(NSString*)title identifier:(int)id;
 - (void)doneAction;

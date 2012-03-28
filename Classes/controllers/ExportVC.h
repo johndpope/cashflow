@@ -27,7 +27,7 @@
     Asset *__unsafe_unretained mAsset;
 }
 
-@property(nonatomic,assign) Asset *asset;
+@property(nonatomic,unsafe_unretained) Asset *asset;
 
 - (IBAction)doExport;
 - (id)initWithAsset:(Asset *)asset;

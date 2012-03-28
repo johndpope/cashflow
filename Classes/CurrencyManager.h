@@ -17,8 +17,8 @@
     NSNumberFormatter *mNumberFormatter;
 }
 
-@property(nonatomic,retain) NSString *baseCurrency;
-@property(nonatomic,retain) NSArray *currencies;
+@property(nonatomic) NSString *baseCurrency;
+@property(nonatomic) NSArray *currencies;
 
 + (CurrencyManager *)instance;
 

@@ -14,7 +14,7 @@
     ReportEntry *mReportEntry;
 }
 
-@property(nonatomic,retain) ReportEntry *reportEntry;
+@property(nonatomic) ReportEntry *reportEntry;
 
 - (void)doneAction:(id)sender;
 

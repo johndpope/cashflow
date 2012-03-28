@@ -17,9 +17,9 @@
     NSString *mFilename;
 }
 
-@property(nonatomic,retain) NSString* contentType;
-@property(nonatomic,retain) NSData* contentBody;
-@property(nonatomic,retain) NSString* filename;
+@property(nonatomic) NSString* contentType;
+@property(nonatomic) NSData* contentBody;
+@property(nonatomic) NSString* filename;
 
 - (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(int)bodylen;
 @end

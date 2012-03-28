@@ -39,7 +39,7 @@
     IBOutlet TransactionListViewController *mSplitTransactionListViewController;
 }
 
-@property(nonatomic,retain) UITableView *tableView;
+@property(nonatomic) UITableView *tableView;
 
 - (void)reload;
 - (void)addAsset;
