@@ -11,14 +11,7 @@
 //
 // 各資産（勘定）のエントリ
 //
-@interface AssetEntry : NSObject {
-    @private
-    int mAssetKey;
-    double mValue;
-    double mBalance;
-
-    Transaction *mTransaction;
-}
+@interface AssetEntry : NSObject
 
 @property(nonatomic,assign) int assetKey;
 @property(nonatomic,strong) Transaction *transaction;

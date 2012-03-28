@@ -19,18 +19,7 @@
 @interface DataModel : NSObject
 {
     @private
-
-    // Journal
-    Journal *mJournal;
-
-    // Ledger
-    Ledger *mLedger;
-
-    // Category
-    Categories *mCategories;
-    
     id<DataModelDelegate> mDelegate;
-    BOOL mIsLoadDone;
 }
 
 @property(nonatomic,strong) Journal *journal;

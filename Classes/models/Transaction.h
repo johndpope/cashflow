@@ -15,13 +15,9 @@
 
 @class Asset;
 
-@interface Transaction : TransactionBase <NSCopying> {
-    @private
-    // for balance adjustment
-    BOOL mHasBalance;
-    double mBalance;
-}
+@interface Transaction : TransactionBase <NSCopying>
 
+// for balance adjustment
 @property(nonatomic,assign) BOOL hasBalance;
 @property(nonatomic,assign) double balance;
 

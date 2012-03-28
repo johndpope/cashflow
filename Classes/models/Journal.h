@@ -15,10 +15,7 @@
 //
 // 仕訳帳
 // 
-@interface Journal : NSObject <NSFastEnumeration> {
-    @private
-    NSMutableArray *mEntries;
-}
+@interface Journal : NSObject <NSFastEnumeration>
 
 @property(nonatomic,readonly) NSMutableArray *entries;
 

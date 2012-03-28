@@ -14,12 +14,6 @@
 #import "Database.h"
 
 @interface Ledger : NSObject
-{
-    @private
-
-    // Assets
-    NSMutableArray *mAssets;
-}
 
 @property(nonatomic,strong) NSMutableArray *assets;
 

@@ -8,9 +8,6 @@
 #import "DescLRU.h"
 
 @interface DescLRUManager : NSObject
-{
-}
-
 + (void)migrate;
 
 + (void)addDescLRU:(NSString *)description category:(int)category;
