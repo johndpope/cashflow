@@ -27,10 +27,10 @@
     int mLastReportType;
 }
 
-@property(nonatomic) int dateTimeMode;
-@property(nonatomic) int startOfWeek;
-@property(nonatomic) int cutoffDate;
-@property(nonatomic) int lastReportType;
+@property(nonatomic,assign) int dateTimeMode;
+@property(nonatomic,assign) int startOfWeek;
+@property(nonatomic,assign) int cutoffDate;
+@property(nonatomic,assign) int lastReportType;
 
 + (Config *)instance;
 - (void)save;

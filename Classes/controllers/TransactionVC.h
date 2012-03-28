@@ -41,7 +41,7 @@
 }
 
 @property(nonatomic,unsafe_unretained) Asset *asset;
-@property(nonatomic) AssetEntry *editingEntry;
+@property(nonatomic,strong) AssetEntry *editingEntry;
 
 - (void)setTransactionIndex:(int)n;
 - (void)saveAction;

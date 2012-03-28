@@ -66,7 +66,7 @@ typedef enum {
 }
 
 @property(nonatomic,unsafe_unretained) id<CalculatorViewDelegate> delegate;
-@property(nonatomic) double value;
+@property(nonatomic,assign) double value;
 
 - (IBAction)onButtonDown:(id)sender;
 - (IBAction)onButtonPressed:(id)sender;

@@ -24,7 +24,7 @@
 }
 
 @property(nonatomic,unsafe_unretained) id<EditDateViewDelegate> delegate;
-@property(nonatomic) NSDate *date;
+@property(nonatomic,strong) NSDate *date;
 
 - (void)doneAction;
 

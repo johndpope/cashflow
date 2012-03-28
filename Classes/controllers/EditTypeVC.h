@@ -24,7 +24,7 @@
 }
 
 @property(nonatomic,unsafe_unretained) id<EditTypeViewDelegate> delegate;
-@property(nonatomic) int type;
-@property(nonatomic) int dstAsset;
+@property(nonatomic,assign) int type;
+@property(nonatomic,assign) int dstAsset;
 
 @end

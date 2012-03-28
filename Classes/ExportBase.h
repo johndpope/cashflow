@@ -29,7 +29,7 @@
     DBLoadingView *mLoadingView;
 }
 
-@property(nonatomic) NSDate *firstDate;
+@property(nonatomic,strong) NSDate *firstDate;
 @property(nonatomic,unsafe_unretained) NSArray *assets;
 
 @property(nonatomic,readonly) DBRestClient *restClient;

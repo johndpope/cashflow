@@ -34,8 +34,8 @@
     NSMutableArray *mReportEntries;
 }
 
-@property(nonatomic) int type;
-@property(nonatomic) NSMutableArray *reportEntries;
+@property(nonatomic,assign) int type;
+@property(nonatomic,strong) NSMutableArray *reportEntries;
 
 - (void)generate:(int)type asset:(Asset *)asset;
 - (double)getMaxAbsValue;

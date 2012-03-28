@@ -21,7 +21,7 @@
     NSMutableArray *mAssets;
 }
 
-@property(nonatomic) NSMutableArray *assets;
+@property(nonatomic,strong) NSMutableArray *assets;
 
 // asset operation
 - (void)load;

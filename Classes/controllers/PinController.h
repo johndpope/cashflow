@@ -19,8 +19,8 @@
     UINavigationController *mNavigationController;
 }
 
-@property NSString *pin;
-@property NSString *pinNew;
+@property(strong) NSString *pin;
+@property(strong) NSString *pinNew;
 
 + (PinController *)pinController;
 

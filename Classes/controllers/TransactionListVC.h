@@ -47,10 +47,10 @@
 }
 
 //- (UITableView*)tableView;
-@property(nonatomic) UITableView *tableView;
-@property(nonatomic) int assetKey;
+@property(nonatomic,strong) UITableView *tableView;
+@property(nonatomic,assign) int assetKey;
 @property(nonatomic,readonly) Asset *asset;
-@property(nonatomic) UIPopoverController *popoverController;
+@property(nonatomic,strong) UIPopoverController *popoverController;
 
 - (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath;
 - (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath;

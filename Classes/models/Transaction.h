@@ -22,8 +22,8 @@
     double mBalance;
 }
 
-@property(nonatomic) BOOL hasBalance;
-@property(nonatomic) double balance;
+@property(nonatomic,assign) BOOL hasBalance;
+@property(nonatomic,assign) double balance;
 
 - (id)initWithDate:(NSDate*)date description:(NSString*)desc value:(double)v;
 

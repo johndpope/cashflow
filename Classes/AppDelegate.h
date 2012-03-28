@@ -26,9 +26,9 @@
     IBOutlet TransactionListViewController *transactionListViewController;
 }
 
-@property (nonatomic) UIWindow *window;
-@property (nonatomic) UINavigationController *navigationController;
-@property (nonatomic, readonly) UISplitViewController *splitViewController;
+@property (nonatomic,strong) UIWindow *window;
+@property (nonatomic,strong) UINavigationController *navigationController;
+@property (nonatomic,readonly) UISplitViewController *splitViewController;
 
 - (void)checkPin;
 + (BOOL)isPrevCrashed;

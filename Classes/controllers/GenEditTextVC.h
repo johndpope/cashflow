@@ -23,8 +23,8 @@
 }
 
 @property(nonatomic,unsafe_unretained) id<GenEditTextViewDelegate> delegate;
-@property(nonatomic) int identifier;
-@property(nonatomic) NSString *text;
+@property(nonatomic,assign) int identifier;
+@property(nonatomic,strong) NSString *text;
 
 + (GenEditTextViewController *)genEditTextViewController:(id<GenEditTextViewDelegate>)delegate title:(NSString*)title identifier:(int)id;
 - (void)doneAction;

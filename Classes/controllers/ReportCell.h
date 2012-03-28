@@ -21,10 +21,10 @@
     IBOutlet UIView *mOutgoGraph;
 }
 
-@property(nonatomic) NSString *name;
-@property(nonatomic) double income;
-@property(nonatomic) double outgo;
-@property(nonatomic) double maxAbsValue;
+@property(nonatomic,strong) NSString *name;
+@property(nonatomic,assign) double income;
+@property(nonatomic,assign) double outgo;
+@property(nonatomic,assign) double maxAbsValue;
 
 + (ReportCell *)reportCell:(UITableView *)tableView;
 + (CGFloat)cellHeight;

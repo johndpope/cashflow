@@ -30,8 +30,8 @@
 }
 
 @property(nonatomic,unsafe_unretained) id<EditDescViewDelegate> delegate;
-@property(nonatomic) NSString *description;
-@property(nonatomic) int category;
+@property(nonatomic,strong) NSString *description;
+@property(nonatomic,assign) int category;
 
 @property(nonatomic,readonly) UITableView *tableView; // for test
 
