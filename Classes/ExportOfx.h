@@ -14,16 +14,5 @@
 #import "ExportServer.h"
 #import "Asset.h"
 
-@interface ExportOfx : ExportBase <UIAlertViewDelegate> {
-    NSDateFormatter *mDateFormatter;
-    NSCalendar *mGregCalendar;
-}
-
-// private
-- (void)_statementTransactionResponse:(NSMutableString *)data asset:(Asset *)asset;
-- (NSString*)_typeStringWithAssetEntry:(AssetEntry*)e;
-- (NSString*)_dateStr:(NSDate*)date;
-- (NSString*)_dateStrWithAssetEntry:(AssetEntry*)e;
-- (NSString*)_fitIdWithAssetEntry:(AssetEntry*)e;
-- (NSString*)_escapeXmlString:(NSString *)s;
+@interface ExportOfx : ExportBase <UIAlertViewDelegate>
 @end

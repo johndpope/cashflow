@@ -12,6 +12,9 @@
 @end
 
 @implementation CurrencyManager
+{
+    NSNumberFormatter *mNumberFormatter;
+}
 
 @synthesize baseCurrency = mBaseCurrency;
 @synthesize currencies = mCurrencies;

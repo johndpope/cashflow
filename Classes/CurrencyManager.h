@@ -8,10 +8,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CurrencyManager : NSObject
-{
-    @private
-    NSNumberFormatter *mNumberFormatter;
-}
 
 @property(nonatomic,strong) NSString *baseCurrency;
 @property(nonatomic,strong) NSArray *currencies;

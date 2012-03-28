@@ -13,12 +13,6 @@
    Simple web server
 */
 @interface WebServer : NSObject
-{
-    int mListenSock;
-    struct sockaddr_in mServAddr;
-	
-    NSThread *mThread;
-}
 
 - (BOOL)startServer;
 - (void)stopServer;

@@ -11,8 +11,6 @@
 
 #import "ExportBase.h"
 
-@interface ExportCsv : ExportBase {
-}
-
+@interface ExportCsv : ExportBase
 @end
 

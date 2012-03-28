@@ -28,6 +28,19 @@
 @end
 
 @implementation DropboxBackup
+{
+    id<DropboxBackupDelegate> mDelegate;
+    
+    DBRestClient *mRestClient;
+    UIViewController *mViewController;
+    int mMode;
+    
+    // リモートのリビジョン
+    NSString *mRemoteRev;
+    
+    // 前回の同期以降、ローカル DB が変更されているかどうか
+    BOOL mIsLocalModified;
+}
 
 - (id)init:(id<DropboxBackupDelegate>)delegate
 {
