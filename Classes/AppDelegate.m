@@ -23,6 +23,9 @@
 @end
 
 @implementation AppDelegate
+{
+    UIApplication *_application;
+}
 
 @synthesize window;
 @synthesize navigationController;

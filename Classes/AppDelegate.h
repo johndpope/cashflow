@@ -15,9 +15,8 @@
 
 #define DBNAME  @"CashFlow.db"
 
-@interface AppDelegate : NSObject <UIApplicationDelegate> {
-    UIApplication *_application;
-
+@interface AppDelegate : NSObject <UIApplicationDelegate>
+{
     IBOutlet AssetListViewController *assetListViewController;
     IBOutlet TransactionListViewController *transactionListViewController;
 }
