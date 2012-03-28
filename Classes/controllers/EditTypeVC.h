@@ -18,9 +18,6 @@
 @interface EditTypeViewController : UITableViewController <GenSelectListViewDelegate>
 {
     id<EditTypeViewDelegate> __unsafe_unretained mDelegate;
-
-    int mType;
-    int mDstAsset;
 }
 
 @property(nonatomic,unsafe_unretained) id<EditTypeViewDelegate> delegate;

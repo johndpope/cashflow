@@ -17,12 +17,6 @@
 
 @interface CategoryListViewController : UITableViewController
     <GenEditTextViewDelegate>
-{
-    BOOL mIsSelectMode;
-    int mSelectedIndex;
-	
-    id<CategoryListViewDelegate> __unsafe_unretained mDelegate;
-}
 
 @property(nonatomic,assign) BOOL isSelectMode;
 @property(nonatomic,assign) int selectedIndex;

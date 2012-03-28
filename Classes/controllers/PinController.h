@@ -12,12 +12,6 @@
 #import "PinVC.h"
 
 @interface PinController : NSObject <PinViewDelegate>
-{
-    int mState;
-    NSString *mPin;
-    NSString *mPinNew;
-    UINavigationController *mNavigationController;
-}
 
 @property(strong) NSString *pin;
 @property(strong) NSString *pinNew;

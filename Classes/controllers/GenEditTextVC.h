@@ -16,10 +16,6 @@
 
 @interface GenEditTextViewController : UIViewController {
     IBOutlet UITextField *mTextField;
-	
-    id<GenEditTextViewDelegate> __unsafe_unretained mDelegate;
-    NSString *mText;
-    int mIdentifier;
 }
 
 @property(nonatomic,unsafe_unretained) id<GenEditTextViewDelegate> delegate;

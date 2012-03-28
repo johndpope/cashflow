@@ -11,6 +11,12 @@
 #import "GenEditTextVC.h"
 
 @implementation CategoryListViewController
+{
+    BOOL mIsSelectMode;
+    int mSelectedIndex;
+	
+    id<CategoryListViewDelegate> __unsafe_unretained mDelegate;
+}
 
 @synthesize isSelectMode = mIsSelectMode;
 @synthesize selectedIndex = mSelectedIndex;

@@ -9,8 +9,6 @@
 #import "GenSelectListVC.h"
 
 @interface ConfigViewController : UITableViewController <GenSelectListViewDelegate>
-{
-}
 
 - (void)doneAction:(id)sender;
 

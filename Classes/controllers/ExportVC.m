@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 
 @implementation ExportVC
+{
+    ExportCsv *mCsv;
+    ExportOfx *mOfx;
+}
 
 @synthesize asset = mAsset;
 

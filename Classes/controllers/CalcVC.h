@@ -52,17 +52,6 @@ typedef enum {
     IBOutlet UIButton *button_Multiply;
     IBOutlet UIButton *button_Divide;
     IBOutlet UIButton *button_Equal;
-
-    id<CalculatorViewDelegate> __unsafe_unretained mDelegate;
-    double mValue;
-
-    calcState mState;
-    int mDecimalPlace; // 現在入力中の小数位
-
-    NSNumberFormatter *mNumberFormatter;
-
-    double mStoredValue;
-    calcOperator mStoredOperator;
 }
 
 @property(nonatomic,unsafe_unretained) id<CalculatorViewDelegate> delegate;

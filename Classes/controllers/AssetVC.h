@@ -14,12 +14,6 @@
 
 @interface AssetViewController : UITableViewController 
     <GenEditTextViewDelegate, GenSelectListViewDelegate, UIActionSheetDelegate>
-{
-    int mAssetIndex;
-    Asset *mAsset;
-
-    UIButton *mDelButton;
-}
 
 - (void)setAssetIndex:(int)n;
 - (void)saveAction;

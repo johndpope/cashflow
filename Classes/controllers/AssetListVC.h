@@ -20,21 +20,6 @@
     IBOutlet UIBarButtonItem *mBarActionButton;
     IBOutlet UIBarButtonItem *mBarSumLabel;
 
-    BOOL mIsLoadDone;
-    DBLoadingView *mLoadingView;
-    
-    Ledger *mLedger;
-
-    NSMutableArray *mIconArray;
-
-    BOOL mAsDisplaying;
-    UIActionSheet *mAsActionButton;
-    UIActionSheet *mAsDelete;
-
-    Asset *mAssetToBeDelete;
-    
-    BOOL mPinChecked;
-    
     // for iPad (Split View)
     IBOutlet TransactionListViewController *mSplitTransactionListViewController;
 }

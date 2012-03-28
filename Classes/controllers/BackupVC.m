@@ -11,6 +11,12 @@
 #import "WebServerBackup.h"
 
 @implementation BackupViewController
+{
+    id<BackupViewDelegate> mDelegate;
+
+    DBLoadingView *mLoadingView;
+    DropboxBackup *mDropboxBackup;
+}
 
 + (BackupViewController *)backupViewController:(id<BackupViewDelegate>)delegate
 {

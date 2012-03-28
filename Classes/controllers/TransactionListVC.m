@@ -18,6 +18,17 @@
 #import "Database.h"
 
 @implementation TransactionListViewController
+{
+    int mAssetKey;
+    //Asset *mAssetCache;
+    
+#if FREE_VERSION
+    AdManager *mAdManager;
+#endif
+    
+    BOOL mAsDisplaying;
+    UIPopoverController *mPopoverController;
+}
 
 @synthesize tableView = mTableView;
 @synthesize assetKey = mAssetKey;

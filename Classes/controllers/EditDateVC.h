@@ -18,9 +18,6 @@
 
 @interface EditDateViewController : UIViewController {
     IBOutlet UIDatePicker *mDatePicker;
-
-    id<EditDateViewDelegate> __unsafe_unretained mDelegate;
-    NSDate *mDate;
 }
 
 @property(nonatomic,unsafe_unretained) id<EditDateViewDelegate> delegate;

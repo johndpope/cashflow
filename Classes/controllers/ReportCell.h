@@ -8,12 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReportCell : UITableViewCell {
-    NSString *mName;
-    double mIncome;
-    double mOutgo;
-    double mMaxAbsValue;
-
+@interface ReportCell : UITableViewCell
+{
     IBOutlet UILabel *mNameLabel;
     IBOutlet UILabel *mIncomeLabel;
     IBOutlet UILabel *mOutgoLabel;

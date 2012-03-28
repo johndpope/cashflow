@@ -31,20 +31,10 @@
     IBOutlet UIBarButtonItem *mBarBalanceLabel;
     IBOutlet UIBarButtonItem *mBarActionButton;
     IBOutlet UIToolbar *mToolbar;
-	
-    int mAssetKey;
-    //Asset *mAssetCache;
-    
-#if FREE_VERSION
-    AdManager *mAdManager;
-#endif
-    
-    BOOL mAsDisplaying;
-    
+
     // for Split view
     IBOutlet AssetListViewController *mSplitAssetListViewController;
-    UIPopoverController *mPopoverController;
-}
+}	
 
 //- (UITableView*)tableView;
 @property(nonatomic,strong) UITableView *tableView;

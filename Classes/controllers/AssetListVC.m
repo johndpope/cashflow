@@ -26,6 +26,22 @@
 @end
 
 @implementation AssetListViewController
+{
+    BOOL mIsLoadDone;
+    DBLoadingView *mLoadingView;
+    
+    Ledger *mLedger;
+
+    NSMutableArray *mIconArray;
+
+    BOOL mAsDisplaying;
+    UIActionSheet *mAsActionButton;
+    UIActionSheet *mAsDelete;
+
+    Asset *mAssetToBeDelete;
+    
+    BOOL mPinChecked;
+}
 
 @synthesize tableView = mTableView;
 

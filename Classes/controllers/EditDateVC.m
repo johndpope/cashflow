@@ -11,6 +11,10 @@
 #import "Config.h"
 
 @implementation EditDateViewController
+{
+    id<EditDateViewDelegate> __unsafe_unretained mDelegate;
+    NSDate *mDate;
+}
 
 @synthesize delegate = mDelegate, date = mDate;
 

@@ -10,9 +10,6 @@
 #import "Report.h"
 
 @interface CatReportDetailViewController : UITableViewController
-{
-    CatReport *mCatReport;
-}
 
 @property(nonatomic,strong) CatReport *catReport;
 

@@ -15,13 +15,6 @@
 @end
 
 @interface GenSelectListViewController : UITableViewController
-{
-    id<GenSelectListViewDelegate> __unsafe_unretained mDelegate;
-    int mIdentifier;
-	
-    NSArray *mItems;
-    int mSelectedIndex;
-}
 
 @property(nonatomic,unsafe_unretained) id<GenSelectListViewDelegate> delegate;
 @property(nonatomic,assign) int identifier;
