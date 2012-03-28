@@ -23,6 +23,7 @@
 {
     id<DropboxBackupDelegate> mDelegate;
     
+    DBRestClient *mRestClient;
     UIViewController *mViewController;
     int mMode;
     
