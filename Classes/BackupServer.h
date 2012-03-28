@@ -11,8 +11,6 @@
    Web server for backup and restore
 */
 @interface BackupServer : WebServer
-{
-}
 
 - (void)sendIndexHtml:(int)s;
 - (void)sendBackup:(int)s;

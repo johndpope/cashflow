@@ -10,10 +10,6 @@
 @interface CurrencyManager : NSObject
 {
     @private
-
-    NSString *mBaseCurrency;
-    NSArray *mCurrencies;
-
     NSNumberFormatter *mNumberFormatter;
 }
 

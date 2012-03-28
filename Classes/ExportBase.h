@@ -19,9 +19,6 @@
   options:NSLiteralSearch range:NSMakeRange(0, [str length])]
 	
 @interface ExportBase : NSObject <UIAlertViewDelegate, MFMailComposeViewControllerDelegate, DBRestClientDelegate> {
-    NSDate *mFirstDate;
-    NSArray *__unsafe_unretained mAssets;
-
     ExportServer *mWebServer;
     
     // for dropbox

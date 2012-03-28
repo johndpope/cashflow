@@ -9,8 +9,7 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
-@interface SupportMail : NSObject <MFMailComposeViewControllerDelegate> {
-}
+@interface SupportMail : NSObject <MFMailComposeViewControllerDelegate>
 
 + (SupportMail *)getInstance;
 - (BOOL)sendMail:(UIViewController *)parent;

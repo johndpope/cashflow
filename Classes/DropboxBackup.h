@@ -24,7 +24,6 @@
     id<DropboxBackupDelegate> mDelegate;
     
     UIViewController *mViewController;
-    DBRestClient *mRestClient;
     int mMode;
     
     // リモートのリビジョン
@@ -34,7 +33,7 @@
     BOOL mIsLocalModified;
 }
 
-@property(readonly) DBRestClient *restClient;
+@property(strong,readonly) DBRestClient *restClient;
 
 - (id)init:(id<DropboxBackupDelegate>)delegate;
 
