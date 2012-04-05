@@ -50,7 +50,7 @@
 #define NUM_ROWS 6
 
 // for debug
-#define REFCOUNT(x) CFGetRetainCount((__bridge void *)(x))
+#define REFCOUNT(x) ((x) == nil ? 0 : CFGetRetainCount((__bridge void *)(x)))
 
 - (id)init
 {
@@ -89,15 +89,26 @@
     // ARC 周りのバグか？
     //__unsafe_unretained UIButton *b;
     UIButton *b;
+    __unsafe_unretained UIButton *b0 = nil;
+    __unsafe_unretained UIButton *b1 = nil;
     UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
 
     int i;
     for (i = 0; i < 2; i++) {
         b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        NSLog(@"rc=%ld should be 2", REFCOUNT(b));
+        //if (i == 0) b0 = b;
+        //if (i == 1) b1 = b;
+        NSLog(@"b0 rc=%ld", REFCOUNT(b0));
+        NSLog(@"b1 rc=%ld", REFCOUNT(b1));
+        NSLog(@"mDelButton rc=%ld", REFCOUNT(mDelButton));
+        NSLog(@"mDelPastButton rc=%ld", REFCOUNT(mDelPastButton));
+        
         [b setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [b setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
         b.titleLabel.font = [UIFont systemFontOfSize:14.0];
-	
+        NSLog(@"rc=%ld should be 2", REFCOUNT(b));
+        
         [b setBackgroundImage:bg forState:UIControlStateNormal];
 		
         const int width = 300;
@@ -111,19 +122,31 @@
             [b setFrame:rect];
             [b setTitle:_L(@"Delete transaction") forState:UIControlStateNormal];
             [b addTarget:self action:@selector(delButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+            NSLog(@"rc=%ld should be 2", REFCOUNT(b));
             mDelButton = b;
+            NSLog(@"rc=%ld should be 3", REFCOUNT(b));
         } else {
             rect.origin.y += 55;
             [b setFrame:rect];
             [b setTitle:_L(@"Delete with all past transactions") forState:UIControlStateNormal];
             [b addTarget:self action:@selector(delPastButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+            NSLog(@"rc=%ld should be 2", REFCOUNT(b));
             mDelPastButton = b;
+            NSLog(@"rc=%ld should be 3", REFCOUNT(b));
         }
 
         b.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self.view addSubview:b];
+        //NSLog(@"rc=%ld should be 4", REFCOUNT(b));
         //b = nil; // 念のため
+        
+        //NSLog(@"b0 rc=%ld", REFCOUNT(b0));
+        //NSLog(@"b1 rc=%ld", REFCOUNT(b1));
     }
+    b = nil;
+    
+    NSLog(@"mDelButton rc=%ld", REFCOUNT(mDelButton));
+    NSLog(@"mDelPastButton rc=%ld", REFCOUNT(mDelPastButton));
 }
 
 // 処理するトランザクションをロードしておく
