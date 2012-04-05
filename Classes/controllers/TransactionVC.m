@@ -55,6 +55,7 @@
 - (id)init
 {
     self = [super initWithNibName:@"TransactionView" bundle:nil];
+    [self testArcBug];
     return self;
 }
 
@@ -143,8 +144,6 @@
     
     NSLog(@"mDelButton rc=%ld should be 3", REFCOUNT(mDelButton));
     NSLog(@"mDelPastButton rc=%ld should be 3", REFCOUNT(mDelPastButton));
-    
-    [self testArcBug];
 }
 
 - (void)testArcBug
