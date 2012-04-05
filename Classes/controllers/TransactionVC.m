@@ -87,7 +87,8 @@
     // TODO:
     // b を unsafe unretained にしておかないと、オブジェクトのリファレンスカウンタが足りなくなりクラッシュする。
     // ARC 周りのバグか？
-    __unsafe_unretained UIButton *b;
+    //__unsafe_unretained UIButton *b;
+    UIButton *b;
     UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
 
     int i;
@@ -121,7 +122,7 @@
 
         b.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self.view addSubview:b];
-        b = nil; // 念のため
+        //b = nil; // 念のため
     }
 }
 
