@@ -50,7 +50,7 @@
 #define NUM_ROWS 6
 
 // for debug
-#define REFCOUNT(x) ((x) == nil ? 0 : CFGetRetainCount((__bridge void *)(x)))
+#define REFCOUNT(x) (CFGetRetainCount((__bridge void *)(x)))
 
 - (id)init
 {
@@ -89,20 +89,19 @@
     // ARC 周りのバグか？
     //__unsafe_unretained UIButton *b;
     UIButton *b;
-    __unsafe_unretained UIButton *b0 = nil;
-    __unsafe_unretained UIButton *b1 = nil;
     UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
 
     int i;
     for (i = 0; i < 2; i++) {
+        NSLog(@"--- Loop %d", i);
+        if (mDelButton != nil) NSLog(@"mDelButton rc=%ld", REFCOUNT(mDelButton));
+        if (mDelPastButton != nil) NSLog(@"mDelPastButton rc=%ld", REFCOUNT(mDelPastButton));
+        
         b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         NSLog(@"rc=%ld should be 2", REFCOUNT(b));
-        //if (i == 0) b0 = b;
-        //if (i == 1) b1 = b;
-        NSLog(@"b0 rc=%ld", REFCOUNT(b0));
-        NSLog(@"b1 rc=%ld", REFCOUNT(b1));
-        NSLog(@"mDelButton rc=%ld", REFCOUNT(mDelButton));
-        NSLog(@"mDelPastButton rc=%ld", REFCOUNT(mDelPastButton));
+
+        if (mDelButton != nil) NSLog(@"mDelButton rc=%ld", REFCOUNT(mDelButton));
+        if (mDelPastButton != nil) NSLog(@"mDelPastButton rc=%ld", REFCOUNT(mDelPastButton));
         
         [b setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [b setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -137,16 +136,35 @@
 
         b.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self.view addSubview:b];
-        //NSLog(@"rc=%ld should be 4", REFCOUNT(b));
-        //b = nil; // 念のため
-        
-        //NSLog(@"b0 rc=%ld", REFCOUNT(b0));
-        //NSLog(@"b1 rc=%ld", REFCOUNT(b1));
+        NSLog(@"rc=%ld should be 4", REFCOUNT(b));
+        b = nil; // 念のため
     }
     b = nil;
     
-    NSLog(@"mDelButton rc=%ld", REFCOUNT(mDelButton));
-    NSLog(@"mDelPastButton rc=%ld", REFCOUNT(mDelPastButton));
+    NSLog(@"mDelButton rc=%ld should be 3", REFCOUNT(mDelButton));
+    NSLog(@"mDelPastButton rc=%ld should be 3", REFCOUNT(mDelPastButton));
+    
+    [self testArcBug];
+}
+
+- (void)testArcBug
+{
+    UIButton *b, *b1, *b2;
+    
+    for (int i = 0; i < 2; i++) {
+        b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        
+        if (i == 0) {
+            b1 = b;
+        } else {
+            b2 = b;
+        }
+        b = nil;
+    }
+    b = nil;
+    
+    NSLog(@"AB: b1 rc=%ld", REFCOUNT(b1));
+    NSLog(@"AB: b2 rc=%ld", REFCOUNT(b2));
 }
 
 // 処理するトランザクションをロードしておく
