@@ -177,9 +177,7 @@
 		3E704A0C145D7975006EC30F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
 		3E704A0D145D7984006EC30F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
 		3E7109B6121108ED00C47539 /* SupportMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B3121108ED00C47539 /* SupportMail.m */; };
-		3E7109B7121108ED00C47539 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B5121108ED00C47539 /* UIDevice-Hardware.m */; };
 		3E7109B8121108ED00C47539 /* SupportMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B3121108ED00C47539 /* SupportMail.m */; };
-		3E7109B9121108ED00C47539 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B5121108ED00C47539 /* UIDevice-Hardware.m */; };
 		3E74799E1464E5D0000C6A7C /* AssetListVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E74799D1464E5D0000C6A7C /* AssetListVCTests.m */; };
 		3E774E3E1188807900687776 /* AssetListView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774E3D1188807900687776 /* AssetListView-ipad.xib */; };
 		3E774E3F1188807900687776 /* AssetListView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774E3D1188807900687776 /* AssetListView-ipad.xib */; };
@@ -245,6 +243,8 @@
 		3E8B25B80F348C090007929E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		3E8B25B90F348C090007929E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6F5D5E0EB8C30B0082F50A /* AudioToolbox.framework */; };
 		3E8C36160F1E0D82004AFFCA /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8C36150F1E0D82004AFFCA /* PinView.xib */; };
+		3E91B88C152F3335008120DC /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E91B88B152F3335008120DC /* UIDevice+Hardware.m */; };
+		3E91B88D152F3335008120DC /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E91B88B152F3335008120DC /* UIDevice+Hardware.m */; };
 		3E98A66911E8368800B7F289 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
 		3E98A66A11E8368800B7F289 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
 		3E9A3B390EC47AA0005A4664 /* cash.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A3B380EC47AA0005A4664 /* cash.png */; };
@@ -546,8 +546,6 @@
 		3E6F5D5E0EB8C30B0082F50A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3E7109B2121108ED00C47539 /* SupportMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportMail.h; sourceTree = "<group>"; };
 		3E7109B3121108ED00C47539 /* SupportMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportMail.m; sourceTree = "<group>"; };
-		3E7109B4121108ED00C47539 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
-		3E7109B5121108ED00C47539 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
 		3E74799D1464E5D0000C6A7C /* AssetListVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetListVCTests.m; sourceTree = "<group>"; };
 		3E774E3D1188807900687776 /* AssetListView-ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "AssetListView-ipad.xib"; sourceTree = "<group>"; };
 		3E774EE911888C6600687776 /* PinView-ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "PinView-ipad.xib"; sourceTree = "<group>"; };
@@ -568,6 +566,8 @@
 		3E895E9413252A8E00251E36 /* report-monthly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "report-monthly.png"; sourceTree = "<group>"; };
 		3E8B25C20F348C090007929E /* CashFlowFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlowFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8C36150F1E0D82004AFFCA /* PinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinView.xib; sourceTree = "<group>"; };
+		3E91B88A152F3335008120DC /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
+		3E91B88B152F3335008120DC /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Hardware.m"; sourceTree = "<group>"; };
 		3E98A66711E8367B00B7F289 /* CurrencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyManager.h; sourceTree = "<group>"; };
 		3E98A66811E8368800B7F289 /* CurrencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyManager.m; sourceTree = "<group>"; };
 		3E9A3B380EC47AA0005A4664 /* cash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cash.png; sourceTree = "<group>"; };
@@ -993,8 +993,6 @@
 				3ED97C270F1A0E8E0063A578 /* BackupServer.m */,
 				3E3566181189697E007DAF44 /* WebServerBackup.h */,
 				3E3566191189697E007DAF44 /* WebServerBackup.m */,
-				3E7109B4121108ED00C47539 /* UIDevice-Hardware.h */,
-				3E7109B5121108ED00C47539 /* UIDevice-Hardware.m */,
 				3E7109B2121108ED00C47539 /* SupportMail.h */,
 				3E7109B3121108ED00C47539 /* SupportMail.m */,
 				3E3382211332284000861610 /* DropboxBackup.h */,
@@ -1003,6 +1001,8 @@
 				3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */,
 				3E197B0E121268CF00105B20 /* CrashReportSender.h */,
 				3E197B0F121268CF00105B20 /* CrashReportSender.m */,
+				3E91B88A152F3335008120DC /* UIDevice+Hardware.h */,
+				3E91B88B152F3335008120DC /* UIDevice+Hardware.m */,
 			);
 			name = "Support files";
 			sourceTree = "<group>";
@@ -1506,7 +1506,6 @@
 				3E35661B1189697E007DAF44 /* WebServerBackup.m in Sources */,
 				3E98A66A11E8368800B7F289 /* CurrencyManager.m in Sources */,
 				3E7109B8121108ED00C47539 /* SupportMail.m in Sources */,
-				3E7109B9121108ED00C47539 /* UIDevice-Hardware.m in Sources */,
 				3E197B11121268CF00105B20 /* CrashReportSender.m in Sources */,
 				3E0AD6BE121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6BF121415DE00CFDDAC /* AssetEntry.m in Sources */,
@@ -1556,6 +1555,7 @@
 				3E4C67721347939600DA87F6 /* AdManager.m in Sources */,
 				3E0F16AE13A66A5C0091E6F8 /* TCategoryBase.m in Sources */,
 				3EF5F4FF145AEB78006C3F3A /* DBLoadingView.m in Sources */,
+				3E91B88C152F3335008120DC /* UIDevice+Hardware.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1575,7 +1575,6 @@
 				3E35661A1189697E007DAF44 /* WebServerBackup.m in Sources */,
 				3E98A66911E8368800B7F289 /* CurrencyManager.m in Sources */,
 				3E7109B6121108ED00C47539 /* SupportMail.m in Sources */,
-				3E7109B7121108ED00C47539 /* UIDevice-Hardware.m in Sources */,
 				3E197B10121268CF00105B20 /* CrashReportSender.m in Sources */,
 				3E0AD6C6121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6C7121415DE00CFDDAC /* AssetEntry.m in Sources */,
@@ -1625,6 +1624,7 @@
 				3E4C67731347939600DA87F6 /* AdManager.m in Sources */,
 				3E0F16AF13A66A5C0091E6F8 /* TCategoryBase.m in Sources */,
 				3EF5F500145AEB78006C3F3A /* DBLoadingView.m in Sources */,
+				3E91B88D152F3335008120DC /* UIDevice+Hardware.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
