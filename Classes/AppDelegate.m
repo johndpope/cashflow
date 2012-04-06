@@ -19,6 +19,7 @@
 #import "DropboxSecret.h"
 
 @interface AppDelegate() <CrashReportSenderDelegate>
+- (void)tryArcBug;
 - (void)setupGoogleAnalytics;
 - (void)delayedLaunchProcess:(NSTimer *)timer;
 @end
@@ -53,6 +54,28 @@ static BOOL sIsPrevCrashed;
     return self;
 }
 
+- (void)tryArcBug
+{
+    UIButton *b, *b1, *b2;
+    
+    for (int i = 0; i < 2; i++) {
+        b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        if (i == 0) {
+            b1 = b;
+        } else {
+            b2 = b;
+        }
+    }
+    b = nil;
+    
+    int rc1 = CFGetRetainCount((__bridge void *)b1);
+    int rc2 = CFGetRetainCount((__bridge void *)b2);
+
+    if (rc1 != 2 || rc2 != 2) {
+        NSLog(@"Oops! It may be ARC + optimization bug! rc1 = %d, rc2 = %d both must be 2!", rc1, rc2);
+    }
+}
+
 //
 // 開始処理
 //
@@ -61,6 +84,8 @@ static BOOL sIsPrevCrashed;
     NSLog(@"applicationDidFinishLaunching");
     _application = application;
 
+    [self tryArcBug];
+    
     CrashReportSender *csr = [CrashReportSender sharedCrashReportSender];
     sIsPrevCrashed = [csr hasPendingCrashReport];
     
