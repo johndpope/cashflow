@@ -30,6 +30,7 @@
 #import <CrashReporter/CrashReporter.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "CrashReportSender.h"
+#import "UIDevice-Hardware.h"
 
 #define USER_AGENT @"CrashReportSender/1.0"
 
@@ -425,11 +426,14 @@
             {
                 _crashIdenticalCurrentVersion = NO;
             }
-			
-            NSString *xml = [NSString stringWithFormat:@"<crash><applicationname>%s</applicationname><bundleidentifier>%@</bundleidentifier><systemversion>%@</systemversion><senderversion>%@</senderversion><version>%@</version><userid>%@</userid><contact>%@</contact><description>%@</description><log><![CDATA[%@]]></log></crash>",
+
+            UIDevice *device = [UIDevice currentDevice];
+
+            NSString *xml = [NSString stringWithFormat:@"<crash><applicationname>%s</applicationname><bundleidentifier>%@</bundleidentifier><platform>%@</platform><systemversion>%@</systemversion><senderversion>%@</senderversion><version>%@</version><userid>%@</userid><contact>%@</contact><description>%@</description><log><![CDATA[%@]]></log></crash>",
                                       [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleExecutable"] UTF8String],
                                       report.applicationInfo.applicationIdentifier,
-                                      [[UIDevice currentDevice] systemVersion],
+                                      [device platform],
+                                      [device systemVersion],
                                       [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"],
                                       report.applicationInfo.applicationVersion,
                                       userid,
