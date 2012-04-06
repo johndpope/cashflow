@@ -1,3 +1,8 @@
+2012-04-06 : Takuya Murakami
+
+	* analytics, crashreporter で platform を表示
+	* リファクタリング
+
 2012-04-04 : Takuya Murakami
 
 	* ver 5.1.3 (v46) candidate
