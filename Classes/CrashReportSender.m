@@ -30,7 +30,7 @@
 #import <CrashReporter/CrashReporter.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "CrashReportSender.h"
-#import "UIDevice-Hardware.h"
+#import "UIDevice+Hardware.h"
 
 #define USER_AGENT @"CrashReportSender/1.0"
 

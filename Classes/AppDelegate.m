@@ -14,7 +14,7 @@
 #import "PinController.h"
 #import "CrashReportSender.h"
 #import "GANTracker.h"
-#import "UIDevice-Hardware.h"
+#import "UIDevice+Hardware.h"
 
 #import "DropboxSecret.h"
 

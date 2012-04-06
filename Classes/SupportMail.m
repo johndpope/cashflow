@@ -9,7 +9,7 @@
 #import "DataModel.h"
 #import "AppDelegate.h"
 #import "SupportMail.h"
-#import "UIDevice-Hardware.h"
+#import "UIDevice+Hardware.h"
 
 @implementation SupportMail
 
