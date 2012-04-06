@@ -429,7 +429,19 @@
 
             UIDevice *device = [UIDevice currentDevice];
 
-            NSString *xml = [NSString stringWithFormat:@"<crash><applicationname>%s</applicationname><bundleidentifier>%@</bundleidentifier><platform>%@</platform><systemversion>%@</systemversion><senderversion>%@</senderversion><version>%@</version><userid>%@</userid><contact>%@</contact><description>%@</description><log><![CDATA[%@]]></log></crash>",
+            NSString *xml = [NSString stringWithFormat:
+                                      @"<crash>\n"
+                                      @"  <applicationname>%s</applicationname>\n"
+                                      @"  <bundleidentifier>%@</bundleidentifier>\n"
+                                      @"  <platform>%@</platform>\n"
+                                      @"  <systemversion>%@</systemversion>\n"
+                                      @"  <senderversion>%@</senderversion>\n"
+                                      @"  <version>%@</version>\n"
+                                      @"  <userid>%@</userid>\n"
+                                      @"  <contact>%@</contact>\n"
+                                      @"  <description>%@</description>\n"
+                                      @"  <log><![CDATA[%@]]></log>\n"
+                                      @"</crash>",
                                       [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleExecutable"] UTF8String],
                                       report.applicationInfo.applicationIdentifier,
                                       [device platform],
