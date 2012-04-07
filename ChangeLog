@@ -1,3 +1,8 @@
+2012-04-07 : Takuya Murakami
+
+	* ver 5.1.3 (v46)
+	* 最適化オフ (-O0)
+
 2012-04-06 : Takuya Murakami
 
 	* analytics, crashreporter で platform を表示
