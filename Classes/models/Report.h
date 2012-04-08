@@ -25,17 +25,12 @@
 /**
    レポート
 */
-@interface Report : NSObject {
-    @private
-    /** レポート種別 (REPORT_XXX) */
-    int mType;
+@interface Report : NSObject
 
-    /** 期間毎の ReportEntry の配列 */
-    NSMutableArray *mReportEntries;
-}
-
+/** レポート種別 (REPORT_XXX) */
 @property(nonatomic,assign) int type;
-@property(nonatomic,retain) NSMutableArray *reportEntries;
+/** 期間毎の ReportEntry の配列 */
+@property(nonatomic,strong) NSMutableArray *reportEntries;
 
 - (void)generate:(int)type asset:(Asset *)asset;
 - (double)getMaxAbsValue;
@@ -45,45 +40,31 @@
 /**
    各期間毎のレポートエントリ
 */
-@interface ReportEntry : NSObject {
-    @private
+@interface ReportEntry : NSObject
 
-    /** 資産キー */
-    int mAssetKey;
-    
-    /** 期間開始日 */
-    NSDate *mStart;
+/** 期間開始日 */
+@property(nonatomic,strong,readonly) NSDate *start;
 
-    /** 期間終了日 */
-    NSDate *mEnd;
+/** 期間終了日 */
+@property(nonatomic,strong,readonly) NSDate *end;
 
-    /** 期間内の総収入 */
-    double mTotalIncome;
+/** 期間内の総収入 */
+@property(nonatomic,assign,readonly) double totalIncome;
 
-    /** 期間内の総支出 */
-    double mTotalOutgo;
-    
-    /** 収入の最大値 */
-    double mMaxIncome;
-    
-    /** 支出の最大値（絶対値の) */
-    double mMaxOutgo;
+/** 期間内の総支出 */
+@property(nonatomic,assign,readonly) double totalOutgo;
 
-    /** カテゴリ毎の収入レポート */
-    NSMutableArray *mIncomeCatReports;
+/** 収入の最大値 */
+@property(nonatomic,assign,readonly) double maxIncome;
 
-    /** カテゴリ毎の支出レポート */
-    NSMutableArray *mOutgoCatReports;
-}
+/** 支出の最大値（絶対値の) */
+@property(nonatomic,assign,readonly) double maxOutgo;
 
-@property(nonatomic,readonly) NSDate *start;
-@property(nonatomic,readonly) NSDate *end;
-@property(nonatomic,readonly) double totalIncome;
-@property(nonatomic,readonly) double totalOutgo;
-@property(nonatomic,readonly) double maxIncome;
-@property(nonatomic,readonly) double maxOutgo;
-@property(nonatomic,readonly) NSMutableArray *incomeCatReports;
-@property(nonatomic,readonly) NSMutableArray *outgoCatReports;
+/** カテゴリ毎の収入レポート */
+@property(nonatomic,strong,readonly) NSMutableArray *incomeCatReports;
+
+/** カテゴリ毎の支出レポート */
+@property(nonatomic,strong,readonly) NSMutableArray *outgoCatReports;
 
 - (id)initWithAsset:(int)assetKey start:(NSDate *)start end:(NSDate *)end;
 
@@ -97,26 +78,19 @@
 
    本エントリは、期間(ReportEntry)毎、カテゴリ毎に１つ生成
 */
-@interface CatReport : NSObject {
-    @private
+@interface CatReport : NSObject
 
-    /** カテゴリ (-1 は未分類) */
-    int mCategory;
-    
-    /** 資産キー (-1 の場合は指定なし) */
-    int mAssetKey;
-
-    /** 該当カテゴリ内の金額合計 */
-    double mSum;
-
-    /** 本カテゴリに含まれる Transaction 一覧 */
-    NSMutableArray *mTransactions;
-}
-
+/** カテゴリ (-1 は未分類) */
 @property(nonatomic,readonly) int category;
+
+/** 資産キー (-1 の場合は指定なし) */
 @property(nonatomic,readonly) int assetKey;
+
+/** 該当カテゴリ内の金額合計 */
 @property(nonatomic,readonly) double sum;
-@property(nonatomic,readonly) NSMutableArray *transactions;
+
+/** 本カテゴリに含まれる Transaction 一覧 */
+@property(nonatomic,strong,readonly) NSMutableArray *transactions;
 
 - (id)initWithCategory:(int)category withAsset:(int)assetKey;
 - (void)addTransaction:(Transaction*)t;

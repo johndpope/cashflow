@@ -18,19 +18,10 @@
   [str replaceOccurrencesOfString: from withString: to \
   options:NSLiteralSearch range:NSMakeRange(0, [str length])]
 	
-@interface ExportBase : NSObject <UIAlertViewDelegate, MFMailComposeViewControllerDelegate, DBRestClientDelegate> {
-    NSDate *mFirstDate;
-    NSArray *__unsafe_unretained mAssets;
+@interface ExportBase : NSObject <UIAlertViewDelegate, MFMailComposeViewControllerDelegate, DBRestClientDelegate>
 
-    ExportServer *mWebServer;
-    
-    // for dropbox
-    DBRestClient *mRestClient;
-    DBLoadingView *mLoadingView;
-}
-
-@property(nonatomic,retain) NSDate *firstDate;
-@property(nonatomic,assign) NSArray *assets;
+@property(nonatomic,strong) NSDate *firstDate;
+@property(nonatomic,unsafe_unretained) NSArray *assets;
 
 @property(nonatomic,readonly) DBRestClient *restClient;
 

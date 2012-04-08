@@ -19,6 +19,23 @@
 @end
 
 @implementation TransactionViewController
+{
+    int mTransactionIndex;
+    AssetEntry *mEditingEntry;
+    Asset *__unsafe_unretained mAsset;
+
+    BOOL mIsModified;
+
+    NSArray *mTypeArray;
+	
+    UIButton *mDelButton;
+    UIButton *mDelPastButton;
+
+    UIActionSheet *mAsDelPast;
+    UIActionSheet *mAsCancelTransaction;
+    
+    UIPopoverController *mCurrentPopoverController;
+}
 
 @synthesize editingEntry = mEditingEntry;
 @synthesize asset = mAsset;

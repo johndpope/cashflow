@@ -20,21 +20,8 @@
 @end
 
 @interface DropboxBackup : NSObject <DBRestClientDelegate, DataModelDelegate>
-{
-    id<DropboxBackupDelegate> mDelegate;
-    
-    UIViewController *mViewController;
-    DBRestClient *mRestClient;
-    int mMode;
-    
-    // リモートのリビジョン
-    NSString *mRemoteRev;
-    
-    // 前回の同期以降、ローカル DB が変更されているかどうか
-    BOOL mIsLocalModified;
-}
 
-@property(readonly) DBRestClient *restClient;
+@property(strong,readonly) DBRestClient *restClient;
 
 - (id)init:(id<DropboxBackupDelegate>)delegate;
 

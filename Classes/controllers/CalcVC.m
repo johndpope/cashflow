@@ -23,6 +23,18 @@
 @end
 
 @implementation CalculatorViewController
+{
+    id<CalculatorViewDelegate> __unsafe_unretained mDelegate;
+    double mValue;
+
+    calcState mState;
+    int mDecimalPlace; // 現在入力中の小数位
+
+    NSNumberFormatter *mNumberFormatter;
+
+    double mStoredValue;
+    calcOperator mStoredOperator;
+}
 
 @synthesize delegate = mDelegate;
 @synthesize value = mValue;

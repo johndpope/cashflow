@@ -11,10 +11,7 @@
 
 @class GraphEntry;
 
-@interface ReportCatGraphCell : UITableViewCell {
-    double mTotal;
-    NSMutableArray *mCatReports;
-}
+@interface ReportCatGraphCell : UITableViewCell
 
 + (ReportCatGraphCell *)reportCatGraphCell:(UITableView *)tableView;
 + (CGFloat)cellHeight;

@@ -9,8 +9,21 @@
 #import "AppDelegate.h"
 #import "ExportServer.h"
 
-@implementation ExportOfx
+@interface ExportOfx()
+// private
+- (void)_statementTransactionResponse:(NSMutableString *)data asset:(Asset *)asset;
+- (NSString*)_typeStringWithAssetEntry:(AssetEntry*)e;
+- (NSString*)_dateStr:(NSDate*)date;
+- (NSString*)_dateStrWithAssetEntry:(AssetEntry*)e;
+- (NSString*)_fitIdWithAssetEntry:(AssetEntry*)e;
+- (NSString*)_escapeXmlString:(NSString *)s;
+@end
 
+@implementation ExportOfx
+{
+    NSDateFormatter *mDateFormatter;
+    NSCalendar *mGregCalendar;
+}
 
 - (NSString *)mailSubject
 {
@@ -39,7 +52,7 @@
     
     // get last date
     NSDate *lastDate = nil;
-    for (Asset *asset in mAssets) {
+    for (Asset *asset in self.assets) {
         if ([asset entryCount] > 0) {
             AssetEntry *e = [asset entryAt:[asset entryCount] - 1];
             if (lastDate == nil) {
@@ -86,7 +99,7 @@
 
     /* 口座情報(バンクメッセージレスポンス) */
     [data appendString:@"<BANKMSGSRSV1>\n"];
-    for (Asset *asset in mAssets) {
+    for (Asset *asset in self.assets) {
         [self _statementTransactionResponse:data asset:asset];
     }
     [data appendString:@"</BANKMSGSRSV1>\n"];
@@ -110,8 +123,8 @@
     if (max == 0) return; // no entries
     
     int firstIndex = 0;
-    if (mFirstDate != nil) {
-        firstIndex = [asset firstEntryByDate:mFirstDate];
+    if (self.firstDate != nil) {
+        firstIndex = [asset firstEntryByDate:self.firstDate];
         if (firstIndex < 0) {
             return;
         }

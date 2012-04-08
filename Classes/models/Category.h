@@ -9,14 +9,10 @@
 #import "Database.h"
 #import "TCategoryBase.h"
 
-@interface TCategory : TCategoryBase {
-}
+@interface TCategory : TCategoryBase
 @end
 
-@interface Categories : NSObject {
-    @private
-    NSMutableArray *mCategories;
-}
+@interface Categories : NSObject
 
 - (void)reload;
 - (int)count;

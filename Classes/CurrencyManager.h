@@ -8,17 +8,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CurrencyManager : NSObject
-{
-    @private
 
-    NSString *mBaseCurrency;
-    NSArray *mCurrencies;
-
-    NSNumberFormatter *mNumberFormatter;
-}
-
-@property(nonatomic,retain) NSString *baseCurrency;
-@property(nonatomic,retain) NSArray *currencies;
+@property(nonatomic,strong) NSString *baseCurrency;
+@property(nonatomic,strong) NSArray *currencies;
 
 + (CurrencyManager *)instance;
 

@@ -24,6 +24,4 @@
 - (void)show;
 - (void)dismissAnimated:(BOOL)animated;
 
-//@property (nonatomic, retain) NSString* title;
-
 @end

@@ -10,6 +10,9 @@
 #import "AppDelegate.h"
 
 @implementation WebServerBackup
+{
+    BackupServer *mBackupServer;
+}
 
 static WebServerBackup *sWebServerBackup = nil;
 

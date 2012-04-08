@@ -34,8 +34,8 @@
 {
     NSMutableString *data = [[NSMutableString alloc] initWithCapacity:1024];
     
-    for (Asset *asset in mAssets) {
-        if ([mAssets count] > 1) {
+    for (Asset *asset in self.assets) {
+        if ([self.assets count] > 1) {
             // show asset name
             [data appendString:asset.name];
             [data appendString:@"\n"];
@@ -46,8 +46,8 @@
 
         /* トランザクション */
         int i = 0;
-        if (mFirstDate != nil) {
-            i = [asset firstEntryByDate:mFirstDate];
+        if (self.firstDate != nil) {
+            i = [asset firstEntryByDate:self.firstDate];
         }
 
         if (i >= 0) {
@@ -56,7 +56,7 @@
             for (; i < max; i++) {
                 AssetEntry *e = [asset entryAt:i];
 
-                if (mFirstDate != nil && [e.transaction.date compare:mFirstDate] == NSOrderedAscending) continue;
+                if (self.firstDate != nil && [e.transaction.date compare:self.firstDate] == NSOrderedAscending) continue;
             
                 NSMutableString *d = [[NSMutableString alloc] init];
                 [d appendFormat:@"%d,", e.transaction.pid];

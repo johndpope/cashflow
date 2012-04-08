@@ -14,7 +14,7 @@
     IBOutlet UIView *mGraphView;
 }
 
-@property(nonatomic,retain) NSString *name;
+@property(nonatomic,strong) NSString *name;
 
 + (ReportCatCell *)reportCatCell:(UITableView *)tableView;
 + (CGFloat)cellHeight;

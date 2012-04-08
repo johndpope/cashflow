@@ -15,20 +15,15 @@
 
 #define DBNAME  @"CashFlow.db"
 
-@interface AppDelegate : NSObject <UIApplicationDelegate> {
-    IBOutlet UIWindow *window;
-    IBOutlet UINavigationController *navigationController;
-    UIApplication *_application;
-    
-    // iPad
-    IBOutlet UISplitViewController *splitViewController;
+@interface AppDelegate : NSObject <UIApplicationDelegate>
+{
     IBOutlet AssetListViewController *assetListViewController;
     IBOutlet TransactionListViewController *transactionListViewController;
 }
 
-@property (nonatomic, retain) UIWindow *window;
-@property (nonatomic, retain) UINavigationController *navigationController;
-@property (nonatomic, readonly) UISplitViewController *splitViewController;
+@property (nonatomic,strong) IBOutlet UIWindow *window;
+@property (nonatomic,strong) IBOutlet UINavigationController *navigationController;
+@property (nonatomic,strong,readonly) IBOutlet UISplitViewController *splitViewController;
 
 - (void)checkPin;
 + (BOOL)isPrevCrashed;

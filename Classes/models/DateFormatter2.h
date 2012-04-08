@@ -7,8 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DateFormatter2 :NSDateFormatter {
-}
+@interface DateFormatter2 :NSDateFormatter
 
 - (NSString *)fixDateString:(NSString *)string;
 

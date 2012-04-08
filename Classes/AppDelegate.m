@@ -14,6 +14,7 @@
 #import "PinController.h"
 #import "CrashReportSender.h"
 #import "GANTracker.h"
+#import "UIDevice+Hardware.h"
 
 #import "DropboxSecret.h"
 
@@ -23,6 +24,9 @@
 @end
 
 @implementation AppDelegate
+{
+    UIApplication *_application;
+}
 
 @synthesize window;
 @synthesize navigationController;
@@ -106,10 +110,11 @@ static BOOL sIsPrevCrashed;
     [tracker setCustomVariableAtIndex:1 name:@"appVersion" value:version withError:nil];
     
     UIDevice *dev = [UIDevice currentDevice];
-    NSString *model = [dev model];
+    //NSString *model = [dev model];
+    NSString *platform = [dev platform];
     NSString *systemVersion = [dev systemVersion];
     //NSString *systemDesc = [NSString stringWithFormat:@"%@ %@", [dev model], [dev systemVersion]];
-    [tracker setCustomVariableAtIndex:2 name:@"model" value:model withError:nil];
+    [tracker setCustomVariableAtIndex:2 name:@"platform" value:platform withError:nil];
     [tracker setCustomVariableAtIndex:3 name:@"systemVersion" value:systemVersion withError:nil];
 }
 

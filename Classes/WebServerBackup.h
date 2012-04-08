@@ -8,9 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "BackupServer.h"
 
-@interface WebServerBackup : NSObject <UIAlertViewDelegate> {
-    BackupServer *mBackupServer;
-}
+@interface WebServerBackup : NSObject <UIAlertViewDelegate>
 
 - (void)execute;
 

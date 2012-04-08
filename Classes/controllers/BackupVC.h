@@ -18,12 +18,6 @@
 @end
 
 @interface BackupViewController : UITableViewController <DropboxBackupDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
-{
-    id<BackupViewDelegate> mDelegate;
-
-    DBLoadingView *mLoadingView;
-    DropboxBackup *mDropboxBackup;
-}
 
 + (BackupViewController *)backupViewController:(id<BackupViewDelegate>)delegate;
 

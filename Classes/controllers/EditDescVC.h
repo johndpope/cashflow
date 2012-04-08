@@ -20,17 +20,10 @@
   <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 {
     IBOutlet UITableView *mTableView;
-
-    UITextField *mTextField;
-    NSMutableArray *mDescArray;
-
-    id<EditDescViewDelegate> __unsafe_unretained mDelegate;
-    NSString *mDescription;
-    int mCategory;
 }
 
-@property(nonatomic,assign) id<EditDescViewDelegate> delegate;
-@property(nonatomic,retain) NSString *description;
+@property(nonatomic,unsafe_unretained) id<EditDescViewDelegate> delegate;
+@property(nonatomic,strong) NSString *description;
 @property(nonatomic,assign) int category;
 
 @property(nonatomic,readonly) UITableView *tableView; // for test

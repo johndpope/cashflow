@@ -16,15 +16,11 @@
 
 @interface EditMemoViewController : UIViewController {
     IBOutlet UITextView *mTextView;
-	
-    id<EditMemoViewDelegate> __unsafe_unretained mDelegate;
-    NSString *mText;
-    int mIdentifier;
 }
 
-@property(nonatomic,assign) id<EditMemoViewDelegate> delegate;
+@property(nonatomic,unsafe_unretained) id<EditMemoViewDelegate> delegate;
 @property(nonatomic,assign) int identifier;
-@property(nonatomic,retain) NSString *text;
+@property(nonatomic,strong) NSString *text;
 
 + (EditMemoViewController *)editMemoViewController:(id<EditMemoViewDelegate>)delegate title:(NSString*)title identifier:(int)id;
 - (void)doneAction;

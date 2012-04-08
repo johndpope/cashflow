@@ -11,6 +11,12 @@
 #import "GenSelectListVC.h"
 
 @implementation AssetViewController
+{
+    int mAssetIndex;
+    Asset *mAsset;
+
+    UIButton *mDelButton;
+}
 
 //@synthesize asset = mAsset;
 

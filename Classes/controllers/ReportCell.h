@@ -8,12 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReportCell : UITableViewCell {
-    NSString *mName;
-    double mIncome;
-    double mOutgo;
-    double mMaxAbsValue;
-
+@interface ReportCell : UITableViewCell
+{
     IBOutlet UILabel *mNameLabel;
     IBOutlet UILabel *mIncomeLabel;
     IBOutlet UILabel *mOutgoLabel;
@@ -21,7 +17,7 @@
     IBOutlet UIView *mOutgoGraph;
 }
 
-@property(nonatomic,retain) NSString *name;
+@property(nonatomic,strong) NSString *name;
 @property(nonatomic,assign) double income;
 @property(nonatomic,assign) double outgo;
 @property(nonatomic,assign) double maxAbsValue;

@@ -8,28 +8,20 @@
 #import <UIKit/UIKit.h>
 
 @interface Config : NSObject
-{
-    @private
 
-    // 日時モード
+// 日時モード
 #define DateTimeModeWithTime 0  // 日＋時
 #define DateTimeModeWithTime5min 1  // 日＋時
 #define DateTimeModeDateOnly 2  // 日のみ
-    int mDateTimeMode;
-    
-    // 週の開始日 : 日曜 - 0, 月曜 - 1
-    int mStartOfWeek;
-
-    // 締め日 (1～29)、月末を指定する場合は 0
-    int mCutoffDate;
-
-    // 最後に選択されたレポート種別 (REPORT_DAILY/WEEKLY/MONTHLY/ANNUAL/...)
-    int mLastReportType;
-}
-
 @property(nonatomic,assign) int dateTimeMode;
+
+// 週の開始日 : 日曜 - 0, 月曜 - 1
 @property(nonatomic,assign) int startOfWeek;
+
+// 締め日 (1～29)、月末を指定する場合は 0
 @property(nonatomic,assign) int cutoffDate;
+
+// 最後に選択されたレポート種別 (REPORT_DAILY/WEEKLY/MONTHLY/ANNUAL/...)
 @property(nonatomic,assign) int lastReportType;
 
 + (Config *)instance;

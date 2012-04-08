@@ -15,6 +15,13 @@
 @end
 
 @implementation ExportBase
+{
+    ExportServer *mWebServer;
+    
+    // for dropbox
+    DBRestClient *mRestClient;
+    DBLoadingView *mLoadingView;
+}
 
 @synthesize firstDate = mFirstDate;
 @synthesize assets = mAssets;

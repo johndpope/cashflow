@@ -20,14 +20,9 @@
     IBOutlet UILabel *mFormatLabel;
     IBOutlet UILabel *mRangeLabel;
     IBOutlet UILabel *mMethodLabel;
-
-    ExportCsv *mCsv;
-    ExportOfx *mOfx;
-
-    Asset *__unsafe_unretained mAsset;
 }
 
-@property(nonatomic,assign) Asset *asset;
+@property(nonatomic,unsafe_unretained) Asset *asset;
 
 - (IBAction)doExport;
 - (id)initWithAsset:(Asset *)asset;

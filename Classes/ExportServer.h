@@ -11,15 +11,10 @@
 #import "WebServer.h"
 
 @interface ExportServer : WebServer
-{
-    NSString *mContentType;
-    NSData *mContentBody;
-    NSString *mFilename;
-}
 
-@property(nonatomic,retain) NSString* contentType;
-@property(nonatomic,retain) NSData* contentBody;
-@property(nonatomic,retain) NSString* filename;
+@property(nonatomic,strong) NSString* contentType;
+@property(nonatomic,strong) NSData* contentBody;
+@property(nonatomic,strong) NSString* filename;
 
 - (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(int)bodylen;
 @end

@@ -16,6 +16,14 @@
 @end
 
 @implementation EditDescViewController
+{
+    UITextField *mTextField;
+    NSMutableArray *mDescArray;
+
+    id<EditDescViewDelegate> __unsafe_unretained mDelegate;
+    NSString *mDescription;
+    int mCategory;
+}
 
 @synthesize delegate = mDelegate, description = mDescription, category = mCategory, tableView = mTableView;
 

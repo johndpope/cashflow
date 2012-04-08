@@ -24,11 +24,7 @@
 //
 // 資産 (総勘定元帳の勘定に相当)
 // 
-@interface Asset : AssetBase {
-    @private
-    NSMutableArray *mEntries; // AssetEntry の配列
-    //double mLastBalance;
-}
+@interface Asset : AssetBase
 
 + (int)numAssetTypes;
 + (NSArray*)typeNamesArray;

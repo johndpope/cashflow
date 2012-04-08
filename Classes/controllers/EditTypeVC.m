@@ -18,6 +18,10 @@
 #import "Transaction.h"
 
 @implementation EditTypeViewController
+{
+    int mType;
+    int mDstAsset;
+}
 
 @synthesize delegate = mDelegate, type = mType, dstAsset = mDstAsset;
 

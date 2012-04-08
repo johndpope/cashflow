@@ -14,6 +14,12 @@
 #define PORT_NUMBER		8888
 
 @implementation WebServer
+{
+    int mListenSock;
+    struct sockaddr_in mServAddr;
+	
+    NSThread *mThread;
+}
 
 - (void)dealloc
 {

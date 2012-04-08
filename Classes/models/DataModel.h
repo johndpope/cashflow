@@ -17,25 +17,10 @@
 @end
 
 @interface DataModel : NSObject
-{
-    @private
 
-    // Journal
-    Journal *mJournal;
-
-    // Ledger
-    Ledger *mLedger;
-
-    // Category
-    Categories *mCategories;
-    
-    id<DataModelDelegate> mDelegate;
-    BOOL mIsLoadDone;
-}
-
-@property(nonatomic,retain) Journal *journal;
-@property(nonatomic,retain) Ledger *ledger;
-@property(nonatomic,retain) Categories *categories;
+@property(nonatomic,strong) Journal *journal;
+@property(nonatomic,strong) Ledger *ledger;
+@property(nonatomic,strong) Categories *categories;
 @property(readonly) BOOL isLoadDone;
 
 + (DataModel *)instance;

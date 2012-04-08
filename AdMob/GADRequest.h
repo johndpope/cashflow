@@ -73,17 +73,12 @@ typedef enum {
 
 #pragma mark Testing
 
-// Test ads are returned to these devices.  Device identifiers are the same used
-// to register as a development device with Apple.  To obtain a value open the
-// Organizer (Window -> Organizer from Xcode), control-click or right-click on
-// the device's name, and choose "Copy Device Identifier".  Alternatively you
-// can obtain it through code using [[UIDevice currentDevice] uniqueIdentifier].
+// Test ads are returned to these devices. However, since this SDK build does
+// not use uniqueIdentifier, test ads are only returned to the simulator.
 //
 // For example:
 //   request.testDevices = [NSArray arrayWithObjects:
 //       GAD_SIMULATOR_ID,                               // Simulator
-//       //@"28ab37c3902621dd572509110745071f0101b124",  // Test iPhone 3G 3.0.1
-//       @"8cf09e81ef3ec5418c3450f7954e0e95db8ab200",    // Test iPod 4.3.1
 //       nil];
 @property (nonatomic, retain) NSArray *testDevices;
 

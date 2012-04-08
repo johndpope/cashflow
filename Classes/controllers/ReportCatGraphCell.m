@@ -16,6 +16,10 @@
 @end
 
 @implementation ReportCatGraphCell
+{
+    double mTotal;
+    NSMutableArray *mCatReports;
+}
 
 + (ReportCatGraphCell *)reportCatGraphCell:(UITableView *)tableView
 {

@@ -14,6 +14,11 @@
 @end
 
 @implementation PinController
+{
+    int mState;
+    UINavigationController *mNavigationController;
+}
+
 @synthesize pin = mPin, pinNew = mPinNew;
 
 #define INITIAL -1

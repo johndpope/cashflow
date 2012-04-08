@@ -10,11 +10,8 @@
 #import "Report.h"
 
 @interface CatReportViewController : UITableViewController
-{
-    ReportEntry *mReportEntry;
-}
 
-@property(nonatomic,retain) ReportEntry *reportEntry;
+@property(nonatomic,strong) ReportEntry *reportEntry;
 
 - (void)doneAction:(id)sender;
 

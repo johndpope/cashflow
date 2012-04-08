@@ -9,6 +9,11 @@
 #import "AppDelegate.h"
 
 @implementation EditMemoViewController
+{	
+    id<EditMemoViewDelegate> __unsafe_unretained mDelegate;
+    NSString *mText;
+    int mIdentifier;
+}
 
 @synthesize delegate = mDelegate, identifier = mIdentifier, text = mText;
 

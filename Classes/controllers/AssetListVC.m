@@ -19,13 +19,31 @@
 
 @interface AssetListViewController()
 - (void)_dataModelLoadedOnMainThread:(id)dummy;
-//- (void)_showInitialAsset;
+- (int)_firstShowAssetIndex;
+- (void)_setFirstShowAssetIndex:(int)assetIndex;
+- (void)_showInitialAsset;
 - (int)_assetIndex:(NSIndexPath*)indexPath;
 - (void)_actionDelete:(NSInteger)buttonIndex;
 - (void)_actionActionButton:(NSInteger)buttonIndex;
 @end
 
 @implementation AssetListViewController
+{
+    BOOL mIsLoadDone;
+    DBLoadingView *mLoadingView;
+    
+    Ledger *mLedger;
+
+    NSMutableArray *mIconArray;
+
+    BOOL mAsDisplaying;
+    UIActionSheet *mAsActionButton;
+    UIActionSheet *mAsDelete;
+
+    Asset *mAssetToBeDelete;
+    
+    BOOL mPinChecked;
+}
 
 @synthesize tableView = mTableView;
 
@@ -118,20 +136,36 @@
     mLoadingView = nil;
 
     [self reload];
-    //[self _showInitialAsset];
+ 
+   /*
+      '12/3/15
+      安定性向上のため、iPad 以外では最後に使った資産に遷移しないようにした。
+      起動時に TransactionListVC で固まるケースが多いため。
+    */
+    if (IS_IPAD) {
+        [self _showInitialAsset];
+    }
+}
+
+- (int)_firstShowAssetIndex
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults integerForKey:@"firstShowAssetIndex"];
+}
+
+- (void)_setFirstShowAssetIndex:(int)assetIndex
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:assetIndex forKey:@"firstShowAssetIndex"];
+    [defaults synchronize];
 }
 
 /**
-   '12/3/15
-   安定性向上のため、最後に使った資産に遷移しないようにした。
-   起動時に TransactionListVC で固まるケースが多いため。
-*/
-#if 0
+ * 最後に使用した資産を表示
+ */
 - (void)_showInitialAsset
 {
-    // 最後に使った Asset に遷移する
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    int firstShowAssetIndex = [defaults integerForKey:@"firstShowAssetIndex"];
+    int firstShowAssetIndex = [self _firstShowAssetIndex];
     
     Asset *asset = nil;
     if (firstShowAssetIndex >= 0 && [mLedger assetCount] > firstShowAssetIndex) {
@@ -154,7 +188,6 @@
         }
     }
 }
-#endif
 
 - (void)reload
 {
@@ -195,12 +228,8 @@
          isInitial = NO;
      } 
     else if (!IS_IPAD) {
-#if 0        
         // 初回以外：初期起動する画面を資産一覧画面に戻しておく
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setInteger:-1 forKey:@"firstShowAssetIndex"];
-        [defaults synchronize];
-#endif
+        [self _setFirstShowAssetIndex:-1];
     }
 }
 
@@ -317,12 +346,8 @@
     int assetIndex = [self _assetIndex:indexPath];
     if (assetIndex < 0) return;
 
-    // save preference
-#if 0
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setInteger:assetIndex forKey:@"firstShowAssetIndex"];
-    [defaults synchronize];
-#endif
+    // 最後に選択した asset を記憶
+    [self _setFirstShowAssetIndex:assetIndex];
 	
     Asset *asset = [mLedger assetAtIndex:assetIndex];
 

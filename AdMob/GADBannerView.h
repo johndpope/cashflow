@@ -26,6 +26,10 @@
 // Leaderboard size for the iPad.
 #define GAD_SIZE_728x90     CGSizeMake(728, 90)
 
+// Skyscraper size for the iPad. Mediation only. AdMob/Google does not offer
+// this size.
+#define GAD_SIZE_120x600    CGSizeMake(120, 600)
+
 #pragma mark -
 #pragma mark Banner Ad View
 
@@ -104,5 +108,12 @@
 // auto refreshing as specified on server.  This will be set to NO after each
 // loadRequest: method.
 @property (nonatomic, readonly) BOOL hasAutoRefreshed;
+
+#pragma mark Mediation
+
+// Gets the underlying ad view of the mediated ad network.
+// You may use this to find out the actual size of the ad and adjust
+// GADBannerView to fit the underlying ad view.
+@property (nonatomic, readonly) UIView *mediatedAdView;
 
 @end
