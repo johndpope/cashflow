@@ -455,8 +455,8 @@
          delegate:self 
          cancelButtonTitle:_L(@"Cancel")
          destructiveButtonTitle:nil otherButtonTitles:
-         [NSString stringWithFormat:@"%@ (%@)", _L(@"Export"), _L(@"All")],
-         _L(@"Export"),
+         [NSString stringWithFormat:@"%@ (%@)", _L(@"Export"), _L(@"All assets")],
+         [NSString stringWithFormat:@"%@ (%@)", _L(@"Export"), _L(@"This asset")],
          [NSString stringWithFormat:@"%@ / %@", _L(@"Sync"), _L(@"Backup")],
          _L(@"Config"),
          _L(@"Info"),

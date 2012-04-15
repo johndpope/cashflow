@@ -101,6 +101,8 @@
 "30 days" = "30日内";
 "90 days" = "90日内";
 "All" = "全部";
+"All assets" = "All assets";
+"This asset" = "This asset";
 "Export method" = "输出方法";
 "Mail" = "电子邮件";
 
