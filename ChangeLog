@@ -1,3 +1,8 @@
+2012-04-15 : Takuya Murakami
+
+	* iOS 5.1 バグ対応: Split View の popover から
+	  UIActionSheet を起動させない
+
 2012-04-07 : Takuya Murakami
 
 	* ver 5.1.3 (v46)
