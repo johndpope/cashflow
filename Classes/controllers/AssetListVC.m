@@ -108,9 +108,12 @@
 
 - (void)viewDidUnload {
     NSLog(@"AssetLivewViewController:viewDidUnload");
-    [super viewDidUnload];
-
     mIconArray = nil;
+
+    mTableView = nil;
+    mBarActionButton = nil;
+    mBarSumLabel = nil;
+    [super viewDidUnload];
 }
 
 - (void)didReceiveMemoryWarning {

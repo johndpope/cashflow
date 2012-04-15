@@ -455,6 +455,7 @@
          delegate:self 
          cancelButtonTitle:_L(@"Cancel")
          destructiveButtonTitle:nil otherButtonTitles:
+         [NSString stringWithFormat:@"%@ (%@)", _L(@"Export"), _L(@"All")],
          _L(@"Export"),
          [NSString stringWithFormat:@"%@ / %@", _L(@"Sync"), _L(@"Backup")],
          _L(@"Config"),
@@ -481,21 +482,26 @@
     
     switch (buttonIndex) {
         case 0:
+            exportVC = [[ExportVC alloc] initWithAsset:nil];
+            vc = exportVC;
+            break;
+        
+        case 1:
             exportVC = [[ExportVC alloc] initWithAsset:self.asset];
             vc = exportVC;
             break;
             
-        case 1:
+        case 2:
             backupVC = [BackupViewController backupViewController:self];
             vc = backupVC;
             break;
             
-        case 2:
+        case 3:
             configVC = [[ConfigViewController alloc] init];
             vc = configVC;
             break;
             
-        case 3:
+        case 4:
             infoVC = [[InfoVC alloc] init];
             vc = infoVC;
             break;
