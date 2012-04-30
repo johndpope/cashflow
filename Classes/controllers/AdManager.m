@@ -223,18 +223,20 @@ static AdManager *theAdManager;
 {
     NSLog(@"create AdMob");
     
-    if (IS_IPAD) {
-        mAdMobSize = GAD_SIZE_468x60;
-        //mAdSize = GAD_SIZE_728x90;
-    } else {
-        mAdMobSize = GAD_SIZE_320x50;
-    }
+    GADAdSize gadSize = kGADAdSizeBanner;
+    mAdMobSize = GAD_SIZE_320x50;
     
-    CGRect frame = CGRectMake(0, 0, mAdMobSize.width, mAdMobSize.height);
-    mAdMobView = [[AdMobView alloc] initWithFrame:frame];
+    /* Note: Mediation では標準サイズバナーのみ
+    if (IS_IPAD) {
+        gadSize = kGADAdSizeFullBanner;
+        mAdMobSize = GAD_SIZE_468x60;
+    }
+    */
+
+    mAdMobView = [[AdMobView alloc] initWithAdSize:gadSize];
     mAdMobView.delegate = self;
     
-    mAdMobView.adUnitID = ADMOB_PUBLISHER_ID;
+    mAdMobView.adUnitID = ADMOB_MEDIATION_ID;
     mAdMobView.rootViewController = nil; // この時点では不明
     mAdMobView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 
