@@ -27,8 +27,10 @@
 #pragma mark - AdManager implementation
 
 @interface AdManager()
+#if ENABLE_IAD
 - (void)_createIAd;
 - (void)_releaseIAd;
+#endif
 
 - (void)_createAdMob;
 - (void)_releaseAdMob;
@@ -63,14 +65,18 @@ static AdManager *theAdManager;
             [defaults synchronize];
         }
 
+#if ENABLE_IAD
         [self _createIAd];
+#endif
         [self _createAdMob];
     }
     return self;
 }
 
 - (void)dealloc {
+#if ENABLE_IAD
     [self _releaseIAd];
+#endif
     [self _releaseAdMob];
 }
 
@@ -94,9 +100,10 @@ static AdManager *theAdManager;
 - (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController
 {
     mDelegate = delegate;
-    mIsIAdShowing = NO;
     mIsAdMobShowing = NO;
 
+#if ENABLE_IAD
+    mIsIAdShowing = NO;
     if (mIADBannerView != nil) {
         if ([mIADBannerView isBannerLoaded]) {
             /* iAd がロードされている場合、AdMob はここで解放し、以降 refresh がかからないようにする */
@@ -105,6 +112,7 @@ static AdManager *theAdManager;
     
         [mDelegate adManager:self setAd:mIADBannerView adSize:mIAdSize];
     }
+#endif
 
     if (mAdMobView != nil) {
         mAdMobView.rootViewController = rootViewController;
@@ -117,7 +125,9 @@ static AdManager *theAdManager;
     mDelegate = nil;
     mAdMobView.rootViewController = nil; // TODO これ大丈夫？
 
+#if ENABLE_IAD
     [mIADBannerView removeFromSuperview];
+#endif
     [mAdMobView removeFromSuperview];
 }
 
@@ -128,6 +138,7 @@ static AdManager *theAdManager;
 {
     if (mDelegate == nil) return;
     
+#if ENABLE_IAD
     // iAd がすでに表示されている場合は何もしない
     if (mIsIAdShowing) {
         NSLog(@"showAd: iAd already showing");
@@ -146,9 +157,12 @@ static AdManager *theAdManager;
         NSLog(@"showAd: show iAd");
         [mDelegate adManager:self showAd:mIADBannerView adSize:mIAdSize];
         mIsIAdShowing = YES;
+
+        return
     }
+#endif
     
-    else if (mAdMobView != nil) {
+    if (mAdMobView != nil) {
         // AdMob が表示済みの場合は何もしない
         if (mIsAdMobShowing) {
             NSLog(@"showAd: AdMob already showing");
@@ -177,6 +191,8 @@ static AdManager *theAdManager;
 }
 
 #pragma mark - Internal
+
+#if ENABLE_IAD
 
 /**
  * iAd 表示開始
@@ -215,6 +231,8 @@ static AdManager *theAdManager;
         mIADBannerView = nil;
     }
 }
+
+#endif // ENABLE_IAD
 
 /**
  * AdMob 表示開始
@@ -260,6 +278,8 @@ static AdManager *theAdManager;
 
 #pragma mark - iAd : ADBannerViewDelegate
 
+#if ENABLE_IAD
+
 /** iAd表示成功 */
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
@@ -291,6 +311,8 @@ static AdManager *theAdManager;
     }
 }
 
+#endif // ENABLE_IAD
+
 #pragma mark - AdMob : AdMobViewDelegate
 
 - (void)adViewDidReceiveAd:(AdMobView *)view
@@ -298,7 +320,11 @@ static AdManager *theAdManager;
     NSLog(@"AdMob loaded");
     mIsAdMobBannerLoaded = YES;
     
-    if (mDelegate != nil && !mIsAdMobShowing && !mIsIAdShowing) {
+    if (mDelegate != nil && !mIsAdMobShowing
+#if ENABLE_IAD
+        && !mIsIAdShowing
+#endif
+        ) {
         mIsAdMobShowing = YES;
         [mDelegate adManager:self showAd:mAdMobView adSize:mAdMobSize];
     }
