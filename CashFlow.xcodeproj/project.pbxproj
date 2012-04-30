@@ -255,6 +255,10 @@
 		3EA1A46115149410004144B6 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA1A45E15149410004144B6 /* Icon-72@2x.png */; };
 		3EA1A46215149410004144B6 /* Icon-free-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */; };
 		3EA1A46315149410004144B6 /* Icon-free-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */; };
+		3EADFAF9154E881000F62967 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EADFAF8154E881000F62967 /* libAdapterIAd.a */; };
+		3EADFAFA154E881000F62967 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EADFAF8154E881000F62967 /* libAdapterIAd.a */; };
+		3EADFAFB154E881000F62967 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EADFAF8154E881000F62967 /* libAdapterIAd.a */; };
+		3EADFAFC154E881000F62967 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EADFAF8154E881000F62967 /* libAdapterIAd.a */; };
 		3EAEBC870F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */; };
 		3EAEBC880F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */; };
 		3EAF414B1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAF414A1340BCED00814FFA /* libGoogleAdMobAds.a */; };
@@ -576,6 +580,7 @@
 		3EA011310EC344CC008CEEB7 /* AssetListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetListView.xib; sourceTree = "<group>"; };
 		3EA1A45E15149410004144B6 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-free-72@2x.png"; sourceTree = "<group>"; };
+		3EADFAF8154E881000F62967 /* libAdapterIAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAdapterIAd.a; path = "AdMob/LibAdapterIAd-Mar282012/libAdapterIAd.a"; sourceTree = "<group>"; };
 		3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenSelectListView.xib; sourceTree = "<group>"; };
 		3EAF41441340BCED00814FFA /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADBannerView.h; path = AdMob/GADBannerView.h; sourceTree = "<group>"; };
 		3EAF41451340BCED00814FFA /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADBannerViewDelegate.h; path = AdMob/GADBannerViewDelegate.h; sourceTree = "<group>"; };
@@ -676,6 +681,7 @@
 				3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */,
 				3E0AC6AB13A78664006F505C /* libGoogleAnalytics.a in Frameworks */,
 				3E3F525014651654005CBD9A /* libsqlite3.dylib in Frameworks */,
+				3EADFAF9154E881000F62967 /* libAdapterIAd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +708,7 @@
 				3E0AC6AC13A78664006F505C /* libGoogleAnalytics.a in Frameworks */,
 				3E0AC6AF13A786F7006F505C /* CFNetwork.framework in Frameworks */,
 				3E3F525114651654005CBD9A /* libsqlite3.dylib in Frameworks */,
+				3EADFAFA154E881000F62967 /* libAdapterIAd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +720,7 @@
 				3EF966FF1464FD5E00A24626 /* Foundation.framework in Frameworks */,
 				3EF966FE1464FD3900A24626 /* libsqlite3.dylib in Frameworks */,
 				3EF12E5A13D86BDD009D1722 /* SenTestingKit.framework in Frameworks */,
+				3EADFAFC154E881000F62967 /* libAdapterIAd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,6 +745,7 @@
 				3EF152761462C38800C724E4 /* SystemConfiguration.framework in Frameworks */,
 				3EF152771462C38800C724E4 /* CrashReporter.framework in Frameworks */,
 				3E3F525214651654005CBD9A /* libsqlite3.dylib in Frameworks */,
+				3EADFAFB154E881000F62967 /* libAdapterIAd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1007,9 +1016,18 @@
 			name = "Support files";
 			sourceTree = "<group>";
 		};
+		3EADFAF7154E87F500F62967 /* AdapterIAD */ = {
+			isa = PBXGroup;
+			children = (
+				3EADFAF8154E881000F62967 /* libAdapterIAd.a */,
+			);
+			name = AdapterIAD;
+			sourceTree = "<group>";
+		};
 		3EAF41431340BCC000814FFA /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
+				3EADFAF7154E87F500F62967 /* AdapterIAD */,
 				3EAF41441340BCED00814FFA /* GADBannerView.h */,
 				3EAF41451340BCED00814FFA /* GADBannerViewDelegate.h */,
 				3EAF41461340BCED00814FFA /* GADInterstitial.h */,
@@ -1751,6 +1769,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 				);
 				PRODUCT_NAME = CashFlow;
 			};
@@ -1774,6 +1793,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 				);
 				PRODUCT_NAME = CashFlow;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8E62577C-700D-40A6-A386-6C3EFAE66BFA";
@@ -1803,6 +1823,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 			};
@@ -1827,6 +1848,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B3B1BC0-A3FF-4063-98F1-831E430A55E7";
@@ -1852,6 +1874,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1878,6 +1901,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1907,6 +1931,10 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "LogicTests/LogicTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1929,6 +1957,10 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "LogicTests/LogicTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
