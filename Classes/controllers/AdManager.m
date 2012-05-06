@@ -11,6 +11,7 @@
 #define AD_IS_TEST  NO
 
 @implementation AdMobView
+
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         self.delegate = self;
@@ -27,6 +28,18 @@
 #pragma mark - AdManager implementation
 
 @interface AdManager()
+{
+    id<AdManagerDelegate> __unsafe_unretained mDelegate;
+    
+    BOOL mIsShowAdSucceeded;
+    
+    // AdMob
+    AdMobView *mAdMobView;
+    CGSize mAdMobSize;
+    BOOL mIsAdMobShowing;
+    BOOL mIsAdMobBannerLoaded;
+}
+
 - (void)_createAdMob;
 - (void)_releaseAdMob;
 @end
