@@ -1,3 +1,7 @@
+2012-05-06 : Takuya Murakami
+
+	* iPad縦画面で資産削除時にクラッシュする問題を修正
+	
 2012-04-30 : Takuya Murakami
 
 	* AdMob 5.0.8 -> 6.0.1
