@@ -14,8 +14,6 @@
 
 #define ADMOB_KEYWORDS @"マネー,預金,キャッシュ,クレジット,小遣い,貯金,資産+管理,money,deposit,cash,credit,allowance,spending+money,pocket+money,savings,saving+money,asset+management"
 
-#define ENABLE_IAD  0   // AdMob mediation を使用する場合は 0 にする
-
 // AdMob wrapper (to avoid crash)
 @interface AdMobView : GADBannerView <GADBannerViewDelegate>
 @end
@@ -33,14 +31,7 @@
     id<AdManagerDelegate> __unsafe_unretained mDelegate;
     
     BOOL mIsShowAdSucceeded;
-    
-    // iAd
-#if ENABLE_IAD
-    ADBannerView *mIADBannerView;
-    CGSize mIAdSize;
-    BOOL mIsIAdShowing;
-#endif
-    
+
     // AdMob
     AdMobView *mAdMobView;
     CGSize mAdMobSize;
