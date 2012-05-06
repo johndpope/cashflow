@@ -256,6 +256,13 @@
 		3EA1A46215149410004144B6 /* Icon-free-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */; };
 		3EA1A46315149410004144B6 /* Icon-free-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */; };
 		3EA395291556B3C60078DCA2 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA395281556B3C60078DCA2 /* libAdapterInMobi.a */; };
+		3EA3952C1556B52A0078DCA2 /* libInMobi_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3952B1556B52A0078DCA2 /* libInMobi_iOS.a */; };
+		3EA3952D1556B52A0078DCA2 /* libInMobi_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3952B1556B52A0078DCA2 /* libInMobi_iOS.a */; };
+		3EA3952E1556B52A0078DCA2 /* libInMobi_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3952B1556B52A0078DCA2 /* libInMobi_iOS.a */; };
+		3EA3952F1556B52A0078DCA2 /* libInMobi_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3952B1556B52A0078DCA2 /* libInMobi_iOS.a */; };
+		3EA395301556B54C0078DCA2 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA395281556B3C60078DCA2 /* libAdapterInMobi.a */; };
+		3EA395311556B54D0078DCA2 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA395281556B3C60078DCA2 /* libAdapterInMobi.a */; };
+		3EA395321556B54D0078DCA2 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA395281556B3C60078DCA2 /* libAdapterInMobi.a */; };
 		3EADFAF9154E881000F62967 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EADFAF8154E881000F62967 /* libAdapterIAd.a */; };
 		3EADFAFA154E881000F62967 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EADFAF8154E881000F62967 /* libAdapterIAd.a */; };
 		3EADFAFB154E881000F62967 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EADFAF8154E881000F62967 /* libAdapterIAd.a */; };
@@ -582,6 +589,7 @@
 		3EA1A45E15149410004144B6 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-free-72@2x.png"; sourceTree = "<group>"; };
 		3EA395281556B3C60078DCA2 /* libAdapterInMobi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAdapterInMobi.a; path = "AdMob/LibAdapterInMobi-Apr232012/libAdapterInMobi.a"; sourceTree = "<group>"; };
+		3EA3952B1556B52A0078DCA2 /* libInMobi_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libInMobi_iOS.a; path = AdMob/InMobi_iOS_SDK_i350/libInMobi_iOS.a; sourceTree = "<group>"; };
 		3EADFAF8154E881000F62967 /* libAdapterIAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAdapterIAd.a; path = "AdMob/LibAdapterIAd-Mar282012/libAdapterIAd.a"; sourceTree = "<group>"; };
 		3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenSelectListView.xib; sourceTree = "<group>"; };
 		3EAF41441340BCED00814FFA /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADBannerView.h; path = AdMob/GADBannerView.h; sourceTree = "<group>"; };
@@ -685,6 +693,7 @@
 				3E3F525014651654005CBD9A /* libsqlite3.dylib in Frameworks */,
 				3EADFAF9154E881000F62967 /* libAdapterIAd.a in Frameworks */,
 				3EA395291556B3C60078DCA2 /* libAdapterInMobi.a in Frameworks */,
+				3EA3952C1556B52A0078DCA2 /* libInMobi_iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +721,8 @@
 				3E0AC6AF13A786F7006F505C /* CFNetwork.framework in Frameworks */,
 				3E3F525114651654005CBD9A /* libsqlite3.dylib in Frameworks */,
 				3EADFAFA154E881000F62967 /* libAdapterIAd.a in Frameworks */,
+				3EA3952D1556B52A0078DCA2 /* libInMobi_iOS.a in Frameworks */,
+				3EA395301556B54C0078DCA2 /* libAdapterInMobi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +735,8 @@
 				3EF966FE1464FD3900A24626 /* libsqlite3.dylib in Frameworks */,
 				3EF12E5A13D86BDD009D1722 /* SenTestingKit.framework in Frameworks */,
 				3EADFAFC154E881000F62967 /* libAdapterIAd.a in Frameworks */,
+				3EA3952F1556B52A0078DCA2 /* libInMobi_iOS.a in Frameworks */,
+				3EA395321556B54D0078DCA2 /* libAdapterInMobi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +762,8 @@
 				3EF152771462C38800C724E4 /* CrashReporter.framework in Frameworks */,
 				3E3F525214651654005CBD9A /* libsqlite3.dylib in Frameworks */,
 				3EADFAFB154E881000F62967 /* libAdapterIAd.a in Frameworks */,
+				3EA3952E1556B52A0078DCA2 /* libInMobi_iOS.a in Frameworks */,
+				3EA395311556B54D0078DCA2 /* libAdapterInMobi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1019,10 +1034,18 @@
 			name = "Support files";
 			sourceTree = "<group>";
 		};
+		3EA3952A1556B4E00078DCA2 /* AdapterInMobi */ = {
+			isa = PBXGroup;
+			children = (
+				3EA3952B1556B52A0078DCA2 /* libInMobi_iOS.a */,
+				3EA395281556B3C60078DCA2 /* libAdapterInMobi.a */,
+			);
+			name = AdapterInMobi;
+			sourceTree = "<group>";
+		};
 		3EADFAF7154E87F500F62967 /* AdapterIAD */ = {
 			isa = PBXGroup;
 			children = (
-				3EA395281556B3C60078DCA2 /* libAdapterInMobi.a */,
 				3EADFAF8154E881000F62967 /* libAdapterIAd.a */,
 			);
 			name = AdapterIAD;
@@ -1031,6 +1054,7 @@
 		3EAF41431340BCC000814FFA /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
+				3EA3952A1556B4E00078DCA2 /* AdapterInMobi */,
 				3EADFAF7154E87F500F62967 /* AdapterIAD */,
 				3EAF41441340BCED00814FFA /* GADBannerView.h */,
 				3EAF41451340BCED00814FFA /* GADBannerViewDelegate.h */,
@@ -1775,6 +1799,7 @@
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
+					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
 				);
 				PRODUCT_NAME = CashFlow;
 			};
@@ -1800,6 +1825,7 @@
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
+					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
 				);
 				PRODUCT_NAME = CashFlow;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8E62577C-700D-40A6-A386-6C3EFAE66BFA";
@@ -1830,6 +1856,8 @@
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
+					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 			};
@@ -1855,6 +1883,8 @@
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
+					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B3B1BC0-A3FF-4063-98F1-831E430A55E7";
@@ -1881,6 +1911,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
+					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1908,6 +1940,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
+					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1940,6 +1974,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
+					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -1966,6 +2002,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
+					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
+					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
