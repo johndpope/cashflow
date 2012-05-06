@@ -8,7 +8,7 @@
 #import "AdManager.h"
 #import "AppDelegate.h"
 
-#define AD_IS_TEST  YES
+#define AD_IS_TEST  NO
 
 @implementation AdMobView
 - (id)initWithFrame:(CGRect)frame {
@@ -28,6 +28,7 @@
 
 @interface AdManager()
 #if ENABLE_IAD
+#error
 - (void)_createIAd;
 - (void)_releaseIAd;
 #endif
@@ -334,12 +335,15 @@ static AdManager *theAdManager;
 
 - (void)adView:(AdMobView *)view didFailToReceiveAdWithError:(GADRequestError *)error
 {
+    NSString *msg;
+    
     if (mAdMobView.hasAutoRefreshed) {
         // auto refresh failed, but previous ad is effective.    
-        NSLog(@"AdMob auto refresh failed");
+        msg = @"AdMob auto refresh failed";
     } else {
-        NSLog(@"AdMob initial load failed");
+        msg = @"AdMob initial load failed";
     }
+    NSLog(@"%@ : %@", msg, [error localizedDescription]);
 }
 
 @end
