@@ -1,6 +1,7 @@
 2012-05-06 : Takuya Murakami
 
 	* iPad縦画面で資産削除時にクラッシュする問題を修正
+	* AdMob Mediation 対応。iAd/InMobi 統合。
 	
 2012-04-30 : Takuya Murakami
 
