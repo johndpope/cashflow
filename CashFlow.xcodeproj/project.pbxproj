@@ -790,6 +790,7 @@
 				3EF054671182D9CC00411C71 /* Resources-iPad */,
 				3E2CBD9B0F1614E90025A682 /* locale */,
 				3EB5406B0E8E907B00608B77 /* images */,
+				3E6C501A157E3F0C0086C20E /* Libraries */,
 				3EAF41431340BCC000814FFA /* AdMob */,
 				3E0AC68C13A785EB006F505C /* GoogleAnalytics */,
 				3EF152411462C2B300C724E4 /* LogicTests */,
@@ -994,6 +995,13 @@
 				3E2CBD9F0F1615470025A682 /* Localizable.strings */,
 			);
 			path = locale;
+			sourceTree = "<group>";
+		};
+		3E6C501A157E3F0C0086C20E /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 		3E85A722132E54D6002C44DF /* Support files */ = {
