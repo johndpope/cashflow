@@ -7,7 +7,7 @@
 
 #import "TransactionVC.h"
 #import "AppDelegate.h"
-
+#import "Config.h"
 #import "CalendarViewController.h"
 
 // private methods
@@ -260,8 +260,7 @@
     UINavigationController *nc = self.navigationController;
 
     UIViewController *vc = nil;
-    CalendarViewController *calendarVc;
-    EditDateViewController *editDateVC;
+
     EditTypeViewController *editTypeVC; // type
     CalculatorViewController *calcVC;
     EditDescViewController *editDescVC;
@@ -272,13 +271,17 @@
 
     switch (indexPath.row) {
         case ROW_DATE:
-            editDateVC = [[EditDateViewController alloc] init];
-            editDateVC.delegate = self;
-            editDateVC.date = mEditingEntry.transaction.date;
-            vc = editDateVC;
-            //calendarVc = [CalendarViewController new];
-            //[calendarVc setCalendarViewControllerDelegate:self];
-            //vc = calendarVc;
+            if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
+                CalendarViewController *calendarVc = [CalendarViewController new];
+                calendarVc.selectedDate = mEditingEntry.transaction.date;
+                [calendarVc setCalendarViewControllerDelegate:self];
+                vc = calendarVc;
+            } else {
+                EditDateViewController *editDateVC = [[EditDateViewController alloc] init];
+                editDateVC.delegate = self;
+                editDateVC.date = mEditingEntry.transaction.date;
+                vc = editDateVC;
+            }
             break;
 
         case ROW_TYPE:
@@ -358,14 +361,15 @@
 
 - (void)calendarViewController:(CalendarViewController *)aCalendarViewController dateDidChange:(NSDate *)aDate
 {
+    if (aDate == nil) return; // do nothing (Clear button)
+    
     mIsModified = YES;
     mEditingEntry.transaction.date = aDate;
     if (IS_IPAD) {
         [self _dismissPopover];
-    } else {
-        // Si-Calendar は、選択時に自動で View を閉じない仕様なので、ここで閉じる
-        [aCalendarViewController.navigationController popViewControllerAnimated:YES];
     }
+    // Si-Calendar は、選択時に自動で View を閉じない仕様なので、ここで閉じる
+    [aCalendarViewController.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)editDateViewChanged:(EditDateViewController *)vc
