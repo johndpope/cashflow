@@ -39,8 +39,6 @@
 	self.datesIndex = nil;
 	self.buttonsIndex = nil;
 	self.selectedDate = nil;
-	
-    [super dealloc];
 }
 
 
@@ -68,22 +66,22 @@
 		self.clipsToBounds = NO;
 		self.clearsContextBeforeDrawing = NO;
 		
-		UIImageView *headerBackground = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CalendarBackground.png"]] autorelease];
+		UIImageView *headerBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CalendarBackground.png"]];
 		[headerBackground setFrame:CGRectMake(0, 0, 320, 60)];
 		[self addSubview:headerBackground];
 		
-		UIImageView *calendarBackground = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CalendarBackground.png"]] autorelease];
+		UIImageView *calendarBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CalendarBackground.png"]];
 		[calendarBackground setFrame:CGRectMake(0, 60, 320, (numberOfWeeks + 1) * kCalendarDayHeight)];
 		[self addSubview:calendarBackground];
 		
 		
 		
-		NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 		NSArray *daySymbols = [formatter shortWeekdaySymbols];
 		self.numberOfDaysInWeek = [daySymbols count];
 		
 		
-		UILabel *aLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)] autorelease];
+		UILabel *aLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
 		aLabel.backgroundColor = [UIColor clearColor];
 		aLabel.textAlignment = UITextAlignmentCenter;
 		aLabel.font = [UIFont boldSystemFontOfSize:20];
@@ -96,7 +94,7 @@
 		[self addSubview:aLabel];
 		
 		
-		UIView *lineView = [[[UIView alloc] initWithFrame:CGRectMake(0, 59, 320, 1)] autorelease];
+		UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 59, 320, 1)];
 		lineView.backgroundColor = [UIColor lightGrayColor];
 		[self addSubview:lineView];
 		
@@ -113,7 +111,7 @@
 			CGFloat positionX = (aWeekday * kCalendarDayWidth) - 1;
 			CGRect aFrame = CGRectMake(positionX, 40, kCalendarDayWidth, 20);
 			
-			aLabel = [[[UILabel alloc] initWithFrame:aFrame] autorelease];
+			aLabel = [[UILabel alloc] initWithFrame:aFrame];
 			aLabel.backgroundColor = [UIColor clearColor];
 			aLabel.textAlignment = UITextAlignmentCenter;
 			aLabel.text = symbol;
@@ -125,8 +123,8 @@
 		}
 		
 		// Build calendar buttons (6 weeks of 7 days)
-		NSMutableArray *aDatesIndex = [[[NSMutableArray alloc] init] autorelease];
-		NSMutableArray *aButtonsIndex = [[[NSMutableArray alloc] init] autorelease];
+		NSMutableArray *aDatesIndex = [[NSMutableArray alloc] init];
+		NSMutableArray *aButtonsIndex = [[NSMutableArray alloc] init];
 		
 		for (NSInteger aWeek = 0; aWeek <= numberOfWeeks; aWeek ++) {
 			CGFloat positionY = (aWeek * kCalendarDayHeight) + 60;
@@ -197,8 +195,8 @@
 		
 		// save
 		self.calendarLogic = aLogic;
-		self.datesIndex = [[aDatesIndex copy] autorelease];
-		self.buttonsIndex = [[aButtonsIndex copy] autorelease];
+		self.datesIndex = [aDatesIndex copy];
+		self.buttonsIndex = [aButtonsIndex copy];
     }
     return self;
 }

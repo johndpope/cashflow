@@ -25,8 +25,7 @@
 @synthesize calendarViewNew;
 @synthesize selectedDate;
 - (void)setSelectedDate:(NSDate *)aDate {
-	[selectedDate autorelease];
-	selectedDate = [aDate retain];
+	selectedDate = aDate;
 	
 	[calendarLogic setReferenceDate:aDate];
 	[calendarView selectButtonForDate:aDate];
@@ -53,8 +52,6 @@
 	
 	self.leftButton = nil;
 	self.rightButton = nil;
-	
-    [super dealloc];
 }
 
 
@@ -90,13 +87,11 @@
 	
 	CalendarLogic *aCalendarLogic = [[CalendarLogic alloc] initWithDelegate:self referenceDate:aDate];
 	self.calendarLogic = aCalendarLogic;
-	[aCalendarLogic release];
 	
 	UIBarButtonItem *aClearButton = [[UIBarButtonItem alloc] 
 									 initWithTitle:NSLocalizedString(@"Clear", @"") style:UIBarButtonItemStylePlain
 									 target:self action:@selector(actionClearDate:)];
 	self.navigationItem.rightBarButtonItem = aClearButton;
-	[aClearButton release];
 		
 	
 	CalendarMonth *aCalendarView = [[CalendarMonth alloc] initWithFrame:CGRectMake(0, 0, 320, 324) logic:calendarLogic];
@@ -104,7 +99,6 @@
 	[self.view addSubview:aCalendarView];
 	
 	self.calendarView = aCalendarView;
-	[aCalendarView release];
 	
 	
 	
@@ -168,8 +162,7 @@
 #pragma mark CalendarLogic delegate
 
 - (void)calendarLogic:(CalendarLogic *)aLogic dateSelected:(NSDate *)aDate {
-	[selectedDate autorelease];
-	selectedDate = [aDate retain];
+	selectedDate = aDate;
 	
 	if ([calendarLogic distanceOfDateFromCurrentMonth:selectedDate] == 0) {
 		[calendarView selectButtonForDate:selectedDate];
@@ -196,7 +189,6 @@
 	[self.view insertSubview:aCalendarView belowSubview:calendarView];
 	
 	self.calendarViewNew = aCalendarView;
-	[aCalendarView release];
 	
 	if (animate) {
 		[UIView beginAnimations:NULL context:nil];

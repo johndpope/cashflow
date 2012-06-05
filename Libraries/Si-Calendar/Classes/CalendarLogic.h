@@ -11,7 +11,7 @@
 #import "CalendarLogicDelegate.h"
 
 @interface CalendarLogic : NSObject {
-	id <CalendarLogicDelegate> calendarLogicDelegate;
+	__unsafe_unretained id <CalendarLogicDelegate> calendarLogicDelegate;
 	NSDate *referenceDate;
 }
 

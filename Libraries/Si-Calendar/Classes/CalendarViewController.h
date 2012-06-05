@@ -15,7 +15,7 @@
 @class CalendarMonth;
 
 @interface CalendarViewController : UIViewController <CalendarLogicDelegate> {
-	id <CalendarViewControllerDelegate> calendarViewControllerDelegate;
+    __unsafe_unretained id <CalendarViewControllerDelegate> calendarViewControllerDelegate;
 	
 	CalendarLogic *calendarLogic;
 	CalendarMonth *calendarView;

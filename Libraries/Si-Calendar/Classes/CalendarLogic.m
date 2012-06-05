@@ -26,9 +26,9 @@
 	// Calculate direction of month switches
 	NSInteger distance = [self distanceOfDateFromCurrentMonth:aDate];
 	
-	[referenceDate autorelease];	
+	referenceDate = nil;
 	NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:aDate];	
-	referenceDate = [[[NSCalendar currentCalendar] dateFromComponents:components] retain];
+	referenceDate = [[NSCalendar currentCalendar] dateFromComponents:components];
 
 	// Message delegate
 	[calendarLogicDelegate calendarLogic:self dateSelected:aDate];
@@ -48,8 +48,6 @@
 - (void)dealloc {
 	self.calendarLogicDelegate = nil;
 	self.referenceDate = nil;
-	
-    [super dealloc];
 }
 
 
@@ -62,9 +60,9 @@
         // Initialization code
 		self.calendarLogicDelegate = aDelegate;
 		
-		[referenceDate autorelease];	
+		referenceDate = nil;
 		NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:aDate];	
-		referenceDate = [[[NSCalendar currentCalendar] dateFromComponents:components] retain];
+		referenceDate = [[NSCalendar currentCalendar] dateFromComponents:components];
     }
     return self;
 }
@@ -101,7 +99,7 @@
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	
 	// Select first 'firstWeekDay' in this month
-	NSDateComponents *firstStartDayComponents = [[[NSDateComponents alloc] init] autorelease];
+	NSDateComponents *firstStartDayComponents = [NSDateComponents new];
 	[firstStartDayComponents setMonth:aMonth];
 	[firstStartDayComponents setYear:aYear];
 	[firstStartDayComponents setWeekday:[calendar firstWeekday]];
@@ -118,7 +116,7 @@
 		firstDay = 1;
 	}
 	
-	NSDateComponents *components = [[[NSDateComponents alloc] init] autorelease];
+	NSDateComponents *components = [NSDateComponents new];
 	[components setYear:aYear];
 	[components setMonth:aMonth];
 	[components setDay:(aWeek * numberOfDaysInWeek) + firstDay + (aWeekday - 1)];
@@ -134,7 +132,7 @@
 	
 	
 	// Select this month in this year.
-	NSDateComponents *firstDayComponents = [[[NSDateComponents alloc] init] autorelease];
+	NSDateComponents *firstDayComponents = [NSDateComponents new];
 	[firstDayComponents setMonth:[components month]];
 	[firstDayComponents setYear:[components year]];
 	NSDate *firstDayDate = [calendar dateFromComponents:firstDayComponents];
@@ -185,21 +183,19 @@
 - (void)selectPreviousMonth {
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	
-	NSDateComponents *components = [[[NSDateComponents alloc] init] autorelease];
+	NSDateComponents *components = [NSDateComponents new];
 	[components setMonth:-1];
 	
-	[referenceDate autorelease];
-	referenceDate = [[calendar dateByAddingComponents:components toDate:referenceDate options:0] retain];
+	referenceDate = [calendar dateByAddingComponents:components toDate:referenceDate options:0];
 	[calendarLogicDelegate calendarLogic:self monthChangeDirection:-1];	
 }
 - (void)selectNextMonth {
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	
-	NSDateComponents *components = [[[NSDateComponents alloc] init] autorelease];
+	NSDateComponents *components = [NSDateComponents new];
 	[components setMonth:1];
 	
-	[referenceDate autorelease];
-	referenceDate = [[calendar dateByAddingComponents:components toDate:referenceDate options:0] retain];
+	referenceDate = [calendar dateByAddingComponents:components toDate:referenceDate options:0];
 	[calendarLogicDelegate calendarLogic:self monthChangeDirection:1];
 }
 
