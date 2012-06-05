@@ -89,7 +89,7 @@
 	self.calendarLogic = aCalendarLogic;
 	
 	UIBarButtonItem *aClearButton = [[UIBarButtonItem alloc] 
-									 initWithTitle:NSLocalizedString(@"Clear", @"") style:UIBarButtonItemStylePlain
+									 initWithTitle:NSLocalizedString(@"Today", @"") style:UIBarButtonItemStylePlain
 									 target:self action:@selector(actionClearDate:)];
 	self.navigationItem.rightBarButtonItem = aClearButton;
 		
@@ -149,8 +149,10 @@
 #pragma mark UI events
 
 - (void)actionClearDate:(id)sender {
-	self.selectedDate = nil;
-	[calendarView selectButtonForDate:nil];
+	//self.selectedDate = nil;
+	//[calendarView selectButtonForDate:nil];
+    
+    [self setSelectedDate:[CalendarLogic dateForToday]]; // TBD:
 	
 	// Delegate called later.
 	//[calendarViewControllerDelegate calendarViewController:self dateDidChange:nil];
