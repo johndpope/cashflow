@@ -8,6 +8,8 @@
 #import "TransactionVC.h"
 #import "AppDelegate.h"
 
+#import "CalendarViewController.h"
+
 // private methods
 @interface TransactionViewController()
 - (void)_asDelPast:(int)buttonIndex;
@@ -258,6 +260,7 @@
     UINavigationController *nc = self.navigationController;
 
     UIViewController *vc = nil;
+    CalendarViewController *calendarVc;
     EditDateViewController *editDateVC;
     EditTypeViewController *editTypeVC; // type
     CalculatorViewController *calcVC;
@@ -268,54 +271,57 @@
     // view を表示
 
     switch (indexPath.row) {
-    case ROW_DATE:
-        editDateVC = [[EditDateViewController alloc] init];
-        editDateVC.delegate = self;
-        editDateVC.date = mEditingEntry.transaction.date;
-        vc = editDateVC;
-        break;
+        case ROW_DATE:
+            editDateVC = [[EditDateViewController alloc] init];
+            editDateVC.delegate = self;
+            editDateVC.date = mEditingEntry.transaction.date;
+            vc = editDateVC;
+            //calendarVc = [CalendarViewController new];
+            //[calendarVc setCalendarViewControllerDelegate:self];
+            //vc = calendarVc;
+            break;
 
-    case ROW_TYPE:
-        editTypeVC = [[EditTypeViewController alloc] init];
-        editTypeVC.delegate = self;
-        editTypeVC.type = mEditingEntry.transaction.type;
-        editTypeVC.dstAsset = [mEditingEntry dstAsset];
-        vc = editTypeVC;
-        break;
+        case ROW_TYPE:
+            editTypeVC = [[EditTypeViewController alloc] init];
+            editTypeVC.delegate = self;
+            editTypeVC.type = mEditingEntry.transaction.type;
+            editTypeVC.dstAsset = [mEditingEntry dstAsset];
+            vc = editTypeVC;
+            break;
 
-    case ROW_VALUE:
-        calcVC = [[CalculatorViewController alloc] init];
-        calcVC.delegate = self;
-        calcVC.value = mEditingEntry.evalue;
-        vc = calcVC;
-        break;
+        case ROW_VALUE:
+            calcVC = [[CalculatorViewController alloc] init];
+            calcVC.delegate = self;
+            calcVC.value = mEditingEntry.evalue;
+            vc = calcVC;
+            break;
 
-    case ROW_DESC:
-        editDescVC = [[EditDescViewController alloc] init];
-        editDescVC.delegate = self;
-        editDescVC.description = mEditingEntry.transaction.description;
-        editDescVC.category = mEditingEntry.transaction.category;
-        vc = editDescVC;
-        break;
+        case ROW_DESC:
+            editDescVC = [[EditDescViewController alloc] init];
+            editDescVC.delegate = self;
+            editDescVC.description = mEditingEntry.transaction.description;
+            editDescVC.category = mEditingEntry.transaction.category;
+            vc = editDescVC;
+            break;
 
-    case ROW_MEMO:
-        editMemoVC = [EditMemoViewController
-                         editMemoViewController:self
-                         title:_L(@"Memo") 
-                         identifier:0];
-        editMemoVC.text = mEditingEntry.transaction.memo;
-        vc = editMemoVC;
-        break;
+        case ROW_MEMO:
+            editMemoVC = [EditMemoViewController
+                          editMemoViewController:self
+                          title:_L(@"Memo") 
+                          identifier:0];
+            editMemoVC.text = mEditingEntry.transaction.memo;
+            vc = editMemoVC;
+            break;
 
-    case ROW_CATEGORY:
-        editCategoryVC = [[CategoryListViewController alloc] init];
-        editCategoryVC.isSelectMode = YES;
-        editCategoryVC.delegate = self;
-        editCategoryVC.selectedIndex = [[DataModel categories] categoryIndexWithKey:mEditingEntry.transaction.category];
-        vc = editCategoryVC;
-        break;
+        case ROW_CATEGORY:
+            editCategoryVC = [[CategoryListViewController alloc] init];
+            editCategoryVC.isSelectMode = YES;
+            editCategoryVC.delegate = self;
+            editCategoryVC.selectedIndex = [[DataModel categories] categoryIndexWithKey:mEditingEntry.transaction.category];
+            vc = editCategoryVC;
+            break;
     }
-    
+            
     if (IS_IPAD) { // TBD
         nc = [[UINavigationController alloc] initWithRootViewController:vc];
         
@@ -349,6 +355,19 @@
 #pragma mark EditView delegates
 
 // delegate : 下位 ViewController からの変更通知
+
+- (void)calendarViewController:(CalendarViewController *)aCalendarViewController dateDidChange:(NSDate *)aDate
+{
+    mIsModified = YES;
+    mEditingEntry.transaction.date = aDate;
+    if (IS_IPAD) {
+        [self _dismissPopover];
+    } else {
+        // Si-Calendar は、選択時に自動で View を閉じない仕様なので、ここで閉じる
+        [aCalendarViewController.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 - (void)editDateViewChanged:(EditDateViewController *)vc
 {
     mIsModified = YES;

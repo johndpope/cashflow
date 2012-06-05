@@ -15,12 +15,14 @@
 #import "EditDateVC.h"
 #import "EditMemoVC.h"
 #import "CategoryListVC.h"
+#import "CalendarViewController.h"
 
 @interface TransactionViewController : UITableViewController 
     <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,
     EditMemoViewDelegate, EditTypeViewDelegate,
     EditDateViewDelegate, CalculatorViewDelegate,
     EditDescViewDelegate, CategoryListViewDelegate,
+    CalendarViewControllerDelegate,
     UIPopoverControllerDelegate>
 
 @property(nonatomic,unsafe_unretained) Asset *asset;
