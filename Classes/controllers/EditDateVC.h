@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Transaction.h"
 
+#import "CalendarViewController.h"
+
 @class TransactionViewController;
 @class EditDateViewController;
 
@@ -16,7 +18,7 @@
 - (void)editDateViewChanged:(EditDateViewController*)vc;
 @end
 
-@interface EditDateViewController : UIViewController {
+@interface EditDateViewController : UIViewController <CalendarViewControllerDelegate> {
     IBOutlet UIDatePicker *mDatePicker;
 }
 
