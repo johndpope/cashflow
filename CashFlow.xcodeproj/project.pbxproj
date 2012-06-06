@@ -18,6 +18,8 @@
 		3E02EBF813226FDC0086F492 /* ReportCatDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02EBF713226FDC0086F492 /* ReportCatDetailVC.m */; };
 		3E02EBF913226FDC0086F492 /* ReportCatDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02EBF713226FDC0086F492 /* ReportCatDetailVC.m */; };
 		3E035E9B1182B6E000711865 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
+		3E06D5E1157FA8E600D9A454 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAF414A1340BCED00814FFA /* libGoogleAdMobAds.a */; };
+		3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; };
 		3E0887F00E6EAC5C00739AC9 /* EditDescView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887EF0E6EAC5C00739AC9 /* EditDescView.xib */; };
 		3E0887F60E6EAC8900739AC9 /* EditDateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887F50E6EAC8900739AC9 /* EditDateView.xib */; };
 		3E0AC6AB13A78664006F505C /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */; };
@@ -914,6 +916,8 @@
 				3EA395371556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
 				3EA3953B1556BEF70078DCA2 /* libInMobi_iOS.a in Frameworks */,
 				3EA395401556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
+				3E06D5E1157FA8E600D9A454 /* libGoogleAdMobAds.a in Frameworks */,
+				3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2294,6 +2298,7 @@
 					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
+					"\"$(SRCROOT)/AdMob\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -2324,6 +2329,7 @@
 					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
+					"\"$(SRCROOT)/AdMob\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
