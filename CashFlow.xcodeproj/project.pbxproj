@@ -450,6 +450,21 @@
 		3EF1529F1462CCDD00C724E4 /* testdata1.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1529D1462CCDA00C724E4 /* testdata1.sql */; };
 		3EF1716F133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF17170133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
+		3EF402EE157FA7180091CC40 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
+		3EF402EF157FA71E0091CC40 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
+		3EF402F0157FA7220091CC40 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; };
+		3EF402F1157FA7260091CC40 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; };
+		3EF402F2157FA7280091CC40 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E13EE58114007D600523938 /* AVFoundation.framework */; };
+		3EF402F3157FA72B0091CC40 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6F5D5E0EB8C30B0082F50A /* AudioToolbox.framework */; };
+		3EF402F4157FA72E0091CC40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		3EF402F5157FA7340091CC40 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB554B3103B92D700BA13D4 /* QuartzCore.framework */; };
+		3EF402F6157FA7370091CC40 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB55574103B96CE00BA13D4 /* CoreLocation.framework */; };
+		3EF402F7157FA73A0091CC40 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB5552D103B930D00BA13D4 /* AddressBook.framework */; };
+		3EF402F8157FA73C0091CC40 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
+		3EF402F9157FA73F0091CC40 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; };
+		3EF402FA157FA7420091CC40 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
+		3EF402FB157FA7440091CC40 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
+		3EF402FC157FA7570091CC40 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAF414A1340BCED00814FFA /* libGoogleAdMobAds.a */; };
 		3EF5F4FF145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
 		3EF5F500145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
 		3EF966FE1464FD3900A24626 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
@@ -857,6 +872,21 @@
 				3EA395381556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
 				3EA3953C1556BEF70078DCA2 /* libInMobi_iOS.a in Frameworks */,
 				3EA395411556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
+				3EF402EE157FA7180091CC40 /* DropboxSDK.framework in Frameworks */,
+				3EF402EF157FA71E0091CC40 /* CFNetwork.framework in Frameworks */,
+				3EF402F0157FA7220091CC40 /* iAd.framework in Frameworks */,
+				3EF402F1157FA7260091CC40 /* Security.framework in Frameworks */,
+				3EF402F2157FA7280091CC40 /* AVFoundation.framework in Frameworks */,
+				3EF402F3157FA72B0091CC40 /* AudioToolbox.framework in Frameworks */,
+				3EF402F4157FA72E0091CC40 /* CoreGraphics.framework in Frameworks */,
+				3EF402F5157FA7340091CC40 /* QuartzCore.framework in Frameworks */,
+				3EF402F6157FA7370091CC40 /* CoreLocation.framework in Frameworks */,
+				3EF402F7157FA73A0091CC40 /* AddressBook.framework in Frameworks */,
+				3EF402F8157FA73C0091CC40 /* MediaPlayer.framework in Frameworks */,
+				3EF402F9157FA73F0091CC40 /* MessageUI.framework in Frameworks */,
+				3EF402FA157FA7420091CC40 /* SystemConfiguration.framework in Frameworks */,
+				3EF402FB157FA7440091CC40 /* CrashReporter.framework in Frameworks */,
+				3EF402FC157FA7570091CC40 /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
