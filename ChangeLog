@@ -1,8 +1,16 @@
+2012-06-11 : Takuya Murakami
+
+	* AdMob 6.0.1 -> 6.0.3
+
+2012-06-06: Takuya Murakami
+
+	* Calendar View 追加
+
 2012-05-06 : Takuya Murakami
 
 	* iPad縦画面で資産削除時にクラッシュする問題を修正
 	* AdMob Mediation 対応。iAd/InMobi 統合。
-	
+
 2012-04-30 : Takuya Murakami
 
 	* AdMob 5.0.8 -> 6.0.1
