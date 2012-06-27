@@ -12,20 +12,11 @@
 #import "ExportCsv.h"
 #import "ExportOfx.h"
 
-@interface ExportVC : UIViewController {
-    IBOutlet UIButton *mExportButton;
-    IBOutlet UISegmentedControl *mFormatControl;
-    IBOutlet UISegmentedControl *mRangeControl;
-    IBOutlet UISegmentedControl *mMethodControl;
-    IBOutlet UILabel *mFormatLabel;
-    IBOutlet UILabel *mRangeLabel;
-    IBOutlet UILabel *mMethodLabel;
-}
+@interface ExportVC : UIViewController
 
 @property(nonatomic,unsafe_unretained) Asset *asset;
 
 - (IBAction)doExport;
 - (id)initWithAsset:(Asset *)asset;
-- (void)doneAction:(id)sender;
 
 @end

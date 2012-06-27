@@ -8,8 +8,20 @@
 #import "ExportVC.h"
 #import "AppDelegate.h"
 
+@interface ExportVC ()
+- (void)doneAction:(id)sender;
+@end
+
 @implementation ExportVC
 {
+    IBOutlet UIButton *mExportButton;
+    IBOutlet UISegmentedControl *mFormatControl;
+    IBOutlet UISegmentedControl *mRangeControl;
+    IBOutlet UISegmentedControl *mMethodControl;
+    IBOutlet UILabel *mFormatLabel;
+    IBOutlet UILabel *mRangeLabel;
+    IBOutlet UILabel *mMethodLabel;
+
     ExportCsv *mCsv;
     ExportOfx *mOfx;
 }

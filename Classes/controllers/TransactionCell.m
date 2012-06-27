@@ -11,6 +11,12 @@
 #import "CurrencyManager.h"
 
 @implementation TransactionCell
+{
+    IBOutlet UILabel *mDescLabel;
+    IBOutlet UILabel *mDateLabel;
+    IBOutlet UILabel *mValueLabel;
+    IBOutlet UILabel *mBalanceLabel;
+}
 
 + (TransactionCell *)transactionCell:(UITableView *)tableView
 {

@@ -10,8 +10,14 @@
 #import "AppDelegate.h"
 #import "Config.h"
 
+@interface EditDateViewController ()
+- (void)doneAction;
+@end
+
 @implementation EditDateViewController
 {
+    IBOutlet UIDatePicker *mDatePicker;
+    
     id<EditDateViewDelegate> __unsafe_unretained mDelegate;
     NSDate *mDate;
 }

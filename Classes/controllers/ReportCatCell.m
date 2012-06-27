@@ -11,6 +11,11 @@
 #import "AppDelegate.h"
 
 @implementation ReportCatCell
+{
+    IBOutlet UILabel *mNameLabel;
+    IBOutlet UILabel *mValueLabel;
+    IBOutlet UIView *mGraphView;
+}
 
 + (ReportCatCell *)reportCatCell:(UITableView *)tableView
 {

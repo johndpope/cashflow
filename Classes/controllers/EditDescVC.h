@@ -18,9 +18,6 @@
 
 @interface EditDescViewController : UIViewController
   <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
-{
-    IBOutlet UITableView *mTableView;
-}
 
 @property(nonatomic,unsafe_unretained) id<EditDescViewDelegate> delegate;
 @property(nonatomic,strong) NSString *description;

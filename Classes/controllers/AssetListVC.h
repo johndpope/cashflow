@@ -15,14 +15,6 @@
 
 @interface AssetListViewController : UIViewController
 <DataModelDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate, BackupViewDelegate>
-{
-    IBOutlet UITableView *mTableView;
-    IBOutlet UIBarButtonItem *mBarActionButton;
-    IBOutlet UIBarButtonItem *mBarSumLabel;
-
-    // for iPad (Split View)
-    IBOutlet TransactionListViewController *mSplitTransactionListViewController;
-}
 
 @property(nonatomic,strong) UITableView *tableView;
 

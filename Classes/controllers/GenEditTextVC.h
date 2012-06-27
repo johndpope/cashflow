@@ -14,15 +14,11 @@
 - (void)genEditTextViewChanged:(GenEditTextViewController *)vc identifier:(int)id;
 @end
 
-@interface GenEditTextViewController : UIViewController {
-    IBOutlet UITextField *mTextField;
-}
+@interface GenEditTextViewController : UIViewController
 
 @property(nonatomic,unsafe_unretained) id<GenEditTextViewDelegate> delegate;
 @property(nonatomic,assign) int identifier;
 @property(nonatomic,strong) NSString *text;
 
 + (GenEditTextViewController *)genEditTextViewController:(id<GenEditTextViewDelegate>)delegate title:(NSString*)title identifier:(int)id;
-- (void)doneAction;
-
 @end

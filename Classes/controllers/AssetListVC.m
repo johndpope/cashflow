@@ -29,6 +29,13 @@
 
 @implementation AssetListViewController
 {
+    IBOutlet UITableView *mTableView;
+    IBOutlet UIBarButtonItem *mBarActionButton;
+    IBOutlet UIBarButtonItem *mBarSumLabel;
+    
+    // for iPad (Split View)
+    IBOutlet TransactionListViewController *mSplitTransactionListViewController;
+
     BOOL mIsLoadDone;
     DBLoadingView *mLoadingView;
     

@@ -11,12 +11,16 @@
 #import "DescLRUManager.h"
 
 @interface EditDescViewController()
+
+
 - (UITableViewCell *)_textFieldCell:(UITableView*)tv;
 - (UITableViewCell *)_descCell:(UITableView*)tv row:(int)row;
 @end
 
 @implementation EditDescViewController
 {
+    IBOutlet UITableView *mTableView;
+    
     UITextField *mTextField;
     NSMutableArray *mDescArray;
 

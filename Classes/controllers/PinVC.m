@@ -10,6 +10,33 @@
 #import "PinVC.h"
 #import "AppDelegate.h"
 
+@interface PinViewController ()
+{
+    IBOutlet UILabel *mValueLabel;
+    
+    IBOutlet UIButton *button_Clear;
+    IBOutlet UIButton *button_BS;
+    IBOutlet UIButton *button_0;
+    IBOutlet UIButton *button_1;
+    IBOutlet UIButton *button_2;
+    IBOutlet UIButton *button_3;
+    IBOutlet UIButton *button_4;
+    IBOutlet UIButton *button_5;
+    IBOutlet UIButton *button_6;
+    IBOutlet UIButton *button_7;
+    IBOutlet UIButton *button_8;
+    IBOutlet UIButton *button_9;
+    
+    NSMutableString *mValue;
+    BOOL mEnableCancel;
+    id<PinViewDelegate> __unsafe_unretained mDelegate;
+}
+
+- (IBAction)onNumButtonDown:(id)sender;
+- (IBAction)onNumButtonPressed:(id)sender;
+
+@end
+
 @implementation PinViewController
 @synthesize value = mValue, enableCancel = mEnableCancel, delegate = mDelegate;
 

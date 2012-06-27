@@ -11,6 +11,13 @@
 #import "AppDelegate.h"
 
 @implementation ReportCell
+{
+    IBOutlet UILabel *mNameLabel;
+    IBOutlet UILabel *mIncomeLabel;
+    IBOutlet UILabel *mOutgoLabel;
+    IBOutlet UIView *mIncomeGraph;
+    IBOutlet UIView *mOutgoGraph;
+}
 
 @synthesize name = mName, income = mIncome, outgo = mOutgo, maxAbsValue = mMaxAbsValue;
 

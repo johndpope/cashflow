@@ -8,11 +8,17 @@
 #import "EditMemoVC.h"
 #import "AppDelegate.h"
 
+@interface EditMemoViewController ()
+- (void)doneAction;
+@end
+
 @implementation EditMemoViewController
-{	
+{
     id<EditMemoViewDelegate> __unsafe_unretained mDelegate;
     NSString *mText;
     int mIdentifier;
+    
+    IBOutlet UITextView *mTextView;
 }
 
 @synthesize delegate = mDelegate, identifier = mIdentifier, text = mText;

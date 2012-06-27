@@ -18,13 +18,9 @@
 - (void)editDateViewChanged:(EditDateViewController*)vc;
 @end
 
-@interface EditDateViewController : UIViewController <CalendarViewControllerDelegate> {
-    IBOutlet UIDatePicker *mDatePicker;
-}
+@interface EditDateViewController : UIViewController <CalendarViewControllerDelegate> 
 
 @property(nonatomic,unsafe_unretained) id<EditDateViewDelegate> delegate;
 @property(nonatomic,strong) NSDate *date;
-
-- (void)doneAction;
 
 @end
