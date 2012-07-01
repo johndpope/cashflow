@@ -2106,8 +2106,6 @@
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
-					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
-					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
 				);
@@ -2134,8 +2132,6 @@
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
-					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
-					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
 				);
@@ -2168,8 +2164,6 @@
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
-					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
-					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
 				);
@@ -2197,8 +2191,6 @@
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
-					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
-					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
 				);
@@ -2227,8 +2219,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
-					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
-					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
 				);
@@ -2258,8 +2248,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
-					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
-					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
 				);
@@ -2294,8 +2282,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
-					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
-					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
 					"\"$(SRCROOT)/AdMob\"",
@@ -2325,8 +2311,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
-					"\"$(SRCROOT)/AdMob/InMobi_iOS_SDK_i350\"",
-					"\"$(SRCROOT)/AdMob/LibAdapterInMobi-Apr232012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
 					"\"$(SRCROOT)/AdMob\"",
@@ -2360,10 +2344,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/GoogleAds\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -2399,10 +2380,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/GoogleAds\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
