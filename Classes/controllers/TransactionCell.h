@@ -9,12 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AssetEntry.h"
 
-@interface TransactionCell : UITableViewCell {
-    IBOutlet UILabel *mDescLabel;
-    IBOutlet UILabel *mDateLabel;
-    IBOutlet UILabel *mValueLabel;
-    IBOutlet UILabel *mBalanceLabel;
-}
+@interface TransactionCell : UITableViewCell
 
 + (TransactionCell *)transactionCell:(UITableView *)tableView;
 

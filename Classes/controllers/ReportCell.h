@@ -9,13 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ReportCell : UITableViewCell
-{
-    IBOutlet UILabel *mNameLabel;
-    IBOutlet UILabel *mIncomeLabel;
-    IBOutlet UILabel *mOutgoLabel;
-    IBOutlet UIView *mIncomeGraph;
-    IBOutlet UIView *mOutgoGraph;
-}
 
 @property(nonatomic,strong) NSString *name;
 @property(nonatomic,assign) double income;

@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReportCatCell : UITableViewCell {
-    IBOutlet UILabel *mNameLabel;
-    IBOutlet UILabel *mValueLabel;
-    IBOutlet UIView *mGraphView;
-}
+@interface ReportCatCell : UITableViewCell
 
 @property(nonatomic,strong) NSString *name;
 

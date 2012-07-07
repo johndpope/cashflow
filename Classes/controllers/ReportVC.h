@@ -11,26 +11,11 @@
 #import "Asset.h"
 
 @interface ReportViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
-{
-    IBOutlet UITableView *mTableView;
-
-    int mType;
-    Asset *mDesignatedAsset;
-    Report *mReports;
-    double mMaxAbsValue;
-
-    NSDateFormatter *mDateFormatter;
-}
 
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) Asset *designatedAsset;
 
 - (id)initWithAsset:(Asset*)asset type:(int)type;    // designated initializer
 - (id)initWithAsset:(Asset*)asset; 
-
-- (IBAction)setReportDaily:(id)sender;
-- (IBAction)setReportWeekly:(id)sender;
-- (IBAction)setReportMonthly:(id)sender;
-- (IBAction)setReportAnnual:(id)sender;
 
 @end

@@ -10,8 +10,14 @@
 #import "AppDelegate.h"
 #import "Config.h"
 
+@interface EditDateViewController ()
+- (void)doneAction;
+@end
+
 @implementation EditDateViewController
 {
+    IBOutlet UIDatePicker *mDatePicker;
+    
     id<EditDateViewDelegate> __unsafe_unretained mDelegate;
     NSDate *mDate;
 }
@@ -54,7 +60,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    mDatePicker.date = self.date;
+    [mDatePicker setDate:self.date animated:NO];
     [super viewWillAppear:animated];
 }
 
@@ -71,9 +77,36 @@
     [super viewWillDisappear:animated];
 }
 
+- (IBAction)showCalendar:(id)sender {
+    CalendarViewController *vc = [CalendarViewController new];
+    vc.selectedDate = mDatePicker.date;
+    [vc setCalendarViewControllerDelegate:self];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     if (IS_IPAD) return YES;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark CalendarViewControllerDelegate
+- (void)calendarViewController:(CalendarViewController *)aCalendarViewController dateDidChange:(NSDate *)aDate
+{
+    if (aDate == nil) return; // do nothing (Clear button)
+
+    // 時刻を取り出す
+    NSDateComponents *comps = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] 
+                                components:(NSHourCalendarUnit | NSMinuteCalendarUnit) 
+                                fromDate:mDatePicker.date];
+    int hour = [comps hour];
+    int min = [comps minute];
+    
+    // カレンダーで指定した日時(0:00) に以前の時刻の値を加算する
+    self.date = [aDate dateByAddingTimeInterval:(hour * 3600 + min * 60)];
+
+    // Si-Calendar は、選択時に自動で View を閉じない仕様なので、ここで閉じる
+    [aCalendarViewController.navigationController popViewControllerAnimated:YES];
 }
 
 @end

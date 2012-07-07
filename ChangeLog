@@ -1,3 +1,33 @@
+2012-07-07 : Takuya Murakami
+
+	* ver 5.2 (v48)
+
+2012-06-21 : Takuya Murakami
+
+	* バグ修正: PIN入力中にアプリ切り替えすると、復帰時に
+	  クラッシュする。
+
+2012-06-11 : Takuya Murakami
+
+	* AdMob 6.0.1 -> 6.0.3
+
+2012-06-06: Takuya Murakami
+
+	* Calendar View 追加
+
+2012-05-06 : Takuya Murakami
+
+	* iPad縦画面で資産削除時にクラッシュする問題を修正
+	* AdMob Mediation 対応。iAd/InMobi 統合。
+
+2012-04-30 : Takuya Murakami
+
+	* AdMob 5.0.8 -> 6.0.1
+
+2012-04-21 : Takuya Murakami
+
+	* ver 5.1.4 (v47)
+
 2012-04-15 : Takuya Murakami
 
 	* iOS 5.1 バグ対応: Split View の popover から

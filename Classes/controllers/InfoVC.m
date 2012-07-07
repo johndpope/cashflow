@@ -10,10 +10,25 @@
 #import "SupportMail.h"
 
 @interface InfoVC()
+- (IBAction)webButtonTapped;
+- (IBAction)facebookButtonTapped:(id)sender;
+- (IBAction)purchaseStandardVersion;
+- (IBAction)sendSupportMail;
+
 - (void)_setButtonTitle:(UIButton*)button title:(NSString*)title;
+- (void)doneAction:(id)sender;
 @end
 
 @implementation InfoVC
+{
+    IBOutlet UILabel *mNameLabel;
+    IBOutlet UILabel *mVersionLabel;
+    
+    IBOutlet UIButton *mPurchaseButton;
+    IBOutlet UIButton *mHelpButton;
+    IBOutlet UIButton *mFacebookButton;
+    IBOutlet UIButton *mSendMailButton;
+}
 
 - (id)init
 {

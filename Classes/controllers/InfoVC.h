@@ -7,20 +7,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InfoVC : UIViewController {
-    IBOutlet UILabel *mNameLabel;
-    IBOutlet UILabel *mVersionLabel;
-
-    IBOutlet UIButton *mPurchaseButton;
-    IBOutlet UIButton *mHelpButton;
-    IBOutlet UIButton *mFacebookButton;
-    IBOutlet UIButton *mSendMailButton;
-}
-
-- (void)doneAction:(id)sender;
-- (IBAction)webButtonTapped;
-- (IBAction)facebookButtonTapped:(id)sender;
-- (IBAction)purchaseStandardVersion;
-- (IBAction)sendSupportMail;
-
+@interface InfoVC : UIViewController
 @end

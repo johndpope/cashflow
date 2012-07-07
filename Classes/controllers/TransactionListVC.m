@@ -17,8 +17,22 @@
 #import "BackupVC.h"
 #import "Database.h"
 
+@interface TransactionListViewController ()
+- (IBAction)showReport:(id)sender;
+- (IBAction)doAction:(id)sender;
+//- (IBAction)showHelp:(id)sender;
+@end
+
 @implementation TransactionListViewController
 {
+    IBOutlet UITableView *mTableView;
+    IBOutlet UIBarButtonItem *mBarBalanceLabel;
+    IBOutlet UIBarButtonItem *mBarActionButton;
+    IBOutlet UIToolbar *mToolbar;
+    
+    // for Split view
+    IBOutlet AssetListViewController *mSplitAssetListViewController;
+
     int mAssetKey;
     //Asset *mAssetCache;
     

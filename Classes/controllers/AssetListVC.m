@@ -29,6 +29,13 @@
 
 @implementation AssetListViewController
 {
+    IBOutlet UITableView *mTableView;
+    IBOutlet UIBarButtonItem *mBarActionButton;
+    IBOutlet UIBarButtonItem *mBarSumLabel;
+    
+    // for iPad (Split View)
+    IBOutlet TransactionListViewController *mSplitTransactionListViewController;
+
     BOOL mIsLoadDone;
     DBLoadingView *mLoadingView;
     
@@ -432,7 +439,9 @@
                 destructiveButtonTitle:_L(@"Delete Asset")
                 otherButtonTitles:nil];
         mAsDelete.actionSheetStyle = UIActionSheetStyleDefault;
-        [mAsDelete showInView:self.view];
+        
+        // 注意: self.view から showInView すると、iPad縦画面でクラッシュする。self.view.window にすれば OK。
+        [mAsDelete showInView:self.view.window];
     }
 }
 
@@ -520,11 +529,12 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
          _L(@"Config"),
          _L(@"Info"),
          nil];
-    if (IS_IPAD) {
-        [mAsActionButton showFromBarButtonItem:mBarActionButton animated:YES];
-    } else {
-        [mAsActionButton showInView:[self view]];
-    }
+
+    //if (IS_IPAD) {
+    //    [mAsActionButton showFromBarButtonItem:mBarActionButton animated:YES];
+    //}
+    
+    [mAsActionButton showInView:[self view]];
 }
 
 - (void)_actionActionButton:(NSInteger)buttonIndex
@@ -563,9 +573,9 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
     }
     
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
-    if (IS_IPAD) {
-        nv.modalPresentationStyle = UIModalPresentationFormSheet; //UIModalPresentationPageSheet;
-    }
+    //if (IS_IPAD) {
+    //    nv.modalPresentationStyle = UIModalPresentationFormSheet; //UIModalPresentationPageSheet;
+    //}
     [self.navigationController presentModalViewController:nv animated:YES];
 }
 

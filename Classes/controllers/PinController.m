@@ -41,7 +41,7 @@ static PinController *thePinController = nil;
 {
     self = [super init];
     if (self) {
-        mState = -1;
+        mState = INITIAL;
         self.pinNew = nil;
         mNavigationController = nil;
 
@@ -70,7 +70,11 @@ static PinController *thePinController = nil;
 //
 - (void)firstPinCheck:(UIViewController *)currentVc
 {
-    ASSERT(state == INITIAL);
+    // 二重起動防止
+    // Pin チェック中にサスペンドに入る場合
+    if (mState == FIRST_PIN_CHECK) {
+        return;
+    }
 
     if (mPin == nil) {
         // no need to check pin.

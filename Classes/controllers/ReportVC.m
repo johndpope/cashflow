@@ -12,12 +12,27 @@
 #import "Config.h"
 
 @interface ReportViewController()
+- (IBAction)setReportDaily:(id)sender;
+- (IBAction)setReportWeekly:(id)sender;
+- (IBAction)setReportMonthly:(id)sender;
+- (IBAction)setReportAnnual:(id)sender;
+
 - (void)doneAction:(id)sender;
 - (void)_updateReport;
 - (NSString *)_reportTitle:(ReportEntry *)report;
 @end
 
 @implementation ReportViewController
+{
+    IBOutlet UITableView *mTableView;
+    
+    int mType;
+    Asset *mDesignatedAsset;
+    Report *mReports;
+    double mMaxAbsValue;
+    
+    NSDateFormatter *mDateFormatter;
+}
 
 @synthesize tableView = mTableView;
 @synthesize designatedAsset = mDesignatedAsset;

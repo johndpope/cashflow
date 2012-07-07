@@ -8,7 +8,14 @@
 #import "GenEditTextVC.h"
 #import "AppDelegate.h"
 
+@interface GenEditTextViewController()
+- (void)doneAction;
+@end
+
 @implementation GenEditTextViewController
+{
+    IBOutlet UITextField *mTextField;
+}
 
 @synthesize delegate = mDelegate, identifier = mIdentifier, text = mText;
 

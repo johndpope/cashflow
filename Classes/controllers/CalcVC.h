@@ -30,34 +30,9 @@ typedef enum {
     ST_INPUT,
 } calcState;
 
-@interface CalculatorViewController : UIViewController {
-    IBOutlet UILabel *numLabel;
-    IBOutlet UIButton *button_Clear;
-    IBOutlet UIButton *button_BS;
-    IBOutlet UIButton *button_inv;
-    IBOutlet UIButton *button_Period;
-    IBOutlet UIButton *button_0;
-    IBOutlet UIButton *button_1;
-    IBOutlet UIButton *button_2;
-    IBOutlet UIButton *button_3;
-    IBOutlet UIButton *button_4;
-    IBOutlet UIButton *button_5;
-    IBOutlet UIButton *button_6;
-    IBOutlet UIButton *button_7;
-    IBOutlet UIButton *button_8;
-    IBOutlet UIButton *button_9;
-
-    IBOutlet UIButton *button_Plus;
-    IBOutlet UIButton *button_Minus;
-    IBOutlet UIButton *button_Multiply;
-    IBOutlet UIButton *button_Divide;
-    IBOutlet UIButton *button_Equal;
-}
+@interface CalculatorViewController : UIViewController
 
 @property(nonatomic,unsafe_unretained) id<CalculatorViewDelegate> delegate;
 @property(nonatomic,assign) double value;
-
-- (IBAction)onButtonDown:(id)sender;
-- (IBAction)onButtonPressed:(id)sender;
 
 @end

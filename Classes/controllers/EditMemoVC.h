@@ -14,15 +14,12 @@
 - (void)editMemoViewChanged:(EditMemoViewController *)vc identifier:(int)id;
 @end
 
-@interface EditMemoViewController : UIViewController {
-    IBOutlet UITextView *mTextView;
-}
+@interface EditMemoViewController : UIViewController 
 
 @property(nonatomic,unsafe_unretained) id<EditMemoViewDelegate> delegate;
 @property(nonatomic,assign) int identifier;
 @property(nonatomic,strong) NSString *text;
 
 + (EditMemoViewController *)editMemoViewController:(id<EditMemoViewDelegate>)delegate title:(NSString*)title identifier:(int)id;
-- (void)doneAction;
 
 @end
