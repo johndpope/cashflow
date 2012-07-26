@@ -3,3 +3,4 @@ AdMob:  6.0.3 (6.0.4 は UDID使用のため使用しない)
 iAd Adapter: LibAdapterIAd-Mar282012
 
 InMobi Adapter: LibAdapterInMobi-Apr232012
+InMobi SDK: 350 (https://developers.google.com/mobile-ads-sdk/download から直接DL)

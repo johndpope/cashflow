@@ -19,7 +19,7 @@
 		3E02EBF913226FDC0086F492 /* ReportCatDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02EBF713226FDC0086F492 /* ReportCatDetailVC.m */; };
 		3E035E9B1182B6E000711865 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
 		3E06D5E1157FA8E600D9A454 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAF414A1340BCED00814FFA /* libGoogleAdMobAds.a */; };
-		3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; };
+		3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E0887F00E6EAC5C00739AC9 /* EditDescView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887EF0E6EAC5C00739AC9 /* EditDescView.xib */; };
 		3E0887F60E6EAC8900739AC9 /* EditDateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887F50E6EAC8900739AC9 /* EditDateView.xib */; };
 		3E0AC6AB13A78664006F505C /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */; };
@@ -118,8 +118,8 @@
 		3E2C6C9D14E6B0270064049B /* dropboxSync@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E2C6C9A14E6B0270064049B /* dropboxSync@2x.png */; };
 		3E2C6C9E14E6B0270064049B /* dropboxSync@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E2C6C9A14E6B0270064049B /* dropboxSync@2x.png */; };
 		3E2CBDA00F1615470025A682 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E2CBD9F0F1615470025A682 /* Localizable.strings */; };
-		3E338213133211C500861610 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; };
-		3E3382181332122700861610 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; };
+		3E338213133211C500861610 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3E3382181332122700861610 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E33821A1332123200861610 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E13EE58114007D600523938 /* AVFoundation.framework */; };
 		3E3382241332284000861610 /* DropboxBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3382221332284000861610 /* DropboxBackup.m */; };
 		3E3382251332284000861610 /* DropboxBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3382221332284000861610 /* DropboxBackup.m */; };
@@ -268,8 +268,8 @@
 		3E6C50C4157E40550086C20E /* CalendarTitleDimColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C5075157E40550086C20E /* CalendarTitleDimColor@2x.png */; };
 		3E6C50C5157E40550086C20E /* CalendarTitleDimColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C5075157E40550086C20E /* CalendarTitleDimColor@2x.png */; };
 		3E6F5D5F0EB8C30B0082F50A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6F5D5E0EB8C30B0082F50A /* AudioToolbox.framework */; };
-		3E704A0C145D7975006EC30F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
-		3E704A0D145D7984006EC30F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
+		3E704A0C145D7975006EC30F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3E704A0D145D7984006EC30F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E7109B6121108ED00C47539 /* SupportMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B3121108ED00C47539 /* SupportMail.m */; };
 		3E7109B8121108ED00C47539 /* SupportMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B3121108ED00C47539 /* SupportMail.m */; };
 		3E74799E1464E5D0000C6A7C /* AssetListVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E74799D1464E5D0000C6A7C /* AssetListVCTests.m */; };
@@ -398,7 +398,7 @@
 		3EF054841182DCB200411C71 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF054821182DCB200411C71 /* MainWindow-iPad.xib */; };
 		3EF12E5A13D86BDD009D1722 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC153113D85CFA00B35736 /* SenTestingKit.framework */; };
 		3EF1523E1462C2B300C724E4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC153113D85CFA00B35736 /* SenTestingKit.framework */; };
-		3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EF152441462C2B300C724E4 /* InfoPlist.strings */; };
 		3EF152561462C35900C724E4 /* AssetBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7801214173500CFDDAC /* AssetBase.m */; };
@@ -421,9 +421,9 @@
 		3EF152671462C36700C724E4 /* ReportEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17800313263CBD00D74DED /* ReportEntry.m */; };
 		3EF152681462C36700C724E4 /* CatReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17800213263CBD00D74DED /* CatReport.m */; };
 		3EF152691462C36700C724E4 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6B5121415DD00CFDDAC /* Transaction.m */; };
-		3EF1526A1462C37500C724E4 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
+		3EF1526A1462C37500C724E4 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF1526B1462C37900C724E4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
-		3EF1526C1462C37D00C724E4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; };
+		3EF1526C1462C37D00C724E4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF1526E1462C38800C724E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E13EE58114007D600523938 /* AVFoundation.framework */; };
 		3EF1526F1462C38800C724E4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6F5D5E0EB8C30B0082F50A /* AudioToolbox.framework */; };
 		3EF152701462C38800C724E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
@@ -431,7 +431,7 @@
 		3EF152721462C38800C724E4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB55574103B96CE00BA13D4 /* CoreLocation.framework */; };
 		3EF152731462C38800C724E4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB5552D103B930D00BA13D4 /* AddressBook.framework */; };
 		3EF152741462C38800C724E4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
-		3EF152751462C38800C724E4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; };
+		3EF152751462C38800C724E4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF152761462C38800C724E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
 		3EF152771462C38800C724E4 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
 		3EF152781462C3A200C724E4 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7BB135115399C5004B7D03 /* Config.m */; };
@@ -452,10 +452,10 @@
 		3EF1529F1462CCDD00C724E4 /* testdata1.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1529D1462CCDA00C724E4 /* testdata1.sql */; };
 		3EF1716F133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF17170133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
-		3EF402EE157FA7180091CC40 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; };
+		3EF402EE157FA7180091CC40 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5F435145AE0A3006C3F3A /* DropboxSDK.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF402EF157FA71E0091CC40 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
-		3EF402F0157FA7220091CC40 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; };
-		3EF402F1157FA7260091CC40 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; };
+		3EF402F0157FA7220091CC40 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3EF402F1157FA7260091CC40 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF402F2157FA7280091CC40 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E13EE58114007D600523938 /* AVFoundation.framework */; };
 		3EF402F3157FA72B0091CC40 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6F5D5E0EB8C30B0082F50A /* AudioToolbox.framework */; };
 		3EF402F4157FA72E0091CC40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
@@ -463,7 +463,7 @@
 		3EF402F6157FA7370091CC40 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB55574103B96CE00BA13D4 /* CoreLocation.framework */; };
 		3EF402F7157FA73A0091CC40 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB5552D103B930D00BA13D4 /* AddressBook.framework */; };
 		3EF402F8157FA73C0091CC40 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
-		3EF402F9157FA73F0091CC40 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; };
+		3EF402F9157FA73F0091CC40 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF402FA157FA7420091CC40 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
 		3EF402FB157FA7440091CC40 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
 		3EF402FC157FA7570091CC40 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAF414A1340BCED00814FFA /* libGoogleAdMobAds.a */; };
@@ -471,7 +471,7 @@
 		3EF5F500145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
 		3EF966FE1464FD3900A24626 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
 		3EF966FF1464FD5E00A24626 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		3EF967001464FD6900A24626 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		3EF967001464FD6900A24626 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF967021465060F00A24626 /* PinVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF967011465060F00A24626 /* PinVCTests.m */; };
 		3EF9670414650C9200A24626 /* PinControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF9670314650C9200A24626 /* PinControllerTests.m */; };
 		3EFD00340F95E31D00F4B4C4 /* EditTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */; };
@@ -2350,6 +2350,8 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-weak_library",
+					/usr/lib/libSystem.B.dylib,
 				);
 				PRODUCT_NAME = CashFlow;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2386,6 +2388,8 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-weak_library",
+					/usr/lib/libSystem.B.dylib,
 				);
 				PRODUCT_NAME = CashFlow;
 				SDKROOT = iphoneos;
