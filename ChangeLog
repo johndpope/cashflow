@@ -3,6 +3,7 @@
 	* ver 5.2.1 (v49)
 	* iOS 3 でクラッシュする問題を修正 (weak link)
 	* ただし、本バージョンで iOS 3 対応は打ち切る
+	* AdMob 6.0.3 -> 6.1.1
 	
 2012-07-07 : Takuya Murakami
 
