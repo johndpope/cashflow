@@ -1,3 +1,8 @@
+2012-08-09 : Takuya Murakami
+
+	* 現在時刻選択ボタンを追加
+	* 日付選択ビューのボタンを localize
+	
 2012-07-26 : Takuya Murakami
 
 	* iOS 3 サポートを削除
