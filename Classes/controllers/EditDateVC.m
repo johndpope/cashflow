@@ -17,6 +17,8 @@
 @implementation EditDateViewController
 {
     IBOutlet UIDatePicker *mDatePicker;
+    IBOutlet UIButton *mCalendarButton;
+    IBOutlet UIButton *mSetCurrentButton;
     
     id<EditDateViewDelegate> __unsafe_unretained mDelegate;
     NSDate *mDate;
@@ -55,6 +57,9 @@
     }
     
     [mDatePicker setTimeZone:[NSTimeZone systemTimeZone]];
+    
+    [mCalendarButton setTitle:_L(@"Calendar") forState:UIControlStateNormal];
+    [mSetCurrentButton setTitle:_L(@"Current Time") forState:UIControlStateNormal];
 }
 
 
@@ -83,6 +88,11 @@
     [vc setCalendarViewControllerDelegate:self];
     
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)setCurrentTime:(id)sender {
+    self.date = [NSDate new]; // current time
+    [mDatePicker setDate:self.date animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
