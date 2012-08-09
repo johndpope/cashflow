@@ -379,8 +379,14 @@
     mEditingEntry.transaction.date = vc.date;
     [self _dismissPopover];
 
-    // 入力した日付を記憶する
-    [Transaction setLastUsedDate:vc.date];
+    // 入力した日付が現在時刻から離れている場合のみ、日付を記憶
+    NSTimeInterval diff = [[NSDate new] timeIntervalSinceDate:vc.date];
+    if (diff < 0.0) diff = -diff;
+    if (diff > 24*60*60) {
+        [Transaction setLastUsedDate:vc.date];
+    } else {
+        [Transaction setLastUsedDate:nil];
+    }
 }
 
 - (void)editTypeViewChanged:(EditTypeViewController*)vc
@@ -509,15 +515,15 @@
 {
     //editingEntry.transaction.asset = asset.pkey;
 
+    // upsert 処理
     if (mTransactionIndex < 0) {
         [mAsset insertEntry:mEditingEntry];
     } else {
         [mAsset replaceEntryAtIndex:mTransactionIndex withObject:mEditingEntry];
         //[asset sortByDate];
     }
-
     self.editingEntry = nil;
-	
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 
