@@ -22,10 +22,9 @@
 @property(nonatomic,assign) double balance;
 
 - (id)initWithDate:(NSDate*)date description:(NSString*)desc value:(double)v;
-
-//+ (void)createTable;
-//+ (void)deleteDbWithAsset:(int)assetKey;
-
 - (void)updateWithoutUpdateLRU;
+
++ (NSDate *)lastUsedDate;
++ (void)setLastUsedDate:(NSDate *)date;
 
 @end

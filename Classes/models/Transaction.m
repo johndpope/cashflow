@@ -10,7 +10,12 @@
 #import "Config.h"
 #import "DescLRUManager.h"
 
+@interface Transaction ()
+@end
+
 @implementation Transaction
+{
+}
 
 @synthesize hasBalance = mHasBalance;
 @synthesize balance = mBalance;
@@ -30,8 +35,8 @@
     self.asset = -1;
     self.dstAsset = -1;
     
-    // 現在時刻で作成
-    NSDate *dt = [[NSDate alloc] init];
+    // 時刻取得
+    NSDate *dt = [Transaction lastUsedDate];
     
     if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
         // 時刻を 0:00:00 に設定
@@ -101,5 +106,23 @@
 {
     [super _update];
 }
+
++ (NSDate *)lastUsedDate
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *date = [defaults objectForKey:@"lastUsedDate"];
+    if (!date) {
+        date = [NSDate new];    // 現在時刻
+    }
+    return date;
+}
+
++ (void)setLastUsedDate:(NSDate *)date
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:date forKey:@"lastUsedDate"];
+    [defaults synchronize];
+}
+
 
 @end

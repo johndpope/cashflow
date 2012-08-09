@@ -378,6 +378,9 @@
 
     mEditingEntry.transaction.date = vc.date;
     [self _dismissPopover];
+
+    // 入力した日付を記憶する
+    [Transaction setLastUsedDate:vc.date];
 }
 
 - (void)editTypeViewChanged:(EditTypeViewController*)vc
