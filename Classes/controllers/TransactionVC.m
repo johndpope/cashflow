@@ -16,8 +16,9 @@
 - (void)_asCancelTransaction:(int)buttonIndex;
 
 - (UITableViewCell *)getCellForField:(NSIndexPath*)indexPath tableView:(UITableView *)tableView;
-
 - (void)_dismissPopover;
+
+- (void)checkLastUsedDate:(NSDate *)date;
 @end
 
 @implementation TransactionViewController
@@ -365,6 +366,8 @@
     
     mIsModified = YES;
     mEditingEntry.transaction.date = aDate;
+    [self checkLastUsedDate:aDate];
+
     if (IS_IPAD) {
         [self _dismissPopover];
     }
@@ -377,7 +380,21 @@
     mIsModified = YES;
 
     mEditingEntry.transaction.date = vc.date;
+    [self checkLastUsedDate:vc.date];
+    
     [self _dismissPopover];
+}
+
+// 入力した日付が現在時刻から離れている場合のみ、日付を記憶
+- (void)checkLastUsedDate:(NSDate *)date
+{
+    NSTimeInterval diff = [[NSDate new] timeIntervalSinceDate:date];
+    if (diff < 0.0) diff = -diff;
+    if (diff > 24*60*60) {
+        [Transaction setLastUsedDate:date];
+    } else {
+        [Transaction setLastUsedDate:nil];
+    }
 }
 
 - (void)editTypeViewChanged:(EditTypeViewController*)vc
@@ -506,15 +523,15 @@
 {
     //editingEntry.transaction.asset = asset.pkey;
 
+    // upsert 処理
     if (mTransactionIndex < 0) {
         [mAsset insertEntry:mEditingEntry];
     } else {
         [mAsset replaceEntryAtIndex:mTransactionIndex withObject:mEditingEntry];
         //[asset sortByDate];
     }
-
     self.editingEntry = nil;
-	
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 

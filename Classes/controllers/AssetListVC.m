@@ -151,10 +151,12 @@
       '12/3/15
       安定性向上のため、iPad 以外では最後に使った資産に遷移しないようにした。
       起動時に TransactionListVC で固まるケースが多いため。
+    
+      '12/8/12 一旦元に戻す。
     */
-    if (IS_IPAD) {
+    //if (IS_IPAD) {
         [self _showInitialAsset];
-    }
+    //}
 }
 
 - (int)_firstShowAssetIndex

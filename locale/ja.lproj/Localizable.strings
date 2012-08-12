@@ -169,3 +169,7 @@
 "Use local (upload)" = "ローカルを使用 (アップロード)";
 "Use remote (download)" = "リモートを使用 (ダウンロード)";
 
+// 2012/8/9
+"Calendar" = "カレンダー";
+"Current Time" = "現在時刻";
+
