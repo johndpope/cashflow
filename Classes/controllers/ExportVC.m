@@ -159,7 +159,6 @@
             ex = mCsv;
             break;
 
-//#ifndef FREE_VERSION
         case 1:
             if (mOfx == nil) {
                 mOfx = [[ExportOfx alloc] init];
@@ -167,31 +166,37 @@
             mOfx.assets = assets;
             ex = mOfx;
             break;
-//#endif
     }
     ex.firstDate = date;
-	
+
+	NSError *error = nil;
+    
     switch (mMethodControl.selectedSegmentIndex) {
-    case 0:
-    default:
-        result = [ex sendMail:self];
-        break;
+        case 0:
+        default:
+            result = [ex sendMail:self error:&error];
+            break;
 
-    case 1:
-        result = [ex sendToDropbox:self];
-        break;
+        case 1:
+            result = [ex sendToDropbox:self error:&error];
+            break;
 
-//#ifndef FREE_VERSION
-    case 2:
-        result = [ex sendWithWebServer];
-        break;
-//#endif
+        case 2:
+            result = [ex sendWithWebServer];
+            break;
     }
 	
     if (!result) {
-        v = [[UIAlertView alloc] 
-                initWithTitle:_L(@"No data")
-                message:_L(@"No data to be exported.")
+        NSString *title, *message;
+        
+        if (!error) {
+            title = _L(@"No data");
+            message = _L(@"No data to be exported.");
+        } else {
+            title = error.domain;
+            message = error.localizedDescription;
+        }
+        v = [[UIAlertView alloc] initWithTitle:title message:message
                 delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [v show];
     }
