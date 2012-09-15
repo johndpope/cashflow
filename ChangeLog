@@ -1,3 +1,13 @@
+2012-09-13 : Takuya Murakami
+
+	* ver 5.4 (v51)
+	* iPhone 5 4inch ディスプレイ対応
+	* arvm6 サポート削除、armv7s はペンディング
+
+2012-09-10 : Takuya Murakami
+
+	* エクスポート時のエラーメッセージを修正
+
 2012-08-12 : Takuya Murakami
 
 	* ver 5.3 (v50)

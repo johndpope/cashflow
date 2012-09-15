@@ -26,8 +26,8 @@
 @property(nonatomic,readonly) DBRestClient *restClient;
 
 // public methods
-- (BOOL)sendMail:(UIViewController*)parent;
-- (BOOL)sendToDropbox:(UIViewController*)parent;
+- (BOOL)sendMail:(UIViewController*)parent error:(NSError**)error;
+- (BOOL)sendToDropbox:(UIViewController*)parent error:(NSError**)error;
 - (BOOL)sendWithWebServer;
 
 // You must override following methods

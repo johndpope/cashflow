@@ -12,6 +12,7 @@
 @interface ExportBase()
 - (void)_sendToDropbox;
 - (void)_showResult:(NSString *)message;
+- (NSError *)_getError:(NSString *)domain description:(NSString *)description;
 @end
 
 @implementation ExportBase
@@ -32,20 +33,30 @@
 - (NSString *)contentType { return nil; }
 - (NSData*)generateBody { return nil; }
 
+- (NSError *)_getError:(NSString *)domain description:(NSString *)description
+{
+    NSDictionary *errDetails = [NSDictionary dictionaryWithObject:description forKey:NSLocalizedDescriptionKey];
+    return [NSError errorWithDomain:domain code:1 userInfo:errDetails];
+}
+
 
 /////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Email
 
-- (BOOL)sendMail:(UIViewController *)parent
+- (BOOL)sendMail:(UIViewController *)parent error:(NSError **)error
 {
     // generate OFX data
     NSData *data = [self generateBody];
     if (data == nil) {
+        if (error) *error = nil;
         return NO;
     }
     
     if (![MFMailComposeViewController canSendMail]) {
+        if (error) {
+            *error = [self _getError:@"Error" description:@"Can't send mail"];
+        }
         return NO;
     }
     
@@ -126,10 +137,11 @@
 #pragma mark -
 #pragma mark Dropbox
 
-- (BOOL)sendToDropbox:(UIViewController*)parent
+- (BOOL)sendToDropbox:(UIViewController*)parent error:(NSError **)error
 {
     NSData *data = [self generateBody];
     if (data == nil) {
+        if (error) *error = nil;
         return NO;
     }
 
@@ -137,13 +149,15 @@
     NSString *path = [[Database instance] dbPath:[self fileName]];
     if (![data writeToFile:path atomically:NO]) {
         NSLog(@"Error: can't save temporary file!");
+        if (error) *error = [self _getError:@"Error" description:@"Can't create temporary file"];
         return NO;
     }
 
     DBSession *session = [DBSession sharedSession];
     if (![session isLinked]) {
-        [session link];
-        return NO;
+        [session linkFromController:parent];
+        // ここではエラーにしない。ログインが完了してから再度やり直すように求めるため。
+        return YES;
     }
     [self _sendToDropbox];
 
