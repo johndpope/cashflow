@@ -155,7 +155,7 @@
 
     DBSession *session = [DBSession sharedSession];
     if (![session isLinked]) {
-        [session link];
+        [session linkFromController:parent];
         // ここではエラーにしない。ログインが完了してから再度やり直すように求めるため。
         return YES;
     }

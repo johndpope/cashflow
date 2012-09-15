@@ -21,7 +21,7 @@
 #define BACKUP_FULLPATH BACKUP_DIR BACKUP_FILENAME
 
 @interface DropboxBackup()
-- (void)_login;
+- (void)_login:(UIViewController *)vc;
 - (void)_exec;
 - (void)_showResult:(NSString *)message;
 - (void)_uploadBackupWithParentRev:(NSString *)rev;
@@ -55,21 +55,21 @@
 {
     mMode = MODE_SYNC;
     mViewController = viewController;
-    [self _login];
+    [self _login:viewController];
 }
 
 - (void)doBackup:(UIViewController *)viewController
 {
     mMode = MODE_BACKUP;
     mViewController = viewController;
-    [self _login];
+    [self _login:viewController];
 }
 
 - (void)doRestore:(UIViewController *)viewController
 {
     mMode = MODE_RESTORE;
     mViewController = viewController;
-    [self _login];
+    [self _login:viewController];
 }
 
 - (void)unlink
@@ -82,14 +82,14 @@
     [self _showResult:@"Your dropbox account has been unlinked"];
 }
 
-- (void)_login
+- (void)_login:(UIViewController *)vc
 {
     DBSession *session = [DBSession sharedSession];
     
     // ログイン処理
     if (![session isLinked]) {
         // 未ログイン
-        [session link];
+        [session linkFromController:vc];
     } else {
         // ログイン済み
         [self _exec];
