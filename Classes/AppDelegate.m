@@ -26,12 +26,7 @@
 @implementation AppDelegate
 {
     UIApplication *_application;
-    UISplitViewController *splitViewController;
 }
-
-@synthesize window;
-@synthesize navigationController;
-@synthesize splitViewController;
 
 static BOOL sIsPrevCrashed;
 
@@ -174,9 +169,9 @@ static BOOL sIsPrevCrashed;
     PinController *pinController = [PinController pinController];
     if (pinController != nil) {
         if (IS_IPAD) {
-            [pinController firstPinCheck:splitViewController];
+            [pinController firstPinCheck:self.splitViewController];
         } else {
-            [pinController firstPinCheck:navigationController];
+            [pinController firstPinCheck:self.navigationController];
         }    
     }
 }

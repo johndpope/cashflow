@@ -33,9 +33,6 @@
     IBOutlet UIBarButtonItem *mBarActionButton;
     IBOutlet UIBarButtonItem *mBarSumLabel;
     
-    // for iPad (Split View)
-    TransactionListViewController *mSplitTransactionListViewController;
-
     BOOL mIsLoadDone;
     DBLoadingView *mLoadingView;
     
@@ -53,7 +50,6 @@
 }
 
 @synthesize tableView = mTableView;
-@synthesize splitTransactionListViewController = mSplitTransactionListViewController;
 
 - (void)viewDidLoad
 {
@@ -191,8 +187,8 @@
     // TransactionListView を表示
     if (asset != nil) {
         if (IS_IPAD) {
-            mSplitTransactionListViewController.assetKey = asset.pid;
-            [mSplitTransactionListViewController reload];
+            self.splitTransactionListViewController.assetKey = asset.pid;
+            [self.splitTransactionListViewController reload];
         } else { 
             TransactionListViewController *vc = 
                 [[TransactionListViewController alloc] init];
@@ -366,8 +362,8 @@
 
     // TransactionListView を表示
     if (IS_IPAD) {
-        mSplitTransactionListViewController.assetKey = asset.pid;
-        [mSplitTransactionListViewController reload];
+        self.splitTransactionListViewController.assetKey = asset.pid;
+        [self.splitTransactionListViewController reload];
     } else {
         TransactionListViewController *vc = 
             [[TransactionListViewController alloc] init];
@@ -458,9 +454,9 @@
     [mLedger deleteAsset:mAssetToBeDelete];
     
     if (IS_IPAD) {
-        if (mSplitTransactionListViewController.assetKey == pid) {
-            mSplitTransactionListViewController.assetKey = -1;
-            [mSplitTransactionListViewController reload];
+        if (self.splitTransactionListViewController.assetKey == pid) {
+            self.splitTransactionListViewController.assetKey = -1;
+            [self.splitTransactionListViewController reload];
         }
     }
 
@@ -604,8 +600,8 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 {
     [self reload];
     if (IS_IPAD) {
-        mSplitTransactionListViewController.assetKey = -1;
-        [mSplitTransactionListViewController reload];
+        self.splitTransactionListViewController.assetKey = -1;
+        [self.splitTransactionListViewController reload];
     }
 }
 
