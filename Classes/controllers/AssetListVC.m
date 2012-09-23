@@ -34,7 +34,7 @@
     IBOutlet UIBarButtonItem *mBarSumLabel;
     
     // for iPad (Split View)
-    IBOutlet TransactionListViewController *mSplitTransactionListViewController;
+    TransactionListViewController *mSplitTransactionListViewController;
 
     BOOL mIsLoadDone;
     DBLoadingView *mLoadingView;
@@ -53,6 +53,7 @@
 }
 
 @synthesize tableView = mTableView;
+@synthesize splitTransactionListViewController = mSplitTransactionListViewController;
 
 - (void)viewDidLoad
 {
@@ -626,6 +627,18 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     if (IS_IPAD) return YES;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+// iOS 6 later
+- (NSUInteger)supportedInterfaceOrientations
+{
+    if (IS_IPAD) return UIInterfaceOrientationMaskAll;
+    if (IS_IPAD) return UIInterfaceOrientationPortrait;
+    return UIInterfaceOrientationPortrait;
+}
+- (BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 @end

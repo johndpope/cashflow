@@ -586,5 +586,15 @@
     if (IS_IPAD) return YES;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+// iOS 6 later
+- (NSUInteger)supportedInterfaceOrientations
+{
+    if (IS_IPAD) return UIInterfaceOrientationMaskAll;
+    return UIInterfaceOrientationPortrait;
+}
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
 
 @end

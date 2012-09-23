@@ -17,13 +17,13 @@
 
 @interface AppDelegate : NSObject <UIApplicationDelegate>
 {
-    IBOutlet AssetListViewController *assetListViewController;
-    IBOutlet TransactionListViewController *transactionListViewController;
+//    IBOutlet AssetListViewController *assetListViewController;
+//    IBOutlet TransactionListViewController *transactionListViewController;
 }
 
 @property (nonatomic,strong) IBOutlet UIWindow *window;
 @property (nonatomic,strong) IBOutlet UINavigationController *navigationController;
-@property (nonatomic,strong,readonly) IBOutlet UISplitViewController *splitViewController;
+@property (nonatomic,strong) IBOutlet UISplitViewController *splitViewController;
 
 - (void)checkPin;
 + (BOOL)isPrevCrashed;

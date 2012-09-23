@@ -26,6 +26,7 @@
 @implementation AppDelegate
 {
     UIApplication *_application;
+    UISplitViewController *splitViewController;
 }
 
 @synthesize window;
@@ -73,13 +74,29 @@ static BOOL sIsPrevCrashed;
     [self setupGoogleAnalytics];
 
     // Configure and show the window
-    [window makeKeyAndVisible];
-    if (IS_IPAD) {
-        [window addSubview:splitViewController.view];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        AssetListViewController *assetListViewController = [[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:nil];
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:assetListViewController];
+        self.window.rootViewController = self.navigationController;
     } else {
-        [window addSubview:[navigationController view]];
+        AssetListViewController *assetListViewController = [[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:nil];
+        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:assetListViewController];
+        
+        TransactionListViewController *transactionListViewController = [[TransactionListViewController alloc] initWithNibName:@"TransactionListView" bundle:nil];
+        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:transactionListViewController];
+    	
+        assetListViewController.splitTransactionListViewController = transactionListViewController;
+    	
+        self.splitViewController = [[UISplitViewController alloc] init];
+        self.splitViewController.delegate = transactionListViewController;
+        self.splitViewController.viewControllers = @[masterNavigationController, detailNavigationController];
+        
+        self.window.rootViewController = self.splitViewController;
     }
-
+    [self.window makeKeyAndVisible];
+    
     // PIN チェック
     [self checkPin];
     
