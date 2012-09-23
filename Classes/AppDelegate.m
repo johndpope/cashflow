@@ -75,12 +75,14 @@ static BOOL sIsPrevCrashed;
 
     // Configure and show the window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        // iPhone 版 : Window 生成
         AssetListViewController *assetListViewController = [[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:nil];
         self.navigationController = [[UINavigationController alloc] initWithRootViewController:assetListViewController];
         self.window.rootViewController = self.navigationController;
     } else {
+        // iPad 版 : Window 生成
         AssetListViewController *assetListViewController = [[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:nil];
         UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:assetListViewController];
         
@@ -88,6 +90,7 @@ static BOOL sIsPrevCrashed;
         UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:transactionListViewController];
     	
         assetListViewController.splitTransactionListViewController = transactionListViewController;
+        transactionListViewController.splitAssetListViewController = assetListViewController;
     	
         self.splitViewController = [[UISplitViewController alloc] init];
         self.splitViewController.delegate = transactionListViewController;

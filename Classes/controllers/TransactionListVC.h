@@ -33,6 +33,8 @@
 @property(nonatomic,readonly) Asset *asset;
 @property(nonatomic,strong) UIPopoverController *popoverController;
 
+@property(nonatomic,strong) AssetListViewController *splitAssetListViewController;
+
 - (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath;
 - (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath;
 - (void)reload;
