@@ -28,10 +28,6 @@
     UIApplication *_application;
 }
 
-@synthesize window;
-@synthesize navigationController;
-@synthesize splitViewController;
-
 static BOOL sIsPrevCrashed;
 
 + (BOOL)isPrevCrashed
@@ -73,13 +69,32 @@ static BOOL sIsPrevCrashed;
     [self setupGoogleAnalytics];
 
     // Configure and show the window
-    [window makeKeyAndVisible];
-    if (IS_IPAD) {
-        [window addSubview:splitViewController.view];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        // iPhone 版 : Window 生成
+        AssetListViewController *assetListViewController = [[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:nil];
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:assetListViewController];
+        self.window.rootViewController = self.navigationController;
     } else {
-        [window addSubview:[navigationController view]];
+        // iPad 版 : Window 生成
+        AssetListViewController *assetListViewController = [[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:nil];
+        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:assetListViewController];
+        
+        TransactionListViewController *transactionListViewController = [[TransactionListViewController alloc] initWithNibName:@"TransactionListView" bundle:nil];
+        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:transactionListViewController];
+    	
+        assetListViewController.splitTransactionListViewController = transactionListViewController;
+        transactionListViewController.splitAssetListViewController = assetListViewController;
+    	
+        self.splitViewController = [[UISplitViewController alloc] init];
+        self.splitViewController.delegate = transactionListViewController;
+        self.splitViewController.viewControllers = @[masterNavigationController, detailNavigationController];
+        
+        self.window.rootViewController = self.splitViewController;
     }
-
+    [self.window makeKeyAndVisible];
+    
     // PIN チェック
     [self checkPin];
     
@@ -154,9 +169,9 @@ static BOOL sIsPrevCrashed;
     PinController *pinController = [PinController pinController];
     if (pinController != nil) {
         if (IS_IPAD) {
-            [pinController firstPinCheck:splitViewController];
+            [pinController firstPinCheck:self.splitViewController];
         } else {
-            [pinController firstPinCheck:navigationController];
+            [pinController firstPinCheck:self.navigationController];
         }    
     }
 }

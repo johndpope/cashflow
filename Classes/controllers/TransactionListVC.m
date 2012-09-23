@@ -30,9 +30,6 @@
     IBOutlet UIBarButtonItem *mBarActionButton;
     IBOutlet UIToolbar *mToolbar;
     
-    // for Split view
-    IBOutlet AssetListViewController *mSplitAssetListViewController;
-
     int mAssetKey;
     //Asset *mAssetCache;
     
@@ -264,7 +261,7 @@
     mBarBalanceLabel.title = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), bstr];
     
     if (IS_IPAD) {
-        [mSplitAssetListViewController reload];
+        [self.splitAssetListViewController reload];
     }
 }
 
@@ -437,7 +434,7 @@
     }
 
     if (IS_IPAD) {
-        [mSplitAssetListViewController reload];
+        [self.splitAssetListViewController reload];
     }
 }
 
@@ -557,7 +554,7 @@
     
     if (IS_IPAD) {
         [self reload];
-        [mSplitAssetListViewController reload];
+        [self.splitAssetListViewController reload];
     }
 }
 
@@ -585,6 +582,16 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     if (IS_IPAD) return YES;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+// iOS 6 later
+- (NSUInteger)supportedInterfaceOrientations
+{
+    if (IS_IPAD) return UIInterfaceOrientationMaskAll;
+    return UIInterfaceOrientationPortrait;
+}
+- (BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 @end
