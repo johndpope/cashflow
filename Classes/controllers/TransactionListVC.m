@@ -591,7 +591,8 @@
 }
 - (BOOL)shouldAutorotate
 {
-    return YES;
+    if (IS_IPAD) return YES;
+    return NO;
 }
 
 @end
