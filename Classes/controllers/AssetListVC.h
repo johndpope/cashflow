@@ -17,6 +17,7 @@
 <DataModelDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate, BackupViewDelegate>
 
 @property(nonatomic,strong) UITableView *tableView;
+@property(nonatomic,strong) TransactionListViewController *splitTransactionListViewController;
 
 - (void)reload;
 - (void)addAsset;

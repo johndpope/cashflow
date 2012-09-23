@@ -33,9 +33,6 @@
     IBOutlet UIBarButtonItem *mBarActionButton;
     IBOutlet UIBarButtonItem *mBarSumLabel;
     
-    // for iPad (Split View)
-    IBOutlet TransactionListViewController *mSplitTransactionListViewController;
-
     BOOL mIsLoadDone;
     DBLoadingView *mLoadingView;
     
@@ -190,8 +187,8 @@
     // TransactionListView を表示
     if (asset != nil) {
         if (IS_IPAD) {
-            mSplitTransactionListViewController.assetKey = asset.pid;
-            [mSplitTransactionListViewController reload];
+            self.splitTransactionListViewController.assetKey = asset.pid;
+            [self.splitTransactionListViewController reload];
         } else { 
             TransactionListViewController *vc = 
                 [[TransactionListViewController alloc] init];
@@ -365,8 +362,8 @@
 
     // TransactionListView を表示
     if (IS_IPAD) {
-        mSplitTransactionListViewController.assetKey = asset.pid;
-        [mSplitTransactionListViewController reload];
+        self.splitTransactionListViewController.assetKey = asset.pid;
+        [self.splitTransactionListViewController reload];
     } else {
         TransactionListViewController *vc = 
             [[TransactionListViewController alloc] init];
@@ -457,9 +454,9 @@
     [mLedger deleteAsset:mAssetToBeDelete];
     
     if (IS_IPAD) {
-        if (mSplitTransactionListViewController.assetKey == pid) {
-            mSplitTransactionListViewController.assetKey = -1;
-            [mSplitTransactionListViewController reload];
+        if (self.splitTransactionListViewController.assetKey == pid) {
+            self.splitTransactionListViewController.assetKey = -1;
+            [self.splitTransactionListViewController reload];
         }
     }
 
@@ -603,8 +600,8 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 {
     [self reload];
     if (IS_IPAD) {
-        mSplitTransactionListViewController.assetKey = -1;
-        [mSplitTransactionListViewController reload];
+        self.splitTransactionListViewController.assetKey = -1;
+        [self.splitTransactionListViewController reload];
     }
 }
 
@@ -626,6 +623,19 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     if (IS_IPAD) return YES;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+// iOS 6 later
+- (NSUInteger)supportedInterfaceOrientations
+{
+    if (IS_IPAD) return UIInterfaceOrientationMaskAll;
+    if (IS_IPAD) return UIInterfaceOrientationPortrait;
+    return UIInterfaceOrientationPortrait;
+}
+- (BOOL)shouldAutorotate
+{
+    if (IS_IPAD) return YES;
+    return NO;
 }
 
 @end
