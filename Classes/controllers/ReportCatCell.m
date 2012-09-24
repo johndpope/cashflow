@@ -24,7 +24,7 @@
     ReportCatCell *cell = (ReportCatCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         NSArray *ary = [[NSBundle mainBundle] loadNibNamed:@"ReportCatCell" owner:nil options:nil];
-        cell = (ReportCatCell *)[ary objectAtIndex:0];
+        cell = (ReportCatCell *)ary[0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }

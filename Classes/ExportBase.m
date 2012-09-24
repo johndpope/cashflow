@@ -35,7 +35,7 @@
 
 - (NSError *)_getError:(NSString *)domain description:(NSString *)description
 {
-    NSDictionary *errDetails = [NSDictionary dictionaryWithObject:description forKey:NSLocalizedDescriptionKey];
+    NSDictionary *errDetails = @{NSLocalizedDescriptionKey: description};
     return [NSError errorWithDomain:domain code:1 userInfo:errDetails];
 }
 

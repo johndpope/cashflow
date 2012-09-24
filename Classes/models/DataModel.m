@@ -294,7 +294,7 @@ static NSString *theDbName = DBNAME;
     NSString *dbpath = [db dbPath:theDbName];
     NSFileManager *manager = [NSFileManager defaultManager];
     NSDictionary *attrs = [manager attributesOfItemAtPath:dbpath error:nil];
-    NSDate *date = [attrs objectForKey:NSFileModificationDate];
+    NSDate *date = attrs[NSFileModificationDate];
     return date;
 }
 

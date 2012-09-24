@@ -428,7 +428,7 @@
     if (style == UITableViewCellEditingStyleDelete) {
         [self.asset deleteEntryAt:entryIndex];
 	
-        [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tv deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self updateBalance];
         [mTableView reloadData];
     }

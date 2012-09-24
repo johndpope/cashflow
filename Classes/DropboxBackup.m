@@ -126,7 +126,7 @@
     for (DBMetadata *m in revisions) {
         NSLog(@"revision: %lld %@", m.revision, m.rev);
     }
-    DBMetadata *file = [revisions objectAtIndex:0];
+    DBMetadata *file = revisions[0];
     mRemoteRev = file.rev;
     
     BOOL isRemoteModified = [[DataModel instance] isRemoteModifiedAfterSync:mRemoteRev];

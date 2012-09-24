@@ -24,11 +24,9 @@
 
 + (BOOL)migrate
 {
-    NSArray *columnTypes = [NSArray arrayWithObjects:
-        @"description", @"TEXT",
+    NSArray *columnTypes = @[@"description", @"TEXT",
         @"lastUse", @"DATE",
-        @"category", @"INTEGER",
-        nil];
+        @"category", @"INTEGER"];
 
     return [super migrate:columnTypes primaryKey:@"key"];
 }

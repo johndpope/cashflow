@@ -239,7 +239,7 @@
                     gt.selectedIndex = 0;
                     if (currency != nil) {
                         for (int i = 1; i < [typeArray count]; i++) {
-                            if ([currency isEqualToString:[typeArray objectAtIndex:i]]) {
+                            if ([currency isEqualToString:typeArray[i]]) {
                                 gt.selectedIndex = i;
                                 break;
                             }
@@ -289,7 +289,7 @@
 
         case ROW_CURRENCY:
             if (vc.selectedIndex > 0) {
-                currency = [vc.items objectAtIndex:vc.selectedIndex];
+                currency = (vc.items)[vc.selectedIndex];
             }
             [CurrencyManager instance].baseCurrency = currency;
             break;

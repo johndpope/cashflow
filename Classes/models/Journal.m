@@ -63,7 +63,7 @@
 
     // 挿入位置を探す
     for (i = 0; i < max; i++) {
-        t = [mEntries objectAtIndex:i];
+        t = mEntries[i];
         if ([tr.date compare:t.date] == NSOrderedAscending) {
             break;
         }
@@ -77,7 +77,7 @@
     if ([mEntries count] > MAX_TRANSACTIONS) {
         // 最も古い取引を削除する
         // Note: 初期残高を調整するため、Asset 側で削除させる
-        Transaction *t = [mEntries objectAtIndex:0];
+        Transaction *t = mEntries[0];
         Asset *asset = [[DataModel ledger] assetWithKey:t.asset];
         [asset deleteEntryAt:0];
     }
@@ -92,7 +92,7 @@
     [to save];
 
     int idx = [mEntries indexOfObject:from];
-    [mEntries replaceObjectAtIndex:idx withObject:to];
+    mEntries[idx] = to;
     [self _sortByDate];
 }
 
@@ -157,7 +157,7 @@ static int compareByDate(Transaction *t1, Transaction *t2, void *context)
     int max = [mEntries count];
 
     for (int i = 0; i < max; i++) {
-        t = [mEntries objectAtIndex:i];
+        t = mEntries[i];
         if (t.asset != asset.pid && t.dstAsset != asset.pid) {
             continue;
         }

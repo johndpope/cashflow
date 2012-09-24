@@ -32,12 +32,10 @@
 
     if (typeNames == nil) {
         typeNames = 
-            [[NSArray alloc] initWithObjects:
-                             _L(@"Cash"),
+            @[_L(@"Cash"),
                              _L(@"Bank Account"),
                              _L(@"Credit Card"),
-                             _L(@"Investment Account"),
-                             nil];
+                             _L(@"Investment Account")];
     }
     return typeNames;
 }
@@ -50,7 +48,7 @@
         NSLog(@"WARNING: typeNameWithType: type out of range");
         return nil;
     }
-    return [typeNames objectAtIndex:type];
+    return typeNames[type];
 }
 
 + (NSString*)iconNameWithType:(int)type
@@ -142,7 +140,7 @@
 
 - (AssetEntry*)entryAt:(int)n
 {
-    return [mEntries objectAtIndex:n];
+    return mEntries[n];
 }
 
 - (void)insertEntry:(AssetEntry *)e
@@ -190,7 +188,7 @@
 
     [db beginTransaction];
     while (mEntries.count > 0) {
-        AssetEntry *e = [mEntries objectAtIndex:0];
+        AssetEntry *e = mEntries[0];
         if ([e.transaction.date compare:date] != NSOrderedAscending) {
             break;
         }
@@ -206,7 +204,7 @@
 - (int)firstEntryByDate:(NSDate*)date
 {
     for (int i = 0; i < mEntries.count; i++) {
-        AssetEntry *e = [mEntries objectAtIndex:i];
+        AssetEntry *e = mEntries[i];
         if ([e.transaction.date compare:date] != NSOrderedAscending) {
             return i;
         }
@@ -223,7 +221,7 @@
     if (max == 0) {
         return mInitialBalance;
     }
-    return [[mEntries objectAtIndex:max - 1] balance];
+    return [mEntries[max - 1] balance];
 }
 
 //

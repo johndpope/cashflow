@@ -312,7 +312,7 @@
         value = [asset lastBalance];
 
         cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-        cell.imageView.image = [mIconArray objectAtIndex:asset.type];
+        cell.imageView.image = mIconArray[asset.type];
     }
 #if 0
     else if (indexPath.section == 1) {

@@ -138,11 +138,11 @@ static int sortCatReport(id x, id y, void *context);
     mMaxIncome = mMaxOutgo = 0;
     CatReport *cr;
     if ([mIncomeCatReports count] > 0) {
-        cr = [mIncomeCatReports objectAtIndex:0];
+        cr = mIncomeCatReports[0];
         mMaxIncome = cr.sum;
     }
     if ([mOutgoCatReports count] > 0) {
-        cr = [mOutgoCatReports objectAtIndex:0];
+        cr = mOutgoCatReports[0];
         mMaxOutgo = cr.sum;
     }
 }
@@ -152,7 +152,7 @@ static int sortCatReport(id x, id y, void *context);
     // 金額が 0 のエントリを削除する
     int count = [ary count];
     for (int i = 0; i < count; i++) {
-        CatReport *cr = [ary objectAtIndex:i];
+        CatReport *cr = ary[i];
         if (cr.sum == 0.0) {
             [ary removeObjectAtIndex:i];
             i--;

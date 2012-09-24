@@ -66,7 +66,7 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
 		
-    cell.textLabel.text = [mItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = mItems[indexPath.row];
 
     return cell;
 }

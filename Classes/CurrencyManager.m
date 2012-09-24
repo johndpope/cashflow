@@ -43,8 +43,7 @@
     mNumberFormatter = nf;
 
     self.currencies =
-        [NSArray arrayWithObjects:
-         @"AED",
+        @[@"AED",
          @"AUD",
          @"BHD",
          @"BND",
@@ -87,8 +86,7 @@
          @"THB",
          @"TWD",
          @"USD",
-         @"ZAR",
-         nil];
+         @"ZAR"];
 
     self.baseCurrency = [[NSUserDefaults standardUserDefaults] objectForKey:@"BaseCurrency"];
 
@@ -132,7 +130,7 @@
 
 - (NSString *)_formatCurrency:(double)value
 {
-    NSNumber *n = [NSNumber numberWithDouble:value];
+    NSNumber *n = @(value);
     return [mNumberFormatter stringFromNumber:n];
 }
 

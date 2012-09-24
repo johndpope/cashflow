@@ -201,7 +201,7 @@ static Database *sDatabase = nil;
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
-    NSString *dataDir = [paths objectAtIndex:0];
+    NSString *dataDir = paths[0];
     NSString *dbPath;
 
     if (dbname == nil) {
@@ -232,7 +232,7 @@ static Database *sDatabase = nil;
 
         NSFileManager *m = [NSFileManager defaultManager];
         NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[m attributesOfItemAtPath:mDbPath error:nil]];
-        [dict setObject:[NSDate new] forKey:NSFileModificationDate];
+        dict[NSFileModificationDate] = [NSDate new];
         [m setAttributes:dict ofItemAtPath:mDbPath error:nil];
     }
 }

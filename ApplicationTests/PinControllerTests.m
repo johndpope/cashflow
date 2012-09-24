@@ -82,7 +82,7 @@
     // modal view が出ていることを確認する
     UINavigationController *nv = (UINavigationController *)self.vc.modalViewController;
     AssertNotNil(nv);
-    PinViewController *vc = (PinViewController *)[nv.viewControllers objectAtIndex:0];
+    PinViewController *vc = (PinViewController *)(nv.viewControllers)[0];
     AssertNotNil(vc);
     
     /*

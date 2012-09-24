@@ -79,12 +79,10 @@
                                                   target:self
                                                   action:@selector(cancelAction)];
 
-    mTypeArray = [[NSArray alloc] initWithObjects:
-                                     _L(@"Payment"),
+    mTypeArray = @[_L(@"Payment"),
                                  _L(@"Deposit"),
                                  _L(@"Adjustment"),
-                                 _L(@"Transfer"),
-                                 nil];
+                                 _L(@"Transfer")];
 
     // ボタン生成
     // TODO:
@@ -222,7 +220,7 @@
 
     case ROW_TYPE:
         name.text = _L(@"Type"); // @"Transaction type"
-        value.text = [mTypeArray objectAtIndex:mEditingEntry.transaction.type];
+        value.text = mTypeArray[mEditingEntry.transaction.type];
         break;
 		
     case ROW_VALUE:
@@ -410,7 +408,7 @@
 
     switch (mEditingEntry.transaction.type) {
     case TYPE_ADJ:
-        mEditingEntry.transaction.description = [mTypeArray objectAtIndex:mEditingEntry.transaction.type];
+        mEditingEntry.transaction.description = mTypeArray[mEditingEntry.transaction.type];
         break;
 
     case TYPE_TRANSFER:

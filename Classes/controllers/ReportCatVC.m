@@ -118,12 +118,12 @@
         CatReport *cr = nil;
         switch (indexPath.section) {
             case 0:
-                cr = [mReportEntry.outgoCatReports objectAtIndex:indexPath.row - 1];
+                cr = (mReportEntry.outgoCatReports)[indexPath.row - 1];
                 [cell setValue:-cr.sum maxValue:-mReportEntry.totalOutgo];
                 break;
 
             case 1:
-                cr = [mReportEntry.incomeCatReports objectAtIndex:indexPath.row - 1];
+                cr = (mReportEntry.incomeCatReports)[indexPath.row - 1];
                 [cell setValue:cr.sum maxValue:mReportEntry.totalIncome];
                 break;
         }
@@ -144,10 +144,10 @@
     CatReport *cr = nil;
     switch (indexPath.section) {
     case 0:
-        cr = [mReportEntry.outgoCatReports objectAtIndex:indexPath.row - 1];
+        cr = (mReportEntry.outgoCatReports)[indexPath.row - 1];
         break;
     case 1:
-        cr = [mReportEntry.incomeCatReports objectAtIndex:indexPath.row - 1];
+        cr = (mReportEntry.incomeCatReports)[indexPath.row - 1];
         break;
     }
 

@@ -37,7 +37,7 @@ static SupportMail *theInstance;
     vc.mailComposeDelegate = self;
     
     [vc setSubject:@"[CashFlow Support]"];
-    [vc setToRecipients:[NSArray arrayWithObject:@"cashflow-support@tmurakam.org"]];
+    [vc setToRecipients:@[@"cashflow-support@tmurakam.org"]];
     NSString *body = [NSString stringWithFormat:@"%@\n\n", 
                                _L(@"(Write an inquiry here.)")];
     [vc setMessageBody:body isHTML:NO];

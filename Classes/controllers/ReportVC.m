@@ -190,7 +190,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     int count = [mReports.reportEntries count];
-    ReportEntry *report = [mReports.reportEntries objectAtIndex:count - indexPath.row - 1];
+    ReportEntry *report = (mReports.reportEntries)[count - indexPath.row - 1];
 	
     ReportCell *cell = [ReportCell reportCell:tv];
     cell.name = [self _reportTitle:report];
@@ -207,7 +207,7 @@
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 	
     int count = [mReports.reportEntries count];
-    ReportEntry *re = [mReports.reportEntries objectAtIndex:count - indexPath.row - 1];
+    ReportEntry *re = (mReports.reportEntries)[count - indexPath.row - 1];
 
     CatReportViewController *vc = [[CatReportViewController alloc] init];
     vc.title = [self _reportTitle:re];

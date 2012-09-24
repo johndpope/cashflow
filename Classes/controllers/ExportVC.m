@@ -103,11 +103,11 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    [defaults setObject:[NSNumber numberWithInt:mFormatControl.selectedSegmentIndex] 
+    [defaults setObject:@(mFormatControl.selectedSegmentIndex) 
               forKey:@"exportFormat"];
-    [defaults setObject:[NSNumber numberWithInt:mRangeControl.selectedSegmentIndex] 
+    [defaults setObject:@(mRangeControl.selectedSegmentIndex) 
               forKey:@"exportRange"];
-    [defaults setObject:[NSNumber numberWithInt:mMethodControl.selectedSegmentIndex] 
+    [defaults setObject:@(mMethodControl.selectedSegmentIndex) 
               forKey:@"exportMethod"];
     [defaults synchronize];
 }
@@ -144,7 +144,7 @@
     
     NSArray *assets;
     if (mAsset != nil) {
-        assets = [NSArray arrayWithObject:mAsset];
+        assets = @[mAsset];
     } else {
         assets = [DataModel instance].ledger.assets;
     }

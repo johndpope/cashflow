@@ -172,7 +172,7 @@
     // Insert ボタン用の行
     int insButtonIndex = [[DataModel instance].categories count];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:insButtonIndex inSection:0];
-    NSArray *iary = [NSArray arrayWithObject:indexPath];
+    NSArray *iary = @[indexPath];
 	
     [self.tableView beginUpdates];
     if (editing) {
@@ -209,7 +209,7 @@
 	
     else if (style == UITableViewCellEditingStyleDelete) {
         [[DataModel instance].categories deleteCategoryAtIndex:indexPath.row];
-        [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tv deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView reloadData];
     }
 }

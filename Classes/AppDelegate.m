@@ -245,7 +245,7 @@ void AssertFailed(const char *filename, int lineno)
     UIAlertView *v = [[UIAlertView alloc]
                          initWithTitle:@"Assertion Failed"
                          message:[NSString stringWithFormat:@"%@ line %d", 
-                                  [NSString stringWithCString:filename encoding:NSUTF8StringEncoding] , lineno]
+                                  @(filename) , lineno]
                          delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
     [v show];
 }

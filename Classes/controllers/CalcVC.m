@@ -333,7 +333,7 @@
     [mNumberFormatter setMinimumFractionDigits:dp];
     [mNumberFormatter setMaximumFractionDigits:dp];
 
-    NSString *numstr = [mNumberFormatter stringFromNumber:[NSNumber numberWithDouble:mValue]];
+    NSString *numstr = [mNumberFormatter stringFromNumber:@(mValue)];
     numLabel.text = numstr;
 
 #else

@@ -160,7 +160,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"descCell"];
     }
-    DescLRU *lru = [mDescArray objectAtIndex:row];
+    DescLRU *lru = mDescArray[row];
     cell.textLabel.text = lru.description;
     return cell;
 }
@@ -175,7 +175,7 @@
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 
     if (indexPath.section == 1) {
-        DescLRU *lru = [mDescArray objectAtIndex:indexPath.row];
+        DescLRU *lru = mDescArray[indexPath.row];
         mTextField.text = lru.description;
         [self doneAction];
     }
@@ -199,12 +199,12 @@
         return; // do nothing
     }
 
-    DescLRU *lru = [mDescArray objectAtIndex:indexPath.row];
+    DescLRU *lru = mDescArray[indexPath.row];
     [lru delete]; // delete from DB
 
     [mDescArray removeObjectAtIndex:indexPath.row];
 
-    [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [tv deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark -

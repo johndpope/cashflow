@@ -78,8 +78,8 @@
     int count = [array count] / 2;
 
     for (int i = 0; i < count; i++) {
-        NSString *column = [array objectAtIndex:i * 2];
-        NSString *type = [array objectAtIndex:i * 2 + 1];
+        NSString *column = array[i * 2];
+        NSString *type = array[i * 2 + 1];
 
         NSRange range = [tablesql rangeOfString:[NSString stringWithFormat:@" %@ ", column]];
         if (range.location == NSNotFound) {
