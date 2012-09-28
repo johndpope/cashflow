@@ -36,7 +36,7 @@
 {
     if (IS_IPAD) {
         CGSize s = self.contentSizeForViewInPopover;
-        s.height = 360;
+        s.height = 420;
         self.contentSizeForViewInPopover = s;
     }
     
