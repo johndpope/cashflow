@@ -1,5 +1,6 @@
 2012-09-29 : Takuya Murakami
 
+	* v5.4.2 (v53)
 	* バグ修正: iPad で初期残高を変更する際、TableView が1画面に収まらない以上に長い場合、
 	  Popover が表示できずクラッシュしていた。Popover を TableView から表示させるべきなのに、
 	  self.view から出していたのが原因。
