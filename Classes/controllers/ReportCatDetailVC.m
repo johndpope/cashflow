@@ -57,7 +57,7 @@
 {
     TransactionCell *cell = [TransactionCell transactionCell:tv];
     
-    Transaction *t = [mCatReport.transactions objectAtIndex:[mCatReport.transactions count] - 1 - indexPath.row];
+    Transaction *t = (mCatReport.transactions)[[mCatReport.transactions count] - 1 - indexPath.row];
     double value;
     if (mCatReport.assetKey < 0) {
         // 全資産指定の場合

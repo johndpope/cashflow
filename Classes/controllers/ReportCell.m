@@ -28,7 +28,7 @@
     ReportCell *cell = (ReportCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         NSArray *ary = [[NSBundle mainBundle] loadNibNamed:@"ReportCell" owner:nil options:nil];
-        cell = (ReportCell *)[ary objectAtIndex:0];
+        cell = (ReportCell *)ary[0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }

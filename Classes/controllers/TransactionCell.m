@@ -25,7 +25,7 @@
     TransactionCell *cell = (TransactionCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         NSArray *ary = [[NSBundle mainBundle] loadNibNamed:@"TransactionCell" owner:nil options:nil];
-        cell = (TransactionCell *)[ary objectAtIndex:0];
+        cell = (TransactionCell *)ary[0];
     }
     return cell;
 }

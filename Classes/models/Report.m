@@ -191,7 +191,7 @@
     int i;
 
     for (i = [entries count] - 1; i >= 0; i--) {
-        t = [entries objectAtIndex:i];
+        t = entries[i];
         if (asset < 0) break;
         if (t.asset == asset || t.dstAsset == asset) break;
     }

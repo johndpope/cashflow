@@ -39,14 +39,14 @@
 -(TCategory*)categoryAtIndex:(int)n
 {
     ASSERT(mCategories != nil);
-    return [mCategories objectAtIndex:n];
+    return mCategories[n];
 }
 
 - (int)categoryIndexWithKey:(int)key
 {
     int i, max = [mCategories count];
     for (i = 0; i < max; i++) {
-        TCategory *c = [mCategories objectAtIndex:i];
+        TCategory *c = mCategories[i];
         if (c.pid == key) {
             return i;
         }
@@ -60,7 +60,7 @@
     if (idx < 0) {
         return @"";
     }
-    TCategory *c = [mCategories objectAtIndex:idx];
+    TCategory *c = mCategories[idx];
     return c.name;
 }
 
@@ -83,7 +83,7 @@
 
 -(void)deleteCategoryAtIndex:(int)index
 {
-    TCategory *c = [mCategories objectAtIndex:index];
+    TCategory *c = mCategories[index];
     [c delete];
 
     [mCategories removeObjectAtIndex:index];
@@ -91,7 +91,7 @@
 
 - (void)reorderCategory:(int)from to:(int)to
 {
-    TCategory *c = [mCategories objectAtIndex:from];
+    TCategory *c = mCategories[from];
     [mCategories removeObjectAtIndex:from];
     [mCategories insertObject:c atIndex:to];
 	
@@ -103,7 +103,7 @@
     int i, max = [mCategories count];
 
     for (i = 0; i < max; i++) {
-        TCategory *c = [mCategories objectAtIndex:i];
+        TCategory *c = mCategories[i];
         c.sorder = i;
         [c save];
     }

@@ -33,7 +33,7 @@
 
 - (Asset*)assetAtIndex:(int)n
 {
-    return [mAssets objectAtIndex:n];
+    return mAssets[n];
 }
 
 - (Asset*)assetWithKey:(int)pid
@@ -48,7 +48,7 @@
 {
     int i;
     for (i = 0; i < [mAssets count]; i++) {
-        Asset *as = [mAssets objectAtIndex:i];
+        Asset *as = mAssets[i];
         if (as.pid == pid) return i;
     }
     return -1;
@@ -78,7 +78,7 @@
 
 - (void)reorderAsset:(int)from to:(int)to
 {
-    Asset *as = [mAssets objectAtIndex:from];
+    Asset *as = mAssets[from];
     [mAssets removeObjectAtIndex:from];
     [mAssets insertObject:as atIndex:to];
 	
@@ -86,7 +86,7 @@
     Database *db = [Database instance];
     [db beginTransaction];
     for (int i = 0; i < [mAssets count]; i++) {
-        as = [mAssets objectAtIndex:i];
+        as = mAssets[i];
         as.sorder = i;
         [as save];
     }

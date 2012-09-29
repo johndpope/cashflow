@@ -52,9 +52,9 @@ static BOOL sIsPrevCrashed;
 //
 // 開始処理
 //
-- (void)applicationDidFinishLaunching:(UIApplication *)application
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSLog(@"applicationDidFinishLaunching");
+    NSLog(@"application:didFinishLaunchingWithOptions");
     _application = application;
 
     CrashReportSender *csr = [CrashReportSender sharedCrashReportSender];
@@ -104,7 +104,8 @@ static BOOL sIsPrevCrashed;
     // 遅延実行
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(delayedLaunchProcess:) userInfo:nil repeats:NO];
     
-    NSLog(@"applicationDidFinishLaunching: done");
+    NSLog(@"application:didFinishLaunchingWithOptions: done");
+    return YES;
 }
 
 // Google Analytics 設定
@@ -244,7 +245,7 @@ void AssertFailed(const char *filename, int lineno)
     UIAlertView *v = [[UIAlertView alloc]
                          initWithTitle:@"Assertion Failed"
                          message:[NSString stringWithFormat:@"%@ line %d", 
-                                  [NSString stringWithCString:filename encoding:NSUTF8StringEncoding] , lineno]
+                                  @(filename) , lineno]
                          delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
     [v show];
 }

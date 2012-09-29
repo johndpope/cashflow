@@ -25,12 +25,10 @@
 
 + (BOOL)migrate
 {
-    NSArray *columnTypes = [NSArray arrayWithObjects:
-        @"name", @"TEXT",
+    NSArray *columnTypes = @[@"name", @"TEXT",
         @"type", @"INTEGER",
         @"initialBalance", @"REAL",
-        @"sorder", @"INTEGER",
-        nil];
+        @"sorder", @"INTEGER"];
 
     return [super migrate:columnTypes primaryKey:@"key"];
 }
