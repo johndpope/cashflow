@@ -1,7 +1,10 @@
 2012-09-29 : Takuya Murakami
 
+	* バグ修正: iPad で初期残高を変更する際、TableView が1画面に収まらない以上に長い場合、
+	  Popover が表示できずクラッシュしていた。Popover を TableView から表示させるべきなのに、
+	  self.view から出していたのが原因。
+	* バグ修正: iPad 日付入力 Popup で現在時刻ボタンが表示されていなかった。
 	* Modernice Objective-C
-	* iPad 日付入力 Popup で現在時刻ボタンが表示されていなかった。
 	* Dropbox SDK 1.3.1 -> 1.3.2
 	* Admob SDK 6.1.4 -> 6.2.0
 	* InMobi SDK 3.6.0
