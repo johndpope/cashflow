@@ -356,7 +356,7 @@
                 [self.popoverController dismissPopoverAnimated:YES];
             }
             self.popoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
-            [self.popoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:self.view
+            [self.popoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
     } else if (idx >= 0) {
