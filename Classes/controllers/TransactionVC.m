@@ -12,17 +12,9 @@
 
 // private methods
 @interface TransactionViewController()
-- (void)_asDelPast:(int)buttonIndex;
-- (void)_asCancelTransaction:(int)buttonIndex;
-
-- (UITableViewCell *)getCellForField:(NSIndexPath*)indexPath tableView:(UITableView *)tableView;
-- (void)_dismissPopover;
-
-- (void)checkLastUsedDate:(NSDate *)date;
-@end
-
-@implementation TransactionViewController
 {
+    IBOutlet UITableView *mTableView;
+    
     int mTransactionIndex;
     AssetEntry *mEditingEntry;
     Asset *__unsafe_unretained mAsset;
@@ -40,6 +32,18 @@
     UIPopoverController *mCurrentPopoverController;
 }
 
+- (void)_asDelPast:(int)buttonIndex;
+- (void)_asCancelTransaction:(int)buttonIndex;
+
+- (UITableViewCell *)getCellForField:(NSIndexPath*)indexPath tableView:(UITableView *)tableView;
+- (void)_dismissPopover;
+
+- (void)checkLastUsedDate:(NSDate *)date;
+@end
+
+@implementation TransactionViewController
+
+@synthesize tableView = mTableView;
 @synthesize editingEntry = mEditingEntry;
 @synthesize asset = mAsset;
 

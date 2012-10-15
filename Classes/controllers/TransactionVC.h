@@ -17,7 +17,7 @@
 #import "CategoryListVC.h"
 #import "CalendarViewController.h"
 
-@interface TransactionViewController : UITableViewController 
+@interface TransactionViewController : UIViewController 
     <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,
     EditMemoViewDelegate, EditTypeViewDelegate,
     EditDateViewDelegate, CalculatorViewDelegate,
@@ -25,6 +25,7 @@
     CalendarViewControllerDelegate,
     UIPopoverControllerDelegate>
 
+@property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,unsafe_unretained) Asset *asset;
 @property(nonatomic,strong) AssetEntry *editingEntry;
 
