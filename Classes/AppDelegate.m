@@ -12,13 +12,13 @@
 #import "DataModel.h"
 #import "Transaction.h"
 #import "PinController.h"
-#import "CrashReportSender.h"
 #import "GANTracker.h"
 #import "UIDevice+Hardware.h"
+#import <BugSense-iOS/BugSenseCrashController.h>
 
 #import "DropboxSecret.h"
 
-@interface AppDelegate() <CrashReportSenderDelegate>
+@interface AppDelegate()
 - (void)setupGoogleAnalytics;
 - (void)delayedLaunchProcess:(NSTimer *)timer;
 @end
@@ -57,8 +57,13 @@ static BOOL sIsPrevCrashed;
     NSLog(@"application:didFinishLaunchingWithOptions");
     _application = application;
 
-    CrashReportSender *csr = [CrashReportSender sharedCrashReportSender];
-    sIsPrevCrashed = [csr hasPendingCrashReport];
+#if FREE_VERSION
+    NSString *bugSenseApiKey = @"70f8a5d3";
+#else
+    NSString *bugSenseApiKey = @"b64aaa9e";
+#endif
+    [BugSenseCrashController sharedInstanceWithBugSenseAPIKey:bugSenseApiKey];
+
     
     // Dropbox config
     DBSession *dbSession =
@@ -138,7 +143,8 @@ static BOOL sIsPrevCrashed;
 - (void)delayedLaunchProcess:(NSTimer *)timer
 {
     NSLog(@"delayedLaunchProcess");
-    
+
+#if 0
     // send crash report
     CrashReportSender *csr = [CrashReportSender sharedCrashReportSender];
     if ([csr hasPendingCrashReport]) {
@@ -146,7 +152,8 @@ static BOOL sIsPrevCrashed;
         NSURL *reportUrl = [NSURL URLWithString:@"http://itemshelf.com/cgi-bin/crashreport.cgi"];
         [csr sendCrashReportToURL:reportUrl delegate:self activateFeedback:NO];
     }
-    
+#endif
+
     GANTracker *tracker = [GANTracker sharedTracker];
     [tracker trackPageview:@"/applicationLaunched" withError:nil];    
 }
@@ -208,19 +215,6 @@ static BOOL sIsPrevCrashed;
         return YES;
     }
     return NO;
-}
-
-#pragma mark CrashReportSenderDelegate
-
--(void)connectionOpened
-{
-    _application.networkActivityIndicatorVisible = YES;
-}
-
-
--(void)connectionClosed
-{
-    _application.networkActivityIndicatorVisible = NO;
 }
 
 #pragma mark GoogleAnalytics
