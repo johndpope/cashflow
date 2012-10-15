@@ -107,6 +107,16 @@
     [super _update];
 }
 
++ (BOOL)hasLastUsedDate
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *date = [defaults objectForKey:@"lastUsedDate"];
+    if (date == nil) {
+        return NO;
+    }
+    return YES;
+}
+
 + (NSDate *)lastUsedDate
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

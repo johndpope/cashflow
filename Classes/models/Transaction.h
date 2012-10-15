@@ -26,5 +26,6 @@
 
 + (NSDate *)lastUsedDate;
 + (void)setLastUsedDate:(NSDate *)date;
++ (BOOL)hasLastUsedDate;
 
 @end
