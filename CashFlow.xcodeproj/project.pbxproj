@@ -388,6 +388,14 @@
 		3EC1B23013291A6D00721A71 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EC1B22E13291A6D00721A71 /* InfoPlist.strings */; };
 		3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3ECD5A871347603800B499A6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3ECD8CDE162C4D2200960642 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD8CDD162C4D2200960642 /* BugSense-iOS.framework */; };
+		3ECD8CDF162C4D3200960642 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD8CDD162C4D2200960642 /* BugSense-iOS.framework */; };
+		3ECD8CE2162C4D3600960642 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD8CDD162C4D2200960642 /* BugSense-iOS.framework */; };
+		3ECD8CE3162C4D3600960642 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD8CDD162C4D2200960642 /* BugSense-iOS.framework */; };
+		3ECD8CE5162C4D5A00960642 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD8CE4162C4D5A00960642 /* libz.dylib */; };
+		3ECD8CE6162C4D6600960642 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD8CE4162C4D5A00960642 /* libz.dylib */; };
+		3ECD8CE7162C4D6700960642 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD8CE4162C4D5A00960642 /* libz.dylib */; };
+		3ECD8CE8162C4D6700960642 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD8CE4162C4D5A00960642 /* libz.dylib */; };
 		3ECE5E231602138A00A10E48 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ECE5E221602138A00A10E48 /* Default-568h@2x.png */; };
 		3ECE5E241602138A00A10E48 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ECE5E221602138A00A10E48 /* Default-568h@2x.png */; };
 		3ECF38040EA9CF4900420060 /* ExportServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF38030EA9CF4900420060 /* ExportServer.m */; };
@@ -759,6 +767,8 @@
 		3EC1B23113291A6D00721A71 /* CashFlowTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CashFlowTest-Prefix.pch"; sourceTree = "<group>"; };
 		3EC572D61107451F00A551D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3ECD5A861347603800B499A6 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		3ECD8CDD162C4D2200960642 /* BugSense-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "BugSense-iOS.framework"; path = "/Users/tmurakam/dev/cashflow/Frameworks/BugSense-iOS.framework"; sourceTree = "<absolute>"; };
+		3ECD8CE4162C4D5A00960642 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		3ECE5E221602138A00A10E48 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3ECF38030EA9CF4900420060 /* ExportServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportServer.m; sourceTree = "<group>"; };
 		3ECF38080EA9CFB600420060 /* ExportServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportServer.h; sourceTree = "<group>"; };
@@ -821,6 +831,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ECD8CE5162C4D5A00960642 /* libz.dylib in Frameworks */,
+				3ECD8CDE162C4D2200960642 /* BugSense-iOS.framework in Frameworks */,
 				3E69E8EE1616B3F500FAD808 /* PassKit.framework in Frameworks */,
 				3E69E8EC1616B3ED00FAD808 /* AdSupport.framework in Frameworks */,
 				3E69E8EA1616B3D800FAD808 /* CoreTelephony.framework in Frameworks */,
@@ -878,6 +890,8 @@
 				3E69E8EF1616B40100FAD808 /* PassKit.framework in Frameworks */,
 				3E69E8F21616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3E69E8F51616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
+				3ECD8CDF162C4D3200960642 /* BugSense-iOS.framework in Frameworks */,
+				3ECD8CE6162C4D6600960642 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,6 +924,8 @@
 				3E69E8F11616B40200FAD808 /* PassKit.framework in Frameworks */,
 				3E69E8F41616B40E00FAD808 /* AdSupport.framework in Frameworks */,
 				3E69E8F71616B41B00FAD808 /* CoreTelephony.framework in Frameworks */,
+				3ECD8CE3162C4D3600960642 /* BugSense-iOS.framework in Frameworks */,
+				3ECD8CE8162C4D6700960642 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,6 +958,8 @@
 				3E69E8F01616B40100FAD808 /* PassKit.framework in Frameworks */,
 				3E69E8F31616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3E69E8F61616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
+				3ECD8CE2162C4D3600960642 /* BugSense-iOS.framework in Frameworks */,
+				3ECD8CE7162C4D6700960642 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,6 +1041,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3ECD8CE4162C4D5A00960642 /* libz.dylib */,
+				3ECD8CDD162C4D2200960642 /* BugSense-iOS.framework */,
 				3E69E8ED1616B3F400FAD808 /* PassKit.framework */,
 				3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */,
 				3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */,
@@ -2119,6 +2139,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dropbox\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -2146,6 +2167,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dropbox\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -2173,6 +2195,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dropbox\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -2204,6 +2227,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dropbox\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -2234,6 +2258,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SRCROOT)/plcrashreporter\"",
 					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ApplicationTests/CashFlowTest-Prefix.pch";
@@ -2263,6 +2288,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SRCROOT)/plcrashreporter\"",
 					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ApplicationTests/CashFlowTest-Prefix.pch";
@@ -2290,6 +2316,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SRCROOT)/Dropbox\"",
 					"\"$(SRCROOT)/plcrashreporter\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2325,6 +2352,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SRCROOT)/Dropbox\"",
 					"\"$(SRCROOT)/plcrashreporter\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2376,6 +2404,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
+				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = armv7;
 			};
@@ -2388,6 +2417,7 @@
 				"ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/plcrashreporter\"",
@@ -2409,6 +2439,7 @@
 				PRODUCT_NAME = CashFlow;
 				SDKROOT = iphoneos;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
+				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = armv7;
 			};
