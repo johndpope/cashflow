@@ -23,8 +23,11 @@
 
     NSArray *mTypeArray;
 	
-    UIButton *mDelButton;
-    UIButton *mDelPastButton;
+    IBOutlet UIButton *mDelButton;
+    IBOutlet UIButton *mDelPastButton;
+    IBOutlet UIView *mRememberDateView;
+    IBOutlet UILabel *mRememberDateLabel;
+    IBOutlet UISwitch *mRememberDateSwitch;
 
     UIActionSheet *mAsDelPast;
     UIActionSheet *mAsCancelTransaction;
@@ -88,14 +91,34 @@
                                  _L(@"Adjustment"),
                                  _L(@"Transfer")];
 
+    // 削除ボタンの背景と位置調整
+    UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
+    
+    [mDelButton setBackgroundImage:bg forState:UIControlStateNormal];
+    [mDelPastButton setBackgroundImage:bg forState:UIControlStateNormal];
+    
+    [mDelButton setTitle:_L(@"Delete transaction") forState:UIControlStateNormal];
+    [mDelPastButton setTitle:_L(@"Delete with all past transactions") forState:UIControlStateNormal];
+    
+    if (IS_IPAD) {
+        CGRect rect;
+        rect = mDelButton.frame;
+        rect.origin.y += 100;
+        mDelButton.frame = rect;
+
+        rect = mDelPastButton.frame;
+        rect.origin.y += 120;
+        mDelPastButton.frame = rect;
+    }
+
+    /*
     // ボタン生成
     // TODO:
     // b を unsafe unretained にしておかないと、オブジェクトのリファレンスカウンタが足りなくなりクラッシュする。
     // ARC 周りのバグか？
     __unsafe_unretained UIButton *b;
-    UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
-
-    int i;
+     
+     int i;
     for (i = 0; i < 2; i++) {
         b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [b setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -127,7 +150,8 @@
         b.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self.view addSubview:b];
         b = nil; // 念のため
-    }
+    }*/
+    
 }
 
 // 処理するトランザクションをロードしておく
@@ -152,11 +176,13 @@
 {
     [super viewWillAppear:animated];
     
-    BOOL hideDelButton = (mTransactionIndex >= 0) ? NO : YES;
+    BOOL isNewTransaction = (mTransactionIndex >= 0) ? NO : YES;
 	
-    mDelButton.hidden = hideDelButton;
-    mDelPastButton.hidden = hideDelButton;
-		
+    mDelButton.hidden = isNewTransaction;
+    mDelPastButton.hidden = isNewTransaction;
+	
+	mRememberDateView.hidden = !isNewTransaction;
+    
     [[self tableView] reloadData];
 }
 
@@ -481,7 +507,7 @@
 
 #pragma mark Deletion
 
-- (void)delButtonTapped
+- (IBAction)delButtonTapped:(id)sender
 {
     [mAsset deleteEntryAt:mTransactionIndex];
     self.editingEntry = nil;
@@ -489,7 +515,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)delPastButtonTapped
+- (IBAction)delPastButtonTapped:(id)sender
 {
     mAsDelPast = [[UIActionSheet alloc]
                     initWithTitle:nil delegate:self
