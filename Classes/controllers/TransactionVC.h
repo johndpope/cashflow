@@ -33,7 +33,4 @@
 - (void)saveAction;
 - (void)cancelAction;
 
-- (void)delButtonTapped;
-- (void)delPastButtonTapped;
-
 @end
