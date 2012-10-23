@@ -206,7 +206,7 @@
                       initWithTitle:@"No assets"
                       message:_L(@"At first, please create and select an asset.")
                       delegate:nil
-                      cancelButtonTitle:@"Dismiss"
+                      cancelButtonTitle:_L(@"Dismiss")
                       otherButtonTitles:nil];
     [v show];
 }
