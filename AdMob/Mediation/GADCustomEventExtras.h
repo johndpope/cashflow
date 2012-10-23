@@ -2,7 +2,6 @@
 //  GADCustomEventExtras.h
 //  Google Ads iOS SDK
 //
-//  Created by Lynn Nguyen on 3/15/12.
 //  Copyright (c) 2012 Google Inc. All rights reserved.
 //
 //  Create an instance of this class to set additional parameters for each

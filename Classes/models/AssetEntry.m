@@ -42,7 +42,7 @@
     
     if (t == nil) {
         // 新規エントリ生成
-        self.transaction = [[Transaction alloc] init];
+        self.transaction = [Transaction new];
         mTransaction.asset = self.assetKey;
     }
     else {
