@@ -174,12 +174,14 @@
  */
 - (void)_showInitialAsset
 {
-    int firstShowAssetIndex = [self _firstShowAssetIndex];
-    
     Asset *asset = nil;
+    
+    // 前回選択資産を選択
+    int firstShowAssetIndex = [self _firstShowAssetIndex];
     if (firstShowAssetIndex >= 0 && [mLedger assetCount] > firstShowAssetIndex) {
         asset = [mLedger assetAtIndex:firstShowAssetIndex];
     }
+    // iPad では、前回選択資産がなくても、最初の資産を選択する
     if (IS_IPAD && asset == nil && [mLedger assetCount] > 0) {
         asset = [mLedger assetAtIndex:0];
     }
@@ -195,7 +197,10 @@
             vc.assetKey = asset.pid;
             [self.navigationController pushViewController:vc animated:NO];
         }
-    } else {
+    }
+
+    // 資産が一個もない場合は警告を出す
+    if ([mLedger assetCount] == 0) {
         [AssetListViewController noAssetAlert];
     }
 }
