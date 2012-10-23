@@ -380,7 +380,10 @@
 // 新規トランザクション追加
 - (void)addTransaction
 {
-    if (self.asset == nil) return;
+    if (self.asset == nil) {
+        [AssetListViewController noAssetAlert];
+        return;
+    }
     
     TransactionViewController *vc = [[TransactionViewController alloc] init];
     vc.asset = self.asset;

@@ -195,7 +195,20 @@
             vc.assetKey = asset.pid;
             [self.navigationController pushViewController:vc animated:NO];
         }
+    } else {
+        [AssetListViewController noAssetAlert];
     }
+}
+
++ (void)noAssetAlert
+{
+    UIAlertView *v = [[UIAlertView alloc]
+                      initWithTitle:@"No assets"
+                      message:_L(@"At first, please create and select an asset.")
+                      delegate:nil
+                      cancelButtonTitle:@"Dismiss"
+                      otherButtonTitles:nil];
+    [v show];
 }
 
 - (void)reload

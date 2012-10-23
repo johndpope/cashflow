@@ -24,4 +24,6 @@
 - (IBAction)showReport:(id)sender;
 - (IBAction)doAction:(id)sender;
 
++ (void)noAssetAlert;
+
 @end
