@@ -91,6 +91,8 @@
                                  _L(@"Adjustment"),
                                  _L(@"Transfer")];
     
+    [mRememberDateLabel setText:_L(@"Remember Date")];
+    
     if ([self isNewTransaction]) {
         // 日付記憶関連処理
         [mRememberDateSwitch setOn:[Transaction hasLastUsedDate]];
