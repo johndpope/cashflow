@@ -578,6 +578,10 @@
     if (mTransactionIndex < 0) {
         // 新規追加
         [mAsset insertEntry:mEditingEntry];
+        
+        if ([mRememberDateSwitch isOn]) {
+            [Transaction setLastUsedDate:mEditingEntry.transaction.date];
+        }
     } else {
         [mAsset replaceEntryAtIndex:mTransactionIndex withObject:mEditingEntry];
         //[asset sortByDate];
