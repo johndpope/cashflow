@@ -12,7 +12,7 @@ static NSString *kTestDbName = @"CashFlowTest.db";
 {
     static DateFormatter2 *df = nil;
     if (df == nil) {
-        df = [[DateFormatter2 alloc] init];
+        df = [DateFormatter2 new];
         [df setTimeZone: [NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
         [df setDateFormat: @"yyyyMMddHHmmss"];
     }

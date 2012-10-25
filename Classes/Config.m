@@ -19,7 +19,7 @@ static Config *sConfig = nil;
 + (Config *)instance
 {
     if (!sConfig) {
-        sConfig = [[Config alloc] init];
+        sConfig = [Config new];
     }
     return sConfig;
 }

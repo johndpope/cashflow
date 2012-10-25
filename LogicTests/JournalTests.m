@@ -185,7 +185,7 @@
     int i;
 
     for (i = 0; i < MAX_TRANSACTIONS; i++) {
-        t = [[Transaction alloc] init];
+        t = [Transaction new];
         t.asset = 1; // cash
         [journal insertTransaction:t];
         [t release];
@@ -199,7 +199,7 @@
     Assert([asset entryCount] == MAX_TRANSACTIONS);
     
     // 上限数＋１個目
-    t = [[Transaction alloc] init];
+    t = [Transaction new];
     t.asset = 1; // cash
     [journal insertTransaction:t];
     [t release];

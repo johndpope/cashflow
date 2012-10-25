@@ -151,7 +151,7 @@
         break;
     }
 
-    CatReportDetailViewController *vc = [[CatReportDetailViewController alloc] init];
+    CatReportDetailViewController *vc = [CatReportDetailViewController new];
     vc.title = [cr title];
     vc.catReport = cr;
     

@@ -16,7 +16,7 @@
     [TestCommon installDatabase:@"testdata1"];
     [DataModel instance];
     
-    mReports = [[Report alloc] init];
+    mReports = [Report new];
 }
 
 - (void)tearDown

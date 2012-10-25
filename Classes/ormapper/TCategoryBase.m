@@ -172,7 +172,7 @@
     NSMutableArray *array = [NSMutableArray new];
 
     while ([stmt step] == SQLITE_ROW) {
-        TCategoryBase *e = [[[self class] alloc] init];
+        TCategoryBase *e = [[self class] new];
         [e _loadRow:stmt];
         [array addObject:e];
 

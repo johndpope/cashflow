@@ -41,7 +41,7 @@
 {
     mType = type;
 	
-    mReportEntries = [[NSMutableArray alloc] init];
+    mReportEntries = [NSMutableArray new];
 
     NSCalendar *greg = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	
@@ -60,7 +60,7 @@
     NSDateComponents *dateComponents, *steps;
     NSDate *nextStartDay = nil;
 	
-    steps = [[NSDateComponents alloc] init];
+    steps = [NSDateComponents new];
     switch (mType) {
         case REPORT_DAILY:;
             dateComponents = [greg components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:firstDate];

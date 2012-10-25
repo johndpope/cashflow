@@ -66,7 +66,7 @@
 
 -(TCategory*)addCategory:(NSString *)name
 {
-    TCategory *c = [[TCategory alloc] init];
+    TCategory *c = [TCategory new];
     c.name = name;
     [mCategories addObject:c];
 

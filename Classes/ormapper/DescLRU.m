@@ -196,7 +196,7 @@
     NSMutableArray *array = [NSMutableArray new];
 
     while ([stmt step] == SQLITE_ROW) {
-        DescLRU *e = [[[self class] alloc] init];
+        DescLRU *e = [[self class] new];
         [e _loadRow:stmt];
         [array addObject:e];
 

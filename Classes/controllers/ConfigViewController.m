@@ -214,7 +214,7 @@
                     break;
                     
                 case ROW_CUTOFF_DATE:
-                    typeArray = [[NSMutableArray alloc] init];
+                    typeArray = [NSMutableArray new];
                     [typeArray addObject:_L(@"End of month")];
                     for (int i = 1; i <= 28; i++) {
                         [typeArray addObject:[NSString stringWithFormat:@"%d", i]];
@@ -252,7 +252,7 @@
             break;
             
         case 1:
-            categoryVC = [[CategoryListViewController alloc] init];
+            categoryVC = [CategoryListViewController new];
             categoryVC.isSelectMode = NO;
             [self.navigationController pushViewController:categoryVC animated:YES];
             break;

@@ -67,7 +67,7 @@
 
     if (mAssetIndex < 0) {
         // 新規
-        mAsset = [[Asset alloc] init];
+        mAsset = [Asset new];
         mAsset.name = @"";
         mAsset.sorder = 99999;
     } else {

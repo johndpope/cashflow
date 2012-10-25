@@ -72,7 +72,7 @@
 {
     self = [super init];
     
-    mEntries = [[NSMutableArray alloc] init];
+    mEntries = [NSMutableArray new];
     mType = ASSET_CASH;
 	
     return self;
@@ -85,7 +85,7 @@
 - (void)rebuild
 {
 
-    mEntries = [[NSMutableArray alloc] init];
+    mEntries = [NSMutableArray new];
 
     double balance = mInitialBalance;
 
@@ -233,7 +233,7 @@
     
     if (ret) {
         // newly created...
-        Asset *as = [[Asset alloc] init];
+        Asset *as = [Asset new];
         as.name = _L(@"Cash");
         as.type = ASSET_CASH;
         as.initialBalance = 0;

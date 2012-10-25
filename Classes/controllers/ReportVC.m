@@ -45,7 +45,7 @@
 
         mType = type;
 
-        mDateFormatter = [[NSDateFormatter alloc] init];
+        mDateFormatter = [NSDateFormatter new];
         [self _updateReport];
     }
     return self;
@@ -121,7 +121,7 @@
 
     // レポート生成
     if (mReports == nil) {
-        mReports = [[Report alloc] init];
+        mReports = [Report new];
     }
     [mReports generate:mType asset:mDesignatedAsset];
     mMaxAbsValue = [mReports getMaxAbsValue];
@@ -209,7 +209,7 @@
     int count = [mReports.reportEntries count];
     ReportEntry *re = (mReports.reportEntries)[count - indexPath.row - 1];
 
-    CatReportViewController *vc = [[CatReportViewController alloc] init];
+    CatReportViewController *vc = [CatReportViewController new];
     vc.title = [self _reportTitle:re];
     vc.reportEntry = re;
     [self.navigationController pushViewController:vc animated:YES];

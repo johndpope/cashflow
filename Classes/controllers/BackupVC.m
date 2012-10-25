@@ -174,7 +174,7 @@
         case 1:
             // internal web server
             [AppDelegate trackPageview:@"/BackupViewController/WebBackup"];
-            webBackup = [[WebServerBackup alloc] init];
+            webBackup = [WebServerBackup new];
             [webBackup execute];
             break;
     }

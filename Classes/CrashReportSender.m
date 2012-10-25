@@ -59,7 +59,7 @@
     static CrashReportSender *crashReportSender = nil;
 	
     if (crashReportSender == nil) {
-        crashReportSender = [[CrashReportSender alloc] init];
+        crashReportSender = [CrashReportSender new];
     }
 	
     return crashReportSender;
@@ -97,7 +97,7 @@
 		
         if (_crashReportActivated)
         {
-            _crashFiles = [[NSMutableArray alloc] init];
+            _crashFiles = [NSMutableArray new];
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
             _crashesDir = [NSString stringWithFormat:@"%@", [[paths objectAtIndex:0] stringByAppendingPathComponent:@"/crashes/"]];
 
@@ -694,7 +694,7 @@
     _statusCode = 200;
 	
     //Release when done in the delegate method
-    _responseData = [[NSMutableData alloc] init];
+    _responseData = [NSMutableData new];
 	
     if (_delegate != nil && [_delegate respondsToSelector:@selector(connectionOpened)])
     {

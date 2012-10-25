@@ -200,7 +200,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    AssetEntry *e = [[AssetEntry alloc] init];
+    AssetEntry *e = [AssetEntry new];
     e.assetKey = self.assetKey;
     e.value = self.value;
     e.balance = self.balance;

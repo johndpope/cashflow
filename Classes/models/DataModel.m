@@ -57,9 +57,9 @@ static NSString *theDbName = DBNAME;
 {
     self = [super init];
 
-    mJournal = [[Journal alloc] init];
-    mLedger = [[Ledger alloc] init];
-    mCategories = [[Categories alloc] init];
+    mJournal = [Journal new];
+    mLedger = [Ledger new];
+    mCategories = [Categories new];
     mIsLoadDone = NO;
 	
     return self;
@@ -167,7 +167,7 @@ static NSString *theDbName = DBNAME;
 
 + (NSDateFormatter *)dateFormatter:(NSDateFormatterStyle)timeStyle withDayOfWeek:(BOOL)withDayOfWeek
 {
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    NSDateFormatter *df = [NSDateFormatter new];
     [df setDateStyle:NSDateFormatterMediumStyle];
     [df setTimeStyle:timeStyle];
     

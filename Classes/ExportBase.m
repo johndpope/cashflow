@@ -60,7 +60,7 @@
         return NO;
     }
     
-    MFMailComposeViewController *vc = [[MFMailComposeViewController alloc] init];
+    MFMailComposeViewController *vc = [MFMailComposeViewController new];
     vc.mailComposeDelegate = self;
     
     [vc setSubject:[self mailSubject]];
@@ -90,7 +90,7 @@
     NSString *message = nil;
 
     if (mWebServer == nil) {
-        mWebServer = [[ExportServer alloc] init];
+        mWebServer = [ExportServer new];
     }
     mWebServer.contentBody = contentBody;
     mWebServer.contentType = [self contentType];

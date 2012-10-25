@@ -68,7 +68,7 @@
     self = [super initWithNibName:@"CalculatorView" bundle:nil];
     if (self) {
         [self allClear];
-        mNumberFormatter = [[NSNumberFormatter alloc] init];
+        mNumberFormatter = [NSNumberFormatter new];
         [mNumberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
         [mNumberFormatter setLocale:[NSLocale currentLocale]];
     }

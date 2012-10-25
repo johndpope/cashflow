@@ -58,7 +58,7 @@
 
                 if (self.firstDate != nil && [e.transaction.date compare:self.firstDate] == NSOrderedAscending) continue;
             
-                NSMutableString *d = [[NSMutableString alloc] init];
+                NSMutableString *d = [NSMutableString new];
                 [d appendFormat:@"%d,", e.transaction.pid];
                 [d appendFormat:@"%@,", [dateFormatter stringFromDate:e.transaction.date]];
                 [d appendFormat:@"%.2f,", e.value];

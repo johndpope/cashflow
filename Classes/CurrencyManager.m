@@ -26,7 +26,7 @@
 {
     static CurrencyManager *theInstance = nil;
     if (theInstance == nil) {
-        theInstance = [[CurrencyManager alloc] init];
+        theInstance = [CurrencyManager new];
     }
     return theInstance;
 }
@@ -37,7 +37,7 @@
 
     NSNumberFormatter *nf;
 
-    nf = [[NSNumberFormatter alloc] init];
+    nf = [NSNumberFormatter new];
     [nf setNumberStyle:NSNumberFormatterCurrencyStyle];
     [nf setLocale:[NSLocale currentLocale]];
     mNumberFormatter = nf;

@@ -21,7 +21,7 @@
     if (self != nil) {
         mCategory = category;
         mAssetKey = assetKey;
-        mTransactions = [[NSMutableArray alloc] init];
+        mTransactions = [NSMutableArray new];
         mSum = 0.0;
     }
     return self;
