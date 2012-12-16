@@ -406,8 +406,6 @@
 		3EDDADAB0E8925AB00268AED /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDADAA0E8925AB00268AED /* InfoView.xib */; };
 		3EE629EA10D7E8C500EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EE62A2B10D7EA0100EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
-		3EE8551412123DA400A6B3CF /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
-		3EE8551712123DAB00A6B3CF /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
 		3EED9134132A236D009DE68B /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
 		3EED9135132A236D009DE68B /* ViewControllerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9133132A236D009DE68B /* ViewControllerTestCase.m */; };
 		3EF12E5A13D86BDD009D1722 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC153113D85CFA00B35736 /* SenTestingKit.framework */; };
@@ -446,7 +444,6 @@
 		3EF152741462C38800C724E4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EF152751462C38800C724E4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF152761462C38800C724E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
-		3EF152771462C38800C724E4 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
 		3EF152781462C3A200C724E4 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7BB135115399C5004B7D03 /* Config.m */; };
 		3EF152791462C3B000C724E4 /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
 		3EF152801462C9F900C724E4 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
@@ -477,7 +474,6 @@
 		3EF402F8157FA73C0091CC40 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EF402F9157FA73F0091CC40 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF402FA157FA7420091CC40 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
-		3EF402FB157FA7440091CC40 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
 		3EF402FC157FA7570091CC40 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAF414A1340BCED00814FFA /* libGoogleAdMobAds.a */; };
 		3EF5F4FF145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
 		3EF5F500145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
@@ -775,7 +771,6 @@
 		3EDDAC740E89148500268AED /* redButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redButton.png; sourceTree = "<group>"; };
 		3EDDADAA0E8925AB00268AED /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		3EE8551312123DA400A6B3CF /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CrashReporter.framework; path = plcrashreporter/CrashReporter.framework; sourceTree = SOURCE_ROOT; };
 		3EED9130132A236D009DE68B /* TestCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCommon.h; sourceTree = "<group>"; };
 		3EED9131132A236D009DE68B /* TestCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCommon.m; sourceTree = "<group>"; };
 		3EED9132132A236D009DE68B /* ViewControllerTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTestCase.h; sourceTree = "<group>"; };
@@ -837,7 +832,6 @@
 				3EB5552E103B930D00BA13D4 /* AddressBook.framework in Frameworks */,
 				3EE629EA10D7E8C500EB7399 /* MediaPlayer.framework in Frameworks */,
 				3E2376C51107481F00E4C329 /* MessageUI.framework in Frameworks */,
-				3EE8551712123DAB00A6B3CF /* CrashReporter.framework in Frameworks */,
 				3E197BF7121271D200105B20 /* SystemConfiguration.framework in Frameworks */,
 				3E33821A1332123200861610 /* AVFoundation.framework in Frameworks */,
 				3EAF414B1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */,
@@ -867,7 +861,6 @@
 				3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */,
 				3E13EE59114007D600523938 /* AVFoundation.framework in Frameworks */,
 				3E035E9B1182B6E000711865 /* SystemConfiguration.framework in Frameworks */,
-				3EE8551412123DA400A6B3CF /* CrashReporter.framework in Frameworks */,
 				3E3382181332122700861610 /* Security.framework in Frameworks */,
 				3EAF414C1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */,
 				3E0AC6AC13A78664006F505C /* libGoogleAnalytics.a in Frameworks */,
@@ -906,7 +899,6 @@
 				3EF402F8157FA73C0091CC40 /* MediaPlayer.framework in Frameworks */,
 				3EF402F9157FA73F0091CC40 /* MessageUI.framework in Frameworks */,
 				3EF402FA157FA7420091CC40 /* SystemConfiguration.framework in Frameworks */,
-				3EF402FB157FA7440091CC40 /* CrashReporter.framework in Frameworks */,
 				3EF402FC157FA7570091CC40 /* libGoogleAdMobAds.a in Frameworks */,
 				3E69E8E41616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */,
 				3E69E8E81616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */,
@@ -935,7 +927,6 @@
 				3EF152741462C38800C724E4 /* MediaPlayer.framework in Frameworks */,
 				3EF152751462C38800C724E4 /* MessageUI.framework in Frameworks */,
 				3EF152761462C38800C724E4 /* SystemConfiguration.framework in Frameworks */,
-				3EF152771462C38800C724E4 /* CrashReporter.framework in Frameworks */,
 				3E3F525214651654005CBD9A /* libsqlite3.dylib in Frameworks */,
 				3EA395371556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
 				3EA395401556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
@@ -1048,7 +1039,6 @@
 				3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */,
 				3EC572D61107451F00A551D5 /* MessageUI.framework */,
 				3E035E9A1182B6E000711865 /* SystemConfiguration.framework */,
-				3EE8551312123DA400A6B3CF /* CrashReporter.framework */,
 				3EDC153113D85CFA00B35736 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
