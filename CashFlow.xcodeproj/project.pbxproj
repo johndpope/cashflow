@@ -109,8 +109,6 @@
 		3E17800913263CBD00D74DED /* ReportEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17800313263CBD00D74DED /* ReportEntry.m */; };
 		3E178060132641D700D74DED /* ReportCatGraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17805E132641D700D74DED /* ReportCatGraphCell.m */; };
 		3E178061132641D700D74DED /* ReportCatGraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17805E132641D700D74DED /* ReportCatGraphCell.m */; };
-		3E197B10121268CF00105B20 /* CrashReportSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E197B0F121268CF00105B20 /* CrashReportSender.m */; };
-		3E197B11121268CF00105B20 /* CrashReportSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E197B0F121268CF00105B20 /* CrashReportSender.m */; };
 		3E197BF7121271D200105B20 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
 		3E1F6EC10E76E93C00CCDF57 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E1F6EC00E76E93C00CCDF57 /* Default.png */; };
 		3E2376C51107481F00E4C329 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -623,8 +621,6 @@
 		3E17800313263CBD00D74DED /* ReportEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportEntry.m; sourceTree = "<group>"; };
 		3E17805D132641D700D74DED /* ReportCatGraphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCatGraphCell.h; sourceTree = "<group>"; };
 		3E17805E132641D700D74DED /* ReportCatGraphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportCatGraphCell.m; sourceTree = "<group>"; };
-		3E197B0E121268CF00105B20 /* CrashReportSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashReportSender.h; sourceTree = "<group>"; };
-		3E197B0F121268CF00105B20 /* CrashReportSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashReportSender.m; sourceTree = "<group>"; };
 		3E1F6EC00E76E93C00CCDF57 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3E27103F0EAA196A00E57E51 /* ExportBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportBase.h; sourceTree = "<group>"; };
 		3E2710400EAA196A00E57E51 /* ExportBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportBase.m; sourceTree = "<group>"; };
@@ -971,6 +967,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				3E4C53C0167DFF8200BAA294 /* Crittercism */,
 				3EB540870E8E921700608B77 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -1186,6 +1183,13 @@
 			path = locale;
 			sourceTree = "<group>";
 		};
+		3E4C53C0167DFF8200BAA294 /* Crittercism */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Crittercism;
+			sourceTree = "<group>";
+		};
 		3E6C501A157E3F0C0086C20E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -1275,8 +1279,6 @@
 				3E3382221332284000861610 /* DropboxBackup.m */,
 				3EF5F4FD145AEB78006C3F3A /* DBLoadingView.h */,
 				3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */,
-				3E197B0E121268CF00105B20 /* CrashReportSender.h */,
-				3E197B0F121268CF00105B20 /* CrashReportSender.m */,
 				3E91B88A152F3335008120DC /* UIDevice+Hardware.h */,
 				3E91B88B152F3335008120DC /* UIDevice+Hardware.m */,
 			);
@@ -1882,7 +1884,6 @@
 				3E35661B1189697E007DAF44 /* WebServerBackup.m in Sources */,
 				3E98A66A11E8368800B7F289 /* CurrencyManager.m in Sources */,
 				3E7109B8121108ED00C47539 /* SupportMail.m in Sources */,
-				3E197B11121268CF00105B20 /* CrashReportSender.m in Sources */,
 				3E0AD6BE121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6BF121415DE00CFDDAC /* AssetEntry.m in Sources */,
 				3E0AD6C0121415DE00CFDDAC /* Category.m in Sources */,
@@ -1954,7 +1955,6 @@
 				3E35661A1189697E007DAF44 /* WebServerBackup.m in Sources */,
 				3E98A66911E8368800B7F289 /* CurrencyManager.m in Sources */,
 				3E7109B6121108ED00C47539 /* SupportMail.m in Sources */,
-				3E197B10121268CF00105B20 /* CrashReportSender.m in Sources */,
 				3E0AD6C6121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6C7121415DE00CFDDAC /* AssetEntry.m in Sources */,
 				3E0AD6C8121415DE00CFDDAC /* Category.m in Sources */,
