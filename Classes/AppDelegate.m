@@ -15,6 +15,7 @@
 //#import "CrashReportSender.h"
 #import "GANTracker.h"
 #import "UIDevice+Hardware.h"
+#import "Crittercism.h"
 
 #import "DropboxSecret.h"
 
@@ -50,6 +51,13 @@
     NSLog(@"application:didFinishLaunchingWithOptions");
     _application = application;
 
+    // Crittercism
+#if FREE_VERSION
+    [Crittercism enableWithAppID:@"50cdc6bb86ef114132000002"];
+#else
+    [Crittercism enableWithAppID:@"50cdc6697e69a342c7000005"];
+#endif
+    
     // Dropbox config
     DBSession *dbSession =
         [[DBSession alloc] initWithAppKey:DROPBOX_APP_KEY appSecret:DROPBOX_APP_SECRET root:kDBRootDropbox];

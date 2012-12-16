@@ -404,6 +404,8 @@
 		3EDC72BB0EBB493100366F1E /* SimpleTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC72BA0EBB493100366F1E /* SimpleTableView.xib */; };
 		3EDDAC750E89148500268AED /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDAC740E89148500268AED /* redButton.png */; };
 		3EDDADAB0E8925AB00268AED /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDADAA0E8925AB00268AED /* InfoView.xib */; };
+		3EE23A08167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */; };
+		3EE23A09167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */; };
 		3EE629EA10D7E8C500EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EE62A2B10D7EA0100EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EED9134132A236D009DE68B /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
@@ -770,6 +772,9 @@
 		3EDC72BA0EBB493100366F1E /* SimpleTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleTableView.xib; sourceTree = "<group>"; };
 		3EDDAC740E89148500268AED /* redButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redButton.png; sourceTree = "<group>"; };
 		3EDDADAA0E8925AB00268AED /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		3EE23A05167E052800578A93 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
+		3EE23A06167E052800578A93 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
+		3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v3_4_6.a; sourceTree = "<group>"; };
 		3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		3EED9130132A236D009DE68B /* TestCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCommon.h; sourceTree = "<group>"; };
 		3EED9131132A236D009DE68B /* TestCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCommon.m; sourceTree = "<group>"; };
@@ -842,6 +847,7 @@
 				3EA3953E1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
 				3E69E8E11616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */,
 				3E69E8E51616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */,
+				3EE23A08167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -874,6 +880,7 @@
 				3E69E8F21616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3E69E8F51616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E0F5F321636EE4B00A11ECE /* StoreKit.framework in Frameworks */,
+				3EE23A09167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1176,8 +1183,12 @@
 		3E4C53C0167DFF8200BAA294 /* Crittercism */ = {
 			isa = PBXGroup;
 			children = (
+				3EE23A05167E052800578A93 /* Crittercism.h */,
+				3EE23A06167E052800578A93 /* CrittercismDelegate.h */,
+				3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */,
 			);
 			name = Crittercism;
+			path = CrittercismSDK;
 			sourceTree = "<group>";
 		};
 		3E6C501A157E3F0C0086C20E /* Libraries */ = {
@@ -2132,6 +2143,7 @@
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
+					"\"$(SRCROOT)/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = CashFlow;
 			};
@@ -2158,6 +2170,7 @@
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
+					"\"$(SRCROOT)/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = CashFlow;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8E62577C-700D-40A6-A386-6C3EFAE66BFA";
@@ -2190,6 +2203,7 @@
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
+					"\"$(SRCROOT)/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 			};
@@ -2217,6 +2231,7 @@
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
+					"\"$(SRCROOT)/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B3B1BC0-A3FF-4063-98F1-831E430A55E7";
