@@ -22,7 +22,6 @@
 @property (nonatomic,strong) UISplitViewController *splitViewController;
 
 - (void)checkPin;
-+ (BOOL)isPrevCrashed;
 + (NSString *)appVersion;
 
 + (void)trackPageview:(NSString *)url;

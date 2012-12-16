@@ -102,16 +102,6 @@
     mAsDisplaying = NO;
 
 #if FREE_VERSION
-    static NSTimeInterval adDisableTime = 0;
-    
-    NSTimeInterval current = [NSDate timeIntervalSinceReferenceDate];
-    
-    if ([AppDelegate isPrevCrashed] && (adDisableTime == 0 || current - adDisableTime < 60 * 60)) {
-        // 前回クラッシュしていた場合は、一定時間広告を出さない
-        adDisableTime = current;
-        return;
-    }
-        
     mAdManager = [AdManager sharedInstance];
     [mAdManager attach:self rootViewController:self];
 #endif
