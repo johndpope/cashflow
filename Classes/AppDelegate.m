@@ -12,13 +12,14 @@
 #import "DataModel.h"
 #import "Transaction.h"
 #import "PinController.h"
-#import "CrashReportSender.h"
+//#import "CrashReportSender.h"
 #import "GANTracker.h"
 #import "UIDevice+Hardware.h"
+#import "Crittercism.h"
 
 #import "DropboxSecret.h"
 
-@interface AppDelegate() <CrashReportSenderDelegate>
+@interface AppDelegate()
 - (void)setupGoogleAnalytics;
 - (void)delayedLaunchProcess:(NSTimer *)timer;
 @end
@@ -26,13 +27,6 @@
 @implementation AppDelegate
 {
     UIApplication *_application;
-}
-
-static BOOL sIsPrevCrashed;
-
-+ (BOOL)isPrevCrashed
-{
-    return sIsPrevCrashed;
 }
 
 //
@@ -57,8 +51,12 @@ static BOOL sIsPrevCrashed;
     NSLog(@"application:didFinishLaunchingWithOptions");
     _application = application;
 
-    CrashReportSender *csr = [CrashReportSender sharedCrashReportSender];
-    sIsPrevCrashed = [csr hasPendingCrashReport];
+    // Crittercism
+#if FREE_VERSION
+    [Crittercism enableWithAppID:@"50cdc6bb86ef114132000002"];
+#else
+    [Crittercism enableWithAppID:@"50cdc6697e69a342c7000005"];
+#endif
     
     // Dropbox config
     DBSession *dbSession =
@@ -138,14 +136,6 @@ static BOOL sIsPrevCrashed;
 - (void)delayedLaunchProcess:(NSTimer *)timer
 {
     NSLog(@"delayedLaunchProcess");
-    
-    // send crash report
-    CrashReportSender *csr = [CrashReportSender sharedCrashReportSender];
-    if ([csr hasPendingCrashReport]) {
-        // 前回クラッシュしている
-        NSURL *reportUrl = [NSURL URLWithString:@"http://itemshelf.com/cgi-bin/crashreport.cgi"];
-        [csr sendCrashReportToURL:reportUrl delegate:self activateFeedback:NO];
-    }
     
     GANTracker *tracker = [GANTracker sharedTracker];
     [tracker trackPageview:@"/applicationLaunched" withError:nil];    

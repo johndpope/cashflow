@@ -109,8 +109,6 @@
 		3E17800913263CBD00D74DED /* ReportEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17800313263CBD00D74DED /* ReportEntry.m */; };
 		3E178060132641D700D74DED /* ReportCatGraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17805E132641D700D74DED /* ReportCatGraphCell.m */; };
 		3E178061132641D700D74DED /* ReportCatGraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17805E132641D700D74DED /* ReportCatGraphCell.m */; };
-		3E197B10121268CF00105B20 /* CrashReportSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E197B0F121268CF00105B20 /* CrashReportSender.m */; };
-		3E197B11121268CF00105B20 /* CrashReportSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E197B0F121268CF00105B20 /* CrashReportSender.m */; };
 		3E197BF7121271D200105B20 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
 		3E1F6EC10E76E93C00CCDF57 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E1F6EC00E76E93C00CCDF57 /* Default.png */; };
 		3E2376C51107481F00E4C329 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -406,10 +404,10 @@
 		3EDC72BB0EBB493100366F1E /* SimpleTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC72BA0EBB493100366F1E /* SimpleTableView.xib */; };
 		3EDDAC750E89148500268AED /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDAC740E89148500268AED /* redButton.png */; };
 		3EDDADAB0E8925AB00268AED /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDADAA0E8925AB00268AED /* InfoView.xib */; };
+		3EE23A08167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */; };
+		3EE23A09167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */; };
 		3EE629EA10D7E8C500EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EE62A2B10D7EA0100EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
-		3EE8551412123DA400A6B3CF /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
-		3EE8551712123DAB00A6B3CF /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
 		3EED9134132A236D009DE68B /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
 		3EED9135132A236D009DE68B /* ViewControllerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9133132A236D009DE68B /* ViewControllerTestCase.m */; };
 		3EF12E5A13D86BDD009D1722 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC153113D85CFA00B35736 /* SenTestingKit.framework */; };
@@ -448,7 +446,6 @@
 		3EF152741462C38800C724E4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EF152751462C38800C724E4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF152761462C38800C724E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
-		3EF152771462C38800C724E4 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
 		3EF152781462C3A200C724E4 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7BB135115399C5004B7D03 /* Config.m */; };
 		3EF152791462C3B000C724E4 /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
 		3EF152801462C9F900C724E4 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
@@ -479,7 +476,6 @@
 		3EF402F8157FA73C0091CC40 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EF402F9157FA73F0091CC40 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF402FA157FA7420091CC40 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
-		3EF402FB157FA7440091CC40 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE8551312123DA400A6B3CF /* CrashReporter.framework */; };
 		3EF402FC157FA7570091CC40 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAF414A1340BCED00814FFA /* libGoogleAdMobAds.a */; };
 		3EF5F4FF145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
 		3EF5F500145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
@@ -623,8 +619,6 @@
 		3E17800313263CBD00D74DED /* ReportEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportEntry.m; sourceTree = "<group>"; };
 		3E17805D132641D700D74DED /* ReportCatGraphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCatGraphCell.h; sourceTree = "<group>"; };
 		3E17805E132641D700D74DED /* ReportCatGraphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportCatGraphCell.m; sourceTree = "<group>"; };
-		3E197B0E121268CF00105B20 /* CrashReportSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashReportSender.h; sourceTree = "<group>"; };
-		3E197B0F121268CF00105B20 /* CrashReportSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashReportSender.m; sourceTree = "<group>"; };
 		3E1F6EC00E76E93C00CCDF57 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3E27103F0EAA196A00E57E51 /* ExportBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportBase.h; sourceTree = "<group>"; };
 		3E2710400EAA196A00E57E51 /* ExportBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportBase.m; sourceTree = "<group>"; };
@@ -778,8 +772,10 @@
 		3EDC72BA0EBB493100366F1E /* SimpleTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleTableView.xib; sourceTree = "<group>"; };
 		3EDDAC740E89148500268AED /* redButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redButton.png; sourceTree = "<group>"; };
 		3EDDADAA0E8925AB00268AED /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		3EE23A05167E052800578A93 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
+		3EE23A06167E052800578A93 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
+		3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v3_4_6.a; sourceTree = "<group>"; };
 		3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		3EE8551312123DA400A6B3CF /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CrashReporter.framework; path = plcrashreporter/CrashReporter.framework; sourceTree = SOURCE_ROOT; };
 		3EED9130132A236D009DE68B /* TestCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCommon.h; sourceTree = "<group>"; };
 		3EED9131132A236D009DE68B /* TestCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCommon.m; sourceTree = "<group>"; };
 		3EED9132132A236D009DE68B /* ViewControllerTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTestCase.h; sourceTree = "<group>"; };
@@ -841,7 +837,6 @@
 				3EB5552E103B930D00BA13D4 /* AddressBook.framework in Frameworks */,
 				3EE629EA10D7E8C500EB7399 /* MediaPlayer.framework in Frameworks */,
 				3E2376C51107481F00E4C329 /* MessageUI.framework in Frameworks */,
-				3EE8551712123DAB00A6B3CF /* CrashReporter.framework in Frameworks */,
 				3E197BF7121271D200105B20 /* SystemConfiguration.framework in Frameworks */,
 				3E33821A1332123200861610 /* AVFoundation.framework in Frameworks */,
 				3EAF414B1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */,
@@ -852,6 +847,7 @@
 				3EA3953E1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
 				3E69E8E11616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */,
 				3E69E8E51616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */,
+				3EE23A08167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,7 +867,6 @@
 				3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */,
 				3E13EE59114007D600523938 /* AVFoundation.framework in Frameworks */,
 				3E035E9B1182B6E000711865 /* SystemConfiguration.framework in Frameworks */,
-				3EE8551412123DA400A6B3CF /* CrashReporter.framework in Frameworks */,
 				3E3382181332122700861610 /* Security.framework in Frameworks */,
 				3EAF414C1340BCED00814FFA /* libGoogleAdMobAds.a in Frameworks */,
 				3E0AC6AC13A78664006F505C /* libGoogleAnalytics.a in Frameworks */,
@@ -885,6 +880,7 @@
 				3E69E8F21616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3E69E8F51616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E0F5F321636EE4B00A11ECE /* StoreKit.framework in Frameworks */,
+				3EE23A09167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,7 +906,6 @@
 				3EF402F8157FA73C0091CC40 /* MediaPlayer.framework in Frameworks */,
 				3EF402F9157FA73F0091CC40 /* MessageUI.framework in Frameworks */,
 				3EF402FA157FA7420091CC40 /* SystemConfiguration.framework in Frameworks */,
-				3EF402FB157FA7440091CC40 /* CrashReporter.framework in Frameworks */,
 				3EF402FC157FA7570091CC40 /* libGoogleAdMobAds.a in Frameworks */,
 				3E69E8E41616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */,
 				3E69E8E81616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */,
@@ -939,7 +934,6 @@
 				3EF152741462C38800C724E4 /* MediaPlayer.framework in Frameworks */,
 				3EF152751462C38800C724E4 /* MessageUI.framework in Frameworks */,
 				3EF152761462C38800C724E4 /* SystemConfiguration.framework in Frameworks */,
-				3EF152771462C38800C724E4 /* CrashReporter.framework in Frameworks */,
 				3E3F525214651654005CBD9A /* libsqlite3.dylib in Frameworks */,
 				3EA395371556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
 				3EA395401556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
@@ -980,6 +974,7 @@
 				3E6C501A157E3F0C0086C20E /* Libraries */,
 				3EAF41431340BCC000814FFA /* AdMob */,
 				3E0AC68C13A785EB006F505C /* GoogleAnalytics */,
+				3E4C53C0167DFF8200BAA294 /* Crittercism */,
 				3EF152411462C2B300C724E4 /* LogicTests */,
 				3EC1B22B13291A6D00721A71 /* ApplicationTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -1051,7 +1046,6 @@
 				3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */,
 				3EC572D61107451F00A551D5 /* MessageUI.framework */,
 				3E035E9A1182B6E000711865 /* SystemConfiguration.framework */,
-				3EE8551312123DA400A6B3CF /* CrashReporter.framework */,
 				3EDC153113D85CFA00B35736 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
@@ -1186,6 +1180,17 @@
 			path = locale;
 			sourceTree = "<group>";
 		};
+		3E4C53C0167DFF8200BAA294 /* Crittercism */ = {
+			isa = PBXGroup;
+			children = (
+				3EE23A05167E052800578A93 /* Crittercism.h */,
+				3EE23A06167E052800578A93 /* CrittercismDelegate.h */,
+				3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */,
+			);
+			name = Crittercism;
+			path = CrittercismSDK;
+			sourceTree = "<group>";
+		};
 		3E6C501A157E3F0C0086C20E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -1275,8 +1280,6 @@
 				3E3382221332284000861610 /* DropboxBackup.m */,
 				3EF5F4FD145AEB78006C3F3A /* DBLoadingView.h */,
 				3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */,
-				3E197B0E121268CF00105B20 /* CrashReportSender.h */,
-				3E197B0F121268CF00105B20 /* CrashReportSender.m */,
 				3E91B88A152F3335008120DC /* UIDevice+Hardware.h */,
 				3E91B88B152F3335008120DC /* UIDevice+Hardware.m */,
 			);
@@ -1882,7 +1885,6 @@
 				3E35661B1189697E007DAF44 /* WebServerBackup.m in Sources */,
 				3E98A66A11E8368800B7F289 /* CurrencyManager.m in Sources */,
 				3E7109B8121108ED00C47539 /* SupportMail.m in Sources */,
-				3E197B11121268CF00105B20 /* CrashReportSender.m in Sources */,
 				3E0AD6BE121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6BF121415DE00CFDDAC /* AssetEntry.m in Sources */,
 				3E0AD6C0121415DE00CFDDAC /* Category.m in Sources */,
@@ -1954,7 +1956,6 @@
 				3E35661A1189697E007DAF44 /* WebServerBackup.m in Sources */,
 				3E98A66911E8368800B7F289 /* CurrencyManager.m in Sources */,
 				3E7109B6121108ED00C47539 /* SupportMail.m in Sources */,
-				3E197B10121268CF00105B20 /* CrashReportSender.m in Sources */,
 				3E0AD6C6121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6C7121415DE00CFDDAC /* AssetEntry.m in Sources */,
 				3E0AD6C8121415DE00CFDDAC /* Category.m in Sources */,
@@ -2142,6 +2143,7 @@
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
+					"\"$(SRCROOT)/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = CashFlow;
 			};
@@ -2168,6 +2170,7 @@
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
+					"\"$(SRCROOT)/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = CashFlow;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8E62577C-700D-40A6-A386-6C3EFAE66BFA";
@@ -2200,6 +2203,7 @@
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
+					"\"$(SRCROOT)/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 			};
@@ -2227,6 +2231,7 @@
 					"\"$(SRCROOT)/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/AdMob/AdapterIAd\"",
+					"\"$(SRCROOT)/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = CashFlowFree;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B3B1BC0-A3FF-4063-98F1-831E430A55E7";
