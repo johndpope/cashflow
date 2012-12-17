@@ -965,7 +965,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				3E4C53C0167DFF8200BAA294 /* Crittercism */,
 				3EB540870E8E921700608B77 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -975,6 +974,7 @@
 				3E6C501A157E3F0C0086C20E /* Libraries */,
 				3EAF41431340BCC000814FFA /* AdMob */,
 				3E0AC68C13A785EB006F505C /* GoogleAnalytics */,
+				3E4C53C0167DFF8200BAA294 /* Crittercism */,
 				3EF152411462C2B300C724E4 /* LogicTests */,
 				3EC1B22B13291A6D00721A71 /* ApplicationTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
