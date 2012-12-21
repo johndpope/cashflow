@@ -204,15 +204,10 @@
     //[[self tableView] reloadData];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
-    /*
-    [mDelButton removeFromSuperview];
-    mDelButton = nil;
-    [mDelPastButton removeFromSuperview];
-    mDelPastButton = nil;
-    */
+    [super viewWillDisappear:animated];
+    [self _dismissPopover];
 }
 
 /////////////////////////////////////////////////////////////////////////////////

@@ -266,9 +266,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self _dismissPopover];
 }
 
 #pragma mark TableViewDataSource
