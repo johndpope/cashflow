@@ -574,21 +574,28 @@
 
 #pragma mark Split View Delegate
 
+// Landscape -> Portrait への移行
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController
           withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc
 {
     barButtonItem.title = _L(@"Assets");
     self.navigationItem.leftBarButtonItem = barButtonItem;
+    
+    // 初期残高の popover が表示されている場合、ここで消さないと２つの Popover controller
+    // が競合してしまう。
+    [self _dismissPopover];
+    
     mPopoverController = pc;
 }
 
 
+// Portrait -> Landscape への移行
 // Called when the view is shown again in the split view, invalidating the button and popover controller.
 - (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController
   invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
     self.navigationItem.leftBarButtonItem = nil;
-    mPopoverController = nil;
+    [self _dismissPopover];
 }
 
 #pragma mark Rotation
@@ -607,11 +614,6 @@
 {
     if (IS_IPAD) return YES;
     return NO;
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [self _dismissPopover];
 }
 
 @end
