@@ -27,18 +27,9 @@
 #endif
 >
 
-//- (UITableView*)tableView;
-@property(nonatomic,strong) UITableView *tableView;
-@property(nonatomic,assign) int assetKey;
-@property(nonatomic,readonly) Asset *asset;
-@property(nonatomic,strong) UIPopoverController *popoverController;
-
 @property(nonatomic,strong) AssetListViewController *splitAssetListViewController;
+@property(nonatomic,assign) int assetKey;
 
-- (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath;
-- (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath;
 - (void)reload;
-- (void)updateBalance;
-- (void)addTransaction;
 
 @end

@@ -18,6 +18,16 @@
 #import "Database.h"
 
 @interface TransactionListViewController ()
+@property(nonatomic,strong) UITableView *tableView;
+@property(nonatomic,readonly) Asset *asset;
+@property(nonatomic,strong) UIPopoverController *popoverController;
+
+- (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath;
+- (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath;
+
+- (void)updateBalance;
+- (void)addTransaction;
+
 - (IBAction)showReport:(id)sender;
 - (IBAction)doAction:(id)sender;
 //- (IBAction)showHelp:(id)sender;
