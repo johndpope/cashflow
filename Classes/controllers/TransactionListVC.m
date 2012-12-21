@@ -21,6 +21,7 @@
 - (IBAction)showReport:(id)sender;
 - (IBAction)doAction:(id)sender;
 //- (IBAction)showHelp:(id)sender;
+- (void)_dismissPopover;
 @end
 
 @implementation TransactionListViewController
@@ -135,10 +136,19 @@
     [self updateBalance];
     [self.tableView reloadData];
 
-    if (mPopoverController != nil && [mPopoverController isPopoverVisible]) {
+    [self _dismissPopover];
+}    
+
+- (void)_dismissPopover
+{
+    if (IS_IPAD
+        && mPopoverController != nil
+        && [mPopoverController isPopoverVisible]
+        && mTableView != nil && mTableView.window != nil /* for crash problem */)
+    {
         [mPopoverController dismissPopoverAnimated:YES];
     }
-}    
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -342,9 +352,7 @@
         if (!IS_IPAD) {
             [self presentModalViewController:nv animated:YES];
         } else {
-            if (self.popoverController) {
-                [self.popoverController dismissPopoverAnimated:YES];
-            }
+            [self _dismissPopover];
             self.popoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
             [self.popoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];

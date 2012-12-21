@@ -389,7 +389,9 @@
 - (void)_dismissPopover
 {
     if (IS_IPAD) {
-        if (mCurrentPopoverController != nil) {
+        if (mCurrentPopoverController != nil
+            && [mCurrentPopoverController isPopoverVisible]
+            && self.view != nil && self.view.window != nil /* for crash problem */) {
             [mCurrentPopoverController dismissPopoverAnimated:YES];
         }
         [self.tableView reloadData];
