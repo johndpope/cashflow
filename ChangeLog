@@ -1,7 +1,10 @@
-2012-12-21 : Takuya Murakami
+2012-12-22 : Takuya Murakami
 
+	* v5.5.2 (v56) beta
 	* Popover を dismiss したときにクラッシュする問題を修正
-	  (view.window の nil チェック)
+	  split view は portrait での master view 表示に popover を使用するため、
+	  初期残高編集の popover を、画面回転時に split view delegate 内で
+	  消さなければならない。
 
 2012-12-17 : Takuya Murakami
 
