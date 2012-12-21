@@ -20,7 +20,6 @@
 @interface TransactionListViewController ()
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,readonly) Asset *asset;
-@property(nonatomic,strong) UIPopoverController *popoverController;
 
 - (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath;
 - (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath;
@@ -54,7 +53,6 @@
 
 @synthesize tableView = mTableView;
 @synthesize assetKey = mAssetKey;
-@synthesize popoverController = mPopoverController;
 
 - (id)init
 {
@@ -362,8 +360,8 @@
             [self presentModalViewController:nv animated:YES];
         } else {
             [self _dismissPopover];
-            self.popoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
-            [self.popoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
+            mPopoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
+            [mPopoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
     } else if (idx >= 0) {
@@ -575,7 +573,7 @@
 {
     barButtonItem.title = _L(@"Assets");
     self.navigationItem.leftBarButtonItem = barButtonItem;
-    self.popoverController = pc;
+    mPopoverController = pc;
 }
 
 
@@ -584,7 +582,7 @@
   invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
     self.navigationItem.leftBarButtonItem = nil;
-    self.popoverController = nil;
+    mPopoverController = nil;
 }
 
 #pragma mark Rotation
