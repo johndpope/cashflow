@@ -365,6 +365,7 @@
         nc = [[UINavigationController alloc] initWithRootViewController:vc];
         
         mCurrentPopoverController = [[UIPopoverController alloc] initWithContentViewController:nc];
+        mCurrentPopoverController.delegate = self;
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         CGRect rect = cell.frame;

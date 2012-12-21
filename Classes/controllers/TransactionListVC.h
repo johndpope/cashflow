@@ -21,7 +21,7 @@
 @class AssetListViewController;
 
 @interface TransactionListViewController : UIViewController 
-    <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate, BackupViewDelegate
+    <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate, BackupViewDelegate, UIPopoverControllerDelegate
 #if FREE_VERSION
     , AdManagerDelegate
 #endif

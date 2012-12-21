@@ -147,6 +147,11 @@
     [self _dismissPopover];
 }    
 
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    mPopoverController = nil;
+}
+
 - (void)_dismissPopover
 {
     if (IS_IPAD
@@ -361,6 +366,7 @@
         } else {
             [self _dismissPopover];
             mPopoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
+            mPopoverController.delegate = self;
             [mPopoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
@@ -601,6 +607,11 @@
 {
     if (IS_IPAD) return YES;
     return NO;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self _dismissPopover];
 }
 
 @end
