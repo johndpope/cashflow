@@ -13,7 +13,7 @@
 #import "Transaction.h"
 #import "PinController.h"
 //#import "CrashReportSender.h"
-#import "GANTracker.h"
+#import "GAI.h"
 #import "UIDevice+Hardware.h"
 #import "Crittercism.h"
 
@@ -110,26 +110,33 @@
 - (void)setupGoogleAnalytics
 {
     // Google analytics
-    GANTracker *tracker = [GANTracker sharedTracker];
-    NSString *ua;
-#if FREE_VERSION
-    ua = @"UA-413697-22";
-#else
-    ua = @"UA-413697-23";
-#endif
-    [tracker startTrackerWithAccountID:ua dispatchPeriod:120 delegate:nil];
+    GAI *gai = [GAI sharedInstance];
+
+    gai.trackUncaughtExceptions = YES;
+    //gai.dispatchInterval = 20;
+    //gai.debug = YES;
+
+    // Create tracker instance.
+    id<GAITracker> tracker = [gai trackerWithTrackingId:@"UA-413697-25"];
     
-    // set custom variables
+    // set custom dimensions
+#if FREE_VERSION
+    [tracker setCustom:1 dimension:@"ios-free"];
+#else
+    [tracker setCustom:1 dimension:@"ios-std"];
+#endif
+
     NSString *version = [AppDelegate appVersion];
-    [tracker setCustomVariableAtIndex:1 name:@"appVersion" value:version withError:nil];
+    [tracker setCustom:2 dimension:version];
     
     UIDevice *dev = [UIDevice currentDevice];
     //NSString *model = [dev model];
-    NSString *platform = [dev platform];
     NSString *systemVersion = [dev systemVersion];
-    //NSString *systemDesc = [NSString stringWithFormat:@"%@ %@", [dev model], [dev systemVersion]];
-    [tracker setCustomVariableAtIndex:2 name:@"platform" value:platform withError:nil];
-    [tracker setCustomVariableAtIndex:3 name:@"systemVersion" value:systemVersion withError:nil];
+    NSString *platform = [dev platform];
+
+    [tracker setCustom:3 dimension:systemVersion];
+    //[tracker setCustom:4 dimension:@"Apple"];
+    [tracker setCustom:5 dimension:platform];
 }
 
 // 起動時の遅延実行処理
@@ -137,8 +144,8 @@
 {
     NSLog(@"delayedLaunchProcess");
     
-    GANTracker *tracker = [GANTracker sharedTracker];
-    [tracker trackPageview:@"/applicationLaunched" withError:nil];    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker trackView:@"applicationLaunched"];
 }
 
 // Background に入る前の処理
@@ -218,14 +225,17 @@
 {
     NSError *err;
     
-    GANTracker *tracker = [GANTracker sharedTracker];
-    [tracker trackPageview:url withError:&err];
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker trackView:url];
 }
 
 + (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(int)value
 {
-    GANTracker *tracker = [GANTracker sharedTracker];
-    [tracker trackEvent:category action:action label:label value:value withError:nil];
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker trackEventWithCategory:category
+                         withAction:action
+                          withLabel:label
+                          withValue:[NSNumber numberWithInt:value]];
 }
 
 #pragma mark Debug
