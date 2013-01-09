@@ -4,6 +4,9 @@ OUTDIR = "src"
 # Package Name (Android only)
 PKGNAME = "org.tmurakam.cashflow.models"
 
+# Primary key
+PKEY = "key"
+
 # class definitions
 
 create_table :Assets, :class => :Asset, :base_class => :AssetBase do |t|
@@ -24,7 +27,7 @@ create_table :Transactions, :class => :Transaction, :base_class => :TransactionB
   t.text :memo
 end
 
-create_table :Categories, :class => :Category do |t|
+create_table :Categories, :class => :TCategory, :base_class => :TCategoryBase do |t|
   t.text :name
   t.integer :sorder
 end
@@ -34,4 +37,3 @@ create_table :DescLRUs, :class => :DescLRU do |t|
   t.date :lastUse
   t.integer :category
 end
-
