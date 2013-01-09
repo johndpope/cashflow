@@ -133,6 +133,10 @@
 		3E347BA9169DBFFB002307AA /* ORQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E347BA7169DBFFB002307AA /* ORQuery.m */; };
 		3E347BAA169DBFFB002307AA /* ORQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E347BA7169DBFFB002307AA /* ORQuery.m */; };
 		3E347BAB169DBFFB002307AA /* ORQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E347BA7169DBFFB002307AA /* ORQuery.m */; };
+		3E347BB2169DC7B0002307AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E347BB1169DC7B0002307AA /* CoreData.framework */; };
+		3E347BB4169DC7CE002307AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E347BB1169DC7B0002307AA /* CoreData.framework */; };
+		3E347BB5169DC7CF002307AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E347BB1169DC7B0002307AA /* CoreData.framework */; };
+		3E347BB6169DC7D0002307AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E347BB1169DC7B0002307AA /* CoreData.framework */; };
 		3E35661A1189697E007DAF44 /* WebServerBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3566191189697E007DAF44 /* WebServerBackup.m */; };
 		3E35661B1189697E007DAF44 /* WebServerBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3566191189697E007DAF44 /* WebServerBackup.m */; };
 		3E3A74671335CEC900B68377 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E3A74661335CEC900B68377 /* Default@2x.png */; };
@@ -542,7 +546,6 @@
 		3E035E9A1182B6E000711865 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3E0887EF0E6EAC5C00739AC9 /* EditDescView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDescView.xib; sourceTree = "<group>"; };
 		3E0887F50E6EAC8900739AC9 /* EditDateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDateView.xib; sourceTree = "<group>"; };
-		3E0AC6A913A78664006F505C /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
 		3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		3E0AC6AD13A786E8006F505C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3E0AD6A6121415DD00CFDDAC /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
@@ -648,6 +651,12 @@
 		3E33822C133229C600861610 /* BackupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackupView.xib; sourceTree = "<group>"; };
 		3E347BA6169DBFFB002307AA /* ORQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORQuery.h; sourceTree = "<group>"; };
 		3E347BA7169DBFFB002307AA /* ORQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORQuery.m; sourceTree = "<group>"; };
+		3E347BAC169DC4CF002307AA /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		3E347BAD169DC4CF002307AA /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		3E347BAE169DC4CF002307AA /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		3E347BAF169DC4CF002307AA /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		3E347BB0169DC4CF002307AA /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		3E347BB1169DC7B0002307AA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3E3566181189697E007DAF44 /* WebServerBackup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServerBackup.h; sourceTree = "<group>"; };
 		3E3566191189697E007DAF44 /* WebServerBackup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServerBackup.m; sourceTree = "<group>"; };
 		3E3A74661335CEC900B68377 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -828,6 +837,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E347BB2169DC7B0002307AA /* CoreData.framework in Frameworks */,
 				3E0F5F311636EE3000A11ECE /* StoreKit.framework in Frameworks */,
 				3E69E8EE1616B3F500FAD808 /* PassKit.framework in Frameworks */,
 				3E69E8EC1616B3ED00FAD808 /* AdSupport.framework in Frameworks */,
@@ -887,6 +897,7 @@
 				3E69E8F51616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E0F5F321636EE4B00A11ECE /* StoreKit.framework in Frameworks */,
 				3EE23A09167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */,
+				3E347BB4169DC7CE002307AA /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -919,6 +930,7 @@
 				3E69E8F41616B40E00FAD808 /* AdSupport.framework in Frameworks */,
 				3E69E8F71616B41B00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E0F5F341636EE6100A11ECE /* StoreKit.framework in Frameworks */,
+				3E347BB6169DC7D0002307AA /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,6 +963,7 @@
 				3E69E8F31616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3E69E8F61616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E0F5F331636EE6100A11ECE /* StoreKit.framework in Frameworks */,
+				3E347BB5169DC7CF002307AA /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1033,6 +1046,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E347BB1169DC7B0002307AA /* CoreData.framework */,
 				3E0F5F301636EE3000A11ECE /* StoreKit.framework */,
 				3E69E8ED1616B3F400FAD808 /* PassKit.framework */,
 				3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */,
@@ -1061,7 +1075,11 @@
 		3E0AC68C13A785EB006F505C /* GoogleAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				3E0AC6A913A78664006F505C /* GANTracker.h */,
+				3E347BAC169DC4CF002307AA /* GAI.h */,
+				3E347BAD169DC4CF002307AA /* GAITrackedViewController.h */,
+				3E347BAE169DC4CF002307AA /* GAITracker.h */,
+				3E347BAF169DC4CF002307AA /* GAITransaction.h */,
+				3E347BB0169DC4CF002307AA /* GAITransactionItem.h */,
 				3E0AC6AA13A78664006F505C /* libGoogleAnalytics.a */,
 			);
 			path = GoogleAnalytics;
