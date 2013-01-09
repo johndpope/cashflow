@@ -129,6 +129,10 @@
 		3E33822A1332298400861610 /* BackupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3382281332298400861610 /* BackupVC.m */; };
 		3E33822D133229C600861610 /* BackupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E33822C133229C600861610 /* BackupView.xib */; };
 		3E33822E133229C600861610 /* BackupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E33822C133229C600861610 /* BackupView.xib */; };
+		3E347BA8169DBFFB002307AA /* ORQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E347BA7169DBFFB002307AA /* ORQuery.m */; };
+		3E347BA9169DBFFB002307AA /* ORQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E347BA7169DBFFB002307AA /* ORQuery.m */; };
+		3E347BAA169DBFFB002307AA /* ORQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E347BA7169DBFFB002307AA /* ORQuery.m */; };
+		3E347BAB169DBFFB002307AA /* ORQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E347BA7169DBFFB002307AA /* ORQuery.m */; };
 		3E35661A1189697E007DAF44 /* WebServerBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3566191189697E007DAF44 /* WebServerBackup.m */; };
 		3E35661B1189697E007DAF44 /* WebServerBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3566191189697E007DAF44 /* WebServerBackup.m */; };
 		3E3A74671335CEC900B68377 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E3A74661335CEC900B68377 /* Default@2x.png */; };
@@ -642,6 +646,8 @@
 		3E3382271332298400861610 /* BackupVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupVC.h; sourceTree = "<group>"; };
 		3E3382281332298400861610 /* BackupVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupVC.m; sourceTree = "<group>"; };
 		3E33822C133229C600861610 /* BackupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackupView.xib; sourceTree = "<group>"; };
+		3E347BA6169DBFFB002307AA /* ORQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORQuery.h; sourceTree = "<group>"; };
+		3E347BA7169DBFFB002307AA /* ORQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORQuery.m; sourceTree = "<group>"; };
 		3E3566181189697E007DAF44 /* WebServerBackup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServerBackup.h; sourceTree = "<group>"; };
 		3E3566191189697E007DAF44 /* WebServerBackup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServerBackup.m; sourceTree = "<group>"; };
 		3E3A74661335CEC900B68377 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -1154,6 +1160,10 @@
 		3E0AD77E1214170700CFDDAC /* ormapper */ = {
 			isa = PBXGroup;
 			children = (
+				3E0AD7891214173500CFDDAC /* ORRecord.h */,
+				3E0AD78A1214173500CFDDAC /* ORRecord.m */,
+				3E347BA6169DBFFB002307AA /* ORQuery.h */,
+				3E347BA7169DBFFB002307AA /* ORQuery.m */,
 				3E0AD77F1214173500CFDDAC /* AssetBase.h */,
 				3E0AD7801214173500CFDDAC /* AssetBase.m */,
 				3E0AD7831214173500CFDDAC /* Database.h */,
@@ -1162,8 +1172,6 @@
 				3E4A7D2C131FB9680008C37D /* Dbstmt.m */,
 				3E0AD7871214173500CFDDAC /* DescLRU.h */,
 				3E0AD7881214173500CFDDAC /* DescLRU.m */,
-				3E0AD7891214173500CFDDAC /* ORRecord.h */,
-				3E0AD78A1214173500CFDDAC /* ORRecord.m */,
 				3E0AD78B1214173500CFDDAC /* TransactionBase.h */,
 				3E0AD78C1214173500CFDDAC /* TransactionBase.m */,
 				3E0F16AC13A66A5C0091E6F8 /* TCategoryBase.h */,
@@ -1937,6 +1945,7 @@
 				3E6C5055157E40380086C20E /* CalendarLogic.m in Sources */,
 				3E6C5059157E40380086C20E /* CalendarMonth.m in Sources */,
 				3E6C505D157E40380086C20E /* CalendarViewController.m in Sources */,
+				3E347BA8169DBFFB002307AA /* ORQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2008,6 +2017,7 @@
 				3E6C5056157E40380086C20E /* CalendarLogic.m in Sources */,
 				3E6C505A157E40380086C20E /* CalendarMonth.m in Sources */,
 				3E6C505E157E40380086C20E /* CalendarViewController.m in Sources */,
+				3E347BA9169DBFFB002307AA /* ORQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2024,6 +2034,7 @@
 				3E6C5058157E40380086C20E /* CalendarLogic.m in Sources */,
 				3E6C505C157E40380086C20E /* CalendarMonth.m in Sources */,
 				3E6C5060157E40380086C20E /* CalendarViewController.m in Sources */,
+				3E347BAB169DBFFB002307AA /* ORQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2067,6 +2078,7 @@
 				3E6C5057157E40380086C20E /* CalendarLogic.m in Sources */,
 				3E6C505B157E40380086C20E /* CalendarMonth.m in Sources */,
 				3E6C505F157E40380086C20E /* CalendarViewController.m in Sources */,
+				3E347BAA169DBFFB002307AA /* ORQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
