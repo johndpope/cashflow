@@ -109,6 +109,7 @@
 /* Настройки */
 "Config" = "Настройки";
 "Date style" = "Вид даты";
+"Date and time" = "Date and time";
 "Date and time (1 min)" = "Дата и время (1 мин)";
 "Date and time (5 min)" = "Дата и время (5 мин)";
 "Date only" = "Только дата";

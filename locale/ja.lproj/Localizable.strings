@@ -110,6 +110,7 @@
 /* Config */
 "Config" = "設定";
 "Date style" = "日付書式";
+"Date and time" = "日付と時刻";
 "Date and time (1 min)" = "日付と時刻 (1分毎)";
 "Date and time (5 min)" = "日付と時刻 (5分毎)";
 "Date only" = "日付のみ";

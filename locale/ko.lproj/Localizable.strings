@@ -109,6 +109,7 @@
 /* Config */
 "Config" = "설정";
 "Date style" = "날짜 표시";
+"Date and time" = "날짜&시간";
 "Date and time (1 min)" = "날짜&시간 (1분 단위)";
 "Date and time (5 min)" = "날짜&시간 (5분 단위)";
 "Date only" = "날짜만 표시";
