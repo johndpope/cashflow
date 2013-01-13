@@ -47,7 +47,7 @@
 "Annual Report" = "年報告";
 
 /* No need to translate HelpURL */
-"HelpURL" = "http://iphone.tmurakam.org/cashflow/help-4.html";
+"HelpURL" = "http://apps.tmurakam.org/cashflow/help.en.html";
 
 "Export" = "输出";
 "Backup" = "Backup";
