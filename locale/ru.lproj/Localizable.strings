@@ -1,158 +1,222 @@
-/* Корректировка суммы */
+/* Adjustment of amount */
 "Adjustment" = "Корректировка";
 
 "Amount" = "Сумма";
+
 "Balance" = "Баланс";
+
 "Date" = "Дата";
+
 "Deposit" = "Пополнение";
+
 "Info" = "Информация";
+
 "Name" = "Название";
+
 "Memo" = "Заметки";
+
 "Payment" = "Платеж";
+
 "History" = "История";
 
 "Asset" = "Счет";
-/* Список счетов */
+
+/* Asset list */
 "Assets" = "Счета";
+
 "Asset Name" = "Имя счета";
+
 "Asset Type" = "Тип счета";
+
 "Total" = "Итого";
 
 "Transaction" = "Операция";
-/* Список операций */
+
+/* Transaction list */
 "Transactions" = "Операции";
 
 "Type" = "Тип";
+
 "Category" = "Категория";
 
-/* Операция */
+/* Transaction */
 "Save this transaction?" = "Сохранить эту операцию?";
 
-/* Список категорий */
+/* Category list */
 "Categories" = "Категории";
+
 "No category" = "Нет категории";
+
 "Edit Categories" = "Редактировать категории";
+
 "Add category" = "Добавить категорию";
 
 "Initial Balance" = "Начальная сумма";
 
 "Income" = "Доход";
+
 "Outgo" = "Расход";
+
 "Transfer" = "Перемещение";
 
 "Report" = "Отчет";
+
 "Daily Report" = "Ежедневный отчет";
+
 "Weekly Report" = "Еженедельный отчет";
+
 "Monthly Report" = "Ежемесячный отчет";
+
 "Annual Report" = "Годовой отчет";
 
-/* Не нужно переводить HelpURL */
+/* No need to translate HelpURL */
 "HelpURL" = "http://iphone.tmurakam.org/cashflow/help-4.html";
 
 "Export" = "Экспорт";
+
 "Backup" = "Резервная копия";
+
 "Restore" = "Восстановить";
 
 "Unlink dropbox account" = "Удалить учетную запись dropbox";
+
 "Internal web server" = "Встроенный web-сервер";
 
 "Warning" = "Предупреждение";
+
 "RestoreWarning" = "Будут перезаписаны все текущие данные.";
 
 "WebExportNotation" = "Перейдите по следующему адресу в браузере вашего компьютера:\n%@\nЗатем скачайте файл и нажмите кнопку Завершить.";
+
 "BackupNotation" = "Перейдите по следующему адресу в браузере вашего компьютера:\n%@\nЗатем скачайте файл и нажмите кнопку Завершить.";
+
 "Network is unreachable." = "Сеть не доступна.";
+
 "Cannot start web server." = "Невозможно запустить Веб-сервер.";
 
 "OFXHeadString" = "Скопируйте и вставьте текст между строками BEGIN и END в текстовый редактор и сохраните его как текстовый файл в кодировке UTF-8 с расширение .ofx.";
 
 "No data" = "Нет данных";
+
 "No data to be exported." = "Нет данных для экспорта.";
 
 "Delete Asset" = "Удалить счет";
+
 "ReallyDeleteAsset" = "Действительно удалить этот счет?";
 
 "Delete transaction" = "Удалить операцию";
-/*"Delete transactions" = "Удалить операции";*/
+
+/* "Delete transactions" = "Delete transactions"; */
 "Delete with all past transactions" = "Удалить все более старые операции";
 
 "Dismiss" = "Завершить";
+
 "Cancel" = "Отменить";
 
 /* PIN */
 "Set PIN Code" = "Установить PIN код";
+
 "Enter PIN" = "Введите PIN";
+
 "Enter new PIN" = "Введите новый PIN";
+
 "Retype new PIN" = "Повторите новый PIN";
+
 "Invalid PIN" = "Неверный PIN";
+
 "PIN code does not match." = "PIN код не совпадает.";
 
-/* Типы счетов */
+/* Asset types */
 "Cash" = "Наличные";
+
 "Bank Account" = "Банковский счет";
+
 "Credit Card" = "Кредитная карта";
+
 "Investment Account" = "Инвестиционные счет";
 
-/* "Вид" для экспорта */
+/* export view */
 "Data format" = "Формат данных";
+
 "OFX" = "OFX";
+
 "Export data within" = "Экспорт данных за период";
+
 "7 days" = "7 дней";
+
 "30 days" = "30 дней";
+
 "90 days" = "90 дней";
+
 "All" = "Все";
+
 "All assets" = "All assets";
+
 "This asset" = "This asset";
+
 "Export method" = "Метод экспорта";
+
 "Mail" = "Почта";
 
-/* Настройки */
+/* Config */
 "Config" = "Настройки";
+
 "Date style" = "Вид даты";
+
 "Date and time" = "Date and time";
+
 "Date and time (1 min)" = "Дата и время (1 мин)";
+
 "Date and time (5 min)" = "Дата и время (5 мин)";
+
 "Date only" = "Только дата";
+
 "Cutoff date" = "Конечный срок";
+
 "End of month" = "Конец месяца";
+
 "Currency" = "Валюта";
 
-/* Письмо в поддержку */
+/* Support mail */
 "(Write an inquiry here.)" = "(Напишите ваш вопрос здесь.)";
 
-/* CrashReportSender */
-/* Для диалоговых кнопок "да" */
+/* CrashReportSenderFor dialogs yes buttons */
 "Yes" = "Да";
 
-/* Для диалоговых кнопок "нет" */
+/* For dialogs no buttons */
 "No" = "Нет";
 
-/* Для диалоговых кнопок "ОК" */
+/* For dialogs ok buttons */
 "Ok" = "ОК";
 
-/* Диалог повреждения */
-
-/* Заголовок, показывающийся в всплывающем окне, когда обнаруживается повреждение данных */
+/* Crash dialogTitle showing in the alert box when crash report data has been found */
 "CrashDataFoundTitle" = "Обнаружено повреждение данных";
 
-/* Описание, разъясняющее ситуацию обнаружения повреждения данных и предлагающее пользователю отправить данные на сервер разработчика */
+/* Description explaining that crash data has been found and ask the user if the data might be uplaoded to the developers server */
 "CrashDataFoundDescription" = "Приложение было ранее повреждено. Хотите предоставить разработчику анонимные данные о повреждении, чтобы он мог попытаться исправить проблему?";
 
-/* Кнопка всплывающего окна, предлагающая пользователю отправлять данные о повреждении всегда автоматически */
+/* Alert box button if the users wants to send crash data always automatically */
 "Always" = "Всегда";
 
-/* Текст отображающийся в окне обработки, когда данные о повреждении начали отправляться на сервер */
+/* Text showing in a processing box that the crash data is being uploaded to the server */
 "Sending" = "Отправляется ...";
 
 /* InfoViewController */
 "Purchase Standard Version" = "Купить полную версию";
+
 "Show help page" = "Открыть страницу 'Помощь'";
+
 "Open facebook page" = "Открыть страницу на Facebook";
+
 "Send support mail" = "Отправить письмо с предложениями";
 
 "Start of week" = "Начало недели";
+
 "Sunday" = "Воскресенье";
+
 "Monday" = "Понедельник";
 
 "Remember Date" = "Remember Date";
+
 "At first, please create and select an asset." = "At first, please create and select an asset.";
+

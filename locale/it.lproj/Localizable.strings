@@ -2,26 +2,41 @@
 "Adjustment" = "Regolazioni";
 
 "Amount" = "Somma";
+
 "Balance" = "Bilancio";
+
 "Date" = "Data";
+
 "Deposit" = "Deposito";
+
 "Info" = "Info";
+
 "Name" = "None";
+
 "Memo" = "Memo";
+
 "Payment" = "Pagamenti";
+
 "History" = "History";
 
 "Asset" = "Attivo";
+
 /* Asset list */
 "Assets" = "Attivi";
+
 "Asset Name" = "Nome Attivo";
+
 "Asset Type" = "Tipo Attivo";
+
 "Total" = "Total";
 
 "Transaction" = "Transazione";
+
 /* Transaction list */
 "Transactions" = "Transazioni";
+
 "Type" = "Tipo";
+
 "Category" = "Categoria";
 
 /* Transaction */
@@ -29,98 +44,143 @@
 
 /* Category list */
 "Categories" = "Categorie";
+
 "No category" = "No categoria";
+
 "Edit Categories" = "Modifica Categorie";
+
 "Add category" = "Aggiungi categoria";
 
 "Initial Balance" = "Bilancio Iniziale";
 
 "Income" = "Entrate";
+
 "Outgo" = "Uscite";
+
 "Transfer" = "Transferimento";
 
 "Report" = "Report";
+
 "Daily Report" = "Rapporto Giornaliero";
+
 "Weekly Report" = "Rapporto Settimanale";
+
 "Monthly Report" = "Rapporto Mensile";
+
 "Annual Report" = "Rapporto Annuale";
 
 /* No need to translate HelpURL */
 "HelpURL" = "http://apps.tmurakam.org/cashflow/help.en.html";
 
 "Export" = "Export";
+
 "Backup" = "Backup";
+
 "Restore" = "Restore";
 
 "Unlink dropbox account" = "Unlink dropbox account";
+
 "Internal web server" = "Internal web server";
 
 "Warning" = "Warning";
+
 "RestoreWarning" = "This will overwrite all current data.";
 
 "WebExportNotation" = "Immetti il seguente URL sul tuo PC:\n%@\nDopo aver scaricato il file, clicka su escludi.";
+
 "BackupNotation" = "Immetti il seguente URL sul tuo PC:\n%@\nDopo aver scaricato il file, clicka su escludi.";
+
 "Network is unreachable." = "Network is unreachable.";
+
 "Cannot start web server." = "Il browser non funziona.";
 
 "OFXHeadString" = "Copia e incolla il testo tra INIZIO e FINE con un editor di testo e salvalo come file di testo con estenzione .ofx.";
 
 "No data" = "Nessun dato";
+
 "No data to be exported." = "Nessun dato sarà esportato.";
 
 "Delete Asset" = "Cancella Assetto";
+
 "ReallyDeleteAsset" = "Vuoi cancellare l'account?";
 
 "Delete transaction" = "Cancella transazione";
-/*"Delete transactions" = "Cancella transazioni";*/
+
+/* "Delete transactions" = "Delete transactions"; */
 "Delete with all past transactions" = "Cancella le vecchie transazioni";
 
 "Dismiss" = "Dismiss";
+
 "Cancel" = "Cancella";
 
 /* PIN */
 "Set PIN Code" = "Set PIN Code";
+
 "Enter PIN" = "Enter PIN";
+
 "Enter new PIN" = "Enter new PIN";
+
 "Retype new PIN" = "Retype new PIN";
+
 "Invalid PIN" = "Invalid PIN";
+
 "PIN code does not match." = "PIN code does not match.";
 
 /* Asset types */
 "Cash" = "Contanti";
+
 "Bank Account" = "Account Banca";
+
 "Credit Card" = "Carta di Credito";
+
 "Investment Account" = "Conto d'investimento";
 
 /* export view */
 "Data format" = "Formato File";
+
 "OFX" = "OFX";
+
 "Export data within" = "Esporta dati di";
+
 "7 days" = "7 giorni";
+
 "30 days" = "30 giorni";
+
 "90 days" = "90 giorni";
+
 "All" = "Tutti";
+
 "All assets" = "All assets";
+
 "This asset" = "This asset";
+
 "Export method" = "Metodo esportazione";
+
 "Mail" = "E-Mail";
 
 /* Config */
 "Config" = "Config";
+
 "Date style" = "Date style";
+
 "Date and time" = "Date and time";
+
 "Date and time (1 min)" = "Date and time (1 min)";
+
 "Date and time (5 min)" = "Date and time (5 min)";
+
 "Date only" = "Date only";
+
 "Cutoff date" = "Cutoff date";
+
 "End of month" = "End of month";
+
 "Currency" = "Currency";
 
 /* Support mail */
 "(Write an inquiry here.)" = "(Write an inquiry here.)";
 
-/* CrashReportSender */
-/* For dialogs yes buttons */
+/* CrashReportSenderFor dialogs yes buttons */
 "Yes" = "Yes";
 
 /* For dialogs no buttons */
@@ -129,9 +189,7 @@
 /* For dialogs ok buttons */
 "Ok" = "Ok";
 
-/* Crash dialog */
-
-/* Title showing in the alert box when crash report data has been found */
+/* Crash dialogTitle showing in the alert box when crash report data has been found */
 "CrashDataFoundTitle" = "Crash data found";
 
 /* Description explaining that crash data has been found and ask the user if the data might be uplaoded to the developers server */
@@ -145,13 +203,22 @@
 
 /* InfoViewController */
 "Purchase Standard Version" = "Purchase Standard Version";
+
 "Show help page" = "Show help page";
+
 "Open facebook page" = "Open facebook page";
+
 "Send support mail" = "Send support mail";
 
 "Start of week" = "Start of week";
+
 "Sunday" = "Sunday";
+
 "Monday" = "Monday";
 
 "Remember Date" = "Remember Date";
+
 "At first, please create and select an asset." = "At first, please create and select an asset.";
+
+"Delete" = "Cancella";
+
