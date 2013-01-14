@@ -254,3 +254,22 @@
 
 "Delete" = "Delete";
 
+"Save" = "Save";
+
+/* for android */
+"Edit Asset" = "Edit Asset";
+
+/* for android */
+"Delete Category" = "Delete category";
+
+"Daily" = "Daily";
+
+"Weekly" = "Weekly";
+
+"Monthly" = "Monthly";
+
+"Annual" = "Annual";
+
+/* for Android */
+"Are you sure?" = "Are you sure?";
+

@@ -222,3 +222,14 @@
 
 "Delete" = "Supprimer";
 
+/* for android */
+"Delete Category" = "Supprimer la categorie";
+
+"Daily" = "Quotidien";
+
+"Weekly" = "hebdomadaire";
+
+"Monthly" = "Mensuel";
+
+"Annual" = "Annuel";
+

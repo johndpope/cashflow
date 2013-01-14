@@ -252,7 +252,26 @@
 
 "At first, please create and select an asset." = "最初に資産を作成・選択してください";
 
+"Delete" = "削除";
+
 "The backup data will be stored as CashFlowBackup.sql in root folder of Dropbox." = "バックアップはDropboxのルートフォルダにCashFlowBackup.sqlというファイル名で作成されます";
 
-"Delete" = "削除";
+"Save" = "保存";
+
+/* for android */
+"Edit Asset" = "資産の編集";
+
+/* for android */
+"Delete Category" = "費目を削除";
+
+"Daily" = "日別";
+
+"Weekly" = "週別";
+
+"Monthly" = "月別";
+
+"Annual" = "年別";
+
+/* for Android */
+"Are you sure?" = "よろしいですか？";
 
