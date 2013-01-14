@@ -100,7 +100,7 @@
 
 "No data to be exported." = "エクスポートする対象データがありません";
 
-"Delete Asset" = "口座を削除";
+"Delete Asset" = "資産を削除";
 
 "ReallyDeleteAsset" = "本当に口座を削除しますか？";
 
@@ -274,4 +274,6 @@
 
 /* for Android */
 "Are you sure?" = "よろしいですか？";
+
+"Delete transactions" = "取引の削除";
 
