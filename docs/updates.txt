@@ -26,3 +26,13 @@ EN:
 - Show total balance on toolbar of assets screen.
 - Export Shift-JIS encoded CSV file for Japanese locale.
 
+
+---
+ver 5.5.2
+
+JP:
+iPad版で回転時にクラッシュすることがある問題を修正
+
+EN:
+Bug fix: Crash may occur when rotate screen with iPad.
+
