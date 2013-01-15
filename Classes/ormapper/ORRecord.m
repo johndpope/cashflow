@@ -33,6 +33,11 @@
 
 @synthesize pid = mPid;
 
+- (void)_loadRow:(dbstmt *)stmt
+{
+    // you must override this
+}
+
 /** Constructor */ 
 - (id)init
 {

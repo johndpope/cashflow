@@ -2,27 +2,41 @@
 "Adjustment" = "餘額調整";
 
 "Amount" = "金額";
+
 "Balance" = "餘額";
+
 "Date" = "日期";
+
 "Deposit" = "存入";
+
 "Info" = "資訊";
+
 "Name" = "標記";
+
 "Memo" = "備忘錄";
+
 "Payment" = "支出";
+
 "History" = "History";
 
 "Asset" = "資産";
+
 /* Asset list */
 "Assets" = "資産一覽";
+
 "Asset Name" = "資産名稱";
+
 "Asset Type" = "資産類型";
+
 "Total" = "Total";
 
 "Transaction" = "交易";
+
 /* Transaction list */
 "Transactions" = "交易一覽";
 
 "Type" = "類型";
+
 "Category" = "分類";
 
 /* Transaction */
@@ -30,97 +44,143 @@
 
 /* Category list */
 "Categories" = "分類";
+
 "No category" = "未分類";
+
 "Edit Categories" = "編輯分類";
+
 "Add category" = "增加分類";
 
 "Initial Balance" = "初始餘額";
 
 "Income" = "收入";
+
 "Outgo" = "支出";
+
 "Transfer" = "轉帳";
 
 "Report" = "報告";
+
 "Daily Report" = "日報告";
+
 "Weekly Report" = "週報告";
+
 "Monthly Report" = "月報告";
+
 "Annual Report" = "年報告";
 
 /* No need to translate HelpURL */
-"HelpURL" = "http://iphone.tmurakam.org/cashflow/help-4.html";
+"HelpURL" = "http://apps.tmurakam.org/cashflow/help.en.html";
 
 "Export" = "输出";
+
 "Backup" = "Backup";
+
 "Restore" = "Restore";
 
 "Unlink dropbox account" = "Unlink dropbox account";
+
 "Internal web server" = "Internal web server";
 
 "Warning" = "Warning";
+
 "RestoreWarning" = "This will overwrite all current data.";
 
 "WebExportNotation" = "在PC上的瀏覽器中輸入下列的網址：\n%@\n下載檔案後，點一下關閉按鈕。";
+
 "BackupNotation" = "在PC上的瀏覽器中輸入下列的網址：\n%@\n下載檔案後，點一下關閉按鈕。";
+
 "Network is unreachable." = "Network is unreachable.";
+
 "Cannot start web server." = "Web 伺服器無法啟動。";
 
 "OFXHeadString" = "剪下並貼上從文字編輯器開頭到結尾所有文字，另存成副檔名為 .ofx 的 'UTF-8' 文字檔。";
 
 "No data" = "沒有資料";
+
 "No data to be exported." = "沒有資料可以匯出";
 
 "Delete Asset" = "刪除此資產";
+
 "ReallyDeleteAsset" = "您確定要刪除此資產嗎？";
 
 "Delete transaction" = "刪除此項交易";
-/*"Delete transactions" = "刪除交易";*/
+
+/* "Delete transactions" = "Delete transactions"; */
 "Delete with all past transactions" = "刪除所有之前的交易";
 
 "Dismiss" = "關閉";
+
 "Cancel" = "取消";
 
 /* PIN */
 "Set PIN Code" = "Set PIN Code";
+
 "Enter PIN" = "Enter PIN";
+
 "Enter new PIN" = "Enter new PIN";
+
 "Retype new PIN" = "Retype new PIN";
+
 "Invalid PIN" = "Invalid PIN";
+
 "PIN code does not match." = "PIN code does not match.";
 
 /* Asset types */
 "Cash" = "現金";
+
 "Bank Account" = "銀行帳戶";
+
 "Credit Card" = "信用卡";
+
 "Investment Account" = "投資帳戶";
 
 /* export view */
 "Data format" = "資料格式";
+
 "OFX" = "OFX";
+
 "Export data within" = "輸出資料於";
+
 "7 days" = "7日內";
+
 "30 days" = "30日內";
+
 "90 days" = "90日內";
+
 "All" = "全部";
+
 "All assets" = "All assets";
+
 "This asset" = "This asset";
+
 "Export method" = "輸出方法";
+
 "Mail" = "電子郵件";
 
 /* Config */
 "Config" = "Config";
+
 "Date style" = "Date style";
+
+"Date and time" = "Date and time";
+
 "Date and time (1 min)" = "Date and time (1 min)";
+
 "Date and time (5 min)" = "Date and time (5 min)";
+
 "Date only" = "Date only";
+
 "Cutoff date" = "Cutoff date";
+
 "End of month" = "End of month";
+
 "Currency" = "Currency";
 
 /* Support mail */
 "(Write an inquiry here.)" = "(Write an inquiry here.)";
 
-/* CrashReportSender */
-/* For dialogs yes buttons */
+/* CrashReportSenderFor dialogs yes buttons */
 "Yes" = "Yes";
 
 /* For dialogs no buttons */
@@ -129,9 +189,7 @@
 /* For dialogs ok buttons */
 "Ok" = "Ok";
 
-/* Crash dialog */
-
-/* Title showing in the alert box when crash report data has been found */
+/* Crash dialogTitle showing in the alert box when crash report data has been found */
 "CrashDataFoundTitle" = "Crash data found";
 
 /* Description explaining that crash data has been found and ask the user if the data might be uplaoded to the developers server */
@@ -145,13 +203,32 @@
 
 /* InfoViewController */
 "Purchase Standard Version" = "Purchase Standard Version";
+
 "Show help page" = "Show help page";
+
 "Open facebook page" = "Open facebook page";
+
 "Send support mail" = "Send support mail";
 
 "Start of week" = "Start of week";
+
 "Sunday" = "Sunday";
+
 "Monday" = "Monday";
 
 "Remember Date" = "Remember Date";
+
 "At first, please create and select an asset." = "At first, please create and select an asset.";
+
+"Delete" = "刪除";
+
+"Daily" = "日";
+
+"Weekly" = "週";
+
+"Monthly" = "月";
+
+"Annual" = "年";
+
+"Delete transactions" = "刪除交易";
+

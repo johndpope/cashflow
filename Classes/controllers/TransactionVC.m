@@ -204,15 +204,10 @@
     //[[self tableView] reloadData];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
-    /*
-    [mDelButton removeFromSuperview];
-    mDelButton = nil;
-    [mDelPastButton removeFromSuperview];
-    mDelPastButton = nil;
-    */
+    [super viewWillDisappear:animated];
+    [self _dismissPopover];
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -370,6 +365,7 @@
         nc = [[UINavigationController alloc] initWithRootViewController:vc];
         
         mCurrentPopoverController = [[UIPopoverController alloc] initWithContentViewController:nc];
+        mCurrentPopoverController.delegate = self;
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         CGRect rect = cell.frame;
@@ -389,7 +385,9 @@
 - (void)_dismissPopover
 {
     if (IS_IPAD) {
-        if (mCurrentPopoverController != nil) {
+        if (mCurrentPopoverController != nil
+            && [mCurrentPopoverController isPopoverVisible]
+            && self.view != nil && self.view.window != nil /* for crash problem */) {
             [mCurrentPopoverController dismissPopoverAnimated:YES];
         }
         [self.tableView reloadData];

@@ -18,9 +18,19 @@
 #import "Database.h"
 
 @interface TransactionListViewController ()
+@property(nonatomic,strong) UITableView *tableView;
+@property(nonatomic,readonly) Asset *asset;
+
+- (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath;
+- (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath;
+
+- (void)updateBalance;
+- (void)addTransaction;
+
 - (IBAction)showReport:(id)sender;
 - (IBAction)doAction:(id)sender;
 //- (IBAction)showHelp:(id)sender;
+- (void)_dismissPopover;
 @end
 
 @implementation TransactionListViewController
@@ -43,7 +53,6 @@
 
 @synthesize tableView = mTableView;
 @synthesize assetKey = mAssetKey;
-@synthesize popoverController = mPopoverController;
 
 - (id)init
 {
@@ -135,10 +144,24 @@
     [self updateBalance];
     [self.tableView reloadData];
 
-    if (mPopoverController != nil && [mPopoverController isPopoverVisible]) {
+    [self _dismissPopover];
+}    
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    mPopoverController = nil;
+}
+
+- (void)_dismissPopover
+{
+    if (IS_IPAD
+        && mPopoverController != nil
+        && [mPopoverController isPopoverVisible]
+        && mTableView != nil && mTableView.window != nil /* for crash problem */)
+    {
         [mPopoverController dismissPopoverAnimated:YES];
     }
-}    
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -256,9 +279,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self _dismissPopover];
 }
 
 #pragma mark TableViewDataSource
@@ -342,11 +364,10 @@
         if (!IS_IPAD) {
             [self presentModalViewController:nv animated:YES];
         } else {
-            if (self.popoverController) {
-                [self.popoverController dismissPopoverAnimated:YES];
-            }
-            self.popoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
-            [self.popoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
+            [self _dismissPopover];
+            mPopoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
+            mPopoverController.delegate = self;
+            [mPopoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
     } else if (idx >= 0) {
@@ -553,21 +574,28 @@
 
 #pragma mark Split View Delegate
 
+// Landscape -> Portrait への移行
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController
           withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc
 {
     barButtonItem.title = _L(@"Assets");
     self.navigationItem.leftBarButtonItem = barButtonItem;
-    self.popoverController = pc;
+    
+    // 初期残高の popover が表示されている場合、ここで消さないと２つの Popover controller
+    // が競合してしまう。
+    [self _dismissPopover];
+    
+    mPopoverController = pc;
 }
 
 
+// Portrait -> Landscape への移行
 // Called when the view is shown again in the split view, invalidating the button and popover controller.
 - (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController
   invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
     self.navigationItem.leftBarButtonItem = nil;
-    self.popoverController = nil;
+    [self _dismissPopover];
 }
 
 #pragma mark Rotation

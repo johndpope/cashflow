@@ -52,6 +52,8 @@
 - (void)delete;
 + (void)delete_all;
 
+- (void)_loadRow:(dbstmt *)stmt;
+
 + (NSString *)tableName;
 
 - (NSString *)quoteSqlString:(NSString *)string;

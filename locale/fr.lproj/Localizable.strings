@@ -2,27 +2,41 @@
 "Adjustment" = "Ajustement";
 
 "Amount" = "Montant";
+
 "Balance" = "Solde";
+
 "Date" = "Date";
+
 "Deposit" = "dépot";
+
 "Info" = "Info";
+
 "Name" = "Nom";
+
 "Memo" = "Memo";
+
 "Payment" = "Payement";
+
 "History" = "History";
 
 "Asset" = "Capital";
+
 /* Asset list */
 "Assets" = "Capitaux";
+
 "Asset Name" = "Nom du capital";
+
 "Asset Type" = "Type de capital";
+
 "Total" = "Total";
 
 "Transaction" = "Transaction";
+
 /* Transaction list */
 "Transactions" = "Transactions";
 
 "Type" = "Type";
+
 "Category" = "Categorie";
 
 /* Transaction */
@@ -30,97 +44,143 @@
 
 /* Category list */
 "Categories" = "Categories";
+
 "No category" = "Aucune catégorie";
+
 "Edit Categories" = "Editer les Categories";
+
 "Add category" = "Ajouter une categorie";
 
 "Initial Balance" = "Solde initial";
 
 "Income" = "Salaire";
+
 "Outgo" = "Dépense";
+
 "Transfer" = "Transfert";
 
 "Report" = "Report";
+
 "Daily Report" = "Report quotidien";
+
 "Weekly Report" = "Report hebdomadaire";
+
 "Monthly Report" = "Report mensuel";
+
 "Annual Report" = "Report annuel";
 
 /* No need to translate HelpURL */
-"HelpURL" = "http://iphone.tmurakam.org/cashflow/help-4.html";
+"HelpURL" = "http://apps.tmurakam.org/cashflow/help.en.html";
 
 "Export" = "Exportet";
+
 "Backup" = "Backup";
+
 "Restore" = "Restore";
 
 "Unlink dropbox account" = "Unlink dropbox account";
+
 "Internal web server" = "Internal web server";
 
 "Warning" = "Warning";
+
 "RestoreWarning" = "This will overwrite all current data.";
 
 "WebExportNotation" = "Accédez a l’adresse URL suivant avec votre PC:\n%@\n Après avoir téléchargé le fichier, tapez sur le bouton Rejeter.";
+
 "BackupNotation" = "Accédez a l’adresse URL suivant avec votre PC:\n%@\n Après avoir téléchargé le fichier, tapez sur le bouton Rejeter.";
+
 "Network is unreachable." = "Network is unreachable.";
+
 "Cannot start web server." = "Impossible de démarrer le serveur Web.";
 
 "OFXHeadString" = "Coupez et collez le texte entre les lignes BEGIN et END avec un éditeur de texte, et sauvegardez le en tant que fichier texte UTF-8 avec une extension .ofx .";
 
 "No data" = "Aucune donnée";
+
 "No data to be exported." = "Aucune donnée a exporter.";
 
 "Delete Asset" = "Supprimer le capital";
+
 "ReallyDeleteAsset" = "Etes vous sur de vouloir supprimer ce compte?";
 
 "Delete transaction" = "Supprimer la Transaction";
-/*"Delete transactions" = "Supprimer les transactions";*/
+
+/* "Delete transactions" = "Delete transactions"; */
 "Delete with all past transactions" = "Supprimer toutes les transactions plus anciennes";
 
 "Dismiss" = "Dismiss";
+
 "Cancel" = "Annuler";
 
 /* PIN */
 "Set PIN Code" = "Set PIN Code";
+
 "Enter PIN" = "Enter PIN";
+
 "Enter new PIN" = "Enter new PIN";
+
 "Retype new PIN" = "Retype new PIN";
+
 "Invalid PIN" = "Invalid PIN";
+
 "PIN code does not match." = "PIN code does not match.";
 
 /* Asset types */
 "Cash" = "Liquide";
+
 "Bank Account" = "Compte en banque";
+
 "Credit Card" = "Carte de crédit";
+
 "Investment Account" = "Compte de placement";
 
 /* export view */
 "Data format" = "Format de donnée";
+
 "OFX" = "OFX";
+
 "Export data within" = "Exporter les données dans";
+
 "7 days" = "7 jours";
+
 "30 days" = "30 jours";
+
 "90 days" = "90 jours";
+
 "All" = "Tout";
+
 "All assets" = "All assets";
+
 "This asset" = "This asset";
+
 "Export method" = "Méthode d’export";
+
 "Mail" = "Mail";
 
 /* Config */
 "Config" = "Config";
+
 "Date style" = "Date style";
+
+"Date and time" = "Date and time";
+
 "Date and time (1 min)" = "Date and time (1 min)";
+
 "Date and time (5 min)" = "Date and time (5 min)";
+
 "Date only" = "Date only";
+
 "Cutoff date" = "Cutoff date";
+
 "End of month" = "End of month";
+
 "Currency" = "Currency";
 
 /* Support mail */
 "(Write an inquiry here.)" = "(Write an inquiry here.)";
 
-/* CrashReportSender */
-/* For dialogs yes buttons */
+/* CrashReportSenderFor dialogs yes buttons */
 "Yes" = "Yes";
 
 /* For dialogs no buttons */
@@ -129,9 +189,7 @@
 /* For dialogs ok buttons */
 "Ok" = "Ok";
 
-/* Crash dialog */
-
-/* Title showing in the alert box when crash report data has been found */
+/* Crash dialogTitle showing in the alert box when crash report data has been found */
 "CrashDataFoundTitle" = "Crash data found";
 
 /* Description explaining that crash data has been found and ask the user if the data might be uplaoded to the developers server */
@@ -145,13 +203,35 @@
 
 /* InfoViewController */
 "Purchase Standard Version" = "Purchase Standard Version";
+
 "Show help page" = "Show help page";
+
 "Open facebook page" = "Open facebook page";
+
 "Send support mail" = "Send support mail";
 
 "Start of week" = "Start of week";
+
 "Sunday" = "Sunday";
+
 "Monday" = "Monday";
 
 "Remember Date" = "Remember Date";
+
 "At first, please create and select an asset." = "At first, please create and select an asset.";
+
+"Delete" = "Supprimer";
+
+/* for android */
+"Delete Category" = "Supprimer la categorie";
+
+"Daily" = "Quotidien";
+
+"Weekly" = "hebdomadaire";
+
+"Monthly" = "Mensuel";
+
+"Annual" = "Annuel";
+
+"Delete transactions" = "Supprimer les transactions";
+
