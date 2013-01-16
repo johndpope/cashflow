@@ -1,234 +1,139 @@
-/* Adjustment of amount */
 "Adjustment" = "馀额调整";
-
 "Amount" = "金额";
-
 "Balance" = "馀额";
-
 "Date" = "日期";
-
 "Deposit" = "存入";
-
 "Info" = "资讯";
-
 "Name" = "标记";
-
 "Memo" = "备忘录";
-
 "Payment" = "支出";
-
 "History" = "History";
-
 "Asset" = "资产";
-
-/* Asset list */
 "Assets" = "资产一览";
-
 "Asset Name" = "资产名称";
-
 "Asset Type" = "资产类型";
-
 "Total" = "Total";
-
 "Transaction" = "交易";
-
-/* Transaction list */
 "Transactions" = "交易一览";
-
 "Type" = "类型";
-
 "Category" = "分类";
-
-/* Transaction */
 "Save this transaction?" = "Save this transaction?";
-
-/* Category list */
 "Categories" = "分类";
-
 "No category" = "未分类";
-
 "Edit Categories" = "编辑分类";
-
 "Add category" = "增加分类";
-
 "Initial Balance" = "初始馀额";
-
 "Income" = "收入";
-
 "Outgo" = "支出";
-
 "Transfer" = "Transfer";
-
 "Report" = "报告";
-
 "Daily Report" = "日报告";
-
 "Weekly Report" = "周报告";
-
 "Monthly Report" = "月报告";
-
 "Annual Report" = "年报告";
-
-/* No need to translate HelpURL */
 "HelpURL" = "http://apps.tmurakam.org/cashflow/help.en.html";
-
 "Export" = "输出";
-
 "Backup" = "Backup";
-
 "Restore" = "Restore";
-
 "Unlink dropbox account" = "Unlink dropbox account";
-
 "Internal web server" = "Internal web server";
-
 "Warning" = "Warning";
-
 "RestoreWarning" = "This will overwrite all current data.";
-
 "WebExportNotation" = "在PC上的浏览器中输入下列的网址：\n%@\n下载档桉后，点一下关闭按钮。";
-
 "BackupNotation" = "在PC上的浏览器中输入下列的网址：\n%@\n下载档桉后，点一下关闭按钮。";
-
 "Network is unreachable." = "Network is unreachable.";
-
 "Cannot start web server." = "Web 服务器无法启动。";
-
 "OFXHeadString" = "剪下并贴上从文字编辑器开头到结尾所有文字，另存为副档名为 .ofx 的 'UTF-8' 文字档。";
-
 "No data" = "没有数据";
-
 "No data to be exported." = "没有数据可以输出";
-
 "Delete Asset" = "删除此资产";
-
 "ReallyDeleteAsset" = "您确定要删除此资产吗？";
-
 "Delete transaction" = "删除此项交易";
-
-/* "Delete transactions" = "Delete transactions"; */
 "Delete with all past transactions" = "删除所有之前的交易";
-
 "Dismiss" = "关闭";
-
 "Cancel" = "取消";
-
-/* PIN */
 "Set PIN Code" = "Set PIN Code";
-
 "Enter PIN" = "Enter PIN";
-
 "Enter new PIN" = "Enter new PIN";
-
 "Retype new PIN" = "Retype new PIN";
-
 "Invalid PIN" = "Invalid PIN";
-
 "PIN code does not match." = "PIN code does not match.";
-
-/* Asset types */
 "Cash" = "现金";
-
 "Bank Account" = "银行帐户";
-
 "Credit Card" = "信用卡";
-
 "Investment Account" = "投资帐户";
-
-/* export view */
 "Data format" = "数据格式";
-
 "OFX" = "OFX";
-
 "Export data within" = "输出数据于";
-
 "7 days" = "7日内";
-
 "30 days" = "30日内";
-
 "90 days" = "90日内";
-
 "All" = "全部";
-
 "All assets" = "All assets";
-
 "This asset" = "This asset";
-
 "Export method" = "输出方法";
-
 "Mail" = "电子邮件";
-
-/* Config */
 "Config" = "Config";
-
 "Date style" = "Date style";
-
 "Date and time" = "Date and time";
-
 "Date and time (1 min)" = "Date and time (1 min)";
-
 "Date and time (5 min)" = "Date and time (5 min)";
-
 "Date only" = "Date only";
-
 "Cutoff date" = "Cutoff date";
-
 "End of month" = "End of month";
-
 "Currency" = "Currency";
-
-/* Support mail */
 "(Write an inquiry here.)" = "(Write an inquiry here.)";
-
-/* CrashReportSenderFor dialogs yes buttons */
 "Yes" = "Yes";
-
-/* For dialogs no buttons */
 "No" = "No";
-
-/* For dialogs ok buttons */
 "Ok" = "Ok";
-
-/* Crash dialogTitle showing in the alert box when crash report data has been found */
 "CrashDataFoundTitle" = "Crash data found";
-
-/* Description explaining that crash data has been found and ask the user if the data might be uplaoded to the developers server */
 "CrashDataFoundDescription" = "The app crashed previously. Would you like to provide the developer the anonymous crash data so they can try to fix the problem?";
-
-/* Alert box button if the users wants to send crash data always automatically */
 "Always" = "Always";
-
-/* Text showing in a processing box that the crash data is being uploaded to the server */
 "Sending" = "Sending ...";
-
-/* InfoViewController */
 "Purchase Standard Version" = "Purchase Standard Version";
-
 "Show help page" = "Show help page";
-
 "Open facebook page" = "Open facebook page";
-
 "Send support mail" = "Send support mail";
-
 "Start of week" = "Start of week";
-
 "Sunday" = "Sunday";
-
 "Monday" = "Monday";
-
+"Upload" = "";
+"Uploading" = "";
+"Download" = "";
+"Downloading" = "";
+"Syncing" = "";
+"upload_done" = "";
+"upload_failed" = "";
+"download_done" = "";
+"download_failed" = "";
+"Sync" = "";
+"no_need_to_sync" = "";
+"sync_conflict" = "";
+"Use local (upload)" = "";
+"Use remote (download)" = "";
+"Calendar" = "";
+"Current Time" = "";
 "Remember Date" = "Remember Date";
-
 "At first, please create and select an asset." = "At first, please create and select an asset.";
-
 "Delete" = "删除";
-
+"Save" = "";
+"Edit Asset" = "";
+"Delete Category" = "";
 "Daily" = "日";
-
 "Weekly" = "周";
-
 "Monthly" = "月";
-
 "Annual" = "年";
-
+"Are you sure?" = "";
 "Delete transactions" = "删除交易";
-
+"currency_desc" = "";
+"cutoff_date_desc" = "";
+"press_menu_to_add_item" = "";
+"Move up" = "";
+"Move down" = "";
+"Help" = "";
+"Add default categories" = "";
+"unlicensed_dialog_title" = "";
+"unlicensed_dialog_body" = "";
+"buy_button" = "";
+"quit_button" = "";
+"" = "";

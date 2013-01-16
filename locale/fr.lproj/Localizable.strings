@@ -1,237 +1,139 @@
-/* Adjustment of amount */
 "Adjustment" = "Ajustement";
-
 "Amount" = "Montant";
-
 "Balance" = "Solde";
-
 "Date" = "Date";
-
 "Deposit" = "dépot";
-
 "Info" = "Info";
-
 "Name" = "Nom";
-
 "Memo" = "Memo";
-
 "Payment" = "Payement";
-
 "History" = "History";
-
 "Asset" = "Capital";
-
-/* Asset list */
 "Assets" = "Capitaux";
-
 "Asset Name" = "Nom du capital";
-
 "Asset Type" = "Type de capital";
-
 "Total" = "Total";
-
 "Transaction" = "Transaction";
-
-/* Transaction list */
 "Transactions" = "Transactions";
-
 "Type" = "Type";
-
 "Category" = "Categorie";
-
-/* Transaction */
 "Save this transaction?" = "Save this transaction?";
-
-/* Category list */
 "Categories" = "Categories";
-
 "No category" = "Aucune catégorie";
-
 "Edit Categories" = "Editer les Categories";
-
 "Add category" = "Ajouter une categorie";
-
 "Initial Balance" = "Solde initial";
-
 "Income" = "Salaire";
-
 "Outgo" = "Dépense";
-
 "Transfer" = "Transfert";
-
 "Report" = "Report";
-
 "Daily Report" = "Report quotidien";
-
 "Weekly Report" = "Report hebdomadaire";
-
 "Monthly Report" = "Report mensuel";
-
 "Annual Report" = "Report annuel";
-
-/* No need to translate HelpURL */
 "HelpURL" = "http://apps.tmurakam.org/cashflow/help.en.html";
-
 "Export" = "Exportet";
-
 "Backup" = "Backup";
-
 "Restore" = "Restore";
-
 "Unlink dropbox account" = "Unlink dropbox account";
-
 "Internal web server" = "Internal web server";
-
 "Warning" = "Warning";
-
 "RestoreWarning" = "This will overwrite all current data.";
-
 "WebExportNotation" = "Accédez a l’adresse URL suivant avec votre PC:\n%@\n Après avoir téléchargé le fichier, tapez sur le bouton Rejeter.";
-
 "BackupNotation" = "Accédez a l’adresse URL suivant avec votre PC:\n%@\n Après avoir téléchargé le fichier, tapez sur le bouton Rejeter.";
-
 "Network is unreachable." = "Network is unreachable.";
-
 "Cannot start web server." = "Impossible de démarrer le serveur Web.";
-
 "OFXHeadString" = "Coupez et collez le texte entre les lignes BEGIN et END avec un éditeur de texte, et sauvegardez le en tant que fichier texte UTF-8 avec une extension .ofx .";
-
 "No data" = "Aucune donnée";
-
 "No data to be exported." = "Aucune donnée a exporter.";
-
 "Delete Asset" = "Supprimer le capital";
-
 "ReallyDeleteAsset" = "Etes vous sur de vouloir supprimer ce compte?";
-
 "Delete transaction" = "Supprimer la Transaction";
-
-/* "Delete transactions" = "Delete transactions"; */
 "Delete with all past transactions" = "Supprimer toutes les transactions plus anciennes";
-
 "Dismiss" = "Dismiss";
-
 "Cancel" = "Annuler";
-
-/* PIN */
 "Set PIN Code" = "Set PIN Code";
-
 "Enter PIN" = "Enter PIN";
-
 "Enter new PIN" = "Enter new PIN";
-
 "Retype new PIN" = "Retype new PIN";
-
 "Invalid PIN" = "Invalid PIN";
-
 "PIN code does not match." = "PIN code does not match.";
-
-/* Asset types */
 "Cash" = "Liquide";
-
 "Bank Account" = "Compte en banque";
-
 "Credit Card" = "Carte de crédit";
-
 "Investment Account" = "Compte de placement";
-
-/* export view */
 "Data format" = "Format de donnée";
-
 "OFX" = "OFX";
-
 "Export data within" = "Exporter les données dans";
-
 "7 days" = "7 jours";
-
 "30 days" = "30 jours";
-
 "90 days" = "90 jours";
-
 "All" = "Tout";
-
 "All assets" = "All assets";
-
 "This asset" = "This asset";
-
 "Export method" = "Méthode d’export";
-
 "Mail" = "Mail";
-
-/* Config */
 "Config" = "Config";
-
 "Date style" = "Date style";
-
 "Date and time" = "Date and time";
-
 "Date and time (1 min)" = "Date and time (1 min)";
-
 "Date and time (5 min)" = "Date and time (5 min)";
-
 "Date only" = "Date only";
-
 "Cutoff date" = "Cutoff date";
-
 "End of month" = "End of month";
-
 "Currency" = "Currency";
-
-/* Support mail */
 "(Write an inquiry here.)" = "(Write an inquiry here.)";
-
-/* CrashReportSenderFor dialogs yes buttons */
 "Yes" = "Yes";
-
-/* For dialogs no buttons */
 "No" = "No";
-
-/* For dialogs ok buttons */
 "Ok" = "Ok";
-
-/* Crash dialogTitle showing in the alert box when crash report data has been found */
 "CrashDataFoundTitle" = "Crash data found";
-
-/* Description explaining that crash data has been found and ask the user if the data might be uplaoded to the developers server */
 "CrashDataFoundDescription" = "The app crashed previously. Would you like to provide the developer the anonymous crash data so they can try to fix the problem?";
-
-/* Alert box button if the users wants to send crash data always automatically */
 "Always" = "Always";
-
-/* Text showing in a processing box that the crash data is being uploaded to the server */
 "Sending" = "Sending ...";
-
-/* InfoViewController */
 "Purchase Standard Version" = "Purchase Standard Version";
-
 "Show help page" = "Show help page";
-
 "Open facebook page" = "Open facebook page";
-
 "Send support mail" = "Send support mail";
-
 "Start of week" = "Start of week";
-
 "Sunday" = "Sunday";
-
 "Monday" = "Monday";
-
+"Upload" = "";
+"Uploading" = "";
+"Download" = "";
+"Downloading" = "";
+"Syncing" = "";
+"upload_done" = "";
+"upload_failed" = "";
+"download_done" = "";
+"download_failed" = "";
+"Sync" = "";
+"no_need_to_sync" = "";
+"sync_conflict" = "";
+"Use local (upload)" = "";
+"Use remote (download)" = "";
+"Calendar" = "";
+"Current Time" = "";
 "Remember Date" = "Remember Date";
-
 "At first, please create and select an asset." = "At first, please create and select an asset.";
-
 "Delete" = "Supprimer";
-
-/* for android */
+"Save" = "";
+"Edit Asset" = "";
 "Delete Category" = "Supprimer la categorie";
-
 "Daily" = "Quotidien";
-
 "Weekly" = "hebdomadaire";
-
 "Monthly" = "Mensuel";
-
 "Annual" = "Annuel";
-
+"Are you sure?" = "";
 "Delete transactions" = "Supprimer les transactions";
-
+"currency_desc" = "";
+"cutoff_date_desc" = "";
+"press_menu_to_add_item" = "";
+"Move up" = "";
+"Move down" = "";
+"Help" = "";
+"Add default categories" = "";
+"unlicensed_dialog_title" = "";
+"unlicensed_dialog_body" = "";
+"buy_button" = "";
+"quit_button" = "";
+"" = "";
