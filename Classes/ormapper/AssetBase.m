@@ -9,6 +9,7 @@
 @synthesize type = mType;
 @synthesize initialBalance = mInitialBalance;
 @synthesize sorder = mSorder;
+@synthesize identifier = mIdentifier;
 
 - (id)init
 {
@@ -29,6 +30,7 @@
         @"type", @"INTEGER",
         @"initialBalance", @"REAL",
         @"sorder", @"INTEGER",
+        @"identifier", @"TEXT",
         ];
 
     return [super migrate:columnTypes primaryKey:@"key"];
@@ -148,6 +150,30 @@
     return [self find_by_sorder:key cond:nil];
 }
 
+/**
+  finder with identifier
+
+  @param key Key value
+  @param cond Conditions (ORDER BY etc)
+  @note If you specify WHERE conditions, you must start cond with "AND" keyword.
+*/
++ (Asset*)find_by_identifier:(NSString*)key cond:(NSString *)cond
+{
+    if (cond == nil) {
+        cond = @"WHERE identifier = ? LIMIT 1";
+    } else {
+        cond = [NSString stringWithFormat:@"WHERE identifier = ? %@ LIMIT 1", cond];
+    }
+    dbstmt *stmt = [self gen_stmt:cond];
+    [stmt bindString:0 val:key];
+    return [self find_first_stmt:stmt];
+}
+
++ (Asset*)find_by_identifier:(NSString*)key
+{
+    return [self find_by_identifier:key cond:nil];
+}
+
 
 /**
   Get first record matches the conditions
@@ -237,6 +263,7 @@
     self.type = [stmt colInt:2];
     self.initialBalance = [stmt colDouble:3];
     self.sorder = [stmt colInt:4];
+    self.identifier = [stmt colString:5];
 }
 
 #pragma mark Create operations
@@ -249,11 +276,12 @@
     dbstmt *stmt;
     
     //[db beginTransaction];
-    stmt = [db prepare:@"INSERT INTO Assets VALUES(NULL,?,?,?,?);"];
+    stmt = [db prepare:@"INSERT INTO Assets VALUES(NULL,?,?,?,?,?);"];
     [stmt bindString:0 val:mName];
     [stmt bindInt:1 val:mType];
     [stmt bindDouble:2 val:mInitialBalance];
     [stmt bindInt:3 val:mSorder];
+    [stmt bindString:4 val:mIdentifier];
     [stmt step];
 
     self.pid = [db lastInsertRowId];
@@ -277,12 +305,14 @@
         ",type = ?"
         ",initialBalance = ?"
         ",sorder = ?"
+        ",identifier = ?"
         " WHERE key = ?;"];
     [stmt bindString:0 val:mName];
     [stmt bindInt:1 val:mType];
     [stmt bindDouble:2 val:mInitialBalance];
     [stmt bindInt:3 val:mSorder];
-    [stmt bindInt:4 val:mPid];
+    [stmt bindString:4 val:mIdentifier];
+    [stmt bindInt:5 val:mPid];
 
     [stmt step];
     //[db commitTransaction];
@@ -339,6 +369,7 @@
     [s appendFormat:@", type INTEGER"];
     [s appendFormat:@", initialBalance REAL"];
     [s appendFormat:@", sorder INTEGER"];
+    [s appendFormat:@", identifier TEXT"];
     
     [s appendString:@");\n"];
 
@@ -363,6 +394,8 @@
     [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%f", mInitialBalance]]];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%d", mSorder]]];
+    [s appendString:@","];
+    [s appendString:[self quoteSqlString:mIdentifier]];
     [s appendString:@");"];
 }
 

@@ -14,6 +14,7 @@ create_table :Assets, :class => :Asset, :base_class => :AssetBase do |t|
   t.integer :type
   t.real :initialBalance
   t.integer :sorder
+  t.text :identifier
 end
 
 create_table :Transactions, :class => :Transaction, :base_class => :TransactionBase do |t|
@@ -25,6 +26,7 @@ create_table :Transactions, :class => :Transaction, :base_class => :TransactionB
   t.real :value
   t.text :description
   t.text :memo
+  t.text :identifier
 end
 
 create_table :Categories, :class => :TCategory, :base_class => :TCategoryBase do |t|
