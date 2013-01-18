@@ -34,7 +34,7 @@
 "HelpURL" = "http://apps.tmurakam.org/cashflow/help.en.html";
 "Export" = "내보내기";
 "Backup" = "백업";
-"Restore" = "Restore";
+"Restore" = "복원";
 "Unlink dropbox account" = "Unlink dropbox account";
 "Internal web server" = "Internal web server";
 "Warning" = "Warning";
@@ -116,7 +116,7 @@
 "Remember Date" = "Remember Date";
 "At first, please create and select an asset." = "At first, please create and select an asset.";
 "Delete" = "삭제";
-/* "Save" = ""; */
+"Save" = "저장";
 /* "Edit Asset" = ""; */
 /* "Delete Category" = ""; */
 /* "Daily" = ""; */
@@ -130,7 +130,7 @@
 /* "press_menu_to_add_item" = ""; */
 /* "Move up" = ""; */
 /* "Move down" = ""; */
-/* "Help" = ""; */
+"Help" = "도움말";
 /* "Add default categories" = ""; */
 /* "unlicensed_dialog_title" = ""; */
 /* "unlicensed_dialog_body" = ""; */

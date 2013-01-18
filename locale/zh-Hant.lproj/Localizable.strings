@@ -7,7 +7,7 @@
 "Name" = "標記";
 "Memo" = "備忘錄";
 "Payment" = "支出";
-"History" = "History";
+"History" = "記錄";
 "Asset" = "資産";
 "Assets" = "資産一覽";
 "Asset Name" = "資産名稱";
@@ -33,11 +33,11 @@
 "Annual Report" = "年報告";
 "HelpURL" = "http://apps.tmurakam.org/cashflow/help.en.html";
 "Export" = "输出";
-"Backup" = "Backup";
-"Restore" = "Restore";
+"Backup" = "備份";
+"Restore" = "還原";
 "Unlink dropbox account" = "Unlink dropbox account";
 "Internal web server" = "Internal web server";
-"Warning" = "Warning";
+"Warning" = "警告";
 "RestoreWarning" = "This will overwrite all current data.";
 "WebExportNotation" = "在PC上的瀏覽器中輸入下列的網址：\n%@\n下載檔案後，點一下關閉按鈕。";
 "BackupNotation" = "在PC上的瀏覽器中輸入下列的網址：\n%@\n下載檔案後，點一下關閉按鈕。";
@@ -73,7 +73,7 @@
 "This asset" = "This asset";
 "Export method" = "輸出方法";
 "Mail" = "電子郵件";
-"Config" = "Config";
+"Config" = "設定";
 "Date style" = "Date style";
 "Date and time" = "Date and time";
 "Date and time (1 min)" = "Date and time (1 min)";
@@ -88,7 +88,7 @@
 "Ok" = "Ok";
 "CrashDataFoundTitle" = "Crash data found";
 "CrashDataFoundDescription" = "The app crashed previously. Would you like to provide the developer the anonymous crash data so they can try to fix the problem?";
-"Always" = "Always";
+"Always" = "一律";
 "Sending" = "Sending ...";
 "Purchase Standard Version" = "Purchase Standard Version";
 "Show help page" = "Show help page";
@@ -116,7 +116,7 @@
 "Remember Date" = "Remember Date";
 "At first, please create and select an asset." = "At first, please create and select an asset.";
 "Delete" = "刪除";
-/* "Save" = ""; */
+"Save" = "儲存";
 /* "Edit Asset" = ""; */
 /* "Delete Category" = ""; */
 "Daily" = "日";
@@ -130,7 +130,7 @@
 /* "press_menu_to_add_item" = ""; */
 /* "Move up" = ""; */
 /* "Move down" = ""; */
-/* "Help" = ""; */
+"Help" = "說明";
 /* "Add default categories" = ""; */
 /* "unlicensed_dialog_title" = ""; */
 /* "unlicensed_dialog_body" = ""; */

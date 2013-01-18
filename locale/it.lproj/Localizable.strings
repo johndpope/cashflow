@@ -7,7 +7,7 @@
 "Name" = "None";
 "Memo" = "Memo";
 "Payment" = "Pagamenti";
-"History" = "History";
+"History" = "Cronologia";
 "Asset" = "Attivo";
 "Assets" = "Attivi";
 "Asset Name" = "Nome Attivo";
@@ -34,10 +34,10 @@
 "HelpURL" = "http://apps.tmurakam.org/cashflow/help.en.html";
 "Export" = "Export";
 "Backup" = "Backup";
-"Restore" = "Restore";
+"Restore" = "Ripristino";
 "Unlink dropbox account" = "Unlink dropbox account";
 "Internal web server" = "Internal web server";
-"Warning" = "Warning";
+"Warning" = "Avviso";
 "RestoreWarning" = "This will overwrite all current data.";
 "WebExportNotation" = "Immetti il seguente URL sul tuo PC:\n%@\nDopo aver scaricato il file, clicka su escludi.";
 "BackupNotation" = "Immetti il seguente URL sul tuo PC:\n%@\nDopo aver scaricato il file, clicka su escludi.";
@@ -73,7 +73,7 @@
 "This asset" = "This asset";
 "Export method" = "Metodo esportazione";
 "Mail" = "E-Mail";
-"Config" = "Config";
+"Config" = "Configura";
 "Date style" = "Date style";
 "Date and time" = "Date and time";
 "Date and time (1 min)" = "Date and time (1 min)";
@@ -88,7 +88,7 @@
 "Ok" = "Ok";
 "CrashDataFoundTitle" = "Crash data found";
 "CrashDataFoundDescription" = "The app crashed previously. Would you like to provide the developer the anonymous crash data so they can try to fix the problem?";
-"Always" = "Always";
+"Always" = "Sempre";
 "Sending" = "Sending ...";
 "Purchase Standard Version" = "Purchase Standard Version";
 "Show help page" = "Show help page";
@@ -116,7 +116,7 @@
 "Remember Date" = "Remember Date";
 "At first, please create and select an asset." = "At first, please create and select an asset.";
 "Delete" = "Cancella";
-/* "Save" = ""; */
+"Save" = "Salva";
 /* "Edit Asset" = ""; */
 "Delete Category" = "Cancella categoria";
 "Daily" = "Giornaliero";
@@ -130,7 +130,7 @@
 /* "press_menu_to_add_item" = ""; */
 /* "Move up" = ""; */
 /* "Move down" = ""; */
-/* "Help" = ""; */
+"Help" = "Guida";
 /* "Add default categories" = ""; */
 /* "unlicensed_dialog_title" = ""; */
 /* "unlicensed_dialog_body" = ""; */

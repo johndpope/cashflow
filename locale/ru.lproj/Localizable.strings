@@ -116,7 +116,7 @@
 "Remember Date" = "Remember Date";
 "At first, please create and select an asset." = "At first, please create and select an asset.";
 /* "Delete" = ""; */
-/* "Save" = ""; */
+"Save" = "Сохранить";
 /* "Edit Asset" = ""; */
 /* "Delete Category" = ""; */
 /* "Daily" = ""; */
@@ -130,7 +130,7 @@
 /* "press_menu_to_add_item" = ""; */
 /* "Move up" = ""; */
 /* "Move down" = ""; */
-/* "Help" = ""; */
+"Help" = "Справка";
 /* "Add default categories" = ""; */
 /* "unlicensed_dialog_title" = ""; */
 /* "unlicensed_dialog_body" = ""; */
