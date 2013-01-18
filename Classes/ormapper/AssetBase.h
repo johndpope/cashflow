@@ -10,12 +10,14 @@
     int mType;
     double mInitialBalance;
     int mSorder;
+    NSString* mIdentifier;
 }
 
 @property(nonatomic,strong) NSString* name;
 @property(nonatomic,assign) int type;
 @property(nonatomic,assign) double initialBalance;
 @property(nonatomic,assign) int sorder;
+@property(nonatomic,strong) NSString* identifier;
 
 + (BOOL)migrate;
 
@@ -37,6 +39,8 @@
 + (Asset *)find_by_initialBalance:(double)key;
 + (Asset *)find_by_sorder:(int)key cond:(NSString*)cond;
 + (Asset *)find_by_sorder:(int)key;
++ (Asset *)find_by_identifier:(NSString*)key cond:(NSString*)cond;
++ (Asset *)find_by_identifier:(NSString*)key;
 
 + (NSMutableArray *)find_all:(NSString *)cond;
 

@@ -1,226 +1,139 @@
-/* Adjustment of amount */
 "Adjustment" = "잔액조정";
-
 "Amount" = "금액";
-
 "Balance" = "잔액";
-
 "Date" = "날짜";
-
 "Deposit" = "입금";
-
 "Info" = "정보";
-
 "Name" = "내용";
-
 "Memo" = "메모";
-
 "Payment" = "지출";
-
 "History" = "이력";
-
 "Asset" = "자산";
-
-/* Asset list */
 "Assets" = "자산 목록";
-
 "Asset Name" = "이름";
-
 "Asset Type" = "종류";
-
 "Total" = "총액";
-
 "Transaction" = "내역";
-
-/* Transaction list */
 "Transactions" = "내역 목록";
-
 "Type" = "종류";
-
 "Category" = "분류";
-
-/* Transaction */
 "Save this transaction?" = "이 내역을 저장하시겠습니까?";
-
-/* Category list */
 "Categories" = "분류";
-
 "No category" = "미분류";
-
 "Edit Categories" = "분류 편집";
-
 "Add category" = "분류 추가";
-
 "Initial Balance" = "최초 차액";
-
 "Income" = "수입";
-
 "Outgo" = "지출";
-
 "Transfer" = "이체";
-
 "Report" = "통계";
-
 "Daily Report" = "매일 통계";
-
 "Weekly Report" = "주간 통계";
-
 "Monthly Report" = "월별 통계";
-
 "Annual Report" = "매년 통계";
-
-/* No need to translate HelpURL */
 "HelpURL" = "http://apps.tmurakam.org/cashflow/help.en.html";
-
 "Export" = "내보내기";
-
 "Backup" = "백업";
-
-"Restore" = "Restore";
-
+"Restore" = "복원";
 "Unlink dropbox account" = "Unlink dropbox account";
-
 "Internal web server" = "Internal web server";
-
 "Warning" = "Warning";
-
 "RestoreWarning" = "This will overwrite all current data.";
-
 "WebExportNotation" = "아래의 URL로 PC의 브라우저로 접속해주세요:\n%@\n다운로드가 완료되면 닫기 버튼을 누르세요.";
-
 "BackupNotation" = "아래의 URL로 PC의 브라우저로 접속해주세요:\n%@\n다운로드가 완료되면 닫기 버튼을 누르세요.";
-
 "Network is unreachable." = "네트워크에 접속되어있지 않습니다.";
-
 "Cannot start web server." = "웹 서버를 기동할 수 없습니다.";
-
 "OFXHeadString" = "BEGIN 과 END 에 사이의 텍스트를 메모장등의 프로그램으로 복사&붙여넣기하여 파일로 저장하세요. 이 때 인코딩을 반드시 'UTF-8' 로 하고 확장자는 .ofx 로 하세요.";
-
 "No data" = "데이타 없음";
-
 "No data to be exported." = "내보내기할 데이터가 없습니다";
-
 "Delete Asset" = "자산 제거";
-
 "ReallyDeleteAsset" = "정말로 자산을 제거하시겠습니까?";
-
 "Delete transaction" = "내역 삭제";
-
-/* "Delete transactions" = "Delete transactions"; */
 "Delete with all past transactions" = "이 내역 이전의 모든 내역을 제거";
-
 "Dismiss" = "닫기";
-
 "Cancel" = "취소";
-
-/* PIN */
 "Set PIN Code" = "PIN 설정";
-
 "Enter PIN" = "PIN 입력";
-
 "Enter new PIN" = "새로운 PIN";
-
 "Retype new PIN" = "새로운 PIN(재입력)";
-
 "Invalid PIN" = "인식할 수 없는 PIN";
-
 "PIN code does not match." = "PIN이 일치하지 않습니다.";
-
-/* Asset types */
 "Cash" = "현금";
-
 "Bank Account" = "은행 계좌";
-
 "Credit Card" = "신용카드";
-
 "Investment Account" = "투자 계정";
-
-/* export view */
 "Data format" = "데이터 포맷";
-
 "OFX" = "OFX";
-
 "Export data within" = "내보내기 기한";
-
 "7 days" = "7일";
-
 "30 days" = "30일";
-
 "90 days" = "90일";
-
 "All" = "전체";
-
 "All assets" = "All assets";
-
 "This asset" = "This asset";
-
 "Export method" = "내보내기 방식";
-
 "Mail" = "메일";
-
-/* Config */
 "Config" = "설정";
-
 "Date style" = "날짜 표시";
-
 "Date and time" = "날짜&시간";
-
 "Date and time (1 min)" = "날짜&시간 (1분 단위)";
-
 "Date and time (5 min)" = "날짜&시간 (5분 단위)";
-
 "Date only" = "날짜만 표시";
-
 "Cutoff date" = "월말 기준일";
-
 "End of month" = "매월 말일";
-
 "Currency" = "통화";
-
-/* Support mail */
 "(Write an inquiry here.)" = "(여기에 문의 사항을 적어주세요)";
-
-/* CrashReportSenderFor dialogs yes buttons */
 "Yes" = "예";
-
-/* For dialogs no buttons */
 "No" = "아니오";
-
-/* For dialogs ok buttons */
 "Ok" = "OK";
-
-/* Crash dialogTitle showing in the alert box when crash report data has been found */
 "CrashDataFoundTitle" = "오류 데이터를 발견했습니다";
-
-/* Description explaining that crash data has been found and ask the user if the data might be uplaoded to the developers server */
 "CrashDataFoundDescription" = "프로그램에 오류가 발생했습니다. 오류 데이터를 익명으로 개발자에게 보내어 버그 수정에 도움을 주시겠습니까?";
-
-/* Alert box button if the users wants to send crash data always automatically */
 "Always" = "항상";
-
-/* Text showing in a processing box that the crash data is being uploaded to the server */
 "Sending" = "송신중...";
-
-/* InfoViewController */
 "Purchase Standard Version" = "Purchase Standard Version";
-
 "Show help page" = "Show help page";
-
 "Open facebook page" = "Open facebook page";
-
 "Send support mail" = "Send support mail";
-
 "Start of week" = "Start of week";
-
 "Sunday" = "Sunday";
-
 "Monday" = "Monday";
-
+/* "Upload" = ""; */
+/* "Uploading" = ""; */
+/* "Download" = ""; */
+/* "Downloading" = ""; */
+/* "Syncing" = ""; */
+/* "upload_done" = ""; */
+/* "upload_failed" = ""; */
+/* "download_done" = ""; */
+/* "download_failed" = ""; */
+/* "Sync" = ""; */
+/* "no_need_to_sync" = ""; */
+/* "sync_conflict" = ""; */
+/* "Use local (upload)" = ""; */
+/* "Use remote (download)" = ""; */
+/* "Calendar" = ""; */
+/* "Current Time" = ""; */
 "Remember Date" = "Remember Date";
-
 "At first, please create and select an asset." = "At first, please create and select an asset.";
-
 "Delete" = "삭제";
-
+"Save" = "저장";
+/* "Edit Asset" = ""; */
+/* "Delete Category" = ""; */
+/* "Daily" = ""; */
+/* "Weekly" = ""; */
+/* "Monthly" = ""; */
+/* "Annual" = ""; */
+/* "Are you sure?" = ""; */
 "Delete transactions" = "내역을 제거";
-
+/* "currency_desc" = ""; */
+/* "cutoff_date_desc" = ""; */
+/* "press_menu_to_add_item" = ""; */
+/* "Move up" = ""; */
+/* "Move down" = ""; */
+"Help" = "도움말";
+/* "Add default categories" = ""; */
+/* "unlicensed_dialog_title" = ""; */
+/* "unlicensed_dialog_body" = ""; */
+/* "buy_button" = ""; */
+/* "quit_button" = ""; */
+/* "" = ""; */

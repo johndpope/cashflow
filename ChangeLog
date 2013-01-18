@@ -1,3 +1,10 @@
+2013-01-18 : Takuya Murakami
+
+	* v6.0.0 (v57) beta
+	* データベースフォーマットを v3 にアップデート
+	* Asset/Transaction に identifier フィールド追加
+	* 翻訳修正
+	
 2013-01-15 : Takuya Murakami
 
 	* v5.5.2 (v56)

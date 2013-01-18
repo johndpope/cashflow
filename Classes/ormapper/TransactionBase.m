@@ -13,6 +13,7 @@
 @synthesize value = mValue;
 @synthesize description = mDescription;
 @synthesize memo = mMemo;
+@synthesize identifier = mIdentifier;
 
 - (id)init
 {
@@ -37,6 +38,7 @@
         @"value", @"REAL",
         @"description", @"TEXT",
         @"memo", @"TEXT",
+        @"identifier", @"TEXT",
         ];
 
     return [super migrate:columnTypes primaryKey:@"key"];
@@ -252,6 +254,30 @@
     return [self find_by_memo:key cond:nil];
 }
 
+/**
+  finder with identifier
+
+  @param key Key value
+  @param cond Conditions (ORDER BY etc)
+  @note If you specify WHERE conditions, you must start cond with "AND" keyword.
+*/
++ (Transaction*)find_by_identifier:(NSString*)key cond:(NSString *)cond
+{
+    if (cond == nil) {
+        cond = @"WHERE identifier = ? LIMIT 1";
+    } else {
+        cond = [NSString stringWithFormat:@"WHERE identifier = ? %@ LIMIT 1", cond];
+    }
+    dbstmt *stmt = [self gen_stmt:cond];
+    [stmt bindString:0 val:key];
+    return [self find_first_stmt:stmt];
+}
+
++ (Transaction*)find_by_identifier:(NSString*)key
+{
+    return [self find_by_identifier:key cond:nil];
+}
+
 
 /**
   Get first record matches the conditions
@@ -345,6 +371,7 @@
     self.value = [stmt colDouble:6];
     self.description = [stmt colString:7];
     self.memo = [stmt colString:8];
+    self.identifier = [stmt colString:9];
 }
 
 #pragma mark Create operations
@@ -357,7 +384,7 @@
     dbstmt *stmt;
     
     //[db beginTransaction];
-    stmt = [db prepare:@"INSERT INTO Transactions VALUES(NULL,?,?,?,?,?,?,?,?);"];
+    stmt = [db prepare:@"INSERT INTO Transactions VALUES(NULL,?,?,?,?,?,?,?,?,?);"];
     [stmt bindInt:0 val:mAsset];
     [stmt bindInt:1 val:mDstAsset];
     [stmt bindDate:2 val:mDate];
@@ -366,6 +393,7 @@
     [stmt bindDouble:5 val:mValue];
     [stmt bindString:6 val:mDescription];
     [stmt bindString:7 val:mMemo];
+    [stmt bindString:8 val:mIdentifier];
     [stmt step];
 
     self.pid = [db lastInsertRowId];
@@ -393,6 +421,7 @@
         ",value = ?"
         ",description = ?"
         ",memo = ?"
+        ",identifier = ?"
         " WHERE key = ?;"];
     [stmt bindInt:0 val:mAsset];
     [stmt bindInt:1 val:mDstAsset];
@@ -402,7 +431,8 @@
     [stmt bindDouble:5 val:mValue];
     [stmt bindString:6 val:mDescription];
     [stmt bindString:7 val:mMemo];
-    [stmt bindInt:8 val:mPid];
+    [stmt bindString:8 val:mIdentifier];
+    [stmt bindInt:9 val:mPid];
 
     [stmt step];
     //[db commitTransaction];
@@ -463,6 +493,7 @@
     [s appendFormat:@", value REAL"];
     [s appendFormat:@", description TEXT"];
     [s appendFormat:@", memo TEXT"];
+    [s appendFormat:@", identifier TEXT"];
     
     [s appendString:@");\n"];
 
@@ -495,6 +526,8 @@
     [s appendString:[self quoteSqlString:mDescription]];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:mMemo]];
+    [s appendString:@","];
+    [s appendString:[self quoteSqlString:mIdentifier]];
     [s appendString:@");"];
 }
 
