@@ -246,7 +246,7 @@ static NSString *theDbName = DBNAME;
 {
     NSMutableString *sql = [NSMutableString new];
     
-    [sql appendString:[self backupFileIdent];
+    [sql appendString:[self backupFileIdent]];
     [sql appendString:@"\n"];
 
     [Asset getTableSql:sql];
