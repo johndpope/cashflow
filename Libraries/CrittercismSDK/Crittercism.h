@@ -46,6 +46,12 @@
 // Retrieve currently stored opt out status.
 + (BOOL)getOptOutStatus;
 
+// Retrieve the Crittercism generated unique identifier for this device.
+// Note, this is NOT the iPhone's UDID.
+//
+// If called before enabling the library, will return an empty string.
++ (NSString *)getUserUUID;
+
 // Record an exception that you purposely caught via Crittercism.
 //
 // Note: Crittercism limits logging handled exceptions to once per minute. If
