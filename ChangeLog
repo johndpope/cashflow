@@ -1,5 +1,9 @@
 2013-01-18 : Takuya Murakami
 
+	* Crittercism SDK 3.4.6 -> 3.4.9
+
+2013-01-18 : Takuya Murakami
+
 	* v6.0.0 (v57) beta
 	* データベースフォーマットを v3 にアップデート
 	* Asset/Transaction に identifier フィールド追加
