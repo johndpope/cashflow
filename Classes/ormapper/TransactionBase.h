@@ -14,6 +14,7 @@
     double mValue;
     NSString* mDescription;
     NSString* mMemo;
+    NSString* mIdentifier;
 }
 
 @property(nonatomic,assign) int asset;
@@ -24,6 +25,7 @@
 @property(nonatomic,assign) double value;
 @property(nonatomic,strong) NSString* description;
 @property(nonatomic,strong) NSString* memo;
+@property(nonatomic,strong) NSString* identifier;
 
 + (BOOL)migrate;
 
@@ -53,6 +55,8 @@
 + (Transaction *)find_by_description:(NSString*)key;
 + (Transaction *)find_by_memo:(NSString*)key cond:(NSString*)cond;
 + (Transaction *)find_by_memo:(NSString*)key;
++ (Transaction *)find_by_identifier:(NSString*)key cond:(NSString*)cond;
++ (Transaction *)find_by_identifier:(NSString*)key;
 
 + (NSMutableArray *)find_all:(NSString *)cond;
 
