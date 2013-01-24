@@ -1,3 +1,7 @@
+2013-01-24 : Takuya Murakami
+
+	* 電子マネー資産対応
+
 2013-01-18 : Takuya Murakami
 
 	* Crittercism SDK 3.4.6 -> 3.4.9
@@ -8,7 +12,7 @@
 	* データベースフォーマットを v3 にアップデート
 	* Asset/Transaction に identifier フィールド追加
 	* 翻訳修正
-	
+
 2013-01-15 : Takuya Murakami
 
 	* v5.5.2 (v56)
