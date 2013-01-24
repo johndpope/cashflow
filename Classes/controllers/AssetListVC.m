@@ -330,7 +330,13 @@
         value = [asset lastBalance];
 
         cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-        cell.imageView.image = mIconArray[asset.type];
+
+        // 資産タイプ範囲外対応
+        int type = asset.type;
+        if (type < 0 || [mIconArray count] <= type) {
+            type = 0;
+        }
+        cell.imageView.image = mIconArray[type];
     }
 #if 0
     else if (indexPath.section == 1) {
