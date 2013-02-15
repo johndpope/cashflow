@@ -16,6 +16,7 @@
 #import "GAI.h"
 #import "UIDevice+Hardware.h"
 #import "Crittercism.h"
+#import <Crashlytics/Crashlytics.h>
 
 #import "DropboxSecret.h"
 
@@ -57,6 +58,9 @@
 #else
     [Crittercism enableWithAppID:@"50cdc6697e69a342c7000005"];
 #endif
+    
+    // Crashlytics
+    [Crashlytics startWithAPIKey:@"532ecad9ca165fccdfe2d04c731d6b7449375147"];
     
     // Dropbox config
     DBSession *dbSession =

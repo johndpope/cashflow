@@ -364,6 +364,8 @@
 		3E8B25B80F348C090007929E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		3E8B25B90F348C090007929E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6F5D5E0EB8C30B0082F50A /* AudioToolbox.framework */; };
 		3E8C36160F1E0D82004AFFCA /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8C36150F1E0D82004AFFCA /* PinView.xib */; };
+		3E8D3A8D16CE78C800FD84A9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8D3A8C16CE78C800FD84A9 /* Crashlytics.framework */; };
+		3E8D3A8E16CE78C800FD84A9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8D3A8C16CE78C800FD84A9 /* Crashlytics.framework */; };
 		3E91B88C152F3335008120DC /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E91B88B152F3335008120DC /* UIDevice+Hardware.m */; };
 		3E91B88D152F3335008120DC /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E91B88B152F3335008120DC /* UIDevice+Hardware.m */; };
 		3E98A66911E8368800B7F289 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
@@ -743,6 +745,7 @@
 		3E895E9413252A8E00251E36 /* report-monthly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "report-monthly.png"; sourceTree = "<group>"; };
 		3E8B25C20F348C090007929E /* CashFlowFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlowFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8C36150F1E0D82004AFFCA /* PinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinView.xib; sourceTree = "<group>"; };
+		3E8D3A8C16CE78C800FD84A9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		3E91B88A152F3335008120DC /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
 		3E91B88B152F3335008120DC /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Hardware.m"; sourceTree = "<group>"; };
 		3E98A66711E8367B00B7F289 /* CurrencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyManager.h; sourceTree = "<group>"; };
@@ -864,6 +867,7 @@
 				3E69E8E51616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */,
 				3ED6C02716A5850A004F0991 /* libGoogleAdMobAds.a in Frameworks */,
 				3ECC885716A9A9B80089A751 /* libCrittercism_v3_4_9.a in Frameworks */,
+				3E8D3A8D16CE78C800FD84A9 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,6 +902,7 @@
 				3E347BB4169DC7CE002307AA /* CoreData.framework in Frameworks */,
 				3ED6C02816A58529004F0991 /* libGoogleAdMobAds.a in Frameworks */,
 				3ECC885816A9A9B80089A751 /* libCrittercism_v3_4_9.a in Frameworks */,
+				3E8D3A8E16CE78C800FD84A9 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1043,6 +1048,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E8D3A8C16CE78C800FD84A9 /* Crashlytics.framework */,
 				3E347BB1169DC7B0002307AA /* CoreData.framework */,
 				3E0F5F301636EE3000A11ECE /* StoreKit.framework */,
 				3E69E8ED1616B3F400FAD808 /* PassKit.framework */,
@@ -1505,6 +1511,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				3E8D3A8B16CE788000FD84A9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1865,6 +1872,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3E8D3A8B16CE788000FD84A9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 532ecad9ca165fccdfe2d04c731d6b7449375147";
+		};
 		3EC1B22513291A6D00721A71 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2156,6 +2176,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -2175,6 +2199,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Takuya Murakami";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -2194,6 +2222,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2217,6 +2249,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Takuya Murakami";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = FREE_VERSION;
