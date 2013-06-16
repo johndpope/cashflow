@@ -14,7 +14,7 @@
 #import "PinController.h"
 #import "GANTracker.h"
 #import "UIDevice+Hardware.h"
-#import <BugSense-iOS/BugSenseCrashController.h>
+#import <BugSense-iOS/BugSenseController.h>
 
 #import "DropboxSecret.h"
 
@@ -62,7 +62,7 @@ static BOOL sIsPrevCrashed;
 #else
     NSString *bugSenseApiKey = @"b64aaa9e";
 #endif
-    [BugSenseCrashController sharedInstanceWithBugSenseAPIKey:bugSenseApiKey];
+    [BugSenseController sharedControllerWithBugSenseAPIKey:bugSenseApiKey];
 
     
     // Dropbox config
