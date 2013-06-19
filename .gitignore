@@ -5,3 +5,4 @@ build
 *.o
 .DS_Store
 *.zip
+*.bak
