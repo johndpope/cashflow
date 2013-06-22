@@ -21,6 +21,8 @@
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,readonly) Asset *asset;
 
+@property (nonatomic) NSMutableArray *searchResults;
+
 - (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath;
 - (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath;
 
@@ -291,8 +293,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.asset == nil) return 0;
-    
-    int n = [self.asset entryCount] + 1;
+
+    int n;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        n = [self.searchResults count];
+    } else {
+        n = [self.asset entryCount] + 1;
+    }
     return n;
 }
 
@@ -332,7 +339,14 @@
 {
     TransactionCell *cell;
 	
-    AssetEntry *e = [self entryWithIndexPath:indexPath];
+    AssetEntry *e;
+    
+    if (tv == self.searchDisplayController.searchResultsTableView) {
+        int idx = [self.searchResults count] - 1 - indexPath.row;
+        e = [self.searchResults objectAtIndex:idx];
+    } else {
+        e = [self entryWithIndexPath:indexPath];
+    }
     if (e) {
         cell = [[TransactionCell transactionCell:tv] updateWithAssetEntry:e];
     }
@@ -614,6 +628,51 @@
 {
     if (IS_IPAD) return YES;
     return NO;
+}
+
+#pragma mark - UISearchDisplayController Delegate
+
+// 検索文字列が入力された
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self updateSearchResultWithDesc:searchString];
+    return YES;
+}
+
+#pragma mark - 検索処理
+
+- (void)updateSearchResultWithDesc:(NSString *)searchString
+{
+    BOOL allMatch = FALSE;
+    if (searchString == nil || searchString.length == 0) {
+        allMatch = TRUE;
+    }
+
+    int count = [self.asset entryCount];
+    if (self.searchResults == nil) {
+        self.searchResults = [[NSMutableArray alloc] initWithCapacity:count];
+    } else {
+        [self.searchResults removeAllObjects];
+    }
+
+    NSUInteger searchOptions = NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch;
+
+    for (int i = 0; i < count; i++) {
+        AssetEntry *e = [self.asset entryAt:i];
+        
+        if (allMatch ) {
+            [self.searchResults addObject:e];
+            continue;
+        }
+        
+        // 文字列マッチ
+        NSString *desc = e.transaction.description;
+        NSRange range = NSMakeRange(0, desc.length);
+        NSRange foundRange = [desc rangeOfString:searchString options:searchOptions range:range];
+        if (foundRange.length > 0) {
+            [self.searchResults addObject:e];
+        }
+    }
 }
 
 @end
