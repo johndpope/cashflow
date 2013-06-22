@@ -11,10 +11,12 @@
 #import "DescLRUManager.h"
 
 @interface EditDescViewController()
-
-
 - (UITableViewCell *)_textFieldCell:(UITableView*)tv;
 - (UITableViewCell *)_descCell:(UITableView*)tv row:(int)row;
+
+@property (nonatomic) NSMutableArray *descArray;
+@property (nonatomic) NSMutableArray *filteredDescArray;
+
 @end
 
 @implementation EditDescViewController
@@ -22,7 +24,6 @@
     IBOutlet UITableView *mTableView;
     
     UITextField *mTextField;
-    NSMutableArray *mDescArray;
 
     id<EditDescViewDelegate> __unsafe_unretained mDelegate;
     NSString *mDescription;
@@ -36,7 +37,6 @@
     self = [super initWithNibName:@"EditDescView" bundle:nil];
     if (self) {
         mCategory = -1;
-        mDescArray = nil;
     }
     return self;
 }
@@ -62,14 +62,12 @@
     mTextField.placeholder = _L(@"Description");
     mTextField.returnKeyType = UIReturnKeyDone;
     mTextField.delegate = self;
+    
+    /*
     [mTextField addTarget:self action:@selector(onTextChange:)
                forControlEvents:UIControlEventEditingDidEndOnExit];
+     */
 }
-
--(void)onTextChange:(id)sender {
-    // dummy func must exist for textFieldShouldReturn event to be called
-}
-
 
 // 表示前の処理
 //  処理するトランザクションをロードしておく
@@ -78,7 +76,8 @@
     mTextField.text = self.description;
     [super viewWillAppear:animated];
 
-    mDescArray = [DescLRUManager getDescLRUs:mCategory];
+    self.descArray = [DescLRUManager getDescLRUs:mCategory];
+    self.filteredDescArray = [self.descArray mutableCopy];
 
     // キーボードを消す ###
     [mTextField resignFirstResponder];
@@ -109,19 +108,26 @@
 #pragma mark TableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    } else {
+        return 2;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
+    if (tableView != self.searchDisplayController.searchResultsTableView && section == 0) {
         return 1; // テキスト入力欄
     }
 
-    return [mDescArray count];
+    return [self.filteredDescArray count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return nil;
+    }
     switch (section) {
         case 0:
             return _L(@"Name");
@@ -135,7 +141,7 @@
 {
     UITableViewCell *cell;
 
-    if (indexPath.section == 0) {
+    if (tv != self.searchDisplayController.searchResultsTableView && indexPath.section == 0) {
         cell = [self _textFieldCell:tv];
     } 
     else {
@@ -160,7 +166,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"descCell"];
     }
-    DescLRU *lru = mDescArray[row];
+    DescLRU *lru = self.filteredDescArray[row];
     cell.textLabel.text = lru.description;
     return cell;
 }
@@ -174,8 +180,8 @@
 {
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 
-    if (indexPath.section == 1) {
-        DescLRU *lru = mDescArray[indexPath.row];
+    if (tv == self.searchDisplayController.searchResultsTableView || indexPath.section == 1) {
+        DescLRU *lru = self.filteredDescArray[indexPath.row];
         mTextField.text = lru.description;
         [self doneAction];
     }
@@ -184,7 +190,7 @@
 // 編集スタイルを返す
 - (UITableViewCellEditingStyle)tableView:(UITableView*)tv editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
+    if (tv != self.searchDisplayController.searchResultsTableView && indexPath.section == 0) {
         return UITableViewCellEditingStyleNone;
     }
     // 適用は削除可能
@@ -194,17 +200,60 @@
 // 削除処理
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)style forRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    if (indexPath.section != 1 ||
+    if ((tv != self.searchDisplayController.searchResultsTableView && indexPath.section != 1) ||
         style != UITableViewCellEditingStyleDelete) {
         return; // do nothing
     }
 
-    DescLRU *lru = mDescArray[indexPath.row];
+    DescLRU *lru = self.filteredDescArray[indexPath.row];
+    [self.descArray removeObject:lru]; // フィルタ前リストから抜く
     [lru delete]; // delete from DB
-
-    [mDescArray removeObjectAtIndex:indexPath.row];
-
+    
+    [self.filteredDescArray removeObjectAtIndex:indexPath.row];
     [tv deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+#pragma mark - UISearchDisplayController Delegate
+
+// 検索開始
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self updateFilteredDescArray:searchString];
+    return YES;
+}
+
+// 検索終了
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
+{
+    self.filteredDescArray = [self.descArray mutableCopy];
+}
+
+
+#pragma mark - 
+
+// テキスト変更時の処理
+- (void)updateFilteredDescArray:(NSString *)searchString {
+    if (searchString == nil || searchString.length == 0) {
+        self.filteredDescArray = [self.descArray mutableCopy];
+        return;
+    }
+    
+    int count = [self.descArray count];
+    if (self.filteredDescArray == nil) {
+        self.filteredDescArray = [[NSMutableArray alloc] initWithCapacity:count];
+    } else {
+        [self.filteredDescArray removeAllObjects];
+    }
+    
+    NSUInteger searchOptions = NSCaseInsensitivePredicateOption | NSDiacriticInsensitiveSearch;
+    for (int i = 0; i < count; i++) {
+        DescLRU *lru = [self.descArray objectAtIndex:i];
+        NSRange range = NSMakeRange(0, lru.description.length);
+        NSRange foundRange = [lru.description rangeOfString:searchString options:searchOptions range:range];
+        if (foundRange.length > 0) {
+            [self.filteredDescArray addObject:lru];
+        }
+    }
 }
 
 #pragma mark -
