@@ -19,6 +19,9 @@
 @property(nonatomic,assign) double balance;
 @property(nonatomic,assign) double evalue;
 
+// for search filter (TransactionListViewController)
+@property(nonatomic) int originalIndex;
+
 - (id)initWithTransaction:(Transaction *)t withAsset:(Asset *)asset;
 - (BOOL)changeType:(int)type assetKey:(int)as dstAssetKey:(int)das;
 - (int)dstAsset;

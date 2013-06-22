@@ -23,16 +23,9 @@
 
 @property (nonatomic) NSMutableArray *searchResults;
 
-- (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath;
-- (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath;
-
-- (void)updateBalance;
-- (void)addTransaction;
-
 - (IBAction)showReport:(id)sender;
 - (IBAction)doAction:(id)sender;
-//- (IBAction)showHelp:(id)sender;
-- (void)_dismissPopover;
+
 @end
 
 @implementation TransactionListViewController
@@ -145,7 +138,13 @@
     self.title = self.asset.name;
     [self updateBalance];
     [self.tableView reloadData];
-
+    
+    // 検索中
+    if (self.searchDisplayController.isActive) {
+        [self updateSearchResultWithDesc:self.searchDisplayController.searchBar.text];
+        [self.searchDisplayController.searchResultsTableView reloadData];
+    }
+    
     [self _dismissPopover];
 }    
 
@@ -309,21 +308,31 @@
 }
 
 // 指定セル位置に該当する entry Index を返す
-- (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath
+- (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
 {
-    int idx = ([self.asset entryCount] - 1) - indexPath.row;
+    int idx;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        idx = ([self.searchResults count] - 1) - indexPath.row;
+    } else {
+        idx = ([self.asset entryCount] - 1) - indexPath.row;
+    }
     return idx;
 }
 
 // 指定セル位置の Entry を返す
-- (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath
+- (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
 {
-    int idx = [self entryIndexWithIndexPath:indexPath];
+    int idx = [self entryIndexWithIndexPath:indexPath tableView:tableView];
 
     if (idx < 0) {
         return nil;  // initial balance
-    } 
-    AssetEntry *e = [self.asset entryAt:idx];
+    }
+    AssetEntry *e;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        e = [self.searchResults objectAtIndex:idx];
+    } else {
+        e = [self.asset entryAt:idx];
+    }
     return e;
 }
 
@@ -341,12 +350,7 @@
 	
     AssetEntry *e;
     
-    if (tv == self.searchDisplayController.searchResultsTableView) {
-        int idx = [self.searchResults count] - 1 - indexPath.row;
-        e = [self.searchResults objectAtIndex:idx];
-    } else {
-        e = [self entryWithIndexPath:indexPath];
-    }
+    e = [self entryWithIndexPath:indexPath tableView:tv];
     if (e) {
         cell = [[TransactionCell transactionCell:tv] updateWithAssetEntry:e];
     }
@@ -366,7 +370,7 @@
 {
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 	
-    int idx = [self entryIndexWithIndexPath:indexPath];
+    int idx = [self entryIndexWithIndexPath:indexPath tableView:tv];
     if (idx == -1) {
         // initial balance cell
         CalculatorViewController *v = [[CalculatorViewController alloc] init];
@@ -386,9 +390,15 @@
         }
     } else if (idx >= 0) {
         // transaction view を表示
-        TransactionViewController *vc = [[TransactionViewController alloc] init];
+        TransactionViewController *vc = [TransactionViewController new];
         vc.asset = self.asset;
-        [vc setTransactionIndex:idx];
+        
+        if (tv == self.searchDisplayController.searchResultsTableView) {
+            AssetEntry *e = [self.searchResults objectAtIndex:idx];
+            [vc setTransactionIndex:e.originalIndex];
+        } else {
+            [vc setTransactionIndex:idx];
+        }
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -436,7 +446,7 @@
 // 編集スタイルを返す
 - (UITableViewCellEditingStyle)tableView:(UITableView*)tv editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int entryIndex = [self entryIndexWithIndexPath:indexPath];
+    int entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
     if (entryIndex < 0) {
         return UITableViewCellEditingStyleNone;
     } 
@@ -446,19 +456,29 @@
 // 削除処理
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)style forRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    int entryIndex = [self entryIndexWithIndexPath:indexPath];
+    int entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
 
     if (entryIndex < 0) {
         // initial balance cell : do not delete!
         return;
     }
-	
+
     if (style == UITableViewCellEditingStyleDelete) {
-        [self.asset deleteEntryAt:entryIndex];
-	
-        [tv deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        if (tv == self.searchDisplayController.searchResultsTableView) {
+            AssetEntry *e = [self.searchResults objectAtIndex:entryIndex];
+            [self.asset deleteEntryAt:e.originalIndex];
+            
+            // 検索結果一覧を更新する
+            [self updateSearchResultWithDesc:self.searchDisplayController.searchBar.text];
+        } else {
+            [self.asset deleteEntryAt:entryIndex];
+        }
+
+        // 残高再計算
         [self updateBalance];
-        [mTableView reloadData];
+        
+        [tv deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tv reloadData];
     }
 
     if (IS_IPAD) {
@@ -659,6 +679,7 @@
 
     for (int i = 0; i < count; i++) {
         AssetEntry *e = [self.asset entryAt:i];
+        e.originalIndex = i;
         
         if (allMatch ) {
             [self.searchResults addObject:e];
@@ -673,6 +694,14 @@
             [self.searchResults addObject:e];
         }
     }
+}
+
+- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
+{
+    self.searchResults = nil;
+    
+    // 検索中にデータが変更されるケースがあるので、ここで reload する
+    [mTableView reloadData];
 }
 
 @end
