@@ -198,7 +198,41 @@ static NSString *theDbName = DBNAME;
     return t.category;
 }
 
-#define BACKUP_FILE_IDENT @"-- CashFlow Backup Format rev. 2 --"
+#define BACKUP_FILE_VERSION 3
+#define BACKUP_FILE_IDENT_PRE @"-- CashFlow Backup Format rev. "
+#define BACKUP_FILE_IDENT_POST @" --"
+
+- (NSString *)backupFileIdent
+{
+    return [NSString stringWithFormat:@"%@%d%@", BACKUP_FILE_IDENT_PRE, BACKUP_FILE_VERSION, BACKUP_FILE_IDENT_POST];
+}
+
+/**
+ * Ident からバージョン番号を取り出す
+ */
+- (int)getBackupFileIdentVersion:(NSString *)line
+{
+    NSString *pattern = [NSString stringWithFormat:@"%@(\\d+)%@", 
+                                  BACKUP_FILE_IDENT_PRE, BACKUP_FILE_IDENT_POST];
+
+    NSError *error;
+    NSRegularExpression *regex;
+    regex = [NSRegularExpression
+                regularExpressionWithPattern:pattern
+                                     options:0
+                                       error:&error];
+
+    NSTextCheckingResult *match;
+    match  = [regex firstMatchInString:line
+                               options:0
+                                 range:NSMakeRange(0, line.length)];
+    if (match == nil) return -1;
+    
+    NSString *verString = [line substringWithRange:[match rangeAtIndex:1]];
+    int ver = [verString intValue];
+    
+    return ver;
+}
 
 - (NSString *)getBackupSqlPath
 {
@@ -212,7 +246,7 @@ static NSString *theDbName = DBNAME;
 {
     NSMutableString *sql = [NSMutableString new];
     
-    [sql appendString:BACKUP_FILE_IDENT];
+    [sql appendString:[self backupFileIdent]];
     [sql appendString:@"\n"];
 
     [Asset getTableSql:sql];
@@ -240,8 +274,13 @@ static NSString *theDbName = DBNAME;
     }
 
     // check ident
-    if (![sql hasPrefix:BACKUP_FILE_IDENT]) {
+    int ver = [self getBackupFileIdentVersion:sql];
+    if (ver < 0) {
         NSLog(@"Invalid backup data ident");
+        return NO;
+    }
+    if (ver > BACKUP_FILE_VERSION) {
+        NSLog(@"Backup file version too new");
         return NO;
     }
 

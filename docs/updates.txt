@@ -26,3 +26,31 @@ EN:
 - Show total balance on toolbar of assets screen.
 - Export Shift-JIS encoded CSV file for Japanese locale.
 
+
+---
+ver 5.5.2
+
+JP:
+iPad版で回転時にクラッシュすることがある問題を修正
+
+EN:
+Bug fix: Crash may occur when rotate screen with iPad.
+
+---
+ver 6.0.0
+
+JP:
+注意: ver 6.0.0 からバックアップデータのフォーマットが変更になりました。
+旧バージョンのバックアップデータはそのまま読み込めますが、新バージョンのバックアップデータは旧バージョン(iOS/Androidともver 6.0.0 未満のバージョン)では読み込めませんのでご注意ください。
+
+修正点:
+- データベースおよびバックアップデータフォーマットを更新
+- 翻訳を改善
+
+EN:
+CAUTION: The backup data format was changed from ver 6.0.0.
+An older version data can be read with this version app, but new version data can't be read with old version app (before ver 6.0.0, both iOS/Android).
+
+Changes:
+- Database and backup data format was updated.
+- Improve translations.

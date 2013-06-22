@@ -1,9 +1,63 @@
+2013-06-19 : Takuya Murakami
+
+	* AdMob SDK 6.2.1 -> 6.4.2
+	* AdMob iAd Adapter Mar282012 -> Oct42012
+	* AdMob InMobi Adapter
+	* InMobi SDK 3.6.0 -> 3.7.0
+	* Crittercism SDK 3.4.9 -> 4.0.0
+
+2013-01-24 : Takuya Murakami
+
+	* v6.1.0 (v58)
+	* 電子マネー資産対応
+
+2013-01-18 : Takuya Murakami
+
+	* v6.0.0 (v57)
+	* Crittercism SDK 3.4.6 -> 3.4.9
+
+2013-01-18 : Takuya Murakami
+
+	* v6.0.0 (v57) beta
+	* データベースフォーマットを v3 にアップデート
+	* Asset/Transaction に identifier フィールド追加
+	* 翻訳修正
+
+2013-01-15 : Takuya Murakami
+
+	* v5.5.2 (v56)
+	* Dropbox SDK 1.3.2 -> 1.3.3
+
+2013-01-10 : Takuya Murakami
+
+	* Google Analytics v2 beta 4
+
+2012-12-22 : Takuya Murakami
+
+	* v5.5.2 (v56) beta
+	* Popover を dismiss したときにクラッシュする問題を修正
+	  split view は portrait での master view 表示に popover を使用するため、
+	  初期残高編集の popover を、画面回転時に split view delegate 内で
+	  消さなければならない。
+
+2012-12-17 : Takuya Murakami
+
+	* v5.5.1 (v55)
+	* CrashReporter 削除、Crittercism を使用するように変更
+
+2012-10-23 : Takuya Murakami
+
+	* v5.5 (v54)
+	* UI改善: 新規取引入力時に日付を記憶するかどうかスイッチできるようにした。
+	* iPad で必ず初期資産を選択状態にする。
+	* AdMob SDK 6.2.0 -> 6.2.1
+
 2012-09-29 : Takuya Murakami
 
 	* v5.4.2 (v53)
 	* バグ修正: EditDateVC で UIDatePicker の locale が English 固定になっていた。
 	  Default に設定変更。
-	
+
 2012-09-29 : Takuya Murakami
 
 	* バグ修正: iPad で初期残高を変更する際、TableView が1画面に収まらない以上に長い場合、
@@ -16,15 +70,15 @@
 	* InMobi SDK 3.6.0
 	* Google Analytics -> 1.5.1
 	* AdMob InMobi adapter だけ armv7s 対応でない。。。
-	
+
 2012-09-23 : Takuya Murakami
 
 	* ver 5.4.1 (v52) - std版のみ
 	* iPad で正しく回転表示されない問題を修正
 	* MainWindow*.xib を使わず、自前で Window 生成
-	
+
 2012-09-15 : Takuya Murakami
-	
+
 	* ver 5.4 (v51) (free版は self reject)
 	* Dropbox 1.2.1 -> 1.3.1
 	* iPhoe5 表示バグ修正: MainWindow.xib 調整

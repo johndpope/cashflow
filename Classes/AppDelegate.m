@@ -12,8 +12,9 @@
 #import "DataModel.h"
 #import "Transaction.h"
 #import "PinController.h"
-#import "GANTracker.h"
+#import "GAI.h"
 #import "UIDevice+Hardware.h"
+#import "Crittercism.h"
 #import <BugSense-iOS/BugSenseController.h>
 
 #import "DropboxSecret.h"
@@ -26,13 +27,6 @@
 @implementation AppDelegate
 {
     UIApplication *_application;
-}
-
-static BOOL sIsPrevCrashed;
-
-+ (BOOL)isPrevCrashed
-{
-    return sIsPrevCrashed;
 }
 
 //
@@ -57,6 +51,16 @@ static BOOL sIsPrevCrashed;
     NSLog(@"application:didFinishLaunchingWithOptions");
     _application = application;
 
+    // Crittercism
+#if 0
+#if FREE_VERSION
+    [Crittercism enableWithAppID:@"50cdc6bb86ef114132000002"];
+#else
+    [Crittercism enableWithAppID:@"50cdc6697e69a342c7000005"];
+#endif
+#endif
+    
+    // BugSense
 #if FREE_VERSION
     NSString *bugSenseApiKey = @"70f8a5d3";
 #else
@@ -64,7 +68,6 @@ static BOOL sIsPrevCrashed;
 #endif
     [BugSenseController sharedControllerWithBugSenseAPIKey:bugSenseApiKey];
 
-    
     // Dropbox config
     DBSession *dbSession =
         [[DBSession alloc] initWithAppKey:DROPBOX_APP_KEY appSecret:DROPBOX_APP_SECRET root:kDBRootDropbox];
@@ -117,45 +120,39 @@ static BOOL sIsPrevCrashed;
 - (void)setupGoogleAnalytics
 {
     // Google analytics
-    GANTracker *tracker = [GANTracker sharedTracker];
-    NSString *ua;
-#if FREE_VERSION
-    ua = @"UA-413697-22";
-#else
-    ua = @"UA-413697-23";
-#endif
-    [tracker startTrackerWithAccountID:ua dispatchPeriod:120 delegate:nil];
+    GAI *gai = [GAI sharedInstance];
+
+    gai.trackUncaughtExceptions = YES;
+    //gai.debug = YES;
     
-    // set custom variables
+    id<GAITracker> tracker = [gai trackerWithTrackingId:@"UA-413697-35"];
+    
+#if FREE_VERSION
+    [tracker setCustom:1 dimension:@"ios-free"];
+#else
+    [tracker setCustom:1 dimension:@"ios-std"];
+#endif
+    
+    // set custom dimensions
     NSString *version = [AppDelegate appVersion];
-    [tracker setCustomVariableAtIndex:1 name:@"appVersion" value:version withError:nil];
+    [tracker setCustom:2 dimension:version];
     
     UIDevice *dev = [UIDevice currentDevice];
     //NSString *model = [dev model];
     NSString *platform = [dev platform];
     NSString *systemVersion = [dev systemVersion];
-    //NSString *systemDesc = [NSString stringWithFormat:@"%@ %@", [dev model], [dev systemVersion]];
-    [tracker setCustomVariableAtIndex:2 name:@"platform" value:platform withError:nil];
-    [tracker setCustomVariableAtIndex:3 name:@"systemVersion" value:systemVersion withError:nil];
+    
+    [tracker setCustom:3 dimension:systemVersion];
+    [tracker setCustom:4 dimension:platform];
 }
 
 // 起動時の遅延実行処理
 - (void)delayedLaunchProcess:(NSTimer *)timer
 {
     NSLog(@"delayedLaunchProcess");
-
-#if 0
-    // send crash report
-    CrashReportSender *csr = [CrashReportSender sharedCrashReportSender];
-    if ([csr hasPendingCrashReport]) {
-        // 前回クラッシュしている
-        NSURL *reportUrl = [NSURL URLWithString:@"http://itemshelf.com/cgi-bin/crashreport.cgi"];
-        [csr sendCrashReportToURL:reportUrl delegate:self activateFeedback:NO];
-    }
-#endif
-
-    GANTracker *tracker = [GANTracker sharedTracker];
-    [tracker trackPageview:@"/applicationLaunched" withError:nil];    
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker trackEventWithCategory:@"Application" withAction:@"Launch" withLabel:nil withValue:nil];
 }
 
 // Background に入る前の処理
@@ -220,16 +217,14 @@ static BOOL sIsPrevCrashed;
 #pragma mark GoogleAnalytics
 + (void)trackPageview:(NSString *)url
 {
-    NSError *err;
-    
-    GANTracker *tracker = [GANTracker sharedTracker];
-    [tracker trackPageview:url withError:&err];
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker sendView:url];
 }
 
 + (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(int)value
 {
-    GANTracker *tracker = [GANTracker sharedTracker];
-    [tracker trackEvent:category action:action label:label value:value withError:nil];
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker trackEventWithCategory:category withAction:action withLabel:label withValue:[NSString stringWithFormat:@"%d", value]];
 }
 
 #pragma mark Debug

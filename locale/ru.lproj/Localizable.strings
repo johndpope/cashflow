@@ -1,6 +1,4 @@
-/* Корректировка суммы */
 "Adjustment" = "Корректировка";
-
 "Amount" = "Сумма";
 "Balance" = "Баланс";
 "Date" = "Дата";
@@ -10,90 +8,60 @@
 "Memo" = "Заметки";
 "Payment" = "Платеж";
 "History" = "История";
-
 "Asset" = "Счет";
-/* Список счетов */
 "Assets" = "Счета";
 "Asset Name" = "Имя счета";
 "Asset Type" = "Тип счета";
 "Total" = "Итого";
-
 "Transaction" = "Операция";
-/* Список операций */
 "Transactions" = "Операции";
-
 "Type" = "Тип";
 "Category" = "Категория";
-
-/* Операция */
 "Save this transaction?" = "Сохранить эту операцию?";
-
-/* Список категорий */
 "Categories" = "Категории";
 "No category" = "Нет категории";
 "Edit Categories" = "Редактировать категории";
 "Add category" = "Добавить категорию";
-
 "Initial Balance" = "Начальная сумма";
-
 "Income" = "Доход";
 "Outgo" = "Расход";
 "Transfer" = "Перемещение";
-
 "Report" = "Отчет";
 "Daily Report" = "Ежедневный отчет";
 "Weekly Report" = "Еженедельный отчет";
 "Monthly Report" = "Ежемесячный отчет";
 "Annual Report" = "Годовой отчет";
-
-/* Не нужно переводить HelpURL */
 "HelpURL" = "http://iphone.tmurakam.org/cashflow/help-4.html";
-
 "Export" = "Экспорт";
 "Backup" = "Резервная копия";
 "Restore" = "Восстановить";
-
 "Unlink dropbox account" = "Удалить учетную запись dropbox";
 "Internal web server" = "Встроенный web-сервер";
-
 "Warning" = "Предупреждение";
 "RestoreWarning" = "Будут перезаписаны все текущие данные.";
-
 "WebExportNotation" = "Перейдите по следующему адресу в браузере вашего компьютера:\n%@\nЗатем скачайте файл и нажмите кнопку Завершить.";
 "BackupNotation" = "Перейдите по следующему адресу в браузере вашего компьютера:\n%@\nЗатем скачайте файл и нажмите кнопку Завершить.";
 "Network is unreachable." = "Сеть не доступна.";
 "Cannot start web server." = "Невозможно запустить Веб-сервер.";
-
 "OFXHeadString" = "Скопируйте и вставьте текст между строками BEGIN и END в текстовый редактор и сохраните его как текстовый файл в кодировке UTF-8 с расширение .ofx.";
-
 "No data" = "Нет данных";
 "No data to be exported." = "Нет данных для экспорта.";
-
 "Delete Asset" = "Удалить счет";
 "ReallyDeleteAsset" = "Действительно удалить этот счет?";
-
 "Delete transaction" = "Удалить операцию";
-/*"Delete transactions" = "Удалить операции";*/
 "Delete with all past transactions" = "Удалить все более старые операции";
-
 "Dismiss" = "Завершить";
 "Cancel" = "Отменить";
-
-/* PIN */
 "Set PIN Code" = "Установить PIN код";
 "Enter PIN" = "Введите PIN";
 "Enter new PIN" = "Введите новый PIN";
 "Retype new PIN" = "Повторите новый PIN";
 "Invalid PIN" = "Неверный PIN";
 "PIN code does not match." = "PIN код не совпадает.";
-
-/* Типы счетов */
 "Cash" = "Наличные";
 "Bank Account" = "Банковский счет";
 "Credit Card" = "Кредитная карта";
 "Investment Account" = "Инвестиционные счет";
-
-/* "Вид" для экспорта */
 "Data format" = "Формат данных";
 "OFX" = "OFX";
 "Export data within" = "Экспорт данных за период";
@@ -105,50 +73,67 @@
 "This asset" = "This asset";
 "Export method" = "Метод экспорта";
 "Mail" = "Почта";
-
-/* Настройки */
 "Config" = "Настройки";
 "Date style" = "Вид даты";
+"Date and time" = "Date and time";
 "Date and time (1 min)" = "Дата и время (1 мин)";
 "Date and time (5 min)" = "Дата и время (5 мин)";
 "Date only" = "Только дата";
 "Cutoff date" = "Конечный срок";
 "End of month" = "Конец месяца";
 "Currency" = "Валюта";
-
-/* Письмо в поддержку */
 "(Write an inquiry here.)" = "(Напишите ваш вопрос здесь.)";
-
-/* CrashReportSender */
-/* Для диалоговых кнопок "да" */
 "Yes" = "Да";
-
-/* Для диалоговых кнопок "нет" */
 "No" = "Нет";
-
-/* Для диалоговых кнопок "ОК" */
 "Ok" = "ОК";
-
-/* Диалог повреждения */
-
-/* Заголовок, показывающийся в всплывающем окне, когда обнаруживается повреждение данных */
 "CrashDataFoundTitle" = "Обнаружено повреждение данных";
-
-/* Описание, разъясняющее ситуацию обнаружения повреждения данных и предлагающее пользователю отправить данные на сервер разработчика */
 "CrashDataFoundDescription" = "Приложение было ранее повреждено. Хотите предоставить разработчику анонимные данные о повреждении, чтобы он мог попытаться исправить проблему?";
-
-/* Кнопка всплывающего окна, предлагающая пользователю отправлять данные о повреждении всегда автоматически */
 "Always" = "Всегда";
-
-/* Текст отображающийся в окне обработки, когда данные о повреждении начали отправляться на сервер */
 "Sending" = "Отправляется ...";
-
-/* InfoViewController */
 "Purchase Standard Version" = "Купить полную версию";
 "Show help page" = "Открыть страницу 'Помощь'";
 "Open facebook page" = "Открыть страницу на Facebook";
 "Send support mail" = "Отправить письмо с предложениями";
-
 "Start of week" = "Начало недели";
 "Sunday" = "Воскресенье";
 "Monday" = "Понедельник";
+/* "Upload" = ""; */
+/* "Uploading" = ""; */
+/* "Download" = ""; */
+/* "Downloading" = ""; */
+/* "Syncing" = ""; */
+/* "upload_done" = ""; */
+/* "upload_failed" = ""; */
+/* "download_done" = ""; */
+/* "download_failed" = ""; */
+/* "Sync" = ""; */
+/* "no_need_to_sync" = ""; */
+/* "sync_conflict" = ""; */
+/* "Use local (upload)" = ""; */
+/* "Use remote (download)" = ""; */
+/* "Calendar" = ""; */
+/* "Current Time" = ""; */
+"Remember Date" = "Remember Date";
+"At first, please create and select an asset." = "At first, please create and select an asset.";
+/* "Delete" = ""; */
+"Save" = "Сохранить";
+/* "Edit Asset" = ""; */
+/* "Delete Category" = ""; */
+/* "Daily" = ""; */
+/* "Weekly" = ""; */
+/* "Monthly" = ""; */
+/* "Annual" = ""; */
+/* "Are you sure?" = ""; */
+"Delete transactions" = "Удалить операции";
+/* "currency_desc" = ""; */
+/* "cutoff_date_desc" = ""; */
+/* "press_menu_to_add_item" = ""; */
+/* "Move up" = ""; */
+/* "Move down" = ""; */
+"Help" = "Справка";
+/* "Add default categories" = ""; */
+/* "unlicensed_dialog_title" = ""; */
+/* "unlicensed_dialog_body" = ""; */
+/* "buy_button" = ""; */
+/* "quit_button" = ""; */
+/* "" = ""; */

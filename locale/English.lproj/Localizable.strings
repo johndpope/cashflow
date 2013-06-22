@@ -1,6 +1,4 @@
-/* Adjustment of amount */
 "Adjustment" = "Adjustment";
-
 "Amount" = "Amount";
 "Balance" = "Balance";
 "Date" = "Date";
@@ -10,90 +8,61 @@
 "Memo" = "Memo";
 "Payment" = "Payment";
 "History" = "History";
-
 "Asset" = "Asset";
-/* Asset list */
 "Assets" = "Assets";
 "Asset Name" = "Asset Name";
 "Asset Type" = "Asset Type";
 "Total" = "Total";
-
 "Transaction" = "Transaction";
-/* Transaction list */
 "Transactions" = "Transactions";
-
 "Type" = "Type";
 "Category" = "Category";
-
-/* Transaction */
 "Save this transaction?" = "Save this transaction?";
-
-/* Category list */
 "Categories" = "Categories";
 "No category" = "No category";
 "Edit Categories" = "Edit Categories";
 "Add category" = "Add category";
-
 "Initial Balance" = "Initial Balance";
-
 "Income" = "Income";
 "Outgo" = "Outgo";
 "Transfer" = "Transfer";
-
 "Report" = "Report";
 "Daily Report" = "Daily Report";
 "Weekly Report" = "Weekly Report";
 "Monthly Report" = "Monthly Report";
 "Annual Report" = "Annual Report";
-
-/* No need to translate HelpURL */
-"HelpURL" = "http://iphone.tmurakam.org/cashflow/help-4.html";
-
+"HelpURL" = "http://apps.tmurakam.org/cashflow/help.en.html";
 "Export" = "Export";
 "Backup" = "Backup";
 "Restore" = "Restore";
-
 "Unlink dropbox account" = "Unlink dropbox account";
 "Internal web server" = "Internal web server";
-
 "Warning" = "Warning";
 "RestoreWarning" = "This will overwrite all current data.";
-
 "WebExportNotation" = "Access following URL with browser of your PC:\n%@\nAfter download the file, tap Dismiss button.";
 "BackupNotation" = "Access following URL with browser of your PC:\n%@\nAfter download the file, tap Dismiss button.";
 "Network is unreachable." = "Network is unreachable.";
 "Cannot start web server." = "Cannot start web server.";
-
 "OFXHeadString" = "Cut & paste text between BEGIN and END lines with text editor, and save as UTF-8 text file with .ofx extension.";
-
 "No data" = "No data";
 "No data to be exported." = "No data to be exported.";
-
 "Delete Asset" = "Delete Asset";
 "ReallyDeleteAsset" = "Really delete this account?";
-
 "Delete transaction" = "Delete transaction";
-/*"Delete transactions" = "Delete transactions";*/
 "Delete with all past transactions" = "Delete all older transactions";
-
 "Dismiss" = "Dismiss";
 "Cancel" = "Cancel";
-
-/* PIN */
 "Set PIN Code" = "Set PIN Code";
 "Enter PIN" = "Enter PIN";
 "Enter new PIN" = "Enter new PIN";
 "Retype new PIN" = "Retype new PIN";
 "Invalid PIN" = "Invalid PIN";
 "PIN code does not match." = "PIN code does not match.";
-
-/* Asset types */
 "Cash" = "Cash";
 "Bank Account" = "Bank Account";
 "Credit Card" = "Credit Card";
 "Investment Account" = "Investment Account";
-
-/* export view */
+"Electric Money" = "Electric Money";
 "Data format" = "Data format";
 "OFX" = "OFX";
 "Export data within" = "Export data within";
@@ -105,54 +74,30 @@
 "This asset" = "This asset";
 "Export method" = "Export method";
 "Mail" = "Mail";
-
-/* Config */
 "Config" = "Config";
 "Date style" = "Date style";
+"Date and time" = "Date and time";
 "Date and time (1 min)" = "Date and time (1 min)";
 "Date and time (5 min)" = "Date and time (5 min)";
 "Date only" = "Date only";
 "Cutoff date" = "Cutoff date";
 "End of month" = "End of month";
 "Currency" = "Currency";
-
-/* Support mail */
 "(Write an inquiry here.)" = "(Write an inquiry here.)";
-
-/* CrashReportSender */
-/* For dialogs yes buttons */
 "Yes" = "Yes";
-
-/* For dialogs no buttons */
 "No" = "No";
-
-/* For dialogs ok buttons */
 "Ok" = "Ok";
-
-/* Crash dialog */
-
-/* Title showing in the alert box when crash report data has been found */
 "CrashDataFoundTitle" = "Crash data found";
-
-/* Description explaining that crash data has been found and ask the user if the data might be uplaoded to the developers server */
 "CrashDataFoundDescription" = "The app crashed previously. Would you like to provide the developer the anonymous crash data so they can try to fix the problem?";
-
-/* Alert box button if the users wants to send crash data always automatically */
 "Always" = "Always";
-
-/* Text showing in a processing box that the crash data is being uploaded to the server */
 "Sending" = "Sending ...";
-
-/* InfoViewController */
 "Purchase Standard Version" = "Purchase Standard Version";
 "Show help page" = "Open help page";
 "Open facebook page" = "Open facebook page";
 "Send support mail" = "Send support mail";
-
 "Start of week" = "Start of week";
 "Sunday" = "Sunday";
 "Monday" = "Monday";
-
 "Upload" = "Upload";
 "Uploading" = "Uploading";
 "Download" = "Download";
@@ -167,7 +112,28 @@
 "sync_conflict" = "Data conflict: both local/remote data were modified.";
 "Use local (upload)" = "Use local (upload)";
 "Use remote (download)" = "Use remote (download)";
-
 "Calendar" = "Calendar";
 "Current Time" = "Current Time";
-
+"Remember Date" = "Remember Date";
+"At first, please create and select an asset." = "At first, please create and select an asset.";
+"Delete" = "Delete";
+"Save" = "Save";
+"Edit Asset" = "Edit Asset";
+"Delete Category" = "Delete category";
+"Daily" = "Daily";
+"Weekly" = "Weekly";
+"Monthly" = "Monthly";
+"Annual" = "Annual";
+"Are you sure?" = "Are you sure?";
+"Delete transactions" = "Delete transactions";
+"currency_desc" = "Base currency for all assets";
+"cutoff_date_desc" = "Cut off date for reports";
+"press_menu_to_add_item" = "Press menu button to add item.";
+"Move up" = "Move up";
+"Move down" = "Move down";
+"Help" = "Help";
+"Add default categories" = "Add default categories";
+"unlicensed_dialog_title" = "Application not licensed";
+"unlicensed_dialog_body" = "This application is not licensed. Please purchase it at Google Play.";
+"buy_button" = "Buy app";
+"quit_button" = "Exit";

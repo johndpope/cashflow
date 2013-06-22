@@ -47,4 +47,20 @@
     } while ([stmt step] == SQLITE_ROW);
 }
 
+// 最終使用日のテスト
+- (void)testLastUsedDate
+{
+    NSDate *r;
+    
+    // 解除
+    [Transaction setLastUsedDate:nil];
+    AssertFalse([Transaction hasLastUsedDate]);
+
+    NSDate *t = [NSDate dateWithTimeIntervalSince1970:0];
+    [Transaction setLastUsedDate:t];
+    Assert([Transaction hasLastUsedDate]);
+    NSDate *t2 = [Transaction lastUsedDate];
+    Assert([t2 isEqualToDate:t]);
+}
+
 @end

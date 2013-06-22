@@ -12,10 +12,14 @@
 #import "AssetEntry.h"
 
 // asset types
+#define NUM_ASSET_TYPES 5
+
 #define ASSET_CASH  0
 #define ASSET_BANK  1
 #define	ASSET_CARD  2
 #define ASSET_INVEST 3
+#define ASSET_EMONEY 4
+
 
 #define MAX_TRANSACTIONS	5000
 

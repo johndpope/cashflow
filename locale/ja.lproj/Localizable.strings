@@ -1,6 +1,4 @@
-/* Adjustment of amount */
 "Adjustment" = "残高調整";
-
 "Amount" = "金額";
 "Balance" = "残高";
 "Date" = "日付";
@@ -10,91 +8,61 @@
 "Memo" = "メモ";
 "Payment" = "支払";
 "History" = "履歴";
-
 "Asset" = "資産";
-/* Asset list */
 "Assets" = "資産一覧";
 "Asset Name" = "資産名";
 "Asset Type" = "資産種別";
 "Total" = "計";
-
 "Transaction" = "取引";
-/* Transaction list */
 "Transactions" = "取引一覧";
-
 "Type" = "種別";
 "Category" = "費目";
-
-/* Transaction */
 "Save this transaction?" = "この取引を保存しますか？";
-
-/* Category list */
 "Categories" = "費目";
 "No category" = "未分類";
 "Edit Categories" = "費目の編集";
 "Add category" = "費目の追加";
-
 "Initial Balance" = "初期残高";
-
 "Income" = "入金";
 "Outgo" = "支払";
 "Transfer" = "資産間移動";
-
 "Report" = "レポート";
 "Daily Report" = "日別レポート";
 "Weekly Report" = "週別レポート";
 "Monthly Report" = "月別レポート";
 "Annual Report" = "年別レポート";
-
-/* No need to translate HelpURL */
-"HelpURL" = "http://iphone.tmurakam.org/cashflow/help-4.ja.html";
-
+"HelpURL" = "http://apps.tmurakam.org/cashflow/help.html";
 "Export" = "エクスポート";
 "Backup" = "バックアップ";
 "Restore" = "リストア";
-
 "Unlink dropbox account" = "Dropboxアカウントの解除";
 "Internal web server" = "内蔵Webサーバ";
-"The backup data will be stored as CashFlowBackup.sql in root folder of Dropbox." = "バックアップはDropboxのルートフォルダにCashFlowBackup.sqlというファイル名で作成されます";
-
 "Warning" = "警告";
 "RestoreWarning" = "リストアにより全データが上書きされます";
-
 "WebExportNotation" = "以下の URL に PC のブラウザからアクセスしてください:\n%@\nダウンロードが完了したら閉じるボタンをタップしてください。";
 "BackupNotation" = "以下の URL に PC のブラウザからアクセスしてください:\n%@\n完了したら閉じるボタンをタップしてください。";
 "Network is unreachable." = "ネットワークに接続されていません。";
 "Cannot start web server." = "Webサーバを起動できません。";
-
 "OFXHeadString" = "BEGIN と END に挟まれた部分のテキストをテキストエディタ(メモ帳など)にカット＆ペーストし、ファイルとして保存してください。このとき、漢字コードを必ず 'UTF-8' とし、拡張子は .ofx としてください。";
-
 "No data" = "No data";
 "No data to be exported." = "エクスポートする対象データがありません";
-
-"Delete Asset" = "口座を削除";
+"Delete Asset" = "資産を削除";
 "ReallyDeleteAsset" = "本当に口座を削除しますか？";
-
 "Delete transaction" = "取引の削除";
-/*"Delete transactions" = "取引を削除";*/
 "Delete with all past transactions" = "これ以前の取引を一括削除";
-
 "Dismiss" = "閉じる";
 "Cancel" = "キャンセル";
-
-/* PIN */
 "Set PIN Code" = "PIN設定";
 "Enter PIN" = "PIN入力";
 "Enter new PIN" = "新PIN";
 "Retype new PIN" = "新PIN(確認)";
 "Invalid PIN" = "PIN不正";
 "PIN code does not match." = "PINが一致しません。";
-
-/* Asset types */
 "Cash" = "現金";
 "Bank Account" = "銀行口座";
 "Credit Card" = "クレジットカード";
 "Investment Account" = "投資口座";
-
-/* export view */
+"Electric Money" = "電子マネー";
 "Data format" = "データフォーマット";
 "OFX" = "Money電子明細";
 "Export data within" = "エクスポート範囲";
@@ -106,54 +74,30 @@
 "This asset" = "この資産";
 "Export method" = "エクスポート方法";
 "Mail" = "メール";
-
-/* Config */
 "Config" = "設定";
 "Date style" = "日付書式";
+"Date and time" = "日付と時刻";
 "Date and time (1 min)" = "日付と時刻 (1分毎)";
 "Date and time (5 min)" = "日付と時刻 (5分毎)";
 "Date only" = "日付のみ";
 "Cutoff date" = "締め日";
 "End of month" = "月末";
 "Currency" = "通貨";
-
-/* Support mail */
 "(Write an inquiry here.)" = "(ここに問い合わせ内容を記載してください)";
-
-/* CrashReportSender */
-/* For dialogs yes buttons */
 "Yes" = "はい";
-
-/* For dialogs no buttons */
 "No" = "いいえ";
-
-/* For dialogs ok buttons */
 "Ok" = "Ok";
-
-/* Crash dialog */
-
-/* Title showing in the alert box when crash report data has been found */
 "CrashDataFoundTitle" = "クラッシュデータが見つかりました";
-
-/* Description explaining that crash data has been found and ask the user if the data might be uplaoded to the developers server */
 "CrashDataFoundDescription" = "アプリは以前クラッシュしています。クラッシュデータを匿名で開発者に送信し、バグ修正に役立てますか?";
-
-/* Alert box button if the users wants to send crash data always automatically */
 "Always" = "常に";
-
-/* Text showing in a processing box that the crash data is being uploaded to the server */
 "Sending" = "送信中 ...";
-
-/* InfoViewController */
 "Purchase Standard Version" = "スタンダード版を購入";
 "Show help page" = "ヘルプページを表示";
 "Open facebook page" = "Facebookページを表示";
 "Send support mail" = "サポートにメールを送る";
-
 "Start of week" = "週の始め";
 "Sunday" = "日曜日";
 "Monday" = "月曜日";
-
 "Upload" = "アップロード";
 "Uploading" = "アップロード中";
 "Download" = "ダウンロード";
@@ -168,8 +112,28 @@
 "sync_conflict" = "データ衝突: ローカル/リモート双方のデータが変更されています。";
 "Use local (upload)" = "ローカルを使用 (アップロード)";
 "Use remote (download)" = "リモートを使用 (ダウンロード)";
-
-// 2012/8/9
 "Calendar" = "カレンダー";
 "Current Time" = "現在時刻";
-
+"Remember Date" = "日時を記憶";
+"At first, please create and select an asset." = "最初に資産を作成・選択してください";
+"Delete" = "削除";
+"Save" = "保存";
+"Edit Asset" = "資産の編集";
+"Delete Category" = "費目を削除";
+"Daily" = "日別";
+"Weekly" = "週別";
+"Monthly" = "月別";
+"Annual" = "年別";
+"Are you sure?" = "よろしいですか？";
+"Delete transactions" = "取引の削除";
+"currency_desc" = "使用する通貨の設定";
+"cutoff_date_desc" = "レポートの締め日設定";
+"press_menu_to_add_item" = "Menuボタンを押して項目を追加してください";
+"Move up" = "上へ移動";
+"Move down" = "下へ移動";
+"Help" = "ヘルプ";
+"Add default categories" = "初期費目の追加";
+"unlicensed_dialog_title" = "未ライセンス";
+"unlicensed_dialog_body" = "アプリケーションはライセンスされていません。Google Play で購入してください。";
+"buy_button" = "購入";
+"quit_button" = "終了";

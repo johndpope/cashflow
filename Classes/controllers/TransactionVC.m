@@ -12,17 +12,9 @@
 
 // private methods
 @interface TransactionViewController()
-- (void)_asDelPast:(int)buttonIndex;
-- (void)_asCancelTransaction:(int)buttonIndex;
-
-- (UITableViewCell *)getCellForField:(NSIndexPath*)indexPath tableView:(UITableView *)tableView;
-- (void)_dismissPopover;
-
-- (void)checkLastUsedDate:(NSDate *)date;
-@end
-
-@implementation TransactionViewController
 {
+    IBOutlet UITableView *mTableView;
+    
     int mTransactionIndex;
     AssetEntry *mEditingEntry;
     Asset *__unsafe_unretained mAsset;
@@ -31,8 +23,11 @@
 
     NSArray *mTypeArray;
 	
-    UIButton *mDelButton;
-    UIButton *mDelPastButton;
+    IBOutlet UIButton *mDelButton;
+    IBOutlet UIButton *mDelPastButton;
+    IBOutlet UIView *mRememberDateView;
+    IBOutlet UILabel *mRememberDateLabel;
+    IBOutlet UISwitch *mRememberDateSwitch;
 
     UIActionSheet *mAsDelPast;
     UIActionSheet *mAsCancelTransaction;
@@ -40,6 +35,18 @@
     UIPopoverController *mCurrentPopoverController;
 }
 
+- (void)_asDelPast:(int)buttonIndex;
+- (void)_asCancelTransaction:(int)buttonIndex;
+
+- (UITableViewCell *)getCellForField:(NSIndexPath*)indexPath tableView:(UITableView *)tableView;
+- (void)_dismissPopover;
+
+//- (void)checkLastUsedDate:(NSDate *)date;
+@end
+
+@implementation TransactionViewController
+
+@synthesize tableView = mTableView;
 @synthesize editingEntry = mEditingEntry;
 @synthesize asset = mAsset;
 
@@ -83,15 +90,42 @@
                                  _L(@"Deposit"),
                                  _L(@"Adjustment"),
                                  _L(@"Transfer")];
+    
+    [mRememberDateLabel setText:_L(@"Remember Date")];
+    
+    if ([self isNewTransaction]) {
+        // 日付記憶関連処理
+        [mRememberDateSwitch setOn:[Transaction hasLastUsedDate]];
+    }
+    
+    // 削除ボタンの背景と位置調整
+    UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
+    
+    [mDelButton setBackgroundImage:bg forState:UIControlStateNormal];
+    [mDelPastButton setBackgroundImage:bg forState:UIControlStateNormal];
+    
+    [mDelButton setTitle:_L(@"Delete transaction") forState:UIControlStateNormal];
+    [mDelPastButton setTitle:_L(@"Delete with all past transactions") forState:UIControlStateNormal];
+    
+    if (IS_IPAD) {
+        CGRect rect;
+        rect = mDelButton.frame;
+        rect.origin.y += 100;
+        mDelButton.frame = rect;
 
+        rect = mDelPastButton.frame;
+        rect.origin.y += 120;
+        mDelPastButton.frame = rect;
+    }
+
+    /*
     // ボタン生成
     // TODO:
     // b を unsafe unretained にしておかないと、オブジェクトのリファレンスカウンタが足りなくなりクラッシュする。
     // ARC 周りのバグか？
     __unsafe_unretained UIButton *b;
-    UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
-
-    int i;
+     
+     int i;
     for (i = 0; i < 2; i++) {
         b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [b setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -123,7 +157,8 @@
         b.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self.view addSubview:b];
         b = nil; // 念のため
-    }
+    }*/
+    
 }
 
 // 処理するトランザクションをロードしておく
@@ -143,16 +178,23 @@
     }
 }
 
+- (BOOL)isNewTransaction
+{
+    return (mTransactionIndex < 0);
+}
+
 // 表示前の処理
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    BOOL hideDelButton = (mTransactionIndex >= 0) ? NO : YES;
+    BOOL isNewTransaction = [self isNewTransaction];
 	
-    mDelButton.hidden = hideDelButton;
-    mDelPastButton.hidden = hideDelButton;
-		
+    mDelButton.hidden = isNewTransaction;
+    mDelPastButton.hidden = isNewTransaction;
+	
+	mRememberDateView.hidden = !isNewTransaction;
+
     [[self tableView] reloadData];
 }
 
@@ -162,15 +204,10 @@
     //[[self tableView] reloadData];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
-    /*
-    [mDelButton removeFromSuperview];
-    mDelButton = nil;
-    [mDelPastButton removeFromSuperview];
-    mDelPastButton = nil;
-    */
+    [super viewWillDisappear:animated];
+    [self _dismissPopover];
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -328,6 +365,7 @@
         nc = [[UINavigationController alloc] initWithRootViewController:vc];
         
         mCurrentPopoverController = [[UIPopoverController alloc] initWithContentViewController:nc];
+        mCurrentPopoverController.delegate = self;
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         CGRect rect = cell.frame;
@@ -347,7 +385,9 @@
 - (void)_dismissPopover
 {
     if (IS_IPAD) {
-        if (mCurrentPopoverController != nil) {
+        if (mCurrentPopoverController != nil
+            && [mCurrentPopoverController isPopoverVisible]
+            && self.view != nil && self.view.window != nil /* for crash problem */) {
             [mCurrentPopoverController dismissPopoverAnimated:YES];
         }
         [self.tableView reloadData];
@@ -364,7 +404,7 @@
     
     mIsModified = YES;
     mEditingEntry.transaction.date = aDate;
-    [self checkLastUsedDate:aDate];
+    //[self checkLastUsedDate:aDate];
 
     if (IS_IPAD) {
         [self _dismissPopover];
@@ -378,12 +418,13 @@
     mIsModified = YES;
 
     mEditingEntry.transaction.date = vc.date;
-    [self checkLastUsedDate:vc.date];
+    //[self checkLastUsedDate:vc.date];
     
     [self _dismissPopover];
 }
 
 // 入力した日付が現在時刻から離れている場合のみ、日付を記憶
+#if 0 // No longer used
 - (void)checkLastUsedDate:(NSDate *)date
 {
     NSTimeInterval diff = [[NSDate new] timeIntervalSinceDate:date];
@@ -394,6 +435,7 @@
         [Transaction setLastUsedDate:nil];
     }
 }
+#endif
 
 - (void)editTypeViewChanged:(EditTypeViewController*)vc
 {
@@ -472,12 +514,21 @@
     [self _dismissPopover];
 }
 
+- (IBAction)rememberLastUsedDateChanged:(id)view
+{
+    if ([mRememberDateSwitch isOn]) {
+        [Transaction setLastUsedDate:mEditingEntry.transaction.date];
+    } else {
+        [Transaction setLastUsedDate:nil];
+    }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // 削除処理
 
 #pragma mark Deletion
 
-- (void)delButtonTapped
+- (IBAction)delButtonTapped:(id)sender
 {
     [mAsset deleteEntryAt:mTransactionIndex];
     self.editingEntry = nil;
@@ -485,7 +536,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)delPastButtonTapped
+- (IBAction)delPastButtonTapped:(id)sender
 {
     mAsDelPast = [[UIActionSheet alloc]
                     initWithTitle:nil delegate:self
@@ -523,7 +574,12 @@
 
     // upsert 処理
     if (mTransactionIndex < 0) {
+        // 新規追加
         [mAsset insertEntry:mEditingEntry];
+        
+        if ([mRememberDateSwitch isOn]) {
+            [Transaction setLastUsedDate:mEditingEntry.transaction.date];
+        }
     } else {
         [mAsset replaceEntryAtIndex:mTransactionIndex withObject:mEditingEntry];
         //[asset sortByDate];
