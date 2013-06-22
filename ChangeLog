@@ -2,6 +2,7 @@
 
 	* v6.2.0 (v59) beta
 	* 検索機能追加
+	* armv7s 追加し、-all_load オプション除外
 
 2013-06-22 : Takuya Murakami
 
