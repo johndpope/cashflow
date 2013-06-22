@@ -159,6 +159,18 @@
 		3E4C67731347939600DA87F6 /* AdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4C67711347939600DA87F6 /* AdManager.m */; };
 		3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E4DA8B30EAB6DE4001FBB70 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */; };
+		3E529BEE1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */; };
+		3E529BEF1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */; };
+		3E529BF01771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */; };
+		3E529BF11771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */; };
+		3E529BF21771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */; };
+		3E529BF31771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */; };
+		3E529BF41771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */; };
+		3E529BF51771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */; };
+		3E529BF71771EA1F005F6528 /* libCrittercism_v4_0_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BF61771EA1F005F6528 /* libCrittercism_v4_0_0.a */; };
+		3E529BF81771EA1F005F6528 /* libCrittercism_v4_0_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BF61771EA1F005F6528 /* libCrittercism_v4_0_0.a */; };
+		3E529BF91771EA1F005F6528 /* libCrittercism_v4_0_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BF61771EA1F005F6528 /* libCrittercism_v4_0_0.a */; };
+		3E529BFA1771EA1F005F6528 /* libCrittercism_v4_0_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BF61771EA1F005F6528 /* libCrittercism_v4_0_0.a */; };
 		3E55366F13344D2900D288D9 /* bank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E55366C13344D2900D288D9 /* bank@2x.png */; };
 		3E55367013344D2900D288D9 /* bank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E55366C13344D2900D288D9 /* bank@2x.png */; };
 		3E55367213344D2900D288D9 /* card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E55366D13344D2900D288D9 /* card@2x.png */; };
@@ -180,14 +192,6 @@
 		3E5868240EEFFB6E00951C2F /* EditMemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5868230EEFFB6E00951C2F /* EditMemoView.xib */; };
 		3E588D460EC34CFE00D3853D /* AssetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E588D450EC34CFE00D3853D /* AssetView.xib */; };
 		3E5B83AB0EC359590035AF05 /* GenEditTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */; };
-		3E69E8E11616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8DF1616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a */; };
-		3E69E8E21616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8DF1616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a */; };
-		3E69E8E31616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8DF1616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a */; };
-		3E69E8E41616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8DF1616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a */; };
-		3E69E8E51616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8E01616B38500FAD808 /* libInMobiCommons-3.6.0.a */; };
-		3E69E8E61616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8E01616B38500FAD808 /* libInMobiCommons-3.6.0.a */; };
-		3E69E8E71616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8E01616B38500FAD808 /* libInMobiCommons-3.6.0.a */; };
-		3E69E8E81616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8E01616B38500FAD808 /* libInMobiCommons-3.6.0.a */; };
 		3E69E8EA1616B3D800FAD808 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3E69E8EC1616B3ED00FAD808 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E69E8EE1616B3F500FAD808 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8ED1616B3F400FAD808 /* PassKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -413,8 +417,6 @@
 		3EDC72BB0EBB493100366F1E /* SimpleTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC72BA0EBB493100366F1E /* SimpleTableView.xib */; };
 		3EDDAC750E89148500268AED /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDAC740E89148500268AED /* redButton.png */; };
 		3EDDADAB0E8925AB00268AED /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDADAA0E8925AB00268AED /* InfoView.xib */; };
-		3EE23A08167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */; };
-		3EE23A09167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */; };
 		3EE629EA10D7E8C500EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EE62A2B10D7EA0100EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EED9134132A236D009DE68B /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
@@ -672,6 +674,9 @@
 		3E4C67701347939600DA87F6 /* AdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdManager.h; sourceTree = "<group>"; };
 		3E4C67711347939600DA87F6 /* AdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdManager.m; sourceTree = "<group>"; };
 		3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libInMobiAdNetwork-3.7.0.a"; sourceTree = "<group>"; };
+		3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libInMobiCommons-3.7.0.a"; sourceTree = "<group>"; };
+		3E529BF61771EA1F005F6528 /* libCrittercism_v4_0_0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_0_0.a; sourceTree = "<group>"; };
 		3E55366C13344D2900D288D9 /* bank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bank@2x.png"; sourceTree = "<group>"; };
 		3E55366D13344D2900D288D9 /* card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card@2x.png"; sourceTree = "<group>"; };
 		3E55366E13344D2900D288D9 /* cash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cash@2x.png"; sourceTree = "<group>"; };
@@ -685,8 +690,6 @@
 		3E588D450EC34CFE00D3853D /* AssetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetView.xib; sourceTree = "<group>"; };
 		3E5A8D7E0EAE34B200118C3C /* Info-free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-free.plist"; path = "../Info-free.plist"; sourceTree = "<group>"; };
 		3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenEditTextView.xib; sourceTree = "<group>"; };
-		3E69E8DF1616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libInMobiAdNetwork-3.6.0.a"; sourceTree = "<group>"; };
-		3E69E8E01616B38500FAD808 /* libInMobiCommons-3.6.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libInMobiCommons-3.6.0.a"; sourceTree = "<group>"; };
 		3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		3E69E8ED1616B3F400FAD808 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
@@ -789,7 +792,6 @@
 		3EDDADAA0E8925AB00268AED /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		3EE23A05167E052800578A93 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
 		3EE23A06167E052800578A93 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
-		3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v3_4_6.a; sourceTree = "<group>"; };
 		3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		3EED9130132A236D009DE68B /* TestCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCommon.h; sourceTree = "<group>"; };
 		3EED9131132A236D009DE68B /* TestCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCommon.m; sourceTree = "<group>"; };
@@ -860,10 +862,10 @@
 				3E3F525014651654005CBD9A /* libsqlite3.dylib in Frameworks */,
 				3EA395351556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
 				3EA3953E1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
-				3E69E8E11616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */,
-				3E69E8E51616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */,
-				3EE23A08167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */,
 				3ED6C02716A5850A004F0991 /* libGoogleAdMobAds.a in Frameworks */,
+				3E529BEE1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */,
+				3E529BF21771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */,
+				3E529BF71771EA1F005F6528 /* libCrittercism_v4_0_0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -889,15 +891,15 @@
 				3E3F525114651654005CBD9A /* libsqlite3.dylib in Frameworks */,
 				3EA395361556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
 				3EA3953F1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
-				3E69E8E21616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */,
-				3E69E8E61616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */,
 				3E69E8EF1616B40100FAD808 /* PassKit.framework in Frameworks */,
 				3E69E8F21616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3E69E8F51616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E0F5F321636EE4B00A11ECE /* StoreKit.framework in Frameworks */,
-				3EE23A09167E052800578A93 /* libCrittercism_v3_4_6.a in Frameworks */,
 				3E347BB4169DC7CE002307AA /* CoreData.framework in Frameworks */,
 				3ED6C02816A58529004F0991 /* libGoogleAdMobAds.a in Frameworks */,
+				3E529BEF1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */,
+				3E529BF31771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */,
+				3E529BF81771EA1F005F6528 /* libCrittercism_v4_0_0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -923,14 +925,15 @@
 				3EF402F8157FA73C0091CC40 /* MediaPlayer.framework in Frameworks */,
 				3EF402F9157FA73F0091CC40 /* MessageUI.framework in Frameworks */,
 				3EF402FA157FA7420091CC40 /* SystemConfiguration.framework in Frameworks */,
-				3E69E8E41616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */,
-				3E69E8E81616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */,
 				3E69E8F11616B40200FAD808 /* PassKit.framework in Frameworks */,
 				3E69E8F41616B40E00FAD808 /* AdSupport.framework in Frameworks */,
 				3E69E8F71616B41B00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E0F5F341636EE6100A11ECE /* StoreKit.framework in Frameworks */,
 				3E347BB6169DC7D0002307AA /* CoreData.framework in Frameworks */,
 				3ED6C02A16A58744004F0991 /* libGoogleAdMobAds.a in Frameworks */,
+				3E529BF11771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */,
+				3E529BF51771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */,
+				3E529BFA1771EA1F005F6528 /* libCrittercism_v4_0_0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -956,14 +959,15 @@
 				3EA395371556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
 				3EA395401556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
 				3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */,
-				3E69E8E31616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a in Frameworks */,
-				3E69E8E71616B38500FAD808 /* libInMobiCommons-3.6.0.a in Frameworks */,
 				3E69E8F01616B40100FAD808 /* PassKit.framework in Frameworks */,
 				3E69E8F31616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3E69E8F61616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E0F5F331636EE6100A11ECE /* StoreKit.framework in Frameworks */,
 				3E347BB5169DC7CF002307AA /* CoreData.framework in Frameworks */,
 				3ED6C02916A58744004F0991 /* libGoogleAdMobAds.a in Frameworks */,
+				3E529BF01771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */,
+				3E529BF41771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */,
+				3E529BF91771EA1F005F6528 /* libCrittercism_v4_0_0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1206,9 +1210,9 @@
 		3E4C53C0167DFF8200BAA294 /* Crittercism */ = {
 			isa = PBXGroup;
 			children = (
+				3E529BF61771EA1F005F6528 /* libCrittercism_v4_0_0.a */,
 				3EE23A05167E052800578A93 /* Crittercism.h */,
 				3EE23A06167E052800578A93 /* CrittercismDelegate.h */,
-				3EE23A07167E052800578A93 /* libCrittercism_v3_4_6.a */,
 			);
 			name = Crittercism;
 			path = CrittercismSDK;
@@ -1315,8 +1319,8 @@
 		3EA3952A1556B4E00078DCA2 /* AdapterInMobi */ = {
 			isa = PBXGroup;
 			children = (
-				3E69E8DF1616B38500FAD808 /* libInMobiAdNetwork-3.6.0.a */,
-				3E69E8E01616B38500FAD808 /* libInMobiCommons-3.6.0.a */,
+				3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */,
+				3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */,
 				3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */,
 			);
 			path = AdapterInMobi;
@@ -2159,8 +2163,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
+					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
+				);
 				PRODUCT_NAME = CashFlow;
 			};
 			name = Debug;
@@ -2173,10 +2181,14 @@
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
+					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
+				);
 				PRODUCT_NAME = CashFlow;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8E62577C-700D-40A6-A386-6C3EFAE66BFA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "63F6DF88-F9EB-49CD-8CFD-B7C9ED39B49A";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -2193,8 +2205,12 @@
 					DEBUG,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Info-free.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
+					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
+				);
 				PRODUCT_NAME = CashFlowFree;
 			};
 			name = Debug;
@@ -2208,10 +2224,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = FREE_VERSION;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Info-free.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
+					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
+				);
 				PRODUCT_NAME = CashFlowFree;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B3B1BC0-A3FF-4063-98F1-831E430A55E7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A871122E-2132-4DED-A1CB-89F3B91405B8";
 			};
 			name = Release;
 		};
@@ -2227,11 +2247,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ApplicationTests/CashFlowTest-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ApplicationTests/CashFlowTest-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries/AdMob\"",
+					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
+					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -2251,11 +2272,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ApplicationTests/CashFlowTest-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ApplicationTests/CashFlowTest-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries/AdMob\"",
+					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
+					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -2280,12 +2302,13 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "LogicTests/LogicTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries/AdMob\"",
+					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
+					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -2304,12 +2327,13 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LogicTests/LogicTests-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "LogicTests/LogicTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries/AdMob\"",
+					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
+					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
@@ -2320,8 +2344,6 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -2332,7 +2354,6 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
@@ -2341,31 +2362,24 @@
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/GoogleAnalytics",
 					"$(SRCROOT)/Libraries/AdMob",
-					"\"$(SRCROOT)/Libraries/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/Libraries/AdMob/AdapterIAd\"",
 					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = CashFlow;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2373,8 +2387,6 @@
 					"$(SRCROOT)/Libraries/Dropbox",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
@@ -2383,22 +2395,17 @@
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/GoogleAnalytics",
 					"$(SRCROOT)/Libraries/AdMob",
-					"\"$(SRCROOT)/Libraries/AdMob/LibAdapterIAd-Mar282012\"",
 					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
 					"\"$(SRCROOT)/Libraries/AdMob/AdapterIAd\"",
 					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = CashFlow;
 				SDKROOT = iphoneos;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};

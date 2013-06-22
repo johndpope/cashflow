@@ -23,7 +23,7 @@
 
 + (int)numAssetTypes
 {
-    return 4;
+    return NUM_ASSET_TYPES;
 }
 
 + (NSArray*)typeNamesArray
@@ -35,7 +35,9 @@
             @[_L(@"Cash"),
                              _L(@"Bank Account"),
                              _L(@"Credit Card"),
-                             _L(@"Investment Account")];
+                             _L(@"Investment Account"),
+                             _L(@"Electric Money"),
+];
     }
     return typeNames;
 }
@@ -46,7 +48,7 @@
 
     if (type < 0 || type >= [typeNames count]) {
         NSLog(@"WARNING: typeNameWithType: type out of range");
-        return nil;
+        return @"???";
     }
     return typeNames[type];
 }
@@ -62,6 +64,9 @@
             return @"card";
         case ASSET_INVEST:
             return @"invest";
+        case ASSET_EMONEY:
+            return @"cash";
+            //return @"emoney";
     }
 
     ASSERT(NO);

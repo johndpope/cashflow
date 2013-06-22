@@ -71,8 +71,8 @@ static PinController *thePinController = nil;
 - (void)firstPinCheck:(UIViewController *)currentVc
 {
     // 二重起動防止
-    // Pin チェック中にサスペンドに入る場合
-    if (mState == FIRST_PIN_CHECK) {
+    // Pin チェックや PIN 変更中にサスペンドに入る場合
+    if (mState != INITIAL) {
         return;
     }
 
