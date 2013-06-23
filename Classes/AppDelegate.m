@@ -19,11 +19,6 @@
 
 #import "DropboxSecret.h"
 
-@interface AppDelegate()
-- (void)setupGoogleAnalytics;
-- (void)delayedLaunchProcess:(NSTimer *)timer;
-@end
-
 @implementation AppDelegate
 {
     UIApplication *_application;

@@ -9,16 +9,6 @@
 #import "AppDelegate.h"
 #import "ExportServer.h"
 
-@interface ExportOfx()
-// private
-- (void)_statementTransactionResponse:(NSMutableString *)data asset:(Asset *)asset;
-- (NSString*)_typeStringWithAssetEntry:(AssetEntry*)e;
-- (NSString*)_dateStr:(NSDate*)date;
-- (NSString*)_dateStrWithAssetEntry:(AssetEntry*)e;
-- (NSString*)_fitIdWithAssetEntry:(AssetEntry*)e;
-- (NSString*)_escapeXmlString:(NSString *)s;
-@end
-
 @implementation ExportOfx
 {
     NSDateFormatter *mDateFormatter;

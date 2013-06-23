@@ -46,7 +46,7 @@
       action:@selector(doneAction:)];
 
 #ifdef FREE_VERSION
-    [mNameLabel setText:@"CashFlow Free"];
+    [_nameLabel setText:@"CashFlow Free"];
 #else
     _purchaseButton.hidden = YES;
 #endif

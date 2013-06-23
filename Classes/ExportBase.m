@@ -9,12 +9,6 @@
 #import "ExportBase.h"
 #import "AppDelegate.h"
 
-@interface ExportBase()
-- (void)_sendToDropbox;
-- (void)_showResult:(NSString *)message;
-- (NSError *)_getError:(NSString *)domain description:(NSString *)description;
-@end
-
 @implementation ExportBase
 {
     ExportServer *mWebServer;
