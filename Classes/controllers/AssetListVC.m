@@ -29,9 +29,9 @@
 
 @implementation AssetListViewController
 {
-    IBOutlet UITableView *mTableView;
-    IBOutlet UIBarButtonItem *mBarActionButton;
-    IBOutlet UIBarButtonItem *mBarSumLabel;
+    IBOutlet UITableView *_tableView;
+    IBOutlet UIBarButtonItem *_barActionButton;
+    IBOutlet UIBarButtonItem *_barSumLabel;
     
     BOOL mIsLoadDone;
     DBLoadingView *mLoadingView;
@@ -49,7 +49,7 @@
     BOOL mPinChecked;
 }
 
-@synthesize tableView = mTableView;
+@synthesize tableView = _tableView;
 
 - (void)viewDidLoad
 {
@@ -58,7 +58,7 @@
     
     //[AppDelegate trackPageview:@"/AssetListViewController"];
      
-    mTableView.rowHeight = 48;
+    _tableView.rowHeight = 48;
     mPinChecked = NO;
     mAsDisplaying = NO;
     
@@ -114,9 +114,9 @@
     NSLog(@"AssetLivewViewController:viewDidUnload");
     mIconArray = nil;
 
-    mTableView = nil;
-    mBarActionButton = nil;
-    mBarSumLabel = nil;
+    _tableView = nil;
+    _barActionButton = nil;
+    _barSumLabel = nil;
     [super viewDidUnload];
 }
 
@@ -222,7 +222,7 @@
     
     mLedger = [DataModel ledger];
     [mLedger rebuild];
-    [mTableView reloadData];
+    [_tableView reloadData];
 
     // 合計欄
     double value = 0.0;
@@ -230,7 +230,7 @@
         value += [[mLedger assetAtIndex:i] lastBalance];
     }
     NSString *lbl = [NSString stringWithFormat:@"%@ %@", _L(@"Total"), [CurrencyManager formatCurrency:value]];
-    mBarSumLabel.title = lbl;
+    _barSumLabel.title = lbl;
     
     [[Database instance] updateModificationDate]; // TODO : ここでやるのは正しくないが、、、
 }
