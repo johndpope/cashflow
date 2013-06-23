@@ -12,7 +12,7 @@
 
 @interface PinViewController ()
 {
-    IBOutlet UILabel *mValueLabel;
+    IBOutlet UILabel *_valueLabel;
     
     IBOutlet UIButton *button_Clear;
     IBOutlet UIButton *button_BS;
@@ -27,18 +27,13 @@
     IBOutlet UIButton *button_8;
     IBOutlet UIButton *button_9;
     
-    NSMutableString *mValue;
-    BOOL mEnableCancel;
-    id<PinViewDelegate> __unsafe_unretained mDelegate;
+    NSMutableString *_value;
+    BOOL _enableCancel;
+    id<PinViewDelegate> __unsafe_unretained _delegate;
 }
-
-- (IBAction)onNumButtonDown:(id)sender;
-- (IBAction)onNumButtonPressed:(id)sender;
-
 @end
 
 @implementation PinViewController
-@synthesize value = mValue, enableCancel = mEnableCancel, delegate = mDelegate;
 
 - (id)init
 {
@@ -52,9 +47,9 @@
 
 - (void)viewDidLoad
 {
-    mValue = [NSMutableString new];
+    _value = [NSMutableString new];
     
-    mValueLabel.text = @"";
+    _valueLabel.text = @"";
 
     //self.title = _L(@"PIN");
     self.navigationItem.rightBarButtonItem = 
@@ -64,7 +59,7 @@
              action:@selector(doneAction:)];
 
     self.navigationItem.leftBarButtonItem = nil;
-    if (mEnableCancel) {
+    if (_enableCancel) {
         self.navigationItem.leftBarButtonItem = 
             [[UIBarButtonItem alloc]
                  initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
@@ -90,13 +85,13 @@
     NSString *ch = nil;
 
     if (sender == button_Clear) {
-        [mValue setString:@""];
+        [_value setString:@""];
     }
     else if (sender == button_BS) {
         // バックスペース
-        int len = mValue.length;
+        int len = _value.length;
         if (len > 0) {
-            [mValue deleteCharactersInRange:NSMakeRange(len-1, 1)];
+            [_value deleteCharactersInRange:NSMakeRange(len-1, 1)];
         }
     }
 		
@@ -117,35 +112,35 @@
 - (void)onKeyIn:(NSString *)ch
 {
     if (ch != nil) {
-        [mValue appendString:ch];
+        [_value appendString:ch];
     }
 	
-    int len = mValue.length;
+    int len = _value.length;
     NSMutableString *p = [[NSMutableString alloc] initWithCapacity:len];
     for (int i = 0; i < len; i++) {
         [p appendString:@"●"];
     }
-    mValueLabel.text = p;
+    _valueLabel.text = p;
 
-    if ([mDelegate pinViewCheckPin:self]) {
+    if ([_delegate pinViewCheckPin:self]) {
         [self doneAction:nil];
     }
 }
 
 - (void)doneAction:(id)sender
 {
-    [mDelegate pinViewFinished:self isCancel:NO];
+    [_delegate pinViewFinished:self isCancel:NO];
 
-    [mValue setString:@""];
-    mValueLabel.text = @"";
+    [_value setString:@""];
+    _valueLabel.text = @"";
 }
 
 - (void)cancelAction:(id)sender
 {
-    [mDelegate pinViewFinished:self isCancel:YES];
+    [_delegate pinViewFinished:self isCancel:YES];
 
-    [mValue setString:@""];
-    mValueLabel.text = @"";
+    [_value setString:@""];
+    _valueLabel.text = @"";
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
