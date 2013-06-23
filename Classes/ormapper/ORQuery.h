@@ -7,8 +7,6 @@
    O/R query
  */
 @interface ORQuery : NSObject
-{
-}
 
 + (ORQuery *)getWithClass:(Class)class tableName:(NSString *)tableName;
 
