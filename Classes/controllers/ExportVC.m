@@ -8,10 +8,6 @@
 #import "ExportVC.h"
 #import "AppDelegate.h"
 
-@interface ExportVC ()
-- (void)doneAction:(id)sender;
-@end
-
 @implementation ExportVC
 {
     IBOutlet UIButton *_exportButton;

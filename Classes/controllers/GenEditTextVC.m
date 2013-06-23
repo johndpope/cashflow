@@ -8,10 +8,6 @@
 #import "GenEditTextVC.h"
 #import "AppDelegate.h"
 
-@interface GenEditTextViewController()
-- (void)doneAction;
-@end
-
 @implementation GenEditTextViewController
 {
     IBOutlet UITextField *_textField;

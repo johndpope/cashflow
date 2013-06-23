@@ -17,7 +17,7 @@
 
 @implementation Asset
 {
-    NSMutableArray *mEntries; // AssetEntry の配列
+    NSMutableArray *_entries; // AssetEntry の配列
     //double mLastBalance;
 }
 
@@ -77,7 +77,7 @@
 {
     self = [super init];
     
-    mEntries = [[NSMutableArray alloc] init];
+    _entries = [[NSMutableArray alloc] init];
     self.type = ASSET_CASH;
 	
     return self;
@@ -90,7 +90,7 @@
 - (void)rebuild
 {
 
-    mEntries = [[NSMutableArray alloc] init];
+    _entries = [[NSMutableArray alloc] init];
 
     double balance = self.initialBalance;
 
@@ -123,7 +123,7 @@
                 }
             }
 
-            [mEntries addObject:e];
+            [_entries addObject:e];
         }
     }
 
@@ -140,12 +140,12 @@
 
 - (int)entryCount
 {
-    return mEntries.count;
+    return _entries.count;
 }
 
 - (AssetEntry*)entryAt:(int)n
 {
-    return mEntries[n];
+    return _entries[n];
 }
 
 - (void)insertEntry:(AssetEntry *)e
@@ -192,14 +192,14 @@
     Database *db = [Database instance];
 
     [db beginTransaction];
-    while (mEntries.count > 0) {
-        AssetEntry *e = mEntries[0];
+    while (_entries.count > 0) {
+        AssetEntry *e = _entries[0];
         if ([e.transaction.date compare:date] != NSOrderedAscending) {
             break;
         }
 
         [self _deleteEntryAt:0];
-        [mEntries removeObjectAtIndex:0];
+        [_entries removeObjectAtIndex:0];
     }
     [db commitTransaction];
 
@@ -208,8 +208,8 @@
 
 - (int)firstEntryByDate:(NSDate*)date
 {
-    for (int i = 0; i < mEntries.count; i++) {
-        AssetEntry *e = mEntries[i];
+    for (int i = 0; i < _entries.count; i++) {
+        AssetEntry *e = _entries[i];
         if ([e.transaction.date compare:date] != NSOrderedAscending) {
             return i;
         }
@@ -222,11 +222,11 @@
 
 - (double)lastBalance
 {
-    int max = [mEntries count];
+    int max = [_entries count];
     if (max == 0) {
         return self.initialBalance;
     }
-    return [mEntries[max - 1] balance];
+    return [_entries[max - 1] balance];
 }
 
 //

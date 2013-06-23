@@ -10,10 +10,6 @@
 #import "Database.h"
 #import "Config.h"
 
-@interface ReportEntry()
-- (double)_sortAndTotalUp:(NSMutableArray*)array;
-@end
-
 @implementation ReportEntry
 {
     /** 資産キー */

@@ -9,25 +9,15 @@
 #import "InfoVC.h"
 #import "SupportMail.h"
 
-@interface InfoVC()
-- (IBAction)webButtonTapped;
-- (IBAction)facebookButtonTapped:(id)sender;
-- (IBAction)purchaseStandardVersion;
-- (IBAction)sendSupportMail;
-
-- (void)_setButtonTitle:(UIButton*)button title:(NSString*)title;
-- (void)doneAction:(id)sender;
-@end
-
 @implementation InfoVC
 {
-    IBOutlet UILabel *mNameLabel;
-    IBOutlet UILabel *mVersionLabel;
+    IBOutlet UILabel *_nameLabel;
+    IBOutlet UILabel *_versionLabel;
     
-    IBOutlet UIButton *mPurchaseButton;
-    IBOutlet UIButton *mHelpButton;
-    IBOutlet UIButton *mFacebookButton;
-    IBOutlet UIButton *mSendMailButton;
+    IBOutlet UIButton *_purchaseButton;
+    IBOutlet UIButton *_helpButton;
+    IBOutlet UIButton *_facebookButton;
+    IBOutlet UIButton *_sendMailButton;
 }
 
 - (id)init
@@ -58,19 +48,19 @@
 #ifdef FREE_VERSION
     [mNameLabel setText:@"CashFlow Free"];
 #else
-    mPurchaseButton.hidden = YES;
+    _purchaseButton.hidden = YES;
 #endif
 	
     NSString *version = [AppDelegate appVersion];
-    [mVersionLabel setText:[NSString stringWithFormat:@"Version %@", version]];
+    [_versionLabel setText:[NSString stringWithFormat:@"Version %@", version]];
 
-    [self _setButtonTitle:mPurchaseButton
+    [self _setButtonTitle:_purchaseButton
                     title:_L(@"Purchase Standard Version")];
-    [self _setButtonTitle:mHelpButton
+    [self _setButtonTitle:_helpButton
                     title:_L(@"Show help page")];
-    [self _setButtonTitle:mFacebookButton
+    [self _setButtonTitle:_facebookButton
                     title:_L(@"Open facebook page")];
-    [self _setButtonTitle:mSendMailButton
+    [self _setButtonTitle:_sendMailButton
                     title:_L(@"Send support mail")];
 }
 

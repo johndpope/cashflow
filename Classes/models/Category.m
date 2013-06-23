@@ -9,18 +9,17 @@
 #import "AppDelegate.h"
 
 @implementation TCategory
-
 @end
 
 @implementation Categories
 {
-    NSMutableArray *mCategories;
+    NSMutableArray *_categories;
 }
 
 -(id)init
 {
     self = [super init];
-    mCategories = nil;
+    _categories = nil;
 
     return self;
 }
@@ -28,25 +27,25 @@
 
 -(void)reload
 {
-    mCategories = [TCategory find_all:@"ORDER BY sorder"];
+    _categories = [TCategory find_all:@"ORDER BY sorder"];
 }
 
 -(int)count
 {
-    return [mCategories count];
+    return [_categories count];
 }
 
 -(TCategory*)categoryAtIndex:(int)n
 {
     ASSERT(mCategories != nil);
-    return mCategories[n];
+    return _categories[n];
 }
 
 - (int)categoryIndexWithKey:(int)key
 {
-    int i, max = [mCategories count];
+    int i, max = [_categories count];
     for (i = 0; i < max; i++) {
-        TCategory *c = mCategories[i];
+        TCategory *c = _categories[i];
         if (c.pid == key) {
             return i;
         }
@@ -60,7 +59,7 @@
     if (idx < 0) {
         return @"";
     }
-    TCategory *c = mCategories[idx];
+    TCategory *c = _categories[idx];
     return c.name;
 }
 
@@ -68,7 +67,7 @@
 {
     TCategory *c = [[TCategory alloc] init];
     c.name = name;
-    [mCategories addObject:c];
+    [_categories addObject:c];
 
     [self renumber];
 
@@ -83,27 +82,27 @@
 
 -(void)deleteCategoryAtIndex:(int)index
 {
-    TCategory *c = mCategories[index];
+    TCategory *c = _categories[index];
     [c delete];
 
-    [mCategories removeObjectAtIndex:index];
+    [_categories removeObjectAtIndex:index];
 }
 
 - (void)reorderCategory:(int)from to:(int)to
 {
-    TCategory *c = mCategories[from];
-    [mCategories removeObjectAtIndex:from];
-    [mCategories insertObject:c atIndex:to];
+    TCategory *c = _categories[from];
+    [_categories removeObjectAtIndex:from];
+    [_categories insertObject:c atIndex:to];
 	
     [self renumber];
 }
 
 -(void)renumber
 {
-    int i, max = [mCategories count];
+    int i, max = [_categories count];
 
     for (i = 0; i < max; i++) {
-        TCategory *c = mCategories[i];
+        TCategory *c = _categories[i];
         c.sorder = i;
         [c save];
     }

@@ -12,10 +12,6 @@
 #import "Journal.h"
 #import "CashflowDatabase.h"
 
-@interface Journal()
-- (void)_sortByDate;
-@end
-
 @implementation Journal
 
 - (id)init

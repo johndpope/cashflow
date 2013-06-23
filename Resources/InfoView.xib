@@ -323,51 +323,51 @@ b3RvLmNvbS9MdXNoaWs</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mNameLabel</string>
+						<string key="label">_nameLabel</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="959586379"/>
 					</object>
-					<int key="connectionID">25</int>
+					<int key="connectionID">36</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mVersionLabel</string>
+						<string key="label">_versionLabel</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="338173572"/>
 					</object>
-					<int key="connectionID">26</int>
+					<int key="connectionID">37</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mPurchaseButton</string>
+						<string key="label">_purchaseButton</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="19274769"/>
 					</object>
-					<int key="connectionID">27</int>
+					<int key="connectionID">38</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mSendMailButton</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="790257178"/>
-					</object>
-					<int key="connectionID">28</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mHelpButton</string>
+						<string key="label">_helpButton</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="805751871"/>
 					</object>
-					<int key="connectionID">29</int>
+					<int key="connectionID">39</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mFacebookButton</string>
+						<string key="label">_facebookButton</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="172968234"/>
 					</object>
-					<int key="connectionID">35</int>
+					<int key="connectionID">40</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_sendMailButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="790257178"/>
+					</object>
+					<int key="connectionID">41</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -508,7 +508,7 @@ b3RvLmNvbS9MdXNoaWs</string>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">35</int>
+			<int key="maxID">41</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

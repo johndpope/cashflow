@@ -10,10 +10,6 @@
 #import "AppDelegate.h"
 #import "Asset.h"
 
-@interface AssetEntry()
-- (void)_setupTransaction;
-@end
-
 @implementation AssetEntry
 
 - (id)init

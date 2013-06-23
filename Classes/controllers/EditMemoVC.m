@@ -8,10 +8,6 @@
 #import "EditMemoVC.h"
 #import "AppDelegate.h"
 
-@interface EditMemoViewController ()
-- (void)doneAction;
-@end
-
 @implementation EditMemoViewController
 {
     IBOutlet UITextView *_textView;
