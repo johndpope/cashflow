@@ -24,9 +24,6 @@
     DBLoadingView *mLoadingView;
 }
 
-@synthesize firstDate = mFirstDate;
-@synthesize assets = mAssets;
-
 - (NSString *)mailSubject { return nil; }
 - (NSString *)fileName { return nil; }
 - (NSString *)mimeType { return nil; }
