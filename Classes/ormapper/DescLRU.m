@@ -258,7 +258,7 @@
     [stmt bindString:0 val:_description];
     [stmt bindDate:1 val:_lastUse];
     [stmt bindInt:2 val:_category];
-    [stmt bindInt:3 val:mPid];
+    [stmt bindInt:3 val:self.pid];
 
     [stmt step];
     //[db commitTransaction];
@@ -276,7 +276,7 @@
     Database *db = [Database instance];
 
     dbstmt *stmt = [db prepare:@"DELETE FROM DescLRUs WHERE key = ?;"];
-    [stmt bindInt:0 val:mPid];
+    [stmt bindInt:0 val:self.pid];
     [stmt step];
 
     [[Database instance] setModified];
@@ -329,7 +329,7 @@
  */
 - (void)getInsertSql:(NSMutableString *)s
 {
-    [s appendFormat:@"INSERT INTO DescLRUs VALUES(%d", mPid];
+    [s appendFormat:@"INSERT INTO DescLRUs VALUES(%d", self.pid];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:_description]];
     [s appendString:@","];

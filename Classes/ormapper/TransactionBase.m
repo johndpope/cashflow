@@ -432,7 +432,7 @@
     [stmt bindString:6 val:_description];
     [stmt bindString:7 val:_memo];
     [stmt bindString:8 val:_identifier];
-    [stmt bindInt:9 val:mPid];
+    [stmt bindInt:9 val:self.pid];
 
     [stmt step];
     //[db commitTransaction];
@@ -450,7 +450,7 @@
     Database *db = [Database instance];
 
     dbstmt *stmt = [db prepare:@"DELETE FROM Transactions WHERE key = ?;"];
-    [stmt bindInt:0 val:mPid];
+    [stmt bindInt:0 val:self.pid];
     [stmt step];
 
     [[Database instance] setModified];
@@ -509,7 +509,7 @@
  */
 - (void)getInsertSql:(NSMutableString *)s
 {
-    [s appendFormat:@"INSERT INTO Transactions VALUES(%d", mPid];
+    [s appendFormat:@"INSERT INTO Transactions VALUES(%d", self.pid];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%d", _asset]]];
     [s appendString:@","];

@@ -316,7 +316,7 @@
     [stmt bindDouble:2 val:_initialBalance];
     [stmt bindInt:3 val:_sorder];
     [stmt bindString:4 val:_identifier];
-    [stmt bindInt:5 val:mPid];
+    [stmt bindInt:5 val:self.pid];
 
     [stmt step];
     //[db commitTransaction];
@@ -334,7 +334,7 @@
     Database *db = [Database instance];
 
     dbstmt *stmt = [db prepare:@"DELETE FROM Assets WHERE key = ?;"];
-    [stmt bindInt:0 val:mPid];
+    [stmt bindInt:0 val:self.pid];
     [stmt step];
 
     [[Database instance] setModified];
@@ -389,7 +389,7 @@
  */
 - (void)getInsertSql:(NSMutableString *)s
 {
-    [s appendFormat:@"INSERT INTO Assets VALUES(%d", mPid];
+    [s appendFormat:@"INSERT INTO Assets VALUES(%d", self.pid];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:_name]];
     [s appendString:@","];

@@ -229,7 +229,7 @@
         " WHERE key = ?;"];
     [stmt bindString:0 val:_name];
     [stmt bindInt:1 val:_sorder];
-    [stmt bindInt:2 val:mPid];
+    [stmt bindInt:2 val:self.pid];
 
     [stmt step];
     //[db commitTransaction];
@@ -247,7 +247,7 @@
     Database *db = [Database instance];
 
     dbstmt *stmt = [db prepare:@"DELETE FROM Categories WHERE key = ?;"];
-    [stmt bindInt:0 val:mPid];
+    [stmt bindInt:0 val:self.pid];
     [stmt step];
 
     [[Database instance] setModified];
@@ -299,7 +299,7 @@
  */
 - (void)getInsertSql:(NSMutableString *)s
 {
-    [s appendFormat:@"INSERT INTO Categories VALUES(%d", mPid];
+    [s appendFormat:@"INSERT INTO Categories VALUES(%d", self.pid];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:_name]];
     [s appendString:@","];
