@@ -78,7 +78,7 @@
     self = [super init];
     
     mEntries = [[NSMutableArray alloc] init];
-    mType = ASSET_CASH;
+    self.type = ASSET_CASH;
 	
     return self;
 }
@@ -92,7 +92,7 @@
 
     mEntries = [[NSMutableArray alloc] init];
 
-    double balance = mInitialBalance;
+    double balance = self.initialBalance;
 
     AssetEntry *e;
     for (Transaction *t in [DataModel journal]) {
@@ -168,7 +168,7 @@
 {
     // 先頭エントリ削除の場合は、初期残高を変更する
     if (index == 0) {
-        mInitialBalance = [[self entryAt:0] balance];
+        self.initialBalance = [[self entryAt:0] balance];
         [self updateInitialBalance];
     }
 
@@ -224,7 +224,7 @@
 {
     int max = [mEntries count];
     if (max == 0) {
-        return mInitialBalance;
+        return self.initialBalance;
     }
     return [mEntries[max - 1] balance];
 }
