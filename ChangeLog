@@ -1,5 +1,9 @@
 2013-06-23 : Takuya Murakami
 
+	* リファクタリング: メンバ名変更/synthesize削除
+
+2013-06-23 : Takuya Murakami
+
 	* v6.2.0 (v59)
 	* 検索機能追加
 	* armv7s 追加し、-all_load オプション除外
