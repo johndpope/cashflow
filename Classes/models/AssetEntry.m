@@ -16,20 +16,14 @@
 
 @implementation AssetEntry
 
-@synthesize assetKey = mAssetKey;
-@synthesize transaction = mTransaction;
-@synthesize value = mValue;
-@synthesize balance = mBalance;
-
-
 - (id)init
 {
     self = [super init];
 
-    mTransaction = nil;
-    mAssetKey = -1;
-    mValue = 0.0;
-    mBalance = 0.0;
+    _transaction = nil;
+    _assetKey = -1;
+    _value = 0.0;
+    _balance = 0.0;
 
     return self;
 }
@@ -38,20 +32,20 @@
 {
     self = [self init];
 
-    mAssetKey = asset.pid;
+    _assetKey = asset.pid;
     
     if (t == nil) {
         // 新規エントリ生成
-        self.transaction = [Transaction new];
-        mTransaction.asset = self.assetKey;
+        _transaction = [Transaction new];
+        _transaction.asset = self.assetKey;
     }
     else {
-        self.transaction = t;
+        _transaction = t;
 
         if ([self isDstAsset]) {
-            mValue = -t.value;
+            _value = -t.value;
         } else {
-            mValue = t.value;
+            _value = t.value;
         }
     }
 
@@ -63,31 +57,32 @@
 //
 - (BOOL)isDstAsset
 {
-    if (mTransaction.type == TYPE_TRANSFER && mAssetKey == mTransaction.dstAsset) {
+    if (_transaction.type == TYPE_TRANSFER && self.assetKey == _transaction.dstAsset) {
         return YES;
     }
 
     return NO;
 }
 
+// property transaction : read 処理
 - (Transaction *)transaction
 {
     [self _setupTransaction];
-    return mTransaction;
+    return _transaction;
 }
 
 // 値を Transaction に書き戻す
 - (void)_setupTransaction
 {
-    if (mTransaction.type == TYPE_ADJ) {
-        mTransaction.balance = mBalance;
-        mTransaction.hasBalance = YES;
+    if (_transaction.type == TYPE_ADJ) {
+        _transaction.balance = self.balance;
+        _transaction.hasBalance = YES;
     } else {
-        mTransaction.hasBalance = NO;
+        _transaction.hasBalance = NO;
         if ([self isDstAsset]) {
-            mTransaction.value = -mValue;
+            _transaction.value = -self.value;
         } else {
-            mTransaction.value = mValue;
+            _transaction.value = self.value;
         }
     }
 }
@@ -97,21 +92,21 @@
 {
     double ret = 0.0;
 
-    switch (mTransaction.type) {
+    switch (_transaction.type) {
     case TYPE_INCOME:
-        ret = mValue;
+        ret = self.value;
         break;
     case TYPE_OUTGO:
-        ret = -mValue;
+        ret = -self.value;
         break;
     case TYPE_ADJ:
-        ret = mBalance;
+        ret = self.balance;
         break;
     case TYPE_TRANSFER:
         if ([self isDstAsset]) {
-            ret = mValue;
+            ret = self.value;
         } else {
-            ret = -mValue;
+            ret = -self.value;
         }
         break;
     }
@@ -125,21 +120,21 @@
 // 編集値をセット
 - (void)setEvalue:(double)v
 {
-    switch (mTransaction.type) {
+    switch (_transaction.type) {
     case TYPE_INCOME:
-        mValue = v;
+        self.value = v;
         break;
     case TYPE_OUTGO:
-        mValue = -v;
+        self.value = -v;
         break;
     case TYPE_ADJ:
-        mBalance = v;
+        self.balance = v;
         break;
     case TYPE_TRANSFER:
         if ([self isDstAsset]) {
-            mValue = v;
+            self.value = v;
         } else {
-            mValue = -v;
+            self.value = -v;
         }
         break;
     }
@@ -156,14 +151,14 @@
             return NO;
         }
 
-        mTransaction.type = TYPE_TRANSFER;
+        _transaction.type = TYPE_TRANSFER;
         [self setDstAsset:das];
     } else {
         // 資産間移動でない取引に変更した場合、強制的に指定資産の取引に変更する
         double ev = self.evalue;
-        mTransaction.type = type;
-        mTransaction.asset = as;
-        mTransaction.dstAsset = -1;
+        _transaction.type = type;
+        _transaction.asset = as;
+        _transaction.dstAsset = -1;
         self.evalue = ev;
     }
     return YES;
@@ -172,29 +167,29 @@
 // 転送先資産のキーを返す
 - (int)dstAsset
 {
-    if (mTransaction.type != TYPE_TRANSFER) {
+    if (_transaction.type != TYPE_TRANSFER) {
         ASSERT(NO);
         return -1;
     }
 
     if ([self isDstAsset]) {
-        return mTransaction.asset;
+        return _transaction.asset;
     }
 
-    return mTransaction.dstAsset;
+    return _transaction.dstAsset;
 }
 
 - (void)setDstAsset:(int)as
 {
-    if (mTransaction.type != TYPE_TRANSFER) {
+    if (_transaction.type != TYPE_TRANSFER) {
         ASSERT(NO);
         return;
     }
 
     if ([self isDstAsset]) {
-        mTransaction.asset = as;
+        _transaction.asset = as;
     } else {
-        mTransaction.dstAsset = as;
+        _transaction.dstAsset = as;
     }
 }
 
@@ -204,7 +199,7 @@
     e.assetKey = self.assetKey;
     e.value = self.value;
     e.balance = self.balance;
-    e.transaction = [self.transaction copy];
+    e.transaction = [_transaction copy];
 
     return e;
 }

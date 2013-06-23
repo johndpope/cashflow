@@ -17,13 +17,8 @@
 @implementation ReportEntry
 {
     /** 資産キー */
-    int mAssetKey;
+    int _assetKey;
 }
-
-@synthesize start = mStart, end = mEnd;
-@synthesize totalIncome = mTotalIncome, totalOutgo = mTotalOutgo;
-@synthesize maxIncome = mMaxIncome, maxOutgo = mMaxOutgo;
-@synthesize incomeCatReports = mIncomeCatReports, outgoCatReports = mOutgoCatReports;
 
 static int sortCatReport(id x, id y, void *context);
 
@@ -39,19 +34,19 @@ static int sortCatReport(id x, id y, void *context);
     self = [super init];
     if (self == nil) return nil;
 
-    mAssetKey = assetKey;
-    mStart = start;
-    mEnd = end;
+    _assetKey = assetKey;
+    _start = start;
+    _end = end;
 
-    mTotalIncome = 0.0;
-    mTotalOutgo = 0.0;
+    _totalIncome = 0.0;
+    _totalOutgo = 0.0;
 
     // カテゴリ毎のレポート (CatReport) の生成
     Categories *categories = [DataModel instance].categories;
     int numCategories = [categories count];
 
-    mIncomeCatReports = [[NSMutableArray alloc] initWithCapacity:numCategories + 1];
-    mOutgoCatReports  = [[NSMutableArray alloc] initWithCapacity:numCategories + 1];
+    _incomeCatReports = [[NSMutableArray alloc] initWithCapacity:numCategories + 1];
+    _outgoCatReports  = [[NSMutableArray alloc] initWithCapacity:numCategories + 1];
 
     for (int i = -1; i < numCategories; i++) {
         int catkey;
@@ -64,10 +59,10 @@ static int sortCatReport(id x, id y, void *context);
         }
 
         cr = [[CatReport alloc] initWithCategory:catkey withAsset:assetKey];
-        [mIncomeCatReports addObject:cr];
+        [_incomeCatReports addObject:cr];
 
         cr = [[CatReport alloc] initWithCategory:catkey withAsset:assetKey];
-        [mOutgoCatReports addObject:cr];
+        [_outgoCatReports addObject:cr];
     }
 
     return self;
@@ -83,14 +78,14 @@ static int sortCatReport(id x, id y, void *context);
 {
     // 資産 ID チェック
     double value;
-    if (mAssetKey < 0) {
+    if (_assetKey < 0) {
         // 資産指定なしレポートの場合、資産間移動は計上しない
         if (t.type == TYPE_TRANSFER) return YES;
         value = t.value;
-    } else if (t.asset == mAssetKey) {
+    } else if (t.asset == _assetKey) {
         // 通常または移動元
         value = t.value;        
-    } else if (t.dstAsset == mAssetKey) {
+    } else if (t.dstAsset == _assetKey) {
         // 移動先
         value = -t.value;
     } else {
@@ -100,12 +95,12 @@ static int sortCatReport(id x, id y, void *context);
 
     // 日付チェック
     NSComparisonResult cpr;
-    if (mStart) {
-        cpr = [t.date compare:mStart];
+    if (_start) {
+        cpr = [t.date compare:_start];
         if (cpr == NSOrderedAscending) return NO;
     }
-    if (mEnd) {
-        cpr = [t.date compare:mEnd];
+    if (_end) {
+        cpr = [t.date compare:_end];
         if (cpr == NSOrderedSame || cpr == NSOrderedDescending) {
             return NO;
         }
@@ -114,9 +109,9 @@ static int sortCatReport(id x, id y, void *context);
     // 該当カテゴリを検索して追加
     NSMutableArray *ary;
     if (value < 0) {
-        ary = mOutgoCatReports;
+        ary = _outgoCatReports;
     } else {
-        ary = mIncomeCatReports;
+        ary = _incomeCatReports;
     }
     for (CatReport *cr in ary) {
         if (cr.category == t.category) {
@@ -132,18 +127,18 @@ static int sortCatReport(id x, id y, void *context);
 */
 - (void)sortAndTotalUp
 {
-    mTotalIncome = [self _sortAndTotalUp:mIncomeCatReports];
-    mTotalOutgo  = [self _sortAndTotalUp:mOutgoCatReports];
+    _totalIncome = [self _sortAndTotalUp:_incomeCatReports];
+    _totalOutgo  = [self _sortAndTotalUp:_outgoCatReports];
     
-    mMaxIncome = mMaxOutgo = 0;
+    _maxIncome = _maxOutgo = 0;
     CatReport *cr;
-    if ([mIncomeCatReports count] > 0) {
-        cr = mIncomeCatReports[0];
-        mMaxIncome = cr.sum;
+    if ([_incomeCatReports count] > 0) {
+        cr = _incomeCatReports[0];
+        _maxIncome = cr.sum;
     }
-    if ([mOutgoCatReports count] > 0) {
-        cr = mOutgoCatReports[0];
-        mMaxOutgo = cr.sum;
+    if ([_outgoCatReports count] > 0) {
+        cr = _outgoCatReports[0];
+        _maxOutgo = cr.sum;
     }
 }
 

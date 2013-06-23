@@ -10,19 +10,14 @@
 
 @implementation CatReport
 
-@synthesize category = mCategory;
-@synthesize assetKey = mAssetKey;
-@synthesize sum = mSum;
-@synthesize transactions = mTransactions;
-
 - (id)initWithCategory:(int)category withAsset:(int)assetKey
 {
     self = [super init];
     if (self != nil) {
-        mCategory = category;
-        mAssetKey = assetKey;
-        mTransactions = [[NSMutableArray alloc] init];
-        mSum = 0.0;
+        _category = category;
+        _assetKey = assetKey;
+        _transactions = [[NSMutableArray alloc] init];
+        _sum = 0.0;
     }
     return self;
 }
@@ -30,21 +25,21 @@
 
 - (void)addTransaction:(Transaction*)t
 {
-    if (mAssetKey >= 0 && t.dstAsset == mAssetKey) {
-        mSum += -t.value; // 資産間移動の移動先
+    if (self.assetKey >= 0 && t.dstAsset == self.assetKey) {
+        _sum += -t.value; // 資産間移動の移動先
     } else {
-        mSum += t.value;
+        _sum += t.value;
     }
 
-    [mTransactions addObject:t];
+    [_transactions addObject:t];
 }
 
 - (NSString *)title
 {
-    if (mCategory < 0) {
+    if (self.category < 0) {
         return _L(@"No category");
     }
-    return [[DataModel categories] categoryStringWithKey:mCategory];
+    return [[DataModel categories] categoryStringWithKey:self.category];
 }
 
 @end

@@ -29,13 +29,11 @@
     NSDateFormatter *dateFormatter3;
 }
 
-@synthesize needFixDateFormat;
-
 - (id)init
 {
     self = [super init];
     
-    needFixDateFormat = false;
+    _needFixDateFormat = false;
 	
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
@@ -73,7 +71,7 @@
     }
     if (date == nil) {
         // backward compat.
-        needFixDateFormat = true;
+        _needFixDateFormat = true;
         date = [dateFormatter2 dateFromString:str];
 
         if (date == nil) {
