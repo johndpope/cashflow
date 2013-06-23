@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1072</int>
-		<string key="IBDocument.SystemVersion">12B19</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2840</string>
-		<string key="IBDocument.AppKitVersion">1187</string>
-		<string key="IBDocument.HIToolboxVersion">624.00</string>
+		<string key="IBDocument.SystemVersion">12E55</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.39</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1926</string>
+			<string key="NS.object.0">2083</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -33,7 +33,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUITableViewCell" id="721301804">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="707069057">
@@ -45,7 +45,6 @@
 								<int key="NSvFlags">310</int>
 								<string key="NSFrame">{{5, 0}, {190, 16}}</string>
 								<reference key="NSSuperview" ref="707069057"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="366378768"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -80,7 +79,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{10, 10}, {100, 20}}</string>
 								<reference key="NSSuperview" ref="707069057"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="366558858"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -104,7 +102,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{10, 24}, {100, 20}}</string>
 								<reference key="NSSuperview" ref="707069057"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="475838761"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -128,7 +125,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{120, 16}, {170, 10}}</string>
 								<reference key="NSSuperview" ref="707069057"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="495324271"/>
 								<reference key="IBUIBackgroundColor" ref="560227413"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -138,14 +134,12 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{120, 30}, {170, 10}}</string>
 								<reference key="NSSuperview" ref="707069057"/>
-								<reference key="NSWindow"/>
 								<reference key="IBUIBackgroundColor" ref="382544107"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 						</array>
 						<string key="NSFrameSize">{320, 43}</string>
 						<reference key="NSSuperview" ref="721301804"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="867603773"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -159,8 +153,6 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 44}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="707069057"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="707069057"/>
@@ -171,43 +163,43 @@
 			<array class="NSMutableArray" key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mIncomeGraph</string>
-						<reference key="source" ref="721301804"/>
-						<reference key="destination" ref="366558858"/>
-					</object>
-					<int key="connectionID">22</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mIncomeLabel</string>
-						<reference key="source" ref="721301804"/>
-						<reference key="destination" ref="366378768"/>
-					</object>
-					<int key="connectionID">23</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mNameLabel</string>
+						<string key="label">_nameLabel</string>
 						<reference key="source" ref="721301804"/>
 						<reference key="destination" ref="867603773"/>
 					</object>
-					<int key="connectionID">24</int>
+					<int key="connectionID">28</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mOutgoGraph</string>
+						<string key="label">_incomeLabel</string>
 						<reference key="source" ref="721301804"/>
-						<reference key="destination" ref="475838761"/>
+						<reference key="destination" ref="366378768"/>
 					</object>
-					<int key="connectionID">25</int>
+					<int key="connectionID">29</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mOutgoLabel</string>
+						<string key="label">_outgoLabel</string>
 						<reference key="source" ref="721301804"/>
 						<reference key="destination" ref="495324271"/>
 					</object>
-					<int key="connectionID">26</int>
+					<int key="connectionID">30</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_incomeGraph</string>
+						<reference key="source" ref="721301804"/>
+						<reference key="destination" ref="366558858"/>
+					</object>
+					<int key="connectionID">31</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_outgoGraph</string>
+						<reference key="source" ref="721301804"/>
+						<reference key="destination" ref="475838761"/>
+					</object>
+					<int key="connectionID">32</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -285,7 +277,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">27</int>
+			<int key="maxID">32</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -311,6 +303,6 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">1926</string>
+		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>

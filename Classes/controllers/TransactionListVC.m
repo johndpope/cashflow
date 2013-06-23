@@ -30,37 +30,33 @@
 
 @implementation TransactionListViewController
 {
-    IBOutlet UITableView *mTableView;
-    IBOutlet UIBarButtonItem *mBarBalanceLabel;
-    IBOutlet UIBarButtonItem *mBarActionButton;
-    IBOutlet UIToolbar *mToolbar;
+    IBOutlet UITableView *_tableView;
+    IBOutlet UIBarButtonItem *_barBalanceLabel;
+    IBOutlet UIBarButtonItem *_barActionButton;
+    IBOutlet UIToolbar *_toolbar;
     
-    int mAssetKey;
-    //Asset *mAssetCache;
+    int _assetKey;
     
 #if FREE_VERSION
-    AdManager *mAdManager;
+    AdManager *_adManager;
 #endif
     
-    BOOL mAsDisplaying;
-    UIPopoverController *mPopoverController;
+    BOOL _asDisplaying;
+    UIPopoverController *_popoverController;
 }
-
-@synthesize tableView = mTableView;
-@synthesize assetKey = mAssetKey;
 
 - (id)init
 {
     self = [super initWithNibName:@"TransactionListView" bundle:nil];
     if (self) {
-        mAssetKey = -1;
+        _assetKey = -1;
     }
     return self;
 }
 
 - (Asset *)asset
 {
-    if (mAssetKey < 0) {
+    if (_assetKey < 0) {
         return nil;
     }
     
@@ -72,7 +68,7 @@
     mAssetCache = [[[DataModel instance] ledger] assetWithKey:mAssetKey];
     return mAssetCache;
 #endif
-    return  [[[DataModel instance] ledger] assetWithKey:mAssetKey];
+    return  [[[DataModel instance] ledger] assetWithKey:_assetKey];
 }
 
 - (void)viewDidLoad
@@ -103,11 +99,11 @@
     // TBD
     //self.navigationItem.leftBarButtonItem = [self editButtonItem];
 	
-    mAsDisplaying = NO;
+    _asDisplaying = NO;
 
 #if FREE_VERSION
-    mAdManager = [AdManager sharedInstance];
-    [mAdManager attach:self rootViewController:self];
+    _adManager = [AdManager sharedInstance];
+    [_adManager attach:self rootViewController:self];
 #endif
 }
 
@@ -117,7 +113,7 @@
     [super viewDidUnload];
 
 #if FREE_VERSION
-    [mAdManager detach];
+    [_adManager detach];
 #endif
 }
 
@@ -128,7 +124,7 @@
 - (void)dealloc {
     
 #if FREE_VERSION
-    [mAdManager detach];
+    [_adManager detach];
 #endif
     
 }
@@ -150,17 +146,17 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    mPopoverController = nil;
+    _popoverController = nil;
 }
 
 - (void)_dismissPopover
 {
     if (IS_IPAD
-        && mPopoverController != nil
-        && [mPopoverController isPopoverVisible]
-        && mTableView != nil && mTableView.window != nil /* for crash problem */)
+        && _popoverController != nil
+        && [_popoverController isPopoverVisible]
+        && _tableView != nil && _tableView.window != nil /* for crash problem */)
     {
-        [mPopoverController dismissPopoverAnimated:YES];
+        [_popoverController dismissPopoverAnimated:YES];
     }
 }
 
@@ -173,7 +169,7 @@
     
 #if FREE_VERSION
     // 表示開始
-    [mAdManager showAd];
+    [_adManager showAd];
 #endif
 }
 
@@ -183,7 +179,7 @@
  */
 - (void)adManager:(AdManager *)adManager setAd:(UIView *)adView adSize:(CGSize)adSize
 {
-    CGRect frame = mTableView.bounds;
+    CGRect frame = _tableView.bounds;
 
     // 広告の位置を画面外に設定
     CGRect aframe = frame;
@@ -194,7 +190,7 @@
     adView.frame = aframe;
     adView.hidden = YES;
     [self.view addSubview:adView];
-    [self.view bringSubviewToFront:mToolbar];
+    [self.view bringSubviewToFront:_toolbar];
 }
 
 /**
@@ -202,14 +198,14 @@
  */
 - (void)adManager:(AdManager *)adManager showAd:(UIView *)adView adSize:(CGSize)adSize
 {
-    CGRect frame = mTableView.bounds;
+    CGRect frame = _tableView.bounds;
 
     // 広告領域分だけ、tableView の下部をあける
     CGRect tframe = frame;
     tframe.origin.x = 0;
     tframe.origin.y = 0;
     tframe.size.height -= adSize.height;
-    mTableView.frame = tframe;
+    _tableView.frame = tframe;
 
     // 広告の位置
     CGRect aframe = frame;
@@ -231,13 +227,13 @@
 {
     adView.hidden = YES;
     
-    CGRect frame = mTableView.bounds;
+    CGRect frame = _tableView.bounds;
         
     // tableView のサイズをもとに戻す
     frame.origin.x = 0;
     frame.origin.y = 0;
     frame.size.height += adSize.height;
-    mTableView.frame = frame;
+    _tableView.frame = frame;
     
     // 広告の位置
     CGRect aframe = frame;
@@ -272,7 +268,7 @@
     tableTitle.text = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), bstr];
 #endif
 	
-    mBarBalanceLabel.title = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), bstr];
+    _barBalanceLabel.title = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), bstr];
     
     if (IS_IPAD) {
         [self.splitAssetListViewController reload];
@@ -304,7 +300,7 @@
 
 - (CGFloat)tableView:(UITableView *)tv heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return mTableView.rowHeight;
+    return _tableView.rowHeight;
 }
 
 // 指定セル位置に該当する entry Index を返す
@@ -383,9 +379,9 @@
             [self presentModalViewController:nv animated:YES];
         } else {
             [self _dismissPopover];
-            mPopoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
-            mPopoverController.delegate = self;
-            [mPopoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
+            _popoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
+            _popoverController.delegate = self;
+            [_popoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
     } else if (idx >= 0) {
@@ -434,7 +430,7 @@
     [super setEditing:editing animated:animated];
 	
     // tableView に通知
-    [mTableView setEditing:editing animated:animated];
+    [_tableView setEditing:editing animated:animated];
 	
     if (editing) {
         self.navigationItem.rightBarButtonItem.enabled = NO;
@@ -505,8 +501,8 @@
 // action sheet
 - (void)doAction:(id)sender
 {
-    if (mAsDisplaying) return;
-    mAsDisplaying = YES;
+    if (_asDisplaying) return;
+    _asDisplaying = YES;
     
     UIActionSheet *as = 
         [[UIActionSheet alloc]
@@ -521,7 +517,7 @@
          _L(@"Info"),
          nil];
     if (IS_IPAD) {
-        [as showFromBarButtonItem:mBarActionButton animated:YES];
+        [as showFromBarButtonItem:_barActionButton animated:YES];
     } else {
         [as showInView:[self view]];
     }
@@ -537,7 +533,7 @@
     UIViewController *vc;
     UIModalPresentationStyle modalPresentationStyle = UIModalPresentationFormSheet;
     
-    mAsDisplaying = NO;
+    _asDisplaying = NO;
     
     switch (buttonIndex) {
         case 0:
@@ -619,7 +615,7 @@
     // が競合してしまう。
     [self _dismissPopover];
     
-    mPopoverController = pc;
+    _popoverController = pc;
 }
 
 
@@ -701,7 +697,7 @@
     self.searchResults = nil;
     
     // 検索中にデータが変更されるケースがあるので、ここで reload する
-    [mTableView reloadData];
+    [_tableView reloadData];
 }
 
 @end

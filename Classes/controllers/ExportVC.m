@@ -14,19 +14,17 @@
 
 @implementation ExportVC
 {
-    IBOutlet UIButton *mExportButton;
-    IBOutlet UISegmentedControl *mFormatControl;
-    IBOutlet UISegmentedControl *mRangeControl;
-    IBOutlet UISegmentedControl *mMethodControl;
-    IBOutlet UILabel *mFormatLabel;
-    IBOutlet UILabel *mRangeLabel;
-    IBOutlet UILabel *mMethodLabel;
+    IBOutlet UIButton *_exportButton;
+    IBOutlet UISegmentedControl *_formatControl;
+    IBOutlet UISegmentedControl *_rangeControl;
+    IBOutlet UISegmentedControl *_methodControl;
+    IBOutlet UILabel *_formatLabel;
+    IBOutlet UILabel *_rangeLabel;
+    IBOutlet UILabel *_methodLabel;
 
-    ExportCsv *mCsv;
-    ExportOfx *mOfx;
+    ExportCsv *_csv;
+    ExportOfx *_ofx;
 }
-
-@synthesize asset = mAsset;
 
 - (id)initWithAsset:(Asset *)as
 {
@@ -45,25 +43,25 @@
     // Localization
     [self setTitle:_L(@"Export")];
 
-    mFormatLabel.text = _L(@"Data format");
-    [mFormatControl setTitle:_L(@"OFX") forSegmentAtIndex:1];
+    _formatLabel.text = _L(@"Data format");
+    [_formatControl setTitle:_L(@"OFX") forSegmentAtIndex:1];
 
-    mRangeLabel.text = _L(@"Export data within");
-    [mRangeControl setTitle:_L(@"7 days") forSegmentAtIndex:0];
-    [mRangeControl setTitle:_L(@"30 days") forSegmentAtIndex:1];
-    [mRangeControl setTitle:_L(@"90 days") forSegmentAtIndex:2];
-    [mRangeControl setTitle:_L(@"All") forSegmentAtIndex:3];
+    _rangeLabel.text = _L(@"Export data within");
+    [_rangeControl setTitle:_L(@"7 days") forSegmentAtIndex:0];
+    [_rangeControl setTitle:_L(@"30 days") forSegmentAtIndex:1];
+    [_rangeControl setTitle:_L(@"90 days") forSegmentAtIndex:2];
+    [_rangeControl setTitle:_L(@"All") forSegmentAtIndex:3];
     
-    mMethodLabel.text = _L(@"Export method");
-    [mMethodControl setTitle:_L(@"Mail") forSegmentAtIndex:0];
+    _methodLabel.text = _L(@"Export method");
+    [_methodControl setTitle:_L(@"Mail") forSegmentAtIndex:0];
     
     NSString *exportString = _L(@"Export");
-    [mExportButton setTitle:exportString forState:UIControlStateNormal];
-    [mExportButton setTitle:exportString forState:UIControlStateHighlighted];
+    [_exportButton setTitle:exportString forState:UIControlStateNormal];
+    [_exportButton setTitle:exportString forState:UIControlStateHighlighted];
 
     UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
-    [mExportButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [mExportButton setBackgroundImage:bg forState:UIControlStateNormal];
+    [_exportButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_exportButton setBackgroundImage:bg forState:UIControlStateNormal];
 	
 #ifdef FREE_VERSION
 //    formatLabel.hidden = YES;
@@ -76,9 +74,9 @@
 
     // load defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    mFormatControl.selectedSegmentIndex = [defaults integerForKey:@"exportFormat"];
-    mRangeControl.selectedSegmentIndex = [defaults integerForKey:@"exportRange"];
-    mMethodControl.selectedSegmentIndex = [defaults integerForKey:@"exportMethod"];	
+    _formatControl.selectedSegmentIndex = [defaults integerForKey:@"exportFormat"];
+    _rangeControl.selectedSegmentIndex = [defaults integerForKey:@"exportRange"];
+    _methodControl.selectedSegmentIndex = [defaults integerForKey:@"exportMethod"];	
 
     self.navigationItem.rightBarButtonItem =
         [[UIBarButtonItem alloc]
@@ -103,11 +101,11 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    [defaults setObject:@(mFormatControl.selectedSegmentIndex) 
+    [defaults setObject:@(_formatControl.selectedSegmentIndex) 
               forKey:@"exportFormat"];
-    [defaults setObject:@(mRangeControl.selectedSegmentIndex) 
+    [defaults setObject:@(_rangeControl.selectedSegmentIndex) 
               forKey:@"exportRange"];
-    [defaults setObject:@(mMethodControl.selectedSegmentIndex) 
+    [defaults setObject:@(_methodControl.selectedSegmentIndex) 
               forKey:@"exportMethod"];
     [defaults synchronize];
 }
@@ -117,7 +115,7 @@
     //[[DataModel instance] saveToStorage]; // for safety...
 	
     int range;
-    switch (mRangeControl.selectedSegmentIndex) {
+    switch (_rangeControl.selectedSegmentIndex) {
     case 0:
         range = 7;
         break;
@@ -143,35 +141,35 @@
     UIAlertView *v;
     
     NSArray *assets;
-    if (mAsset != nil) {
-        assets = @[mAsset];
+    if (_asset != nil) {
+        assets = @[_asset];
     } else {
         assets = [DataModel instance].ledger.assets;
     }
 
-    switch (mFormatControl.selectedSegmentIndex) {
+    switch (_formatControl.selectedSegmentIndex) {
         case 0:
         default:
-            if (mCsv == nil) {
-                mCsv = [[ExportCsv alloc] init];
+            if (_csv == nil) {
+                _csv = [[ExportCsv alloc] init];
             }
-            mCsv.assets = assets;
-            ex = mCsv;
+            _csv.assets = assets;
+            ex = _csv;
             break;
 
         case 1:
-            if (mOfx == nil) {
-                mOfx = [[ExportOfx alloc] init];
+            if (_ofx == nil) {
+                _ofx = [[ExportOfx alloc] init];
             }
-            mOfx.assets = assets;
-            ex = mOfx;
+            _ofx.assets = assets;
+            ex = _ofx;
             break;
     }
     ex.firstDate = date;
 
 	NSError *error = nil;
     
-    switch (mMethodControl.selectedSegmentIndex) {
+    switch (_methodControl.selectedSegmentIndex) {
         case 0:
         default:
             result = [ex sendMail:self error:&error];

@@ -10,15 +10,10 @@
 
 #define CELL_HEIGHT     120   /* iOS, not retina */
 
-@interface ReportCatGraphCell()
-- (void)_drawCircleGraph:(CGContextRef)context;
-- (void)_drawLegend:(CGContextRef)context;
-@end
-
 @implementation ReportCatGraphCell
 {
-    double mTotal;
-    NSMutableArray *mCatReports;
+    double _total;
+    NSMutableArray *_catReports;
 }
 
 + (ReportCatGraphCell *)reportCatGraphCell:(UITableView *)tableView
@@ -47,14 +42,14 @@
 
     if (isOutgo) {
         ary = reportEntry.outgoCatReports;
-        mTotal = reportEntry.totalOutgo;
+        _total = reportEntry.totalOutgo;
     } else {
         ary = reportEntry.incomeCatReports;
-        mTotal = reportEntry.totalIncome;
+        _total = reportEntry.totalIncome;
     }
 
-    if (mCatReports != ary) {
-        mCatReports = ary;
+    if (_catReports != ary) {
+        _catReports = ary;
     }
     
     // force redraw the cell
@@ -101,13 +96,13 @@ static inline double radians(double deg)
     double sum = 0.0, prev = 0.0;
     int n = -1;
 
-    for (CatReport *cr in mCatReports) {
+    for (CatReport *cr in _catReports) {
         n++;
         sum += cr.sum;
 
         // context, x, y, R, start rad, end rad, direction
-        double start_rad = radians(-90 + prev / mTotal * 360);
-        double end_rad   = radians(-90 + sum  / mTotal * 360);
+        double start_rad = radians(-90 + prev / _total * 360);
+        double end_rad   = radians(-90 + sum  / _total * 360);
 
         // 色設定
         UIColor *color = [ReportCatGraphCell getGraphColor:n];
@@ -132,7 +127,7 @@ static inline double radians(double deg)
     double width = self.frame.size.width;
 
     int n = -1;
-    for (CatReport *cr in mCatReports) {
+    for (CatReport *cr in _catReports) {
         n++;
         if (n >= 8) break;
 
@@ -151,7 +146,7 @@ static inline double radians(double deg)
     UIFont *font = [UIFont systemFontOfSize:9];
     
     n = -1;
-    for (CatReport *cr in mCatReports) {
+    for (CatReport *cr in _catReports) {
         n++;
 
         // 文字を描画

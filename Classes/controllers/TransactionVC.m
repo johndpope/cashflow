@@ -13,42 +13,29 @@
 // private methods
 @interface TransactionViewController()
 {
-    IBOutlet UITableView *mTableView;
+    IBOutlet UITableView *_tableView;
     
-    int mTransactionIndex;
-    AssetEntry *mEditingEntry;
-    Asset *__unsafe_unretained mAsset;
+    IBOutlet UIButton *_delButton;
+    IBOutlet UIButton *_delPastButton;
+    IBOutlet UIView *_rememberDateView;
+    IBOutlet UILabel *_rememberDateLabel;
+    IBOutlet UISwitch *_rememberDateSwitch;
 
-    BOOL mIsModified;
+    int _transactionIndex;
 
-    NSArray *mTypeArray;
+    BOOL _isModified;
+
+    NSArray *_typeArray;
 	
-    IBOutlet UIButton *mDelButton;
-    IBOutlet UIButton *mDelPastButton;
-    IBOutlet UIView *mRememberDateView;
-    IBOutlet UILabel *mRememberDateLabel;
-    IBOutlet UISwitch *mRememberDateSwitch;
-
-    UIActionSheet *mAsDelPast;
-    UIActionSheet *mAsCancelTransaction;
+    UIActionSheet *_asDelPast;
+    UIActionSheet *_asCancelTransaction;
     
-    UIPopoverController *mCurrentPopoverController;
+    UIPopoverController *_currentPopoverController;
 }
 
-- (void)_asDelPast:(int)buttonIndex;
-- (void)_asCancelTransaction:(int)buttonIndex;
-
-- (UITableViewCell *)getCellForField:(NSIndexPath*)indexPath tableView:(UITableView *)tableView;
-- (void)_dismissPopover;
-
-//- (void)checkLastUsedDate:(NSDate *)date;
 @end
 
 @implementation TransactionViewController
-
-@synthesize tableView = mTableView;
-@synthesize editingEntry = mEditingEntry;
-@synthesize asset = mAsset;
 
 #define ROW_DATE  0
 #define ROW_TYPE  1
@@ -74,7 +61,7 @@
     
     //[AppDelegate trackPageview:@"/TransactionViewController"];
     
-    mIsModified = NO;
+    _isModified = NO;
 
     self.title = _L(@"Transaction");
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
@@ -86,36 +73,36 @@
                                                   target:self
                                                   action:@selector(cancelAction)];
 
-    mTypeArray = @[_L(@"Payment"),
+    _typeArray = @[_L(@"Payment"),
                                  _L(@"Deposit"),
                                  _L(@"Adjustment"),
                                  _L(@"Transfer")];
     
-    [mRememberDateLabel setText:_L(@"Remember Date")];
+    [_rememberDateLabel setText:_L(@"Remember Date")];
     
     if ([self isNewTransaction]) {
         // 日付記憶関連処理
-        [mRememberDateSwitch setOn:[Transaction hasLastUsedDate]];
+        [_rememberDateSwitch setOn:[Transaction hasLastUsedDate]];
     }
     
     // 削除ボタンの背景と位置調整
     UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
     
-    [mDelButton setBackgroundImage:bg forState:UIControlStateNormal];
-    [mDelPastButton setBackgroundImage:bg forState:UIControlStateNormal];
+    [_delButton setBackgroundImage:bg forState:UIControlStateNormal];
+    [_delPastButton setBackgroundImage:bg forState:UIControlStateNormal];
     
-    [mDelButton setTitle:_L(@"Delete transaction") forState:UIControlStateNormal];
-    [mDelPastButton setTitle:_L(@"Delete with all past transactions") forState:UIControlStateNormal];
+    [_delButton setTitle:_L(@"Delete transaction") forState:UIControlStateNormal];
+    [_delPastButton setTitle:_L(@"Delete with all past transactions") forState:UIControlStateNormal];
     
     if (IS_IPAD) {
         CGRect rect;
-        rect = mDelButton.frame;
+        rect = _delButton.frame;
         rect.origin.y += 100;
-        mDelButton.frame = rect;
+        _delButton.frame = rect;
 
-        rect = mDelPastButton.frame;
+        rect = _delPastButton.frame;
         rect.origin.y += 120;
-        mDelPastButton.frame = rect;
+        _delPastButton.frame = rect;
     }
 
     /*
@@ -164,23 +151,23 @@
 // 処理するトランザクションをロードしておく
 - (void)setTransactionIndex:(int)n
 {
-    mTransactionIndex = n;
+    _transactionIndex = n;
 
     self.editingEntry = nil;
 
-    if (mTransactionIndex < 0) {
+    if (_transactionIndex < 0) {
         // 新規トランザクション
-        self.editingEntry = [[AssetEntry alloc] initWithTransaction:nil withAsset:mAsset];
+        self.editingEntry = [[AssetEntry alloc] initWithTransaction:nil withAsset:_asset];
     } else {
         // 変更
-        AssetEntry *orig = [mAsset entryAt:mTransactionIndex];
+        AssetEntry *orig = [_asset entryAt:_transactionIndex];
         self.editingEntry = [orig copy];
     }
 }
 
 - (BOOL)isNewTransaction
 {
-    return (mTransactionIndex < 0);
+    return (_transactionIndex < 0);
 }
 
 // 表示前の処理
@@ -190,10 +177,10 @@
     
     BOOL isNewTransaction = [self isNewTransaction];
 	
-    mDelButton.hidden = isNewTransaction;
-    mDelPastButton.hidden = isNewTransaction;
+    _delButton.hidden = isNewTransaction;
+    _delPastButton.hidden = isNewTransaction;
 	
-	mRememberDateView.hidden = !isNewTransaction;
+	_rememberDateView.hidden = !isNewTransaction;
 
     [[self tableView] reloadData];
 }
@@ -207,7 +194,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self _dismissPopover];
+    [self dismissPopover];
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -252,33 +239,33 @@
     switch (indexPath.row) {
     case ROW_DATE:
         name.text = _L(@"Date");
-        value.text = [[DataModel dateFormatter] stringFromDate:mEditingEntry.transaction.date];
+        value.text = [[DataModel dateFormatter] stringFromDate:_editingEntry.transaction.date];
         break;
 
     case ROW_TYPE:
         name.text = _L(@"Type"); // @"Transaction type"
-        value.text = mTypeArray[mEditingEntry.transaction.type];
+        value.text = _typeArray[_editingEntry.transaction.type];
         break;
 		
     case ROW_VALUE:
         name.text = _L(@"Amount");
-        evalue = mEditingEntry.evalue;
+        evalue = _editingEntry.evalue;
         value.text = [CurrencyManager formatCurrency:evalue];
         break;
 		
     case ROW_DESC:
         name.text = _L(@"Name");
-        value.text = mEditingEntry.transaction.description;
+        value.text = _editingEntry.transaction.description;
         break;
 			
     case ROW_CATEGORY:
         name.text = _L(@"Category");
-        value.text = [[DataModel categories] categoryStringWithKey:mEditingEntry.transaction.category];
+        value.text = [[DataModel categories] categoryStringWithKey:_editingEntry.transaction.category];
         break;
 			
     case ROW_MEMO:
         name.text = _L(@"Memo");
-        value.text = mEditingEntry.transaction.memo;
+        value.text = _editingEntry.transaction.memo;
         break;
     }
 
@@ -309,13 +296,13 @@
         case ROW_DATE:
             if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
                 CalendarViewController *calendarVc = [CalendarViewController new];
-                calendarVc.selectedDate = mEditingEntry.transaction.date;
+                calendarVc.selectedDate = _editingEntry.transaction.date;
                 [calendarVc setCalendarViewControllerDelegate:self];
                 vc = calendarVc;
             } else {
                 EditDateViewController *editDateVC = [[EditDateViewController alloc] init];
                 editDateVC.delegate = self;
-                editDateVC.date = mEditingEntry.transaction.date;
+                editDateVC.date = _editingEntry.transaction.date;
                 vc = editDateVC;
             }
             break;
@@ -323,23 +310,23 @@
         case ROW_TYPE:
             editTypeVC = [[EditTypeViewController alloc] init];
             editTypeVC.delegate = self;
-            editTypeVC.type = mEditingEntry.transaction.type;
-            editTypeVC.dstAsset = [mEditingEntry dstAsset];
+            editTypeVC.type = _editingEntry.transaction.type;
+            editTypeVC.dstAsset = [_editingEntry dstAsset];
             vc = editTypeVC;
             break;
 
         case ROW_VALUE:
             calcVC = [[CalculatorViewController alloc] init];
             calcVC.delegate = self;
-            calcVC.value = mEditingEntry.evalue;
+            calcVC.value = _editingEntry.evalue;
             vc = calcVC;
             break;
 
         case ROW_DESC:
             editDescVC = [[EditDescViewController alloc] init];
             editDescVC.delegate = self;
-            editDescVC.description = mEditingEntry.transaction.description;
-            editDescVC.category = mEditingEntry.transaction.category;
+            editDescVC.description = _editingEntry.transaction.description;
+            editDescVC.category = _editingEntry.transaction.category;
             vc = editDescVC;
             break;
 
@@ -348,7 +335,7 @@
                           editMemoViewController:self
                           title:_L(@"Memo") 
                           identifier:0];
-            editMemoVC.text = mEditingEntry.transaction.memo;
+            editMemoVC.text = _editingEntry.transaction.memo;
             vc = editMemoVC;
             break;
 
@@ -356,7 +343,7 @@
             editCategoryVC = [[CategoryListViewController alloc] init];
             editCategoryVC.isSelectMode = YES;
             editCategoryVC.delegate = self;
-            editCategoryVC.selectedIndex = [[DataModel categories] categoryIndexWithKey:mEditingEntry.transaction.category];
+            editCategoryVC.selectedIndex = [[DataModel categories] categoryIndexWithKey:_editingEntry.transaction.category];
             vc = editCategoryVC;
             break;
     }
@@ -364,12 +351,12 @@
     if (IS_IPAD) { // TBD
         nc = [[UINavigationController alloc] initWithRootViewController:vc];
         
-        mCurrentPopoverController = [[UIPopoverController alloc] initWithContentViewController:nc];
-        mCurrentPopoverController.delegate = self;
+        _currentPopoverController = [[UIPopoverController alloc] initWithContentViewController:nc];
+        _currentPopoverController.delegate = self;
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         CGRect rect = cell.frame;
-        [mCurrentPopoverController presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        [_currentPopoverController presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     } else {
         [nc pushViewController:vc animated:YES];
     }
@@ -377,18 +364,18 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    if (IS_IPAD && mCurrentPopoverController != nil) {
-        mCurrentPopoverController = nil;
+    if (IS_IPAD && _currentPopoverController != nil) {
+        _currentPopoverController = nil;
     }
 }
 
-- (void)_dismissPopover
+- (void)dismissPopover
 {
     if (IS_IPAD) {
-        if (mCurrentPopoverController != nil
-            && [mCurrentPopoverController isPopoverVisible]
+        if (_currentPopoverController != nil
+            && [_currentPopoverController isPopoverVisible]
             && self.view != nil && self.view.window != nil /* for crash problem */) {
-            [mCurrentPopoverController dismissPopoverAnimated:YES];
+            [_currentPopoverController dismissPopoverAnimated:YES];
         }
         [self.tableView reloadData];
     }
@@ -402,12 +389,12 @@
 {
     if (aDate == nil) return; // do nothing (Clear button)
     
-    mIsModified = YES;
-    mEditingEntry.transaction.date = aDate;
+    _isModified = YES;
+    _editingEntry.transaction.date = aDate;
     //[self checkLastUsedDate:aDate];
 
     if (IS_IPAD) {
-        [self _dismissPopover];
+        [self dismissPopover];
     }
     // Si-Calendar は、選択時に自動で View を閉じない仕様なので、ここで閉じる
     [aCalendarViewController.navigationController popViewControllerAnimated:YES];
@@ -415,12 +402,12 @@
 
 - (void)editDateViewChanged:(EditDateViewController *)vc
 {
-    mIsModified = YES;
+    _isModified = YES;
 
-    mEditingEntry.transaction.date = vc.date;
+    _editingEntry.transaction.date = vc.date;
     //[self checkLastUsedDate:vc.date];
     
-    [self _dismissPopover];
+    [self dismissPopover];
 }
 
 // 入力した日付が現在時刻から離れている場合のみ、日付を記憶
@@ -439,28 +426,28 @@
 
 - (void)editTypeViewChanged:(EditTypeViewController*)vc
 {
-    mIsModified = YES;
+    _isModified = YES;
 
     // autoPop == NO なので、自分で pop する
     [self.navigationController popToViewController:self animated:YES];
 
-    if (![mEditingEntry changeType:vc.type assetKey:mAsset.pid dstAssetKey:vc.dstAsset]) {
+    if (![_editingEntry changeType:vc.type assetKey:_asset.pid dstAssetKey:vc.dstAsset]) {
         return;
     }
 
-    switch (mEditingEntry.transaction.type) {
+    switch (_editingEntry.transaction.type) {
     case TYPE_ADJ:
-        mEditingEntry.transaction.description = mTypeArray[mEditingEntry.transaction.type];
+        _editingEntry.transaction.description = _typeArray[_editingEntry.transaction.type];
         break;
 
     case TYPE_TRANSFER:
         {
             Asset *from, *to;
             Ledger *ledger = [DataModel ledger];
-            from = [ledger assetWithKey:mEditingEntry.transaction.asset];
-            to = [ledger assetWithKey:mEditingEntry.transaction.dstAsset];
+            from = [ledger assetWithKey:_editingEntry.transaction.asset];
+            to = [ledger assetWithKey:_editingEntry.transaction.dstAsset];
 
-            mEditingEntry.transaction.description = 
+            _editingEntry.transaction.description = 
                 [NSString stringWithFormat:@"%@/%@", from.name, to.name];
         }
         break;
@@ -469,55 +456,55 @@
         break;
     }
 
-    [self _dismissPopover];
+    [self dismissPopover];
 }
 
 - (void)calculatorViewChanged:(CalculatorViewController *)vc
 {
-    mIsModified = YES;
+    _isModified = YES;
 
-    [mEditingEntry setEvalue:vc.value];
-    [self _dismissPopover];
+    [_editingEntry setEvalue:vc.value];
+    [self dismissPopover];
 }
 
 - (void)editDescViewChanged:(EditDescViewController *)vc
 {
-    mIsModified = YES;
+    _isModified = YES;
 
-    mEditingEntry.transaction.description = vc.description;
+    _editingEntry.transaction.description = vc.description;
 
-    if (mEditingEntry.transaction.category < 0) {
+    if (_editingEntry.transaction.category < 0) {
         // set category from description
-        mEditingEntry.transaction.category = [[DataModel instance] categoryWithDescription:mEditingEntry.transaction.description];
+        _editingEntry.transaction.category = [[DataModel instance] categoryWithDescription:_editingEntry.transaction.description];
     }
-    [self _dismissPopover];
+    [self dismissPopover];
 }
 
 - (void)editMemoViewChanged:(EditMemoViewController*)vc identifier:(int)id
 {
-    mIsModified = YES;
+    _isModified = YES;
 
-    mEditingEntry.transaction.memo = vc.text;
-    [self _dismissPopover];
+    _editingEntry.transaction.memo = vc.text;
+    [self dismissPopover];
 }
 
 - (void)categoryListViewChanged:(CategoryListViewController*)vc;
 {
-    mIsModified = YES;
+    _isModified = YES;
 
     if (vc.selectedIndex < 0) {
-        mEditingEntry.transaction.category = -1;
+        _editingEntry.transaction.category = -1;
     } else {
         TCategory *c = [[DataModel categories] categoryAtIndex:vc.selectedIndex];
-        mEditingEntry.transaction.category = c.pid;
+        _editingEntry.transaction.category = c.pid;
     }
-    [self _dismissPopover];
+    [self dismissPopover];
 }
 
 - (IBAction)rememberLastUsedDateChanged:(id)view
 {
-    if ([mRememberDateSwitch isOn]) {
-        [Transaction setLastUsedDate:mEditingEntry.transaction.date];
+    if ([_rememberDateSwitch isOn]) {
+        [Transaction setLastUsedDate:_editingEntry.transaction.date];
     } else {
         [Transaction setLastUsedDate:nil];
     }
@@ -530,7 +517,7 @@
 
 - (IBAction)delButtonTapped:(id)sender
 {
-    [mAsset deleteEntryAt:mTransactionIndex];
+    [_asset deleteEntryAt:_transactionIndex];
     self.editingEntry = nil;
 	
     [self.navigationController popViewControllerAnimated:YES];
@@ -538,25 +525,25 @@
 
 - (IBAction)delPastButtonTapped:(id)sender
 {
-    mAsDelPast = [[UIActionSheet alloc]
+    _asDelPast = [[UIActionSheet alloc]
                     initWithTitle:nil delegate:self
                     cancelButtonTitle:@"Cancel"
                     destructiveButtonTitle:_L(@"Delete with all past transactions")
                     otherButtonTitles:nil];
-    mAsDelPast.actionSheetStyle = UIActionSheetStyleDefault;
-    [mAsDelPast showInView:self.view];
+    _asDelPast.actionSheetStyle = UIActionSheetStyleDefault;
+    [_asDelPast showInView:self.view];
 }
 
-- (void)_asDelPast:(NSInteger)buttonIndex
+- (void)asDelPast:(NSInteger)buttonIndex
 {
     if (buttonIndex != 0) {
          return; // cancelled;
     }
 
-    AssetEntry *e = [mAsset entryAt:mTransactionIndex];
+    AssetEntry *e = [_asset entryAt:_transactionIndex];
 	
     NSDate *date = e.transaction.date;
-    [mAsset deleteOldEntriesBefore:date];
+    [_asset deleteOldEntriesBefore:date];
 	
     self.editingEntry = nil;
 	
@@ -573,15 +560,15 @@
     //editingEntry.transaction.asset = asset.pkey;
 
     // upsert 処理
-    if (mTransactionIndex < 0) {
+    if (_transactionIndex < 0) {
         // 新規追加
-        [mAsset insertEntry:mEditingEntry];
+        [_asset insertEntry:_editingEntry];
         
-        if ([mRememberDateSwitch isOn]) {
-            [Transaction setLastUsedDate:mEditingEntry.transaction.date];
+        if ([_rememberDateSwitch isOn]) {
+            [Transaction setLastUsedDate:_editingEntry.transaction.date];
         }
     } else {
-        [mAsset replaceEntryAtIndex:mTransactionIndex withObject:mEditingEntry];
+        [_asset replaceEntryAtIndex:_transactionIndex withObject:_editingEntry];
         //[asset sortByDate];
     }
     self.editingEntry = nil;
@@ -591,22 +578,22 @@
 
 - (void)cancelAction
 {
-    if (mIsModified) {
-        mAsCancelTransaction =
+    if (_isModified) {
+        _asCancelTransaction =
             [[UIActionSheet alloc]
                 initWithTitle:_L(@"Save this transaction?")
                 delegate:self
              cancelButtonTitle:_L(@"Cancel")
                 destructiveButtonTitle:nil
                 otherButtonTitles:_L(@"Yes"), _L(@"No"), nil];
-        mAsCancelTransaction.actionSheetStyle = UIActionSheetStyleDefault;
-        [mAsCancelTransaction showInView:self.view];
+        _asCancelTransaction.actionSheetStyle = UIActionSheetStyleDefault;
+        [_asCancelTransaction showInView:self.view];
     } else {
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
-- (void)_asCancelTransaction:(int)buttonIndex
+- (void)asCancelTransaction:(int)buttonIndex
 {
     switch (buttonIndex) {
     case 0:
@@ -629,11 +616,11 @@
 
 - (void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (actionSheet == mAsDelPast) {
-        [self _asDelPast:buttonIndex];
+    if (actionSheet == _asDelPast) {
+        [self asDelPast:buttonIndex];
     }
-    else if (actionSheet == mAsCancelTransaction) {
-        [self _asCancelTransaction:buttonIndex];
+    else if (actionSheet == _asCancelTransaction) {
+        [self asCancelTransaction:buttonIndex];
     }
 }
 

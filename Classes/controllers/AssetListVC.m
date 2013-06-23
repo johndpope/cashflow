@@ -49,8 +49,6 @@
     BOOL mPinChecked;
 }
 
-@synthesize tableView = _tableView;
-
 - (void)viewDidLoad
 {
     NSLog(@"AssetListViewController:viewDidLoad");
