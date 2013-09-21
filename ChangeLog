@@ -1,3 +1,10 @@
+2013-09-21 : Takuya Murakami
+
+	* ver 6.3.0 (v60) beta
+	* iOS7 対応
+	* 「これ以前の取引の一括削除」をツールバーに移動
+	* Crittercism SDK 4.0.0 -> 4.0.7
+
 2013-06-23 : Takuya Murakami
 
 	* リファクタリング: メンバ名変更/synthesize削除
