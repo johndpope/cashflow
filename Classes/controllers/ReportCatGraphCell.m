@@ -71,7 +71,7 @@
 - (void)draw
 {
     // Graphics Context を取得
-    UIGraphicsBeginImageContext(_imageView.frame.size);
+    UIGraphicsBeginImageContextWithOptions(_imageView.frame.size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     // 左上原点にしておく
