@@ -47,6 +47,11 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
+    // iOS7 hack
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     _value = [NSMutableString new];
     
     _valueLabel.text = @"";

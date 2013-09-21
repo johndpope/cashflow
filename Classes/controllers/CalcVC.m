@@ -76,6 +76,9 @@
 {
     [super viewDidLoad];
     
+    // iOS7 hack
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     //[AppDelegate trackPageview:@"/CalcViewController"];
     
     if (IS_IPAD) {

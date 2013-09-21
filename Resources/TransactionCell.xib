@@ -23,7 +23,7 @@
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="¥ 999,999,999" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="6">
-                        <rect key="frame" x="206" y="0.0" width="104" height="23"/>
+                        <rect key="frame" x="206.00000023497984" y="0.0" width="104" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
@@ -39,7 +39,7 @@
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="¥999,999,999" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="8">
-                        <rect key="frame" x="180.00000047753966" y="24" width="130" height="19"/>
+                        <rect key="frame" x="180.00000023497984" y="24" width="130" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
