@@ -797,7 +797,7 @@
 		3EED9131132A236D009DE68B /* TestCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCommon.m; sourceTree = "<group>"; };
 		3EED9132132A236D009DE68B /* ViewControllerTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTestCase.h; sourceTree = "<group>"; };
 		3EED9133132A236D009DE68B /* ViewControllerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTestCase.m; sourceTree = "<group>"; };
-		3EEED4E112F59C1200C67F4C /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3EEED4E112F59C1200C67F4C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EEED4E212F59C2E00C67F4C /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EF1523D1462C2B300C724E4 /* LogicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF152431462C2B300C724E4 /* LogicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LogicTests-Info.plist"; sourceTree = "<group>"; };
