@@ -16,7 +16,7 @@
     IBOutlet UITableView *_tableView;
     
     IBOutlet UIButton *_delButton;
-    IBOutlet UIButton *_delPastButton;
+    IBOutlet UIBarButtonItem *_barActionButton;
     IBOutlet UIView *_rememberDateView;
     IBOutlet UILabel *_rememberDateLabel;
     IBOutlet UISwitch *_rememberDateSwitch;
@@ -27,8 +27,8 @@
 
     NSArray *_typeArray;
 	
-    UIActionSheet *_asDelPast;
     UIActionSheet *_asCancelTransaction;
+    UIActionSheet *_asAction;
     
     UIPopoverController *_currentPopoverController;
 }
@@ -89,21 +89,15 @@
     UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
     
     [_delButton setBackgroundImage:bg forState:UIControlStateNormal];
-    [_delPastButton setBackgroundImage:bg forState:UIControlStateNormal];
     
     [_delButton setTitle:_L(@"Delete transaction") forState:UIControlStateNormal];
-    [_delPastButton setTitle:_L(@"Delete with all past transactions") forState:UIControlStateNormal];
     
-    if (IS_IPAD) {
+    /*if (IS_IPAD) {
         CGRect rect;
         rect = _delButton.frame;
         rect.origin.y += 100;
         _delButton.frame = rect;
-
-        rect = _delPastButton.frame;
-        rect.origin.y += 120;
-        _delPastButton.frame = rect;
-    }
+    }*/
 
     /*
     // ボタン生成
@@ -178,7 +172,7 @@
     BOOL isNewTransaction = [self isNewTransaction];
 	
     _delButton.hidden = isNewTransaction;
-    _delPastButton.hidden = isNewTransaction;
+    //_delPastButton.hidden = isNewTransaction;
 	
 	_rememberDateView.hidden = !isNewTransaction;
 
@@ -523,23 +517,50 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)delPastButtonTapped:(id)sender
-{
-    _asDelPast = [[UIActionSheet alloc]
-                    initWithTitle:nil delegate:self
-                    cancelButtonTitle:@"Cancel"
-                    destructiveButtonTitle:_L(@"Delete with all past transactions")
-                    otherButtonTitles:nil];
-    _asDelPast.actionSheetStyle = UIActionSheetStyleDefault;
-    [_asDelPast showInView:self.view];
+////////////////////////////////////////////////////////////////////////////////
+// ツールバー
+
+- (IBAction)doAction:(id)sender {
+    UIActionSheet *as =
+    [[UIActionSheet alloc]
+     initWithTitle:nil
+     delegate:self
+     cancelButtonTitle:_L(@"Cancel")
+     destructiveButtonTitle:nil otherButtonTitles:
+     _L(@"Delete with all past transactions"), nil];
+    if (IS_IPAD) {
+        [as showFromBarButtonItem:_barActionButton animated:YES];
+    } else {
+        [as showInView:[self view]];
+    }
+    _asAction = as;
 }
 
-- (void)asDelPast:(NSInteger)buttonIndex
+- (void)asAction:(NSInteger)buttonIndex
 {
     if (buttonIndex != 0) {
-         return; // cancelled;
+        return;
     }
+    if (![self isNewTransaction]) {
+        [self delPastButtonTapped:nil];
+    }
+}
 
+- (IBAction)delPastButtonTapped:(id)sender
+{
+    UIAlertView *v = [[UIAlertView alloc]
+                      initWithTitle:_L(@"Delete with all past transactions")
+                      message:@"復元できませんがよろしいですか？"
+                      delegate:self cancelButtonTitle:_L(@"Cancel") otherButtonTitles:_L(@"Ok"),nil];
+    [v show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex != 1) {
+        return; // cancelled;
+    }
+    
     AssetEntry *e = [_asset entryAt:_transactionIndex];
 	
     NSDate *date = e.transaction.date;
@@ -616,11 +637,11 @@
 
 - (void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (actionSheet == _asDelPast) {
-        [self asDelPast:buttonIndex];
-    }
-    else if (actionSheet == _asCancelTransaction) {
+    if (actionSheet == _asCancelTransaction) {
         [self asCancelTransaction:buttonIndex];
+    }
+    else if (actionSheet == _asAction) {
+        [self asAction:buttonIndex];
     }
 }
 
