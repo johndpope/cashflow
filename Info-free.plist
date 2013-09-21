@@ -12,6 +12,9 @@
 	<string>Icon-free.png</string>
 	<key>CFBundleIconFiles</key>
 	<array>
+		<string>Icon-free-60@2x.png</string>
+		<string>Icon-free-76.png</string>
+		<string>Icon-free-76@2x.png</string>
 		<string>Icon-free.png</string>
 		<string>Icon-free@2x.png</string>
 		<string>Icon-free-72.png</string>

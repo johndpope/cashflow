@@ -400,6 +400,18 @@
 		3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EC9FCED17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */; };
 		3EC9FCEE17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */; };
+		3EC9FCF517EDCA9B0036E435 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCEF17EDCA9B0036E435 /* Icon-60@2x.png */; };
+		3EC9FCF617EDCA9B0036E435 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCEF17EDCA9B0036E435 /* Icon-60@2x.png */; };
+		3EC9FCF717EDCA9B0036E435 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCF017EDCA9B0036E435 /* Icon-76.png */; };
+		3EC9FCF817EDCA9B0036E435 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCF017EDCA9B0036E435 /* Icon-76.png */; };
+		3EC9FCF917EDCA9B0036E435 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCF117EDCA9B0036E435 /* Icon-76@2x.png */; };
+		3EC9FCFA17EDCA9B0036E435 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCF117EDCA9B0036E435 /* Icon-76@2x.png */; };
+		3EC9FCFB17EDCA9B0036E435 /* Icon-free-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCF217EDCA9B0036E435 /* Icon-free-60@2x.png */; };
+		3EC9FCFC17EDCA9B0036E435 /* Icon-free-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCF217EDCA9B0036E435 /* Icon-free-60@2x.png */; };
+		3EC9FCFD17EDCA9B0036E435 /* Icon-free-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCF317EDCA9B0036E435 /* Icon-free-76.png */; };
+		3EC9FCFE17EDCA9B0036E435 /* Icon-free-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCF317EDCA9B0036E435 /* Icon-free-76.png */; };
+		3EC9FCFF17EDCA9B0036E435 /* Icon-free-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCF417EDCA9B0036E435 /* Icon-free-76@2x.png */; };
+		3EC9FD0017EDCA9B0036E435 /* Icon-free-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCF417EDCA9B0036E435 /* Icon-free-76@2x.png */; };
 		3ECD5A871347603800B499A6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3ECE5E231602138A00A10E48 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ECE5E221602138A00A10E48 /* Default-568h@2x.png */; };
 		3ECE5E241602138A00A10E48 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ECE5E221602138A00A10E48 /* Default-568h@2x.png */; };
@@ -773,6 +785,12 @@
 		3EC1B23113291A6D00721A71 /* CashFlowTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CashFlowTest-Prefix.pch"; sourceTree = "<group>"; };
 		3EC572D61107451F00A551D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportCatGraphCell.xib; sourceTree = "<group>"; };
+		3EC9FCEF17EDCA9B0036E435 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		3EC9FCF017EDCA9B0036E435 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		3EC9FCF117EDCA9B0036E435 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		3EC9FCF217EDCA9B0036E435 /* Icon-free-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-free-60@2x.png"; sourceTree = "<group>"; };
+		3EC9FCF317EDCA9B0036E435 /* Icon-free-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-free-76.png"; sourceTree = "<group>"; };
+		3EC9FCF417EDCA9B0036E435 /* Icon-free-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-free-76@2x.png"; sourceTree = "<group>"; };
 		3ECD5A861347603800B499A6 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		3ECE5E221602138A00A10E48 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3ECF38030EA9CF4900420060 /* ExportServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportServer.m; sourceTree = "<group>"; };
@@ -1358,15 +1376,21 @@
 		3EB5406B0E8E907B00608B77 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				3EA1A45E15149410004144B6 /* Icon-72@2x.png */,
-				3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */,
-				3EF1716E133A2528002C818E /* artwork.jpg */,
-				3EFEFE091324ED2100EF369E /* Icon-72.png */,
+				3EC9FCEF17EDCA9B0036E435 /* Icon-60@2x.png */,
+				3EC9FCF017EDCA9B0036E435 /* Icon-76.png */,
+				3EC9FCF117EDCA9B0036E435 /* Icon-76@2x.png */,
 				3EFEFE0A1324ED2100EF369E /* Icon.png */,
 				3EFEFE0B1324ED2100EF369E /* Icon@2x.png */,
-				3EFEFE151324ED2E00EF369E /* Icon-free-72.png */,
+				3EFEFE091324ED2100EF369E /* Icon-72.png */,
+				3EA1A45E15149410004144B6 /* Icon-72@2x.png */,
+				3EC9FCF217EDCA9B0036E435 /* Icon-free-60@2x.png */,
+				3EC9FCF317EDCA9B0036E435 /* Icon-free-76.png */,
+				3EC9FCF417EDCA9B0036E435 /* Icon-free-76@2x.png */,
 				3EFEFE161324ED2E00EF369E /* Icon-free.png */,
 				3EFEFE171324ED2E00EF369E /* Icon-free@2x.png */,
+				3EFEFE151324ED2E00EF369E /* Icon-free-72.png */,
+				3EA1A45F15149410004144B6 /* Icon-free-72@2x.png */,
+				3EF1716E133A2528002C818E /* artwork.jpg */,
 				3E1F6EC00E76E93C00CCDF57 /* Default.png */,
 				3E3A74661335CEC900B68377 /* Default@2x.png */,
 				3ECE5E221602138A00A10E48 /* Default-568h@2x.png */,
@@ -1634,6 +1658,7 @@
 				3EDDAC750E89148500268AED /* redButton.png in Resources */,
 				3EDDADAB0E8925AB00268AED /* InfoView.xib in Resources */,
 				3E4DA8B30EAB6DE4001FBB70 /* Entitlements.plist in Resources */,
+				3EC9FCFB17EDCA9B0036E435 /* Icon-free-60@2x.png in Resources */,
 				3EDC72BB0EBB493100366F1E /* SimpleTableView.xib in Resources */,
 				3EA011320EC344CC008CEEB7 /* AssetListView.xib in Resources */,
 				3E588D460EC34CFE00D3853D /* AssetView.xib in Resources */,
@@ -1666,7 +1691,9 @@
 				3EFEFE5D1324EEAA00EF369E /* ReportCell.xib in Resources */,
 				3EFEFE9B1324F3C800EF369E /* ReportCatCell.xib in Resources */,
 				3E895E8513252A8000251E36 /* report-annual.png in Resources */,
+				3EC9FCFF17EDCA9B0036E435 /* Icon-free-76@2x.png in Resources */,
 				3E895E8813252A8000251E36 /* report-monthly@2x.png in Resources */,
+				3EC9FCF517EDCA9B0036E435 /* Icon-60@2x.png in Resources */,
 				3E895E8B13252A8000251E36 /* report-weekly.png in Resources */,
 				3E895E8E13252A8000251E36 /* report-weekly@2x.png in Resources */,
 				3EC9FCED17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */,
@@ -1687,10 +1714,12 @@
 				3E55368A1334872500D288D9 /* dropboxRestore.png in Resources */,
 				3E55368D1334872500D288D9 /* dropboxRestore@2x.png in Resources */,
 				3E3A74671335CEC900B68377 /* Default@2x.png in Resources */,
+				3EC9FCFD17EDCA9B0036E435 /* Icon-free-76.png in Resources */,
 				3E3A74721335D03F00B68377 /* Default-Landscape~ipad.png in Resources */,
 				3E3A74741335D03F00B68377 /* Default-Portrait~ipad.png in Resources */,
 				3EF1716F133A2528002C818E /* artwork.jpg in Resources */,
 				3EDC576B1378105B00876DE8 /* invest.png in Resources */,
+				3EC9FCF717EDCA9B0036E435 /* Icon-76.png in Resources */,
 				3EDC576D1378105B00876DE8 /* invest@2x.png in Resources */,
 				3E2C6C9B14E6B0270064049B /* dropboxSync.png in Resources */,
 				3E2C6C9D14E6B0270064049B /* dropboxSync@2x.png in Resources */,
@@ -1710,6 +1739,7 @@
 				3E6C50AA157E40550086C20E /* CalendarDayTodaySelected@2x.png in Resources */,
 				3E6C50AE157E40550086C20E /* CalendarShadow.png in Resources */,
 				3E6C50B2157E40550086C20E /* CalendarShadow@2x.png in Resources */,
+				3EC9FCF917EDCA9B0036E435 /* Icon-76@2x.png in Resources */,
 				3E6C50B6157E40550086C20E /* CalendarTitleColor.png in Resources */,
 				3E6C50BA157E40550086C20E /* CalendarTitleColor@2x.png in Resources */,
 				3E6C50BE157E40550086C20E /* CalendarTitleDimColor.png in Resources */,
@@ -1730,6 +1760,7 @@
 				3E8B25810F348C090007929E /* redButton.png in Resources */,
 				3E8B25820F348C090007929E /* InfoView.xib in Resources */,
 				3E8B25840F348C090007929E /* Entitlements.plist in Resources */,
+				3EC9FCFC17EDCA9B0036E435 /* Icon-free-60@2x.png in Resources */,
 				3E8B25850F348C090007929E /* SimpleTableView.xib in Resources */,
 				3E8B25860F348C090007929E /* AssetListView.xib in Resources */,
 				3E8B25870F348C090007929E /* AssetView.xib in Resources */,
@@ -1762,7 +1793,9 @@
 				3EFEFE5E1324EEAA00EF369E /* ReportCell.xib in Resources */,
 				3EFEFE9C1324F3C800EF369E /* ReportCatCell.xib in Resources */,
 				3E895E8613252A8000251E36 /* report-annual.png in Resources */,
+				3EC9FD0017EDCA9B0036E435 /* Icon-free-76@2x.png in Resources */,
 				3E895E8913252A8000251E36 /* report-monthly@2x.png in Resources */,
+				3EC9FCF617EDCA9B0036E435 /* Icon-60@2x.png in Resources */,
 				3E895E8C13252A8000251E36 /* report-weekly.png in Resources */,
 				3E895E8F13252A8000251E36 /* report-weekly@2x.png in Resources */,
 				3EC9FCEE17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */,
@@ -1783,10 +1816,12 @@
 				3E55368B1334872500D288D9 /* dropboxRestore.png in Resources */,
 				3E55368E1334872500D288D9 /* dropboxRestore@2x.png in Resources */,
 				3E3A74681335CEC900B68377 /* Default@2x.png in Resources */,
+				3EC9FCFE17EDCA9B0036E435 /* Icon-free-76.png in Resources */,
 				3E3A74731335D03F00B68377 /* Default-Landscape~ipad.png in Resources */,
 				3E3A74751335D03F00B68377 /* Default-Portrait~ipad.png in Resources */,
 				3EF17170133A2528002C818E /* artwork.jpg in Resources */,
 				3EDC576C1378105B00876DE8 /* invest.png in Resources */,
+				3EC9FCF817EDCA9B0036E435 /* Icon-76.png in Resources */,
 				3EDC576E1378105B00876DE8 /* invest@2x.png in Resources */,
 				3E2C6C9C14E6B0270064049B /* dropboxSync.png in Resources */,
 				3E2C6C9E14E6B0270064049B /* dropboxSync@2x.png in Resources */,
@@ -1806,6 +1841,7 @@
 				3E6C50AB157E40550086C20E /* CalendarDayTodaySelected@2x.png in Resources */,
 				3E6C50AF157E40550086C20E /* CalendarShadow.png in Resources */,
 				3E6C50B3157E40550086C20E /* CalendarShadow@2x.png in Resources */,
+				3EC9FCFA17EDCA9B0036E435 /* Icon-76@2x.png in Resources */,
 				3E6C50B7157E40550086C20E /* CalendarTitleColor.png in Resources */,
 				3E6C50BB157E40550086C20E /* CalendarTitleColor@2x.png in Resources */,
 				3E6C50BF157E40550086C20E /* CalendarTitleDimColor.png in Resources */,
