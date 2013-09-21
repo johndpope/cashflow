@@ -12,6 +12,8 @@
 
 @implementation ReportCatGraphCell
 {
+    IBOutlet UIImageView *_imageView;
+    
     double _total;
     NSMutableArray *_catReports;
 }
@@ -22,7 +24,12 @@
 
     ReportCatGraphCell *cell = (ReportCatGraphCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[ReportCatGraphCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        NSArray *ary = [[NSBundle mainBundle] loadNibNamed:@"ReportCatGraphCell" owner:nil options:nil];
+        cell = (ReportCatGraphCell *)ary[0];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        
+        //cell = [[ReportCatGraphCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     return cell;
 }
@@ -51,16 +58,20 @@
     if (_catReports != ary) {
         _catReports = ary;
     }
+
+    [self draw];
     
     // force redraw the cell
-    [self setNeedsDisplay];
+    //[self setNeedsDisplay];
 }
 
 /**
-   セル描画
+   描画
 */
-- (void)drawRect:(CGRect)rect
+- (void)draw
 {
+    // Graphics Context を取得
+    UIGraphicsBeginImageContext(_imageView.frame.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     // 左上原点にしておく
@@ -68,11 +79,16 @@
     //CGContextScaleCTM(context, 1.0, -1.0);
 
     // 背景消去
+    //[[UIColor whiteColor] set];
     [[UIColor whiteColor] set];
-    UIRectFill(rect);
+    UIRectFill(_imageView.frame);
 
     [self _drawCircleGraph:context];
     [self _drawLegend:context];
+
+    // 描画したイメージを UIImageView にセットする
+    _imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
 }
 
 #define PI 3.14159265358979323846
