@@ -86,10 +86,8 @@
     }
     
     // 削除ボタンの背景と位置調整
-    UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
-    
-    [_delButton setBackgroundImage:bg forState:UIControlStateNormal];
-    
+    //UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
+    //[_delButton setBackgroundImage:bg forState:UIControlStateNormal];
     [_delButton setTitle:_L(@"Delete transaction") forState:UIControlStateNormal];
     
     /*if (IS_IPAD) {

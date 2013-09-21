@@ -55,9 +55,9 @@
     [_exportButton setTitle:exportString forState:UIControlStateNormal];
     [_exportButton setTitle:exportString forState:UIControlStateHighlighted];
 
-    UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
-    [_exportButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_exportButton setBackgroundImage:bg forState:UIControlStateNormal];
+    //UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
+    //[_exportButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //[_exportButton setBackgroundImage:bg forState:UIControlStateNormal];
 	
 #ifdef FREE_VERSION
 //    formatLabel.hidden = YES;

@@ -33,9 +33,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="48">
                     <rect key="frame" x="10" y="385" width="300" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <state key="normal" title="DELETE TRANSACTION">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <state key="normal" title="DELETE TRANSACTION"/>
                     <connections>
                         <action selector="delButtonTapped:" destination="-2" eventType="touchUpInside" id="52"/>
                     </connections>
