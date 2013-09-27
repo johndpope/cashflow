@@ -149,6 +149,7 @@
 		3E3F525214651654005CBD9A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
 		3E43FC6E1324E8130059B198 /* ReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E43FC6C1324E8130059B198 /* ReportView.xib */; };
 		3E43FC6F1324E8130059B198 /* ReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E43FC6C1324E8130059B198 /* ReportView.xib */; };
+		3E44CF4317F5FE3700E54901 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44CF4217F5FE3700E54901 /* XCTest.framework */; };
 		3E4A7D25131FB94B0008C37D /* CashflowDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D22131FB94B0008C37D /* CashflowDatabase.m */; };
 		3E4A7D26131FB94B0008C37D /* DateFormatter2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D24131FB94B0008C37D /* DateFormatter2.m */; };
 		3E4A7D27131FB94B0008C37D /* CashflowDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D22131FB94B0008C37D /* CashflowDatabase.m */; };
@@ -435,8 +436,6 @@
 		3EE62A2B10D7EA0100EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EED9134132A236D009DE68B /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
 		3EED9135132A236D009DE68B /* ViewControllerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9133132A236D009DE68B /* ViewControllerTestCase.m */; };
-		3EF12E5A13D86BDD009D1722 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC153113D85CFA00B35736 /* SenTestingKit.framework */; };
-		3EF1523E1462C2B300C724E4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC153113D85CFA00B35736 /* SenTestingKit.framework */; };
 		3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EF152441462C2B300C724E4 /* InfoPlist.strings */; };
@@ -679,6 +678,7 @@
 		3E3A74701335D03F00B68377 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		3E3A74711335D03F00B68377 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		3E43FC6C1324E8130059B198 /* ReportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportView.xib; sourceTree = "<group>"; };
+		3E44CF4217F5FE3700E54901 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3E4A7D21131FB94B0008C37D /* CashflowDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashflowDatabase.h; sourceTree = "<group>"; };
 		3E4A7D22131FB94B0008C37D /* CashflowDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashflowDatabase.m; sourceTree = "<group>"; };
 		3E4A7D23131FB94B0008C37D /* DateFormatter2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateFormatter2.h; sourceTree = "<group>"; };
@@ -779,7 +779,7 @@
 		3EB554B3103B92D700BA13D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3EB5552D103B930D00BA13D4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		3EB8EA4F0F1F7919000A8276 /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
-		3EC1B22713291A6D00721A71 /* ApplicationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC1B22713291A6D00721A71 /* ApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC1B22D13291A6D00721A71 /* CashFlowTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CashFlowTest-Info.plist"; sourceTree = "<group>"; };
 		3EC1B22F13291A6D00721A71 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3EC1B23113291A6D00721A71 /* CashFlowTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CashFlowTest-Prefix.pch"; sourceTree = "<group>"; };
@@ -805,7 +805,6 @@
 		3ED97C140F1A0D8D0063A578 /* WebServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServer.m; sourceTree = "<group>"; };
 		3ED97C260F1A0E8E0063A578 /* BackupServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupServer.h; sourceTree = "<group>"; };
 		3ED97C270F1A0E8E0063A578 /* BackupServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupServer.m; sourceTree = "<group>"; };
-		3EDC153113D85CFA00B35736 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		3EDC57691378105B00876DE8 /* invest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invest.png; sourceTree = "<group>"; };
 		3EDC576A1378105B00876DE8 /* invest@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invest@2x.png"; sourceTree = "<group>"; };
 		3EDC72BA0EBB493100366F1E /* SimpleTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleTableView.xib; sourceTree = "<group>"; };
@@ -928,10 +927,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E44CF4317F5FE3700E54901 /* XCTest.framework in Frameworks */,
 				3EF967001464FD6900A24626 /* UIKit.framework in Frameworks */,
 				3EF966FF1464FD5E00A24626 /* Foundation.framework in Frameworks */,
 				3EF966FE1464FD3900A24626 /* libsqlite3.dylib in Frameworks */,
-				3EF12E5A13D86BDD009D1722 /* SenTestingKit.framework in Frameworks */,
 				3EA395381556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
 				3EA395411556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
 				3EF402EE157FA7180091CC40 /* DropboxSDK.framework in Frameworks */,
@@ -962,7 +961,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EF1523E1462C2B300C724E4 /* SenTestingKit.framework in Frameworks */,
 				3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */,
 				3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */,
 				3EF1526A1462C37500C724E4 /* DropboxSDK.framework in Frameworks */,
@@ -1000,7 +998,7 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* CashFlow.app */,
 				3E8B25C20F348C090007929E /* CashFlowFree.app */,
-				3EC1B22713291A6D00721A71 /* ApplicationTests.octest */,
+				3EC1B22713291A6D00721A71 /* ApplicationTests.xctest */,
 				3EF1523D1462C2B300C724E4 /* LogicTests.octest */,
 			);
 			name = Products;
@@ -1069,6 +1067,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E44CF4217F5FE3700E54901 /* XCTest.framework */,
 				3E347BB1169DC7B0002307AA /* CoreData.framework */,
 				3E0F5F301636EE3000A11ECE /* StoreKit.framework */,
 				3E69E8ED1616B3F400FAD808 /* PassKit.framework */,
@@ -1089,7 +1088,6 @@
 				3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */,
 				3EC572D61107451F00A551D5 /* MessageUI.framework */,
 				3E035E9A1182B6E000711865 /* SystemConfiguration.framework */,
-				3EDC153113D85CFA00B35736 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			path = System/Library/Frameworks;
@@ -1580,8 +1578,8 @@
 			);
 			name = ApplicationTests;
 			productName = CashFlowTest;
-			productReference = 3EC1B22713291A6D00721A71 /* ApplicationTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 3EC1B22713291A6D00721A71 /* ApplicationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		3EF1523C1462C2B200C724E4 /* LogicTests */ = {
 			isa = PBXNativeTarget;
@@ -2288,8 +2286,8 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CashFlow.app/CashFlow";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ApplicationTests/CashFlowTest-Prefix.pch";
@@ -2303,7 +2301,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -2314,8 +2311,8 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CashFlow.app/CashFlow";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ApplicationTests/CashFlowTest-Prefix.pch";
@@ -2329,7 +2326,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
