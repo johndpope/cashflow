@@ -2,7 +2,7 @@
 
 #import "TestCommon.h"
 
-@interface LedgerTest : SenTestCase {
+@interface LedgerTest : XCTestCase {
     Ledger *ledger;
 }
 @end

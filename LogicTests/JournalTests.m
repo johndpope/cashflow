@@ -2,7 +2,7 @@
 
 #import "TestCommon.h"
 
-@interface JournalTest : SenTestCase {
+@interface JournalTest : XCTestCase {
     Journal *journal;
 }
 @end
