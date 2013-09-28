@@ -85,14 +85,16 @@
 
 - (IBAction)webButtonTapped
 {
-    [AppDelegate trackPageview:@"/ViewController/Help"];
+    //[AppDelegate trackPageview:@"/ViewController/Help"];
+    [AppDelegate trackEvent:@"help" action:@"push" label:@"help" value:nil];
     
     NSURL *url = [NSURL URLWithString:_L(@"HelpURL") /*"web help url*/];
     [[UIApplication sharedApplication] openURL:url];
 }
 
 - (IBAction)facebookButtonTapped:(id)sender {
-    [AppDelegate trackPageview:@"/ViewController/facebook"];
+    //[AppDelegate trackPageview:@"/ViewController/facebook"];
+    [AppDelegate trackEvent:@"help" action:@"push" label:@"facebook" value:nil];
 
     NSURL *url = [NSURL URLWithString:@"http://facebook.com/CashFlowApp"];
     [[UIApplication sharedApplication] openURL:url];
@@ -100,7 +102,8 @@
 
 - (IBAction)purchaseStandardVersion
 {
-    [AppDelegate trackPageview:@"/ViewController/purchaseStandardVersion"];
+    //[AppDelegate trackPageview:@"/ViewController/purchaseStandardVersion"];
+    [AppDelegate trackEvent:@"help" action:@"push" label:@"purchase" value:nil];
     
     NSURL *url = [NSURL URLWithString:@"http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=290776107&mt=8"];
     [[UIApplication sharedApplication] openURL:url];
@@ -108,6 +111,8 @@
 
 - (IBAction)sendSupportMail
 {
+    [AppDelegate trackEvent:@"help" action:@"push" label:@"sendmail" value:nil];
+    
     SupportMail *m = [SupportMail getInstance];
     if (![m sendMail:self]) {
         UIAlertView *v =

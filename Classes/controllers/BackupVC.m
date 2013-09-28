@@ -150,17 +150,17 @@
             }
             switch (indexPath.row) {
                 case 0: // sync
-                    [AppDelegate trackPageview:@"/BackupViewController/DropboxSync"];
+                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"sync" value:nil];
                     [_dropboxBackup doSync:self];
                     break;
                     
                 case 1: // backup
-                    [AppDelegate trackPageview:@"/BackupViewController/DropboxBackup"];
+                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"backup" value:nil];
                     [_dropboxBackup doBackup:self];
                     break;
                     
                 case 2: //restore
-                    [AppDelegate trackPageview:@"/BackupViewController/DropboxRestore"];
+                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"restore" value:nil];
                     alertView = [[UIAlertView alloc] initWithTitle:_L(@"Warning")
                                                             message:_L(@"RestoreWarning")
                                                            delegate:self 
@@ -173,7 +173,7 @@
 
         case 1:
             // internal web server
-            [AppDelegate trackPageview:@"/BackupViewController/WebBackup"];
+            [AppDelegate trackEvent:@"backup" action:@"web" label:@"start" value:nil];
             webBackup = [[WebServerBackup alloc] init];
             [webBackup execute];
             break;

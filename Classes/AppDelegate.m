@@ -14,6 +14,8 @@
 #import "PinController.h"
 //#import "CrashReportSender.h"
 #import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 #import "UIDevice+Hardware.h"
 #import "Crittercism.h"
 
@@ -113,22 +115,22 @@
     id<GAITracker> tracker = [gai trackerWithTrackingId:@"UA-413697-35"];
     
 #if FREE_VERSION
-    [tracker setCustom:1 dimension:@"ios-free"];
+    [tracker set:[GAIFields customDimensionForIndex:1] value:@"ios-free"];
 #else
-    [tracker setCustom:1 dimension:@"ios-std"];
+    [tracker set:[GAIFields customDimensionForIndex:1] value:@"ios-std"];
 #endif
     
     // set custom dimensions
     NSString *version = [AppDelegate appVersion];
-    [tracker setCustom:2 dimension:version];
+    [tracker set:[GAIFields customDimensionForIndex:2] value:version];
     
     UIDevice *dev = [UIDevice currentDevice];
     //NSString *model = [dev model];
     NSString *platform = [dev platform];
     NSString *systemVersion = [dev systemVersion];
     
-    [tracker setCustom:3 dimension:systemVersion];
-    [tracker setCustom:4 dimension:platform];
+    [tracker set:[GAIFields customDimensionForIndex:3] value:systemVersion];
+    [tracker set:[GAIFields customDimensionForIndex:4] value:platform];
 }
 
 // 起動時の遅延実行処理
@@ -137,7 +139,10 @@
     NSLog(@"delayedLaunchProcess");
     
     id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
-    [tracker trackEventWithCategory:@"Application" withAction:@"Launch" withLabel:nil withValue:nil];
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"Application"
+                                                          action:@"Launch"
+                                                           label:nil
+                                                           value:nil] build]];
 }
 
 // Background に入る前の処理
@@ -213,16 +218,23 @@
 }
 
 #pragma mark GoogleAnalytics
+/*
 + (void)trackPageview:(NSString *)url
 {
     id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
     [tracker sendView:url];
 }
+ */
 
 + (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(int)value
 {
     id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
-    [tracker trackEventWithCategory:category withAction:action withLabel:label withValue:[NSString stringWithFormat:@"%d", value]];
+    
+    NSNumber *n = [NSNumber numberWithInteger:value];
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
+                                                          action:action
+                                                           label:label
+                                                           value:n] build]];
 }
 
 #pragma mark Debug
