@@ -65,7 +65,8 @@
     Assert(new != saved);
     
     // modal view がでていないことを確認する
-    AssertNil(self.vc.modalViewController);
+    //AssertNil(self.vc.modalViewController);
+    AssertNil(self.vc.presentedViewController);
 }
 
 - (void)testHasPin
