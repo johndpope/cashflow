@@ -1893,22 +1893,11 @@
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/tmurakam/dev/cashflow/Libraries/Dropbox,
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\\\"$(SRCROOT)/Libraries/CrittercismSDK\\\"",
-					"\\\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\\\"",
-					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
-				);
 				PRODUCT_NAME = CashFlow;
 			};
 			name = Debug;
@@ -1916,22 +1905,11 @@
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Takuya Murakami";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/tmurakam/dev/cashflow/Libraries/Dropbox,
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\\\"$(SRCROOT)/Libraries/CrittercismSDK\\\"",
-					"\\\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\\\"",
-					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
-				);
 				PRODUCT_NAME = CashFlow;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "63F6DF88-F9EB-49CD-8CFD-B7C9ED39B49A";
 				VALIDATE_PRODUCT = YES;
@@ -1943,10 +1921,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/tmurakam/dev/cashflow/Libraries/Dropbox,
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1955,12 +1929,6 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Info-free.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\\\"$(SRCROOT)/Libraries/CrittercismSDK\\\"",
-					"\\\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\\\"",
-					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
-				);
 				PRODUCT_NAME = CashFlowFree;
 			};
 			name = Debug;
@@ -1971,20 +1939,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Takuya Murakami";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/tmurakam/dev/cashflow/Libraries/Dropbox,
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = FREE_VERSION;
 				INFOPLIST_FILE = "Info-free.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\\\"$(SRCROOT)/Libraries/CrittercismSDK\\\"",
-					"\\\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\\\"",
-					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
-				);
 				PRODUCT_NAME = CashFlowFree;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A871122E-2132-4DED-A1CB-89F3B91405B8";
 			};
@@ -1996,9 +1954,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CashFlow.app/CashFlow";
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					/Users/tmurakam/dev/cashflow/Libraries/Dropbox,
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2013,13 +1971,6 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "LogicTests/LogicTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\\\"$(SRCROOT)/Libraries/AdMob\\\"",
-					"\\\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\\\"",
-					"\\\"$(SRCROOT)/Libraries/CrittercismSDK\\\"",
-					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -2033,9 +1984,9 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CashFlow.app/CashFlow";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					/Users/tmurakam/dev/cashflow/Libraries/Dropbox,
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2044,13 +1995,6 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "LogicTests/LogicTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\\\"$(SRCROOT)/Libraries/AdMob\\\"",
-					"\\\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\\\"",
-					"\\\"$(SRCROOT)/Libraries/CrittercismSDK\\\"",
-					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				VALIDATE_PRODUCT = YES;
@@ -2064,7 +2008,10 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Libraries/Dropbox",
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -2076,9 +2023,9 @@
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/GoogleAnalytics",
 					"$(SRCROOT)/Libraries/AdMob",
-					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
-					"\"$(SRCROOT)/Libraries/AdMob/AdapterIAd\"",
-					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
+					"$(SRCROOT)/Libraries/AdMob/AdapterInMobi",
+					"$(SRCROOT)/Libraries/AdMob/AdapterIAd",
+					"$(SRCROOT)/Libraries/CrittercismSDK",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
@@ -2096,7 +2043,10 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Libraries/Dropbox",
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -2106,9 +2056,9 @@
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/GoogleAnalytics",
 					"$(SRCROOT)/Libraries/AdMob",
-					"\"$(SRCROOT)/Libraries/AdMob/AdapterInMobi\"",
-					"\"$(SRCROOT)/Libraries/AdMob/AdapterIAd\"",
-					"\"$(SRCROOT)/Libraries/CrittercismSDK\"",
+					"$(SRCROOT)/Libraries/AdMob/AdapterInMobi",
+					"$(SRCROOT)/Libraries/AdMob/AdapterIAd",
+					"$(SRCROOT)/Libraries/CrittercismSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
