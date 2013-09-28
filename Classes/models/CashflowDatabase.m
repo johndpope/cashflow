@@ -35,7 +35,7 @@
     
     _needFixDateFormat = false;
 	
-    dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter = [NSDateFormatter new];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
     [dateFormatter setDateFormat: @"yyyyMMddHHmmss"];
     
@@ -45,12 +45,12 @@
     [dateFormatter setLocale:us];
 
     // backward compat.
-    dateFormatter2 = [[DateFormatter2 alloc] init];
+    dateFormatter2 = [DateFormatter2 new];
     [dateFormatter2 setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
     [dateFormatter2 setDateFormat: @"yyyyMMddHHmm"];
     
     // for broken data...
-    dateFormatter3 = [[DateFormatter2 alloc] init];
+    dateFormatter3 = [DateFormatter2 new];
     [dateFormatter3 setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
     [dateFormatter3 setDateFormat: @"yyyyMMdd"];
     

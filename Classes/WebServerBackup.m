@@ -23,7 +23,7 @@ static WebServerBackup *sWebServerBackup = nil;
  
     sWebServerBackup = self;
     
-    _backupServer = [[BackupServer alloc] init];
+    _backupServer = [BackupServer new];
     NSString *url = [_backupServer serverUrl];
     if (url != nil) {
         result = [_backupServer startServer];

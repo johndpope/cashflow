@@ -181,7 +181,7 @@
             [self.splitTransactionListViewController reload];
         } else { 
             TransactionListViewController *vc = 
-                [[TransactionListViewController alloc] init];
+                [TransactionListViewController new];
             vc.assetKey = asset.pid;
             [self.navigationController pushViewController:vc animated:NO];
         }
@@ -378,7 +378,7 @@
         [self.splitTransactionListViewController reload];
     } else {
         TransactionListViewController *vc = 
-            [[TransactionListViewController alloc] init];
+            [TransactionListViewController new];
         vc.assetKey = asset.pid;
 
         [self.navigationController pushViewController:vc animated:YES];
@@ -388,7 +388,7 @@
 // アクセサリボタンをタップしたときの処理 : アセット変更
 - (void)tableView:(UITableView *)tv accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    AssetViewController *vc = [[AssetViewController alloc] init];
+    AssetViewController *vc = [AssetViewController new];
     int assetIndex = [self _assetIndex:indexPath];
     if (assetIndex >= 0) {
         [vc setAssetIndex:indexPath.row];
@@ -399,7 +399,7 @@
 // 新規アセット追加
 - (void)addAsset
 {
-    AssetViewController *vc = [[AssetViewController alloc] init];
+    AssetViewController *vc = [AssetViewController new];
     [vc setAssetIndex:-1];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -570,12 +570,12 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
             break;
             
         case 2:
-            configVC = [[ConfigViewController alloc] init];
+            configVC = [ConfigViewController new];
             vc = configVC;
             break;
             
         case 3:
-            infoVC = [[InfoVC alloc] init];
+            infoVC = [InfoVC new];
             vc = infoVC;
             break;
             
@@ -620,7 +620,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 /*
 - (IBAction)showHelp:(id)sender
 {
-    InfoVC *v = [[[InfoVC alloc] init] autorelease];
+    InfoVC *v = [InfoVC new];
     //[self.navigationController pushViewController:v animated:YES];
 
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:v];

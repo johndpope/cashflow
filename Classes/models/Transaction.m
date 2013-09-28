@@ -67,7 +67,7 @@
 
 - (id)copyWithZone:(NSZone*)zone
 {
-    Transaction *n = [[Transaction alloc] init];
+    Transaction *n = [Transaction new];
     n.pid = self.pid;
     n.asset = self.asset;
     n.dstAsset = self.dstAsset;

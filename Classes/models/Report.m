@@ -53,7 +53,7 @@
     NSDateComponents *dateComponents, *steps;
     NSDate *nextStartDay = nil;
 	
-    steps = [[NSDateComponents alloc] init];
+    steps = [NSDateComponents new];
     switch (self.type) {
         case REPORT_DAILY:;
             dateComponents = [greg components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:firstDate];

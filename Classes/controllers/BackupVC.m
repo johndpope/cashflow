@@ -174,7 +174,7 @@
         case 1:
             // internal web server
             [AppDelegate trackEvent:@"backup" action:@"web" label:@"start" value:nil];
-            webBackup = [[WebServerBackup alloc] init];
+            webBackup = [WebServerBackup new];
             [webBackup execute];
             break;
     }

@@ -82,7 +82,7 @@
         assetListViewController.splitTransactionListViewController = transactionListViewController;
         transactionListViewController.splitAssetListViewController = assetListViewController;
     	
-        self.splitViewController = [[UISplitViewController alloc] init];
+        self.splitViewController = [UISplitViewController new];
         self.splitViewController.delegate = transactionListViewController;
         self.splitViewController.viewControllers = @[masterNavigationController, detailNavigationController];
         

@@ -292,7 +292,7 @@
                 [calendarVc setCalendarViewControllerDelegate:self];
                 vc = calendarVc;
             } else {
-                EditDateViewController *editDateVC = [[EditDateViewController alloc] init];
+                EditDateViewController *editDateVC = [EditDateViewController new];
                 editDateVC.delegate = self;
                 editDateVC.date = _editingEntry.transaction.date;
                 vc = editDateVC;
@@ -300,7 +300,7 @@
             break;
 
         case ROW_TYPE:
-            editTypeVC = [[EditTypeViewController alloc] init];
+            editTypeVC = [EditTypeViewController new];
             editTypeVC.delegate = self;
             editTypeVC.type = _editingEntry.transaction.type;
             editTypeVC.dstAsset = [_editingEntry dstAsset];
@@ -308,14 +308,14 @@
             break;
 
         case ROW_VALUE:
-            calcVC = [[CalculatorViewController alloc] init];
+            calcVC = [CalculatorViewController new];
             calcVC.delegate = self;
             calcVC.value = _editingEntry.evalue;
             vc = calcVC;
             break;
 
         case ROW_DESC:
-            editDescVC = [[EditDescViewController alloc] init];
+            editDescVC = [EditDescViewController new];
             editDescVC.delegate = self;
             editDescVC.description = _editingEntry.transaction.description;
             editDescVC.category = _editingEntry.transaction.category;
@@ -332,7 +332,7 @@
             break;
 
         case ROW_CATEGORY:
-            editCategoryVC = [[CategoryListViewController alloc] init];
+            editCategoryVC = [CategoryListViewController new];
             editCategoryVC.isSelectMode = YES;
             editCategoryVC.delegate = self;
             editCategoryVC.selectedIndex = [[DataModel categories] categoryIndexWithKey:_editingEntry.transaction.category];

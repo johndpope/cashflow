@@ -1,4 +1,4 @@
-// -*-  Mode:ObjC; c-basic-offset:4; tab-width:8; indent-tabs-mode:nil -*-
+1;2c// -*-  Mode:ObjC; c-basic-offset:4; tab-width:8; indent-tabs-mode:nil -*-
 /*
  * CashFlow for iOS
  * Copyright (C) 2008-2011, Takuya Murakami, All rights reserved.
@@ -30,7 +30,7 @@
 
         _type = type;
 
-        _dateFormatter = [[NSDateFormatter alloc] init];
+        _dateFormatter = [NSDateFormatter new];
         [self _updateReport];
     }
     return self;
@@ -106,7 +106,7 @@
 
     // レポート生成
     if (_reports == nil) {
-        _reports = [[Report alloc] init];
+        _reports = [Report new];
     }
     [_reports generate:_type asset:_designatedAsset];
     _maxAbsValue = [_reports getMaxAbsValue];
@@ -194,7 +194,7 @@
     int count = [_reports.reportEntries count];
     ReportEntry *re = (_reports.reportEntries)[count - indexPath.row - 1];
 
-    CatReportViewController *vc = [[CatReportViewController alloc] init];
+    CatReportViewController *vc = [CatReportViewController new];
     vc.title = [self _reportTitle:re];
     vc.reportEntry = re;
     [self.navigationController pushViewController:vc animated:YES];

@@ -65,7 +65,7 @@
 
     if (_assetIndex < 0) {
         // 新規
-        _asset = [[Asset alloc] init];
+        _asset = [Asset new];
         _asset.name = @"";
         _asset.sorder = 99999;
     } else {

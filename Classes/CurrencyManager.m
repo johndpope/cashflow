@@ -30,7 +30,7 @@
 
     NSNumberFormatter *nf;
 
-    nf = [[NSNumberFormatter alloc] init];
+    nf = [NSNumberFormatter new];
     [nf setNumberStyle:NSNumberFormatterCurrencyStyle];
     [nf setLocale:[NSLocale currentLocale]];
     _numberFormatter = nf;

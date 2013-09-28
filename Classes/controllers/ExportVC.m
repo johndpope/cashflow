@@ -128,7 +128,7 @@
 	
     NSDate *date = nil;
     if (range > 0) {
-        date = [[NSDate alloc] init];
+        date = [NSDate new];
         date = [date dateByAddingTimeInterval:(- range * 24.0 * 60 * 60)];
     }
 	
@@ -147,7 +147,7 @@
         case 0:
         default:
             if (_csv == nil) {
-                _csv = [[ExportCsv alloc] init];
+                _csv = [ExportCsv new];
             }
             _csv.assets = assets;
             ex = _csv;
@@ -155,7 +155,7 @@
 
         case 1:
             if (_ofx == nil) {
-                _ofx = [[ExportOfx alloc] init];
+                _ofx = [ExportOfx new];
             }
             _ofx.assets = assets;
             ex = _ofx;

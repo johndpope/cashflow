@@ -214,7 +214,7 @@
 {
     if (mGregCalendar == nil) {
         mGregCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        mDateFormatter = [[NSDateFormatter alloc] init];
+        mDateFormatter = [NSDateFormatter new];
     }
     NSTimeZone *tz = [mDateFormatter timeZone];
 			  
@@ -242,7 +242,7 @@
  */
 - (NSString *)_escapeXmlString:(NSString *)s
 {
-    NSMutableString *str = [[NSMutableString alloc] init];
+    NSMutableString *str = [NSMutableString new];
     [str setString:s];
     REPLACE(@"&", @"&amp;");
     REPLACE(@"<", @"&lt;");

@@ -369,7 +369,7 @@
     int idx = [self entryIndexWithIndexPath:indexPath tableView:tv];
     if (idx == -1) {
         // initial balance cell
-        CalculatorViewController *v = [[CalculatorViewController alloc] init];
+        CalculatorViewController *v = [CalculatorViewController new];
         v.delegate = self;
         v.value = self.asset.initialBalance;
 
@@ -416,7 +416,7 @@
         return;
     }
     
-    TransactionViewController *vc = [[TransactionViewController alloc] init];
+    TransactionViewController *vc = [TransactionViewController new];
     vc.asset = self.asset;
     [vc setTransactionIndex:-1];
     [self.navigationController pushViewController:vc animated:YES];
@@ -552,12 +552,12 @@
             break;
             
         case 3:
-            configVC = [[ConfigViewController alloc] init];
+            configVC = [ConfigViewController new];
             vc = configVC;
             break;
             
         case 4:
-            infoVC = [[InfoVC alloc] init];
+            infoVC = [InfoVC new];
             vc = infoVC;
             break;
             
@@ -577,7 +577,7 @@
 /*
 - (IBAction)showHelp:(id)sender
 {
-    InfoVC *v = [[[InfoVC alloc] init] autorelease];
+    InfoVC *v = [InfoVC new];
     //[self.navigationController pushViewController:v animated:YES];
 
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:v];
