@@ -9,11 +9,6 @@
 
 @implementation Config
 
-@synthesize dateTimeMode = mDateTimeMode;
-@synthesize startOfWeek = mStartOfWeek;
-@synthesize cutoffDate = mCutoffDate;
-@synthesize lastReportType = mLastReportType;
-
 static Config *sConfig = nil;
 
 + (Config *)instance
@@ -32,21 +27,21 @@ static Config *sConfig = nil;
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    
     
-    mDateTimeMode = [defaults integerForKey:@"DateTimeMode"];
-    if (mDateTimeMode != DateTimeModeDateOnly &&
-        mDateTimeMode != DateTimeModeWithTime &&
-        mDateTimeMode != DateTimeModeWithTime5min) {
-        mDateTimeMode = DateTimeModeWithTime;
+    _dateTimeMode = [defaults integerForKey:@"DateTimeMode"];
+    if (_dateTimeMode != DateTimeModeDateOnly &&
+        _dateTimeMode != DateTimeModeWithTime &&
+        _dateTimeMode != DateTimeModeWithTime5min) {
+        _dateTimeMode = DateTimeModeWithTime;
     }
 
-    mStartOfWeek = [defaults integerForKey:@"StartOfWeek"];
+    _startOfWeek = [defaults integerForKey:@"StartOfWeek"];
     
-    mCutoffDate = [defaults integerForKey:@"CutoffDate"];
-    if (mCutoffDate < 0 || mCutoffDate > 28) {
-        mCutoffDate = 0;
+    _cutoffDate = [defaults integerForKey:@"CutoffDate"];
+    if (_cutoffDate < 0 || _cutoffDate > 28) {
+        _cutoffDate = 0;
     }
 
-    mLastReportType = [defaults integerForKey:@"LastReportType"];
+    _lastReportType = [defaults integerForKey:@"LastReportType"];
     return self;
 }
 
@@ -54,10 +49,10 @@ static Config *sConfig = nil;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    [defaults setInteger:mDateTimeMode forKey:@"DateTimeMode"];
-    [defaults setInteger:mStartOfWeek forKey:@"StartOfWeek"];
-    [defaults setInteger:mCutoffDate forKey:@"CutoffDate"];
-    [defaults setInteger:mLastReportType forKey:@"LastReportType"];
+    [defaults setInteger:_dateTimeMode forKey:@"DateTimeMode"];
+    [defaults setInteger:_startOfWeek forKey:@"StartOfWeek"];
+    [defaults setInteger:_cutoffDate forKey:@"CutoffDate"];
+    [defaults setInteger:_lastReportType forKey:@"LastReportType"];
 
     [defaults synchronize];
 }

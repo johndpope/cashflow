@@ -16,15 +16,10 @@
 
 @implementation EditDateViewController
 {
-    IBOutlet UIDatePicker *mDatePicker;
-    IBOutlet UIButton *mCalendarButton;
-    IBOutlet UIButton *mSetCurrentButton;
-    
-    id<EditDateViewDelegate> __unsafe_unretained mDelegate;
-    NSDate *mDate;
+    IBOutlet UIDatePicker *_datePicker;
+    IBOutlet UIButton *_calendarButton;
+    IBOutlet UIButton *_setCurrentButton;
 }
-
-@synthesize delegate = mDelegate, date = mDate;
 
 - (id)init
 {
@@ -47,32 +42,32 @@
                                                   action:@selector(doneAction)];
 
     if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
-        mDatePicker.datePickerMode = UIDatePickerModeDate;
+        _datePicker.datePickerMode = UIDatePickerModeDate;
     } else {
-        mDatePicker.datePickerMode = UIDatePickerModeDateAndTime;
-        mDatePicker.minuteInterval = 1;
+        _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+        _datePicker.minuteInterval = 1;
         if ([Config instance].dateTimeMode == DateTimeModeWithTime5min) {
-            mDatePicker.minuteInterval = 5;
+            _datePicker.minuteInterval = 5;
         }
     }
     
-    [mDatePicker setTimeZone:[NSTimeZone systemTimeZone]];
+    [_datePicker setTimeZone:[NSTimeZone systemTimeZone]];
     
-    [mCalendarButton setTitle:_L(@"Calendar") forState:UIControlStateNormal];
-    [mSetCurrentButton setTitle:_L(@"Current Time") forState:UIControlStateNormal];
+    [_calendarButton setTitle:_L(@"Calendar") forState:UIControlStateNormal];
+    [_setCurrentButton setTitle:_L(@"Current Time") forState:UIControlStateNormal];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [mDatePicker setDate:self.date animated:NO];
+    [_datePicker setDate:self.date animated:NO];
     [super viewWillAppear:animated];
 }
 
 - (void)doneAction
 {
-    self.date = mDatePicker.date;
-    [mDelegate editDateViewChanged:self];
+    self.date = _datePicker.date;
+    [_delegate editDateViewChanged:self];
 
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -84,7 +79,7 @@
 
 - (IBAction)showCalendar:(id)sender {
     CalendarViewController *vc = [CalendarViewController new];
-    vc.selectedDate = mDatePicker.date;
+    vc.selectedDate = _datePicker.date;
     [vc setCalendarViewControllerDelegate:self];
     
     [self.navigationController pushViewController:vc animated:YES];
@@ -92,7 +87,7 @@
 
 - (IBAction)setCurrentTime:(id)sender {
     self.date = [NSDate new]; // current time
-    [mDatePicker setDate:self.date animated:YES];
+    [_datePicker setDate:self.date animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -108,7 +103,7 @@
     // 時刻を取り出す
     NSDateComponents *comps = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] 
                                 components:(NSHourCalendarUnit | NSMinuteCalendarUnit) 
-                                fromDate:mDatePicker.date];
+                                fromDate:_datePicker.date];
     int hour = [comps hour];
     int min = [comps minute];
     

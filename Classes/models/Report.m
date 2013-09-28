@@ -13,20 +13,13 @@
 /////////////////////////////////////////////////////////////////////
 // Report
 
-@interface Report()
-// private
-- (NSDate*)firstDateOfAsset:(int)asset;
-- (NSDate*)lastDateOfAsset:(int)asset;
-@end
-
 @implementation Report
-@synthesize reportEntries = mReportEntries, type = mType;
 
 - (id)init
 {
     self = [super init];
-    mType = REPORT_MONTHLY;
-    mReportEntries = nil;
+    _type = REPORT_MONTHLY;
+    _reportEntries = nil;
     return self;
 }
 
@@ -39,9 +32,9 @@
  */
 - (void)generate:(int)type asset:(Asset*)asset
 {
-    mType = type;
+    self.type = type;
 	
-    mReportEntries = [NSMutableArray new];
+    self.reportEntries = [NSMutableArray new];
 
     NSCalendar *greg = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	
@@ -61,7 +54,7 @@
     NSDate *nextStartDay = nil;
 	
     steps = [NSDateComponents new];
-    switch (mType) {
+    switch (self.type) {
         case REPORT_DAILY:;
             dateComponents = [greg components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:firstDate];
             nextStartDay = [greg dateFromComponents:dateComponents];
@@ -128,24 +121,24 @@
         // Report 生成
         ReportEntry *r = [[ReportEntry alloc] initWithAsset:assetKey
                             start:start end:nextStartDay];
-        [mReportEntries addObject:r];
+        [self.reportEntries addObject:r];
 
         // レポート上限数を制限
-        if ([mReportEntries count] > MAX_REPORT_ENTRIES) {
-            [mReportEntries removeObjectAtIndex:0];
+        if ([self.reportEntries count] > MAX_REPORT_ENTRIES) {
+            [self.reportEntries removeObjectAtIndex:0];
         }
     }
 
     // 集計実行
     // 全取引について、該当する ReportEntry へ transaction を追加する
     for (Transaction *t in [DataModel journal]) {
-        for (ReportEntry *r in mReportEntries) {
+        for (ReportEntry *r in self.reportEntries) {
             if ([r addTransaction:t]) {
                 break;
             }
         }
     }
-    for (ReportEntry *r in mReportEntries) {
+    for (ReportEntry *r in self.reportEntries) {
         [r sortAndTotalUp];
     }
 }
@@ -156,7 +149,7 @@
 - (double)getMaxAbsValue
 {
     double maxAbsValue = 1;
-    for (ReportEntry *rep in mReportEntries) {
+    for (ReportEntry *rep in self.reportEntries) {
         if (rep.totalIncome > maxAbsValue) maxAbsValue = rep.totalIncome;
         if (-rep.totalOutgo > maxAbsValue) maxAbsValue = -rep.totalOutgo;
     }

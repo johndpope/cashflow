@@ -5,7 +5,7 @@
 #import "Report.h"
 #import "CurrencyManager.h"
 
-@interface CurrencyManagerTests : SenTestCase {
+@interface CurrencyManagerTests : XCTestCase {
     CurrencyManager *manager;
 }
 @end
@@ -22,7 +22,7 @@
 }
 
 - (void) testInit {
-    STAssertTrue(manager != nil, @"");
+    XCTAssertTrue(manager != nil, @"");
 }
 
 - (void)testSystem

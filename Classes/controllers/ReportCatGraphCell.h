@@ -19,7 +19,4 @@
 
 - (void)setReport:(ReportEntry *)reportEntry isOutgo:(BOOL)isOutgo;
 
-// internal
-- (void)drawRect:(CGRect)rect; // override
-
 @end

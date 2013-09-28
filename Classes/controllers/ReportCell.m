@@ -12,14 +12,12 @@
 
 @implementation ReportCell
 {
-    IBOutlet UILabel *mNameLabel;
-    IBOutlet UILabel *mIncomeLabel;
-    IBOutlet UILabel *mOutgoLabel;
-    IBOutlet UIView *mIncomeGraph;
-    IBOutlet UIView *mOutgoGraph;
+    IBOutlet UILabel *_nameLabel;
+    IBOutlet UILabel *_incomeLabel;
+    IBOutlet UILabel *_outgoLabel;
+    IBOutlet UIView *_incomeGraph;
+    IBOutlet UIView *_outgoGraph;
 }
-
-@synthesize name = mName, income = mIncome, outgo = mOutgo, maxAbsValue = mMaxAbsValue;
 
 + (ReportCell *)reportCell:(UITableView *)tableView
 {
@@ -43,30 +41,30 @@
 
 - (void)setName:(NSString *)n
 {
-    if (mName == n) return;
+    if (_name == n) return;
 
-    mName = n;
+    _name = n;
 
-    mNameLabel.text = mName;
+    _nameLabel.text = _name;
 }
 
 - (void)setIncome:(double)v
 {
-    mIncome = v;
-    mIncomeLabel.text = [CurrencyManager formatCurrency:mIncome];
+    _income = v;
+    _incomeLabel.text = [CurrencyManager formatCurrency:_income];
 }
 
 - (void)setOutgo:(double)v
 {
-    mOutgo = v;
-    mOutgoLabel.text = [CurrencyManager formatCurrency:mOutgo];
+    _outgo = v;
+    _outgoLabel.text = [CurrencyManager formatCurrency:_outgo];
 }
 
 - (void)setMaxAbsValue:(double)mav
 {
-    mMaxAbsValue = mav;
-    if (mMaxAbsValue < 0.0000001) {
-        mMaxAbsValue = 0.0000001; // for safety
+    _maxAbsValue = mav;
+    if (_maxAbsValue < 0.0000001) {
+        _maxAbsValue = 0.0000001; // for safety
     }
 }
 
@@ -81,19 +79,19 @@
         fullWidth = 170;
     }
 
-    ratio = mIncome / mMaxAbsValue;
+    ratio = _income / _maxAbsValue;
     if (ratio > 1.0) ratio = 1.0;
 
-    CGRect frame = mIncomeGraph.frame;
+    CGRect frame = _incomeGraph.frame;
     frame.size.width = fullWidth * ratio + 1;
-    mIncomeGraph.frame = frame;
+    _incomeGraph.frame = frame;
 
-    ratio = -mOutgo / mMaxAbsValue;
+    ratio = -_outgo / _maxAbsValue;
     if (ratio > 1.0) ratio = 1.0;
     
-    frame = mOutgoGraph.frame;
+    frame = _outgoGraph.frame;
     frame.size.width = fullWidth * ratio + 1;
-    mOutgoGraph.frame = frame;
+    _outgoGraph.frame = frame;
 }
 
 @end

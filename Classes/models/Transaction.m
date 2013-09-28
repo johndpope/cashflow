@@ -10,15 +10,7 @@
 #import "Config.h"
 #import "DescLRUManager.h"
 
-@interface Transaction ()
-@end
-
 @implementation Transaction
-{
-}
-
-@synthesize hasBalance = mHasBalance;
-@synthesize balance = mBalance;
 
 /*
  */

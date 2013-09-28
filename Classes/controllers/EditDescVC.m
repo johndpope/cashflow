@@ -21,22 +21,16 @@
 
 @implementation EditDescViewController
 {
-    IBOutlet UITableView *mTableView;
+    IBOutlet UITableView *_tableView;
     
-    UITextField *mTextField;
-
-    id<EditDescViewDelegate> __unsafe_unretained mDelegate;
-    NSString *mDescription;
-    int mCategory;
+    UITextField *_textField;
 }
-
-@synthesize delegate = mDelegate, description = mDescription, category = mCategory, tableView = mTableView;
 
 - (id)init
 {
     self = [super initWithNibName:@"EditDescView" bundle:nil];
     if (self) {
-        mCategory = -1;
+        _category = -1;
     }
     return self;
 }
@@ -58,10 +52,10 @@
              action:@selector(doneAction)];
 
     // ここで textField を生成する
-    mTextField = [[UITextField alloc] initWithFrame:CGRectMake(12, 12, 300, 24)];
-    mTextField.placeholder = _L(@"Description");
-    mTextField.returnKeyType = UIReturnKeyDone;
-    mTextField.delegate = self;
+    _textField = [[UITextField alloc] initWithFrame:CGRectMake(12, 12, 300, 24)];
+    _textField.placeholder = _L(@"Description");
+    _textField.returnKeyType = UIReturnKeyDone;
+    _textField.delegate = self;
     
     /*
     [mTextField addTarget:self action:@selector(onTextChange:)
@@ -73,16 +67,16 @@
 //  処理するトランザクションをロードしておく
 - (void)viewWillAppear:(BOOL)animated
 {
-    mTextField.text = self.description;
+    _textField.text = self.description;
     [super viewWillAppear:animated];
 
-    self.descArray = [DescLRUManager getDescLRUs:mCategory];
+    self.descArray = [DescLRUManager getDescLRUs:_category];
     self.filteredDescArray = [self.descArray mutableCopy];
 
     // キーボードを消す ###
-    [mTextField resignFirstResponder];
+    [_textField resignFirstResponder];
 
-    [mTableView reloadData];
+    [_tableView reloadData];
 }
 
 //- (void)viewWillDisappear:(BOOL)animated
@@ -92,8 +86,8 @@
 
 - (void)doneAction
 {
-    self.description = mTextField.text;
-    [mDelegate editDescViewChanged:self];
+    self.description = _textField.text;
+    [_delegate editDescViewChanged:self];
 
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -155,7 +149,7 @@
     UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"textFieldCell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"textFieldCell"];
-        [cell.contentView addSubview:mTextField];
+        [cell.contentView addSubview:_textField];
     }
     return cell;
 }
@@ -182,7 +176,7 @@
 
     if (tv == self.searchDisplayController.searchResultsTableView || indexPath.section == 1) {
         DescLRU *lru = self.filteredDescArray[indexPath.row];
-        mTextField.text = lru.description;
+        _textField.text = lru.description;
         [self doneAction];
     }
 }

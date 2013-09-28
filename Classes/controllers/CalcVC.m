@@ -48,29 +48,26 @@
     IBOutlet UIButton *button_Divide;
     IBOutlet UIButton *button_Equal;
 
-    id<CalculatorViewDelegate> __unsafe_unretained mDelegate;
-    double mValue;
+    id<CalculatorViewDelegate> __unsafe_unretained _delegate;
+    double _value;
 
-    calcState mState;
-    int mDecimalPlace; // 現在入力中の小数位
+    calcState _state;
+    int _decimalPlace; // 現在入力中の小数位
 
-    NSNumberFormatter *mNumberFormatter;
+    NSNumberFormatter *_numberFormatter;
 
-    double mStoredValue;
-    calcOperator mStoredOperator;
+    double _storedValue;
+    calcOperator _storedOperator;
 }
-
-@synthesize delegate = mDelegate;
-@synthesize value = mValue;
 
 - (id)init
 {
     self = [super initWithNibName:@"CalculatorView" bundle:nil];
     if (self) {
         [self allClear];
-        mNumberFormatter = [NSNumberFormatter new];
-        [mNumberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        [mNumberFormatter setLocale:[NSLocale currentLocale]];
+        _numberFormatter = [NSNumberFormatter new];
+        [_numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [_numberFormatter setLocale:[NSLocale currentLocale]];
     }
     return self;
 }
@@ -78,6 +75,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // iOS7 hack
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) self.edgesForExtendedLayout = UIRectEdgeNone;
     
     //[AppDelegate trackPageview:@"/CalcViewController"];
     
@@ -108,7 +108,7 @@
 
 -(void)doneAction
 {
-    [mDelegate calculatorViewChanged:self];
+    [_delegate calculatorViewChanged:self];
 
     if (!IS_IPAD && [self.navigationController.viewControllers count] == 1) {
         // I am modal view!
@@ -120,11 +120,11 @@
 
 - (void)allClear
 {
-    mValue = 0.0;
-    mState = ST_DISPLAY;
-    mDecimalPlace = 0;
-    mStoredOperator = OP_NONE;
-    mStoredValue = 0.0;
+    _value = 0.0;
+    _state = ST_DISPLAY;
+    _decimalPlace = 0;
+    _storedOperator = OP_NONE;
+    _storedValue = 0.0;
 }
 
 - (IBAction)onButtonDown:(id)sender
@@ -143,12 +143,12 @@
 
     if (sender == button_BS) {
         // バックスペース
-        if (mState == ST_INPUT) {
-            if (mDecimalPlace > 0) {
-                mDecimalPlace--;
+        if (_state == ST_INPUT) {
+            if (_decimalPlace > 0) {
+                _decimalPlace--;
                 [self roundInputValue]; // TBD
             } else {
-                mValue = floor(mValue / 10);
+                _value = floor(_value / 10);
             }
 
             [self updateLabel];
@@ -157,7 +157,7 @@
     }
 
     if (sender == button_inv) {
-        mValue = -mValue;
+        _value = -_value;
         [self updateLabel];
         return;
     }
@@ -196,29 +196,29 @@
 
 - (void)onInputOperator:(calcOperator)op
 {
-    if (mState == ST_INPUT || op == OP_EQUAL) {
+    if (_state == ST_INPUT || op == OP_EQUAL) {
         // 数値入力中に演算ボタンが押された場合、
         // あるいは = が押された場合 (5x= など)
         // メモリしてある式を計算する
-        switch (mStoredOperator) {
+        switch (_storedOperator) {
             case OP_PLUS:
-                mValue = mStoredValue + mValue;
+                _value = _storedValue + _value;
                 break;
 
             case OP_MINUS:
-                mValue = mStoredValue - mValue;
+                _value = _storedValue - _value;
                 break;
 
             case OP_MULTIPLY:
-                mValue = mStoredValue * mValue;
+                _value = _storedValue * _value;
                 break;
 
             case OP_DIVIDE:
-                if (mValue == 0.0) {
+                if (_value == 0.0) {
                     // divided by zero error
-                    mValue = 0.0;
+                    _value = 0.0;
                 } else {
-                    mValue = mStoredValue / mValue;
+                    _value = _storedValue / _value;
                 }
                 break;
                 
@@ -228,10 +228,10 @@
         }
 
         // 表示中の値を記憶
-        mStoredValue = mValue;
+        _storedValue = _value;
 
         // 表示状態に遷移
-        mState = ST_DISPLAY;
+        _state = ST_DISPLAY;
         [self updateLabel];
     }
         
@@ -239,38 +239,38 @@
 
     if (op == OP_EQUAL) {
         // '=' を押したら演算終了
-        mStoredOperator = OP_NONE;
+        _storedOperator = OP_NONE;
     } else {
-        mStoredOperator = op;
+        _storedOperator = op;
     }
 }
 
 - (void)onInputNumeric:(int)num
 {
-    if (mState == ST_DISPLAY) {
-        mState = ST_INPUT; // 入力状態に遷移
+    if (_state == ST_DISPLAY) {
+        _state = ST_INPUT; // 入力状態に遷移
 
-        mStoredValue = mValue;
+        _storedValue = _value;
 
-        mValue = 0; // 表示中の値をリセット
-        mDecimalPlace = 0;
+        _value = 0; // 表示中の値をリセット
+        _decimalPlace = 0;
     }
 
     if (num == -1) { // 小数点
-        if (mDecimalPlace == 0) {
-            mDecimalPlace = 1;
+        if (_decimalPlace == 0) {
+            _decimalPlace = 1;
         }
     }
     else { // 数値
-        if (mDecimalPlace == 0) {
+        if (_decimalPlace == 0) {
             // 整数入力
-            mValue = mValue * 10 + num;
+            _value = _value * 10 + num;
         } else {
             // 小数入力
-            double v = (double)num * pow(10, -mDecimalPlace);
-            mValue += v;
+            double v = (double)num * pow(10, -_decimalPlace);
+            _value += v;
 
-            mDecimalPlace++;
+            _decimalPlace++;
         }
     }
          
@@ -282,24 +282,24 @@
     double v;
     BOOL isMinus = NO;
 
-    v = mValue;
+    v = _value;
     if (v < 0.0) {
         isMinus = YES;
         v = -v;
     }
 
-    mValue = floor(v);
-    v -= mValue; // 小数点以下
+    _value = floor(v);
+    v -= _value; // 小数点以下
 
-    if (mDecimalPlace >= 2) {
+    if (_decimalPlace >= 2) {
         // decimalPlace 桁以下を落とす
-        double k = pow(10, mDecimalPlace - 1);
+        double k = pow(10, _decimalPlace - 1);
         v = floor(v * k) / (double)k;
-        mValue += v;
+        _value += v;
     }
 
     if (isMinus) {
-        mValue = -mValue;
+        _value = -_value;
     }
 }
 
@@ -309,14 +309,14 @@
     int dp = 0;
     double vtmp;
 
-    switch (mState) {
+    switch (_state) {
     case ST_INPUT:
-        dp = mDecimalPlace - 1;
+        dp = _decimalPlace - 1;
         break;
 
     case ST_DISPLAY:
         dp = -1;
-        vtmp = mValue;
+        vtmp = _value;
         if (vtmp < 0) vtmp = -vtmp;
         vtmp -= (int)vtmp;
         for (int i = 1; i <= 6; i++) {
@@ -330,10 +330,10 @@
 
 #if 1
     if (dp < 0) dp = 0;
-    [mNumberFormatter setMinimumFractionDigits:dp];
-    [mNumberFormatter setMaximumFractionDigits:dp];
+    [_numberFormatter setMinimumFractionDigits:dp];
+    [_numberFormatter setMaximumFractionDigits:dp];
 
-    NSString *numstr = [mNumberFormatter stringFromNumber:@(mValue)];
+    NSString *numstr = [_numberFormatter stringFromNumber:@(_value)];
     numLabel.text = numstr;
 
 #else

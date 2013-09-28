@@ -65,7 +65,8 @@
     Assert(new != saved);
     
     // modal view がでていないことを確認する
-    AssertNil(self.vc.modalViewController);
+    //AssertNil(self.vc.modalViewController);
+    AssertNil(self.vc.presentedViewController);
 }
 
 - (void)testHasPin
@@ -80,7 +81,7 @@
     Assert(new == saved);
     
     // modal view が出ていることを確認する
-    UINavigationController *nv = (UINavigationController *)self.vc.modalViewController;
+    UINavigationController *nv = (UINavigationController *)self.vc.presentedViewController;
     AssertNotNil(nv);
     PinViewController *vc = (PinViewController *)(nv.viewControllers)[0];
     AssertNotNil(vc);

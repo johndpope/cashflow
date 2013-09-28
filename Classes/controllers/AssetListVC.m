@@ -17,39 +17,27 @@
 #import "PinController.h"
 #import "ConfigViewController.h"
 
-@interface AssetListViewController()
-- (void)_dataModelLoadedOnMainThread:(id)dummy;
-- (int)_firstShowAssetIndex;
-- (void)_setFirstShowAssetIndex:(int)assetIndex;
-- (void)_showInitialAsset;
-- (int)_assetIndex:(NSIndexPath*)indexPath;
-- (void)_actionDelete:(NSInteger)buttonIndex;
-- (void)_actionActionButton:(NSInteger)buttonIndex;
-@end
-
 @implementation AssetListViewController
 {
-    IBOutlet UITableView *mTableView;
-    IBOutlet UIBarButtonItem *mBarActionButton;
-    IBOutlet UIBarButtonItem *mBarSumLabel;
+    IBOutlet UITableView *_tableView;
+    IBOutlet UIBarButtonItem *_barActionButton;
+    IBOutlet UIBarButtonItem *_barSumLabel;
     
-    BOOL mIsLoadDone;
-    DBLoadingView *mLoadingView;
+    BOOL _isLoadDone;
+    DBLoadingView *_loadingView;
     
-    Ledger *mLedger;
+    Ledger *_ledger;
 
-    NSMutableArray *mIconArray;
+    NSMutableArray *_iconArray;
 
-    BOOL mAsDisplaying;
-    UIActionSheet *mAsActionButton;
-    UIActionSheet *mAsDelete;
+    BOOL _asDisplaying;
+    UIActionSheet *_asActionButton;
+    UIActionSheet *_asDelete;
 
-    Asset *mAssetToBeDelete;
+    Asset *_assetToBeDelete;
     
-    BOOL mPinChecked;
+    BOOL _pinChecked;
 }
-
-@synthesize tableView = mTableView;
 
 - (void)viewDidLoad
 {
@@ -58,11 +46,11 @@
     
     //[AppDelegate trackPageview:@"/AssetListViewController"];
      
-    mTableView.rowHeight = 48;
-    mPinChecked = NO;
-    mAsDisplaying = NO;
+    _tableView.rowHeight = 48;
+    _pinChecked = NO;
+    _asDisplaying = NO;
     
-    mLedger = nil;
+    _ledger = nil;
 	
     // title 設定
     self.title = _L(@"Assets");
@@ -79,7 +67,7 @@
     self.navigationItem.leftBarButtonItem = [self editButtonItem];
 	
     // icon image をロード
-    mIconArray = [NSMutableArray new];
+    _iconArray = [NSMutableArray new];
     int n = [Asset numAssetTypes];
 
     for (int i = 0; i < n; i++) {
@@ -87,7 +75,7 @@
         NSString *imagePath = [[NSBundle mainBundle] pathForResource:iconName ofType:@"png"];
         UIImage *icon = [UIImage imageWithContentsOfFile:imagePath];
         ASSERT(icon != nil);
-        [mIconArray addObject:icon];
+        [_iconArray addObject:icon];
     }
 
     if (IS_IPAD) {
@@ -98,25 +86,25 @@
     
     // データロード開始
     DataModel *dm = [DataModel instance];
-    mIsLoadDone = dm.isLoadDone;
-    if (!mIsLoadDone) {
+    _isLoadDone = dm.isLoadDone;
+    if (!_isLoadDone) {
         [dm startLoad:self];
     
         // Loading View を表示させる
-        mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Loading"];
-        [mLoadingView setOrientation:self.interfaceOrientation];
-        mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
-        [mLoadingView show];
+        _loadingView = [[DBLoadingView alloc] initWithTitle:@"Loading"];
+        [_loadingView setOrientation:self.interfaceOrientation];
+        _loadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
+        [_loadingView show:self.view.window];
     }
 }
 
 - (void)viewDidUnload {
     NSLog(@"AssetLivewViewController:viewDidUnload");
-    mIconArray = nil;
+    _iconArray = nil;
 
-    mTableView = nil;
-    mBarActionButton = nil;
-    mBarSumLabel = nil;
+    _tableView = nil;
+    _barActionButton = nil;
+    _barSumLabel = nil;
     [super viewDidUnload];
 }
 
@@ -130,8 +118,8 @@
 {
     NSLog(@"AssetListViewController:dataModelLoaded");
 
-    mIsLoadDone = YES;
-    mLedger = [DataModel ledger];
+    _isLoadDone = YES;
+    _ledger = [DataModel ledger];
     
     [self performSelectorOnMainThread:@selector(_dataModelLoadedOnMainThread:) withObject:nil waitUntilDone:NO];
 }
@@ -139,8 +127,8 @@
 - (void)_dataModelLoadedOnMainThread:(id)dummy
 {
     // dismiss loading view
-    [mLoadingView dismissAnimated:NO];
-    mLoadingView = nil;
+    [_loadingView dismissAnimated:NO];
+    _loadingView = nil;
 
     [self reload];
  
@@ -178,12 +166,12 @@
     
     // 前回選択資産を選択
     int firstShowAssetIndex = [self _firstShowAssetIndex];
-    if (firstShowAssetIndex >= 0 && [mLedger assetCount] > firstShowAssetIndex) {
-        asset = [mLedger assetAtIndex:firstShowAssetIndex];
+    if (firstShowAssetIndex >= 0 && [_ledger assetCount] > firstShowAssetIndex) {
+        asset = [_ledger assetAtIndex:firstShowAssetIndex];
     }
     // iPad では、前回選択資産がなくても、最初の資産を選択する
-    if (IS_IPAD && asset == nil && [mLedger assetCount] > 0) {
-        asset = [mLedger assetAtIndex:0];
+    if (IS_IPAD && asset == nil && [_ledger assetCount] > 0) {
+        asset = [_ledger assetAtIndex:0];
     }
 
     // TransactionListView を表示
@@ -200,7 +188,7 @@
     }
 
     // 資産が一個もない場合は警告を出す
-    if ([mLedger assetCount] == 0) {
+    if ([_ledger assetCount] == 0) {
         [AssetListViewController noAssetAlert];
     }
 }
@@ -218,19 +206,19 @@
 
 - (void)reload
 {
-    if (!mIsLoadDone) return;
+    if (!_isLoadDone) return;
     
-    mLedger = [DataModel ledger];
-    [mLedger rebuild];
-    [mTableView reloadData];
+    _ledger = [DataModel ledger];
+    [_ledger rebuild];
+    [_tableView reloadData];
 
     // 合計欄
     double value = 0.0;
-    for (int i = 0; i < [mLedger assetCount]; i++) {
-        value += [[mLedger assetAtIndex:i] lastBalance];
+    for (int i = 0; i < [_ledger assetCount]; i++) {
+        value += [[_ledger assetAtIndex:i] lastBalance];
     }
     NSString *lbl = [NSString stringWithFormat:@"%@ %@", _L(@"Total"), [CurrencyManager formatCurrency:value]];
-    mBarSumLabel.title = lbl;
+    _barSumLabel.title = lbl;
     
     [[Database instance] updateModificationDate]; // TODO : ここでやるのは正しくないが、、、
 }
@@ -279,11 +267,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (!mIsLoadDone) return 0;
+    if (!_isLoadDone) return 0;
     
     switch (section) {
         case 0:
-            return [mLedger assetCount];
+            return [_ledger assetCount];
             
         //case 1:
         //    return 1; // 合計欄
@@ -324,7 +312,7 @@
     NSString *label = nil;
 
     if (indexPath.section == 0) {
-        Asset *asset = [mLedger assetAtIndex:[self _assetIndex:indexPath]];
+        Asset *asset = [_ledger assetAtIndex:[self _assetIndex:indexPath]];
     
         label = asset.name;
         value = [asset lastBalance];
@@ -333,10 +321,10 @@
 
         // 資産タイプ範囲外対応
         int type = asset.type;
-        if (type < 0 || [mIconArray count] <= type) {
+        if (type < 0 || [_iconArray count] <= type) {
             type = 0;
         }
-        cell.imageView.image = mIconArray[type];
+        cell.imageView.image = _iconArray[type];
     }
 #if 0
     else if (indexPath.section == 1) {
@@ -382,7 +370,7 @@
     // 最後に選択した asset を記憶
     [self _setFirstShowAssetIndex:assetIndex];
 	
-    Asset *asset = [mLedger assetAtIndex:assetIndex];
+    Asset *asset = [_ledger assetAtIndex:assetIndex];
 
     // TransactionListView を表示
     if (IS_IPAD) {
@@ -452,19 +440,19 @@
 {
     if (style == UITableViewCellEditingStyleDelete) {
         int assetIndex = [self _assetIndex:indexPath];
-        mAssetToBeDelete = [mLedger assetAtIndex:assetIndex];
+        _assetToBeDelete = [_ledger assetAtIndex:assetIndex];
 
-        mAsDelete =
+        _asDelete =
             [[UIActionSheet alloc]
                 initWithTitle:_L(@"ReallyDeleteAsset")
                 delegate:self
                 cancelButtonTitle:@"Cancel"
                 destructiveButtonTitle:_L(@"Delete Asset")
                 otherButtonTitles:nil];
-        mAsDelete.actionSheetStyle = UIActionSheetStyleDefault;
+        _asDelete.actionSheetStyle = UIActionSheetStyleDefault;
         
         // 注意: self.view から showInView すると、iPad縦画面でクラッシュする。self.view.window にすれば OK。
-        [mAsDelete showInView:self.view.window];
+        [_asDelete showInView:self.view.window];
     }
 }
 
@@ -474,8 +462,8 @@
         return; // cancelled;
     }
 	
-    int pid = mAssetToBeDelete.pid;
-    [mLedger deleteAsset:mAssetToBeDelete];
+    int pid = _assetToBeDelete.pid;
+    [_ledger deleteAsset:_assetToBeDelete];
     
     if (IS_IPAD) {
         if (self.splitTransactionListViewController.assetKey == pid) {
@@ -538,10 +526,10 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 
 - (void)doAction:(id)sender
 {
-    if (mAsDisplaying) return;
-    mAsDisplaying = YES;
+    if (_asDisplaying) return;
+    _asDisplaying = YES;
     
-    mAsActionButton = 
+    _asActionButton = 
         [[UIActionSheet alloc]
          initWithTitle:@"" delegate:self 
          cancelButtonTitle:_L(@"Cancel")
@@ -557,7 +545,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
     //    [mAsActionButton showFromBarButtonItem:mBarActionButton animated:YES];
     //}
     
-    [mAsActionButton showInView:[self view]];
+    [_asActionButton showInView:[self view]];
 }
 
 - (void)_actionActionButton:(NSInteger)buttonIndex
@@ -568,7 +556,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
     BackupViewController *backupVC;
     UIViewController *vc;
     
-    mAsDisplaying = NO;
+    _asDisplaying = NO;
     
     switch (buttonIndex) {
         case 0:
@@ -605,12 +593,12 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 // actionSheet ハンドラ
 - (void)actionSheet:(UIActionSheet*)as clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (as == mAsActionButton) {
-        mAsActionButton = nil;
+    if (as == _asActionButton) {
+        _asActionButton = nil;
         [self _actionActionButton:buttonIndex];
     }
-    else if (as == mAsDelete) {
-        mAsDelete = nil;
+    else if (as == _asDelete) {
+        _asDelete = nil;
         [self _actionDelete:buttonIndex];
     }
     else {

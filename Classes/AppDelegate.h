@@ -24,7 +24,7 @@
 - (void)checkPin;
 + (NSString *)appVersion;
 
-+ (void)trackPageview:(NSString *)url;
+//+ (void)trackPageview:(NSString *)url;
 + (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(int)value;
 
 // Utility

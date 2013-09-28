@@ -2,7 +2,7 @@
 
 #import "TestCommon.h"
 
-@interface DataModelTest : SenTestCase {
+@interface DataModelTest : XCTestCase {
     DataModel *dm;
 }
 @end
@@ -42,9 +42,9 @@
     [TestCommon installDatabase:@"testdata1"];
     dm = [DataModel instance];
 
-    AssertEquals(6, (int)[dm.journal.entries count]);
-    AssertEquals(3, (int)[dm.ledger.assets count]);
-    AssertEquals(3, (int)[dm.categories count]);
+    AssertEqual(6, (int)[dm.journal.entries count]);
+    AssertEqual(3, (int)[dm.ledger.assets count]);
+    AssertEqual(3, (int)[dm.categories count]);
 }
 
 @end

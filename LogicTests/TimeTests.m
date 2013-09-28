@@ -2,7 +2,7 @@
 
 #import "TestCommon.h"
 
-@interface TimeTest : SenTestCase {
+@interface TimeTest : XCTestCase {
 }
 @end
 

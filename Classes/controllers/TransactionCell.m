@@ -12,10 +12,10 @@
 
 @implementation TransactionCell
 {
-    IBOutlet UILabel *mDescLabel;
-    IBOutlet UILabel *mDateLabel;
-    IBOutlet UILabel *mValueLabel;
-    IBOutlet UILabel *mBalanceLabel;
+    IBOutlet UILabel *_descLabel;
+    IBOutlet UILabel *_dateLabel;
+    IBOutlet UILabel *_valueLabel;
+    IBOutlet UILabel *_balanceLabel;
 }
 
 + (TransactionCell *)transactionCell:(UITableView *)tableView
@@ -44,52 +44,52 @@
 {
     [self setDescriptionLabel:_L(@"Initial Balance")];
     [self setBalanceLabel:initialBalance];
-    mValueLabel.text = @"";
-    mDateLabel.text = @"";
+    _valueLabel.text = @"";
+    _dateLabel.text = @"";
     return self;
 }
      
 
 - (void)setDescriptionLabel:(NSString *)desc
 {
-    mDescLabel.text = desc;
+    _descLabel.text = desc;
 }
 
 - (void)setDateLabel:(NSDate *)date
 {
-    mDateLabel.text = [[DataModel dateFormatter] stringFromDate:date];
+    _dateLabel.text = [[DataModel dateFormatter] stringFromDate:date];
 }
 
 - (void)setValueLabel:(double)value
 {
     if (value >= 0) {
-        mValueLabel.textColor = [UIColor blueColor];
+        _valueLabel.textColor = [UIColor blueColor];
     } else {
         value = -value;
-        mValueLabel.textColor = [UIColor redColor];
+        _valueLabel.textColor = [UIColor redColor];
     }
-    mValueLabel.text = [CurrencyManager formatCurrency:value];
+    _valueLabel.text = [CurrencyManager formatCurrency:value];
 }
 
 - (void)setBalanceLabel:(double)balance
 {
-    mBalanceLabel.text = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), 
+    _balanceLabel.text = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), 
                           [CurrencyManager formatCurrency:balance]];
 }
 
 - (void)clearValueLabel
 {
-    mValueLabel.text = @"";
+    _valueLabel.text = @"";
 }
 
 - (void)clearDateLabel
 {
-    mDateLabel.text = @"";
+    _dateLabel.text = @"";
 }
 
 - (void)clearBalanceLabel
 {
-    mBalanceLabel.text = @"";
+    _balanceLabel.text = @"";
 }
 
 @end

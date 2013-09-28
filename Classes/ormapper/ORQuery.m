@@ -6,14 +6,14 @@
 
 @interface ORQuery()
 {
-    Class mTargetClass;
+    Class _targetClass;
 
-    NSString *mTableName;
-    NSString *mWhere;
-    NSArray *mWhereParams;
-    NSString *mOrder;
-    int mLimit;
-    int mOffset;
+    NSString *_tableName;
+    NSString *_where;
+    NSArray *_whereParams;
+    NSString *_order;
+    int _limit;
+    int _offset;
 }
 @end
 
@@ -28,8 +28,8 @@
 {
     self = [super init];
     if (self != nil) {
-        mTargetClass = class;
-        mTableName = tableName;
+        _targetClass = class;
+        _tableName = tableName;
     }
     return self;
 }
@@ -43,8 +43,8 @@
  */
 - (ORQuery *)where:(NSString *)where arguments:(NSArray *)args
 {
-    mWhere = where;
-    mWhereParams = args;
+    _where = where;
+    _whereParams = args;
     return self;
 }
     
@@ -57,8 +57,8 @@
  */
 - (ORQuery *)where_eq:(NSString *)column arg:(NSString *)arg
 {
-    mWhere = [column stringByAppendingString:@" = ?"];
-    mWhereParams = @[arg];
+    _where = [column stringByAppendingString:@" = ?"];
+    _whereParams = @[arg];
     return self;
 }
 
@@ -69,7 +69,7 @@
  */
 - (ORQuery *)order:(NSString *)order
 {
-    mOrder = order;
+    _order = order;
     return self;
 }
     
@@ -80,7 +80,7 @@
  */
 - (ORQuery *)limit:(int)limit
 {
-    mLimit = limit;
+    _limit = limit;
     return self;
 }
     
@@ -91,7 +91,7 @@
  */
 - (ORQuery*)offset:(int)offset
 {
-    mOffset = offset;
+    _offset = offset;
     return self;
 }
 
@@ -107,12 +107,12 @@
     // bind arguments
     dbstmt *stmt = [[Database instance] prepare:sql];
     
-    for (int i = 0; i < [mWhereParams count]; i++) {
-        [stmt bindString:i val:(NSString *)mWhereParams[i]];
+    for (int i = 0; i < [_whereParams count]; i++) {
+        [stmt bindString:i val:(NSString *)_whereParams[i]];
     }
 
     while ([stmt step] == SQLITE_ROW) {
-        ORRecord *e = [mTargetClass new];
+        ORRecord *e = [_targetClass new];
         [e _loadRow:stmt];
         [array addObject:e];
     }
@@ -125,7 +125,7 @@
  */
 - (id)first
 {
-    mLimit = 1;
+    _limit = 1;
         
     NSMutableArray *ary = [self all];
     if ([ary count] == 0) {
@@ -143,28 +143,28 @@
 {
     NSMutableString *sql = [NSMutableString new];
     
-    [sql appendFormat:@"SELECT * FROM %@", mTableName];
+    [sql appendFormat:@"SELECT * FROM %@", _tableName];
     
     // Where 節
-    if (mWhere != nil) {
+    if (_where != nil) {
         [sql appendString:@" WHERE "];
-        [sql appendString:mWhere];
+        [sql appendString:_where];
     }
     
     // Order
-    if (mOrder != nil) {
+    if (_order != nil) {
         [sql appendString:@" ORDER BY "];
-        [sql appendString:mOrder];
+        [sql appendString:_order];
     }
     
     // Limit
-    if (mLimit > 0) {
-        [sql appendFormat:@" LIMIT %d", mLimit];
+    if (_limit > 0) {
+        [sql appendFormat:@" LIMIT %d", _limit];
     }
     
     // Offset
-    if (mOffset > 0) {
-        [sql appendFormat:@" OFFSET %d", mOffset];
+    if (_offset > 0) {
+        [sql appendFormat:@" OFFSET %d", _offset];
     }
     
     return sql;

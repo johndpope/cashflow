@@ -18,7 +18,7 @@
 #import "CalendarViewController.h"
 
 @interface TransactionViewController : UIViewController 
-    <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,
+    <UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,UIActionSheetDelegate,
     EditMemoViewDelegate, EditTypeViewDelegate,
     EditDateViewDelegate, CalculatorViewDelegate,
     EditDescViewDelegate, CategoryListViewDelegate,

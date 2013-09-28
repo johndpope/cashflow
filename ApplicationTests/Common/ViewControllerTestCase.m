@@ -38,7 +38,7 @@
         className = nibName;
     }
     if (className == nil) {
-        STFail(@"You must override viewControllerName/viewControllerNibName or createViewController!");
+        XCTFail(@"You must override viewControllerName/viewControllerNibName or createViewController!");
         return nil;
     }
     

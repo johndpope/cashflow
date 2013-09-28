@@ -1,0 +1,69 @@
+'CashFlow' is a simple asset management software.
+You can manage your daily cash income/outgo, bank, credit card accounts.
+
+Features of CashFlow:
+
+1. Simple and easy to record transactions
+
+You can easily input your daily transactions. You can choose
+description of transaction from history, much less keyboard operations.
+Also you can fix balance with simple operation.
+
+2. Support multiple accounts
+
+You can manager multiple cash / bank / credit card accounts.
+CashFlow supports transfer transaction between the assets.
+
+3. Report functions
+
+You can check daily/weekly/monthly/annual reports.
+
+4. Export functions
+
+All data can be exported with CSV and OFX format, so you can use
+them with your PC. The export can send via e-mail, dropbox, and
+internal web server.
+
+5. Support Dropbox
+
+You can export, backup and restore via your Dropbox account.
+
+----
+This is a free version of CashFlow. With paid-for version of CashFlow,
+you can hide advertisements.
+
+----
+What's new in ver 5.0
+
+Note:
+With this version, login method for Dropbox was changed.
+If you install the official Dropbox application, CashFlow
+uses it for login, or web browser is used.
+
+I strongly recommend you to backup your data to dropbox 
+before version up.
+
+If you can't login dropbox with cashflow, select "unlink dropbox
+account" in "config" section of cashflow.
+
+Changes:
+- Modify dropbox login (link) method.
+- Support iOS 5.
+- Minor bug fixes.
+
+----
+What's new in ver 4.1
+
+- Add configuration for start of week.
+- Show total value in category report.
+- Bug fixed: Sometimes pie chart does not show correctly.
+- Change advertisement.
+
+----
+What's new in ver 4.0
+
+- Support Dropbox (Export, Backup and Restore)
+- New report functions (Daily/Annual report, Pie chart, check all transactions for each category)
+- Export all assets with CSV/OFX.
+- New icon.
+

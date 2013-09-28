@@ -2,7 +2,7 @@
 /*
   O/R Mapper library for iOS
 
-  Copyright (c) 2010-2011, Takuya Murakami. All rights reserved.
+  Copyright (c) 2010-2013, Takuya Murakami. All rights reserved.
 
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions are
@@ -31,13 +31,6 @@
    O/R Record base class
  */
 @interface ORRecord : NSObject
-{
-    /** Primary ID (primary key) */
-    int mPid;
-
-    /** new entry or not */
-    BOOL mIsNew;
-}
 
 @property(nonatomic,assign) int pid;
 
@@ -47,16 +40,17 @@
 + (id)find:(int)id;
 
 - (void)save;
-- (void)_insert;
-- (void)_update;
 - (void)delete;
 + (void)delete_all;
-
-- (void)_loadRow:(dbstmt *)stmt;
 
 + (NSString *)tableName;
 
 - (NSString *)quoteSqlString:(NSString *)string;
+
+// called only from inherited classes
+- (void)_insert;
+- (void)_update;
+- (void)_loadRow:(dbstmt *)stmt;
 
 @end
 
