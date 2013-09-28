@@ -7,8 +7,10 @@
 // ReportCatGraphCell.m
 
 #import "ReportCatGraphCell.h"
+#import "AppDelegate.h"
 
-#define CELL_HEIGHT     120   /* iOS, not retina */
+#define CELL_HEIGHT         120   /* iPhone, not retina */
+#define CELL_HEIGHT_IPAD    360   /* iPad, not retina */
 
 @implementation ReportCatGraphCell
 {
@@ -34,7 +36,11 @@
 
 + (CGFloat)cellHeight
 {
-    return CELL_HEIGHT;
+    if (IS_IPAD) {
+        return CELL_HEIGHT_IPAD;
+    } else {
+        return CELL_HEIGHT;
+    }
 }
 
 /**
@@ -112,10 +118,11 @@ static inline double radians(double deg)
 {
     /* 中心座標を計算 */
     CGRect frame = self.frame;
+    double height = frame.size.height;
     double width = frame.size.width;
     double graph_x = width * 0.3;
-    double graph_y = CELL_HEIGHT / 2;
-    double graph_r = CELL_HEIGHT / 2 * 0.9;
+    double graph_y = height / 2;
+    double graph_r = height / 2 * 0.9;
 
     double sum = 0.0, prev = 0.0;
     int n = -1;
