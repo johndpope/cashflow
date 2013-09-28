@@ -37,7 +37,6 @@
     return CELL_HEIGHT;
 }
 
-
 /**
    レポート設定
 */
@@ -57,19 +56,29 @@
         _catReports = ary;
     }
 
-    [self draw];
+    //[self draw];
     
-    // force redraw the cell
-    //[self setNeedsDisplay];
+    // force draw this cell
+    [self setNeedsDisplay];
 }
 
 /**
-   描画
-*/
+ * 描画: 描画が必要なときに呼び出される
+ */
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+    [self draw];
+}
+
+/**
+ *  描画処理本体
+ */
 - (void)draw
 {
     // Graphics Context を取得
-    UIGraphicsBeginImageContextWithOptions(_imageView.frame.size, NO, 0);
+    CGRect frame = _imageView.frame;
+    UIGraphicsBeginImageContextWithOptions(frame.size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     // 左上原点にしておく
@@ -102,7 +111,8 @@ static inline double radians(double deg)
 - (void)_drawCircleGraph:(CGContextRef)context
 {
     /* 中心座標を計算 */
-    double width = self.frame.size.width;
+    CGRect frame = self.frame;
+    double width = frame.size.width;
     double graph_x = width * 0.3;
     double graph_y = CELL_HEIGHT / 2;
     double graph_r = CELL_HEIGHT / 2 * 0.9;
