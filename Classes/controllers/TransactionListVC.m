@@ -506,7 +506,7 @@
     
     UIActionSheet *as = 
         [[UIActionSheet alloc]
-         initWithTitle:@"" 
+         initWithTitle:nil
          delegate:self 
          cancelButtonTitle:_L(@"Cancel")
          destructiveButtonTitle:nil otherButtonTitles:
