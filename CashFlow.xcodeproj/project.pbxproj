@@ -348,6 +348,7 @@
 		3EB88E8417F6B5590045780D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8317F6B5590045780D /* libz.dylib */; };
 		3EB88E8517F6B5680045780D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8317F6B5590045780D /* libz.dylib */; };
 		3EB88E8617F6B5680045780D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8317F6B5590045780D /* libz.dylib */; };
+		3EB88E8817F6FAE10045780D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EB88E8717F6FAE10045780D /* Images.xcassets */; };
 		3EB8EA500F1F7919000A8276 /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EB8EA4F0F1F7919000A8276 /* config.png */; };
 		3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EC9FCED17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */; };
@@ -684,6 +685,7 @@
 		3EB88E7E17F6B0B10045780D /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
 		3EB88E7F17F6B0B10045780D /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		3EB88E8317F6B5590045780D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		3EB88E8717F6FAE10045780D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CashFlow/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		3EB8EA4F0F1F7919000A8276 /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
 		3EC572D61107451F00A551D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportCatGraphCell.xib; sourceTree = "<group>"; };
@@ -901,6 +903,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3EB88E8717F6FAE10045780D /* Images.xcassets */,
 				3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */,
 				3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */,
 				3EA011310EC344CC008CEEB7 /* AssetListView.xib */,
@@ -1444,6 +1447,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 5HUHR3STUG;
+					};
+					3E8B25780F348C090007929E = {
+						DevelopmentTeam = 5HUHR3STUG;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CashFlow" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1517,6 +1528,7 @@
 				3EFEFE101324ED2100EF369E /* Icon.png in Resources */,
 				3EFEFE111324ED2100EF369E /* Icon@2x.png in Resources */,
 				3EFEFE0F1324ED2100EF369E /* Icon-72.png in Resources */,
+				3EB88E8817F6FAE10045780D /* Images.xcassets in Resources */,
 				3EA1A46015149410004144B6 /* Icon-72@2x.png in Resources */,
 				3EFEFE1C1324ED2E00EF369E /* Icon-free.png in Resources */,
 				3EFEFE1D1324ED2E00EF369E /* Icon-free@2x.png in Resources */,
@@ -1905,6 +1917,9 @@
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -1921,6 +1936,9 @@
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Takuya Murakami";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1940,6 +1958,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconFree;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -1961,6 +1982,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconFree;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Takuya Murakami";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
