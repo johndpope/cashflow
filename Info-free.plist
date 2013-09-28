@@ -8,8 +8,6 @@
 	<string>CashFlowFre</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>Icon-free.png</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.tmurakam.CashFlow-Free</string>
 	<key>CFBundleInfoDictionaryVersion</key>

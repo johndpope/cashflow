@@ -1,5 +1,6 @@
 2013-09-28 : Takuya Murakami
 
+	* ver 6.3.0 (v60)
 	* iOS 4.3 サポート削除、iOS 5.0 以上必須
 	* Google Analytics v2 beta4 -> 3.0.1
 	* XCTest 対応
