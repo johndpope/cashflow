@@ -110,7 +110,9 @@
     GAI *gai = [GAI sharedInstance];
 
     gai.trackUncaughtExceptions = YES;
-    //gai.debug = YES;
+
+    // デバッグログ
+    //[gai.logger setLogLevel:kGAILogLevelVerbose];
     
     id<GAITracker> tracker = [gai trackerWithTrackingId:@"UA-413697-35"];
     
