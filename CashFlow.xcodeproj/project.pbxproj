@@ -157,7 +157,6 @@
 		3E44CF6717F6083300E54901 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44CF4217F5FE3700E54901 /* XCTest.framework */; };
 		3E44CF6817F6083300E54901 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		3E44CF6917F6083300E54901 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		3E44CF6F17F6083300E54901 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E44CF6D17F6083300E54901 /* InfoPlist.strings */; };
 		3E44CFC017F69A7200E54901 /* AssetEntryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152811462CA8500C724E4 /* AssetEntryTests.m */; };
 		3E44CFC117F69BF700E54901 /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
 		3E44CFC217F69C5600E54901 /* CurrencyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152831462CA8500C724E4 /* CurrencyManagerTests.m */; };
@@ -659,11 +658,6 @@
 		3E43FC6C1324E8130059B198 /* ReportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportView.xib; sourceTree = "<group>"; };
 		3E44CF4217F5FE3700E54901 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3E44CF5C17F604E400E54901 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = Libraries/Dropbox/DropboxSDK.framework; sourceTree = SOURCE_ROOT; };
-		3E44CF6617F6083300E54901 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E44CF6C17F6083300E54901 /* UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
-		3E44CF6E17F6083300E54901 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3E44CF7017F6083300E54901 /* UnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitTests.m; sourceTree = "<group>"; };
-		3E44CF7217F6083300E54901 /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		3E4A7D21131FB94B0008C37D /* CashflowDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashflowDatabase.h; sourceTree = "<group>"; };
 		3E4A7D22131FB94B0008C37D /* CashflowDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashflowDatabase.m; sourceTree = "<group>"; };
 		3E4A7D23131FB94B0008C37D /* DateFormatter2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateFormatter2.h; sourceTree = "<group>"; };
@@ -996,7 +990,6 @@
 				3E8B25C20F348C090007929E /* CashFlowFree.app */,
 				3EC1B22713291A6D00721A71 /* ApplicationTests.xctest */,
 				3EF1523D1462C2B300C724E4 /* LogicTests.xctest */,
-				3E44CF6617F6083300E54901 /* UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1013,7 +1006,6 @@
 				3E6C501A157E3F0C0086C20E /* Libraries */,
 				3EF152411462C2B300C724E4 /* LogicTests */,
 				3EC1B22B13291A6D00721A71 /* ApplicationTests */,
-				3E44CF6A17F6083300E54901 /* UnitTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */,
@@ -1223,25 +1215,6 @@
 				3E2CBD9F0F1615470025A682 /* Localizable.strings */,
 			);
 			path = locale;
-			sourceTree = "<group>";
-		};
-		3E44CF6A17F6083300E54901 /* UnitTests */ = {
-			isa = PBXGroup;
-			children = (
-				3E44CF7017F6083300E54901 /* UnitTests.m */,
-				3E44CF6B17F6083300E54901 /* Supporting Files */,
-			);
-			path = UnitTests;
-			sourceTree = "<group>";
-		};
-		3E44CF6B17F6083300E54901 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3E44CF6C17F6083300E54901 /* UnitTests-Info.plist */,
-				3E44CF6D17F6083300E54901 /* InfoPlist.strings */,
-				3E44CF7217F6083300E54901 /* UnitTests-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		3E4C53C0167DFF8200BAA294 /* Crittercism */ = {
@@ -1562,24 +1535,6 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* CashFlow.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3E44CF6517F6083300E54901 /* UnitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3E44CF7517F6083300E54901 /* Build configuration list for PBXNativeTarget "UnitTests" */;
-			buildPhases = (
-				3E44CF6217F6083300E54901 /* Sources */,
-				3E44CF6317F6083300E54901 /* Frameworks */,
-				3E44CF6417F6083300E54901 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3E44CF7417F6083300E54901 /* PBXTargetDependency */,
-			);
-			name = UnitTests;
-			productName = UnitTests;
-			productReference = 3E44CF6617F6083300E54901 /* UnitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		3E8B25780F348C090007929E /* CashFlowFree */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E8B25BB0F348C090007929E /* Build configuration list for PBXNativeTarget "CashFlowFree" */;
@@ -1678,7 +1633,6 @@
 				3E8B25780F348C090007929E /* CashFlowFree */,
 				3EF1523C1462C2B200C724E4 /* LogicTests */,
 				3EC1B22613291A6D00721A71 /* ApplicationTests */,
-				3E44CF6517F6083300E54901 /* UnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1791,7 +1745,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E44CFCD17F69DBB00E54901 /* testdata1.sql in Resources */,
-				3E44CF6F17F6083300E54901 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2189,14 +2142,6 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		3E44CF6D17F6083300E54901 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3E44CF6E17F6083300E54901 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		3EC1B22E13291A6D00721A71 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2591,15 +2536,6 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3E44CF7517F6083300E54901 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3E44CF7617F6083300E54901 /* Debug */,
-				3E44CF7717F6083300E54901 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
