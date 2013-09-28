@@ -116,14 +116,17 @@
     }
 }
 
-- (void)show {
+- (void)show:(UIView *)parent {
     if (!imageView.image) {
         // Only show activity indicator when we don't have an image
         [activityIndicator startAnimating];
     }
-    UIWindow* window = [[UIApplication sharedApplication] keyWindow];
-    self.frame = window.frame;
-    [window addSubview:self];
+    //UIWindow* window = [[UIApplication sharedApplication] keyWindow];
+    //self.frame = window.frame;
+    //[window addSubview:self];
+    
+    self.frame = parent.frame;
+    [parent addSubview:self];
 }
 
 - (void)finishDismiss {

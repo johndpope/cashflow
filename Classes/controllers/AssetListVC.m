@@ -94,7 +94,7 @@
         _loadingView = [[DBLoadingView alloc] initWithTitle:@"Loading"];
         [_loadingView setOrientation:self.interfaceOrientation];
         _loadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
-        [_loadingView show];
+        [_loadingView show:self.view.window];
     }
 }
 
