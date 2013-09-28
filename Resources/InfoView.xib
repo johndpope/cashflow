@@ -54,9 +54,7 @@ Takuya Murakami</string>
                     <rect key="frame" x="80" y="343" width="220" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" title="Open support site">
-                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <state key="normal" title="Open support site"/>
                     <state key="disabled" title="Go to support site"/>
                     <state key="selected" title="Go to support site"/>
                     <state key="highlighted" title="Go to support site">
@@ -70,9 +68,7 @@ Takuya Murakami</string>
                     <rect key="frame" x="80" y="388" width="220" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" title="Open facebook page">
-                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <state key="normal" title="Open facebook page"/>
                     <state key="disabled" title="Go to support site"/>
                     <state key="selected" title="Go to support site"/>
                     <state key="highlighted" title="Go to support site">
@@ -86,9 +82,7 @@ Takuya Murakami</string>
                     <rect key="frame" x="80" y="298" width="220" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" title="Purchase Standard Version">
-                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <state key="normal" title="Purchase Standard Version"/>
                     <state key="disabled" title="Purchase Standard Version"/>
                     <state key="selected" title="Purchase Standard Version"/>
                     <state key="highlighted" title="Purchase Standard Version">
