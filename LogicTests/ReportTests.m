@@ -4,7 +4,7 @@
 #import "DataModel.h"
 #import "Report.h"
 
-@interface ReportTest : SenTestCase {
+@interface ReportTest : XCTestCase {
     Report *mReports;
 }
 @end

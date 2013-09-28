@@ -3,7 +3,7 @@
 #import "TestCommon.h"
 #import "DataModel.h"
 
-@interface AssetTest : SenTestCase {
+@interface AssetTest : XCTestCase {
     Asset *asset;
 }
 @end

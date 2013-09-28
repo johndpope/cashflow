@@ -1,6 +1,6 @@
 // -*-  Mode:ObjC; c-basic-offset:4; tab-width:8; indent-tabs-mode:nil -*-
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "TestCommon.h"
 
 /**
@@ -8,7 +8,7 @@
 
    createViewController をオーバライドして使用すること
 */
-@interface ViewControllerTestCase : SenTestCase
+@interface ViewControllerTestCase : XCTestCase
 {
     UIViewController *mViewController;
     UIViewController *mBaseViewController;

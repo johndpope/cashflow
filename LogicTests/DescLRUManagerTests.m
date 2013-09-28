@@ -4,7 +4,7 @@
 #import "DataModel.h"
 #import "DescLRUManager.h"
 
-@interface DescLRUManagerTests : SenTestCase {
+@interface DescLRUManagerTests : XCTestCase {
     DescLRUManager *manager;
 }
 @end
@@ -41,7 +41,7 @@
 
 - (void) testInit {
     NSMutableArray *ary = [DescLRUManager getDescLRUs:-1];
-    STAssertEquals(0, (int)[ary count], @"LRU count must be 0.");
+    XCTAssertEqual(0, (int)[ary count], @"LRU count must be 0.");
 }
 
 - (void)testAnyCategory
@@ -50,13 +50,13 @@
     
     NSMutableArray *ary;
     ary = [DescLRUManager getDescLRUs:-1];
-    STAssertEquals(6, (int)[ary count], @"LRU count must be 6.");
+    XCTAssertEqual(6, (int)[ary count], @"LRU count must be 6.");
 
     DescLRU *lru;
     lru = [ary objectAtIndex:0];
-    STAssertEqualObjects(@"test5", lru.description, @"first entry");
+    XCTAssertEqualObjects(@"test5", lru.description, @"first entry");
     lru = [ary objectAtIndex:5];
-    STAssertEqualObjects(@"test0", lru.description, @"last entry");
+    XCTAssertEqualObjects(@"test0", lru.description, @"last entry");
 }
 
 - (void)testCategory
@@ -65,13 +65,13 @@
 
     NSMutableArray *ary;
     ary = [DescLRUManager getDescLRUs:1];
-    STAssertEquals(2, (int)[ary count], @"LRU count must be 2.");
+    XCTAssertEqual(2, (int)[ary count], @"LRU count must be 2.");
 
     DescLRU *lru;
     lru = [ary objectAtIndex:0];
-    STAssertEqualObjects(@"test4", lru.description, @"first entry");
+    XCTAssertEqualObjects(@"test4", lru.description, @"first entry");
     lru = [ary objectAtIndex:1];
-    STAssertEqualObjects(@"test1", lru.description, @"last entry");
+    XCTAssertEqualObjects(@"test1", lru.description, @"last entry");
 }
 
 - (void)testUpdateSameCategory
@@ -82,13 +82,13 @@
 
     NSMutableArray *ary;
     ary = [DescLRUManager getDescLRUs:1];
-    STAssertEquals(2, (int)[ary count], @"LRU count must be 2.");
+    XCTAssertEqual(2, (int)[ary count], @"LRU count must be 2.");
 
     DescLRU *lru;
     lru = [ary objectAtIndex:0];
-    STAssertEqualObjects(@"test1", lru.description, @"first entry");
+    XCTAssertEqualObjects(@"test1", lru.description, @"first entry");
     lru = [ary objectAtIndex:1];
-    STAssertEqualObjects(@"test4", lru.description, @"last entry");
+    XCTAssertEqualObjects(@"test4", lru.description, @"last entry");
 }
 
 - (void)testUpdateOtherCategory
@@ -99,16 +99,16 @@
 
     NSMutableArray *ary;
     ary = [DescLRUManager getDescLRUs:1];
-    STAssertEquals(1, (int)[ary count], @"LRU count must be 2.");
+    XCTAssertEqual(1, (int)[ary count], @"LRU count must be 2.");
 
     DescLRU *lru;
     lru = [ary objectAtIndex:0];
-    STAssertEqualObjects(@"test4", lru.description, @"first entry");
+    XCTAssertEqualObjects(@"test4", lru.description, @"first entry");
 
     ary = [DescLRUManager getDescLRUs:2];
-    STAssertEquals(3, (int)[ary count], @"LRU count must be 3.");
+    XCTAssertEqual(3, (int)[ary count], @"LRU count must be 3.");
     lru = [ary objectAtIndex:0];
-    STAssertEqualObjects(@"test1", lru.description, @"new entry");
+    XCTAssertEqualObjects(@"test1", lru.description, @"new entry");
 }
 
 @end

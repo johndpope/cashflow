@@ -2,7 +2,7 @@
 
 #import "TestCommon.h"
 
-@interface AssetEntryTest : SenTestCase {
+@interface AssetEntryTest : XCTestCase {
 }
 
 @end
@@ -34,10 +34,10 @@
 
     e = [[AssetEntry alloc] initWithTransaction:nil withAsset:a];
 
-    AssertEquals(e.assetKey, 999);
-    AssertEquals(e.value, 0.0);
-    AssertEquals(e.balance, 0.0);
-    AssertEquals(e.transaction.asset, 999);
+    AssertEqual(e.assetKey, 999);
+    AssertEqual(e.value, 0.0);
+    AssertEqual(e.balance, 0.0);
+    AssertEqual(e.transaction.asset, 999);
     AssertFalse([e isDstAsset]);
 
     // 値設定
@@ -59,16 +59,16 @@
 
     AssetEntry *e = [[AssetEntry alloc] initWithTransaction:t withAsset:a];
 
-    AssertEquals(e.assetKey, 111);
-    AssertEquals(e.value, 10000.0);
-    AssertEquals(e.balance, 0.0);
-    AssertEquals(e.transaction.asset, 111);
+    AssertEqual(e.assetKey, 111);
+    AssertEqual(e.value, 10000.0);
+    AssertEqual(e.balance, 0.0);
+    AssertEqual(e.transaction.asset, 111);
     AssertFalse([e isDstAsset]);
 
     // 値設定
     e.value = 200.0;
     //[e setupTransaction];
-    AssertEquals(e.transaction.value, 200.0);
+    AssertEqual(e.transaction.value, 200.0);
 }
 
 // transaction 指定あり、逆
@@ -84,16 +84,16 @@
 
     AssetEntry *e = [[AssetEntry alloc] initWithTransaction:t withAsset:a];
 
-    AssertEquals(e.assetKey, 111);
-    AssertEquals(e.value, -10000.0);
-    AssertEquals(e.balance, 0.0);
-    AssertEquals(e.transaction.asset, 222);
+    AssertEqual(e.assetKey, 111);
+    AssertEqual(e.value, -10000.0);
+    AssertEqual(e.balance, 0.0);
+    AssertEqual(e.transaction.asset, 222);
     Assert([e isDstAsset]);
 
     // 値設定
     e.value = 200.0;
     //[e setupTransaction];
-    AssertEquals(e.transaction.value, -200.0);
+    AssertEqual(e.transaction.value, -200.0);
 }
 
 - (void)testEvalueNormal
@@ -109,27 +109,27 @@
 
     t.type = TYPE_INCOME;
     e.value = 10000;
-    AssertEquals(e.evalue, 10000.0);
+    AssertEqual(e.evalue, 10000.0);
     e.evalue = 20000;
-    AssertEquals(e.transaction.value, 20000.0);
+    AssertEqual(e.transaction.value, 20000.0);
 
     t.type = TYPE_OUTGO;
     e.value = 10000;
-    AssertEquals(e.evalue, -10000.0);
+    AssertEqual(e.evalue, -10000.0);
     e.evalue = 20000;
-    AssertEquals(e.transaction.value, -20000.0);
+    AssertEqual(e.transaction.value, -20000.0);
 
     t.type = TYPE_ADJ;
     e.balance = 99999;
-    AssertEquals([e evalue], 99999.0);
+    AssertEqual([e evalue], 99999.0);
     e.evalue = 88888;
-    AssertEquals(e.balance, 88888.0);
+    AssertEqual(e.balance, 88888.0);
 
     t.type = TYPE_TRANSFER;
     e.value = 10000;
-    AssertEquals([e evalue], -10000.0);
+    AssertEqual([e evalue], -10000.0);
     e.evalue = 20000;
-    AssertEquals(e.transaction.value, -20000.0);
+    AssertEqual(e.transaction.value, -20000.0);
 }
 
 @end
