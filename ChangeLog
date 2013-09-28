@@ -2,6 +2,7 @@
 
 	* Google Analytics v2 beta4 -> 3.0.1
 	* XCTest 対応
+	* DBLoadingView 表示されない問題修正
 
 2013-09-21 : Takuya Murakami
 
