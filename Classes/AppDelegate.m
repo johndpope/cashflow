@@ -114,7 +114,7 @@
     // デバッグログ
     //[gai.logger setLogLevel:kGAILogLevelVerbose];
     
-    id<GAITracker> tracker = [gai trackerWithTrackingId:@"UA-413697-35"];
+    id<GAITracker> tracker = [gai trackerWithTrackingId:@"UA-413697-25"];
     
 #if FREE_VERSION
     [tracker set:[GAIFields customDimensionForIndex:1] value:@"ios-free"];
