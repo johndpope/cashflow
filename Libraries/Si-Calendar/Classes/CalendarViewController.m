@@ -73,6 +73,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];	
+
+    // iOS7 hack
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+
 	
 	self.title = NSLocalizedString(@"Calendar", @"");
 	self.view.bounds = CGRectMake(0, 0, 320, 324);
