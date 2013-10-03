@@ -84,6 +84,7 @@
 	self.view.clearsContextBeforeDrawing = NO;
 	self.view.opaque = YES;
 	self.view.clipsToBounds = NO;
+    self.view.backgroundColor = [UIColor whiteColor]; // ###
 	
 	NSDate *aDate = selectedDate;
 	if (aDate == nil) {
