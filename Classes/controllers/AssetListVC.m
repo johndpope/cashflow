@@ -317,7 +317,7 @@
     cell.detailTextLabel.text = c;
     
     if (value >= 0) {
-        cell.detailTextLabel.textColor = [UIColor grayColor];
+        cell.detailTextLabel.textColor = [UIColor blueColor];
     } else {
         cell.detailTextLabel.textColor = [UIColor redColor];
     }
