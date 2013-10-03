@@ -269,23 +269,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (!_isLoadDone) return 0;
     
-    switch (section) {
-        case 0:
-            return [_ledger assetCount];
-            
-        //case 1:
-        //    return 1; // 合計欄
-    }
-    // NOT REACH HERE
-    return 0;
+    return [_ledger assetCount];
 }
 
 - (int)_assetIndex:(NSIndexPath*)indexPath
 {
-    if (indexPath.section == 0) {
-        return indexPath.row;
-    }
-    return -1;
+    return indexPath.row;
 }
 
 - (CGFloat)tableView:(UITableView *)tv heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -301,55 +290,36 @@
     cell = [tv dequeueReusableCellWithIdentifier:cellid];
 
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
         //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		
         cell.textLabel.font = [UIFont systemFontOfSize:16.0];
     }
 
     // 資産
-    double value = 0;
-    NSString *label = nil;
+    Asset *asset = [_ledger assetAtIndex:[self _assetIndex:indexPath]];
 
-    if (indexPath.section == 0) {
-        Asset *asset = [_ledger assetAtIndex:[self _assetIndex:indexPath]];
-    
-        label = asset.name;
-        value = [asset lastBalance];
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 
-        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-
-        // 資産タイプ範囲外対応
-        int type = asset.type;
-        if (type < 0 || [_iconArray count] <= type) {
-            type = 0;
-        }
-        cell.imageView.image = _iconArray[type];
+    // 資産タイプ範囲外対応
+    int type = asset.type;
+    if (type < 0 || [_iconArray count] <= type) {
+        type = 0;
     }
-#if 0
-    else if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-            // 合計欄
-            value = 0.0;
-            int i;
-            for (i = 0; i < [ledger assetCount]; i++) {
-                value += [[ledger assetAtIndex:i] lastBalance];
-            }
-            label = [NSString stringWithFormat:@"            %@", _L(@"Total")];
+    cell.imageView.image = _iconArray[type];
 
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            cell.imageView.image = nil;
-        }
-    }
-#endif
-    
+    // 資産名
+    cell.textLabel.text = asset.name;
+
+    // 残高
+    double value = [asset lastBalance];
     NSString *c = [CurrencyManager formatCurrency:value];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ : %@", label, c];
+    cell.detailTextLabel.text = c;
     
     if (value >= 0) {
-        cell.textLabel.textColor = [UIColor blackColor];
+        cell.detailTextLabel.textColor = [UIColor grayColor];
     } else {
-        cell.textLabel.textColor = [UIColor redColor];
+        cell.detailTextLabel.textColor = [UIColor redColor];
     }
 	
     return cell;
