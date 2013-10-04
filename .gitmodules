@@ -1,3 +1,4 @@
 [submodule "mb-ormapper"]
 	path = mb-ormapper
-	url = git://github.com/tmurakam/mb-ormapper.git
+	url = https://github.com/tmurakam/mb-ormapper.git
+
