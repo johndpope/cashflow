@@ -54,11 +54,51 @@
     _textView.text = _text;
     [_textView becomeFirstResponder];
     [super viewWillAppear:animated];
+
+    // キーボード通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+
+    // キーボード通知
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
+// キーボード表示時の処理
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [[self.view superview] convertRect:keyboardRect fromView:nil];
+
+    CGRect frame = _textView.frame;
+    frame.size.height -= keyboardRect.size.height;
+    _textView.frame = frame;
+}
+
+// キーボード非表示時の処理
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [[self.view superview] convertRect:keyboardRect fromView:nil];
+    
+    CGRect frame = _textView.frame;
+    frame.size.height += keyboardRect.size.height;
+    _textView.frame = frame;
 }
 
 - (void)doneAction
