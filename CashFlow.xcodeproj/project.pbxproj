@@ -407,6 +407,7 @@
 		3EFDC2DB18314B6600070F72 /* libAdapterIMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */; };
 		3EFDC2DD18314BAC00070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFDC2DE18314BB900070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
+		3EFDC2DF18314D5500070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFEFE5D1324EEAA00EF369E /* ReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE5B1324EEAA00EF369E /* ReportCell.xib */; };
 		3EFEFE5E1324EEAA00EF369E /* ReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE5B1324EEAA00EF369E /* ReportCell.xib */; };
 		3EFEFE9B1324F3C800EF369E /* ReportCatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE991324F3C800EF369E /* ReportCatCell.xib */; };
@@ -810,6 +811,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E69E8F31616B40D00FAD808 /* AdSupport.framework in Frameworks */,
+				3EFDC2DF18314D5500070F72 /* MobileCoreServices.framework in Frameworks */,
 				3EB88E8417F6B5590045780D /* libz.dylib in Frameworks */,
 				3E44CF6117F605EE00E54901 /* XCTest.framework in Frameworks */,
 				3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */,
@@ -835,7 +838,6 @@
 				3EA395371556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
 				3EA395401556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
 				3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */,
-				3E69E8F31616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3E44CF5F17F604E500E54901 /* DropboxSDK.framework in Frameworks */,
 				3EFDC2D818314B6500070F72 /* JSONKit.framework in Frameworks */,
 				3E69E8F61616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
