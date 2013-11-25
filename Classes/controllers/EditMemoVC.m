@@ -83,11 +83,16 @@
 - (void)keyboardWillShow:(NSNotification *)notification
 {
     if (!IS_IPAD) {
+        // キーボード領域を計算
         CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
         keyboardRect = [[self.view superview] convertRect:keyboardRect fromView:nil];
 
+        // テキストビューのフレーム
         CGRect frame = _textView.frame;
-        frame.size.height -= keyboardRect.size.height;
+        
+        // 重なっている領域を計算
+        float overlap = MAX(0.0, CGRectGetMaxY(frame) - CGRectGetMinY(keyboardRect));
+        frame.size.height -= overlap;
         _textView.frame = frame;
     }
 }
@@ -96,13 +101,22 @@
 - (void)keyboardWillHide:(NSNotification *)notification
 {
     if (!IS_IPAD) {
+        /*
         CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
         keyboardRect = [[self.view superview] convertRect:keyboardRect fromView:nil];
     
         CGRect frame = _textView.frame;
         frame.size.height += keyboardRect.size.height;
         _textView.frame = frame;
+         */
     }
+}
+
+// 自動でテキストをスクロールさせる
+// 参考: http://craigipedia.blogspot.jp/2013/09/last-lines-of-uitextview-may-scroll.html
+- (void)textViewDidChangeSelection:(UITextView *)textView
+{
+    [textView scrollRangeToVisible:textView.selectedRange];
 }
 
 - (void)doneAction

@@ -14,7 +14,7 @@
 - (void)editMemoViewChanged:(EditMemoViewController *)vc identifier:(int)id;
 @end
 
-@interface EditMemoViewController : UIViewController 
+@interface EditMemoViewController : UIViewController <UITextViewDelegate>
 
 @property(nonatomic,unsafe_unretained) id<EditMemoViewDelegate> delegate;
 @property(nonatomic,assign) int identifier;
