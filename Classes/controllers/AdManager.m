@@ -34,7 +34,8 @@
     BOOL _isShowAdSucceeded;
     
     // AdMob
-    AdMobView *_adMobView;
+    AdMobView *_bannerView;
+    
     CGSize _adMobSize;
     BOOL _isAdMobShowing;
     BOOL _isAdMobBannerLoaded;
@@ -101,18 +102,18 @@ static AdManager *theAdManager;
     _delegate = delegate;
     _isAdMobShowing = NO;
 
-    if (_adMobView != nil) {
-        _adMobView.rootViewController = rootViewController;
-        [_delegate adManager:self setAd:_adMobView adSize:_adMobSize];
+    if (_bannerView != nil) {
+        _bannerView.rootViewController = rootViewController;
+        [_delegate adManager:self setAd:_bannerView adSize:_adMobSize];
     }
 }
 
 - (void)detach
 {
     _delegate = nil;
-    _adMobView.rootViewController = nil; // TODO これ大丈夫？
+    _bannerView.rootViewController = nil; // TODO これ大丈夫？
 
-    [_adMobView removeFromSuperview];
+    [_bannerView removeFromSuperview];
 }
 
 /**
@@ -122,7 +123,7 @@ static AdManager *theAdManager;
 {
     if (_delegate == nil) return;
     
-    if (_adMobView != nil) {
+    if (_bannerView != nil) {
         // AdMob が表示済みの場合は何もしない
         if (_isAdMobShowing) {
             NSLog(@"showAd: AdMob already showing");
@@ -132,7 +133,7 @@ static AdManager *theAdManager;
         // AdMob がロード済みの場合はこれを表示させる
         else if (_isAdMobBannerLoaded) {
             NSLog(@"showAd: show AdMob");
-            [_delegate adManager:self showAd:_adMobView adSize:_adMobSize];
+            [_delegate adManager:self showAd:_bannerView adSize:_adMobSize];
             _isAdMobShowing = YES;
         }
     
@@ -143,7 +144,7 @@ static AdManager *theAdManager;
             if (AD_IS_TEST) {
                 req.testing = YES;
             }
-            [_adMobView loadRequest:req];
+            [_bannerView loadRequest:req];
         }
     } else {
         NSLog(@"showAd: no ad to show");
@@ -159,8 +160,9 @@ static AdManager *theAdManager;
 {
     NSLog(@"create AdMob");
     
-    GADAdSize gadSize = kGADAdSizeBanner;
+    //GADAdSize gadSize = kGADAdSizeBanner;
     _adMobSize = GAD_SIZE_320x50;
+    CGRect gadSize = CGRectMake(0.0, 0.0, 320.0, 50.0);
     
     /* Note: Mediation では標準サイズバナーのみ
     if (IS_IPAD) {
@@ -169,12 +171,12 @@ static AdManager *theAdManager;
     }
     */
 
-    _adMobView = [[AdMobView alloc] initWithAdSize:gadSize];
-    _adMobView.delegate = self;
+    _bannerView = [[AdMobView alloc] initWithFrame:gadSize];
+    _bannerView.delegate = self;
     
-    _adMobView.adUnitID = ADMOB_MEDIATION_ID;
-    _adMobView.rootViewController = nil; // この時点では不明
-    _adMobView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    _bannerView.adUnitID = DFP_ADUNIT_ID;
+    _bannerView.rootViewController = nil; // この時点では不明
+    _bannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 
     // まだリクエストは発行しない
 }
@@ -187,10 +189,10 @@ static AdManager *theAdManager;
     NSLog(@"release AdMob");
     _isAdMobBannerLoaded = NO;
 
-    if (_adMobView != nil) {
-        _adMobView.delegate = nil;
-        _adMobView.rootViewController = nil;
-        _adMobView = nil;
+    if (_bannerView != nil) {
+        _bannerView.delegate = nil;
+        _bannerView.rootViewController = nil;
+        _bannerView = nil;
     }
 }
 
@@ -203,7 +205,7 @@ static AdManager *theAdManager;
     
     if (_delegate != nil && !_isAdMobShowing) {
         _isAdMobShowing = YES;
-        [_delegate adManager:self showAd:_adMobView adSize:_adMobSize];
+        [_delegate adManager:self showAd:_bannerView adSize:_adMobSize];
     }
 
     self.isShowAdSucceeded = YES;
@@ -213,7 +215,7 @@ static AdManager *theAdManager;
 {
     NSString *msg;
     
-    if (_adMobView.hasAutoRefreshed) {
+    if (_bannerView.hasAutoRefreshed) {
         // auto refresh failed, but previous ad is effective.    
         msg = @"AdMob auto refresh failed";
     } else {

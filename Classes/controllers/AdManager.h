@@ -7,14 +7,18 @@
 
 #import <UIKit/UIKit.h>
 #import "GADBannerView.h"
+#import "DFPBannerView.h"
+
+#define DFP_ADUNIT_ID @"/86480491/CashFlowFree_iOS_320x50"
 
 //#define ADMOB_PUBLISHER_ID  @"a14a8b599ca8e92"  // CashFlow Free
-#define ADMOB_MEDIATION_ID @"ee06b031bb1847d4";
+//#define ADMOB_MEDIATION_ID @"ee06b031bb1847d4";
 
 //#define ADMOB_KEYWORDS @"マネー,預金,キャッシュ,クレジット,小遣い,貯金,資産+管理,money,deposit,cash,credit,allowance,spending+money,pocket+money,savings,saving+money,asset+management"
 
 // AdMob wrapper (to avoid crash)
-@interface AdMobView : GADBannerView <GADBannerViewDelegate>
+//@interface AdMobView : GADBannerView <GADBannerViewDelegate>
+@interface AdMobView : DFPBannerView <GADBannerViewDelegate>
 @end
 
 @class AdManager;

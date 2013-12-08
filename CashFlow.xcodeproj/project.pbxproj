@@ -664,6 +664,13 @@
 		3EB8EA4F0F1F7919000A8276 /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
 		3EC572D61107451F00A551D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportCatGraphCell.xib; sourceTree = "<group>"; };
+		3ECB765C1854B32100E04A85 /* DFPBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPBannerView.h; sourceTree = "<group>"; };
+		3ECB765D1854B32100E04A85 /* DFPExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPExtras.h; sourceTree = "<group>"; };
+		3ECB765E1854B32100E04A85 /* DFPInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPInterstitial.h; sourceTree = "<group>"; };
+		3ECB765F1854B32100E04A85 /* DFPSwipeableBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPSwipeableBannerView.h; sourceTree = "<group>"; };
+		3ECB76601854B32100E04A85 /* GADAdSizeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSizeDelegate.h; sourceTree = "<group>"; };
+		3ECB76611854B32100E04A85 /* GADAppEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAppEventDelegate.h; sourceTree = "<group>"; };
+		3ECB76621854B32100E04A85 /* GADSwipeableBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSwipeableBannerViewDelegate.h; sourceTree = "<group>"; };
 		3ECD5A861347603800B499A6 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		3ECF38030EA9CF4900420060 /* ExportServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportServer.m; sourceTree = "<group>"; };
 		3ECF38080EA9CFB600420060 /* ExportServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportServer.h; sourceTree = "<group>"; };
@@ -1241,6 +1248,7 @@
 		3EAF41431340BCC000814FFA /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
+				3ECB765B1854B2A500E04A85 /* DoubleClick */,
 				3EFDC2CB18314B4800070F72 /* AdapterIMobile */,
 				3EFDC2BF1831490800070F72 /* AdapterNend */,
 				3EA3952A1556B4E00078DCA2 /* AdapterInMobi */,
@@ -1301,6 +1309,20 @@
 				3E85A722132E54D6002C44DF /* Support files */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		3ECB765B1854B2A500E04A85 /* DoubleClick */ = {
+			isa = PBXGroup;
+			children = (
+				3ECB765C1854B32100E04A85 /* DFPBannerView.h */,
+				3ECB765D1854B32100E04A85 /* DFPExtras.h */,
+				3ECB765E1854B32100E04A85 /* DFPInterstitial.h */,
+				3ECB765F1854B32100E04A85 /* DFPSwipeableBannerView.h */,
+				3ECB76601854B32100E04A85 /* GADAdSizeDelegate.h */,
+				3ECB76611854B32100E04A85 /* GADAppEventDelegate.h */,
+				3ECB76621854B32100E04A85 /* GADSwipeableBannerViewDelegate.h */,
+			);
+			path = DoubleClick;
 			sourceTree = "<group>";
 		};
 		3EF054671182D9CC00411C71 /* Resources-iPad */ = {
