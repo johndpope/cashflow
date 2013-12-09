@@ -8,7 +8,11 @@
 #import "AdManager.h"
 #import "AppDelegate.h"
 
+// 広告テスト時に YES
 #define AD_IS_TEST  NO
+
+// 広告リクエスト間隔 (画面遷移時のみ)
+#define AD_REQUEST_INTERVAL     15.0
 
 /**
  *  AdMob 表示用ラッパクラス。GADBannerView を継承。
@@ -56,6 +60,9 @@
 
     BOOL _isAdMobShowing;
     BOOL _isAdMobBannerLoaded;
+
+    // 最後に広告をリクエストした日時
+    NSDate *_lastAdRequestDate;
 }
 @end
 
@@ -140,32 +147,39 @@ static AdManager *theAdManager;
 {
     if (_delegate == nil) return;
 
-    if (_bannerView != nil) {
-        // AdMob が表示済みの場合は何もしない
-        if (_isAdMobShowing) {
+    if (_bannerView == nil) {
+        NSLog(@"showAd: no ad to show");
+        return;
+    }
+
+    // 広告が未表示でかつロード済みの場合は、表示させる。
+    if (!_isAdMobShowing && _isAdMobBannerLoaded) {
+        NSLog(@"showAd: show AdMob");
+        [_delegate adManager:self showAd:_bannerView adSize:_adMobSize];
+        _isAdMobShowing = YES;
+        return;
+    }
+    
+    // AdMob が表示済みの場合、前回の広告リクエストから一定時間
+    // 経過していなければ何もしない
+    if (_isAdMobShowing && _lastAdRequestDate != nil) {
+        NSDate *now = [NSDate date];
+        float diff = [now timeIntervalSinceDate:_lastAdRequestDate];
+        if (diff < AD_REQUEST_INTERVAL) {
             NSLog(@"showAd: AdMob already showing");
             return;
         }
-
-        // AdMob がロード済みの場合はこれを表示させる
-        else if (_isAdMobBannerLoaded) {
-            NSLog(@"showAd: show AdMob");
-            [_delegate adManager:self showAd:_bannerView adSize:_adMobSize];
-            _isAdMobShowing = YES;
-        }
-    
-        // AdMob のリクエストを開始する
-        else {
-            NSLog(@"showAd: start load AdMob");
-            GADRequest *req = [GADRequest request];
-            if (AD_IS_TEST) {
-                req.testing = YES;
-            }
-            [_bannerView loadRequest:req];
-        }
-    } else {
-        NSLog(@"showAd: no ad to show");
     }
+    
+    // 広告リクエストを開始する
+    NSLog(@"showAd: start load ad.");
+    GADRequest *req = [GADRequest request];
+    if (AD_IS_TEST) {
+        req.testing = YES;
+    }
+    [_bannerView loadRequest:req];
+
+    _lastAdRequestDate = [NSDate date];
 }
 
 #pragma mark - Internal
