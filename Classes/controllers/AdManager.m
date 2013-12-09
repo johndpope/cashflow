@@ -158,7 +158,7 @@ static AdManager *theAdManager;
         // 広告未表示の場合
         if (_isAdBannerLoaded) {
             // ロード済みの場合、表示する
-            NSLog(@"showAd: show AdMob");
+            NSLog(@"showAd: show loaded ad");
             [_delegate adManager:self showAd:_bannerView adSize:_adSize];
             _isAdShowing = YES;
         } else {
@@ -181,7 +181,7 @@ static AdManager *theAdManager;
             NSDate *now = [NSDate date];
             float diff = [now timeIntervalSinceDate:_lastAdRequestDate];
             if (diff < AD_REQUEST_INTERVAL) {
-                NSLog(@"requestAd: do not request new ad.");
+                NSLog(@"requestAd: do not request ad (within ad interval)");
                 return;
             }
         }
