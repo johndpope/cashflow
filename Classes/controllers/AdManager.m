@@ -12,7 +12,7 @@
 #define AD_IS_TEST  NO
 
 // 広告リクエスト間隔 (画面遷移時のみ)
-#define AD_REQUEST_INTERVAL     15.0
+#define AD_REQUEST_INTERVAL     45.0
 
 /**
  *  AdMob 表示用ラッパクラス。GADBannerView を継承。
