@@ -10,6 +10,12 @@
 
 #define AD_IS_TEST  NO
 
+/**
+ *  AdMob 表示用ラッパクラス。GADBannerView を継承。
+ */
+@interface AdMobView : DFPBannerView <GADBannerViewDelegate>
+@end
+
 @implementation AdMobView
 
 - (id)initWithFrame:(CGRect)frame {
@@ -27,6 +33,16 @@
 
 #pragma mark - AdManager implementation
 
+
+/**
+ * 広告マネージャ
+ *
+ * Note: 広告の状態は以下のとおり
+ * 1) View未アタッチ状態 (_bannerView == nil)
+ * 2) 広告ロード前 (_isAdMobShowing, _isAdMobBannerLoaded ともに false)
+ * 3) 広告ロード済み、未表示 (_isAdMobBannerLoaded が true)
+ * 4) 広告表示中 (_isAdMobShowing が true)
+ */
 @interface AdManager()
 {
     id<AdManagerDelegate> __unsafe_unretained _delegate;
@@ -37,6 +53,7 @@
     AdMobView *_bannerView;
     
     CGSize _adMobSize;
+
     BOOL _isAdMobShowing;
     BOOL _isAdMobBannerLoaded;
 }
@@ -122,7 +139,7 @@ static AdManager *theAdManager;
 - (void)showAd
 {
     if (_delegate == nil) return;
-    
+
     if (_bannerView != nil) {
         // AdMob が表示済みの場合は何もしない
         if (_isAdMobShowing) {
