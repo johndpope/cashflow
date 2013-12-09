@@ -151,23 +151,31 @@ static AdManager *theAdManager;
         NSLog(@"showAd: no ad to show");
         return;
     }
-
-    // 広告が未表示でかつロード済みの場合は、表示させる。
-    if (!_isAdMobShowing && _isAdMobBannerLoaded) {
-        NSLog(@"showAd: show AdMob");
-        [_delegate adManager:self showAd:_bannerView adSize:_adMobSize];
-        _isAdMobShowing = YES;
-        return;
-    }
     
-    // AdMob が表示済みの場合、前回の広告リクエストから一定時間
-    // 経過していなければ何もしない
-    if (_isAdMobShowing && _lastAdRequestDate != nil) {
-        NSDate *now = [NSDate date];
-        float diff = [now timeIntervalSinceDate:_lastAdRequestDate];
-        if (diff < AD_REQUEST_INTERVAL) {
-            NSLog(@"showAd: AdMob already showing");
-            return;
+    BOOL doRequest = NO;
+    
+    if (!_isAdMobShowing) {
+        // 広告未表示の場合
+        if (_isAdMobBannerLoaded) {
+            // ロード済みの場合、表示する
+            NSLog(@"showAd: show AdMob");
+            [_delegate adManager:self showAd:_bannerView adSize:_adMobSize];
+            _isAdMobShowing = YES;
+        } else {
+            // ロード済みでない場合は、すぐに広告リクエストを発行する
+            doRequest = YES;
+        }
+    }
+
+    // 一定時間経過していない場合、リクエストは発行しない
+    if (!doRequest) {
+        if (_lastAdRequestDate != nil) {
+            NSDate *now = [NSDate date];
+            float diff = [now timeIntervalSinceDate:_lastAdRequestDate];
+            if (diff < AD_REQUEST_INTERVAL) {
+                NSLog(@"showAd: AdMob already showing");
+                return;
+            }
         }
     }
     
@@ -205,7 +213,7 @@ static AdManager *theAdManager;
     _bannerView = [[AdMobView alloc] initWithFrame:gadSize];
     _bannerView.delegate = self;
     
-    _bannerView.adUnitID = DFP_ADUNIT_ID;
+    _bannerView.adUnitID = ADUNIT_ID;
     _bannerView.rootViewController = nil; // この時点では不明
     _bannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 
