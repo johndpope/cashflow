@@ -250,7 +250,7 @@ static AdManager *theAdManager;
         // auto refresh failed, but previous ad is effective.    
         msg = @"AdMob auto refresh failed";
     } else {
-        msg = @"AdMob initial load failed";
+        msg = @"AdMob load failed";
     }
     NSLog(@"%@ : %@", msg, [error localizedDescription]);
 }
