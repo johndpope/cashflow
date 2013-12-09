@@ -213,6 +213,7 @@ static AdManager *theAdManager;
     _bannerView = [[AdMobView alloc] initWithFrame:gadSize];
     _bannerView.delegate = self;
     
+    //NSLog(@"AdUnit = %@", ADUNIT_ID);
     _bannerView.adUnitID = ADUNIT_ID;
     _bannerView.rootViewController = nil; // この時点では不明
     _bannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;

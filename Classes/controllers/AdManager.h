@@ -9,11 +9,12 @@
 #import "GADBannerView.h"
 #import "DFPBannerView.h"
 
-//#define ADMOB_MEDIATION_ID @"ee06b031bb1847d4";
-//#define ADMOB_PUBLISHER_ID  @"a14a8b599ca8e92"  // CashFlow Free
+#define ADMOB_PUBLISHER_ID  @"a14a8b599ca8e92"  // CashFlow Free
+#define ADMOB_MEDIATION_ID @"ee06b031bb1847d4"
 #define DFP_ADUNIT_ID @"/86480491/CashFlowFree_iOS_320x50"
 
-#define ADUNIT_ID DFP_ADUNIT_ID
+//#define ADUNIT_ID   ADMOB_MEDIATION_ID
+#define ADUNIT_ID     DFP_ADUNIT_ID
 
 @class AdManager;
 
