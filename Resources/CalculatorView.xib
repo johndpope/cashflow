@@ -40,7 +40,6 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="41"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </label>
@@ -93,23 +92,6 @@
                         <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="54"/>
                     </connections>
                 </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7">
-                    <rect key="frame" x="-1" y="410" width="161" height="70"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="0" backgroundImage="calcGrayButton">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="disabled" title="0"/>
-                    <state key="selected" title="0"/>
-                    <state key="highlighted" title="0">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="79"/>
-                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="62"/>
-                    </connections>
-                </button>
                 <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8">
                     <rect key="frame" x="-1" y="340" width="81" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -127,38 +109,38 @@
                         <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="51"/>
                     </connections>
                 </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="25">
-                    <rect key="frame" x="80" y="340" width="80" height="70"/>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7">
+                    <rect key="frame" x="-1" y="410" width="161" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="2" backgroundImage="calcGrayButton">
+                    <state key="normal" title="0" backgroundImage="calcGrayButton">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="disabled" title="2"/>
-                    <state key="selected" title="2"/>
-                    <state key="highlighted" title="2">
+                    <state key="disabled" title="0"/>
+                    <state key="selected" title="0"/>
+                    <state key="highlighted" title="0">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="77"/>
-                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="52"/>
+                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="79"/>
+                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="62"/>
                     </connections>
                 </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="26">
-                    <rect key="frame" x="80" y="270" width="80" height="70"/>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="81">
+                    <rect key="frame" x="80" y="130" width="80" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="5" backgroundImage="calcGrayButton">
+                    <state key="normal" title="+ / -" backgroundImage="calcGrayButton">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="disabled" title="5"/>
-                    <state key="selected" title="5"/>
-                    <state key="highlighted" title="5">
+                    <state key="disabled" title="+ / -"/>
+                    <state key="selected" title="+ / -"/>
+                    <state key="highlighted" title="+ / -">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="74"/>
-                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="55"/>
+                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="84"/>
+                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="83"/>
                     </connections>
                 </button>
                 <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="27">
@@ -178,55 +160,55 @@
                         <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="58"/>
                     </connections>
                 </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="29">
-                    <rect key="frame" x="160" y="410" width="80" height="70"/>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="26">
+                    <rect key="frame" x="80" y="270" width="80" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="." backgroundImage="calcGrayButton">
+                    <state key="normal" title="5" backgroundImage="calcGrayButton">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="disabled" title="."/>
-                    <state key="selected" title="."/>
-                    <state key="highlighted" title=".">
+                    <state key="disabled" title="5"/>
+                    <state key="selected" title="5"/>
+                    <state key="highlighted" title="5">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="80"/>
-                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="50"/>
+                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="74"/>
+                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="55"/>
                     </connections>
                 </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="30">
-                    <rect key="frame" x="160" y="340" width="80" height="70"/>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="25">
+                    <rect key="frame" x="80" y="340" width="80" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="3" backgroundImage="calcGrayButton">
+                    <state key="normal" title="2" backgroundImage="calcGrayButton">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="disabled" title="3"/>
-                    <state key="selected" title="3"/>
-                    <state key="highlighted" title="3">
+                    <state key="disabled" title="2"/>
+                    <state key="selected" title="2"/>
+                    <state key="highlighted" title="2">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="76"/>
-                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="53"/>
+                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="77"/>
+                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="52"/>
                     </connections>
                 </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="31">
-                    <rect key="frame" x="160" y="270" width="80" height="70"/>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="33">
+                    <rect key="frame" x="160" y="130" width="80" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="6" backgroundImage="calcGrayButton">
+                    <state key="normal" title="⌫" backgroundImage="calcGrayButton">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="disabled" title="6"/>
-                    <state key="selected" title="6"/>
-                    <state key="highlighted" title="6">
+                    <state key="disabled" title="⌫"/>
+                    <state key="selected" title="⌫"/>
+                    <state key="highlighted" title="⌫">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="75"/>
-                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="56"/>
+                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="69"/>
+                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="61"/>
                     </connections>
                 </button>
                 <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="32">
@@ -246,21 +228,106 @@
                         <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="59"/>
                     </connections>
                 </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="33">
-                    <rect key="frame" x="160" y="130" width="80" height="70"/>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="31">
+                    <rect key="frame" x="160" y="270" width="80" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="⌫" backgroundImage="calcGrayButton">
+                    <state key="normal" title="6" backgroundImage="calcGrayButton">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="disabled" title="⌫"/>
-                    <state key="selected" title="⌫"/>
-                    <state key="highlighted" title="⌫">
+                    <state key="disabled" title="6"/>
+                    <state key="selected" title="6"/>
+                    <state key="highlighted" title="6">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="69"/>
-                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="61"/>
+                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="75"/>
+                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="56"/>
+                    </connections>
+                </button>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="30">
+                    <rect key="frame" x="160" y="340" width="80" height="70"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <state key="normal" title="3" backgroundImage="calcGrayButton">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled" title="3"/>
+                    <state key="selected" title="3"/>
+                    <state key="highlighted" title="3">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="76"/>
+                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="53"/>
+                    </connections>
+                </button>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="29">
+                    <rect key="frame" x="160" y="410" width="80" height="70"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <state key="normal" title="." backgroundImage="calcGrayButton">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled" title="."/>
+                    <state key="selected" title="."/>
+                    <state key="highlighted" title=".">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="80"/>
+                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="50"/>
+                    </connections>
+                </button>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="88">
+                    <rect key="frame" x="240" y="130" width="80" height="70"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <state key="normal" title="÷" backgroundImage="calcGrayButton">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled" title="÷"/>
+                    <state key="selected" title="÷"/>
+                    <state key="highlighted" title="÷">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="90"/>
+                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="91"/>
+                    </connections>
+                </button>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="87">
+                    <rect key="frame" x="240" y="200" width="80" height="70"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <state key="normal" title="×" backgroundImage="calcGrayButton">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled" title="x"/>
+                    <state key="selected" title="x"/>
+                    <state key="highlighted" title="x">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="96"/>
+                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="93"/>
+                    </connections>
+                </button>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="86">
+                    <rect key="frame" x="240" y="270" width="80" height="70"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <state key="normal" title="-" backgroundImage="calcGrayButton">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled" title="-"/>
+                    <state key="selected" title="-"/>
+                    <state key="highlighted" title="-">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="89"/>
+                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="95"/>
                     </connections>
                 </button>
                 <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="85">
@@ -295,74 +362,6 @@
                     <connections>
                         <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="99"/>
                         <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="98"/>
-                    </connections>
-                </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="86">
-                    <rect key="frame" x="240" y="270" width="80" height="70"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="-" backgroundImage="calcGrayButton">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="disabled" title="-"/>
-                    <state key="selected" title="-"/>
-                    <state key="highlighted" title="-">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="89"/>
-                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="95"/>
-                    </connections>
-                </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="87">
-                    <rect key="frame" x="240" y="200" width="80" height="70"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="×" backgroundImage="calcGrayButton">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="disabled" title="x"/>
-                    <state key="selected" title="x"/>
-                    <state key="highlighted" title="x">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="96"/>
-                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="93"/>
-                    </connections>
-                </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="88">
-                    <rect key="frame" x="240" y="130" width="80" height="70"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="÷" backgroundImage="calcGrayButton">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="disabled" title="÷"/>
-                    <state key="selected" title="÷"/>
-                    <state key="highlighted" title="÷">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="90"/>
-                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="91"/>
-                    </connections>
-                </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="81">
-                    <rect key="frame" x="80" y="130" width="80" height="70"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="+ / -" backgroundImage="calcGrayButton">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="disabled" title="+ / -"/>
-                    <state key="selected" title="+ / -"/>
-                    <state key="highlighted" title="+ / -">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onButtonDown:" destination="-1" eventType="touchDown" id="84"/>
-                        <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="83"/>
                     </connections>
                 </button>
             </subviews>
