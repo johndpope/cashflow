@@ -35,11 +35,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="999,999,999.99" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="40" id="47">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="123,456,789" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="40" id="47">
                     <rect key="frame" x="20" y="67" width="280" height="58"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="68"/>
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </label>
