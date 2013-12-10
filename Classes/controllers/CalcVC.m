@@ -81,6 +81,15 @@
     
     //[AppDelegate trackPageview:@"/CalcViewController"];
     
+    // 4inch 用 hack : 数字表示領域を上にずらす。
+    // 本当は AutoLayout を使いたいが、iOS5 では AutoLayout が使えない
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    if (screenSize.height == 568.0) {
+        CGRect frame = numLabel.frame;
+        frame.origin.y -= 40.0;
+        numLabel.frame = frame;
+    }
+    
     if (IS_IPAD) {
         CGSize s = self.contentSizeForViewInPopover;
         s.height = 480;
