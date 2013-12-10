@@ -929,58 +929,13 @@
 		3E0AD6D21214160600CFDDAC /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3E4C67701347939600DA87F6 /* AdManager.h */,
-				3E4C67711347939600DA87F6 /* AdManager.m */,
-				3E0AD6E41214169700CFDDAC /* AssetListVC.h */,
-				3E0AD6E51214169700CFDDAC /* AssetListVC.m */,
-				3E0AD6E61214169700CFDDAC /* AssetVC.h */,
-				3E0AD6E71214169700CFDDAC /* AssetVC.m */,
-				3E0AD70C1214169700CFDDAC /* TransactionListVC.h */,
-				3E0AD70D1214169700CFDDAC /* TransactionListVC.m */,
-				3E02EB9113226A600086F492 /* TransactionCell.h */,
-				3E02EB9213226A600086F492 /* TransactionCell.m */,
-				3E0AD70E1214169700CFDDAC /* TransactionVC.h */,
-				3E0AD70F1214169700CFDDAC /* TransactionVC.m */,
-				3E0AD6E81214169700CFDDAC /* CalcVC.h */,
-				3E0AD6E91214169700CFDDAC /* CalcVC.m */,
-				3E0AD6EA1214169700CFDDAC /* CategoryListVC.h */,
-				3E0AD6EB1214169700CFDDAC /* CategoryListVC.m */,
-				3E0AD6EC1214169700CFDDAC /* ConfigViewController.h */,
-				3E0AD6ED1214169700CFDDAC /* ConfigViewController.m */,
-				3E0AD6EE1214169700CFDDAC /* EditDateVC.h */,
-				3E0AD6EF1214169700CFDDAC /* EditDateVC.m */,
-				3E0AD6F01214169700CFDDAC /* EditDescVC.h */,
-				3E0AD6F11214169700CFDDAC /* EditDescVC.m */,
-				3E0AD6F21214169700CFDDAC /* EditMemoVC.h */,
-				3E0AD6F31214169700CFDDAC /* EditMemoVC.m */,
-				3E0AD6F41214169700CFDDAC /* EditTypeVC.h */,
-				3E0AD6F51214169700CFDDAC /* EditTypeVC.m */,
-				3E0AD6F81214169700CFDDAC /* ExportVC.h */,
-				3E0AD6F91214169700CFDDAC /* ExportVC.m */,
-				3E0AD6FA1214169700CFDDAC /* GenEditTextVC.h */,
-				3E0AD6FB1214169700CFDDAC /* GenEditTextVC.m */,
-				3E0AD6FC1214169700CFDDAC /* GenSelectListVC.h */,
-				3E0AD6FD1214169700CFDDAC /* GenSelectListVC.m */,
-				3E0AD6FE1214169700CFDDAC /* InfoVC.h */,
-				3E0AD6FF1214169700CFDDAC /* InfoVC.m */,
-				3E0AD7001214169700CFDDAC /* PinController.h */,
-				3E0AD7011214169700CFDDAC /* PinController.m */,
-				3E0AD7021214169700CFDDAC /* PinVC.h */,
-				3E0AD7031214169700CFDDAC /* PinVC.m */,
-				3E0AD70A1214169700CFDDAC /* ReportVC.h */,
-				3E0AD70B1214169700CFDDAC /* ReportVC.m */,
-				3E0AD7081214169700CFDDAC /* ReportCell.h */,
-				3E0AD7091214169700CFDDAC /* ReportCell.m */,
-				3E0AD7061214169700CFDDAC /* ReportCatVC.h */,
-				3E0AD7071214169700CFDDAC /* ReportCatVC.m */,
-				3E0AD7041214169700CFDDAC /* ReportCatCell.h */,
-				3E0AD7051214169700CFDDAC /* ReportCatCell.m */,
-				3E17805D132641D700D74DED /* ReportCatGraphCell.h */,
-				3E17805E132641D700D74DED /* ReportCatGraphCell.m */,
-				3E02EBF613226FDC0086F492 /* ReportCatDetailVC.h */,
-				3E02EBF713226FDC0086F492 /* ReportCatDetailVC.m */,
-				3E3382271332298400861610 /* BackupVC.h */,
-				3E3382281332298400861610 /* BackupVC.m */,
+				3E77402E18573C3500DEE1BA /* ad */,
+				3E77402C18573C1A00DEE1BA /* asset */,
+				3E77402D18573C2200DEE1BA /* transaction */,
+				3E77402B18573C0300DEE1BA /* report */,
+				3E77403118573CAA00DEE1BA /* calc */,
+				3E77403018573C9300DEE1BA /* pin */,
+				3E77402F18573C6E00DEE1BA /* other */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1108,6 +1063,107 @@
 				3E6C5075157E40550086C20E /* CalendarTitleDimColor@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		3E77402B18573C0300DEE1BA /* report */ = {
+			isa = PBXGroup;
+			children = (
+				3E0AD70A1214169700CFDDAC /* ReportVC.h */,
+				3E0AD70B1214169700CFDDAC /* ReportVC.m */,
+				3E0AD7081214169700CFDDAC /* ReportCell.h */,
+				3E0AD7091214169700CFDDAC /* ReportCell.m */,
+				3E0AD7061214169700CFDDAC /* ReportCatVC.h */,
+				3E0AD7071214169700CFDDAC /* ReportCatVC.m */,
+				3E0AD7041214169700CFDDAC /* ReportCatCell.h */,
+				3E0AD7051214169700CFDDAC /* ReportCatCell.m */,
+				3E17805D132641D700D74DED /* ReportCatGraphCell.h */,
+				3E17805E132641D700D74DED /* ReportCatGraphCell.m */,
+				3E02EBF613226FDC0086F492 /* ReportCatDetailVC.h */,
+				3E02EBF713226FDC0086F492 /* ReportCatDetailVC.m */,
+			);
+			name = report;
+			sourceTree = "<group>";
+		};
+		3E77402C18573C1A00DEE1BA /* asset */ = {
+			isa = PBXGroup;
+			children = (
+				3E0AD6E41214169700CFDDAC /* AssetListVC.h */,
+				3E0AD6E51214169700CFDDAC /* AssetListVC.m */,
+				3E0AD6E61214169700CFDDAC /* AssetVC.h */,
+				3E0AD6E71214169700CFDDAC /* AssetVC.m */,
+			);
+			name = asset;
+			sourceTree = "<group>";
+		};
+		3E77402D18573C2200DEE1BA /* transaction */ = {
+			isa = PBXGroup;
+			children = (
+				3E0AD70C1214169700CFDDAC /* TransactionListVC.h */,
+				3E0AD70D1214169700CFDDAC /* TransactionListVC.m */,
+				3E02EB9113226A600086F492 /* TransactionCell.h */,
+				3E02EB9213226A600086F492 /* TransactionCell.m */,
+				3E0AD70E1214169700CFDDAC /* TransactionVC.h */,
+				3E0AD70F1214169700CFDDAC /* TransactionVC.m */,
+				3E0AD6EE1214169700CFDDAC /* EditDateVC.h */,
+				3E0AD6EF1214169700CFDDAC /* EditDateVC.m */,
+				3E0AD6F01214169700CFDDAC /* EditDescVC.h */,
+				3E0AD6F11214169700CFDDAC /* EditDescVC.m */,
+				3E0AD6F21214169700CFDDAC /* EditMemoVC.h */,
+				3E0AD6F31214169700CFDDAC /* EditMemoVC.m */,
+				3E0AD6F41214169700CFDDAC /* EditTypeVC.h */,
+				3E0AD6F51214169700CFDDAC /* EditTypeVC.m */,
+			);
+			name = transaction;
+			sourceTree = "<group>";
+		};
+		3E77402E18573C3500DEE1BA /* ad */ = {
+			isa = PBXGroup;
+			children = (
+				3E4C67701347939600DA87F6 /* AdManager.h */,
+				3E4C67711347939600DA87F6 /* AdManager.m */,
+			);
+			name = ad;
+			sourceTree = "<group>";
+		};
+		3E77402F18573C6E00DEE1BA /* other */ = {
+			isa = PBXGroup;
+			children = (
+				3E0AD6EA1214169700CFDDAC /* CategoryListVC.h */,
+				3E0AD6EB1214169700CFDDAC /* CategoryListVC.m */,
+				3E0AD6EC1214169700CFDDAC /* ConfigViewController.h */,
+				3E0AD6ED1214169700CFDDAC /* ConfigViewController.m */,
+				3E0AD6F81214169700CFDDAC /* ExportVC.h */,
+				3E0AD6F91214169700CFDDAC /* ExportVC.m */,
+				3E0AD6FA1214169700CFDDAC /* GenEditTextVC.h */,
+				3E0AD6FB1214169700CFDDAC /* GenEditTextVC.m */,
+				3E0AD6FC1214169700CFDDAC /* GenSelectListVC.h */,
+				3E0AD6FD1214169700CFDDAC /* GenSelectListVC.m */,
+				3E0AD6FE1214169700CFDDAC /* InfoVC.h */,
+				3E0AD6FF1214169700CFDDAC /* InfoVC.m */,
+				3E3382271332298400861610 /* BackupVC.h */,
+				3E3382281332298400861610 /* BackupVC.m */,
+			);
+			name = other;
+			sourceTree = "<group>";
+		};
+		3E77403018573C9300DEE1BA /* pin */ = {
+			isa = PBXGroup;
+			children = (
+				3E0AD7001214169700CFDDAC /* PinController.h */,
+				3E0AD7011214169700CFDDAC /* PinController.m */,
+				3E0AD7021214169700CFDDAC /* PinVC.h */,
+				3E0AD7031214169700CFDDAC /* PinVC.m */,
+			);
+			name = pin;
+			sourceTree = "<group>";
+		};
+		3E77403118573CAA00DEE1BA /* calc */ = {
+			isa = PBXGroup;
+			children = (
+				3E0AD6E81214169700CFDDAC /* CalcVC.h */,
+				3E0AD6E91214169700CFDDAC /* CalcVC.m */,
+			);
+			name = calc;
 			sourceTree = "<group>";
 		};
 		3E85A722132E54D6002C44DF /* Support files */ = {
