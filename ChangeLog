@@ -1,3 +1,9 @@
+2013-12-10 : Takuya Murakami
+
+	* 電卓デザイン変更 (画像ボタン)
+	* DFP 対応
+	* 画像を asset catalog に移行
+
 2013-11-26 : Takuya Murakami
 
 	* ver 6.3.3 (v63)
