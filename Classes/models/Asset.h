@@ -21,7 +21,7 @@
 #define ASSET_EMONEY 4
 
 
-#define MAX_TRANSACTIONS	5000
+#define MAX_TRANSACTIONS	25000
 
 @class Database;
 
