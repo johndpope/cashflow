@@ -30,6 +30,8 @@
 
     NSMutableArray *_iconArray;
 
+    int _selectedAssetIndex;
+    
     BOOL _asDisplaying;
     UIActionSheet *_asActionButton;
     UIActionSheet *_asDelete;
@@ -358,20 +360,27 @@
 // アクセサリボタンをタップしたときの処理 : アセット変更
 - (void)tableView:(UITableView *)tv accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    AssetViewController *vc = [AssetViewController new];
     int assetIndex = [self _assetIndex:indexPath];
     if (assetIndex >= 0) {
-        [vc setAssetIndex:indexPath.row];
-        [self.navigationController pushViewController:vc animated:YES];
+        _selectedAssetIndex = indexPath.row;
+        [self performSegueWithIdentifier:@"show" sender:self];
     }
 }
 
 // 新規アセット追加
 - (void)addAsset
 {
-    AssetViewController *vc = [AssetViewController new];
-    [vc setAssetIndex:-1];
-    [self.navigationController pushViewController:vc animated:YES];
+    _selectedAssetIndex = -1;
+    [self performSegueWithIdentifier:@"show" sender:self];
+}
+
+// 画面遷移
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"show"]) {
+        AssetViewController *vc = [segue destinationViewController];
+        [vc setAssetIndex:_selectedAssetIndex];
+    }
 }
 
 // Editボタン処理

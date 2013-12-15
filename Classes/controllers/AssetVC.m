@@ -21,12 +21,6 @@
 #define ROW_NAME  0
 #define ROW_TYPE  1
 
-- (id)init
-{
-    self = [super initWithNibName:@"AssetView" bundle:nil];
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
