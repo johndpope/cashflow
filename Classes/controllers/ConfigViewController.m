@@ -36,7 +36,7 @@
              action:@selector(doneAction:)];
 }
 
-- (void)doneAction:(id)sender
+- (IBAction)doneAction:(id)sender
 {
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }

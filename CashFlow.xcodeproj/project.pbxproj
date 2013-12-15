@@ -173,6 +173,9 @@
 		3E5CD99E185DFFEA0067A42B /* ReportView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */; };
 		3E5CD99F185DFFEA0067A42B /* ReportView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */; };
 		3E5CD9A0185DFFEA0067A42B /* ReportView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */; };
+		3E5CD9A2185E0D0A0067A42B /* ConfigView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD9A1185E0D0A0067A42B /* ConfigView.storyboard */; };
+		3E5CD9A3185E0D0A0067A42B /* ConfigView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD9A1185E0D0A0067A42B /* ConfigView.storyboard */; };
+		3E5CD9A4185E0D0A0067A42B /* ConfigView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD9A1185E0D0A0067A42B /* ConfigView.storyboard */; };
 		3E69E8EA1616B3D800FAD808 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3E69E8EC1616B3ED00FAD808 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E69E8F21616B40D00FAD808 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -513,6 +516,7 @@
 		3E5CD995185DDC560067A42B /* TransactionListView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TransactionListView.storyboard; sourceTree = "<group>"; };
 		3E5CD999185DF7650067A42B /* CalculatorView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CalculatorView.storyboard; sourceTree = "<group>"; };
 		3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReportView.storyboard; sourceTree = "<group>"; };
+		3E5CD9A1185E0D0A0067A42B /* ConfigView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConfigView.storyboard; sourceTree = "<group>"; };
 		3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		3E6B2EBE0F12259C0008AFB6 /* ExportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportView.xib; sourceTree = "<group>"; };
@@ -812,6 +816,7 @@
 				3E5CD995185DDC560067A42B /* TransactionListView.storyboard */,
 				3E5CD999185DF7650067A42B /* CalculatorView.storyboard */,
 				3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */,
+				3E5CD9A1185E0D0A0067A42B /* ConfigView.storyboard */,
 				3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */,
 				3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */,
 				3ED30E711323B53E007E46DC /* TransactionCell.xib */,
@@ -1482,6 +1487,7 @@
 				3E6C508E157E40550086C20E /* CalendarDaySelected.png in Resources */,
 				3E6C5092157E40550086C20E /* CalendarDaySelected@2x.png in Resources */,
 				3E6C5096157E40550086C20E /* CalendarDayTile.png in Resources */,
+				3E5CD9A2185E0D0A0067A42B /* ConfigView.storyboard in Resources */,
 				3E6C509A157E40550086C20E /* CalendarDayTile@2x.png in Resources */,
 				3E6C509E157E40550086C20E /* CalendarDayToday.png in Resources */,
 				3E6C50A2157E40550086C20E /* CalendarDayToday@2x.png in Resources */,
@@ -1533,6 +1539,7 @@
 				3E6C508F157E40550086C20E /* CalendarDaySelected.png in Resources */,
 				3E6C5093157E40550086C20E /* CalendarDaySelected@2x.png in Resources */,
 				3E6C5097157E40550086C20E /* CalendarDayTile.png in Resources */,
+				3E5CD9A3185E0D0A0067A42B /* ConfigView.storyboard in Resources */,
 				3E6C509B157E40550086C20E /* CalendarDayTile@2x.png in Resources */,
 				3E6C509F157E40550086C20E /* CalendarDayToday.png in Resources */,
 				3E6C50A3157E40550086C20E /* CalendarDayToday@2x.png in Resources */,
@@ -1558,6 +1565,7 @@
 				3E5CD994185DD6BB0067A42B /* AssetListView.storyboard in Resources */,
 				3E5CD99C185DF7650067A42B /* CalculatorView.storyboard in Resources */,
 				3E5CD998185DDC560067A42B /* TransactionListView.storyboard in Resources */,
+				3E5CD9A4185E0D0A0067A42B /* ConfigView.storyboard in Resources */,
 				3E5CD9A0185DFFEA0067A42B /* ReportView.storyboard in Resources */,
 				3EF1529F1462CCDD00C724E4 /* testdata1.sql in Resources */,
 			);
