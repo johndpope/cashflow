@@ -105,6 +105,7 @@
                     </view>
                     <connections>
                         <outlet property="_tableView" destination="SJ9-Y3-U9O" id="l5D-E3-5PV"/>
+                        <segue destination="yK4-hW-OLC" kind="push" identifier="show" id="bzT-BK-8nx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kv-do-N69" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -120,13 +121,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gN8-Rs-xyy">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="ReportCatGraphCell" selectionStyle="default" indentationWidth="10" rowHeight="120" id="rYk-sZ-O2c" customClass="ReportCatGraphCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rYk-sZ-O2c" id="YJK-0E-u2L">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="f4Z-rZ-mS0">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="_imageView" destination="f4Z-rZ-mS0" id="MCA-oB-FD6"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="32" id="gN8-Rs-xyy" customClass="ReportCatCell">
+                                <rect key="frame" x="0.0" y="142" width="320" height="32"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gN8-Rs-xyy" id="1el-2D-Rlb">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="31"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Transport" lineBreakMode="tailTruncation" minimumFontSize="10" id="AQ2-f4-Aib">
+                                            <rect key="frame" x="5" y="0.0" width="83" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="¥999,999" lineBreakMode="tailTruncation" minimumFontSize="10" id="KoL-Zq-4mq">
+                                            <rect key="frame" x="102" y="15" width="130" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" id="IpE-KS-gTP">
+                                            <rect key="frame" x="102" y="5" width="170" height="7"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="_graphView" destination="IpE-KS-gTP" id="UGM-Xw-Dp7"/>
+                                    <outlet property="_nameLabel" destination="AQ2-f4-Aib" id="z5f-oZ-dgf"/>
+                                    <outlet property="_valueLabel" destination="KoL-Zq-4mq" id="dD6-Vl-gMd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -134,6 +178,10 @@
                             <outlet property="delegate" destination="yK4-hW-OLC" id="7Zl-7A-V8O"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="yng-hT-aYI"/>
+                    <connections>
+                        <segue destination="tUl-ud-DC1" kind="push" identifier="show" id="NfO-HK-DmP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovD-tD-ho8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,6 +210,7 @@
                             <outlet property="delegate" destination="tUl-ud-DC1" id="rBW-12-lhm"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="or6-Me-S9F"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQA-vS-dRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

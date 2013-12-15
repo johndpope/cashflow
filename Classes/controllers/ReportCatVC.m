@@ -14,12 +14,6 @@
 
 @implementation CatReportViewController
 
-- (id)init
-{
-    self = [super initWithNibName:@"SimpleTableView" bundle:nil];
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

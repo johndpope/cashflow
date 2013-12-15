@@ -19,6 +19,8 @@
     Report *_reports;
     double _maxAbsValue;
     
+    ReportEntry *_showingReportEntry; // 表示中のエントリ
+    
     NSDateFormatter *_dateFormatter;
 }
 
@@ -199,12 +201,17 @@
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 	
     int count = [_reports.reportEntries count];
-    ReportEntry *re = (_reports.reportEntries)[count - indexPath.row - 1];
+    _showingReportEntry = (_reports.reportEntries)[count - indexPath.row - 1];
 
-    CatReportViewController *vc = [CatReportViewController new];
-    vc.title = [self _reportTitle:re];
-    vc.reportEntry = re;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self performSegueWithIdentifier:@"show" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CatReportViewController *vc = [segue destinationViewController];
+    
+    vc.title = [self _reportTitle:_showingReportEntry];
+    vc.reportEntry = _showingReportEntry;
 }
 
 
