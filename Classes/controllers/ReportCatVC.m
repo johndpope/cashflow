@@ -13,6 +13,9 @@
 #import "ReportCatDetailVC.h"
 
 @implementation CatReportViewController
+{
+    CatReport *_selectedCatReport;
+}
 
 - (void)viewDidLoad
 {
@@ -143,11 +146,16 @@
         break;
     }
 
-    CatReportDetailViewController *vc = [CatReportDetailViewController new];
-    vc.title = [cr title];
-    vc.catReport = cr;
-    
-    [self.navigationController pushViewController:vc animated:YES];
+    _selectedCatReport = cr;
+    [self performSegueWithIdentifier:@"show" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CatReportDetailViewController *vc = [segue destinationViewController];
+
+    vc.title = [_selectedCatReport title];
+    vc.catReport = _selectedCatReport;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
