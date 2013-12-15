@@ -540,7 +540,6 @@
 - (void)actionSheet:(UIActionSheet*)as clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     ExportVC *exportVC;
-    ConfigViewController *configVC;
     InfoVC *infoVC;
     BackupViewController *backupVC;
     
@@ -549,6 +548,7 @@
     
     _asDisplaying = NO;
     
+    UINavigationController *nv = nil;
     switch (buttonIndex) {
         case 0:
             exportVC = [[ExportVC alloc] initWithAsset:nil];
@@ -566,8 +566,7 @@
             break;
             
         case 3:
-            configVC = [ConfigViewController new];
-            vc = configVC;
+            nv = [[UIStoryboard storyboardWithName:@"ConfigView" bundle:nil] instantiateInitialViewController];
             break;
             
         case 4:
@@ -579,7 +578,9 @@
             return;
     }
 
-    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
+    if (nv == nil) {
+        nv = [[UINavigationController alloc] initWithRootViewController:vc];
+    }
     if (IS_IPAD) {
         nv.modalPresentationStyle = modalPresentationStyle;
     }

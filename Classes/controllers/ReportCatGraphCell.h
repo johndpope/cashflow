@@ -13,7 +13,6 @@
 
 @interface ReportCatGraphCell : UITableViewCell
 
-+ (ReportCatGraphCell *)reportCatGraphCell:(UITableView *)tableView;
 + (CGFloat)cellHeight;
 + (UIColor *)getGraphColor:(int)index;
 

@@ -532,12 +532,13 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 - (void)_actionActionButton:(NSInteger)buttonIndex
 {
     ExportVC *exportVC;
-    ConfigViewController *configVC;
     InfoVC *infoVC;
     BackupViewController *backupVC;
     UIViewController *vc;
     
     _asDisplaying = NO;
+
+    UINavigationController *nv = nil;
     
     switch (buttonIndex) {
         case 0:
@@ -551,8 +552,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
             break;
             
         case 2:
-            configVC = [ConfigViewController new];
-            vc = configVC;
+            nv = [[UIStoryboard storyboardWithName:@"ConfigView" bundle:nil] instantiateInitialViewController];
             break;
             
         case 3:
@@ -564,7 +564,9 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
             return;
     }
     
-    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
+    if (nv == nil) {
+        nv = [[UINavigationController alloc] initWithRootViewController:vc];
+    }
     //if (IS_IPAD) {
     //    nv.modalPresentationStyle = UIModalPresentationFormSheet; //UIModalPresentationPageSheet;
     //}

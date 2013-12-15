@@ -155,7 +155,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle=" " id="Dbf-sv-9ql">
+                            <tableViewSection headerTitle=" " footerTitle=" " id="Dbf-sv-9ql">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="byd-h1-fkB" imageView="e7X-k5-bbQ" style="IBUITableViewCellStyleDefault" id="1ta-Ea-w4I">
                                         <rect key="frame" x="0.0" y="416" width="320" height="44"/>
@@ -189,6 +189,19 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="currencyDescLabel" destination="GXo-i2-qLK" id="bFo-4L-0UP"/>
+                        <outlet property="currencyLabel" destination="weX-QE-mXU" id="U40-c0-0d0"/>
+                        <outlet property="cutoffDateDescLabel" destination="dtI-T7-3TR" id="kwd-fl-HJB"/>
+                        <outlet property="cutoffDateLabel" destination="wQW-ZY-v6O" id="X5s-GW-HIp"/>
+                        <outlet property="dateFormatDescLabel" destination="w1J-af-9ST" id="0Lf-aW-Gm6"/>
+                        <outlet property="dateFormatLabel" destination="T2g-KF-hys" id="ps9-YX-q85"/>
+                        <outlet property="editCategoryLabel" destination="sCC-6j-Izq" id="X5P-YY-Daw"/>
+                        <outlet property="passcodeLabel" destination="Fsa-r2-heV" id="kcT-sI-fdN"/>
+                        <outlet property="resetDropboxLabel" destination="byd-h1-fkB" id="amo-zt-Nl0"/>
+                        <outlet property="weekStartDescLabel" destination="rU8-7L-rRS" id="Y1q-QI-gBb"/>
+                        <outlet property="weekStartLabel" destination="UKT-dk-gjn" id="brr-dj-pE4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hsc-GQ-t7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
