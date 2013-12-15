@@ -17,20 +17,6 @@
     IBOutlet UIView *_graphView;
 }
 
-+ (ReportCatCell *)reportCatCell:(UITableView *)tableView
-{
-    NSString *identifier = @"ReportCatCell";
-
-    ReportCatCell *cell = (ReportCatCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        NSArray *ary = [[NSBundle mainBundle] loadNibNamed:@"ReportCatCell" owner:nil options:nil];
-        cell = (ReportCatCell *)ary[0];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    return cell;
-}
-
 + (CGFloat)cellHeight
 {
     //return 44;

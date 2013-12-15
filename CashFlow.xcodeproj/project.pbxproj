@@ -289,8 +289,6 @@
 		3EB88E8D17F700B00045780D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3EB88E8E17F702170045780D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; };
 		3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		3EC9FCED17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */; };
-		3EC9FCEE17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */; };
 		3ECD5A871347603800B499A6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3ECF38040EA9CF4900420060 /* ExportServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF38030EA9CF4900420060 /* ExportServer.m */; };
 		3ED30E731323B53E007E46DC /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED30E711323B53E007E46DC /* TransactionCell.xib */; };
@@ -355,8 +353,6 @@
 		3EFDC2DD18314BAC00070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFDC2DE18314BB900070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFDC2DF18314D5500070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
-		3EFEFE9B1324F3C800EF369E /* ReportCatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE991324F3C800EF369E /* ReportCatCell.xib */; };
-		3EFEFE9C1324F3C800EF369E /* ReportCatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE991324F3C800EF369E /* ReportCatCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -582,7 +578,6 @@
 		3EB88E8B17F6FD370045780D /* CashFlowFree.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CashFlowFree.entitlements; sourceTree = "<group>"; };
 		3EB88E8C17F700B00045780D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StoreKit.framework; sourceTree = "<group>"; };
 		3EC572D61107451F00A551D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportCatGraphCell.xib; sourceTree = "<group>"; };
 		3ECB765C1854B32100E04A85 /* DFPBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPBannerView.h; sourceTree = "<group>"; };
 		3ECB765D1854B32100E04A85 /* DFPExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPExtras.h; sourceTree = "<group>"; };
 		3ECB765E1854B32100E04A85 /* DFPInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPInterstitial.h; sourceTree = "<group>"; };
@@ -642,7 +637,6 @@
 		3EFDC2CE18314B6500070F72 /* JSONKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSONKit.framework; sourceTree = "<group>"; };
 		3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterIMobile.a; sourceTree = "<group>"; };
 		3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileCoreServices.framework; sourceTree = "<group>"; };
-		3EFEFE991324F3C800EF369E /* ReportCatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportCatCell.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -821,8 +815,6 @@
 				3E5CD995185DDC560067A42B /* TransactionListView.storyboard */,
 				3E5CD999185DF7650067A42B /* CalculatorView.storyboard */,
 				3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */,
-				3EFEFE991324F3C800EF369E /* ReportCatCell.xib */,
-				3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */,
 				3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */,
 				3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */,
 				3ED30E711323B53E007E46DC /* TransactionCell.xib */,
@@ -1484,8 +1476,6 @@
 				3E774EEB11888C6600687776 /* PinView-ipad.xib in Resources */,
 				3ED30E731323B53E007E46DC /* TransactionCell.xib in Resources */,
 				3EB88E8817F6FAE10045780D /* Images.xcassets in Resources */,
-				3EFEFE9B1324F3C800EF369E /* ReportCatCell.xib in Resources */,
-				3EC9FCED17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */,
 				3E33822D133229C600861610 /* BackupView.xib in Resources */,
 				3EF1716F133A2528002C818E /* artwork.jpg in Resources */,
 				3E6C5076157E40550086C20E /* CalendarArrowLeft.png in Resources */,
@@ -1538,8 +1528,6 @@
 				3E774EEA11888C6600687776 /* PinView-ipad.xib in Resources */,
 				3ED30E741323B53E007E46DC /* TransactionCell.xib in Resources */,
 				3EB88E8917F6FC970045780D /* Images.xcassets in Resources */,
-				3EFEFE9C1324F3C800EF369E /* ReportCatCell.xib in Resources */,
-				3EC9FCEE17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */,
 				3E33822E133229C600861610 /* BackupView.xib in Resources */,
 				3EF17170133A2528002C818E /* artwork.jpg in Resources */,
 				3E6C5077157E40550086C20E /* CalendarArrowLeft.png in Resources */,

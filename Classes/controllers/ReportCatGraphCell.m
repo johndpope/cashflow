@@ -20,20 +20,6 @@
     NSMutableArray *_catReports;
 }
 
-+ (ReportCatGraphCell *)reportCatGraphCell:(UITableView *)tableView
-{
-    NSString *identifier = @"ReportCatGraphCell";
-
-    ReportCatGraphCell *cell = (ReportCatGraphCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        NSArray *ary = [[NSBundle mainBundle] loadNibNamed:@"ReportCatGraphCell" owner:nil options:nil];
-        cell = (ReportCatGraphCell *)ary[0];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    return cell;
-}
-
 + (CGFloat)cellHeight
 {
     if (IS_IPAD) {

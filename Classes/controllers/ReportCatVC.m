@@ -101,11 +101,11 @@
 {
     if (indexPath.row == 0) {
         /* graph cell */
-        ReportCatGraphCell *cell = [ReportCatGraphCell reportCatGraphCell:tv];
+        ReportCatGraphCell *cell = [tv dequeueReusableCellWithIdentifier:@"ReportCatGraphCell"];
         [cell setReport:_reportEntry isOutgo:(indexPath.section == 0 ? YES : NO)];
         return cell;
     } else {
-        ReportCatCell *cell = [ReportCatCell reportCatCell:tv];
+        ReportCatCell *cell = [tv dequeueReusableCellWithIdentifier:@"ReportCatCell"];
 
         CatReport *cr = nil;
         switch (indexPath.section) {
