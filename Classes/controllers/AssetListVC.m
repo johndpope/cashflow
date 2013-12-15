@@ -291,17 +291,18 @@
     NSString *cellid = @"assetCell";
     cell = [tv dequeueReusableCellWithIdentifier:cellid];
 
-    if (cell == nil) {
+    /*if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
         //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		
         cell.textLabel.font = [UIFont systemFontOfSize:16.0];
-    }
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+        cell.textLabel.font = [UIFont systemFontOfSize:16.0];
+     }*/
 
     // 資産
     Asset *asset = [_ledger assetAtIndex:[self _assetIndex:indexPath]];
 
-    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 
     // 資産タイプ範囲外対応
     int type = asset.type;
