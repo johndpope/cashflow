@@ -36,6 +36,7 @@
     IBOutlet UIToolbar *_toolbar;
     
     int _assetKey;
+    int _tappedIndex;
     
 #if FREE_VERSION
     AdManager *_adManager;
@@ -47,7 +48,8 @@
 
 + (TransactionListViewController *)instantiate
 {
-    return [[UIStoryboard storyboardWithName:@"TransactionListView" bundle:nil] instantiateInitialViewController];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"TransactionListView" bundle:nil];
+    return [sb instantiateInitialViewController];
 }
 
 - (id)init
@@ -392,16 +394,24 @@
         }
     } else if (idx >= 0) {
         // transaction view を表示
-        TransactionViewController *vc = [TransactionViewController new];
-        vc.asset = self.asset;
-        
         if (tv == self.searchDisplayController.searchResultsTableView) {
             AssetEntry *e = [self.searchResults objectAtIndex:idx];
-            [vc setTransactionIndex:e.originalIndex];
+            _tappedIndex = e.originalIndex;
         } else {
-            [vc setTransactionIndex:idx];
+            _tappedIndex = idx;
         }
-        [self.navigationController pushViewController:vc animated:YES];
+        
+        [self performSegueWithIdentifier:@"show" sender:self];
+    }
+}
+
+// 画面遷移
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"show"]) {
+        TransactionViewController *vc = [segue destinationViewController];
+        vc.asset = self.asset;
+        [vc setTransactionIndex:_tappedIndex];
     }
 }
 
@@ -421,11 +431,9 @@
         [AssetListViewController noAssetAlert];
         return;
     }
-    
-    TransactionViewController *vc = [TransactionViewController new];
-    vc.asset = self.asset;
-    [vc setTransactionIndex:-1];
-    [self.navigationController pushViewController:vc animated:YES];
+            
+    _tappedIndex = -1;
+    [self performSegueWithIdentifier:@"show" sender:self];
 }
 
 // Editボタン処理

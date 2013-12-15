@@ -49,11 +49,87 @@
                         <outlet property="_barBalanceLabel" destination="HfJ-0C-yuf" id="TAu-mF-HnF"/>
                         <outlet property="_tableView" destination="nmn-sq-Dhs" id="bmu-Wg-Lw2"/>
                         <outlet property="_toolbar" destination="GGs-Qd-sVD" id="FPK-Ig-Svj"/>
+                        <segue destination="ap8-oF-I49" kind="push" identifier="show" id="uXG-nQ-oXN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w77-4t-kzq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="129" y="22"/>
+        </scene>
+        <!--Transaction View Controller-->
+        <scene sceneID="ye4-nn-rNP">
+            <objects>
+                <viewController storyboardIdentifier="TransactionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ap8-oF-I49" customClass="TransactionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sBg-3D-8eC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Xo4-uJ-etI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ap8-oF-I49" id="fgK-rK-mEU"/>
+                                    <outlet property="delegate" destination="ap8-oF-I49" id="SDG-sm-ct2"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fPW-OQ-oRu">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="u4Q-4N-N2W"/>
+                                    <barButtonItem systemItem="action" id="99H-8X-qMh">
+                                        <connections>
+                                            <action selector="doAction:" destination="ap8-oF-I49" id="NLB-0A-7c4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" id="Smy-Fh-ABE">
+                                <rect key="frame" x="10" y="463" width="300" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Remember Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O30-EE-jhS">
+                                        <rect key="frame" x="19" y="20" width="178" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="lRD-86-vqI">
+                                        <rect key="frame" x="219" y="17" width="51" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="rememberLastUsedDateChanged:" destination="ap8-oF-I49" eventType="valueChanged" id="rm3-Wh-4qb"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KJG-Cj-xF7">
+                                <rect key="frame" x="10" y="476" width="300" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" title="DELETE TRANSACTION"/>
+                                <connections>
+                                    <action selector="delButtonTapped:" destination="ap8-oF-I49" eventType="touchUpInside" id="LdB-Le-ghD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mPd-Cv-FPd"/>
+                    <connections>
+                        <outlet property="_barActionButton" destination="99H-8X-qMh" id="PfB-25-uwP"/>
+                        <outlet property="_delButton" destination="KJG-Cj-xF7" id="HGJ-ns-UqS"/>
+                        <outlet property="_rememberDateLabel" destination="O30-EE-jhS" id="VmC-hi-4rv"/>
+                        <outlet property="_rememberDateSwitch" destination="lRD-86-vqI" id="jYQ-hM-zCf"/>
+                        <outlet property="_rememberDateView" destination="Smy-Fh-ABE" id="Er2-cE-Kb3"/>
+                        <outlet property="_tableView" destination="Xo4-uJ-etI" id="02U-bx-Dhy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ecH-KB-nZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="566" y="22"/>
         </scene>
     </scenes>
     <resources>

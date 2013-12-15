@@ -544,7 +544,7 @@
     }
 }
 
-- (IBAction)delPastButtonTapped:(id)sender
+- (void)delPastButtonTapped:(id)sender
 {
     UIAlertView *v = [[UIAlertView alloc]
                       initWithTitle:_L(@"Delete with all past transactions")
