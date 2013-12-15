@@ -113,37 +113,16 @@
 // 行の内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    static NSString *MyIdentifier = @"assetViewCells";
+    static NSString *MyIdentifier = @"assetViewCell";
     UILabel *name, *value;
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    /* Storyboard で指定するので不要になった
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:MyIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-        /*
-        name = [[[UILabel alloc] initWithFrame:CGRectMake(0, 6, 160, 32)] autorelease];
-        name.tag = 1;
-        name.font = [UIFont systemFontOfSize: 14.0];
-        name.textColor = [UIColor blueColor];
-        name.backgroundColor = [UIColor clearColor];
-        name.textAlignment = UITextAlignmentRight;
-        name.autoresizingMask = 0; //UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [cell.contentView addSubview:name];
-
-        value = [[[UILabel alloc] initWithFrame:CGRectMake(130, 6, 160, 32)] autorelease];
-        value.tag = 2;
-        value.font = [UIFont systemFontOfSize: 16.0];
-        value.textColor = [UIColor blackColor];
-        value.backgroundColor = [UIColor clearColor];
-        value.autoresizingMask = 0; //UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [cell.contentView addSubview:value];
-         */
-    } else {
-        //name  = (UILabel *)[cell.contentView viewWithTag:1];
-        //value = (UILabel *)[cell.contentView viewWithTag:2];
-    }
+    }*/
 
     name = cell.textLabel;
     value = cell.detailTextLabel;
