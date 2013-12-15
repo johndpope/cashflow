@@ -489,7 +489,8 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 
 - (void)showReport:(id)sender
 {
-    ReportViewController *reportVC = [[ReportViewController alloc] initWithAsset:nil];
+    ReportViewController *reportVC = [ReportViewController instantiate];
+    [reportVC setAsset:nil];
     
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:reportVC];
     if (IS_IPAD) {

@@ -15,7 +15,9 @@
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) Asset *designatedAsset;
 
-- (id)initWithAsset:(Asset*)asset type:(int)type;    // designated initializer
-- (id)initWithAsset:(Asset*)asset; 
++ (ReportViewController *)instantiate;
+
+- (void)setAsset:(Asset*)asset type:(int)type;
+- (void)setAsset:(Asset*)asset;
 
 @end

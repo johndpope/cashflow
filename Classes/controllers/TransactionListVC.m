@@ -498,7 +498,8 @@
 #pragma mark Show Report
 - (void)showReport:(id)sender
 {
-    ReportViewController *reportVC = [[ReportViewController alloc] initWithAsset:self.asset];
+    ReportViewController *reportVC = [ReportViewController instantiate];
+    [reportVC setAsset:self.asset];
 
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:reportVC];
     if (IS_IPAD) {

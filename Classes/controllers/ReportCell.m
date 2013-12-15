@@ -19,25 +19,10 @@
     IBOutlet UIView *_outgoGraph;
 }
 
-+ (ReportCell *)reportCell:(UITableView *)tableView
-{
-    NSString *identifier = @"ReportCell";
-
-    ReportCell *cell = (ReportCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        NSArray *ary = [[NSBundle mainBundle] loadNibNamed:@"ReportCell" owner:nil options:nil];
-        cell = (ReportCell *)ary[0];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    return cell;
-}
-
 + (CGFloat)cellHeight
 {
     return 44; // 62
 }
-
 
 - (void)setName:(NSString *)n
 {

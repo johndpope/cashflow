@@ -22,23 +22,30 @@
     NSDateFormatter *_dateFormatter;
 }
 
-- (id)initWithAsset:(Asset*)asset type:(int)type
++ (ReportViewController *)instantiate
 {
-    self = [super initWithNibName:@"ReportView" bundle:nil];
-    if (self != nil) {
-        self.designatedAsset = asset;
+    return [[UIStoryboard storyboardWithName:@"ReportView" bundle:nil] instantiateInitialViewController];
+}
 
-        _type = type;
-
-        _dateFormatter = [NSDateFormatter new];
-        [self _updateReport];
-    }
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    _dateFormatter = [NSDateFormatter new];
     return self;
 }
 
-- (id)initWithAsset:(Asset*)asset
+- (void)setAsset:(Asset*)asset type:(int)type
 {
-    return [self initWithAsset:asset type:-1];
+    self.designatedAsset = asset;
+
+    _type = type;
+
+    [self _updateReport];
+}
+
+- (void)setAsset:(Asset*)asset
+{
+    [self setAsset:asset type:-1];
 }
 
 - (void)viewDidLoad
@@ -177,7 +184,7 @@
     int count = [_reports.reportEntries count];
     ReportEntry *report = (_reports.reportEntries)[count - indexPath.row - 1];
 	
-    ReportCell *cell = [ReportCell reportCell:tv];
+    ReportCell *cell = (ReportCell*)[tv dequeueReusableCellWithIdentifier:@"ReportCell"];
     cell.name = [self _reportTitle:report];
     cell.income = report.totalIncome;
     cell.outgo = report.totalOutgo;

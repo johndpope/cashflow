@@ -135,8 +135,6 @@
 		3E3F525114651654005CBD9A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
 		3E3F525214651654005CBD9A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
 		3E4344F117F70D7600B45E1F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; };
-		3E43FC6E1324E8130059B198 /* ReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E43FC6C1324E8130059B198 /* ReportView.xib */; };
-		3E43FC6F1324E8130059B198 /* ReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E43FC6C1324E8130059B198 /* ReportView.xib */; };
 		3E44CF5D17F604E400E54901 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44CF5C17F604E400E54901 /* DropboxSDK.framework */; };
 		3E44CF5E17F604E400E54901 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44CF5C17F604E400E54901 /* DropboxSDK.framework */; };
 		3E44CF5F17F604E500E54901 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44CF5C17F604E400E54901 /* DropboxSDK.framework */; };
@@ -172,6 +170,9 @@
 		3E5CD99A185DF7650067A42B /* CalculatorView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD999185DF7650067A42B /* CalculatorView.storyboard */; };
 		3E5CD99B185DF7650067A42B /* CalculatorView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD999185DF7650067A42B /* CalculatorView.storyboard */; };
 		3E5CD99C185DF7650067A42B /* CalculatorView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD999185DF7650067A42B /* CalculatorView.storyboard */; };
+		3E5CD99E185DFFEA0067A42B /* ReportView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */; };
+		3E5CD99F185DFFEA0067A42B /* ReportView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */; };
+		3E5CD9A0185DFFEA0067A42B /* ReportView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */; };
 		3E69E8EA1616B3D800FAD808 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3E69E8EC1616B3ED00FAD808 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E69E8F21616B40D00FAD808 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -354,8 +355,6 @@
 		3EFDC2DD18314BAC00070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFDC2DE18314BB900070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFDC2DF18314D5500070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
-		3EFEFE5D1324EEAA00EF369E /* ReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE5B1324EEAA00EF369E /* ReportCell.xib */; };
-		3EFEFE5E1324EEAA00EF369E /* ReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE5B1324EEAA00EF369E /* ReportCell.xib */; };
 		3EFEFE9B1324F3C800EF369E /* ReportCatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE991324F3C800EF369E /* ReportCatCell.xib */; };
 		3EFEFE9C1324F3C800EF369E /* ReportCatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEFE991324F3C800EF369E /* ReportCatCell.xib */; };
 /* End PBXBuildFile section */
@@ -499,7 +498,6 @@
 		3E38C69817F6A47400A00CE0 /* EditDescVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDescVCTests.m; sourceTree = "<group>"; };
 		3E38C69B17F6A47400A00CE0 /* PinControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinControllerTests.m; sourceTree = "<group>"; };
 		3E38C69C17F6A47400A00CE0 /* PinVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinVCTests.m; sourceTree = "<group>"; };
-		3E43FC6C1324E8130059B198 /* ReportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportView.xib; sourceTree = "<group>"; };
 		3E44CF4217F5FE3700E54901 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3E44CF5C17F604E400E54901 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = Libraries/Dropbox/DropboxSDK.framework; sourceTree = SOURCE_ROOT; };
 		3E4A7D21131FB94B0008C37D /* CashflowDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashflowDatabase.h; sourceTree = "<group>"; };
@@ -520,6 +518,7 @@
 		3E5CD991185DD6BB0067A42B /* AssetListView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AssetListView.storyboard; sourceTree = "<group>"; };
 		3E5CD995185DDC560067A42B /* TransactionListView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TransactionListView.storyboard; sourceTree = "<group>"; };
 		3E5CD999185DF7650067A42B /* CalculatorView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CalculatorView.storyboard; sourceTree = "<group>"; };
+		3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReportView.storyboard; sourceTree = "<group>"; };
 		3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		3E6B2EBE0F12259C0008AFB6 /* ExportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportView.xib; sourceTree = "<group>"; };
@@ -643,7 +642,6 @@
 		3EFDC2CE18314B6500070F72 /* JSONKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSONKit.framework; sourceTree = "<group>"; };
 		3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterIMobile.a; sourceTree = "<group>"; };
 		3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileCoreServices.framework; sourceTree = "<group>"; };
-		3EFEFE5B1324EEAA00EF369E /* ReportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportCell.xib; sourceTree = "<group>"; };
 		3EFEFE991324F3C800EF369E /* ReportCatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportCatCell.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -822,6 +820,9 @@
 				3E5CD991185DD6BB0067A42B /* AssetListView.storyboard */,
 				3E5CD995185DDC560067A42B /* TransactionListView.storyboard */,
 				3E5CD999185DF7650067A42B /* CalculatorView.storyboard */,
+				3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */,
+				3EFEFE991324F3C800EF369E /* ReportCatCell.xib */,
+				3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */,
 				3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */,
 				3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */,
 				3ED30E711323B53E007E46DC /* TransactionCell.xib */,
@@ -831,10 +832,6 @@
 				3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */,
 				3E5868230EEFFB6E00951C2F /* EditMemoView.xib */,
 				3EDC72BA0EBB493100366F1E /* SimpleTableView.xib */,
-				3E43FC6C1324E8130059B198 /* ReportView.xib */,
-				3EFEFE5B1324EEAA00EF369E /* ReportCell.xib */,
-				3EFEFE991324F3C800EF369E /* ReportCatCell.xib */,
-				3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */,
 				3E6B2EBE0F12259C0008AFB6 /* ExportView.xib */,
 				3E8C36150F1E0D82004AFFCA /* PinView.xib */,
 				3E33822C133229C600861610 /* BackupView.xib */,
@@ -1478,6 +1475,7 @@
 				3E6B2EBF0F12259C0008AFB6 /* ExportView.xib in Resources */,
 				3E5CD992185DD6BB0067A42B /* AssetListView.storyboard in Resources */,
 				3E2CBDA00F1615470025A682 /* Localizable.strings in Resources */,
+				3E5CD99E185DFFEA0067A42B /* ReportView.storyboard in Resources */,
 				3E8C36160F1E0D82004AFFCA /* PinView.xib in Resources */,
 				3EFD00340F95E31D00F4B4C4 /* EditTypeView.xib in Resources */,
 				3EAEBC870F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */,
@@ -1485,9 +1483,7 @@
 				3E774E3E1188807900687776 /* AssetListView-ipad.xib in Resources */,
 				3E774EEB11888C6600687776 /* PinView-ipad.xib in Resources */,
 				3ED30E731323B53E007E46DC /* TransactionCell.xib in Resources */,
-				3E43FC6F1324E8130059B198 /* ReportView.xib in Resources */,
 				3EB88E8817F6FAE10045780D /* Images.xcassets in Resources */,
-				3EFEFE5D1324EEAA00EF369E /* ReportCell.xib in Resources */,
 				3EFEFE9B1324F3C800EF369E /* ReportCatCell.xib in Resources */,
 				3EC9FCED17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */,
 				3E33822D133229C600861610 /* BackupView.xib in Resources */,
@@ -1533,6 +1529,7 @@
 				3E8B25900F348C090007929E /* ExportView.xib in Resources */,
 				3E5CD993185DD6BB0067A42B /* AssetListView.storyboard in Resources */,
 				3E8B25910F348C090007929E /* Localizable.strings in Resources */,
+				3E5CD99F185DFFEA0067A42B /* ReportView.storyboard in Resources */,
 				3E8B25920F348C090007929E /* PinView.xib in Resources */,
 				3EFD00350F95E31D00F4B4C4 /* EditTypeView.xib in Resources */,
 				3EAEBC880F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */,
@@ -1540,9 +1537,7 @@
 				3E774E3F1188807900687776 /* AssetListView-ipad.xib in Resources */,
 				3E774EEA11888C6600687776 /* PinView-ipad.xib in Resources */,
 				3ED30E741323B53E007E46DC /* TransactionCell.xib in Resources */,
-				3E43FC6E1324E8130059B198 /* ReportView.xib in Resources */,
 				3EB88E8917F6FC970045780D /* Images.xcassets in Resources */,
-				3EFEFE5E1324EEAA00EF369E /* ReportCell.xib in Resources */,
 				3EFEFE9C1324F3C800EF369E /* ReportCatCell.xib in Resources */,
 				3EC9FCEE17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */,
 				3E33822E133229C600861610 /* BackupView.xib in Resources */,
@@ -1581,6 +1576,7 @@
 				3E5CD994185DD6BB0067A42B /* AssetListView.storyboard in Resources */,
 				3E5CD99C185DF7650067A42B /* CalculatorView.storyboard in Resources */,
 				3E5CD998185DDC560067A42B /* TransactionListView.storyboard in Resources */,
+				3E5CD9A0185DFFEA0067A42B /* ReportView.storyboard in Resources */,
 				3EF1529F1462CCDD00C724E4 /* testdata1.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
