@@ -32,23 +32,6 @@
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                   target:self
                                                   action:@selector(saveAction)];
-
-    // ボタン生成
-#if 0
-    UIButton *b;
-    UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
-				
-    b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [b setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [b setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
-	
-    [b setBackgroundImage:bg forState:UIControlStateNormal];
-		
-    [b setFrame:CGRectMake(10, 280, 300, 44)];
-    [b setTitle:_L(@"Delete Asset") forState:UIControlStateNormal];
-    [b addTarget:self action:@selector(delButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    delButton = [b retain];
-#endif
 }
 
 

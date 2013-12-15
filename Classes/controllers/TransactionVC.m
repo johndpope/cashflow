@@ -49,12 +49,6 @@
 // for debug
 #define REFCOUNT(x) CFGetRetainCount((__bridge void *)(x))
 
-- (id)init
-{
-    self = [super initWithNibName:@"TransactionView" bundle:nil];
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -308,7 +302,7 @@
             break;
 
         case ROW_VALUE:
-            calcVC = [CalculatorViewController new];
+            calcVC = [CalculatorViewController instantiate];
             calcVC.delegate = self;
             calcVC.value = _editingEntry.evalue;
             vc = calcVC;

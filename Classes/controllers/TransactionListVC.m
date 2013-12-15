@@ -52,10 +52,9 @@
     return [sb instantiateInitialViewController];
 }
 
-- (id)init
+- (id)initWithCoder:(NSCoder *)coder
 {
-    self = [super init];
-    //self = [super initWithNibName:@"TransactionListView" bundle:nil];
+    self = [super initWithCoder:coder];
     if (self) {
         _assetKey = -1;
     }
@@ -377,7 +376,7 @@
     int idx = [self entryIndexWithIndexPath:indexPath tableView:tv];
     if (idx == -1) {
         // initial balance cell
-        CalculatorViewController *v = [CalculatorViewController new];
+        CalculatorViewController *v = [CalculatorViewController instantiate];
         v.delegate = self;
         v.value = self.asset.initialBalance;
 

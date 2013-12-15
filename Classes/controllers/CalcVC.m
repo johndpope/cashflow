@@ -60,9 +60,15 @@
     calcOperator _storedOperator;
 }
 
-- (id)init
++ (CalculatorViewController *)instantiate
 {
-    self = [super initWithNibName:@"CalculatorView" bundle:nil];
+    return [[UIStoryboard storyboardWithName:@"CalculatorView" bundle:nil] instantiateInitialViewController];
+}
+
+// Storyboard では init ではなく initWithCoder が呼ばれる
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
     if (self) {
         [self allClear];
         _numberFormatter = [NSNumberFormatter new];
