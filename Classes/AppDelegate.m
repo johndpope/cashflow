@@ -66,16 +66,18 @@
     // Configure and show the window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    UINavigationController *assetListNavigationController =
+        [[UIStoryboard storyboardWithName:@"AssetListView" bundle:nil] instantiateInitialViewController];
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         // iPhone 版 : Window 生成
-        AssetListViewController *assetListViewController = [[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:nil];
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:assetListViewController];
+        self.navigationController = assetListNavigationController;
         self.window.rootViewController = self.navigationController;
     } else {
         // iPad 版 : Window 生成
-        AssetListViewController *assetListViewController = [[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:nil];
-        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:assetListViewController];
-        
+        UINavigationController *masterNavigationController = assetListNavigationController;
+        AssetListViewController *assetListViewController = (id)masterNavigationController.topViewController;
+
         TransactionListViewController *transactionListViewController = [[TransactionListViewController alloc] initWithNibName:@"TransactionListView" bundle:nil];
         UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:transactionListViewController];
     	

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lg6-VT-1DK">
+    <dependencies>
+        <deployment version="1280" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="hNW-pq-Jhk">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="lg6-VT-1DK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TVX-oG-mRp">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Vdb-PT-i2f" kind="relationship" relationship="rootViewController" id="oYw-ML-rFT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bXA-ak-KSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12" y="32"/>
+        </scene>
+        <!--Asset List View Controller-->
+        <scene sceneID="Tnj-K4-BWw">
+            <objects>
+                <viewController storyboardIdentifier="AssetListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vdb-PT-i2f" customClass="AssetListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Un0-Fx-aI9" customClass="AssetListViewCon">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Udy-Zd-Z8t">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Vdb-PT-i2f" id="Cr8-Rz-SdV"/>
+                                    <outlet property="delegate" destination="Vdb-PT-i2f" id="lek-dM-qxD"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YXr-PA-ZRf">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem image="report" id="0jD-q6-gmW">
+                                        <connections>
+                                            <action selector="showReport:" destination="Vdb-PT-i2f" id="vzq-ms-fZs"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4eV-XY-SBr"/>
+                                    <barButtonItem title="000" id="evo-CX-0Zk"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="RwM-QF-XT4"/>
+                                    <barButtonItem title="Item" systemItem="action" id="3dd-HN-aXn">
+                                        <connections>
+                                            <action selector="doAction:" destination="Vdb-PT-i2f" id="Hnm-le-ilT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Di4-NF-TxR"/>
+                    <connections>
+                        <outlet property="_barActionButton" destination="3dd-HN-aXn" id="AWY-Ae-Aea"/>
+                        <outlet property="_barSumLabel" destination="evo-CX-0Zk" id="HHa-Ce-KpA"/>
+                        <outlet property="_tableView" destination="Udy-Zd-Z8t" id="n4y-Fd-oje"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="26x-DV-4QI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446" y="32"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="report" width="21" height="21"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
