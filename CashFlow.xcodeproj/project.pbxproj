@@ -179,8 +179,6 @@
 		3E69E8F51616B41A00FAD808 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3E69E8F61616B41A00FAD808 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3E6B2EBF0F12259C0008AFB6 /* ExportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6B2EBE0F12259C0008AFB6 /* ExportView.xib */; };
-		3E6B4ED5106BC30D0036D429 /* CalculatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6B4ED4106BC30D0036D429 /* CalculatorView.xib */; };
-		3E6B4ED6106BC30D0036D429 /* CalculatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6B4ED4106BC30D0036D429 /* CalculatorView.xib */; };
 		3E6C5055157E40380086C20E /* CalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C504E157E40380086C20E /* CalendarLogic.m */; };
 		3E6C5056157E40380086C20E /* CalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C504E157E40380086C20E /* CalendarLogic.m */; };
 		3E6C5059157E40380086C20E /* CalendarMonth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C5051157E40380086C20E /* CalendarMonth.m */; };
@@ -525,7 +523,6 @@
 		3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		3E6B2EBE0F12259C0008AFB6 /* ExportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportView.xib; sourceTree = "<group>"; };
-		3E6B4ED4106BC30D0036D429 /* CalculatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculatorView.xib; sourceTree = "<group>"; };
 		3E6C504D157E40380086C20E /* CalendarLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarLogic.h; sourceTree = "<group>"; };
 		3E6C504E157E40380086C20E /* CalendarLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarLogic.m; sourceTree = "<group>"; };
 		3E6C504F157E40380086C20E /* CalendarLogicDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarLogicDelegate.h; sourceTree = "<group>"; };
@@ -825,7 +822,6 @@
 				3E5CD991185DD6BB0067A42B /* AssetListView.storyboard */,
 				3E5CD995185DDC560067A42B /* TransactionListView.storyboard */,
 				3E5CD999185DF7650067A42B /* CalculatorView.storyboard */,
-				3E6B4ED4106BC30D0036D429 /* CalculatorView.xib */,
 				3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */,
 				3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */,
 				3ED30E711323B53E007E46DC /* TransactionCell.xib */,
@@ -1485,7 +1481,6 @@
 				3E8C36160F1E0D82004AFFCA /* PinView.xib in Resources */,
 				3EFD00340F95E31D00F4B4C4 /* EditTypeView.xib in Resources */,
 				3EAEBC870F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */,
-				3E6B4ED5106BC30D0036D429 /* CalculatorView.xib in Resources */,
 				3E7BB12E11539997004B7D03 /* ConfigView.xib in Resources */,
 				3E774E3E1188807900687776 /* AssetListView-ipad.xib in Resources */,
 				3E774EEB11888C6600687776 /* PinView-ipad.xib in Resources */,
@@ -1541,7 +1536,6 @@
 				3E8B25920F348C090007929E /* PinView.xib in Resources */,
 				3EFD00350F95E31D00F4B4C4 /* EditTypeView.xib in Resources */,
 				3EAEBC880F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */,
-				3E6B4ED6106BC30D0036D429 /* CalculatorView.xib in Resources */,
 				3E7BB12D11539997004B7D03 /* ConfigView.xib in Resources */,
 				3E774E3F1188807900687776 /* AssetListView-ipad.xib in Resources */,
 				3E774EEA11888C6600687776 /* PinView-ipad.xib in Resources */,
