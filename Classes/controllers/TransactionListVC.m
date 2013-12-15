@@ -45,9 +45,15 @@
     UIPopoverController *_popoverController;
 }
 
++ (TransactionListViewController *)instantiate
+{
+    return [[UIStoryboard storyboardWithName:@"TransactionListView" bundle:nil] instantiateInitialViewController];
+}
+
 - (id)init
 {
-    self = [super initWithNibName:@"TransactionListView" bundle:nil];
+    self = [super init];
+    //self = [super initWithNibName:@"TransactionListView" bundle:nil];
     if (self) {
         _assetKey = -1;
     }

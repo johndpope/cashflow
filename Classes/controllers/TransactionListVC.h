@@ -31,6 +31,7 @@
 @property(nonatomic,strong) AssetListViewController *splitAssetListViewController;
 @property(nonatomic,assign) int assetKey;
 
++ (TransactionListViewController *)instantiate;
 - (void)reload;
 
 @end

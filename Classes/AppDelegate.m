@@ -78,7 +78,7 @@
         UINavigationController *masterNavigationController = assetListNavigationController;
         AssetListViewController *assetListViewController = (id)masterNavigationController.topViewController;
 
-        TransactionListViewController *transactionListViewController = [[TransactionListViewController alloc] initWithNibName:@"TransactionListView" bundle:nil];
+        TransactionListViewController *transactionListViewController = [TransactionListViewController instantiate];
         UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:transactionListViewController];
     	
         assetListViewController.splitTransactionListViewController = transactionListViewController;

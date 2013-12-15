@@ -181,7 +181,7 @@
             [self.splitTransactionListViewController reload];
         } else { 
             TransactionListViewController *vc = 
-                [TransactionListViewController new];
+                [TransactionListViewController instantiate];
             vc.assetKey = asset.pid;
             [self.navigationController pushViewController:vc animated:NO];
         }
@@ -348,7 +348,7 @@
         [self.splitTransactionListViewController reload];
     } else {
         TransactionListViewController *vc = 
-            [TransactionListViewController new];
+            [TransactionListViewController instantiate];
         vc.assetKey = asset.pid;
 
         [self.navigationController pushViewController:vc animated:YES];
