@@ -12,18 +12,10 @@
 
 @implementation BackupViewController
 {
-    id<BackupViewDelegate> _delegate;
+    __weak id<BackupViewDelegate> _delegate;
 
     DBLoadingView *_loadingView;
     DropboxBackup *_dropboxBackup;
-}
-
-+ (BackupViewController *)backupViewController:(id<BackupViewDelegate>)delegate
-{
-    BackupViewController *vc =
-        [[BackupViewController alloc] initWithNibName:@"BackupView" bundle:nil];
-    [vc setDelegate:delegate];
-    return vc;
 }
 
 - (void)setDelegate:(id<BackupViewDelegate>)delegate
@@ -47,7 +39,7 @@
     [_delegate backupViewFinished:self];
 }
 
-
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
     return 2;
 }
@@ -134,6 +126,7 @@
 
     return cell;
 }
+*/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

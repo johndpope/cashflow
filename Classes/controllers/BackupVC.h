@@ -19,8 +19,6 @@
 
 @interface BackupViewController : UITableViewController <DropboxBackupDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 
-+ (BackupViewController *)backupViewController:(id<BackupViewDelegate>)delegate;
-
 - (void)setDelegate:(id<BackupViewDelegate>)delegate;
 - (void)doneAction:(id)sender;
 

@@ -561,8 +561,9 @@
             break;
             
         case 2:
-            backupVC = [BackupViewController backupViewController:self];
-            vc = backupVC;
+            nv = [[UIStoryboard storyboardWithName:@"BackupView" bundle:nil] instantiateInitialViewController];
+            backupVC = (BackupViewController *)nv.topViewController;
+            backupVC.delegate = self;
             break;
             
         case 3:

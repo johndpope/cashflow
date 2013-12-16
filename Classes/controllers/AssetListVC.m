@@ -547,8 +547,9 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
             break;
             
         case 1:
-            backupVC = [BackupViewController backupViewController:self];
-            vc = backupVC;
+            nv = [[UIStoryboard storyboardWithName:@"BackupView" bundle:nil] instantiateInitialViewController];
+            backupVC = (BackupViewController *)nv.topViewController;
+            backupVC.delegate = self;
             break;
             
         case 2:

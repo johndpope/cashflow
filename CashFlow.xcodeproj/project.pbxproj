@@ -117,8 +117,6 @@
 		3E3382251332284000861610 /* DropboxBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3382221332284000861610 /* DropboxBackup.m */; };
 		3E3382291332298400861610 /* BackupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3382281332298400861610 /* BackupVC.m */; };
 		3E33822A1332298400861610 /* BackupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3382281332298400861610 /* BackupVC.m */; };
-		3E33822D133229C600861610 /* BackupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E33822C133229C600861610 /* BackupView.xib */; };
-		3E33822E133229C600861610 /* BackupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E33822C133229C600861610 /* BackupView.xib */; };
 		3E347BA8169DBFFB002307AA /* ORQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E347BA7169DBFFB002307AA /* ORQuery.m */; };
 		3E347BA9169DBFFB002307AA /* ORQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E347BA7169DBFFB002307AA /* ORQuery.m */; };
 		3E347BB2169DC7B0002307AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E347BB1169DC7B0002307AA /* CoreData.framework */; };
@@ -329,6 +327,9 @@
 		3EF17170133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF5F4FF145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
 		3EF5F500145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
+		3EFC665B185E2E0C00216FD3 /* BackupView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */; };
+		3EFC665C185E2E0C00216FD3 /* BackupView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */; };
+		3EFC665D185E2E0C00216FD3 /* BackupView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */; };
 		3EFD00340F95E31D00F4B4C4 /* EditTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */; };
 		3EFD00350F95E31D00F4B4C4 /* EditTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */; };
 		3EFDC2C51831495600070F72 /* libAdapterNend.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2C01831495600070F72 /* libAdapterNend.a */; };
@@ -478,7 +479,6 @@
 		3E3382231332284000861610 /* DropboxSecret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropboxSecret.h; sourceTree = "<group>"; };
 		3E3382271332298400861610 /* BackupVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupVC.h; sourceTree = "<group>"; };
 		3E3382281332298400861610 /* BackupVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupVC.m; sourceTree = "<group>"; };
-		3E33822C133229C600861610 /* BackupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackupView.xib; sourceTree = "<group>"; };
 		3E347BA6169DBFFB002307AA /* ORQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORQuery.h; sourceTree = "<group>"; };
 		3E347BA7169DBFFB002307AA /* ORQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORQuery.m; sourceTree = "<group>"; };
 		3E347BAC169DC4CF002307AA /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
@@ -624,6 +624,7 @@
 		3EF5F4FD145AEB78006C3F3A /* DBLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLoadingView.h; sourceTree = "<group>"; };
 		3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLoadingView.m; sourceTree = "<group>"; };
 		3EF966FD1464FD3900A24626 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BackupView.storyboard; sourceTree = "<group>"; };
 		3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTypeView.xib; sourceTree = "<group>"; };
 		3EFDC2C01831495600070F72 /* libAdapterNend.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterNend.a; sourceTree = "<group>"; };
 		3EFDC2C11831495600070F72 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
@@ -814,6 +815,7 @@
 				3E5CD999185DF7650067A42B /* CalculatorView.storyboard */,
 				3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */,
 				3E5CD9A1185E0D0A0067A42B /* ConfigView.storyboard */,
+				3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */,
 				3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */,
 				3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */,
 				3ED30E711323B53E007E46DC /* TransactionCell.xib */,
@@ -824,7 +826,6 @@
 				3E5868230EEFFB6E00951C2F /* EditMemoView.xib */,
 				3E6B2EBE0F12259C0008AFB6 /* ExportView.xib */,
 				3E8C36150F1E0D82004AFFCA /* PinView.xib */,
-				3E33822C133229C600861610 /* BackupView.xib */,
 				3EDDADAA0E8925AB00268AED /* InfoView.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				3E5A8D7E0EAE34B200118C3C /* Info-free.plist */,
@@ -1471,7 +1472,6 @@
 				3E774EEB11888C6600687776 /* PinView-ipad.xib in Resources */,
 				3ED30E731323B53E007E46DC /* TransactionCell.xib in Resources */,
 				3EB88E8817F6FAE10045780D /* Images.xcassets in Resources */,
-				3E33822D133229C600861610 /* BackupView.xib in Resources */,
 				3EF1716F133A2528002C818E /* artwork.jpg in Resources */,
 				3E6C5076157E40550086C20E /* CalendarArrowLeft.png in Resources */,
 				3E6C507A157E40550086C20E /* CalendarArrowLeft@2x.png in Resources */,
@@ -1489,6 +1489,7 @@
 				3E6C50A6157E40550086C20E /* CalendarDayTodaySelected.png in Resources */,
 				3E6C50AA157E40550086C20E /* CalendarDayTodaySelected@2x.png in Resources */,
 				3E6C50AE157E40550086C20E /* CalendarShadow.png in Resources */,
+				3EFC665B185E2E0C00216FD3 /* BackupView.storyboard in Resources */,
 				3E5CD996185DDC560067A42B /* TransactionListView.storyboard in Resources */,
 				3E5CD99A185DF7650067A42B /* CalculatorView.storyboard in Resources */,
 				3E6C50B2157E40550086C20E /* CalendarShadow@2x.png in Resources */,
@@ -1522,7 +1523,6 @@
 				3E774EEA11888C6600687776 /* PinView-ipad.xib in Resources */,
 				3ED30E741323B53E007E46DC /* TransactionCell.xib in Resources */,
 				3EB88E8917F6FC970045780D /* Images.xcassets in Resources */,
-				3E33822E133229C600861610 /* BackupView.xib in Resources */,
 				3EF17170133A2528002C818E /* artwork.jpg in Resources */,
 				3E6C5077157E40550086C20E /* CalendarArrowLeft.png in Resources */,
 				3E6C507B157E40550086C20E /* CalendarArrowLeft@2x.png in Resources */,
@@ -1540,6 +1540,7 @@
 				3E6C50A7157E40550086C20E /* CalendarDayTodaySelected.png in Resources */,
 				3E6C50AB157E40550086C20E /* CalendarDayTodaySelected@2x.png in Resources */,
 				3E6C50AF157E40550086C20E /* CalendarShadow.png in Resources */,
+				3EFC665C185E2E0C00216FD3 /* BackupView.storyboard in Resources */,
 				3E5CD997185DDC560067A42B /* TransactionListView.storyboard in Resources */,
 				3E5CD99B185DF7650067A42B /* CalculatorView.storyboard in Resources */,
 				3E6C50B3157E40550086C20E /* CalendarShadow@2x.png in Resources */,
@@ -1555,6 +1556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E3359451857283D004C722D /* images.xcassets in Resources */,
+				3EFC665D185E2E0C00216FD3 /* BackupView.storyboard in Resources */,
 				3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */,
 				3E5CD994185DD6BB0067A42B /* AssetListView.storyboard in Resources */,
 				3E5CD99C185DF7650067A42B /* CalculatorView.storyboard in Resources */,
