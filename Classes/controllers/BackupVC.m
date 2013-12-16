@@ -27,13 +27,9 @@
 {
     [super viewDidLoad];
     //[AppDelegate trackPageview:@"/BackupViewController"];
-    
-    self.navigationItem.rightBarButtonItem =
-        [[UIBarButtonItem alloc]
-          initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
 }
 
-- (void)doneAction:(id)sender
+- (IBAction)doneAction:(id)sender
 {
     [self.navigationController dismissModalViewControllerAnimated:YES];
     [_delegate backupViewFinished:self];
