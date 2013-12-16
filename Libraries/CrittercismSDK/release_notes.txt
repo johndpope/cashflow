@@ -1,6 +1,48 @@
 Crittercism iOS Client Library Release Notes
 ================================================================================
 
+4.3.0 - Nov 6, 2013
+
+- Query portions of URLs will be stripped by default when reported
+
+- Query preserving filter type added to avoid new default behavior
+
+- URL blacklist filters always take precedence over other filtering
+
+4.2.1 - Oct 29, 2013
+
+- Support for error monitoring on arm64 architecture (i.e. iPhone 5s)
+
+- Support for service monitoring on arm64 architecture
+
+- fix: Ignore URL filters when nil string supplied.
+
+4.1.2 - Oct 29, 2013
+
+- fix: Set deployment target back to iOS5.0 for non-arm64 configurations.
+
+4.1.1 - Sep 30, 2013
+
+- Renamed an internal method to avoid false positives by Apple's validation
+tool.
+
+- fix: Updated URL scheme required by iOS7 to rate an app in the app store.
+
+4.1.0 - Sep 25, 2013
+
+- Official support for iOS7
+
+- Geo-location tracking for performance monitoring enabled for customers
+participating in the beta program. Please contact beta@crittercism.com to sign
+up.
+
+- fix: Slow down during app launch when using performance monitoring on iOS7.
+
+- fix: Performance monitoring no longer causes first UIWebView load to fail when
+running on iOS7.
+
+- known issue: Crash reporting and performance monitoring are disabled for arm64
+
 4.0.7 - Aug 14, 2013
 
 - Reduces app load time.

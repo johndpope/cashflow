@@ -146,16 +146,7 @@
 		3E4C67731347939600DA87F6 /* AdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4C67711347939600DA87F6 /* AdManager.m */; };
 		3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E4DA8B30EAB6DE4001FBB70 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */; };
-		3E529BEE1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */; };
-		3E529BEF1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */; };
-		3E529BF01771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */; };
-		3E529BF21771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */; };
-		3E529BF31771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */; };
-		3E529BF41771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */; };
 		3E5868240EEFFB6E00951C2F /* EditMemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5868230EEFFB6E00951C2F /* EditMemoView.xib */; };
-		3E5AFC0A17ED5DE900911E30 /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5AFC0917ED5DE900911E30 /* libCrittercism_v4_0_7.a */; };
-		3E5AFC0B17ED5DEE00911E30 /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5AFC0917ED5DE900911E30 /* libCrittercism_v4_0_7.a */; };
-		3E5AFC0C17ED5DEF00911E30 /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5AFC0917ED5DE900911E30 /* libCrittercism_v4_0_7.a */; };
 		3E5B83AB0EC359590035AF05 /* GenEditTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */; };
 		3E5CD992185DD6BB0067A42B /* AssetListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD991185DD6BB0067A42B /* AssetListView.storyboard */; };
 		3E5CD993185DD6BB0067A42B /* AssetListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5CD991185DD6BB0067A42B /* AssetListView.storyboard */; };
@@ -233,6 +224,12 @@
 		3E774EEB11888C6600687776 /* PinView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774EE911888C6600687776 /* PinView-ipad.xib */; };
 		3E7BB138115399C5004B7D03 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7BB135115399C5004B7D03 /* Config.m */; };
 		3E7BB13A115399C5004B7D03 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7BB135115399C5004B7D03 /* Config.m */; };
+		3E869306185F40C1007F2979 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869305185F40C1007F2979 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3E869307185F40C7007F2979 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869305185F40C1007F2979 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3E869308185F40CA007F2979 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869305185F40C1007F2979 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3E86930A185F40E6007F2979 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869309185F40E6007F2979 /* libInMobi-4.0.4.a */; };
+		3E86930B185F40E7007F2979 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869309185F40E6007F2979 /* libInMobi-4.0.4.a */; };
+		3E86930C185F40E7007F2979 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869309185F40E6007F2979 /* libInMobi-4.0.4.a */; };
 		3E8B25820F348C090007929E /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDADAA0E8925AB00268AED /* InfoView.xib */; };
 		3E8B25840F348C090007929E /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */; };
 		3E8B25890F348C090007929E /* GenEditTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */; };
@@ -356,6 +353,9 @@
 		3EFDC2DD18314BAC00070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFDC2DE18314BB900070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFDC2DF18314D5500070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
+		3EFF4375185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */; };
+		3EFF4376185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */; };
+		3EFF4377185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -505,11 +505,8 @@
 		3E4C67701347939600DA87F6 /* AdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdManager.h; sourceTree = "<group>"; };
 		3E4C67711347939600DA87F6 /* AdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdManager.m; sourceTree = "<group>"; };
 		3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libInMobiAdNetwork-3.7.0.a"; sourceTree = "<group>"; };
-		3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libInMobiCommons-3.7.0.a"; sourceTree = "<group>"; };
 		3E5868230EEFFB6E00951C2F /* EditMemoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMemoView.xib; sourceTree = "<group>"; };
 		3E5A8D7E0EAE34B200118C3C /* Info-free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-free.plist"; path = "../Info-free.plist"; sourceTree = "<group>"; };
-		3E5AFC0917ED5DE900911E30 /* libCrittercism_v4_0_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_0_7.a; sourceTree = "<group>"; };
 		3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenEditTextView.xib; sourceTree = "<group>"; };
 		3E5CD991185DD6BB0067A42B /* AssetListView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AssetListView.storyboard; sourceTree = "<group>"; };
 		3E5CD995185DDC560067A42B /* TransactionListView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TransactionListView.storyboard; sourceTree = "<group>"; };
@@ -553,6 +550,8 @@
 		3E774EE911888C6600687776 /* PinView-ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "PinView-ipad.xib"; sourceTree = "<group>"; };
 		3E7BB134115399C5004B7D03 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		3E7BB135115399C5004B7D03 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		3E869305185F40C1007F2979 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Social.framework; sourceTree = "<group>"; };
+		3E869309185F40E6007F2979 /* libInMobi-4.0.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libInMobi-4.0.4.a"; sourceTree = "<group>"; };
 		3E8919F90F16194500FEB19C /* ko */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; fileEncoding = 4; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3E8B25C20F348C090007929E /* CashFlowFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlowFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8C36150F1E0D82004AFFCA /* PinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinView.xib; sourceTree = "<group>"; };
@@ -639,6 +638,7 @@
 		3EFDC2CE18314B6500070F72 /* JSONKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSONKit.framework; sourceTree = "<group>"; };
 		3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterIMobile.a; sourceTree = "<group>"; };
 		3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileCoreServices.framework; sourceTree = "<group>"; };
+		3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_3_0.a; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -647,6 +647,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E869306185F40C1007F2979 /* Social.framework in Frameworks */,
 				3EFDC2DD18314BAC00070F72 /* MobileCoreServices.framework in Frameworks */,
 				3E69E8EC1616B3ED00FAD808 /* AdSupport.framework in Frameworks */,
 				3EB88E8D17F700B00045780D /* StoreKit.framework in Frameworks */,
@@ -656,6 +657,7 @@
 				3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */,
 				3E338213133211C500861610 /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				3E86930A185F40E6007F2979 /* libInMobi-4.0.4.a in Frameworks */,
 				3EB88E8517F6B5680045780D /* libz.dylib in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
@@ -673,14 +675,12 @@
 				3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */,
 				3E3F525014651654005CBD9A /* libsqlite3.dylib in Frameworks */,
 				3EB88E8017F6B0B10045780D /* libGoogleAnalyticsServices.a in Frameworks */,
-				3E5AFC0A17ED5DE900911E30 /* libCrittercism_v4_0_7.a in Frameworks */,
 				3EA395351556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
 				3EFDC2D318314B6500070F72 /* imobileAds.framework in Frameworks */,
 				3EA3953E1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
 				3ED6C02716A5850A004F0991 /* libGoogleAdMobAds.a in Frameworks */,
-				3E529BEE1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */,
 				3EFDC2C81831495600070F72 /* libNendAd.a in Frameworks */,
-				3E529BF21771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */,
+				3EFF4375185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,12 +698,14 @@
 				3E8B25B80F348C090007929E /* CoreGraphics.framework in Frameworks */,
 				3E8B25B90F348C090007929E /* AudioToolbox.framework in Frameworks */,
 				3EB554B5103B92D700BA13D4 /* QuartzCore.framework in Frameworks */,
+				3E86930B185F40E7007F2979 /* libInMobi-4.0.4.a in Frameworks */,
 				3EB5552F103B930E00BA13D4 /* AddressBook.framework in Frameworks */,
 				3EB88E8617F6B5680045780D /* libz.dylib in Frameworks */,
 				3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */,
 				3EFDC2DA18314B6600070F72 /* libAdapterIMobile.a in Frameworks */,
 				3E13EE59114007D600523938 /* AVFoundation.framework in Frameworks */,
 				3E035E9B1182B6E000711865 /* SystemConfiguration.framework in Frameworks */,
+				3E869307185F40C7007F2979 /* Social.framework in Frameworks */,
 				3EFDC2D118314B6500070F72 /* ASIHTTPRequest.framework in Frameworks */,
 				3EFDC2D718314B6500070F72 /* JSONKit.framework in Frameworks */,
 				3E3382181332122700861610 /* Security.framework in Frameworks */,
@@ -715,13 +717,11 @@
 				3EB88E8E17F702170045780D /* StoreKit.framework in Frameworks */,
 				3E69E8F51616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3EB88E8117F6B0B10045780D /* libGoogleAnalyticsServices.a in Frameworks */,
-				3E5AFC0B17ED5DEE00911E30 /* libCrittercism_v4_0_7.a in Frameworks */,
 				3EFDC2D418314B6500070F72 /* imobileAds.framework in Frameworks */,
 				3E347BB4169DC7CE002307AA /* CoreData.framework in Frameworks */,
 				3ED6C02816A58529004F0991 /* libGoogleAdMobAds.a in Frameworks */,
-				3E529BEF1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */,
 				3EFDC2C91831495600070F72 /* libNendAd.a in Frameworks */,
-				3E529BF31771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */,
+				3EFF4376185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,11 +739,13 @@
 				3EFDC2D218314B6500070F72 /* ASIHTTPRequest.framework in Frameworks */,
 				3EF1526B1462C37900C724E4 /* CFNetwork.framework in Frameworks */,
 				3EF1526C1462C37D00C724E4 /* Security.framework in Frameworks */,
+				3E86930C185F40E7007F2979 /* libInMobi-4.0.4.a in Frameworks */,
 				3EF1526E1462C38800C724E4 /* AVFoundation.framework in Frameworks */,
 				3EFDC2D518314B6500070F72 /* imobileAds.framework in Frameworks */,
 				3EFDC2C71831495600070F72 /* libAdapterNend.a in Frameworks */,
 				3EFDC2DB18314B6600070F72 /* libAdapterIMobile.a in Frameworks */,
 				3EF1526F1462C38800C724E4 /* AudioToolbox.framework in Frameworks */,
+				3E869308185F40CA007F2979 /* Social.framework in Frameworks */,
 				3EF152701462C38800C724E4 /* CoreGraphics.framework in Frameworks */,
 				3EF152711462C38800C724E4 /* QuartzCore.framework in Frameworks */,
 				3EF152731462C38800C724E4 /* AddressBook.framework in Frameworks */,
@@ -758,12 +760,10 @@
 				3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */,
 				3E44CF5F17F604E500E54901 /* DropboxSDK.framework in Frameworks */,
 				3EFDC2D818314B6500070F72 /* JSONKit.framework in Frameworks */,
+				3EFF4377185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */,
 				3E69E8F61616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
-				3E5AFC0C17ED5DEF00911E30 /* libCrittercism_v4_0_7.a in Frameworks */,
 				3E347BB5169DC7CF002307AA /* CoreData.framework in Frameworks */,
 				3ED6C02916A58744004F0991 /* libGoogleAdMobAds.a in Frameworks */,
-				3E529BF01771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */,
-				3E529BF41771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,6 +839,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E869305185F40C1007F2979 /* Social.framework */,
 				3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */,
 				3EB88E8C17F700B00045780D /* StoreKit.framework */,
 				3EB88E8317F6B5590045780D /* libz.dylib */,
@@ -980,7 +981,7 @@
 		3E4C53C0167DFF8200BAA294 /* Crittercism */ = {
 			isa = PBXGroup;
 			children = (
-				3E5AFC0917ED5DE900911E30 /* libCrittercism_v4_0_7.a */,
+				3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */,
 				3EE23A05167E052800578A93 /* Crittercism.h */,
 				3EE23A06167E052800578A93 /* CrittercismDelegate.h */,
 			);
@@ -1190,8 +1191,7 @@
 		3EA3952A1556B4E00078DCA2 /* AdapterInMobi */ = {
 			isa = PBXGroup;
 			children = (
-				3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */,
-				3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */,
+				3E869309185F40E6007F2979 /* libInMobi-4.0.4.a */,
 				3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */,
 			);
 			path = AdapterInMobi;
@@ -1802,6 +1802,8 @@
 					/Users/tmurakam/dev/cashflow/Libraries/GoogleAnalytics,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
+					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = CashFlow;
 			};
@@ -1827,6 +1829,8 @@
 					/Users/tmurakam/dev/cashflow/Libraries/GoogleAnalytics,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
+					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = CashFlow;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "63F6DF88-F9EB-49CD-8CFD-B7C9ED39B49A";
@@ -1859,6 +1863,8 @@
 					/Users/tmurakam/dev/cashflow/Libraries/GoogleAnalytics,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
+					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = CashFlowFree;
 			};
@@ -1886,6 +1892,8 @@
 					/Users/tmurakam/dev/cashflow/Libraries/GoogleAnalytics,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
+					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = CashFlowFree;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A871122E-2132-4DED-A1CB-89F3B91405B8";
@@ -1919,6 +1927,8 @@
 					/Users/tmurakam/dev/cashflow/Libraries/GoogleAnalytics,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
+					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1950,6 +1960,8 @@
 					/Users/tmurakam/dev/cashflow/Libraries/GoogleAnalytics,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
+					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
