@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Backup View Controller - Backup-->
+        <!--Backup View Controller-->
         <scene sceneID="kMm-HF-avF">
             <objects>
                 <tableViewController id="bSa-9n-yEa" customClass="BackupViewController" sceneMemberID="viewController">
@@ -104,7 +104,13 @@
                             </tableViewSection>
                         </sections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Backup" id="FGS-m2-V4D"/>
+                    <navigationItem key="navigationItem" id="FGS-m2-V4D">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="7vc-x1-kdx">
+                            <connections>
+                                <action selector="doneAction:" destination="bSa-9n-yEa" id="UOn-1a-J9s"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDq-4G-MHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
