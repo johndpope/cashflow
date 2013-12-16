@@ -135,7 +135,7 @@
 		3E3F525014651654005CBD9A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
 		3E3F525114651654005CBD9A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
 		3E3F525214651654005CBD9A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
-		3E4344F117F70D7600B45E1F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; };
+		3E4344F117F70D7600B45E1F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E43FC6E1324E8130059B198 /* ReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E43FC6C1324E8130059B198 /* ReportView.xib */; };
 		3E43FC6F1324E8130059B198 /* ReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E43FC6C1324E8130059B198 /* ReportView.xib */; };
 		3E44CF5D17F604E400E54901 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44CF5C17F604E400E54901 /* DropboxSDK.framework */; };
@@ -153,12 +153,6 @@
 		3E4C67731347939600DA87F6 /* AdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4C67711347939600DA87F6 /* AdManager.m */; };
 		3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E4DA8B30EAB6DE4001FBB70 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */; };
-		3E529BEE1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */; };
-		3E529BEF1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */; };
-		3E529BF01771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */; };
-		3E529BF21771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */; };
-		3E529BF31771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */; };
-		3E529BF41771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */; };
 		3E5868240EEFFB6E00951C2F /* EditMemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5868230EEFFB6E00951C2F /* EditMemoView.xib */; };
 		3E588D460EC34CFE00D3853D /* AssetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E588D450EC34CFE00D3853D /* AssetView.xib */; };
 		3E5B83AB0EC359590035AF05 /* GenEditTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */; };
@@ -283,8 +277,8 @@
 		3EB88E8617F6B5680045780D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8317F6B5590045780D /* libz.dylib */; };
 		3EB88E8817F6FAE10045780D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EB88E8717F6FAE10045780D /* Images.xcassets */; };
 		3EB88E8917F6FC970045780D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EB88E8717F6FAE10045780D /* Images.xcassets */; };
-		3EB88E8D17F700B00045780D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		3EB88E8E17F702170045780D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; };
+		3EB88E8D17F700B00045780D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3EB88E8E17F702170045780D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EC9FCED17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */; };
 		3EC9FCEE17EDB7E00036E435 /* ReportCatGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9FCEC17EDB7E00036E435 /* ReportCatGraphCell.xib */; };
@@ -359,6 +353,12 @@
 		3EFF4375185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */; };
 		3EFF4376185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */; };
 		3EFF4377185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */; };
+		3EFF4379185F3CDE006010F2 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4378185F3CDE006010F2 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3EFF437A185F3CE8006010F2 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4378185F3CDE006010F2 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3EFF437B185F3CE9006010F2 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4378185F3CDE006010F2 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3EFF437D185F3DE6006010F2 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF437C185F3DE6006010F2 /* libInMobi-4.0.4.a */; };
+		3EFF437E185F3DE6006010F2 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF437C185F3DE6006010F2 /* libInMobi-4.0.4.a */; };
+		3EFF437F185F3DE6006010F2 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF437C185F3DE6006010F2 /* libInMobi-4.0.4.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -513,8 +513,6 @@
 		3E4C67701347939600DA87F6 /* AdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdManager.h; sourceTree = "<group>"; };
 		3E4C67711347939600DA87F6 /* AdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdManager.m; sourceTree = "<group>"; };
 		3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libInMobiAdNetwork-3.7.0.a"; sourceTree = "<group>"; };
-		3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libInMobiCommons-3.7.0.a"; sourceTree = "<group>"; };
 		3E5868230EEFFB6E00951C2F /* EditMemoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMemoView.xib; sourceTree = "<group>"; };
 		3E588D450EC34CFE00D3853D /* AssetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetView.xib; sourceTree = "<group>"; };
 		3E5A8D7E0EAE34B200118C3C /* Info-free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-free.plist"; path = "../Info-free.plist"; sourceTree = "<group>"; };
@@ -648,6 +646,8 @@
 		3EFEFE5B1324EEAA00EF369E /* ReportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportCell.xib; sourceTree = "<group>"; };
 		3EFEFE991324F3C800EF369E /* ReportCatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportCatCell.xib; sourceTree = "<group>"; };
 		3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_3_0.a; sourceTree = "<group>"; };
+		3EFF4378185F3CDE006010F2 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Social.framework; sourceTree = "<group>"; };
+		3EFF437C185F3DE6006010F2 /* libInMobi-4.0.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libInMobi-4.0.4.a"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -656,6 +656,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EFF4379185F3CDE006010F2 /* Social.framework in Frameworks */,
 				3EFDC2DD18314BAC00070F72 /* MobileCoreServices.framework in Frameworks */,
 				3E69E8EC1616B3ED00FAD808 /* AdSupport.framework in Frameworks */,
 				3EB88E8D17F700B00045780D /* StoreKit.framework in Frameworks */,
@@ -665,6 +666,7 @@
 				3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */,
 				3E338213133211C500861610 /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				3EFF437D185F3DE6006010F2 /* libInMobi-4.0.4.a in Frameworks */,
 				3EB88E8517F6B5680045780D /* libz.dylib in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
@@ -686,10 +688,8 @@
 				3EFDC2D318314B6500070F72 /* imobileAds.framework in Frameworks */,
 				3EA3953E1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
 				3ED6C02716A5850A004F0991 /* libGoogleAdMobAds.a in Frameworks */,
-				3E529BEE1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */,
 				3EFDC2C81831495600070F72 /* libNendAd.a in Frameworks */,
 				3EFF4375185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */,
-				3E529BF21771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,12 +707,14 @@
 				3E8B25B80F348C090007929E /* CoreGraphics.framework in Frameworks */,
 				3E8B25B90F348C090007929E /* AudioToolbox.framework in Frameworks */,
 				3EB554B5103B92D700BA13D4 /* QuartzCore.framework in Frameworks */,
+				3EFF437E185F3DE6006010F2 /* libInMobi-4.0.4.a in Frameworks */,
 				3EB5552F103B930E00BA13D4 /* AddressBook.framework in Frameworks */,
 				3EB88E8617F6B5680045780D /* libz.dylib in Frameworks */,
 				3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */,
 				3EFDC2DA18314B6600070F72 /* libAdapterIMobile.a in Frameworks */,
 				3E13EE59114007D600523938 /* AVFoundation.framework in Frameworks */,
 				3E035E9B1182B6E000711865 /* SystemConfiguration.framework in Frameworks */,
+				3EFF437A185F3CE8006010F2 /* Social.framework in Frameworks */,
 				3EFDC2D118314B6500070F72 /* ASIHTTPRequest.framework in Frameworks */,
 				3EFDC2D718314B6500070F72 /* JSONKit.framework in Frameworks */,
 				3E3382181332122700861610 /* Security.framework in Frameworks */,
@@ -727,10 +729,8 @@
 				3EFDC2D418314B6500070F72 /* imobileAds.framework in Frameworks */,
 				3E347BB4169DC7CE002307AA /* CoreData.framework in Frameworks */,
 				3ED6C02816A58529004F0991 /* libGoogleAdMobAds.a in Frameworks */,
-				3E529BEF1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */,
 				3EFDC2C91831495600070F72 /* libNendAd.a in Frameworks */,
 				3EFF4376185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */,
-				3E529BF31771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,11 +748,13 @@
 				3EFDC2D218314B6500070F72 /* ASIHTTPRequest.framework in Frameworks */,
 				3EF1526B1462C37900C724E4 /* CFNetwork.framework in Frameworks */,
 				3EF1526C1462C37D00C724E4 /* Security.framework in Frameworks */,
+				3EFF437F185F3DE6006010F2 /* libInMobi-4.0.4.a in Frameworks */,
 				3EF1526E1462C38800C724E4 /* AVFoundation.framework in Frameworks */,
 				3EFDC2D518314B6500070F72 /* imobileAds.framework in Frameworks */,
 				3EFDC2C71831495600070F72 /* libAdapterNend.a in Frameworks */,
 				3EFDC2DB18314B6600070F72 /* libAdapterIMobile.a in Frameworks */,
 				3EF1526F1462C38800C724E4 /* AudioToolbox.framework in Frameworks */,
+				3EFF437B185F3CE9006010F2 /* Social.framework in Frameworks */,
 				3EF152701462C38800C724E4 /* CoreGraphics.framework in Frameworks */,
 				3EF152711462C38800C724E4 /* QuartzCore.framework in Frameworks */,
 				3EF152731462C38800C724E4 /* AddressBook.framework in Frameworks */,
@@ -771,8 +773,6 @@
 				3E69E8F61616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E347BB5169DC7CF002307AA /* CoreData.framework in Frameworks */,
 				3ED6C02916A58744004F0991 /* libGoogleAdMobAds.a in Frameworks */,
-				3E529BF01771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a in Frameworks */,
-				3E529BF41771E85E005F6528 /* libInMobiCommons-3.7.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +854,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3EFF4378185F3CDE006010F2 /* Social.framework */,
 				3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */,
 				3EB88E8C17F700B00045780D /* StoreKit.framework */,
 				3EB88E8317F6B5590045780D /* libz.dylib */,
@@ -1205,8 +1206,7 @@
 		3EA3952A1556B4E00078DCA2 /* AdapterInMobi */ = {
 			isa = PBXGroup;
 			children = (
-				3E529BEC1771E85E005F6528 /* libInMobiAdNetwork-3.7.0.a */,
-				3E529BED1771E85E005F6528 /* libInMobiCommons-3.7.0.a */,
+				3EFF437C185F3DE6006010F2 /* libInMobi-4.0.4.a */,
 				3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */,
 			);
 			path = AdapterInMobi;
@@ -1821,6 +1821,7 @@
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
 					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = CashFlow;
 			};
@@ -1847,6 +1848,7 @@
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
 					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = CashFlow;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "63F6DF88-F9EB-49CD-8CFD-B7C9ED39B49A";
@@ -1880,6 +1882,7 @@
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
 					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = CashFlowFree;
 			};
@@ -1908,6 +1911,7 @@
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
 					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = CashFlowFree;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A871122E-2132-4DED-A1CB-89F3B91405B8";
@@ -1942,6 +1946,7 @@
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
 					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1974,6 +1979,7 @@
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterNend,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
 					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
