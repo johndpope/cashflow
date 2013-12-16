@@ -1,5 +1,9 @@
 2013-12-16 : Takuya Murakami
 
+	* Auto Layout 利用、iOS 6.0 以上必須
+
+2013-12-16 : Takuya Murakami
+
 	* ver 6.4.1 (v65)
 	* 最大トランザクション数を 5,000 -> 50,000 に増加
 	* Crittercism SDK 4.0.7 -> 4.3.0
