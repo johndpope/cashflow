@@ -531,7 +531,6 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 
 - (void)_actionActionButton:(NSInteger)buttonIndex
 {
-    ExportVC *exportVC;
     InfoVC *infoVC;
     BackupViewController *backupVC;
     UIViewController *vc;
@@ -542,8 +541,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
     
     switch (buttonIndex) {
         case 0:
-            exportVC = [[ExportVC alloc] initWithAsset:nil];
-            vc = exportVC;
+            nv = [ExportVC instantiate:nil];
             break;
             
         case 1:

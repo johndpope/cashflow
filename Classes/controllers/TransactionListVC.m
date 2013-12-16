@@ -539,7 +539,6 @@
 
 - (void)actionSheet:(UIActionSheet*)as clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    ExportVC *exportVC;
     InfoVC *infoVC;
     BackupViewController *backupVC;
     
@@ -551,13 +550,11 @@
     UINavigationController *nv = nil;
     switch (buttonIndex) {
         case 0:
-            exportVC = [[ExportVC alloc] initWithAsset:nil];
-            vc = exportVC;
+            nv = [ExportVC instantiate:nil];
             break;
         
         case 1:
-            exportVC = [[ExportVC alloc] initWithAsset:self.asset];
-            vc = exportVC;
+            nv = [ExportVC instantiate:self.asset];
             break;
             
         case 2:

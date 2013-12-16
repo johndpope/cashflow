@@ -178,7 +178,6 @@
 		3E69E8F31616B40D00FAD808 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E69E8F51616B41A00FAD808 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3E69E8F61616B41A00FAD808 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		3E6B2EBF0F12259C0008AFB6 /* ExportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6B2EBE0F12259C0008AFB6 /* ExportView.xib */; };
 		3E6C5055157E40380086C20E /* CalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C504E157E40380086C20E /* CalendarLogic.m */; };
 		3E6C5056157E40380086C20E /* CalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C504E157E40380086C20E /* CalendarLogic.m */; };
 		3E6C5059157E40380086C20E /* CalendarMonth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C5051157E40380086C20E /* CalendarMonth.m */; };
@@ -239,7 +238,6 @@
 		3E8B25890F348C090007929E /* GenEditTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */; };
 		3E8B258E0F348C090007929E /* CategoryListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2FCDD0EC7314100F356A3 /* CategoryListView.xib */; };
 		3E8B258F0F348C090007929E /* EditMemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5868230EEFFB6E00951C2F /* EditMemoView.xib */; };
-		3E8B25900F348C090007929E /* ExportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6B2EBE0F12259C0008AFB6 /* ExportView.xib */; };
 		3E8B25910F348C090007929E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E2CBD9F0F1615470025A682 /* Localizable.strings */; };
 		3E8B25920F348C090007929E /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8C36150F1E0D82004AFFCA /* PinView.xib */; };
 		3E8B25950F348C090007929E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -332,6 +330,9 @@
 		3EFC6667185F2F8D00216FD3 /* EditDateView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC6666185F2F8D00216FD3 /* EditDateView.storyboard */; };
 		3EFC6668185F2F8D00216FD3 /* EditDateView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC6666185F2F8D00216FD3 /* EditDateView.storyboard */; };
 		3EFC6669185F2F8D00216FD3 /* EditDateView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC6666185F2F8D00216FD3 /* EditDateView.storyboard */; };
+		3EFC666B185F311100216FD3 /* ExportView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC666A185F311100216FD3 /* ExportView.storyboard */; };
+		3EFC666C185F311100216FD3 /* ExportView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC666A185F311100216FD3 /* ExportView.storyboard */; };
+		3EFC666D185F311100216FD3 /* ExportView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC666A185F311100216FD3 /* ExportView.storyboard */; };
 		3EFD00340F95E31D00F4B4C4 /* EditTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */; };
 		3EFD00350F95E31D00F4B4C4 /* EditTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */; };
 		3EFDC2C51831495600070F72 /* libAdapterNend.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2C01831495600070F72 /* libAdapterNend.a */; };
@@ -517,7 +518,6 @@
 		3E5CD9A1185E0D0A0067A42B /* ConfigView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConfigView.storyboard; sourceTree = "<group>"; };
 		3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		3E6B2EBE0F12259C0008AFB6 /* ExportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportView.xib; sourceTree = "<group>"; };
 		3E6C504D157E40380086C20E /* CalendarLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarLogic.h; sourceTree = "<group>"; };
 		3E6C504E157E40380086C20E /* CalendarLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarLogic.m; sourceTree = "<group>"; };
 		3E6C504F157E40380086C20E /* CalendarLogicDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarLogicDelegate.h; sourceTree = "<group>"; };
@@ -627,6 +627,7 @@
 		3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BackupView.storyboard; sourceTree = "<group>"; };
 		3EFC6662185F28ED00216FD3 /* EditDescView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditDescView.storyboard; sourceTree = "<group>"; };
 		3EFC6666185F2F8D00216FD3 /* EditDateView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditDateView.storyboard; sourceTree = "<group>"; };
+		3EFC666A185F311100216FD3 /* ExportView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ExportView.storyboard; sourceTree = "<group>"; };
 		3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTypeView.xib; sourceTree = "<group>"; };
 		3EFDC2C01831495600070F72 /* libAdapterNend.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterNend.a; sourceTree = "<group>"; };
 		3EFDC2C11831495600070F72 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
@@ -820,13 +821,13 @@
 				3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */,
 				3EFC6662185F28ED00216FD3 /* EditDescView.storyboard */,
 				3EFC6666185F2F8D00216FD3 /* EditDateView.storyboard */,
+				3EFC666A185F311100216FD3 /* ExportView.storyboard */,
 				3ED30E711323B53E007E46DC /* TransactionCell.xib */,
 				3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */,
 				3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */,
 				3EB2FCDD0EC7314100F356A3 /* CategoryListView.xib */,
 				3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */,
 				3E5868230EEFFB6E00951C2F /* EditMemoView.xib */,
-				3E6B2EBE0F12259C0008AFB6 /* ExportView.xib */,
 				3E8C36150F1E0D82004AFFCA /* PinView.xib */,
 				3EDDADAA0E8925AB00268AED /* InfoView.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -1461,7 +1462,6 @@
 				3EB2FCDE0EC7314100F356A3 /* CategoryListView.xib in Resources */,
 				3E3359431857283D004C722D /* images.xcassets in Resources */,
 				3E5868240EEFFB6E00951C2F /* EditMemoView.xib in Resources */,
-				3E6B2EBF0F12259C0008AFB6 /* ExportView.xib in Resources */,
 				3E5CD992185DD6BB0067A42B /* AssetListView.storyboard in Resources */,
 				3E2CBDA00F1615470025A682 /* Localizable.strings in Resources */,
 				3E5CD99E185DFFEA0067A42B /* ReportView.storyboard in Resources */,
@@ -1490,6 +1490,7 @@
 				3E6C50A6157E40550086C20E /* CalendarDayTodaySelected.png in Resources */,
 				3E6C50AA157E40550086C20E /* CalendarDayTodaySelected@2x.png in Resources */,
 				3E6C50AE157E40550086C20E /* CalendarShadow.png in Resources */,
+				3EFC666B185F311100216FD3 /* ExportView.storyboard in Resources */,
 				3EFC665B185E2E0C00216FD3 /* BackupView.storyboard in Resources */,
 				3E5CD996185DDC560067A42B /* TransactionListView.storyboard in Resources */,
 				3E5CD99A185DF7650067A42B /* CalculatorView.storyboard in Resources */,
@@ -1512,7 +1513,6 @@
 				3E8B258E0F348C090007929E /* CategoryListView.xib in Resources */,
 				3E3359441857283D004C722D /* images.xcassets in Resources */,
 				3E8B258F0F348C090007929E /* EditMemoView.xib in Resources */,
-				3E8B25900F348C090007929E /* ExportView.xib in Resources */,
 				3E5CD993185DD6BB0067A42B /* AssetListView.storyboard in Resources */,
 				3E8B25910F348C090007929E /* Localizable.strings in Resources */,
 				3E5CD99F185DFFEA0067A42B /* ReportView.storyboard in Resources */,
@@ -1541,6 +1541,7 @@
 				3E6C50A7157E40550086C20E /* CalendarDayTodaySelected.png in Resources */,
 				3E6C50AB157E40550086C20E /* CalendarDayTodaySelected@2x.png in Resources */,
 				3E6C50AF157E40550086C20E /* CalendarShadow.png in Resources */,
+				3EFC666C185F311100216FD3 /* ExportView.storyboard in Resources */,
 				3EFC665C185E2E0C00216FD3 /* BackupView.storyboard in Resources */,
 				3E5CD997185DDC560067A42B /* TransactionListView.storyboard in Resources */,
 				3E5CD99B185DF7650067A42B /* CalculatorView.storyboard in Resources */,
@@ -1562,6 +1563,7 @@
 				3EFC665D185E2E0C00216FD3 /* BackupView.storyboard in Resources */,
 				3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */,
 				3E5CD994185DD6BB0067A42B /* AssetListView.storyboard in Resources */,
+				3EFC666D185F311100216FD3 /* ExportView.storyboard in Resources */,
 				3EFC6669185F2F8D00216FD3 /* EditDateView.storyboard in Resources */,
 				3E5CD99C185DF7650067A42B /* CalculatorView.storyboard in Resources */,
 				3E5CD998185DDC560067A42B /* TransactionListView.storyboard in Resources */,

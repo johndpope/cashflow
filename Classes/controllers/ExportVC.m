@@ -22,11 +22,12 @@
     ExportOfx *_ofx;
 }
 
-- (id)initWithAsset:(Asset *)as
++ (UINavigationController *)instantiate:(Asset *)aAsset
 {
-    self = [super initWithNibName:@"ExportView" bundle:nil];
-    self.asset = as;
-    return self;
+    UINavigationController *nv = [[UIStoryboard storyboardWithName:@"ExportView" bundle:nil] instantiateInitialViewController];
+    ExportVC *vc = (ExportVC *)nv.topViewController;
+    vc.asset = aAsset;
+    return nv;
 }
 
 // Implement viewDidLoad to do additional setup after loading the view.
@@ -73,15 +74,9 @@
     _formatControl.selectedSegmentIndex = [defaults integerForKey:@"exportFormat"];
     _rangeControl.selectedSegmentIndex = [defaults integerForKey:@"exportRange"];
     _methodControl.selectedSegmentIndex = [defaults integerForKey:@"exportMethod"];	
-
-    self.navigationItem.rightBarButtonItem =
-        [[UIBarButtonItem alloc]
-             initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-             target:self
-             action:@selector(doneAction:)];
 }
 
-- (void)doneAction:(id)sender
+- (IBAction)doneAction:(id)sender
 {
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
