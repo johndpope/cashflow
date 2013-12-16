@@ -286,7 +286,7 @@
                 [calendarVc setCalendarViewControllerDelegate:self];
                 vc = calendarVc;
             } else {
-                EditDateViewController *editDateVC = [EditDateViewController new];
+                EditDateViewController *editDateVC = [EditDateViewController instantiate];
                 editDateVC.delegate = self;
                 editDateVC.date = _editingEntry.transaction.date;
                 vc = editDateVC;
