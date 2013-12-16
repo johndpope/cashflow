@@ -26,6 +26,7 @@
 
 @property(nonatomic,readonly) UITableView *tableView;
 
++ (EditDescViewController *)instantiate;
 - (void)doneAction;
 
 @end

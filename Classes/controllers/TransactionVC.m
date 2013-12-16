@@ -309,7 +309,7 @@
             break;
 
         case ROW_DESC:
-            editDescVC = [EditDescViewController new];
+            editDescVC = [EditDescViewController instantiate];
             editDescVC.delegate = self;
             editDescVC.description = _editingEntry.transaction.description;
             editDescVC.category = _editingEntry.transaction.category;

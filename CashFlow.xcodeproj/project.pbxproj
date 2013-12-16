@@ -18,7 +18,6 @@
 		3E02EBF913226FDC0086F492 /* ReportCatDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02EBF713226FDC0086F492 /* ReportCatDetailVC.m */; };
 		3E035E9B1182B6E000711865 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
 		3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		3E0887F00E6EAC5C00739AC9 /* EditDescView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887EF0E6EAC5C00739AC9 /* EditDescView.xib */; };
 		3E0887F60E6EAC8900739AC9 /* EditDateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887F50E6EAC8900739AC9 /* EditDateView.xib */; };
 		3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
 		3E0AC6AF13A786F7006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
@@ -236,7 +235,6 @@
 		3E774EEB11888C6600687776 /* PinView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774EE911888C6600687776 /* PinView-ipad.xib */; };
 		3E7BB138115399C5004B7D03 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7BB135115399C5004B7D03 /* Config.m */; };
 		3E7BB13A115399C5004B7D03 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7BB135115399C5004B7D03 /* Config.m */; };
-		3E8B257C0F348C090007929E /* EditDescView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887EF0E6EAC5C00739AC9 /* EditDescView.xib */; };
 		3E8B257E0F348C090007929E /* EditDateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0887F50E6EAC8900739AC9 /* EditDateView.xib */; };
 		3E8B25820F348C090007929E /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDADAA0E8925AB00268AED /* InfoView.xib */; };
 		3E8B25840F348C090007929E /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */; };
@@ -330,6 +328,9 @@
 		3EFC665B185E2E0C00216FD3 /* BackupView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */; };
 		3EFC665C185E2E0C00216FD3 /* BackupView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */; };
 		3EFC665D185E2E0C00216FD3 /* BackupView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */; };
+		3EFC6663185F28ED00216FD3 /* EditDescView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC6662185F28ED00216FD3 /* EditDescView.storyboard */; };
+		3EFC6664185F28ED00216FD3 /* EditDescView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC6662185F28ED00216FD3 /* EditDescView.storyboard */; };
+		3EFC6665185F28ED00216FD3 /* EditDescView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC6662185F28ED00216FD3 /* EditDescView.storyboard */; };
 		3EFD00340F95E31D00F4B4C4 /* EditTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */; };
 		3EFD00350F95E31D00F4B4C4 /* EditTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */; };
 		3EFDC2C51831495600070F72 /* libAdapterNend.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2C01831495600070F72 /* libAdapterNend.a */; };
@@ -379,7 +380,6 @@
 		3E02EBF613226FDC0086F492 /* ReportCatDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCatDetailVC.h; sourceTree = "<group>"; };
 		3E02EBF713226FDC0086F492 /* ReportCatDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportCatDetailVC.m; sourceTree = "<group>"; };
 		3E035E9A1182B6E000711865 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		3E0887EF0E6EAC5C00739AC9 /* EditDescView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDescView.xib; sourceTree = "<group>"; };
 		3E0887F50E6EAC8900739AC9 /* EditDateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDateView.xib; sourceTree = "<group>"; };
 		3E0AC6AD13A786E8006F505C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3E0AD6A6121415DD00CFDDAC /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
@@ -625,6 +625,7 @@
 		3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLoadingView.m; sourceTree = "<group>"; };
 		3EF966FD1464FD3900A24626 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BackupView.storyboard; sourceTree = "<group>"; };
+		3EFC6662185F28ED00216FD3 /* EditDescView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditDescView.storyboard; sourceTree = "<group>"; };
 		3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTypeView.xib; sourceTree = "<group>"; };
 		3EFDC2C01831495600070F72 /* libAdapterNend.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterNend.a; sourceTree = "<group>"; };
 		3EFDC2C11831495600070F72 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
@@ -816,11 +817,11 @@
 				3E5CD99D185DFFEA0067A42B /* ReportView.storyboard */,
 				3E5CD9A1185E0D0A0067A42B /* ConfigView.storyboard */,
 				3EFC665A185E2E0C00216FD3 /* BackupView.storyboard */,
+				3EFC6662185F28ED00216FD3 /* EditDescView.storyboard */,
+				3ED30E711323B53E007E46DC /* TransactionCell.xib */,
 				3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */,
 				3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */,
-				3ED30E711323B53E007E46DC /* TransactionCell.xib */,
 				3EB2FCDD0EC7314100F356A3 /* CategoryListView.xib */,
-				3E0887EF0E6EAC5C00739AC9 /* EditDescView.xib */,
 				3E0887F50E6EAC8900739AC9 /* EditDateView.xib */,
 				3EFD00330F95E31D00F4B4C4 /* EditTypeView.xib */,
 				3E5868230EEFFB6E00951C2F /* EditMemoView.xib */,
@@ -1453,7 +1454,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E0887F00E6EAC5C00739AC9 /* EditDescView.xib in Resources */,
 				3E0887F60E6EAC8900739AC9 /* EditDateView.xib in Resources */,
 				3EDDADAB0E8925AB00268AED /* InfoView.xib in Resources */,
 				3E4DA8B30EAB6DE4001FBB70 /* Entitlements.plist in Resources */,
@@ -1493,6 +1493,7 @@
 				3E5CD996185DDC560067A42B /* TransactionListView.storyboard in Resources */,
 				3E5CD99A185DF7650067A42B /* CalculatorView.storyboard in Resources */,
 				3E6C50B2157E40550086C20E /* CalendarShadow@2x.png in Resources */,
+				3EFC6663185F28ED00216FD3 /* EditDescView.storyboard in Resources */,
 				3E6C50B6157E40550086C20E /* CalendarTitleColor.png in Resources */,
 				3E6C50BA157E40550086C20E /* CalendarTitleColor@2x.png in Resources */,
 				3E6C50BE157E40550086C20E /* CalendarTitleDimColor.png in Resources */,
@@ -1504,7 +1505,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E8B257C0F348C090007929E /* EditDescView.xib in Resources */,
 				3E8B257E0F348C090007929E /* EditDateView.xib in Resources */,
 				3E8B25820F348C090007929E /* InfoView.xib in Resources */,
 				3E8B25840F348C090007929E /* Entitlements.plist in Resources */,
@@ -1544,6 +1544,7 @@
 				3E5CD997185DDC560067A42B /* TransactionListView.storyboard in Resources */,
 				3E5CD99B185DF7650067A42B /* CalculatorView.storyboard in Resources */,
 				3E6C50B3157E40550086C20E /* CalendarShadow@2x.png in Resources */,
+				3EFC6664185F28ED00216FD3 /* EditDescView.storyboard in Resources */,
 				3E6C50B7157E40550086C20E /* CalendarTitleColor.png in Resources */,
 				3E6C50BB157E40550086C20E /* CalendarTitleColor@2x.png in Resources */,
 				3E6C50BF157E40550086C20E /* CalendarTitleDimColor.png in Resources */,
@@ -1555,6 +1556,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EFC6665185F28ED00216FD3 /* EditDescView.storyboard in Resources */,
 				3E3359451857283D004C722D /* images.xcassets in Resources */,
 				3EFC665D185E2E0C00216FD3 /* BackupView.storyboard in Resources */,
 				3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */,
