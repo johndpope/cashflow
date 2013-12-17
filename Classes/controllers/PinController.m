@@ -54,7 +54,7 @@ static PinController *thePinController = nil;
     if (pinViewController != nil) {
         pinViewController.delegate = nil;
     }
-    [_navigationController dismissModalViewControllerAnimated:YES];
+    [_navigationController dismissViewControllerAnimated:YES completion:NULL];
     thePinController = nil; // delete myself
 }
 
@@ -76,8 +76,8 @@ static PinController *thePinController = nil;
     }
 
     // get topmost modal view controller
-    while (currentVc.modalViewController != nil) {
-        currentVc = currentVc.modalViewController;
+    while (currentVc.presentedViewController != nil) {
+        currentVc = currentVc.presentedViewController;
     }
     
 
@@ -90,7 +90,7 @@ static PinController *thePinController = nil;
 
     // show PinViewController
     _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-    [currentVc presentModalViewController:_navigationController animated:NO];
+    [currentVc presentViewController:_navigationController animated:NO completion:NULL];
 }
 
 - (void)modifyPin:(UIViewController *)currentVc
@@ -110,7 +110,7 @@ static PinController *thePinController = nil;
     }
         
     _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-    [currentVc presentModalViewController:_navigationController animated:YES];
+    [currentVc presentViewController:_navigationController animated:YES completion:NULL];
 }
 
 #pragma mark PinViewDelegate

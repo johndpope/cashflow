@@ -57,13 +57,13 @@
     [vc setSubject:[self mailSubject]];
 
     [vc addAttachmentData:data mimeType:[self mimeType] fileName:[self fileName]];
-    [parent presentModalViewController:vc animated:YES];
+    [parent presentViewController:vc animated:YES completion:nil];
     return YES;
 }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
-    [controller dismissModalViewControllerAnimated:YES];
+    [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
 /////////////////////////////////////////////////////////////////////////////

@@ -383,7 +383,7 @@
         UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:v];
         
         if (!IS_IPAD) {
-            [self presentModalViewController:nv animated:YES];
+            [self presentViewController:nv animated:YES completion:NULL];
         } else {
             [self _dismissPopover];
             _popoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
@@ -507,7 +507,7 @@
     }
     
     //[self.navigationController pushViewController:vc animated:YES];
-    [self.navigationController presentModalViewController:nv animated:YES];
+    [self.navigationController presentViewController:nv animated:YES completion:NULL];
 }
 
 #pragma mark Action sheet handling
@@ -584,7 +584,7 @@
     }
     
     //[self.navigationController pushViewController:vc animated:YES];
-    [self.navigationController presentModalViewController:nv animated:YES];
+    [self.navigationController presentViewController:nv animated:YES completion:NULL];
 }
 
 /*

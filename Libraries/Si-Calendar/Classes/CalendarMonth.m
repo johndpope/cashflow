@@ -83,7 +83,7 @@
 		
 		UILabel *aLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
 		aLabel.backgroundColor = [UIColor clearColor];
-		aLabel.textAlignment = UITextAlignmentCenter;
+		aLabel.textAlignment = NSTextAlignmentCenter;
 		aLabel.font = [UIFont boldSystemFontOfSize:20];
 		aLabel.textColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CalendarTitleColor.png"]];
 		aLabel.shadowColor = [UIColor whiteColor];
@@ -113,7 +113,7 @@
 			
 			aLabel = [[UILabel alloc] initWithFrame:aFrame];
 			aLabel.backgroundColor = [UIColor clearColor];
-			aLabel.textAlignment = UITextAlignmentCenter;
+			aLabel.textAlignment = NSTextAlignmentCenter;
 			aLabel.text = symbol;
 			aLabel.textColor = [UIColor darkGrayColor];
 			aLabel.font = [UIFont systemFontOfSize:12];

@@ -127,7 +127,7 @@
 
     if (!IS_IPAD && [self.navigationController.viewControllers count] == 1) {
         // I am modal view!
-        [self dismissModalViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:NULL];
     } else {
         [self.navigationController popViewControllerAnimated:YES];
     }
