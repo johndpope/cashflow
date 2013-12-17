@@ -108,6 +108,9 @@
 		3E2F020818609FA600CA6C36 /* InfoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F020718609FA600CA6C36 /* InfoView.storyboard */; };
 		3E2F020918609FA600CA6C36 /* InfoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F020718609FA600CA6C36 /* InfoView.storyboard */; };
 		3E2F020A18609FA600CA6C36 /* InfoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F020718609FA600CA6C36 /* InfoView.storyboard */; };
+		3E2F020C1860A3D900CA6C36 /* PinView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F020B1860A3D900CA6C36 /* PinView.storyboard */; };
+		3E2F020D1860A3D900CA6C36 /* PinView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F020B1860A3D900CA6C36 /* PinView.storyboard */; };
+		3E2F020E1860A3D900CA6C36 /* PinView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F020B1860A3D900CA6C36 /* PinView.storyboard */; };
 		3E3359431857283D004C722D /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E3359421857283D004C722D /* images.xcassets */; };
 		3E3359441857283D004C722D /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E3359421857283D004C722D /* images.xcassets */; };
 		3E3359451857283D004C722D /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E3359421857283D004C722D /* images.xcassets */; };
@@ -221,8 +224,6 @@
 		3E6F5D5F0EB8C30B0082F50A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6F5D5E0EB8C30B0082F50A /* AudioToolbox.framework */; };
 		3E7109B6121108ED00C47539 /* SupportMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B3121108ED00C47539 /* SupportMail.m */; };
 		3E7109B8121108ED00C47539 /* SupportMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7109B3121108ED00C47539 /* SupportMail.m */; };
-		3E774E3E1188807900687776 /* AssetListView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774E3D1188807900687776 /* AssetListView-ipad.xib */; };
-		3E774E3F1188807900687776 /* AssetListView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774E3D1188807900687776 /* AssetListView-ipad.xib */; };
 		3E774EEA11888C6600687776 /* PinView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774EE911888C6600687776 /* PinView-ipad.xib */; };
 		3E774EEB11888C6600687776 /* PinView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E774EE911888C6600687776 /* PinView-ipad.xib */; };
 		3E7BB138115399C5004B7D03 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7BB135115399C5004B7D03 /* Config.m */; };
@@ -475,6 +476,7 @@
 		3E2CBDA80F1615850025A682 /* zh-Hans */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3E2CBDA90F1615880025A682 /* zh-Hant */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3E2F020718609FA600CA6C36 /* InfoView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InfoView.storyboard; sourceTree = "<group>"; };
+		3E2F020B1860A3D900CA6C36 /* PinView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PinView.storyboard; sourceTree = "<group>"; };
 		3E3359421857283D004C722D /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		3E338212133211C500861610 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3E3382211332284000861610 /* DropboxBackup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropboxBackup.h; sourceTree = "<group>"; };
@@ -548,7 +550,6 @@
 		3E6F5D5E0EB8C30B0082F50A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3E7109B2121108ED00C47539 /* SupportMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportMail.h; sourceTree = "<group>"; };
 		3E7109B3121108ED00C47539 /* SupportMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportMail.m; sourceTree = "<group>"; };
-		3E774E3D1188807900687776 /* AssetListView-ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "AssetListView-ipad.xib"; sourceTree = "<group>"; };
 		3E774EE911888C6600687776 /* PinView-ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "PinView-ipad.xib"; sourceTree = "<group>"; };
 		3E7BB134115399C5004B7D03 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		3E7BB135115399C5004B7D03 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
@@ -833,6 +834,7 @@
 				3E8C36150F1E0D82004AFFCA /* PinView.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				3E5A8D7E0EAE34B200118C3C /* Info-free.plist */,
+				3E2F020B1860A3D900CA6C36 /* PinView.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1263,7 +1265,6 @@
 		3EF054671182D9CC00411C71 /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
-				3E774E3D1188807900687776 /* AssetListView-ipad.xib */,
 				3E774EE911888C6600687776 /* PinView-ipad.xib */,
 			);
 			path = "Resources-iPad";
@@ -1468,11 +1469,11 @@
 				3E8C36160F1E0D82004AFFCA /* PinView.xib in Resources */,
 				3EFD00340F95E31D00F4B4C4 /* EditTypeView.xib in Resources */,
 				3EAEBC870F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */,
-				3E774E3E1188807900687776 /* AssetListView-ipad.xib in Resources */,
 				3EFC6667185F2F8D00216FD3 /* EditDateView.storyboard in Resources */,
 				3E774EEB11888C6600687776 /* PinView-ipad.xib in Resources */,
 				3ED30E731323B53E007E46DC /* TransactionCell.xib in Resources */,
 				3EB88E8817F6FAE10045780D /* Images.xcassets in Resources */,
+				3E2F020C1860A3D900CA6C36 /* PinView.storyboard in Resources */,
 				3EF1716F133A2528002C818E /* artwork.jpg in Resources */,
 				3E6C5076157E40550086C20E /* CalendarArrowLeft.png in Resources */,
 				3E6C507A157E40550086C20E /* CalendarArrowLeft@2x.png in Resources */,
@@ -1519,11 +1520,11 @@
 				3E8B25920F348C090007929E /* PinView.xib in Resources */,
 				3EFD00350F95E31D00F4B4C4 /* EditTypeView.xib in Resources */,
 				3EAEBC880F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */,
-				3E774E3F1188807900687776 /* AssetListView-ipad.xib in Resources */,
 				3EFC6668185F2F8D00216FD3 /* EditDateView.storyboard in Resources */,
 				3E774EEA11888C6600687776 /* PinView-ipad.xib in Resources */,
 				3ED30E741323B53E007E46DC /* TransactionCell.xib in Resources */,
 				3EB88E8917F6FC970045780D /* Images.xcassets in Resources */,
+				3E2F020D1860A3D900CA6C36 /* PinView.storyboard in Resources */,
 				3EF17170133A2528002C818E /* artwork.jpg in Resources */,
 				3E6C5077157E40550086C20E /* CalendarArrowLeft.png in Resources */,
 				3E6C507B157E40550086C20E /* CalendarArrowLeft@2x.png in Resources */,
@@ -1566,6 +1567,7 @@
 				3E5CD994185DD6BB0067A42B /* AssetListView.storyboard in Resources */,
 				3EFC666D185F311100216FD3 /* ExportView.storyboard in Resources */,
 				3EFC6669185F2F8D00216FD3 /* EditDateView.storyboard in Resources */,
+				3E2F020E1860A3D900CA6C36 /* PinView.storyboard in Resources */,
 				3E5CD99C185DF7650067A42B /* CalculatorView.storyboard in Resources */,
 				3E5CD998185DDC560067A42B /* TransactionListView.storyboard in Resources */,
 				3E2F020A18609FA600CA6C36 /* InfoView.storyboard in Resources */,
