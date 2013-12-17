@@ -22,6 +22,7 @@
     IBOutlet UITableView *_tableView;
     IBOutlet UIBarButtonItem *_barActionButton;
     IBOutlet UIBarButtonItem *_barSumLabel;
+    IBOutlet UIToolbar *_toolbar;
     
     BOOL _isLoadDone;
     DBLoadingView *_loadingView;
@@ -84,6 +85,13 @@
         CGSize s = self.contentSizeForViewInPopover;
         s.height = 600;
         self.contentSizeForViewInPopover = s;
+    }
+    
+    if (IS_IPAD) {
+        // action button を消す
+        NSMutableArray *items = [[NSMutableArray alloc] initWithArray:_toolbar.items];
+        [items removeObjectAtIndex:items.count - 1];
+        _toolbar.items = items;
     }
     
     // データロード開始
