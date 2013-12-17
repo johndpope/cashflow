@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nmn-sq-Dhs">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nmn-sq-Dhs">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,9 +26,12 @@
                                     <outlet property="delegate" destination="MV9-4m-0VN" id="mzq-Ku-cAu"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GGs-Qd-sVD">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GGs-Qd-sVD">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5y0-JR-9nK"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem image="report" id="Xuf-v0-a4j">
                                         <connections>
@@ -47,6 +50,15 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GGs-Qd-sVD" secondAttribute="trailing" id="69N-GN-uaN"/>
+                            <constraint firstAttribute="trailing" secondItem="nmn-sq-Dhs" secondAttribute="trailing" id="6bf-6v-2HT"/>
+                            <constraint firstItem="nmn-sq-Dhs" firstAttribute="leading" secondItem="8Nq-tk-0Ko" secondAttribute="leading" id="CIn-L2-LUl"/>
+                            <constraint firstItem="GGs-Qd-sVD" firstAttribute="top" secondItem="nmn-sq-Dhs" secondAttribute="bottom" id="M40-0w-jD0"/>
+                            <constraint firstItem="nmn-sq-Dhs" firstAttribute="top" secondItem="8Nq-tk-0Ko" secondAttribute="top" id="Ted-Jz-JIb"/>
+                            <constraint firstItem="cXC-2V-ycs" firstAttribute="top" secondItem="GGs-Qd-sVD" secondAttribute="bottom" id="iNg-le-UZP"/>
+                            <constraint firstItem="GGs-Qd-sVD" firstAttribute="leading" secondItem="8Nq-tk-0Ko" secondAttribute="leading" id="w06-a0-2Jc"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="_barActionButton" destination="7LI-7S-WvY" id="7rA-vZ-TVz"/>
@@ -72,7 +84,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xo4-uJ-etI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xo4-uJ-etI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -81,9 +93,12 @@
                                     <outlet property="delegate" destination="ap8-oF-I49" id="SDG-sm-ct2"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPW-OQ-oRu">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPW-OQ-oRu">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Fd8-JK-g4H"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="u4Q-4N-N2W"/>
                                     <barButtonItem systemItem="action" id="99H-8X-qMh">
@@ -93,19 +108,23 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Smy-Fh-ABE">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Smy-Fh-ABE">
                                 <rect key="frame" x="10" y="463" width="300" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Remember Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O30-EE-jhS">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Remember Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O30-EE-jhS">
                                         <rect key="frame" x="19" y="20" width="178" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="178" id="FSp-wX-vhY"/>
+                                            <constraint firstAttribute="height" constant="21" id="ugN-1Z-El0"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lRD-86-vqI">
-                                        <rect key="frame" x="219" y="17" width="51" height="31"/>
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lRD-86-vqI">
+                                        <rect key="frame" x="219" y="15" width="51" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="rememberLastUsedDateChanged:" destination="ap8-oF-I49" eventType="valueChanged" id="rm3-Wh-4qb"/>
@@ -113,10 +132,20 @@
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="O30-EE-jhS" firstAttribute="top" secondItem="Smy-Fh-ABE" secondAttribute="top" constant="20" symbolic="YES" id="7KH-NP-T4x"/>
+                                    <constraint firstAttribute="trailing" secondItem="lRD-86-vqI" secondAttribute="trailing" constant="32" id="HnX-Z2-Uw2"/>
+                                    <constraint firstAttribute="height" constant="61" id="QG1-Oc-Ms5"/>
+                                    <constraint firstItem="O30-EE-jhS" firstAttribute="centerY" secondItem="lRD-86-vqI" secondAttribute="centerY" id="idA-Y2-2nD"/>
+                                    <constraint firstItem="O30-EE-jhS" firstAttribute="leading" secondItem="Smy-Fh-ABE" secondAttribute="leading" constant="19" id="oRM-bo-0l3"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJG-Cj-xF7">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJG-Cj-xF7">
                                 <rect key="frame" x="10" y="476" width="300" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6DC-ui-CRJ"/>
+                                </constraints>
                                 <state key="normal" title="DELETE TRANSACTION"/>
                                 <connections>
                                     <action selector="delButtonTapped:" destination="ap8-oF-I49" eventType="touchUpInside" id="LdB-Le-ghD"/>
@@ -124,6 +153,21 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Smy-Fh-ABE" firstAttribute="leading" secondItem="sBg-3D-8eC" secondAttribute="leading" constant="10" id="3Dg-FT-CBC"/>
+                            <constraint firstItem="fPW-OQ-oRu" firstAttribute="top" secondItem="Smy-Fh-ABE" secondAttribute="bottom" id="5eO-cv-8HD"/>
+                            <constraint firstAttribute="trailing" secondItem="KJG-Cj-xF7" secondAttribute="trailing" constant="10" id="Ck8-WP-nLm"/>
+                            <constraint firstItem="k3D-eM-07o" firstAttribute="top" secondItem="fPW-OQ-oRu" secondAttribute="bottom" id="Fos-vt-hK8"/>
+                            <constraint firstItem="Xo4-uJ-etI" firstAttribute="top" secondItem="sBg-3D-8eC" secondAttribute="top" id="Frn-Bi-vpK"/>
+                            <constraint firstItem="KJG-Cj-xF7" firstAttribute="leading" secondItem="sBg-3D-8eC" secondAttribute="leading" constant="10" id="LaW-gj-Hsa"/>
+                            <constraint firstAttribute="trailing" secondItem="Xo4-uJ-etI" secondAttribute="trailing" id="PqJ-w8-aiG"/>
+                            <constraint firstItem="Xo4-uJ-etI" firstAttribute="leading" secondItem="sBg-3D-8eC" secondAttribute="leading" id="gSi-5y-nsy"/>
+                            <constraint firstItem="fPW-OQ-oRu" firstAttribute="top" secondItem="Xo4-uJ-etI" secondAttribute="bottom" id="mlk-Xv-Kng"/>
+                            <constraint firstItem="fPW-OQ-oRu" firstAttribute="leading" secondItem="sBg-3D-8eC" secondAttribute="leading" id="rAe-YI-JQU"/>
+                            <constraint firstItem="fPW-OQ-oRu" firstAttribute="top" secondItem="KJG-Cj-xF7" secondAttribute="bottom" constant="8" id="xri-oV-qEa"/>
+                            <constraint firstAttribute="trailing" secondItem="Smy-Fh-ABE" secondAttribute="trailing" constant="10" id="y7W-cL-47T"/>
+                            <constraint firstAttribute="trailing" secondItem="fPW-OQ-oRu" secondAttribute="trailing" id="zWb-e5-2xg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mPd-Cv-FPd"/>
                     <connections>

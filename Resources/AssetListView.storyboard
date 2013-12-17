@@ -32,8 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Udy-Zd-Z8t">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Udy-Zd-Z8t">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -67,9 +67,12 @@
                                     <outlet property="delegate" destination="Vdb-PT-i2f" id="lek-dM-qxD"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YXr-PA-ZRf">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXr-PA-ZRf">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="4vX-ey-zLX"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem image="report" id="0jD-q6-gmW">
                                         <connections>
@@ -88,6 +91,15 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Udy-Zd-Z8t" firstAttribute="top" secondItem="Un0-Fx-aI9" secondAttribute="top" id="0H3-xS-mIT"/>
+                            <constraint firstItem="Udy-Zd-Z8t" firstAttribute="leading" secondItem="Un0-Fx-aI9" secondAttribute="leading" id="0tD-xb-7zx"/>
+                            <constraint firstAttribute="trailing" secondItem="YXr-PA-ZRf" secondAttribute="trailing" id="9yN-MB-xUY"/>
+                            <constraint firstAttribute="trailing" secondItem="Udy-Zd-Z8t" secondAttribute="trailing" id="Qbi-hO-HuI"/>
+                            <constraint firstItem="YXr-PA-ZRf" firstAttribute="leading" secondItem="Un0-Fx-aI9" secondAttribute="leading" id="agE-DU-Vdj"/>
+                            <constraint firstItem="f7c-pt-g0a" firstAttribute="top" secondItem="YXr-PA-ZRf" secondAttribute="bottom" id="cgI-9q-QNy"/>
+                            <constraint firstItem="f7c-pt-g0a" firstAttribute="top" secondItem="Udy-Zd-Z8t" secondAttribute="bottom" id="ka8-Mh-rEg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Di4-NF-TxR"/>
                     <connections>
@@ -105,13 +117,13 @@
         <scene sceneID="RHw-4f-xyR">
             <objects>
                 <tableViewController id="Jb5-rH-b9t" customClass="AssetViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="icB-gx-hpz">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="icB-gx-hpz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="assetViewCell" textLabel="JDM-Qi-LQn" detailTextLabel="gsm-2b-13X" style="IBUITableViewCellStyleValue2" id="jOG-pJ-DI0">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jOG-pJ-DI0" id="gBP-11-OmI">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
