@@ -531,7 +531,6 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 
 - (void)_actionActionButton:(NSInteger)buttonIndex
 {
-    InfoVC *infoVC;
     BackupViewController *backupVC;
     UIViewController *vc;
     
@@ -555,8 +554,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
             break;
             
         case 3:
-            infoVC = [InfoVC new];
-            vc = infoVC;
+            nv = [InfoVC instantiate];
             break;
             
         default:
@@ -598,21 +596,6 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
         [self.splitTransactionListViewController reload];
     }
 }
-
-/*
-- (IBAction)showHelp:(id)sender
-{
-    InfoVC *v = [InfoVC new];
-    //[self.navigationController pushViewController:v animated:YES];
-
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:v];
-    if (IS_IPAD) {
-        nc.modalPresentationStyle = UIModalPresentationFormSheet;
-    }
-    [self presentModalViewController:nc animated:YES];
-    [nc release];
-}
-*/
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     if (IS_IPAD) return YES;

@@ -20,10 +20,9 @@
     IBOutlet UIButton *_sendMailButton;
 }
 
-- (id)init
++ (UINavigationController *)instantiate
 {
-    self = [super initWithNibName:@"InfoView" bundle:nil];
-    return self;
+    return [[UIStoryboard storyboardWithName:@"InfoView" bundle:nil] instantiateInitialViewController];
 }
 
 /*
@@ -39,7 +38,7 @@
     //[AppDelegate trackPageview:@"/InfoViewController"];
 
     // iOS7 hack
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) self.edgesForExtendedLayout = UIRectEdgeNone;
+    //if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.title = _L(@"Info");
     self.navigationItem.rightBarButtonItem =

@@ -539,7 +539,6 @@
 
 - (void)actionSheet:(UIActionSheet*)as clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    InfoVC *infoVC;
     BackupViewController *backupVC;
     
     UIViewController *vc;
@@ -568,8 +567,7 @@
             break;
             
         case 4:
-            infoVC = [InfoVC new];
-            vc = infoVC;
+            nv = [InfoVC instantiate];
             break;
             
         default:
@@ -586,21 +584,6 @@
     //[self.navigationController pushViewController:vc animated:YES];
     [self.navigationController presentViewController:nv animated:YES completion:NULL];
 }
-
-/*
-- (IBAction)showHelp:(id)sender
-{
-    InfoVC *v = [InfoVC new];
-    //[self.navigationController pushViewController:v animated:YES];
-
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:v];
-    if (IS_IPAD) {
-        nc.modalPresentationStyle = UIModalPresentationFormSheet;
-    }
-    [self presentModalViewController:nc animated:YES];
-    [nc release];
-}
-*/
 
 #pragma mark BackupViewDelegate
 
