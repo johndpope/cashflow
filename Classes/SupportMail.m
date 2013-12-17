@@ -65,14 +65,14 @@ static SupportMail *theInstance;
 
     [vc addAttachmentData:d mimeType:@"text/plain" fileName:@"SupportInfo.txt"];
     
-    [parent presentModalViewController:vc animated:YES];
+    [parent presentViewController:vc animated:YES completion:NULL];
 
     return YES;
 }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
-    [controller dismissModalViewControllerAnimated:YES];
+    [controller dismissViewControllerAnimated:YES completion:NULL];
     
     // release instance
     theInstance = nil;
