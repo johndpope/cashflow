@@ -227,8 +227,6 @@
 		3E869306185F40C1007F2979 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869305185F40C1007F2979 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E869307185F40C7007F2979 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869305185F40C1007F2979 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E869308185F40CA007F2979 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869305185F40C1007F2979 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		3E86930A185F40E6007F2979 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869309185F40E6007F2979 /* libInMobi-4.0.4.a */; };
-		3E86930B185F40E7007F2979 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869309185F40E6007F2979 /* libInMobi-4.0.4.a */; };
 		3E86930C185F40E7007F2979 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869309185F40E6007F2979 /* libInMobi-4.0.4.a */; };
 		3E8B25820F348C090007929E /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDDADAA0E8925AB00268AED /* InfoView.xib */; };
 		3E8B25840F348C090007929E /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */; };
@@ -254,8 +252,6 @@
 		3E91B88D152F3335008120DC /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E91B88B152F3335008120DC /* UIDevice+Hardware.m */; };
 		3E98A66911E8368800B7F289 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
 		3E98A66A11E8368800B7F289 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
-		3EA395351556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */; };
-		3EA395361556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */; };
 		3EA395371556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */; };
 		3EA3953E1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3953D1556BF0A0078DCA2 /* libAdapterIAd.a */; };
 		3EA3953F1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3953D1556BF0A0078DCA2 /* libAdapterIAd.a */; };
@@ -657,30 +653,28 @@
 				3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */,
 				3E338213133211C500861610 /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				3E86930A185F40E6007F2979 /* libInMobi-4.0.4.a in Frameworks */,
 				3EB88E8517F6B5680045780D /* libz.dylib in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				3E6F5D5F0EB8C30B0082F50A /* AudioToolbox.framework in Frameworks */,
-				3EFDC2D918314B6500070F72 /* libAdapterIMobile.a in Frameworks */,
 				3EB554B4103B92D700BA13D4 /* QuartzCore.framework in Frameworks */,
 				3EB5552E103B930D00BA13D4 /* AddressBook.framework in Frameworks */,
 				3EFDC2D018314B6500070F72 /* ASIHTTPRequest.framework in Frameworks */,
 				3EFDC2D618314B6500070F72 /* JSONKit.framework in Frameworks */,
 				3EE629EA10D7E8C500EB7399 /* MediaPlayer.framework in Frameworks */,
 				3E2376C51107481F00E4C329 /* MessageUI.framework in Frameworks */,
-				3EFDC2C51831495600070F72 /* libAdapterNend.a in Frameworks */,
 				3E197BF7121271D200105B20 /* SystemConfiguration.framework in Frameworks */,
 				3E33821A1332123200861610 /* AVFoundation.framework in Frameworks */,
 				3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */,
 				3E3F525014651654005CBD9A /* libsqlite3.dylib in Frameworks */,
-				3EB88E8017F6B0B10045780D /* libGoogleAnalyticsServices.a in Frameworks */,
-				3EA395351556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
-				3EFDC2D318314B6500070F72 /* imobileAds.framework in Frameworks */,
-				3EA3953E1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
-				3ED6C02716A5850A004F0991 /* libGoogleAdMobAds.a in Frameworks */,
-				3EFDC2C81831495600070F72 /* libNendAd.a in Frameworks */,
 				3EFF4375185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */,
+				3EB88E8017F6B0B10045780D /* libGoogleAnalyticsServices.a in Frameworks */,
+				3ED6C02716A5850A004F0991 /* libGoogleAdMobAds.a in Frameworks */,
+				3EA3953E1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
+				3EFDC2C51831495600070F72 /* libAdapterNend.a in Frameworks */,
+				3EFDC2C81831495600070F72 /* libNendAd.a in Frameworks */,
+				3EFDC2D918314B6500070F72 /* libAdapterIMobile.a in Frameworks */,
+				3EFDC2D318314B6500070F72 /* imobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,11 +692,9 @@
 				3E8B25B80F348C090007929E /* CoreGraphics.framework in Frameworks */,
 				3E8B25B90F348C090007929E /* AudioToolbox.framework in Frameworks */,
 				3EB554B5103B92D700BA13D4 /* QuartzCore.framework in Frameworks */,
-				3E86930B185F40E7007F2979 /* libInMobi-4.0.4.a in Frameworks */,
 				3EB5552F103B930E00BA13D4 /* AddressBook.framework in Frameworks */,
 				3EB88E8617F6B5680045780D /* libz.dylib in Frameworks */,
 				3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */,
-				3EFDC2DA18314B6600070F72 /* libAdapterIMobile.a in Frameworks */,
 				3E13EE59114007D600523938 /* AVFoundation.framework in Frameworks */,
 				3E035E9B1182B6E000711865 /* SystemConfiguration.framework in Frameworks */,
 				3E869307185F40C7007F2979 /* Social.framework in Frameworks */,
@@ -711,17 +703,17 @@
 				3E3382181332122700861610 /* Security.framework in Frameworks */,
 				3E0AC6AF13A786F7006F505C /* CFNetwork.framework in Frameworks */,
 				3E3F525114651654005CBD9A /* libsqlite3.dylib in Frameworks */,
-				3EFDC2C61831495600070F72 /* libAdapterNend.a in Frameworks */,
-				3EA395361556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
-				3EA3953F1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
 				3EB88E8E17F702170045780D /* StoreKit.framework in Frameworks */,
 				3E69E8F51616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
-				3EB88E8117F6B0B10045780D /* libGoogleAnalyticsServices.a in Frameworks */,
-				3EFDC2D418314B6500070F72 /* imobileAds.framework in Frameworks */,
 				3E347BB4169DC7CE002307AA /* CoreData.framework in Frameworks */,
-				3ED6C02816A58529004F0991 /* libGoogleAdMobAds.a in Frameworks */,
-				3EFDC2C91831495600070F72 /* libNendAd.a in Frameworks */,
 				3EFF4376185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */,
+				3EB88E8117F6B0B10045780D /* libGoogleAnalyticsServices.a in Frameworks */,
+				3ED6C02816A58529004F0991 /* libGoogleAdMobAds.a in Frameworks */,
+				3EA3953F1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
+				3EFDC2C61831495600070F72 /* libAdapterNend.a in Frameworks */,
+				3EFDC2C91831495600070F72 /* libNendAd.a in Frameworks */,
+				3EFDC2DA18314B6600070F72 /* libAdapterIMobile.a in Frameworks */,
+				3EFDC2D418314B6500070F72 /* imobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1804,6 +1796,8 @@
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
 					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIAd,
 				);
 				PRODUCT_NAME = CashFlow;
 			};
@@ -1831,6 +1825,8 @@
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
 					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIAd,
 				);
 				PRODUCT_NAME = CashFlow;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "63F6DF88-F9EB-49CD-8CFD-B7C9ED39B49A";
@@ -1865,6 +1861,8 @@
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
 					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIAd,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob,
 				);
 				PRODUCT_NAME = CashFlowFree;
 			};
@@ -1894,6 +1892,8 @@
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIMobile,
 					/Users/tmurakam/dev/cashflow/Libraries/CrittercismSDK,
 					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterInMobi,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob/AdapterIAd,
+					/Users/tmurakam/dev/cashflow/Libraries/AdMob,
 				);
 				PRODUCT_NAME = CashFlowFree;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A871122E-2132-4DED-A1CB-89F3B91405B8";
