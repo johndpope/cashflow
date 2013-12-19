@@ -74,15 +74,15 @@
                                     <constraint firstAttribute="height" constant="44" id="4vX-ey-zLX"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem image="report" id="0jD-q6-gmW">
+                                    <barButtonItem image="report" style="plain" id="0jD-q6-gmW">
                                         <connections>
                                             <action selector="showReport:" destination="Vdb-PT-i2f" id="vzq-ms-fZs"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4eV-XY-SBr"/>
-                                    <barButtonItem title="000" id="evo-CX-0Zk"/>
+                                    <barButtonItem title="000" style="plain" id="evo-CX-0Zk"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RwM-QF-XT4"/>
-                                    <barButtonItem title="Item" systemItem="action" id="3dd-HN-aXn">
+                                    <barButtonItem title="Item" style="plain" systemItem="action" id="3dd-HN-aXn">
                                         <connections>
                                             <action selector="doAction:" destination="Vdb-PT-i2f" id="Hnm-le-ilT"/>
                                         </connections>
