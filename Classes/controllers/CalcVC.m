@@ -78,12 +78,25 @@
     return self;
 }
 
+- (int)iosVersion
+{
+    NSArray  *aOsVersions = [[[UIDevice currentDevice]systemVersion] componentsSeparatedByString:@"."];
+    NSInteger iOsVersionMajor  = [[aOsVersions objectAtIndex:0] intValue];
+    return iOsVersionMajor;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     // iOS7 hack
     //if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) self.edgesForExtendedLayout = UIRectEdgeNone;
+
+    // iOS6 以前には Helvetica Neue Thin がない
+    if ([self iosVersion] < 7) {
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Light" size:68.0];
+        [numLabel setFont:font];
+    }
     
     //[AppDelegate trackPageview:@"/CalcViewController"];
     
