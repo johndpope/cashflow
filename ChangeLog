@@ -1,3 +1,19 @@
+2013-12-19 : Takuya Murakami
+
+	* ver 6.4.2(free), 6.4.1(std) : v66
+	* iOS5 で起動しない問題修正。InMobi 削除。
+	* UI 修正: iOS6 ツールボタンが plain になってなかった (borderd)
+
+2013-12-16 : Takuya Murakami
+
+	* ver 6.4.1 (v65)
+	* 最大トランザクション数を 5,000 -> 50,000 に増加
+	* Crittercism SDK 4.0.7 -> 4.3.0
+	* Dropbox SDK 1.3.6 -> 1.3.9
+	* AdMob 6.6.0 -> 6.7.0
+	* Nend 2.3.0 -> 2.3.1
+	* InMobi 3.7.0 -> 4.0.4
+
 2013-12-10 : Takuya Murakami
 
 	* ver 6.4.0 (v64)

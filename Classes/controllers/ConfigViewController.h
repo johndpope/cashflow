@@ -10,6 +10,6 @@
 
 @interface ConfigViewController : UITableViewController <GenSelectListViewDelegate>
 
-- (void)doneAction:(id)sender;
+- (IBAction)doneAction:(id)sender;
 
 @end

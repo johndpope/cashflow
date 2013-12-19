@@ -13,12 +13,6 @@
 
 @implementation CatReportDetailViewController
 
-- (id)init
-{
-    self = [super initWithNibName:@"SimpleTableView" bundle:nil];
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -33,7 +27,7 @@
 
 - (void)doneAction:(id)sender
 {
-    [self.navigationController dismissModalViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning {

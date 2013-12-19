@@ -49,12 +49,6 @@
 // for debug
 #define REFCOUNT(x) CFGetRetainCount((__bridge void *)(x))
 
-- (id)init
-{
-    self = [super initWithNibName:@"TransactionView" bundle:nil];
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -292,7 +286,7 @@
                 [calendarVc setCalendarViewControllerDelegate:self];
                 vc = calendarVc;
             } else {
-                EditDateViewController *editDateVC = [EditDateViewController new];
+                EditDateViewController *editDateVC = [EditDateViewController instantiate];
                 editDateVC.delegate = self;
                 editDateVC.date = _editingEntry.transaction.date;
                 vc = editDateVC;
@@ -308,14 +302,14 @@
             break;
 
         case ROW_VALUE:
-            calcVC = [CalculatorViewController new];
+            calcVC = [CalculatorViewController instantiate];
             calcVC.delegate = self;
             calcVC.value = _editingEntry.evalue;
             vc = calcVC;
             break;
 
         case ROW_DESC:
-            editDescVC = [EditDescViewController new];
+            editDescVC = [EditDescViewController instantiate];
             editDescVC.delegate = self;
             editDescVC.description = _editingEntry.transaction.description;
             editDescVC.category = _editingEntry.transaction.category;
@@ -544,7 +538,7 @@
     }
 }
 
-- (IBAction)delPastButtonTapped:(id)sender
+- (void)delPastButtonTapped:(id)sender
 {
     UIAlertView *v = [[UIAlertView alloc]
                       initWithTitle:_L(@"Delete with all past transactions")

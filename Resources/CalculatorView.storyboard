@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5pg-7i-BEH">
+    <dependencies>
+        <deployment version="1280" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Calculator View Controller-->
+        <scene sceneID="5e6-iZ-asV">
+            <objects>
+                <viewController storyboardIdentifier="CalculatorView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5pg-7i-BEH" customClass="CalculatorViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RSQ-Ah-hxs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="123,456,789" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="40" id="U69-3i-Weu">
+                                <rect key="frame" x="20" y="155" width="280" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="68"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ySq-X2-G30">
+                                <rect key="frame" x="-1" y="498" width="161" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="0" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="0"/>
+                                <state key="selected" title="0"/>
+                                <state key="highlighted" title="0">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="TtC-Li-ZL5"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="Xda-zj-KIV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FUz-TR-O66">
+                                <rect key="frame" x="160" y="498" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="." backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="."/>
+                                <state key="selected" title="."/>
+                                <state key="highlighted" title=".">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="vDc-Cn-Zww"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="cFA-Nk-wK7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tCh-Y3-IdR">
+                                <rect key="frame" x="240" y="498" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="=" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="="/>
+                                <state key="selected" title="="/>
+                                <state key="highlighted" title="=">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="prc-IK-6fB"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="gny-cF-KbD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h0M-ez-hpN">
+                                <rect key="frame" x="-1" y="428" width="81" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="1" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="1"/>
+                                <state key="selected" title="1"/>
+                                <state key="highlighted" title="1">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="gV6-vu-jwR"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="sKK-17-SLJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fdx-9U-3PD">
+                                <rect key="frame" x="-1" y="358" width="81" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="4" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="4"/>
+                                <state key="selected" title="4"/>
+                                <state key="highlighted" title="4">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="5gV-co-Fdq"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="15W-Q0-AD6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cvy-hP-r6Z">
+                                <rect key="frame" x="80" y="428" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="2" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="Anm-nE-gds"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="hig-AJ-Tgs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Yk-AJ-nUp">
+                                <rect key="frame" x="160" y="428" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="3" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="3"/>
+                                <state key="selected" title="3"/>
+                                <state key="highlighted" title="3">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="3sU-dx-8YY"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="YvT-kg-0GP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z8r-76-hXJ">
+                                <rect key="frame" x="240" y="428" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="+" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="+"/>
+                                <state key="selected" title="+"/>
+                                <state key="highlighted" title="+">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="fAv-Gq-b3Z"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="gKe-DC-aXi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bhs-cy-JUJ">
+                                <rect key="frame" x="80" y="358" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="5" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="5"/>
+                                <state key="selected" title="5"/>
+                                <state key="highlighted" title="5">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="qkb-sl-9qh"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="1PZ-Ot-VcB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x06-jf-FjC">
+                                <rect key="frame" x="160" y="358" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="6" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="6"/>
+                                <state key="selected" title="6"/>
+                                <state key="highlighted" title="6">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="0mU-97-OF1"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="Mha-ns-aTE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B2j-5b-MBq">
+                                <rect key="frame" x="240" y="358" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="-" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="-"/>
+                                <state key="selected" title="-"/>
+                                <state key="highlighted" title="-">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="PXF-GW-PVy"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="0gJ-H7-YaK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Iq5-v0-pPD">
+                                <rect key="frame" x="-1" y="288" width="81" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="7" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="7"/>
+                                <state key="selected" title="7"/>
+                                <state key="highlighted" title="7">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="dlF-w7-1Mp"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="WFi-uD-vyo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bg1-eI-X1m">
+                                <rect key="frame" x="80" y="288" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="8" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="8"/>
+                                <state key="selected" title="8"/>
+                                <state key="highlighted" title="8">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="wsi-uH-pkv"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="6iv-Nf-V1t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eKf-K0-Mel">
+                                <rect key="frame" x="-1" y="218" width="81" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="AC" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="3zT-yt-Mq7"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="1jb-NG-eE3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ncb-WY-RMb">
+                                <rect key="frame" x="160" y="288" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="9" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="9"/>
+                                <state key="selected" title="9"/>
+                                <state key="highlighted" title="9">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="ZbM-ub-oum"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="Kjt-ok-hSy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zrS-cw-v9n">
+                                <rect key="frame" x="240" y="288" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="×" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="x"/>
+                                <state key="selected" title="x"/>
+                                <state key="highlighted" title="x">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="M6S-pu-Y1Y"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="7le-MG-EW9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mz3-TH-PxT">
+                                <rect key="frame" x="80" y="218" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="+ / -" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="+ / -"/>
+                                <state key="selected" title="+ / -"/>
+                                <state key="highlighted" title="+ / -">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="Gld-hs-6oz"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="Cou-Ih-CyR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="i55-nd-mLT">
+                                <rect key="frame" x="160" y="218" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="⌫" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="⌫"/>
+                                <state key="selected" title="⌫"/>
+                                <state key="highlighted" title="⌫">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="py3-5c-8SF"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="CGX-Pg-94F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nGi-A3-XYF">
+                                <rect key="frame" x="240" y="218" width="80" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="÷" backgroundImage="calcGrayButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="÷"/>
+                                <state key="selected" title="÷"/>
+                                <state key="highlighted" title="÷">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="5pg-7i-BEH" eventType="touchDown" id="Izw-1y-pdu"/>
+                                    <action selector="onButtonPressed:" destination="5pg-7i-BEH" eventType="touchUpInside" id="7hv-RC-swf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="button_0" destination="ySq-X2-G30" id="CPP-8n-Ch1"/>
+                        <outlet property="button_1" destination="h0M-ez-hpN" id="rMP-qd-xTD"/>
+                        <outlet property="button_2" destination="Cvy-hP-r6Z" id="K0x-nS-v4y"/>
+                        <outlet property="button_3" destination="0Yk-AJ-nUp" id="XQR-Ct-21s"/>
+                        <outlet property="button_4" destination="fdx-9U-3PD" id="sRm-WW-8rl"/>
+                        <outlet property="button_5" destination="bhs-cy-JUJ" id="vb3-gJ-Sy9"/>
+                        <outlet property="button_6" destination="x06-jf-FjC" id="ptr-0U-r6V"/>
+                        <outlet property="button_7" destination="Iq5-v0-pPD" id="ZHV-Uo-Do3"/>
+                        <outlet property="button_8" destination="bg1-eI-X1m" id="vu8-Ge-fNw"/>
+                        <outlet property="button_9" destination="ncb-WY-RMb" id="AGZ-FZ-Jfi"/>
+                        <outlet property="button_BS" destination="i55-nd-mLT" id="QeR-6t-3aG"/>
+                        <outlet property="button_Clear" destination="eKf-K0-Mel" id="BLl-tW-z8n"/>
+                        <outlet property="button_Divide" destination="nGi-A3-XYF" id="3qN-t8-lv6"/>
+                        <outlet property="button_Equal" destination="tCh-Y3-IdR" id="eLm-wa-IzI"/>
+                        <outlet property="button_Minus" destination="B2j-5b-MBq" id="pfr-lT-pB2"/>
+                        <outlet property="button_Multiply" destination="zrS-cw-v9n" id="0s6-Qp-L9V"/>
+                        <outlet property="button_Period" destination="FUz-TR-O66" id="4SU-L3-qn9"/>
+                        <outlet property="button_Plus" destination="Z8r-76-hXJ" id="ZWi-U3-31B"/>
+                        <outlet property="button_inv" destination="mz3-TH-PxT" id="NL0-hy-m22"/>
+                        <outlet property="numLabel" destination="U69-3i-Weu" id="AD7-X6-DJ6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RpV-CH-xzI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605" y="-24"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calcGrayButton" width="160" height="120"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

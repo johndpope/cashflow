@@ -14,11 +14,18 @@
 #import "DropboxBackup.h"
 
 @implementation ConfigViewController
-
-- (id)init
 {
-    self = [super initWithNibName:@"ConfigView" bundle:nil];
-    return self;
+    __weak IBOutlet UILabel *dateFormatLabel;
+    __weak IBOutlet UILabel *dateFormatDescLabel;
+    __weak IBOutlet UILabel *weekStartLabel;
+    __weak IBOutlet UILabel *weekStartDescLabel;
+    __weak IBOutlet UILabel *cutoffDateLabel;
+    __weak IBOutlet UILabel *cutoffDateDescLabel;
+    __weak IBOutlet UILabel *currencyLabel;
+    __weak IBOutlet UILabel *currencyDescLabel;
+    __weak IBOutlet UILabel *editCategoryLabel;
+    __weak IBOutlet UILabel *passcodeLabel;
+    __weak IBOutlet UILabel *resetDropboxLabel;
 }
 
 - (void)viewDidLoad
@@ -34,18 +41,18 @@
              initWithBarButtonSystemItem:UIBarButtonSystemItemDone
              target:self
              action:@selector(doneAction:)];
+    
+    [self setupLabels];
 }
 
-- (void)doneAction:(id)sender
+- (IBAction)doneAction:(id)sender
 {
-    [self.navigationController dismissModalViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
-
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableView reloadData];
+    [self setupLabels];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,117 +65,54 @@
 
 #pragma mark Table view methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
-}
-
-#if 0
-- (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return _L(@"Config");
-}
-#endif
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return 4;
-    }
-        
-    return 1;
-}
-
 #define ROW_DATE_TIME_MODE 0
 #define ROW_START_OF_WEEK 1
 #define ROW_CUTOFF_DATE 2
 #define ROW_CURRENCY 3
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)setupLabels
 {
-    UITableViewCell *cell;
-    static NSString *cellid = @"ConfigCell";
-
-    cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
-    }
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.imageView.image = nil;
-    
     Config *config = [Config instance];
-
-    NSString *text = nil;
-    NSString *detailText = @"";
-
-    switch (indexPath.section) {
-        case 0:
-            switch (indexPath.row) {
-                case ROW_DATE_TIME_MODE:
-                    text = _L(@"Date style");
-                    switch (config.dateTimeMode) {
-                        case DateTimeModeWithTime:
-                            detailText = _L(@"Date and time (1 min)");
-                            break;
-                        case DateTimeModeWithTime5min:
-                            detailText = _L(@"Date and time (5 min)");
-                            break;
-                        default:
-                            detailText = _L(@"Date only");                            
-                            break;
-                    }
-                    break;
-
-                case ROW_START_OF_WEEK:
-                    text = _L(@"Start of week");
-                    if (config.startOfWeek == 0) {
-                        detailText = _L(@"Sunday");
-                    } else {
-                        detailText = _L(@"Monday");
-                    }
-                    break;
-                    
-                case ROW_CUTOFF_DATE:
-                    text = _L(@"Cutoff date");
-                    if (config.cutoffDate == 0) {
-                        detailText = _L(@"End of month");
-                    } else {
-                        detailText = [NSString stringWithFormat:@"%d", config.cutoffDate];
-                    }
-                    break;
-                    
-                case ROW_CURRENCY:
-                    text = _L(@"Currency");
-                    NSString *currency = [[CurrencyManager instance] baseCurrency];
-                    if (currency == nil) {
-                        currency = @"System";
-                    }
-                    detailText = currency;
-                    break;
-            }
+    
+    dateFormatLabel.text = _L(@"Date style");
+    switch (config.dateTimeMode) {
+        case DateTimeModeWithTime:
+            dateFormatDescLabel.text = _L(@"Date and time (1 min)");
             break;
-            
-        case 1:
-            text = _L(@"Edit Categories");
+        case DateTimeModeWithTime5min:
+            dateFormatDescLabel.text = _L(@"Date and time (5 min)");
             break;
-            
-        case 2:
-            text = _L(@"Set PIN Code");
-            break;
-            
-        case 3:
-            text = _L(@"Unlink dropbox account");
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            
-            NSString *path = [[NSBundle mainBundle] pathForResource:@"dropbox" ofType:@"png"];
-            UIImage *image = [UIImage imageWithContentsOfFile:path];
-            cell.imageView.image = image;
+        default:
+            dateFormatDescLabel.text = _L(@"Date only");
             break;
     }
     
-    cell.textLabel.text = text;
-    cell.detailTextLabel.text = detailText;
+    weekStartLabel.text = _L(@"Start of week");
+    if (config.startOfWeek == 0) {
+        weekStartDescLabel.text = _L(@"Sunday");
+    } else {
+        weekStartDescLabel.text = _L(@"Monday");
+    }
+                    
+    cutoffDateLabel.text = _L(@"Cutoff date");
+    if (config.cutoffDate == 0) {
+        cutoffDateDescLabel.text = _L(@"End of month");
+    } else {
+        cutoffDateDescLabel.text = [NSString stringWithFormat:@"%d", config.cutoffDate];
+    }
+
+    currencyLabel.text = _L(@"Currency");
+    NSString *currency = [[CurrencyManager instance] baseCurrency];
+    if (currency == nil) {
+        currency = @"System";
+    }
+    currencyDescLabel.text = currency;
+
+    editCategoryLabel.text = _L(@"Edit Categories");
+
+    passcodeLabel.text = _L(@"Set PIN Code");
     
-    return cell;
+    resetDropboxLabel.text = _L(@"Unlink dropbox account");
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

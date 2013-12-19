@@ -19,26 +19,35 @@
     Report *_reports;
     double _maxAbsValue;
     
+    ReportEntry *_showingReportEntry; // 表示中のエントリ
+    
     NSDateFormatter *_dateFormatter;
 }
 
-- (id)initWithAsset:(Asset*)asset type:(int)type
++ (ReportViewController *)instantiate
 {
-    self = [super initWithNibName:@"ReportView" bundle:nil];
-    if (self != nil) {
-        self.designatedAsset = asset;
+    return [[UIStoryboard storyboardWithName:@"ReportView" bundle:nil] instantiateInitialViewController];
+}
 
-        _type = type;
-
-        _dateFormatter = [NSDateFormatter new];
-        [self _updateReport];
-    }
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    _dateFormatter = [NSDateFormatter new];
     return self;
 }
 
-- (id)initWithAsset:(Asset*)asset
+- (void)setAsset:(Asset*)asset type:(int)type
 {
-    return [self initWithAsset:asset type:-1];
+    self.designatedAsset = asset;
+
+    _type = type;
+
+    [self _updateReport];
+}
+
+- (void)setAsset:(Asset*)asset
+{
+    [self setAsset:asset type:-1];
 }
 
 - (void)viewDidLoad
@@ -55,7 +64,7 @@
 
 - (void)doneAction:(id)sender
 {
-    [self.navigationController dismissModalViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -177,7 +186,7 @@
     int count = [_reports.reportEntries count];
     ReportEntry *report = (_reports.reportEntries)[count - indexPath.row - 1];
 	
-    ReportCell *cell = [ReportCell reportCell:tv];
+    ReportCell *cell = (ReportCell*)[tv dequeueReusableCellWithIdentifier:@"ReportCell"];
     cell.name = [self _reportTitle:report];
     cell.income = report.totalIncome;
     cell.outgo = report.totalOutgo;
@@ -192,12 +201,17 @@
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 	
     int count = [_reports.reportEntries count];
-    ReportEntry *re = (_reports.reportEntries)[count - indexPath.row - 1];
+    _showingReportEntry = (_reports.reportEntries)[count - indexPath.row - 1];
 
-    CatReportViewController *vc = [CatReportViewController new];
-    vc.title = [self _reportTitle:re];
-    vc.reportEntry = re;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self performSegueWithIdentifier:@"show" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CatReportViewController *vc = [segue destinationViewController];
+    
+    vc.title = [self _reportTitle:_showingReportEntry];
+    vc.reportEntry = _showingReportEntry;
 }
 
 

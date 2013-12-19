@@ -15,7 +15,6 @@
 @property(nonatomic,assign) double outgo;
 @property(nonatomic,assign) double maxAbsValue;
 
-+ (ReportCell *)reportCell:(UITableView *)tableView;
 + (CGFloat)cellHeight;
 
 - (void)updateGraph;

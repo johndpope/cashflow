@@ -30,6 +30,8 @@
 
     NSMutableArray *_iconArray;
 
+    int _selectedAssetIndex;
+    
     BOOL _asDisplaying;
     UIActionSheet *_asActionButton;
     UIActionSheet *_asDelete;
@@ -181,7 +183,7 @@
             [self.splitTransactionListViewController reload];
         } else { 
             TransactionListViewController *vc = 
-                [TransactionListViewController new];
+                [TransactionListViewController instantiate];
             vc.assetKey = asset.pid;
             [self.navigationController pushViewController:vc animated:NO];
         }
@@ -289,17 +291,18 @@
     NSString *cellid = @"assetCell";
     cell = [tv dequeueReusableCellWithIdentifier:cellid];
 
-    if (cell == nil) {
+    /*if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
         //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		
         cell.textLabel.font = [UIFont systemFontOfSize:16.0];
-    }
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+        cell.textLabel.font = [UIFont systemFontOfSize:16.0];
+     }*/
 
     // 資産
     Asset *asset = [_ledger assetAtIndex:[self _assetIndex:indexPath]];
 
-    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 
     // 資産タイプ範囲外対応
     int type = asset.type;
@@ -348,7 +351,7 @@
         [self.splitTransactionListViewController reload];
     } else {
         TransactionListViewController *vc = 
-            [TransactionListViewController new];
+            [TransactionListViewController instantiate];
         vc.assetKey = asset.pid;
 
         [self.navigationController pushViewController:vc animated:YES];
@@ -358,20 +361,27 @@
 // アクセサリボタンをタップしたときの処理 : アセット変更
 - (void)tableView:(UITableView *)tv accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    AssetViewController *vc = [AssetViewController new];
     int assetIndex = [self _assetIndex:indexPath];
     if (assetIndex >= 0) {
-        [vc setAssetIndex:indexPath.row];
-        [self.navigationController pushViewController:vc animated:YES];
+        _selectedAssetIndex = indexPath.row;
+        [self performSegueWithIdentifier:@"show" sender:self];
     }
 }
 
 // 新規アセット追加
 - (void)addAsset
 {
-    AssetViewController *vc = [AssetViewController new];
-    [vc setAssetIndex:-1];
-    [self.navigationController pushViewController:vc animated:YES];
+    _selectedAssetIndex = -1;
+    [self performSegueWithIdentifier:@"show" sender:self];
+}
+
+// 画面遷移
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"show"]) {
+        AssetViewController *vc = [segue destinationViewController];
+        [vc setAssetIndex:_selectedAssetIndex];
+    }
 }
 
 // Editボタン処理
@@ -479,13 +489,14 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 
 - (void)showReport:(id)sender
 {
-    ReportViewController *reportVC = [[ReportViewController alloc] initWithAsset:nil];
+    ReportViewController *reportVC = [ReportViewController instantiate];
+    [reportVC setAsset:nil];
     
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:reportVC];
     if (IS_IPAD) {
         nv.modalPresentationStyle = UIModalPresentationPageSheet;
     }
-    [self.navigationController presentModalViewController:nv animated:YES];
+    [self.navigationController presentViewController:nv animated:YES completion:NULL];
 }
 
 
@@ -520,28 +531,27 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 
 - (void)_actionActionButton:(NSInteger)buttonIndex
 {
-    ExportVC *exportVC;
-    ConfigViewController *configVC;
     InfoVC *infoVC;
     BackupViewController *backupVC;
     UIViewController *vc;
     
     _asDisplaying = NO;
+
+    UINavigationController *nv = nil;
     
     switch (buttonIndex) {
         case 0:
-            exportVC = [[ExportVC alloc] initWithAsset:nil];
-            vc = exportVC;
+            nv = [ExportVC instantiate:nil];
             break;
             
         case 1:
-            backupVC = [BackupViewController backupViewController:self];
-            vc = backupVC;
+            nv = [[UIStoryboard storyboardWithName:@"BackupView" bundle:nil] instantiateInitialViewController];
+            backupVC = (BackupViewController *)nv.topViewController;
+            backupVC.delegate = self;
             break;
             
         case 2:
-            configVC = [ConfigViewController new];
-            vc = configVC;
+            nv = [[UIStoryboard storyboardWithName:@"ConfigView" bundle:nil] instantiateInitialViewController];
             break;
             
         case 3:
@@ -553,11 +563,13 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
             return;
     }
     
-    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
+    if (nv == nil) {
+        nv = [[UINavigationController alloc] initWithRootViewController:vc];
+    }
     //if (IS_IPAD) {
     //    nv.modalPresentationStyle = UIModalPresentationFormSheet; //UIModalPresentationPageSheet;
     //}
-    [self.navigationController presentModalViewController:nv animated:YES];
+    [self.navigationController presentViewController:nv animated:YES completion:NULL];
 }
 
 // actionSheet ハンドラ

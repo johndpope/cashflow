@@ -13,11 +13,8 @@
 #import "ReportCatDetailVC.h"
 
 @implementation CatReportViewController
-
-- (id)init
 {
-    self = [super initWithNibName:@"SimpleTableView" bundle:nil];
-    return self;
+    CatReport *_selectedCatReport;
 }
 
 - (void)viewDidLoad
@@ -34,7 +31,7 @@
 
 - (void)doneAction:(id)sender
 {
-    [self.navigationController dismissModalViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,11 +104,11 @@
 {
     if (indexPath.row == 0) {
         /* graph cell */
-        ReportCatGraphCell *cell = [ReportCatGraphCell reportCatGraphCell:tv];
+        ReportCatGraphCell *cell = [tv dequeueReusableCellWithIdentifier:@"ReportCatGraphCell"];
         [cell setReport:_reportEntry isOutgo:(indexPath.section == 0 ? YES : NO)];
         return cell;
     } else {
-        ReportCatCell *cell = [ReportCatCell reportCatCell:tv];
+        ReportCatCell *cell = [tv dequeueReusableCellWithIdentifier:@"ReportCatCell"];
 
         CatReport *cr = nil;
         switch (indexPath.section) {
@@ -149,11 +146,16 @@
         break;
     }
 
-    CatReportDetailViewController *vc = [CatReportDetailViewController new];
-    vc.title = [cr title];
-    vc.catReport = cr;
-    
-    [self.navigationController pushViewController:vc animated:YES];
+    _selectedCatReport = cr;
+    [self performSegueWithIdentifier:@"show" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CatReportDetailViewController *vc = [segue destinationViewController];
+
+    vc.title = [_selectedCatReport title];
+    vc.catReport = _selectedCatReport;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

@@ -21,10 +21,9 @@
     IBOutlet UIButton *_setCurrentButton;
 }
 
-- (id)init
++ (EditDateViewController *)instantiate
 {
-    self = [super initWithNibName:@"EditDateView" bundle:nil];
-    return self;
+    return [[UIStoryboard storyboardWithName:@"EditDateView" bundle:nil] instantiateInitialViewController];
 }
 
 - (void)viewDidLoad

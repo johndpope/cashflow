@@ -36,6 +36,7 @@
     IBOutlet UIToolbar *_toolbar;
     
     int _assetKey;
+    int _tappedIndex;
     
 #if FREE_VERSION
     AdManager *_adManager;
@@ -45,9 +46,15 @@
     UIPopoverController *_popoverController;
 }
 
-- (id)init
++ (TransactionListViewController *)instantiate
 {
-    self = [super initWithNibName:@"TransactionListView" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"TransactionListView" bundle:nil];
+    return [sb instantiateInitialViewController];
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
     if (self) {
         _assetKey = -1;
     }
@@ -369,14 +376,14 @@
     int idx = [self entryIndexWithIndexPath:indexPath tableView:tv];
     if (idx == -1) {
         // initial balance cell
-        CalculatorViewController *v = [CalculatorViewController new];
+        CalculatorViewController *v = [CalculatorViewController instantiate];
         v.delegate = self;
         v.value = self.asset.initialBalance;
 
         UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:v];
         
         if (!IS_IPAD) {
-            [self presentModalViewController:nv animated:YES];
+            [self presentViewController:nv animated:YES completion:NULL];
         } else {
             [self _dismissPopover];
             _popoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
@@ -386,16 +393,24 @@
         }
     } else if (idx >= 0) {
         // transaction view を表示
-        TransactionViewController *vc = [TransactionViewController new];
-        vc.asset = self.asset;
-        
         if (tv == self.searchDisplayController.searchResultsTableView) {
             AssetEntry *e = [self.searchResults objectAtIndex:idx];
-            [vc setTransactionIndex:e.originalIndex];
+            _tappedIndex = e.originalIndex;
         } else {
-            [vc setTransactionIndex:idx];
+            _tappedIndex = idx;
         }
-        [self.navigationController pushViewController:vc animated:YES];
+        
+        [self performSegueWithIdentifier:@"show" sender:self];
+    }
+}
+
+// 画面遷移
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"show"]) {
+        TransactionViewController *vc = [segue destinationViewController];
+        vc.asset = self.asset;
+        [vc setTransactionIndex:_tappedIndex];
     }
 }
 
@@ -415,11 +430,9 @@
         [AssetListViewController noAssetAlert];
         return;
     }
-    
-    TransactionViewController *vc = [TransactionViewController new];
-    vc.asset = self.asset;
-    [vc setTransactionIndex:-1];
-    [self.navigationController pushViewController:vc animated:YES];
+            
+    _tappedIndex = -1;
+    [self performSegueWithIdentifier:@"show" sender:self];
 }
 
 // Editボタン処理
@@ -485,7 +498,8 @@
 #pragma mark Show Report
 - (void)showReport:(id)sender
 {
-    ReportViewController *reportVC = [[ReportViewController alloc] initWithAsset:self.asset];
+    ReportViewController *reportVC = [ReportViewController instantiate];
+    [reportVC setAsset:self.asset];
 
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:reportVC];
     if (IS_IPAD) {
@@ -493,7 +507,7 @@
     }
     
     //[self.navigationController pushViewController:vc animated:YES];
-    [self.navigationController presentModalViewController:nv animated:YES];
+    [self.navigationController presentViewController:nv animated:YES completion:NULL];
 }
 
 #pragma mark Action sheet handling
@@ -525,8 +539,6 @@
 
 - (void)actionSheet:(UIActionSheet*)as clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    ExportVC *exportVC;
-    ConfigViewController *configVC;
     InfoVC *infoVC;
     BackupViewController *backupVC;
     
@@ -535,25 +547,24 @@
     
     _asDisplaying = NO;
     
+    UINavigationController *nv = nil;
     switch (buttonIndex) {
         case 0:
-            exportVC = [[ExportVC alloc] initWithAsset:nil];
-            vc = exportVC;
+            nv = [ExportVC instantiate:nil];
             break;
         
         case 1:
-            exportVC = [[ExportVC alloc] initWithAsset:self.asset];
-            vc = exportVC;
+            nv = [ExportVC instantiate:self.asset];
             break;
             
         case 2:
-            backupVC = [BackupViewController backupViewController:self];
-            vc = backupVC;
+            nv = [[UIStoryboard storyboardWithName:@"BackupView" bundle:nil] instantiateInitialViewController];
+            backupVC = (BackupViewController *)nv.topViewController;
+            backupVC.delegate = self;
             break;
             
         case 3:
-            configVC = [ConfigViewController new];
-            vc = configVC;
+            nv = [[UIStoryboard storyboardWithName:@"ConfigView" bundle:nil] instantiateInitialViewController];
             break;
             
         case 4:
@@ -565,13 +576,15 @@
             return;
     }
 
-    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
+    if (nv == nil) {
+        nv = [[UINavigationController alloc] initWithRootViewController:vc];
+    }
     if (IS_IPAD) {
         nv.modalPresentationStyle = modalPresentationStyle;
     }
     
     //[self.navigationController pushViewController:vc animated:YES];
-    [self.navigationController presentModalViewController:nv animated:YES];
+    [self.navigationController presentViewController:nv animated:YES completion:NULL];
 }
 
 /*

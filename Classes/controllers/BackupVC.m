@@ -12,18 +12,10 @@
 
 @implementation BackupViewController
 {
-    id<BackupViewDelegate> _delegate;
+    __weak id<BackupViewDelegate> _delegate;
 
     DBLoadingView *_loadingView;
     DropboxBackup *_dropboxBackup;
-}
-
-+ (BackupViewController *)backupViewController:(id<BackupViewDelegate>)delegate
-{
-    BackupViewController *vc =
-        [[BackupViewController alloc] initWithNibName:@"BackupView" bundle:nil];
-    [vc setDelegate:delegate];
-    return vc;
 }
 
 - (void)setDelegate:(id<BackupViewDelegate>)delegate
@@ -35,19 +27,15 @@
 {
     [super viewDidLoad];
     //[AppDelegate trackPageview:@"/BackupViewController"];
-    
-    self.navigationItem.rightBarButtonItem =
-        [[UIBarButtonItem alloc]
-          initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
 }
 
-- (void)doneAction:(id)sender
+- (IBAction)doneAction:(id)sender
 {
     [self.navigationController dismissModalViewControllerAnimated:YES];
     [_delegate backupViewFinished:self];
 }
 
-
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
     return 2;
 }
@@ -134,6 +122,7 @@
 
     return cell;
 }
+*/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

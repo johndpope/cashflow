@@ -1,10 +1,14 @@
 //
 //  GADInMobiExtras.h
 //
+//  Copyright (c) 2013 InMobi. All rights reserved.
+//
 
 #import <Foundation/Foundation.h>
 #import "GADAdNetworkExtras.h"
-#import "IMCommonUtil.h"
+#import "InMobi.h"
+
+#define ADMOB_ADAPTER_VERSION  @"4.0.3"
 
 @interface GADInMobiExtras : NSObject <GADAdNetworkExtras>
 
@@ -25,6 +29,30 @@
  * Area code of the user may be used to deliver more relevant ads.
  */
 @property (nonatomic, copy) NSString *areaCode;
+/**
+ * Education of the user may be used to deliver more relevant ads.
+ */
+@property (nonatomic, assign) IMEducation *educationType;
+/**
+ * Ethnicity of the user may be used to deliver more relevant ads.
+ */
+@property (nonatomic, assign) IMEthnicity *ethnicityType;
+/**
+ * Marital status of the user may be used to deliver more relevant ads.
+ */
+@property (nonatomic, assign) IMMaritalStatus *maritalStatus;
+/**
+ * Set whether user has any children, may be used to deliver more relevant ads.
+ */
+@property (nonatomic, assign) IMHasChildren *hasChildren;
+/**
+ * Sexual orientation of the user may be used to deliver more relevant ads.
+ */
+@property (nonatomic, assign) IMSexualOrientation *sexualOrientation;
+/**
+ * Language preference of the user may be used to deliver more relevant ads.
+ */
+@property (nonatomic, copy) NSString *language;
 
 #pragma mark Setting Contextual Information
 /**
@@ -32,6 +60,14 @@
  * Example: @"offers sale shopping"
  */
 @property (nonatomic, copy) NSString *keywords;
+/**
+ * Ref-tag key to be passed to an ad instance.
+ */
+@property (nonatomic,copy) NSString *refTagKey;
+/**
+ * Ref-tag value to be passed to an ad instance.
+ */
+@property (nonatomic,copy) NSString *refTagValue;
 /**
  * Use contextually relevant strings to deliver more relevant ads.
  * Example: @"cars bikes racing"
@@ -68,6 +104,11 @@
  * InMobi device id collection.
  */
 @property (nonatomic, assign) IMDeviceIdMask deviceIdMask;
+
+/**
+ * Returns the InMobi Admob adapter version
+ */
++ (NSString *)adapterVersion;
 
 @end
 

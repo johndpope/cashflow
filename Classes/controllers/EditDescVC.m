@@ -26,9 +26,13 @@
     UITextField *_textField;
 }
 
-- (id)init
++ (EditDescViewController *)instantiate {
+    return [[UIStoryboard storyboardWithName:@"EditDescView" bundle:nil] instantiateInitialViewController];
+}
+
+- (id)initWithCoder:(NSCoder *)coder
 {
-    self = [super initWithNibName:@"EditDescView" bundle:nil];
+    self = [super initWithCoder:coder];
     if (self) {
         _category = -1;
     }
