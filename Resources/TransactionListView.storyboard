@@ -17,6 +17,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="wtF-Oq-kni">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="MV9-4m-0VN" id="PUq-wP-ePd"/>
+                                    </connections>
+                                </searchBar>
                                 <connections>
                                     <outlet property="dataSource" destination="MV9-4m-0VN" id="lPr-S2-N2b"/>
                                     <outlet property="delegate" destination="MV9-4m-0VN" id="mzq-Ku-cAu"/>
@@ -49,10 +57,20 @@
                         <outlet property="_barBalanceLabel" destination="HfJ-0C-yuf" id="TAu-mF-HnF"/>
                         <outlet property="_tableView" destination="nmn-sq-Dhs" id="bmu-Wg-Lw2"/>
                         <outlet property="_toolbar" destination="GGs-Qd-sVD" id="FPK-Ig-Svj"/>
+                        <outlet property="searchDisplayController" destination="jf4-fR-1JB" id="UgO-Cw-wBz"/>
                         <segue destination="ap8-oF-I49" kind="push" identifier="show" id="uXG-nQ-oXN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w77-4t-kzq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="jf4-fR-1JB">
+                    <connections>
+                        <outlet property="delegate" destination="MV9-4m-0VN" id="ias-b4-RTQ"/>
+                        <outlet property="searchBar" destination="wtF-Oq-kni" id="4wC-pj-sdz"/>
+                        <outlet property="searchContentsController" destination="MV9-4m-0VN" id="twB-yY-PxT"/>
+                        <outlet property="searchResultsDataSource" destination="MV9-4m-0VN" id="1YQ-Nn-eGi"/>
+                        <outlet property="searchResultsDelegate" destination="MV9-4m-0VN" id="Opg-nc-xAG"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="129" y="22"/>
         </scene>
