@@ -14,12 +14,6 @@
 // 広告リクエスト間隔 (画面遷移時のみ)
 #define AD_REQUEST_INTERVAL     45.0
 
-/**
- *  AdMob 表示用ラッパクラス。GADBannerView を継承。
- */
-@interface AdMobView : DFPBannerView <GADBannerViewDelegate>
-@end
-
 @implementation AdMobView
 
 - (id)initWithFrame:(CGRect)frame {
@@ -50,6 +44,8 @@
 @interface AdManager()
 {
     id<AdManagerDelegate> __unsafe_unretained _delegate;
+    
+    __weak UIViewController *_rootViewController;
     
     BOOL _isShowAdSucceeded;
     
@@ -124,17 +120,15 @@ static AdManager *theAdManager;
 - (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController
 {
     _delegate = delegate;
+    _rootViewController = rootViewController;
     _isAdShowing = NO;
-
-    if (_bannerView != nil) {
-        _bannerView.rootViewController = rootViewController;
-        [_delegate adManager:self setAd:_bannerView adSize:_adSize];
-    }
 }
 
 - (void)detach
 {
     _delegate = nil;
+    _rootViewController = nil;
+    
     _bannerView.rootViewController = nil; // TODO これ大丈夫？
 
     [_bannerView removeFromSuperview];
@@ -151,6 +145,7 @@ static AdManager *theAdManager;
         NSLog(@"showAd: no ad to show");
         return;
     }
+    _bannerView.rootViewController = _rootViewController;
     
     BOOL forceRequest = NO;
     
