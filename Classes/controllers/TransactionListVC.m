@@ -40,6 +40,7 @@
     
 #if FREE_VERSION
     AdManager *_adManager;
+    BOOL _isAdShowing;
 #endif
     
     BOOL _asDisplaying;
@@ -109,6 +110,7 @@
     _asDisplaying = NO;
 
 #if FREE_VERSION
+    _isAdShowing = NO;
     _adManager = [AdManager sharedInstance];
     [_adManager attach:self rootViewController:self];
 #endif
@@ -187,6 +189,12 @@
  */
 - (void)adManager:(AdManager *)adManager showAd:(AdMobView *)adView adSize:(CGSize)adSize
 {
+    if (_isAdShowing) {
+        NSLog(@"Ad is already showing!");
+        return;
+    }
+    _isAdShowing = YES;
+    
     CGRect frame = _tableView.bounds;
     
     // 広告の位置を画面外に設定
@@ -223,7 +231,11 @@
  */
 - (void)adManager:(AdManager *)adManager removeAd:(UIView *)adView adSize:(CGSize)adSize
 {
-    adView.hidden = YES;
+    if (!_isAdShowing) {
+        NSLog(@"Ad is already removed!");
+        return;
+    }
+    _isAdShowing = NO;
     
     CGRect frame = _tableView.bounds;
         

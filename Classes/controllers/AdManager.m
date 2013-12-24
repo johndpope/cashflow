@@ -130,7 +130,6 @@ static AdManager *theAdManager;
     _rootViewController = nil;
     
     _bannerView.rootViewController = nil; // TODO これ大丈夫？
-
     [_bannerView removeFromSuperview];
 }
 
@@ -142,8 +141,7 @@ static AdManager *theAdManager;
     if (_delegate == nil) return;
 
     if (_bannerView == nil) {
-        NSLog(@"showAd: no ad to show");
-        return;
+        [self _createAd];
     }
     _bannerView.rootViewController = _rootViewController;
     
@@ -266,6 +264,11 @@ static AdManager *theAdManager;
         msg = @"Ad load failed";
     }
     NSLog(@"%@ : %@", msg, [error localizedDescription]);
+    
+    // workaround for AdMob bugs.
+    [_delegate adManager:self removeAd:_bannerView adSize:_adSize];
+    _isAdShowing = NO;
+    [self _releaseAd];
 }
 
 @end
