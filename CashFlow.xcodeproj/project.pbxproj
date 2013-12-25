@@ -20,6 +20,9 @@
 		3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
 		3E0AC6AF13A786F7006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
+		3E0AD010186AD97D003F7D17 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AD00C186AD925003F7D17 /* BugSense-iOS.framework */; };
+		3E0AD011186AD97D003F7D17 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AD00C186AD925003F7D17 /* BugSense-iOS.framework */; };
+		3E0AD012186AD97E003F7D17 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AD00C186AD925003F7D17 /* BugSense-iOS.framework */; };
 		3E0AD6BE121415DE00CFDDAC /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6A7121415DD00CFDDAC /* Asset.m */; };
 		3E0AD6BF121415DE00CFDDAC /* AssetEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6A9121415DD00CFDDAC /* AssetEntry.m */; };
 		3E0AD6C0121415DE00CFDDAC /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6AB121415DD00CFDDAC /* Category.m */; };
@@ -349,9 +352,6 @@
 		3EFDC2DD18314BAC00070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFDC2DE18314BB900070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFDC2DF18314D5500070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
-		3EFF4375185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */; };
-		3EFF4376185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */; };
-		3EFF4377185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF4374185F38A2006010F2 /* libCrittercism_v4_3_0.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -652,6 +652,7 @@
 				3E44CF5D17F604E400E54901 /* DropboxSDK.framework in Frameworks */,
 				3E69E8EA1616B3D800FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */,
+				3E0AD010186AD97D003F7D17 /* BugSense-iOS.framework in Frameworks */,
 				3E338213133211C500861610 /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				3EB88E8517F6B5680045780D /* libz.dylib in Frameworks */,
@@ -668,7 +669,6 @@
 				3E33821A1332123200861610 /* AVFoundation.framework in Frameworks */,
 				3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */,
 				3E3F525014651654005CBD9A /* libsqlite3.dylib in Frameworks */,
-				3EFF4375185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */,
 				3EB88E8017F6B0B10045780D /* libGoogleAnalyticsServices.a in Frameworks */,
 				3ED6C02716A5850A004F0991 /* libGoogleAdMobAds.a in Frameworks */,
 				3EA3953E1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
@@ -691,6 +691,7 @@
 				3E44CF5E17F604E400E54901 /* DropboxSDK.framework in Frameworks */,
 				3E8B25B70F348C090007929E /* UIKit.framework in Frameworks */,
 				3E8B25B80F348C090007929E /* CoreGraphics.framework in Frameworks */,
+				3E0AD011186AD97D003F7D17 /* BugSense-iOS.framework in Frameworks */,
 				3E8B25B90F348C090007929E /* AudioToolbox.framework in Frameworks */,
 				3EB554B5103B92D700BA13D4 /* QuartzCore.framework in Frameworks */,
 				3EB5552F103B930E00BA13D4 /* AddressBook.framework in Frameworks */,
@@ -707,7 +708,6 @@
 				3EB88E8E17F702170045780D /* StoreKit.framework in Frameworks */,
 				3E69E8F51616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E347BB4169DC7CE002307AA /* CoreData.framework in Frameworks */,
-				3EFF4376185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */,
 				3EB88E8117F6B0B10045780D /* libGoogleAnalyticsServices.a in Frameworks */,
 				3ED6C02816A58529004F0991 /* libGoogleAdMobAds.a in Frameworks */,
 				3EA3953F1556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
@@ -748,12 +748,12 @@
 				3E4344F117F70D7600B45E1F /* StoreKit.framework in Frameworks */,
 				3EFDC2CA1831495600070F72 /* libNendAd.a in Frameworks */,
 				3E3F525214651654005CBD9A /* libsqlite3.dylib in Frameworks */,
+				3E0AD012186AD97E003F7D17 /* BugSense-iOS.framework in Frameworks */,
 				3EA395371556BEF70078DCA2 /* libAdapterInMobi.a in Frameworks */,
 				3EA395401556BF0A0078DCA2 /* libAdapterIAd.a in Frameworks */,
 				3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */,
 				3E44CF5F17F604E500E54901 /* DropboxSDK.framework in Frameworks */,
 				3EFDC2D818314B6500070F72 /* JSONKit.framework in Frameworks */,
-				3EFF4377185F38A2006010F2 /* libCrittercism_v4_3_0.a in Frameworks */,
 				3E69E8F61616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E347BB5169DC7CF002307AA /* CoreData.framework in Frameworks */,
 				3ED6C02916A58744004F0991 /* libGoogleAdMobAds.a in Frameworks */,

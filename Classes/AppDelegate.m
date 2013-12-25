@@ -16,7 +16,7 @@
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
 #import "UIDevice+Hardware.h"
-#import "Crittercism.h"
+//#import "Crittercism.h"
 #import <BugSense-iOS/BugSenseController.h>
 
 #import "DropboxSecret.h"
@@ -50,15 +50,15 @@
 
     // Crittercism or BugSense
 #if FREE_VERSION
-    NSString *crittercismApiKey = @"50cdc6bb86ef114132000002";
-    NSString *bugSenseApiKey = @"70f8a5d3";
+#define CRITTERCISM_API_KEY @"50cdc6bb86ef114132000002"
+#define BUGSENSE_API_KEY @"70f8a5d3"
 #else
-    NSString *crittercismApiKey = @"50cdc6697e69a342c7000005";
-    NSString *bugSenseApiKey = @"b64aaa9e";
+#define CRITTERCISM_API_KEY @"50cdc6697e69a342c7000005"
+#define BUGSENSE_API_KEY @"b64aaa9e"
 #endif
 
-    [Crittercism enableWithAppID:crittercismApiKey];
-    //[BugSenseController sharedControllerWithBugSenseAPIKey:bugSenseApiKey];
+    //[Crittercism enableWithAppID:CRITTERCISM_API_KEY];
+    [BugSenseController sharedControllerWithBugSenseAPIKey:BUGSENSE_API_KEY];
 
     // Dropbox config
     DBSession *dbSession =

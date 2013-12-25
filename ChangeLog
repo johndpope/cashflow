@@ -1,5 +1,7 @@
 2013-12-25 : Takuya Murakami
 
+	* AdView 関連処理変更: ロード失敗時に AdView 破棄
+	* Crittercism -> BugSense 切り替え
 	* BugSense 3.5.2
 
 2013-12-21 : Takuya Murakami
