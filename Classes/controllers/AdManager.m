@@ -82,7 +82,9 @@ static AdManager *theAdManager;
 }
 
 - (void)dealloc {
+    // singleton なのでここには原則こない
     [self _releaseAdView];
+    [self detach];
 }
 
 /**
