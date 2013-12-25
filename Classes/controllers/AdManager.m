@@ -248,10 +248,12 @@ static AdManager *theAdManager;
     }
     NSLog(@"%@ : %@", msg, [error localizedDescription]);
     
+    /*
+     AdMob SDK バグ対応。ネットワーク未接続状態で広告取得失敗した場合、
+     view を残しておくとクラッシュを引き起こすため、一旦削除して作りなおす。
+     */
     _isAdLoaded = NO;
-
-    // workaround for AdMob bugs.
-    [_delegate adManager:self removeAd:_bannerView adSize:_adSize];
+     [_delegate adManager:self removeAd:_bannerView adSize:_adSize];
     _isAdShowing = NO;
 
     [self _releaseAdView];
