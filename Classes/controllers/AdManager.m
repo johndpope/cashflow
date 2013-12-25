@@ -123,8 +123,8 @@ static AdManager *theAdManager;
 
     if (_bannerView == nil) {
         [self _createAdView];
-        _bannerView.rootViewController = _rootViewController;
     }
+    _bannerView.rootViewController = _rootViewController;
     
     BOOL forceRequest = NO;
     
