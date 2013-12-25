@@ -48,22 +48,17 @@
     NSLog(@"application:didFinishLaunchingWithOptions");
     _application = application;
 
-    // Crittercism
-#if 0
+    // Crittercism or BugSense
 #if FREE_VERSION
-    [Crittercism enableWithAppID:@"50cdc6bb86ef114132000002"];
-#else
-    [Crittercism enableWithAppID:@"50cdc6697e69a342c7000005"];
-#endif
-#endif
-    
-    // BugSense
-#if FREE_VERSION
+    NSString *crittercismApiKey = @"50cdc6bb86ef114132000002";
     NSString *bugSenseApiKey = @"70f8a5d3";
 #else
+    NSString *crittercismApiKey = @"50cdc6697e69a342c7000005";
     NSString *bugSenseApiKey = @"b64aaa9e";
 #endif
-    [BugSenseController sharedControllerWithBugSenseAPIKey:bugSenseApiKey];
+
+    [Crittercism enableWithAppID:crittercismApiKey];
+    //[BugSenseController sharedControllerWithBugSenseAPIKey:bugSenseApiKey];
 
     // Dropbox config
     DBSession *dbSession =
