@@ -43,15 +43,13 @@
  */
 @interface AdManager()
 {
-    id<AdManagerDelegate> __unsafe_unretained _delegate;
-    
+    __weak id<AdManagerDelegate> _delegate;
     __weak UIViewController *_rootViewController;
     
-    BOOL _isShowAdSucceeded;
-    
-    // AdMob
+    // 広告ビュー
     AdMobView *_bannerView;
     
+    // 広告サイズ
     CGSize _adSize;
 
     BOOL _isAdShowing;
@@ -78,19 +76,6 @@ static AdManager *theAdManager;
 {
     self = [super init];
     if (self != nil) {
-        // 前回広告ロードが成功したかどうかを取得
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        int n = [defaults integerForKey:@"ShowAds"];
-        if (n == 0) {
-            _isShowAdSucceeded = NO;
-        } else {
-            _isShowAdSucceeded = YES;
-
-            // プロパティ上は NO にセットしておく(途中クラッシュ対処)
-            [defaults setInteger:0 forKey:@"ShowAds"];
-            [defaults synchronize];
-        }
-
         [self _createAd];
     }
     return self;
@@ -98,20 +83,6 @@ static AdManager *theAdManager;
 
 - (void)dealloc {
     [self _releaseAd];
-}
-
-- (BOOL)isShowAdSucceeded
-{
-    return _isShowAdSucceeded;
-}
-
-- (void)setIsShowAdSucceeded:(BOOL)value
-{
-    _isShowAdSucceeded = value;
-
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setInteger:(value ? 1 : 0) forKey:@"ShowAds"];
-    [defaults synchronize];
 }
 
 /**
@@ -249,8 +220,6 @@ static AdManager *theAdManager;
         _isAdShowing = YES;
         [_delegate adManager:self showAd:_bannerView adSize:_adSize];
     }
-
-    self.isShowAdSucceeded = YES;
 }
 
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
