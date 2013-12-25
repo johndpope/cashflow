@@ -112,6 +112,29 @@ OBJC_EXPORT @interface BugSenseController : NSObject <UIAlertViewDelegate>
                                              userDictionary:(NSDictionary *)userDictionary
                                             sendImmediately:(BOOL)immediately;
 
+/**
+ Creates and returns a singleton crash controller instance with the given API key, user dictionary and option whether to
+ send crash reports immediately or not. If a singleton has already been created, this method has no effect.
+ 
+ @warning This is the designated initializer.
+ 
+ @param APIKey The BugSense API key
+ 
+ @param endpointURL The endpoint URL that points to the BugSense server location
+ 
+ @param userDictionary A dictionary containing custom, user-defined data.
+ 
+ @param immediately A value indicating whether the reports should be sent immediately to the service (if YES) or
+ on relaunch (if NO).
+ 
+ @return A new singleton crash controller with the given values, or an existing controller with no changes to it (has
+ the values of its original call).
+ */
++ (BugSenseController *) sharedControllerWithBugSenseAPIKey:(NSString *)APIKey
+                                                endpointURL:(NSString *)endpointURL
+                                             userDictionary:(NSDictionary *)userDictionary
+                                            sendImmediately:(BOOL)immediately;
+
 /** @name Getting the shared controller instance */
 
 /**
@@ -159,6 +182,13 @@ OBJC_EXPORT @interface BugSenseController : NSObject <UIAlertViewDelegate>
  */
 + (void) setFixNotificationsTitle:(NSString *)title message:(NSString *)message;
 
+/**
+ Sets a string for identifying the user.
+ 
+ @param identifier the string identifying the user.
+ */
++ (void)setUserIdentifier:(NSString *)identifier;
+
 /** @name Logging exceptions */
 
 /**
@@ -202,7 +232,37 @@ OBJC_EXPORT @interface BugSenseController : NSObject <UIAlertViewDelegate>
 
 + (NSString *)apiKey;
 + (NSString *)endpointURL;
++ (NSString *)userIdentifier;
 
 + (BOOL) usesProxy;
+
+/** @name Crash on Last Run functions */
+
+/**
+ Returns the id of the last crash that was sent to the BugSense servers.
+ 
+ @return A long integer identifying the crash.
+  
+ */
++ (long)lastCrashId;
+
+/**
+ Returns the number of crashes that the user has experienced since the last reset.
+ 
+ @return The number of crashes.
+ 
+ */
++ (int)crashCount;
+
+/**
+ Resets the number of crashes that the user has experienced to zero.
+  
+ @return A boolean indicating whether the number of crashes was successfully reset to zero.
+ 
+ */
++ (BOOL)resetCrashCount;
+
+typedef void (^ OperationsCompletionBlock)();
++ (void)setErrorNetworkOperationsCompletionBlock:(OperationsCompletionBlock)block;
 
 @end
