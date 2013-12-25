@@ -82,7 +82,7 @@ static AdManager *theAdManager;
 }
 
 - (void)dealloc {
-    [self _releaseAd:_bannerView];
+    [self _releaseAdView];
 }
 
 /**
@@ -120,7 +120,7 @@ static AdManager *theAdManager;
     if (_delegate == nil) return; // デタッチ状態
 
     if (_bannerView == nil) {
-        _bannerView = [self _createAd];
+        [self _createAdView];
         _bannerView.rootViewController = _rootViewController;
     }
     
@@ -176,9 +176,9 @@ static AdManager *theAdManager;
 /**
  * 広告作成
  */
-- (AdMobView *)_createAd
+- (void)_createAdView
 {
-    NSLog(@"create Ad");
+    NSLog(@"create Ad view");
     
     //GADAdSize gadSize = kGADAdSizeBanner;
     _adSize = GAD_SIZE_320x50;
@@ -201,21 +201,21 @@ static AdManager *theAdManager;
 
     // まだリクエストは発行しない
 
-    return view;
+    _bannerView = view;
 }
 
 /**
  * 広告解放
  */
-- (void)_releaseAd:(AdMobView *)view
+- (void)_releaseAdView:
 {
-    NSLog(@"release Ad");
+    NSLog(@"release Ad view");
     _isAdLoaded = NO;
 
-    if (view != nil) {
-        view.delegate = nil;
-        view.rootViewController = nil;
-        view = nil;
+    if (_bannerView != nil) {
+        _bannerView.delegate = nil;
+        _bannerView.rootViewController = nil;
+        _bannerView = nil;
     }
 }
 
@@ -246,12 +246,15 @@ static AdManager *theAdManager;
     }
     NSLog(@"%@ : %@", msg, [error localizedDescription]);
     
+    _isAdLoaded = NO;
+
     // workaround for AdMob bugs.
     [_delegate adManager:self removeAd:_bannerView adSize:_adSize];
     _isAdShowing = NO;
 
-    [self _releaseAd:_bannerView];
-    _bannerView = nil;
+    [self _releaseAdView];
+
+    _lastAdRequestDate = nil;
 }
 
 @end
