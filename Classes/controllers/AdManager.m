@@ -37,9 +37,9 @@
  *
  * Note: 広告の状態は以下のとおり
  * 1) View未アタッチ状態 (_bannerView == nil)
- * 2) 広告ロード前 (_isAdMobShowing, _isAdMobBannerLoaded ともに false)
- * 3) 広告ロード済み、未表示 (_isAdMobBannerLoaded が true)
- * 4) 広告表示中 (_isAdMobShowing が true)
+ * 2) 広告ロード前 (_isAdMobShowing, _isAdLoaded ともに false)
+ * 3) 広告ロード済み、未表示 (_isAdLoaded が true)
+ * 4) 広告表示中 (_isAdShowing が true)
  */
 @interface AdManager()
 {
@@ -52,8 +52,11 @@
     // 広告サイズ
     CGSize _adSize;
 
+    // 広告ロード済み状態
+    BOOL _isAdLoaded;
+
+    // 広告表示中状態
     BOOL _isAdShowing;
-    BOOL _isAdBannerLoaded;
 
     // 最後に広告をリクエストした日時
     NSDate *_lastAdRequestDate;
@@ -75,14 +78,11 @@ static AdManager *theAdManager;
 - (id)init
 {
     self = [super init];
-    if (self != nil) {
-        [self _createAd];
-    }
     return self;
 }
 
 - (void)dealloc {
-    [self _releaseAd];
+    [self _releaseAd:_bannerView];
 }
 
 /**
@@ -100,8 +100,16 @@ static AdManager *theAdManager;
     _delegate = nil;
     _rootViewController = nil;
     
-    _bannerView.rootViewController = nil; // TODO これ大丈夫？
-    [_bannerView removeFromSuperview];
+    // 広告を root view から抜く
+    if (_bannerView != nil) {
+        _bannerView.rootViewController = nil; // TODO これ大丈夫？
+        [_bannerView removeFromSuperview];
+    }
+    _isAdShowing = NO;
+
+    // view controller からデタッチされた場合、
+    // 次回は必ずリロードする
+    _lastAdRequestDate = nil;
 }
 
 /**
@@ -109,18 +117,18 @@ static AdManager *theAdManager;
  */
 - (void)showAd
 {
-    if (_delegate == nil) return;
+    if (_delegate == nil) return; // デタッチ状態
 
     if (_bannerView == nil) {
-        [self _createAd];
+        _bannerView = [self _createAd];
+        _bannerView.rootViewController = _rootViewController;
     }
-    _bannerView.rootViewController = _rootViewController;
     
     BOOL forceRequest = NO;
     
     if (!_isAdShowing) {
         // 広告未表示の場合
-        if (_isAdBannerLoaded) {
+        if (_isAdLoaded) {
             // ロード済みの場合、表示する
             NSLog(@"showAd: show loaded ad");
             [_delegate adManager:self showAd:_bannerView adSize:_adSize];
@@ -168,7 +176,7 @@ static AdManager *theAdManager;
 /**
  * 広告作成
  */
-- (void)_createAd
+- (AdMobView *)_createAd
 {
     NSLog(@"create Ad");
     
@@ -183,29 +191,31 @@ static AdManager *theAdManager;
     }
     */
 
-    _bannerView = [[AdMobView alloc] initWithFrame:gadSize];
-    _bannerView.delegate = self;
+    AdMobView *view = [[AdMobView alloc] initWithFrame:gadSize];
+    view.delegate = self;
     
     NSLog(@"AdUnit = %@", ADUNIT_ID);
-    _bannerView.adUnitID = ADUNIT_ID;
-    _bannerView.rootViewController = nil; // この時点では不明
-    _bannerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    view.adUnitID = ADUNIT_ID;
+    view.rootViewController = nil; // この時点では不明
+    view.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 
     // まだリクエストは発行しない
+
+    return view;
 }
 
 /**
  * 広告解放
  */
-- (void)_releaseAd
+- (void)_releaseAd:(AdMobView *)view
 {
     NSLog(@"release Ad");
-    _isAdBannerLoaded = NO;
+    _isAdLoaded = NO;
 
-    if (_bannerView != nil) {
-        _bannerView.delegate = nil;
-        _bannerView.rootViewController = nil;
-        _bannerView = nil;
+    if (view != nil) {
+        view.delegate = nil;
+        view.rootViewController = nil;
+        view = nil;
     }
 }
 
@@ -214,7 +224,7 @@ static AdManager *theAdManager;
 - (void)adViewDidReceiveAd:(GADBannerView *)view
 {
     NSLog(@"Ad loaded");
-    _isAdBannerLoaded = YES;
+    _isAdLoaded = YES;
     
     if (_delegate != nil && !_isAdShowing) {
         _isAdShowing = YES;
@@ -225,6 +235,8 @@ static AdManager *theAdManager;
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
 {
     NSString *msg;
+
+    if (_bannerView == nil) return;
     
     if (_bannerView.hasAutoRefreshed) {
         // auto refresh failed, but previous ad is effective.    
@@ -237,7 +249,9 @@ static AdManager *theAdManager;
     // workaround for AdMob bugs.
     [_delegate adManager:self removeAd:_bannerView adSize:_adSize];
     _isAdShowing = NO;
-    [self _releaseAd];
+
+    [self _releaseAd:_bannerView];
+    _bannerView = nil;
 }
 
 @end
