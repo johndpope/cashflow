@@ -178,7 +178,7 @@
     
 #if FREE_VERSION
     // 表示開始
-    [_adManager showAd];
+    [_adManager requestShowAd];
 #endif
 }
 

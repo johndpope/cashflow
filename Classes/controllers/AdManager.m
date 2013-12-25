@@ -113,9 +113,9 @@ static AdManager *theAdManager;
 }
 
 /**
- * 広告を表示する
+ * 広告を表示を要求する
  */
-- (void)showAd
+- (void)requestShowAd
 {
     if (_delegate == nil) return; // デタッチ状態
 
