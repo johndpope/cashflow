@@ -209,7 +209,7 @@ static AdManager *theAdManager;
 /**
  * 広告解放
  */
-- (void)_releaseAdView:
+- (void)_releaseAdView
 {
     NSLog(@"release Ad view");
     _isAdLoaded = NO;
