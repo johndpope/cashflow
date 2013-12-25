@@ -137,3 +137,4 @@
 "unlicensed_dialog_body" = "アプリケーションはライセンスされていません。Google Play で購入してください。";
 "buy_button" = "購入";
 "quit_button" = "終了";
+"You can not cancel this operation." = "この操作は取り消すことができませんがよろしいですか？";

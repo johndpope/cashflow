@@ -12,23 +12,9 @@
 
 @implementation ReportCatCell
 {
-    IBOutlet UILabel *mNameLabel;
-    IBOutlet UILabel *mValueLabel;
-    IBOutlet UIView *mGraphView;
-}
-
-+ (ReportCatCell *)reportCatCell:(UITableView *)tableView
-{
-    NSString *identifier = @"ReportCatCell";
-
-    ReportCatCell *cell = (ReportCatCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        NSArray *ary = [[NSBundle mainBundle] loadNibNamed:@"ReportCatCell" owner:nil options:nil];
-        cell = (ReportCatCell *)ary[0];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    return cell;
+    IBOutlet UILabel *_nameLabel;
+    IBOutlet UILabel *_valueLabel;
+    IBOutlet UIView *_graphView;
 }
 
 + (CGFloat)cellHeight
@@ -40,12 +26,12 @@
 
 - (NSString *)name
 {
-    return mNameLabel.text;
+    return _nameLabel.text;
 }
 
 - (void)setName:(NSString *)name
 {
-    mNameLabel.text = name;
+    _nameLabel.text = name;
 }
 
 - (void)setValue:(double)value maxValue:(double)maxValue
@@ -55,15 +41,15 @@
     if (ratio < 0) ratio = -ratio; // fail safe...
     if (ratio > 1.0) ratio = 1.0;
     
-    mValueLabel.text = [NSString stringWithFormat:@"%@ (%.1f%%)",
+    _valueLabel.text = [NSString stringWithFormat:@"%@ (%.1f%%)",
                         [CurrencyManager formatCurrency:value],
                         ratio * 100.0, nil];
     if (value >= 0) {
-        mValueLabel.textColor = [UIColor blackColor];
-        mGraphView.backgroundColor = [UIColor blueColor];
+        _valueLabel.textColor = [UIColor blackColor];
+        _graphView.backgroundColor = [UIColor blueColor];
     } else {
-        mValueLabel.textColor = [UIColor blackColor];
-        mGraphView.backgroundColor = [UIColor redColor];        
+        _valueLabel.textColor = [UIColor blackColor];
+        _graphView.backgroundColor = [UIColor redColor];        
     }
 
     int fullWidth;
@@ -75,14 +61,14 @@
 
     int width = fullWidth * ratio + 1;
 
-    CGRect frame = mGraphView.frame;
+    CGRect frame = _graphView.frame;
     frame.size.width = width;
-    mGraphView.frame = frame;
+    _graphView.frame = frame;
 }
 
 - (void)setGraphColor:(UIColor *)color
 {
-    mGraphView.backgroundColor = color;
+    _graphView.backgroundColor = color;
 }
 
 @end

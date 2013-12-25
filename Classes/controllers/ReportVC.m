@@ -11,49 +11,43 @@
 #import "ReportCell.h"
 #import "Config.h"
 
-@interface ReportViewController()
-- (IBAction)setReportDaily:(id)sender;
-- (IBAction)setReportWeekly:(id)sender;
-- (IBAction)setReportMonthly:(id)sender;
-- (IBAction)setReportAnnual:(id)sender;
-
-- (void)doneAction:(id)sender;
-- (void)_updateReport;
-- (NSString *)_reportTitle:(ReportEntry *)report;
-@end
-
 @implementation ReportViewController
 {
-    IBOutlet UITableView *mTableView;
+    IBOutlet UITableView *_tableView;
     
-    int mType;
-    Asset *mDesignatedAsset;
-    Report *mReports;
-    double mMaxAbsValue;
+    int _type;
+    Report *_reports;
+    double _maxAbsValue;
     
-    NSDateFormatter *mDateFormatter;
+    ReportEntry *_showingReportEntry; // 表示中のエントリ
+    
+    NSDateFormatter *_dateFormatter;
 }
 
-@synthesize tableView = mTableView;
-@synthesize designatedAsset = mDesignatedAsset;
-
-- (id)initWithAsset:(Asset*)asset type:(int)type
++ (ReportViewController *)instantiate
 {
-    self = [super initWithNibName:@"ReportView" bundle:nil];
-    if (self != nil) {
-        self.designatedAsset = asset;
+    return [[UIStoryboard storyboardWithName:@"ReportView" bundle:nil] instantiateInitialViewController];
+}
 
-        mType = type;
-
-        mDateFormatter = [[NSDateFormatter alloc] init];
-        [self _updateReport];
-    }
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    _dateFormatter = [NSDateFormatter new];
     return self;
 }
 
-- (id)initWithAsset:(Asset*)asset
+- (void)setAsset:(Asset*)asset type:(int)type
 {
-    return [self initWithAsset:asset type:-1];
+    self.designatedAsset = asset;
+
+    _type = type;
+
+    [self _updateReport];
+}
+
+- (void)setAsset:(Asset*)asset
+{
+    [self setAsset:asset type:-1];
 }
 
 - (void)viewDidLoad
@@ -70,7 +64,7 @@
 
 - (void)doneAction:(id)sender
 {
-    [self.navigationController dismissModalViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,46 +79,46 @@
 {
     // レポート種別を設定から読み込む
     Config *config = [Config instance];
-    if (mType < 0) {
-        mType = config.lastReportType;
+    if (_type < 0) {
+        _type = config.lastReportType;
     }
 
-    switch (mType) {
+    switch (_type) {
         default:
-            mType = REPORT_DAILY;
+            _type = REPORT_DAILY;
             // FALLTHROUGH
         case REPORT_DAILY:
             self.title = _L(@"Daily Report");
-            [mDateFormatter setDateFormat:@"yyyy/MM/dd"];
+            [_dateFormatter setDateFormat:@"yyyy/MM/dd"];
             break;
 
         case REPORT_WEEKLY:
             self.title = _L(@"Weekly Report");
-            [mDateFormatter setDateFormat:@"yyyy/MM/dd~"];
+            [_dateFormatter setDateFormat:@"yyyy/MM/dd~"];
             break;
 
         case REPORT_MONTHLY:
             self.title = _L(@"Monthly Report");
             //[dateFormatter setDateFormat:@"yyyy/MM"];
-            [mDateFormatter setDateFormat:@"~yyyy/MM/dd"];
+            [_dateFormatter setDateFormat:@"~yyyy/MM/dd"];
             break;
 
         case REPORT_ANNUAL:
             self.title = _L(@"Annual Report");
-            [mDateFormatter setDateFormat:@"yyyy"];
+            [_dateFormatter setDateFormat:@"yyyy"];
             break;
     }
 
     // 設定保存
-    config.lastReportType = mType;
+    config.lastReportType = _type;
     [config save];
 
     // レポート生成
-    if (mReports == nil) {
-        mReports = [[Report alloc] init];
+    if (_reports == nil) {
+        _reports = [Report new];
     }
-    [mReports generate:mType asset:mDesignatedAsset];
-    mMaxAbsValue = [mReports getMaxAbsValue];
+    [_reports generate:_type asset:_designatedAsset];
+    _maxAbsValue = [_reports getMaxAbsValue];
 
     [self.tableView reloadData];
 }
@@ -132,7 +126,7 @@
 // レポートのタイトルを得る
 - (NSString *)_reportTitle:(ReportEntry *)report
 {
-    if (mReports.type == REPORT_MONTHLY) {
+    if (_reports.type == REPORT_MONTHLY) {
         // 終了日の時刻の１分前の時刻から年月を得る
         //
         // 1) 締め日が月末の場合、endDate は翌月1日0:00を指しているので、
@@ -140,9 +134,9 @@
         // 2) 締め日が任意の日、例えば25日の場合、endDate は当月25日を
         //    指している。そのまま年月を得る。
         NSDate *d = [report.end dateByAddingTimeInterval:-60];
-        return [mDateFormatter stringFromDate:d];
+        return [_dateFormatter stringFromDate:d];
     } else {
-        return [mDateFormatter stringFromDate:report.start];
+        return [_dateFormatter stringFromDate:report.start];
     }
 }
 
@@ -150,25 +144,25 @@
 
 - (IBAction)setReportDaily:(id)sender
 {
-    mType = REPORT_DAILY;
+    _type = REPORT_DAILY;
     [self _updateReport];
 }
 
 - (IBAction)setReportWeekly:(id)sender;
 {
-    mType = REPORT_WEEKLY;
+    _type = REPORT_WEEKLY;
     [self _updateReport];
 }
 
 - (IBAction)setReportMonthly:(id)sender;
 {
-    mType = REPORT_MONTHLY;
+    _type = REPORT_MONTHLY;
     [self _updateReport];
 }
 
 - (IBAction)setReportAnnual:(id)sender;
 {
-    mType = REPORT_ANNUAL;
+    _type = REPORT_ANNUAL;
     [self _updateReport];
 }
 
@@ -179,7 +173,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [mReports.reportEntries count];
+    return [_reports.reportEntries count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -189,14 +183,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int count = [mReports.reportEntries count];
-    ReportEntry *report = (mReports.reportEntries)[count - indexPath.row - 1];
+    int count = [_reports.reportEntries count];
+    ReportEntry *report = (_reports.reportEntries)[count - indexPath.row - 1];
 	
-    ReportCell *cell = [ReportCell reportCell:tv];
+    ReportCell *cell = (ReportCell*)[tv dequeueReusableCellWithIdentifier:@"ReportCell"];
     cell.name = [self _reportTitle:report];
     cell.income = report.totalIncome;
     cell.outgo = report.totalOutgo;
-    cell.maxAbsValue = mMaxAbsValue;
+    cell.maxAbsValue = _maxAbsValue;
     [cell updateGraph];
 
     return cell;
@@ -206,13 +200,18 @@
 {
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 	
-    int count = [mReports.reportEntries count];
-    ReportEntry *re = (mReports.reportEntries)[count - indexPath.row - 1];
+    int count = [_reports.reportEntries count];
+    _showingReportEntry = (_reports.reportEntries)[count - indexPath.row - 1];
 
-    CatReportViewController *vc = [[CatReportViewController alloc] init];
-    vc.title = [self _reportTitle:re];
-    vc.reportEntry = re;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self performSegueWithIdentifier:@"show" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CatReportViewController *vc = [segue destinationViewController];
+    
+    vc.title = [self _reportTitle:_showingReportEntry];
+    vc.reportEntry = _showingReportEntry;
 }
 
 

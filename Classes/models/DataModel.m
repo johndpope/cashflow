@@ -20,13 +20,8 @@
 
 @implementation DataModel
 {
-    id<DataModelDelegate> mDelegate;
+    id<DataModelDelegate> _delegate;
 }
-
-@synthesize journal = mJournal;
-@synthesize ledger = mLedger;
-@synthesize categories = mCategories;
-@synthesize isLoadDone = mIsLoadDone;
 
 static DataModel *theDataModel = nil;
 
@@ -57,10 +52,10 @@ static NSString *theDbName = DBNAME;
 {
     self = [super init];
 
-    mJournal = [[Journal alloc] init];
-    mLedger = [[Ledger alloc] init];
-    mCategories = [[Categories alloc] init];
-    mIsLoadDone = NO;
+    _journal = [Journal new];
+    _ledger = [Ledger new];
+    _categories = [Categories new];
+    _isLoadDone = NO;
 	
     return self;
 }
@@ -83,8 +78,8 @@ static NSString *theDbName = DBNAME;
 
 - (void)startLoad:(id<DataModelDelegate>)delegate
 {
-    mDelegate = delegate;
-    mIsLoadDone = NO;
+    _delegate = delegate;
+    _isLoadDone = NO;
     
     NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(loadThread:) object:nil];
     [thread start];
@@ -96,9 +91,9 @@ static NSString *theDbName = DBNAME;
 
         [self load];
         
-        mIsLoadDone = YES;
-        if (mDelegate) {
-            [mDelegate dataModelLoaded];
+        _isLoadDone = YES;
+        if (_delegate) {
+            [_delegate dataModelLoaded];
         }
     
     }
@@ -121,14 +116,14 @@ static NSString *theDbName = DBNAME;
     [DescLRUManager migrate];
 	
     // Load all transactions
-    [mJournal reload];
+    [_journal reload];
 
     // Load ledger
-    [mLedger load];
-    [mLedger rebuild];
+    [_ledger load];
+    [_ledger rebuild];
 
     // Load categories
-    [mCategories reload];
+    [_categories reload];
 }
 
 ////////////////////////////////////////////////////////////////////////////
@@ -167,7 +162,7 @@ static NSString *theDbName = DBNAME;
 
 + (NSDateFormatter *)dateFormatter:(NSDateFormatterStyle)timeStyle withDayOfWeek:(BOOL)withDayOfWeek
 {
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    NSDateFormatter *df = [NSDateFormatter new];
     [df setDateStyle:NSDateFormatterMediumStyle];
     [df setTimeStyle:timeStyle];
     

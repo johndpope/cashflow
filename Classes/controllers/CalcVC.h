@@ -35,4 +35,6 @@ typedef enum {
 @property(nonatomic,unsafe_unretained) id<CalculatorViewDelegate> delegate;
 @property(nonatomic,assign) double value;
 
++ (CalculatorViewController *)instantiate;
+
 @end

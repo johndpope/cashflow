@@ -20,13 +20,6 @@
 #define BACKUP_DIR      @"/"
 #define BACKUP_FULLPATH BACKUP_DIR BACKUP_FILENAME
 
-@interface DropboxBackup()
-- (void)_login:(UIViewController *)vc;
-- (void)_exec;
-- (void)_showResult:(NSString *)message;
-- (void)_uploadBackupWithParentRev:(NSString *)rev;
-@end
-
 @implementation DropboxBackup
 {
     id<DropboxBackupDelegate> mDelegate;

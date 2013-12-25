@@ -21,7 +21,7 @@
 - (void)setImage:(UIImage*)image;
 - (void)setOrientation:(UIInterfaceOrientation)orientation;
 
-- (void)show;
+- (void)show:(UIView *)parent;
 - (void)dismissAnimated:(BOOL)animated;
 
 @end

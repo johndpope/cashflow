@@ -10,15 +10,7 @@
 #import "Config.h"
 #import "DescLRUManager.h"
 
-@interface Transaction ()
-@end
-
 @implementation Transaction
-{
-}
-
-@synthesize hasBalance = mHasBalance;
-@synthesize balance = mBalance;
 
 /*
  */
@@ -75,7 +67,7 @@
 
 - (id)copyWithZone:(NSZone*)zone
 {
-    Transaction *n = [[Transaction alloc] init];
+    Transaction *n = [Transaction new];
     n.pid = self.pid;
     n.asset = self.asset;
     n.dstAsset = self.dstAsset;

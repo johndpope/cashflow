@@ -9,16 +9,6 @@
 #import "AppDelegate.h"
 #import "ExportServer.h"
 
-@interface ExportOfx()
-// private
-- (void)_statementTransactionResponse:(NSMutableString *)data asset:(Asset *)asset;
-- (NSString*)_typeStringWithAssetEntry:(AssetEntry*)e;
-- (NSString*)_dateStr:(NSDate*)date;
-- (NSString*)_dateStrWithAssetEntry:(AssetEntry*)e;
-- (NSString*)_fitIdWithAssetEntry:(AssetEntry*)e;
-- (NSString*)_escapeXmlString:(NSString *)s;
-@end
-
 @implementation ExportOfx
 {
     NSDateFormatter *mDateFormatter;
@@ -224,7 +214,7 @@
 {
     if (mGregCalendar == nil) {
         mGregCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        mDateFormatter = [[NSDateFormatter alloc] init];
+        mDateFormatter = [NSDateFormatter new];
     }
     NSTimeZone *tz = [mDateFormatter timeZone];
 			  
@@ -252,7 +242,7 @@
  */
 - (NSString *)_escapeXmlString:(NSString *)s
 {
-    NSMutableString *str = [[NSMutableString alloc] init];
+    NSMutableString *str = [NSMutableString new];
     [str setString:s];
     REPLACE(@"&", @"&amp;");
     REPLACE(@"<", @"&lt;");

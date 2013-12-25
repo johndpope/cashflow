@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="cJB-kX-sln">
+    <dependencies>
+        <deployment version="1296" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="ztK-sR-0AX">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="cJB-kX-sln" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o5Y-ho-Mgx">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Qe5-Y0-Ql3" kind="relationship" relationship="rootViewController" id="pm5-di-r8N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TIR-Oy-naa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15" y="1"/>
+        </scene>
+        <!--ExportVC-->
+        <scene sceneID="njm-fp-dtO">
+            <objects>
+                <viewController id="Qe5-Y0-Ql3" customClass="ExportVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WkC-nb-3DI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="8iI-ib-cgf">
+                                <rect key="frame" x="20" y="212" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="7 days"/>
+                                    <segment title="30 days"/>
+                                    <segment title="90 days"/>
+                                    <segment title="All"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="H9l-pS-SiR">
+                                <rect key="frame" x="20" y="119" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="CSV"/>
+                                    <segment title="OFX"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Export method:" lineBreakMode="tailTruncation" minimumFontSize="10" id="e5x-iA-iKS">
+                                <rect key="frame" x="20" y="275" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Data format:" lineBreakMode="tailTruncation" minimumFontSize="10" id="qEt-o6-4bM">
+                                <rect key="frame" x="20" y="89" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6fj-8k-8Yr">
+                                <rect key="frame" x="20" y="402" width="280" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Export"/>
+                                <state key="disabled" title="Export">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" title="Export">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="Export">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doExport" destination="Qe5-Y0-Ql3" eventType="touchUpInside" id="Ted-dI-Pvg"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="hqr-fd-PUb">
+                                <rect key="frame" x="20" y="305" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Mail"/>
+                                    <segment title="Dropbox"/>
+                                    <segment title="Web"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Export data within:" lineBreakMode="tailTruncation" minimumFontSize="10" id="X1z-cA-hOi">
+                                <rect key="frame" x="20" y="182" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yav-k0-JCG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uY6-OI-eLj">
+                            <connections>
+                                <action selector="doneAction:" destination="Qe5-Y0-Ql3" id="IlA-Lz-XPm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="_exportButton" destination="6fj-8k-8Yr" id="Zm5-O4-qMD"/>
+                        <outlet property="_formatControl" destination="H9l-pS-SiR" id="ajL-FN-5jX"/>
+                        <outlet property="_formatLabel" destination="qEt-o6-4bM" id="1Br-GP-hsZ"/>
+                        <outlet property="_methodControl" destination="hqr-fd-PUb" id="l4F-CA-mEb"/>
+                        <outlet property="_methodLabel" destination="e5x-iA-iKS" id="uuZ-Lh-f4H"/>
+                        <outlet property="_rangeControl" destination="8iI-ib-cgf" id="jkI-Aw-xX0"/>
+                        <outlet property="_rangeLabel" destination="X1z-cA-hOi" id="DSF-eo-uOj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ar-eh-RT2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="510" y="3"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

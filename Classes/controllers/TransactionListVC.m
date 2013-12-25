@@ -21,51 +21,50 @@
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,readonly) Asset *asset;
 
-- (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath;
-- (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath;
-
-- (void)updateBalance;
-- (void)addTransaction;
+@property (nonatomic) NSMutableArray *searchResults;
 
 - (IBAction)showReport:(id)sender;
 - (IBAction)doAction:(id)sender;
-//- (IBAction)showHelp:(id)sender;
-- (void)_dismissPopover;
+
 @end
 
 @implementation TransactionListViewController
 {
-    IBOutlet UITableView *mTableView;
-    IBOutlet UIBarButtonItem *mBarBalanceLabel;
-    IBOutlet UIBarButtonItem *mBarActionButton;
-    IBOutlet UIToolbar *mToolbar;
+    IBOutlet UITableView *_tableView;
+    IBOutlet UIBarButtonItem *_barBalanceLabel;
+    IBOutlet UIBarButtonItem *_barActionButton;
+    IBOutlet UIToolbar *_toolbar;
     
-    int mAssetKey;
-    //Asset *mAssetCache;
+    int _assetKey;
+    int _tappedIndex;
     
 #if FREE_VERSION
-    AdManager *mAdManager;
+    AdManager *_adManager;
+    BOOL _isAdShowing;
 #endif
     
-    BOOL mAsDisplaying;
-    UIPopoverController *mPopoverController;
+    BOOL _asDisplaying;
+    UIPopoverController *_popoverController;
 }
 
-@synthesize tableView = mTableView;
-@synthesize assetKey = mAssetKey;
-
-- (id)init
++ (TransactionListViewController *)instantiate
 {
-    self = [super initWithNibName:@"TransactionListView" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"TransactionListView" bundle:nil];
+    return [sb instantiateInitialViewController];
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
     if (self) {
-        mAssetKey = -1;
+        _assetKey = -1;
     }
     return self;
 }
 
 - (Asset *)asset
 {
-    if (mAssetKey < 0) {
+    if (_assetKey < 0) {
         return nil;
     }
     
@@ -77,7 +76,7 @@
     mAssetCache = [[[DataModel instance] ledger] assetWithKey:mAssetKey];
     return mAssetCache;
 #endif
-    return  [[[DataModel instance] ledger] assetWithKey:mAssetKey];
+    return  [[[DataModel instance] ledger] assetWithKey:_assetKey];
 }
 
 - (void)viewDidLoad
@@ -108,11 +107,12 @@
     // TBD
     //self.navigationItem.leftBarButtonItem = [self editButtonItem];
 	
-    mAsDisplaying = NO;
+    _asDisplaying = NO;
 
 #if FREE_VERSION
-    mAdManager = [AdManager sharedInstance];
-    [mAdManager attach:self rootViewController:self];
+    _isAdShowing = NO;
+    _adManager = [AdManager sharedInstance];
+    [_adManager attach:self rootViewController:self];
 #endif
 }
 
@@ -122,7 +122,7 @@
     [super viewDidUnload];
 
 #if FREE_VERSION
-    [mAdManager detach];
+    [_adManager detach];
 #endif
 }
 
@@ -133,7 +133,7 @@
 - (void)dealloc {
     
 #if FREE_VERSION
-    [mAdManager detach];
+    [_adManager detach];
 #endif
     
 }
@@ -143,23 +143,29 @@
     self.title = self.asset.name;
     [self updateBalance];
     [self.tableView reloadData];
-
+    
+    // 検索中
+    if (self.searchDisplayController.isActive) {
+        [self updateSearchResultWithDesc:self.searchDisplayController.searchBar.text];
+        [self.searchDisplayController.searchResultsTableView reloadData];
+    }
+    
     [self _dismissPopover];
 }    
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    mPopoverController = nil;
+    _popoverController = nil;
 }
 
 - (void)_dismissPopover
 {
     if (IS_IPAD
-        && mPopoverController != nil
-        && [mPopoverController isPopoverVisible]
-        && mTableView != nil && mTableView.window != nil /* for crash problem */)
+        && _popoverController != nil
+        && [_popoverController isPopoverVisible]
+        && _tableView != nil && _tableView.window != nil /* for crash problem */)
     {
-        [mPopoverController dismissPopoverAnimated:YES];
+        [_popoverController dismissPopoverAnimated:YES];
     }
 }
 
@@ -172,18 +178,25 @@
     
 #if FREE_VERSION
     // 表示開始
-    [mAdManager showAd];
+    [_adManager requestShowAd];
 #endif
 }
 
 #if FREE_VERSION
-/**
- * 広告セット(まだ表示はしない)
- */
-- (void)adManager:(AdManager *)adManager setAd:(UIView *)adView adSize:(CGSize)adSize
-{
-    CGRect frame = mTableView.bounds;
 
+/**
+ * 広告表示
+ */
+- (void)adManager:(AdManager *)adManager showAd:(AdMobView *)adView adSize:(CGSize)adSize
+{
+    if (_isAdShowing) {
+        NSLog(@"Ad is already showing!");
+        return;
+    }
+    _isAdShowing = YES;
+    
+    CGRect frame = _tableView.bounds;
+    
     // 広告の位置を画面外に設定
     CGRect aframe = frame;
     aframe.origin.x = (frame.size.width - adSize.width) / 2;
@@ -191,33 +204,23 @@
     aframe.size = adSize;
     
     adView.frame = aframe;
-    adView.hidden = YES;
     [self.view addSubview:adView];
-    [self.view bringSubviewToFront:mToolbar];
-}
-
-/**
- * 広告表示
- */
-- (void)adManager:(AdManager *)adManager showAd:(UIView *)adView adSize:(CGSize)adSize
-{
-    CGRect frame = mTableView.bounds;
-
+    [self.view bringSubviewToFront:_toolbar];
+    
     // 広告領域分だけ、tableView の下部をあける
     CGRect tframe = frame;
     tframe.origin.x = 0;
     tframe.origin.y = 0;
     tframe.size.height -= adSize.height;
-    mTableView.frame = tframe;
+    _tableView.frame = tframe;
 
-    // 広告の位置
-    CGRect aframe = frame;
+    // 表示位置
+    aframe = frame;
     aframe.origin.x = (frame.size.width - adSize.width) / 2;
     aframe.origin.y = frame.size.height - adSize.height;
     aframe.size = adSize;
     
     // 広告をアニメーション表示させる
-    adView.hidden = NO;
     [UIView beginAnimations:@"ShowAd" context:NULL];
     adView.frame = aframe;
     [UIView commitAnimations];
@@ -226,17 +229,21 @@
 /**
  * 広告を隠す
  */
-- (void)adManager:(AdManager *)adManager hideAd:(UIView *)adView adSize:(CGSize)adSize
+- (void)adManager:(AdManager *)adManager removeAd:(UIView *)adView adSize:(CGSize)adSize
 {
-    adView.hidden = YES;
+    if (!_isAdShowing) {
+        NSLog(@"Ad is already removed!");
+        return;
+    }
+    _isAdShowing = NO;
     
-    CGRect frame = mTableView.bounds;
+    CGRect frame = _tableView.bounds;
         
     // tableView のサイズをもとに戻す
     frame.origin.x = 0;
     frame.origin.y = 0;
     frame.size.height += adSize.height;
-    mTableView.frame = frame;
+    _tableView.frame = frame;
     
     // 広告の位置
     CGRect aframe = frame;
@@ -245,11 +252,11 @@
     aframe.size = adSize;
     
     // 広告をアニメーション表示させる
-    adView.hidden = NO;
     [UIView beginAnimations:@"HideAd" context:NULL];
     adView.frame = aframe;
     [UIView commitAnimations];
-    adView.hidden = YES;
+    
+    [adView removeFromSuperview];
 }
 
 #endif
@@ -271,7 +278,7 @@
     tableTitle.text = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), bstr];
 #endif
 	
-    mBarBalanceLabel.title = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), bstr];
+    _barBalanceLabel.title = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), bstr];
     
     if (IS_IPAD) {
         [self.splitAssetListViewController reload];
@@ -291,32 +298,47 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.asset == nil) return 0;
-    
-    int n = [self.asset entryCount] + 1;
+
+    int n;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        n = [self.searchResults count];
+    } else {
+        n = [self.asset entryCount] + 1;
+    }
     return n;
 }
 
 - (CGFloat)tableView:(UITableView *)tv heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return mTableView.rowHeight;
+    return _tableView.rowHeight;
 }
 
 // 指定セル位置に該当する entry Index を返す
-- (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath
+- (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
 {
-    int idx = ([self.asset entryCount] - 1) - indexPath.row;
+    int idx;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        idx = ([self.searchResults count] - 1) - indexPath.row;
+    } else {
+        idx = ([self.asset entryCount] - 1) - indexPath.row;
+    }
     return idx;
 }
 
 // 指定セル位置の Entry を返す
-- (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath
+- (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
 {
-    int idx = [self entryIndexWithIndexPath:indexPath];
+    int idx = [self entryIndexWithIndexPath:indexPath tableView:tableView];
 
     if (idx < 0) {
         return nil;  // initial balance
-    } 
-    AssetEntry *e = [self.asset entryAt:idx];
+    }
+    AssetEntry *e;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        e = [self.searchResults objectAtIndex:idx];
+    } else {
+        e = [self.asset entryAt:idx];
+    }
     return e;
 }
 
@@ -332,7 +354,9 @@
 {
     TransactionCell *cell;
 	
-    AssetEntry *e = [self entryWithIndexPath:indexPath];
+    AssetEntry *e;
+    
+    e = [self entryWithIndexPath:indexPath tableView:tv];
     if (e) {
         cell = [[TransactionCell transactionCell:tv] updateWithAssetEntry:e];
     }
@@ -352,30 +376,44 @@
 {
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 	
-    int idx = [self entryIndexWithIndexPath:indexPath];
+    int idx = [self entryIndexWithIndexPath:indexPath tableView:tv];
     if (idx == -1) {
         // initial balance cell
-        CalculatorViewController *v = [[CalculatorViewController alloc] init];
+        CalculatorViewController *v = [CalculatorViewController instantiate];
         v.delegate = self;
         v.value = self.asset.initialBalance;
 
         UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:v];
         
         if (!IS_IPAD) {
-            [self presentModalViewController:nv animated:YES];
+            [self presentViewController:nv animated:YES completion:NULL];
         } else {
             [self _dismissPopover];
-            mPopoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
-            mPopoverController.delegate = self;
-            [mPopoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
+            _popoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
+            _popoverController.delegate = self;
+            [_popoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
     } else if (idx >= 0) {
         // transaction view を表示
-        TransactionViewController *vc = [[TransactionViewController alloc] init];
+        if (tv == self.searchDisplayController.searchResultsTableView) {
+            AssetEntry *e = [self.searchResults objectAtIndex:idx];
+            _tappedIndex = e.originalIndex;
+        } else {
+            _tappedIndex = idx;
+        }
+        
+        [self performSegueWithIdentifier:@"show" sender:self];
+    }
+}
+
+// 画面遷移
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"show"]) {
+        TransactionViewController *vc = [segue destinationViewController];
         vc.asset = self.asset;
-        [vc setTransactionIndex:idx];
-        [self.navigationController pushViewController:vc animated:YES];
+        [vc setTransactionIndex:_tappedIndex];
     }
 }
 
@@ -395,11 +433,9 @@
         [AssetListViewController noAssetAlert];
         return;
     }
-    
-    TransactionViewController *vc = [[TransactionViewController alloc] init];
-    vc.asset = self.asset;
-    [vc setTransactionIndex:-1];
-    [self.navigationController pushViewController:vc animated:YES];
+            
+    _tappedIndex = -1;
+    [self performSegueWithIdentifier:@"show" sender:self];
 }
 
 // Editボタン処理
@@ -410,7 +446,7 @@
     [super setEditing:editing animated:animated];
 	
     // tableView に通知
-    [mTableView setEditing:editing animated:animated];
+    [_tableView setEditing:editing animated:animated];
 	
     if (editing) {
         self.navigationItem.rightBarButtonItem.enabled = NO;
@@ -422,7 +458,7 @@
 // 編集スタイルを返す
 - (UITableViewCellEditingStyle)tableView:(UITableView*)tv editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int entryIndex = [self entryIndexWithIndexPath:indexPath];
+    int entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
     if (entryIndex < 0) {
         return UITableViewCellEditingStyleNone;
     } 
@@ -432,19 +468,29 @@
 // 削除処理
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)style forRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    int entryIndex = [self entryIndexWithIndexPath:indexPath];
+    int entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
 
     if (entryIndex < 0) {
         // initial balance cell : do not delete!
         return;
     }
-	
+
     if (style == UITableViewCellEditingStyleDelete) {
-        [self.asset deleteEntryAt:entryIndex];
-	
-        [tv deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        if (tv == self.searchDisplayController.searchResultsTableView) {
+            AssetEntry *e = [self.searchResults objectAtIndex:entryIndex];
+            [self.asset deleteEntryAt:e.originalIndex];
+            
+            // 検索結果一覧を更新する
+            [self updateSearchResultWithDesc:self.searchDisplayController.searchBar.text];
+        } else {
+            [self.asset deleteEntryAt:entryIndex];
+        }
+
+        // 残高再計算
         [self updateBalance];
-        [mTableView reloadData];
+        
+        [tv deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tv reloadData];
     }
 
     if (IS_IPAD) {
@@ -455,7 +501,8 @@
 #pragma mark Show Report
 - (void)showReport:(id)sender
 {
-    ReportViewController *reportVC = [[ReportViewController alloc] initWithAsset:self.asset];
+    ReportViewController *reportVC = [ReportViewController instantiate];
+    [reportVC setAsset:self.asset];
 
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:reportVC];
     if (IS_IPAD) {
@@ -463,7 +510,7 @@
     }
     
     //[self.navigationController pushViewController:vc animated:YES];
-    [self.navigationController presentModalViewController:nv animated:YES];
+    [self.navigationController presentViewController:nv animated:YES completion:NULL];
 }
 
 #pragma mark Action sheet handling
@@ -471,12 +518,12 @@
 // action sheet
 - (void)doAction:(id)sender
 {
-    if (mAsDisplaying) return;
-    mAsDisplaying = YES;
+    if (_asDisplaying) return;
+    _asDisplaying = YES;
     
     UIActionSheet *as = 
         [[UIActionSheet alloc]
-         initWithTitle:@"" 
+         initWithTitle:nil
          delegate:self 
          cancelButtonTitle:_L(@"Cancel")
          destructiveButtonTitle:nil otherButtonTitles:
@@ -487,7 +534,7 @@
          _L(@"Info"),
          nil];
     if (IS_IPAD) {
-        [as showFromBarButtonItem:mBarActionButton animated:YES];
+        [as showFromBarButtonItem:_barActionButton animated:YES];
     } else {
         [as showInView:[self view]];
     }
@@ -495,39 +542,36 @@
 
 - (void)actionSheet:(UIActionSheet*)as clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    ExportVC *exportVC;
-    ConfigViewController *configVC;
     InfoVC *infoVC;
     BackupViewController *backupVC;
     
     UIViewController *vc;
     UIModalPresentationStyle modalPresentationStyle = UIModalPresentationFormSheet;
     
-    mAsDisplaying = NO;
+    _asDisplaying = NO;
     
+    UINavigationController *nv = nil;
     switch (buttonIndex) {
         case 0:
-            exportVC = [[ExportVC alloc] initWithAsset:nil];
-            vc = exportVC;
+            nv = [ExportVC instantiate:nil];
             break;
         
         case 1:
-            exportVC = [[ExportVC alloc] initWithAsset:self.asset];
-            vc = exportVC;
+            nv = [ExportVC instantiate:self.asset];
             break;
             
         case 2:
-            backupVC = [BackupViewController backupViewController:self];
-            vc = backupVC;
+            nv = [[UIStoryboard storyboardWithName:@"BackupView" bundle:nil] instantiateInitialViewController];
+            backupVC = (BackupViewController *)nv.topViewController;
+            backupVC.delegate = self;
             break;
             
         case 3:
-            configVC = [[ConfigViewController alloc] init];
-            vc = configVC;
+            nv = [[UIStoryboard storyboardWithName:@"ConfigView" bundle:nil] instantiateInitialViewController];
             break;
             
         case 4:
-            infoVC = [[InfoVC alloc] init];
+            infoVC = [InfoVC new];
             vc = infoVC;
             break;
             
@@ -535,19 +579,21 @@
             return;
     }
 
-    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
+    if (nv == nil) {
+        nv = [[UINavigationController alloc] initWithRootViewController:vc];
+    }
     if (IS_IPAD) {
         nv.modalPresentationStyle = modalPresentationStyle;
     }
     
     //[self.navigationController pushViewController:vc animated:YES];
-    [self.navigationController presentModalViewController:nv animated:YES];
+    [self.navigationController presentViewController:nv animated:YES completion:NULL];
 }
 
 /*
 - (IBAction)showHelp:(id)sender
 {
-    InfoVC *v = [[[InfoVC alloc] init] autorelease];
+    InfoVC *v = [InfoVC new];
     //[self.navigationController pushViewController:v animated:YES];
 
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:v];
@@ -585,7 +631,7 @@
     // が競合してしまう。
     [self _dismissPopover];
     
-    mPopoverController = pc;
+    _popoverController = pc;
 }
 
 
@@ -614,6 +660,60 @@
 {
     if (IS_IPAD) return YES;
     return NO;
+}
+
+#pragma mark - UISearchDisplayController Delegate
+
+// 検索文字列が入力された
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self updateSearchResultWithDesc:searchString];
+    return YES;
+}
+
+#pragma mark - 検索処理
+
+- (void)updateSearchResultWithDesc:(NSString *)searchString
+{
+    BOOL allMatch = FALSE;
+    if (searchString == nil || searchString.length == 0) {
+        allMatch = TRUE;
+    }
+
+    int count = [self.asset entryCount];
+    if (self.searchResults == nil) {
+        self.searchResults = [[NSMutableArray alloc] initWithCapacity:count];
+    } else {
+        [self.searchResults removeAllObjects];
+    }
+
+    NSUInteger searchOptions = NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch;
+
+    for (int i = 0; i < count; i++) {
+        AssetEntry *e = [self.asset entryAt:i];
+        e.originalIndex = i;
+        
+        if (allMatch ) {
+            [self.searchResults addObject:e];
+            continue;
+        }
+        
+        // 文字列マッチ
+        NSString *desc = e.transaction.description;
+        NSRange range = NSMakeRange(0, desc.length);
+        NSRange foundRange = [desc rangeOfString:searchString options:searchOptions range:range];
+        if (foundRange.length > 0) {
+            [self.searchResults addObject:e];
+        }
+    }
+}
+
+- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
+{
+    self.searchResults = nil;
+    
+    // 検索中にデータが変更されるケースがあるので、ここで reload する
+    [_tableView reloadData];
 }
 
 @end

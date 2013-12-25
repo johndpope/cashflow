@@ -21,7 +21,8 @@
 @class AssetListViewController;
 
 @interface TransactionListViewController : UIViewController 
-    <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate, BackupViewDelegate, UIPopoverControllerDelegate
+    <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate, BackupViewDelegate, UIPopoverControllerDelegate,
+        UISearchDisplayDelegate, UISearchBarDelegate
 #if FREE_VERSION
     , AdManagerDelegate
 #endif
@@ -30,6 +31,7 @@
 @property(nonatomic,strong) AssetListViewController *splitAssetListViewController;
 @property(nonatomic,assign) int assetKey;
 
++ (TransactionListViewController *)instantiate;
 - (void)reload;
 
 @end

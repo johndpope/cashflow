@@ -9,12 +9,6 @@
 #import "ExportBase.h"
 #import "AppDelegate.h"
 
-@interface ExportBase()
-- (void)_sendToDropbox;
-- (void)_showResult:(NSString *)message;
-- (NSError *)_getError:(NSString *)domain description:(NSString *)description;
-@end
-
 @implementation ExportBase
 {
     ExportServer *mWebServer;
@@ -23,9 +17,6 @@
     DBRestClient *mRestClient;
     DBLoadingView *mLoadingView;
 }
-
-@synthesize firstDate = mFirstDate;
-@synthesize assets = mAssets;
 
 - (NSString *)mailSubject { return nil; }
 - (NSString *)fileName { return nil; }
@@ -60,19 +51,19 @@
         return NO;
     }
     
-    MFMailComposeViewController *vc = [[MFMailComposeViewController alloc] init];
+    MFMailComposeViewController *vc = [MFMailComposeViewController new];
     vc.mailComposeDelegate = self;
     
     [vc setSubject:[self mailSubject]];
 
     [vc addAttachmentData:data mimeType:[self mimeType] fileName:[self fileName]];
-    [parent presentModalViewController:vc animated:YES];
+    [parent presentViewController:vc animated:YES completion:nil];
     return YES;
 }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
-    [controller dismissModalViewControllerAnimated:YES];
+    [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -90,7 +81,7 @@
     NSString *message = nil;
 
     if (mWebServer == nil) {
-        mWebServer = [[ExportServer alloc] init];
+        mWebServer = [ExportServer new];
     }
     mWebServer.contentBody = contentBody;
     mWebServer.contentType = [self contentType];
@@ -159,12 +150,12 @@
         // ここではエラーにしない。ログインが完了してから再度やり直すように求めるため。
         return YES;
     }
-    [self _sendToDropbox];
+    [self _sendToDropbox:parent.view.window];
 
     return YES;
 }
 
-- (void)_sendToDropbox
+- (void)_sendToDropbox:(UIView *)window
 {
     NSString *srcPath = [[Database instance] dbPath:[self fileName]];
 
@@ -172,7 +163,7 @@
 
     mLoadingView = [[DBLoadingView alloc] initWithTitle:@"Uploading"];
     mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
-    [mLoadingView show];
+    [mLoadingView show:window];
 }
 
 - (DBRestClient *)restClient

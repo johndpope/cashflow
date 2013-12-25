@@ -16,7 +16,7 @@
 
 @property(nonatomic,unsafe_unretained) Asset *asset;
 
++ (UINavigationController *)instantiate:(Asset *)aAsset;
 - (IBAction)doExport;
-- (id)initWithAsset:(Asset *)asset;
 
 @end

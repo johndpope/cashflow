@@ -13,13 +13,8 @@
 #import "ReportCatDetailVC.h"
 
 @implementation CatReportViewController
-
-@synthesize reportEntry = mReportEntry;
-
-- (id)init
 {
-    self = [super initWithNibName:@"SimpleTableView" bundle:nil];
-    return self;
+    CatReport *_selectedCatReport;
 }
 
 - (void)viewDidLoad
@@ -36,7 +31,7 @@
 
 - (void)doneAction:(id)sender
 {
-    [self.navigationController dismissModalViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,16 +53,16 @@
     switch (section) {
         case 0:
             head = _L(@"Outgo");
-            value = mReportEntry.totalOutgo;
+            value = _reportEntry.totalOutgo;
             break;
         case 1:
             head = _L(@"Income");
-            value = mReportEntry.totalIncome;
+            value = _reportEntry.totalIncome;
             break;
             
         case 2:
             head = _L(@"Total");
-            value = mReportEntry.totalOutgo + mReportEntry.totalIncome;
+            value = _reportEntry.totalOutgo + _reportEntry.totalIncome;
             break;
     }
                       
@@ -81,10 +76,10 @@
 
     switch (section) {
         case 0:
-            rows = [mReportEntry.outgoCatReports count];
+            rows = [_reportEntry.outgoCatReports count];
             break;
         case 1:
-            rows = [mReportEntry.incomeCatReports count];
+            rows = [_reportEntry.incomeCatReports count];
             break;
         case 2:
             return 0;
@@ -109,22 +104,22 @@
 {
     if (indexPath.row == 0) {
         /* graph cell */
-        ReportCatGraphCell *cell = [ReportCatGraphCell reportCatGraphCell:tv];
-        [cell setReport:mReportEntry isOutgo:(indexPath.section == 0 ? YES : NO)];
+        ReportCatGraphCell *cell = [tv dequeueReusableCellWithIdentifier:@"ReportCatGraphCell"];
+        [cell setReport:_reportEntry isOutgo:(indexPath.section == 0 ? YES : NO)];
         return cell;
     } else {
-        ReportCatCell *cell = [ReportCatCell reportCatCell:tv];
+        ReportCatCell *cell = [tv dequeueReusableCellWithIdentifier:@"ReportCatCell"];
 
         CatReport *cr = nil;
         switch (indexPath.section) {
             case 0:
-                cr = (mReportEntry.outgoCatReports)[indexPath.row - 1];
-                [cell setValue:-cr.sum maxValue:-mReportEntry.totalOutgo];
+                cr = (_reportEntry.outgoCatReports)[indexPath.row - 1];
+                [cell setValue:-cr.sum maxValue:-_reportEntry.totalOutgo];
                 break;
 
             case 1:
-                cr = (mReportEntry.incomeCatReports)[indexPath.row - 1];
-                [cell setValue:cr.sum maxValue:mReportEntry.totalIncome];
+                cr = (_reportEntry.incomeCatReports)[indexPath.row - 1];
+                [cell setValue:cr.sum maxValue:_reportEntry.totalIncome];
                 break;
         }
         
@@ -144,18 +139,23 @@
     CatReport *cr = nil;
     switch (indexPath.section) {
     case 0:
-        cr = (mReportEntry.outgoCatReports)[indexPath.row - 1];
+        cr = (_reportEntry.outgoCatReports)[indexPath.row - 1];
         break;
     case 1:
-        cr = (mReportEntry.incomeCatReports)[indexPath.row - 1];
+        cr = (_reportEntry.incomeCatReports)[indexPath.row - 1];
         break;
     }
 
-    CatReportDetailViewController *vc = [[CatReportDetailViewController alloc] init];
-    vc.title = [cr title];
-    vc.catReport = cr;
-    
-    [self.navigationController pushViewController:vc animated:YES];
+    _selectedCatReport = cr;
+    [self performSegueWithIdentifier:@"show" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CatReportDetailViewController *vc = [segue destinationViewController];
+
+    vc.title = [_selectedCatReport title];
+    vc.catReport = _selectedCatReport;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

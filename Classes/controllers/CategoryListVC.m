@@ -11,16 +11,6 @@
 #import "GenEditTextVC.h"
 
 @implementation CategoryListViewController
-{
-    BOOL mIsSelectMode;
-    int mSelectedIndex;
-	
-    id<CategoryListViewDelegate> __unsafe_unretained mDelegate;
-}
-
-@synthesize isSelectMode = mIsSelectMode;
-@synthesize selectedIndex = mSelectedIndex;
-@synthesize delegate = mDelegate;
 
 - (id)init
 {
@@ -101,8 +91,8 @@
         cell.textLabel.text = c.name;
     }
 
-    if (mIsSelectMode && !self.editing) {
-        if (indexPath.row == mSelectedIndex) {
+    if (_isSelectMode && !self.editing) {
+        if (indexPath.row == _selectedIndex) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         } else {
             cell.accessoryType = UITableViewCellAccessoryNone;
@@ -121,12 +111,12 @@
 //
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (mIsSelectMode && !self.editing) {
+    if (_isSelectMode && !self.editing) {
         [tv deselectRowAtIndexPath:indexPath animated:NO];
 		
-        mSelectedIndex = indexPath.row;
+        _selectedIndex = indexPath.row;
         ASSERT(delegate);
-        [mDelegate categoryListViewChanged:self];
+        [_delegate categoryListViewChanged:self];
 		
         [self.navigationController popViewControllerAnimated:YES];
         return;

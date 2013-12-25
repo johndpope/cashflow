@@ -7,17 +7,10 @@
 
 #import "CurrencyManager.h"
 
-@interface CurrencyManager()
-- (NSString *)_formatCurrency:(double)value;
-@end
-
 @implementation CurrencyManager
 {
-    NSNumberFormatter *mNumberFormatter;
+    NSNumberFormatter *_numberFormatter;
 }
-
-@synthesize baseCurrency = mBaseCurrency;
-@synthesize currencies = mCurrencies;
 
 /**
  * CurrencyManager のインスタンスを返す
@@ -26,7 +19,7 @@
 {
     static CurrencyManager *theInstance = nil;
     if (theInstance == nil) {
-        theInstance = [[CurrencyManager alloc] init];
+        theInstance = [CurrencyManager new];
     }
     return theInstance;
 }
@@ -37,10 +30,10 @@
 
     NSNumberFormatter *nf;
 
-    nf = [[NSNumberFormatter alloc] init];
+    nf = [NSNumberFormatter new];
     [nf setNumberStyle:NSNumberFormatterCurrencyStyle];
     [nf setLocale:[NSLocale currentLocale]];
-    mNumberFormatter = nf;
+    _numberFormatter = nf;
 
     self.currencies =
         @[@"AED",
@@ -108,15 +101,15 @@
  */
 - (void)setBaseCurrency:(NSString *)currency
 {
-    if (mBaseCurrency != currency) {
-        mBaseCurrency = currency;
+    if (_baseCurrency != currency) {
+        _baseCurrency = currency;
         
         if (currency == nil) {
             currency = [CurrencyManager systemCurrency];
         }
-        [mNumberFormatter setCurrencyCode:currency];
+        [_numberFormatter setCurrencyCode:currency];
         
-        [[NSUserDefaults standardUserDefaults] setObject:mBaseCurrency forKey:@"BaseCurrency"];
+        [[NSUserDefaults standardUserDefaults] setObject:_baseCurrency forKey:@"BaseCurrency"];
     }
 }
 
@@ -131,7 +124,7 @@
 - (NSString *)_formatCurrency:(double)value
 {
     NSNumber *n = @(value);
-    return [mNumberFormatter stringFromNumber:n];
+    return [_numberFormatter stringFromNumber:n];
 }
 
 @end

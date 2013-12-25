@@ -31,8 +31,6 @@
 
 #define UNASSIGNED_PID -1
 
-@synthesize pid = mPid;
-
 - (void)_loadRow:(dbstmt *)stmt
 {
     // you must override this
@@ -43,7 +41,7 @@
 {
     self = [super init];
     if (self != nil) {
-        mPid = UNASSIGNED_PID;
+        _pid = UNASSIGNED_PID;
     }
     return self;
 }
@@ -134,7 +132,7 @@
 */
 - (void)save
 {
-    if (mPid == UNASSIGNED_PID) {
+    if (_pid == UNASSIGNED_PID) {
         [self _insert];
     } else {
         [self _update];

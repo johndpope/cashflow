@@ -12,22 +12,14 @@
 
 @implementation AssetViewController
 {
-    int mAssetIndex;
-    Asset *mAsset;
+    int _assetIndex;
+    Asset *_asset;
 
-    UIButton *mDelButton;
+    UIButton *_delButton;
 }
-
-//@synthesize asset = mAsset;
 
 #define ROW_NAME  0
 #define ROW_TYPE  1
-
-- (id)init
-{
-    self = [super initWithNibName:@"AssetView" bundle:nil];
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -40,39 +32,22 @@
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                   target:self
                                                   action:@selector(saveAction)];
-
-    // ボタン生成
-#if 0
-    UIButton *b;
-    UIImage *bg = [[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
-				
-    b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [b setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [b setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
-	
-    [b setBackgroundImage:bg forState:UIControlStateNormal];
-		
-    [b setFrame:CGRectMake(10, 280, 300, 44)];
-    [b setTitle:_L(@"Delete Asset") forState:UIControlStateNormal];
-    [b addTarget:self action:@selector(delButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    delButton = [b retain];
-#endif
 }
 
 
 // 処理するトランザクションをロードしておく
 - (void)setAssetIndex:(int)n
 {
-    mAssetIndex = n;
+    _assetIndex = n;
 
-    if (mAssetIndex < 0) {
+    if (_assetIndex < 0) {
         // 新規
-        mAsset = [[Asset alloc] init];
-        mAsset.name = @"";
-        mAsset.sorder = 99999;
+        _asset = [Asset new];
+        _asset.name = @"";
+        _asset.sorder = 99999;
     } else {
         // 変更
-        mAsset = [[DataModel ledger] assetAtIndex:mAssetIndex];
+        _asset = [[DataModel ledger] assetAtIndex:_assetIndex];
     }
 }
 
@@ -81,8 +56,8 @@
 {
     [super viewWillAppear:animated];
 	
-    if (mAssetIndex >= 0) {
-        [self.view addSubview:mDelButton];
+    if (_assetIndex >= 0) {
+        [self.view addSubview:_delButton];
     }
 		
     [[self tableView] reloadData];
@@ -98,8 +73,8 @@
 {
     [super viewDidDisappear:animated];
 	
-    if (mAssetIndex >= 0) {
-        [mDelButton removeFromSuperview];
+    if (_assetIndex >= 0) {
+        [_delButton removeFromSuperview];
     }
 }
 
@@ -121,37 +96,16 @@
 // 行の内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    static NSString *MyIdentifier = @"assetViewCells";
+    static NSString *MyIdentifier = @"assetViewCell";
     UILabel *name, *value;
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    /* Storyboard で指定するので不要になった
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:MyIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-        /*
-        name = [[[UILabel alloc] initWithFrame:CGRectMake(0, 6, 160, 32)] autorelease];
-        name.tag = 1;
-        name.font = [UIFont systemFontOfSize: 14.0];
-        name.textColor = [UIColor blueColor];
-        name.backgroundColor = [UIColor clearColor];
-        name.textAlignment = UITextAlignmentRight;
-        name.autoresizingMask = 0; //UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [cell.contentView addSubview:name];
-
-        value = [[[UILabel alloc] initWithFrame:CGRectMake(130, 6, 160, 32)] autorelease];
-        value.tag = 2;
-        value.font = [UIFont systemFontOfSize: 16.0];
-        value.textColor = [UIColor blackColor];
-        value.backgroundColor = [UIColor clearColor];
-        value.autoresizingMask = 0; //UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [cell.contentView addSubview:value];
-         */
-    } else {
-        //name  = (UILabel *)[cell.contentView viewWithTag:1];
-        //value = (UILabel *)[cell.contentView viewWithTag:2];
-    }
+    }*/
 
     name = cell.textLabel;
     value = cell.detailTextLabel;
@@ -159,12 +113,12 @@
     switch (indexPath.row) {
     case ROW_NAME:
         name.text = _L(@"Asset Name");
-        value.text = mAsset.name;
+        value.text = _asset.name;
         break;
 
     case ROW_TYPE:
         name.text = _L(@"Asset Type");
-        value.text = [Asset typeNameWithType:mAsset.type];
+        value.text = [Asset typeNameWithType:_asset.type];
         break;
     }
 
@@ -188,7 +142,7 @@
     switch (indexPath.row) {
     case ROW_NAME:
         ge = [GenEditTextViewController genEditTextViewController:self title:_L(@"Asset Name") identifier:0];
-        ge.text = mAsset.name;
+        ge.text = _asset.name;
         vc = ge;
         break;
 
@@ -198,7 +152,7 @@
                                         items:typeArray 
                                         title:_L(@"Asset Type")
                                         identifier:0];
-        gt.selectedIndex = mAsset.type;
+        gt.selectedIndex = _asset.type;
         vc = gt;
         break;
     }
@@ -211,12 +165,12 @@
 // delegate : 下位 ViewController からの変更通知
 - (void)genEditTextViewChanged:(GenEditTextViewController *)vc identifier:(int)id
 {
-    mAsset.name = vc.text;
+    _asset.name = vc.text;
 }
 
 - (BOOL)genSelectListViewChanged:(GenSelectListViewController *)vc identifier:(int)id
 {
-    mAsset.type = vc.selectedIndex;
+    _asset.type = vc.selectedIndex;
     return YES;
 }
 
@@ -254,12 +208,12 @@
 {
     Ledger *ledger = [DataModel ledger];
 
-    if (mAssetIndex < 0) {
-        [ledger addAsset:mAsset];
+    if (_assetIndex < 0) {
+        [ledger addAsset:_asset];
     } else {
-        [ledger updateAsset:mAsset];
+        [ledger updateAsset:_asset];
     }
-    mAsset = nil;
+    _asset = nil;
 	
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -2,7 +2,7 @@
 
 #import "TestCommon.h"
 
-@interface TransactionTest : SenTestCase {
+@interface TransactionTest : XCTestCase {
     Transaction *transaction;
 }
 @end
@@ -40,7 +40,7 @@
     
     // チェック
     dbstmt *stmt = [db prepare:@"SELECT date FROM Transactions;"];
-    Assert([stmt step] == SQLITE_ROW);
+    XCTAssertEqual(SQLITE_ROW, [stmt step]);
     do {
         NSString *s = [stmt colString:0];
         AssertEqualObjects(@"20090101135600", s);
@@ -50,8 +50,6 @@
 // 最終使用日のテスト
 - (void)testLastUsedDate
 {
-    NSDate *r;
-    
     // 解除
     [Transaction setLastUsedDate:nil];
     AssertFalse([Transaction hasLastUsedDate]);

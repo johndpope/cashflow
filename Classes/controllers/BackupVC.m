@@ -12,42 +12,30 @@
 
 @implementation BackupViewController
 {
-    id<BackupViewDelegate> mDelegate;
+    __weak id<BackupViewDelegate> _delegate;
 
-    DBLoadingView *mLoadingView;
-    DropboxBackup *mDropboxBackup;
-}
-
-+ (BackupViewController *)backupViewController:(id<BackupViewDelegate>)delegate
-{
-    BackupViewController *vc =
-        [[BackupViewController alloc] initWithNibName:@"BackupView" bundle:nil];
-    [vc setDelegate:delegate];
-    return vc;
+    DBLoadingView *_loadingView;
+    DropboxBackup *_dropboxBackup;
 }
 
 - (void)setDelegate:(id<BackupViewDelegate>)delegate
 {
-    mDelegate = delegate;
+    _delegate = delegate;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     //[AppDelegate trackPageview:@"/BackupViewController"];
-    
-    self.navigationItem.rightBarButtonItem =
-        [[UIBarButtonItem alloc]
-          initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
 }
 
-- (void)doneAction:(id)sender
+- (IBAction)doneAction:(id)sender
 {
     [self.navigationController dismissModalViewControllerAnimated:YES];
-    [mDelegate backupViewFinished:self];
+    [_delegate backupViewFinished:self];
 }
 
-
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
     return 2;
 }
@@ -134,6 +122,7 @@
 
     return cell;
 }
+*/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -145,22 +134,22 @@
     switch (indexPath.section) {
         case 0:
             // dropbox
-            if (mDropboxBackup == nil) {
-                mDropboxBackup = [[DropboxBackup alloc] init:self];
+            if (_dropboxBackup == nil) {
+                _dropboxBackup = [[DropboxBackup alloc] init:self];
             }
             switch (indexPath.row) {
                 case 0: // sync
-                    [AppDelegate trackPageview:@"/BackupViewController/DropboxSync"];
-                    [mDropboxBackup doSync:self];
+                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"sync" value:nil];
+                    [_dropboxBackup doSync:self];
                     break;
                     
                 case 1: // backup
-                    [AppDelegate trackPageview:@"/BackupViewController/DropboxBackup"];
-                    [mDropboxBackup doBackup:self];
+                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"backup" value:nil];
+                    [_dropboxBackup doBackup:self];
                     break;
                     
                 case 2: //restore
-                    [AppDelegate trackPageview:@"/BackupViewController/DropboxRestore"];
+                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"restore" value:nil];
                     alertView = [[UIAlertView alloc] initWithTitle:_L(@"Warning")
                                                             message:_L(@"RestoreWarning")
                                                            delegate:self 
@@ -173,8 +162,8 @@
 
         case 1:
             // internal web server
-            [AppDelegate trackPageview:@"/BackupViewController/WebBackup"];
-            webBackup = [[WebServerBackup alloc] init];
+            [AppDelegate trackEvent:@"backup" action:@"web" label:@"start" value:nil];
+            webBackup = [WebServerBackup new];
             [webBackup execute];
             break;
     }
@@ -188,7 +177,7 @@
     if (buttonIndex == 1) { // OK
         // UIAlertView が消えてからすぐに次の View (LoadingView) を表示すると、
         // 次の View が正しく表示されない。このため少し待たせる
-        [mDropboxBackup performSelector:@selector(doRestore:) withObject:self afterDelay:0.5];
+        [_dropboxBackup performSelector:@selector(doRestore:) withObject:self afterDelay:0.5];
     }
 }
 
@@ -212,25 +201,25 @@
             msg = _L(@"Downloading");
             break;
     }
-    mLoadingView = [[DBLoadingView alloc] initWithTitle:msg];
-    mLoadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
-    [mLoadingView setOrientation:self.interfaceOrientation];
-    [mLoadingView show];
+    _loadingView = [[DBLoadingView alloc] initWithTitle:msg];
+    _loadingView.userInteractionEnabled = YES; // 下の View の操作不可にする
+    [_loadingView setOrientation:self.interfaceOrientation];
+    [_loadingView show:self.view.window];
 }
 
 - (void)dropboxBackupFinished
 {
     NSLog(@"DropboxBackupFinished");
-    [mLoadingView dismissAnimated:NO];
-    mLoadingView = nil;
+    [_loadingView dismissAnimated:NO];
+    _loadingView = nil;
 }
 
 // 衝突が発生した場合の処理
 - (void)dropboxBackupConflicted
 {
     NSLog(@"DropboxBackupConflicted");
-    [mLoadingView dismissAnimated:NO];
-    mLoadingView = nil;
+    [_loadingView dismissAnimated:NO];
+    _loadingView = nil;
     
     UIActionSheet *as =
     [[UIActionSheet alloc] initWithTitle:_L(@"sync_conflict")
@@ -245,11 +234,11 @@
 {
     switch (buttonIndex) {
         case 0:
-            [mDropboxBackup performSelector:@selector(doBackup:) withObject:self afterDelay:0.5];
+            [_dropboxBackup performSelector:@selector(doBackup:) withObject:self afterDelay:0.5];
             break;
             
         case 1:
-            [mDropboxBackup performSelector:@selector(doRestore:) withObject:self afterDelay:0.5];
+            [_dropboxBackup performSelector:@selector(doRestore:) withObject:self afterDelay:0.5];
             break;
     }
 }

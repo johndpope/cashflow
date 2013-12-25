@@ -11,7 +11,7 @@
 
 @implementation WebServerBackup
 {
-    BackupServer *mBackupServer;
+    BackupServer *_backupServer;
 }
 
 static WebServerBackup *sWebServerBackup = nil;
@@ -23,10 +23,10 @@ static WebServerBackup *sWebServerBackup = nil;
  
     sWebServerBackup = self;
     
-    mBackupServer = [[BackupServer alloc] init];
-    NSString *url = [mBackupServer serverUrl];
+    _backupServer = [BackupServer new];
+    NSString *url = [_backupServer serverUrl];
     if (url != nil) {
-        result = [mBackupServer startServer];
+        result = [_backupServer startServer];
     } else {
         message = _L(@"Network is unreachable.");
     }
@@ -58,8 +58,8 @@ static WebServerBackup *sWebServerBackup = nil;
 
 - (void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [mBackupServer stopServer];
-    mBackupServer = nil;
+    [_backupServer stopServer];
+    _backupServer = nil;
 
     // release
     sWebServerBackup = nil;

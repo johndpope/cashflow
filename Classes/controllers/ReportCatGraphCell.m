@@ -7,36 +7,27 @@
 // ReportCatGraphCell.m
 
 #import "ReportCatGraphCell.h"
+#import "AppDelegate.h"
 
-#define CELL_HEIGHT     120   /* iOS, not retina */
-
-@interface ReportCatGraphCell()
-- (void)_drawCircleGraph:(CGContextRef)context;
-- (void)_drawLegend:(CGContextRef)context;
-@end
+#define CELL_HEIGHT         120   /* iPhone, not retina */
+#define CELL_HEIGHT_IPAD    360   /* iPad, not retina */
 
 @implementation ReportCatGraphCell
 {
-    double mTotal;
-    NSMutableArray *mCatReports;
-}
-
-+ (ReportCatGraphCell *)reportCatGraphCell:(UITableView *)tableView
-{
-    NSString *identifier = @"ReportCatGraphCell";
-
-    ReportCatGraphCell *cell = (ReportCatGraphCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[ReportCatGraphCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    return cell;
+    IBOutlet UIImageView *_imageView;
+    
+    double _total;
+    NSMutableArray *_catReports;
 }
 
 + (CGFloat)cellHeight
 {
-    return CELL_HEIGHT;
+    if (IS_IPAD) {
+        return CELL_HEIGHT_IPAD;
+    } else {
+        return CELL_HEIGHT;
+    }
 }
-
 
 /**
    レポート設定
@@ -47,25 +38,39 @@
 
     if (isOutgo) {
         ary = reportEntry.outgoCatReports;
-        mTotal = reportEntry.totalOutgo;
+        _total = reportEntry.totalOutgo;
     } else {
         ary = reportEntry.incomeCatReports;
-        mTotal = reportEntry.totalIncome;
+        _total = reportEntry.totalIncome;
     }
 
-    if (mCatReports != ary) {
-        mCatReports = ary;
+    if (_catReports != ary) {
+        _catReports = ary;
     }
+
+    //[self draw];
     
-    // force redraw the cell
+    // force draw this cell
     [self setNeedsDisplay];
 }
 
 /**
-   セル描画
-*/
+ * 描画: 描画が必要なときに呼び出される
+ */
 - (void)drawRect:(CGRect)rect
 {
+    [super drawRect:rect];
+    [self draw];
+}
+
+/**
+ *  描画処理本体
+ */
+- (void)draw
+{
+    // Graphics Context を取得
+    CGRect frame = _imageView.frame;
+    UIGraphicsBeginImageContextWithOptions(frame.size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     // 左上原点にしておく
@@ -73,11 +78,16 @@
     //CGContextScaleCTM(context, 1.0, -1.0);
 
     // 背景消去
+    //[[UIColor whiteColor] set];
     [[UIColor whiteColor] set];
-    UIRectFill(rect);
+    UIRectFill(_imageView.frame);
 
     [self _drawCircleGraph:context];
     [self _drawLegend:context];
+
+    // 描画したイメージを UIImageView にセットする
+    _imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
 }
 
 #define PI 3.14159265358979323846
@@ -93,21 +103,23 @@ static inline double radians(double deg)
 - (void)_drawCircleGraph:(CGContextRef)context
 {
     /* 中心座標を計算 */
-    double width = self.frame.size.width;
+    CGRect frame = self.frame;
+    double height = frame.size.height;
+    double width = frame.size.width;
     double graph_x = width * 0.3;
-    double graph_y = CELL_HEIGHT / 2;
-    double graph_r = CELL_HEIGHT / 2 * 0.9;
+    double graph_y = height / 2;
+    double graph_r = height / 2 * 0.9;
 
     double sum = 0.0, prev = 0.0;
     int n = -1;
 
-    for (CatReport *cr in mCatReports) {
+    for (CatReport *cr in _catReports) {
         n++;
         sum += cr.sum;
 
         // context, x, y, R, start rad, end rad, direction
-        double start_rad = radians(-90 + prev / mTotal * 360);
-        double end_rad   = radians(-90 + sum  / mTotal * 360);
+        double start_rad = radians(-90 + prev / _total * 360);
+        double end_rad   = radians(-90 + sum  / _total * 360);
 
         // 色設定
         UIColor *color = [ReportCatGraphCell getGraphColor:n];
@@ -132,7 +144,7 @@ static inline double radians(double deg)
     double width = self.frame.size.width;
 
     int n = -1;
-    for (CatReport *cr in mCatReports) {
+    for (CatReport *cr in _catReports) {
         n++;
         if (n >= 8) break;
 
@@ -151,7 +163,7 @@ static inline double radians(double deg)
     UIFont *font = [UIFont systemFontOfSize:9];
     
     n = -1;
-    for (CatReport *cr in mCatReports) {
+    for (CatReport *cr in _catReports) {
         n++;
 
         // 文字を描画

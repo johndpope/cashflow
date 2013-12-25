@@ -13,14 +13,6 @@
 
 @implementation CatReportDetailViewController
 
-@synthesize catReport = mCatReport;
-
-- (id)init
-{
-    self = [super initWithNibName:@"SimpleTableView" bundle:nil];
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,7 +27,7 @@
 
 - (void)doneAction:(id)sender
 {
-    [self.navigationController dismissModalViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,21 +42,21 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [mCatReport.transactions count];
+    return [_catReport.transactions count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TransactionCell *cell = [TransactionCell transactionCell:tv];
     
-    Transaction *t = (mCatReport.transactions)[[mCatReport.transactions count] - 1 - indexPath.row];
+    Transaction *t = (_catReport.transactions)[[_catReport.transactions count] - 1 - indexPath.row];
     double value;
-    if (mCatReport.assetKey < 0) {
+    if (_catReport.assetKey < 0) {
         // 全資産指定の場合
         value = t.value;
     } else {
         // 資産指定の場合
-        if (t.asset == mCatReport.assetKey) {
+        if (t.asset == _catReport.assetKey) {
             value = t.value;
         } else {
             value = -t.value;

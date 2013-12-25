@@ -8,20 +8,10 @@
 #import "EditMemoVC.h"
 #import "AppDelegate.h"
 
-@interface EditMemoViewController ()
-- (void)doneAction;
-@end
-
 @implementation EditMemoViewController
 {
-    id<EditMemoViewDelegate> __unsafe_unretained mDelegate;
-    NSString *mText;
-    int mIdentifier;
-    
-    IBOutlet UITextView *mTextView;
+    IBOutlet UITextView *_textView;
 }
-
-@synthesize delegate = mDelegate, identifier = mIdentifier, text = mText;
 
 + (EditMemoViewController *)editMemoViewController:(id<EditMemoViewDelegate>)delegate title:(NSString*)title identifier:(int)id
 {
@@ -46,7 +36,7 @@
     }
     
     //textView.placeholder = self.title;
-    mTextView.backgroundColor = [UIColor whiteColor];
+    _textView.backgroundColor = [UIColor whiteColor];
 	
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
@@ -61,20 +51,78 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    mTextView.text = mText;
-    [mTextView becomeFirstResponder];
+    _textView.text = _text;
+    [_textView becomeFirstResponder];
     [super viewWillAppear:animated];
+
+    // キーボード通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+
+    // キーボード通知
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
+// キーボード表示時の処理
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    if (!IS_IPAD) {
+        // キーボード領域を計算
+        CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        keyboardRect = [[self.view superview] convertRect:keyboardRect fromView:nil];
+
+        // テキストビューのフレーム
+        CGRect frame = _textView.frame;
+        
+        // 重なっている領域を計算
+        float overlap = MAX(0.0, CGRectGetMaxY(frame) - CGRectGetMinY(keyboardRect));
+        frame.size.height -= overlap;
+        _textView.frame = frame;
+    }
+}
+
+// キーボード非表示時の処理
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    if (!IS_IPAD) {
+        /*
+        CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        keyboardRect = [[self.view superview] convertRect:keyboardRect fromView:nil];
+    
+        CGRect frame = _textView.frame;
+        frame.size.height += keyboardRect.size.height;
+        _textView.frame = frame;
+         */
+    }
+}
+
+// 自動でテキストをスクロールさせる
+// 参考: http://craigipedia.blogspot.jp/2013/09/last-lines-of-uitextview-may-scroll.html
+- (void)textViewDidChangeSelection:(UITextView *)textView
+{
+    [textView scrollRangeToVisible:textView.selectedRange];
 }
 
 - (void)doneAction
 {
-    self.text = mTextView.text;
-    [mDelegate editMemoViewChanged:self identifier:mIdentifier];
+    self.text = _textView.text;
+    [_delegate editMemoViewChanged:self identifier:_identifier];
 
     [self.navigationController popViewControllerAnimated:YES];
 }

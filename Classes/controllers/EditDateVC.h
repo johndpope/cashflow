@@ -23,4 +23,6 @@
 @property(nonatomic,unsafe_unretained) id<EditDateViewDelegate> delegate;
 @property(nonatomic,strong) NSDate *date;
 
++ (EditDateViewController *)instantiate;
+
 @end

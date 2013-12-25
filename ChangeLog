@@ -1,3 +1,88 @@
+2013-12-21 : Takuya Murakami
+
+	* ver 6.4.3 (v67)
+	* search bar が表示されない問題修正
+
+2013-12-19 : Takuya Murakami
+
+	* ver 6.4.2(free), 6.4.1(std) : v66
+	* iOS5 で起動しない問題修正。InMobi 削除。
+	* UI 修正: iOS6 ツールボタンが plain になってなかった (borderd)
+
+2013-12-16 : Takuya Murakami
+
+	* ver 6.4.1 (v65)
+	* 最大トランザクション数を 5,000 -> 50,000 に増加
+	* Crittercism SDK 4.0.7 -> 4.3.0
+	* Dropbox SDK 1.3.6 -> 1.3.9
+	* AdMob 6.6.0 -> 6.7.0
+	* Nend 2.3.0 -> 2.3.1
+	* InMobi 3.7.0 -> 4.0.4
+
+2013-12-10 : Takuya Murakami
+
+	* ver 6.4.0 (v64)
+	* 電卓デザイン変更 (画像ボタン)
+	* DFP 対応
+	* 画像を asset catalog に移行
+
+2013-11-26 : Takuya Murakami
+
+	* ver 6.3.3 (v63)
+	* バグ修正：日本語入力時にメモエリアサイズが
+	  おかしくなる問題を修正。
+
+2013-11-16 : Takuya Murakami
+
+	* ver 6.3.2 (v62)
+
+2013-11-12 : Takuya Murakami
+
+	* メモがスクロールできない問題を修正
+	* AdMob 6.4.2 -> 6.6.0
+	* Nend SDK 2.3.0
+	* i-mobile SDK 1.5.5
+
+2013-10-03 : Takuya Murakami
+
+	* ver 6.3.1 (v61)
+	* カレンダーで月移動できないバグを修正
+	* 資産一覧画面の残高表示位置を変更
+
+2013-09-28 : Takuya Murakami
+
+	* ver 6.3.0 (v60)
+	* iOS 4.3 サポート削除、iOS 5.0 以上必須
+	* Google Analytics v2 beta4 -> 3.0.1
+	* XCTest 対応
+	* DBLoadingView 表示されない問題修正
+	* Asset Catalog を使用
+
+2013-09-21 : Takuya Murakami
+
+	* ver 6.3.0 (v60) beta
+	* iOS7 対応
+	* 「これ以前の取引の一括削除」をツールバーに移動
+	* Crittercism SDK 4.0.0 -> 4.0.7
+	* AdMob SDK 6.4.2 -> 6.5.1
+	* Dropbox SDK 1.3.4 -> 1.3.6
+
+2013-06-23 : Takuya Murakami
+
+	* リファクタリング: メンバ名変更/synthesize削除
+
+2013-06-23 : Takuya Murakami
+
+	* v6.2.0 (v59)
+	* 検索機能追加
+	* armv7s 追加し、-all_load オプション除外
+	* 最適化オプションを復活
+	* バグ修正: PIN 編集中にバックグランドになった場合の処理
+
+2013-06-22 : Takuya Murakami
+
+	* Dropbox SDK 1.3.3 -> 1.3.4
+
 2013-06-19 : Takuya Murakami
 
 	* AdMob SDK 6.2.1 -> 6.4.2
@@ -8,7 +93,7 @@
 
 2013-01-24 : Takuya Murakami
 
-	* v6.1.0 (v58)
+	* v6.1.0 (v58) (AppStoreリリースせず)
 	* 電子マネー資産対応
 
 2013-01-18 : Takuya Murakami

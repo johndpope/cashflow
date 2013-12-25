@@ -12,19 +12,13 @@
 #import "Journal.h"
 #import "CashflowDatabase.h"
 
-@interface Journal()
-- (void)_sortByDate;
-@end
-
 @implementation Journal
-
-@synthesize entries = mEntries;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        mEntries = nil;
+        _entries = nil;
     }
     return self;
 }
@@ -32,7 +26,7 @@
 
 - (void)reload
 {
-    mEntries = [Transaction find_all:@"ORDER BY date, key"];
+    _entries = [Transaction find_all:@"ORDER BY date, key"];
     
     // upgrade data
     CashflowDatabase *db = (CashflowDatabase *)[Database instance];
@@ -40,7 +34,7 @@
         [self _sortByDate];
         
         [db beginTransaction];
-        for (Transaction *t in mEntries) {
+        for (Transaction *t in _entries) {
             [t updateWithoutUpdateLRU];
         }
         [db commitTransaction];
@@ -52,32 +46,32 @@
 */
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])stackbuf count:(NSUInteger)len
 {
-    return [mEntries countByEnumeratingWithState:state objects:stackbuf count:len];
+    return [_entries countByEnumeratingWithState:state objects:stackbuf count:len];
 }
 
 - (void)insertTransaction:(Transaction*)tr
 {
     int i;
-    int max = [mEntries count];
+    int max = [_entries count];
     Transaction *t = nil;
 
     // 挿入位置を探す
     for (i = 0; i < max; i++) {
-        t = mEntries[i];
+        t = _entries[i];
         if ([tr.date compare:t.date] == NSOrderedAscending) {
             break;
         }
     }
 
     // 挿入
-    [mEntries insertObject:tr atIndex:i];
+    [_entries insertObject:tr atIndex:i];
     [tr save];
 
     // 上限チェック
-    if ([mEntries count] > MAX_TRANSACTIONS) {
+    if ([_entries count] > MAX_TRANSACTIONS) {
         // 最も古い取引を削除する
         // Note: 初期残高を調整するため、Asset 側で削除させる
-        Transaction *t = mEntries[0];
+        Transaction *t = _entries[0];
         Asset *asset = [[DataModel ledger] assetWithKey:t.asset];
         [asset deleteEntryAt:0];
     }
@@ -91,8 +85,8 @@
     // update DB
     [to save];
 
-    int idx = [mEntries indexOfObject:from];
-    mEntries[idx] = to;
+    int idx = [_entries indexOfObject:from];
+    _entries[idx] = to;
     [self _sortByDate];
 }
 
@@ -104,7 +98,7 @@ static int compareByDate(Transaction *t1, Transaction *t2, void *context)
     
 - (void)_sortByDate
 {
-    [mEntries sortUsingFunction:compareByDate context:NULL];
+    [_entries sortUsingFunction:compareByDate context:NULL];
 }
     
 /**
@@ -122,7 +116,7 @@ static int compareByDate(Transaction *t1, Transaction *t2, void *context)
     if (t.type != TYPE_TRANSFER) {
         // 資産間移動取引以外の場合
         [t delete];
-        [mEntries removeObject:t];
+        [_entries removeObject:t];
         return YES;
     }
 
@@ -154,10 +148,10 @@ static int compareByDate(Transaction *t1, Transaction *t2, void *context)
 - (void)deleteAllTransactionsWithAsset:(Asset *)asset
 {
     Transaction *t;
-    int max = [mEntries count];
+    int max = [_entries count];
 
     for (int i = 0; i < max; i++) {
-        t = mEntries[i];
+        t = _entries[i];
         if (t.asset != asset.pid && t.dstAsset != asset.pid) {
             continue;
         }

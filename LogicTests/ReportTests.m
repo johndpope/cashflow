@@ -4,7 +4,7 @@
 #import "DataModel.h"
 #import "Report.h"
 
-@interface ReportTest : SenTestCase {
+@interface ReportTest : XCTestCase {
     Report *mReports;
 }
 @end
@@ -16,7 +16,7 @@
     [TestCommon installDatabase:@"testdata1"];
     [DataModel instance];
     
-    mReports = [[Report alloc] init];
+    mReports = [Report new];
 }
 
 - (void)tearDown

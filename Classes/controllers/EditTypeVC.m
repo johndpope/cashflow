@@ -18,21 +18,13 @@
 #import "Transaction.h"
 
 @implementation EditTypeViewController
-{
-    id<EditTypeViewDelegate> __unsafe_unretained mDelegate;
-    
-    int mType;
-    int mDstAsset;
-}
-
-@synthesize delegate = mDelegate, type = mType, dstAsset = mDstAsset;
 
 - (id)init
 {
     self = [super initWithNibName:@"EditTypeView" bundle:nil];
     if (self) {
         self.title = _L(@"Type");
-        mDstAsset = -1;
+        _dstAsset = -1;
     }
     return self;
 }
@@ -76,7 +68,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
     }
-    if (indexPath.row == mType) {
+    if (indexPath.row == _type) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -109,7 +101,7 @@
 
     if (self.type != TYPE_TRANSFER) {
         // pop しない
-        [mDelegate editTypeViewChanged:self];
+        [_delegate editTypeViewChanged:self];
         return;
     }
 
@@ -127,7 +119,7 @@
                                     items:assetNames
                                       title:_L(@"Asset")
                                     identifier:0];
-    vc.selectedIndex = [ledger assetIndexWithKey:mDstAsset];
+    vc.selectedIndex = [ledger assetIndexWithKey:_dstAsset];
 
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -136,9 +128,9 @@
 - (BOOL)genSelectListViewChanged:(GenSelectListViewController*)vc identifier:(int)id
 {
     Asset *as = [[DataModel ledger] assetAtIndex:vc.selectedIndex];
-    mDstAsset = as.pid;
+    _dstAsset = as.pid;
 
-    [mDelegate editTypeViewChanged:self];
+    [_delegate editTypeViewChanged:self];
 
     return NO; // pop しない
 }

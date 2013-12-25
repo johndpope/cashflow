@@ -15,10 +15,10 @@
 
 @implementation WebServer
 {
-    int mListenSock;
-    struct sockaddr_in mServAddr;
+    int _listenSock;
+    struct sockaddr_in _servAddr;
 	
-    NSThread *mThread;
+    NSThread *_thread;
 }
 
 - (void)dealloc
@@ -34,36 +34,36 @@
     int on;
     struct sockaddr_in addr;
 
-    mListenSock = socket(AF_INET, SOCK_STREAM, 0);
-    if (mListenSock < 0) {
+    _listenSock = socket(AF_INET, SOCK_STREAM, 0);
+    if (_listenSock < 0) {
         return NO;
     }
 
     on = 1;
-    setsockopt(mListenSock, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on));
+    setsockopt(_listenSock, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on));
 
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = htonl(INADDR_ANY);
     addr.sin_port = htons(PORT_NUMBER);
 
-    if (bind(mListenSock, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
-        close(mListenSock);
+    if (bind(_listenSock, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
+        close(_listenSock);
         return NO;
     }
 	
-    socklen_t len = sizeof(mServAddr);
-    if (getsockname(mListenSock, (struct sockaddr *)&mServAddr, &len)  < 0) {
-        close(mListenSock);
+    socklen_t len = sizeof(_servAddr);
+    if (getsockname(_listenSock, (struct sockaddr *)&_servAddr, &len)  < 0) {
+        close(_listenSock);
         return NO;
     }
 
-    if (listen(mListenSock, 16) < 0) {
-        close(mListenSock);
+    if (listen(_listenSock, 16) < 0) {
+        close(_listenSock);
         return NO;
     }
 
-    mThread = [[NSThread alloc] initWithTarget:self selector:@selector(threadMain:) object:nil];
-    [mThread start];
+    _thread = [[NSThread alloc] initWithTarget:self selector:@selector(threadMain:) object:nil];
+    [_thread start];
      // ###
 	
     return YES;
@@ -74,10 +74,10 @@
 */
 - (void)stopServer
 {
-    if (mListenSock >= 0) {
-        close(mListenSock);
+    if (_listenSock >= 0) {
+        close(_listenSock);
     }
-    mListenSock = -1;
+    _listenSock = -1;
 }
 
 /**
@@ -130,7 +130,7 @@
 	
         for (;;) {
             len = sizeof(caddr);
-            s = accept(mListenSock, (struct sockaddr *)&caddr, &len);
+            s = accept(_listenSock, (struct sockaddr *)&caddr, &len);
             if (s < 0) {
                 break;
             }
@@ -140,10 +140,10 @@
             close(s);
         }
 
-        if (mListenSock >= 0) {
-            close(mListenSock);
+        if (_listenSock >= 0) {
+            close(_listenSock);
         }
-        mListenSock = -1;
+        _listenSock = -1;
 	
     }
 
