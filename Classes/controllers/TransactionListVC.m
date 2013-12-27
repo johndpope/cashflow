@@ -43,7 +43,7 @@
     BOOL _isAdShowing;
 #endif
     
-    BOOL _asDisplaying;
+    UIActionSheet *_actionSheet;
     UIPopoverController *_popoverController;
 }
 
@@ -107,8 +107,11 @@
     // TBD
     //self.navigationItem.leftBarButtonItem = [self editButtonItem];
 	
-    _asDisplaying = NO;
-
+    // Notifiction 受け取り手続き
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(willEnterForeground) name:@"willEnterForeground" object:nil];
+    [nc addObserver:self selector:@selector(willResignActive) name:@"willResignActive" object:nil];
+    
 #if FREE_VERSION
     _isAdShowing = NO;
     _adManager = [AdManager sharedInstance];
@@ -131,6 +134,8 @@
 }
 
 - (void)dealloc {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
     
 #if FREE_VERSION
     [_adManager detach];
@@ -180,6 +185,18 @@
     // 表示開始
     [_adManager requestShowAd];
 #endif
+}
+
+/**
+ * アプリが background に入るときの処理
+ */
+- (void)willResignActive
+{
+    if (_actionSheet != nil) {
+        [_actionSheet dismissWithClickedButtonIndex:0 animated:NO];
+        _actionSheet = nil;
+    }
+    //[self _dismissPopover];  // TODO: 効かない、、、
 }
 
 /**
@@ -530,10 +547,9 @@
 // action sheet
 - (void)doAction:(id)sender
 {
-    if (_asDisplaying) return;
-    _asDisplaying = YES;
+    if (_actionSheet != nil) return;
     
-    UIActionSheet *as = 
+    _actionSheet =
         [[UIActionSheet alloc]
          initWithTitle:nil
          delegate:self 
@@ -546,9 +562,9 @@
          _L(@"Info"),
          nil];
     if (IS_IPAD) {
-        [as showFromBarButtonItem:_barActionButton animated:YES];
+        [_actionSheet showFromBarButtonItem:_barActionButton animated:YES];
     } else {
-        [as showInView:[self view]];
+        [_actionSheet showInView:[self view]];
     }
 }
 
@@ -560,7 +576,7 @@
     UIViewController *vc;
     UIModalPresentationStyle modalPresentationStyle = UIModalPresentationFormSheet;
     
-    _asDisplaying = NO;
+    _actionSheet = nil;
     
     UINavigationController *nv = nil;
     switch (buttonIndex) {
