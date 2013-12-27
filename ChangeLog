@@ -1,9 +1,11 @@
 2013-12-27 : Takuya Murakami
 
+	* ver 6.4.4 (v68)
 	* PIN コード設定時に、ActionSheet が残る問題を修正。
 	* フォアグランド復帰時の更新処理を追加
+	* iPad : Master View 側の Action Button 非表示に。
 	* Analytics 3.01 -> 3.02
-	
+
 2013-12-25 : Takuya Murakami
 
 	* AdView 関連処理変更: ロード失敗時に AdView 破棄
