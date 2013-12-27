@@ -106,7 +106,7 @@
                         <outlet property="_barActionButton" destination="3dd-HN-aXn" id="AWY-Ae-Aea"/>
                         <outlet property="_barSumLabel" destination="evo-CX-0Zk" id="HHa-Ce-KpA"/>
                         <outlet property="_tableView" destination="Udy-Zd-Z8t" id="n4y-Fd-oje"/>
-                        <outlet property="_toolbar" destination="YXr-PA-ZRf" id="OxB-HH-yuh"/>
+                        <outlet property="_toolbar" destination="YXr-PA-ZRf" id="jaj-p8-4dM"/>
                         <segue destination="Jb5-rH-b9t" kind="push" identifier="show" id="cmp-Kl-W5O"/>
                     </connections>
                 </viewController>

@@ -154,7 +154,7 @@
                                                             message:_L(@"RestoreWarning")
                                                            delegate:self 
                                                   cancelButtonTitle:_L(@"Cancel")
-                                                  otherButtonTitles:_L(@"Ok"), nil];
+                                                  otherButtonTitles:_L(@"OK"), nil];
                     [alertView show];
                     break;
             }

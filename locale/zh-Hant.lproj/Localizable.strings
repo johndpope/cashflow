@@ -85,7 +85,7 @@
 "(Write an inquiry here.)" = "(Write an inquiry here.)";
 "Yes" = "Yes";
 "No" = "No";
-"Ok" = "Ok";
+"OK" = "OK";
 "CrashDataFoundTitle" = "Crash data found";
 "CrashDataFoundDescription" = "The app crashed previously. Would you like to provide the developer the anonymous crash data so they can try to fix the problem?";
 "Always" = "一律";

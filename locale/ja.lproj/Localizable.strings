@@ -86,7 +86,7 @@
 "(Write an inquiry here.)" = "(ここに問い合わせ内容を記載してください)";
 "Yes" = "はい";
 "No" = "いいえ";
-"Ok" = "Ok";
+"OK" = "OK";
 "CrashDataFoundTitle" = "クラッシュデータが見つかりました";
 "CrashDataFoundDescription" = "アプリは以前クラッシュしています。クラッシュデータを匿名で開発者に送信し、バグ修正に役立てますか?";
 "Always" = "常に";
