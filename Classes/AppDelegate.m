@@ -175,10 +175,10 @@
  */
 - (void)_notifyWillEnterForegroundForTopViewController
 {
-    UIViewController topVc = [_detailNavigationController topViewController];
+    UIViewController *topVc = [_detailNavigationController topViewController];
 
     if ([topVc respondsToSelector:@selector(willEnterForeground)]) {
-        [topvc performSelector:@selector(willEnterForeground)];
+        [topVc performSelector:@selector(willEnterForeground)];
     }
 }
 
