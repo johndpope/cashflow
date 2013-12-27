@@ -156,6 +156,11 @@
                                                            value:nil] build]];
 }
 
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"willResignActive" object:nil];
+}
+
 // Background に入る前の処理
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
@@ -167,19 +172,14 @@
 // Background から復帰するときの処理
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [self _notifyWillEnterForegroundForTopViewController];
-}
-
-/**
- * 最上位 ViewController に foreground 通知を出す
- */
-- (void)_notifyWillEnterForegroundForTopViewController
-{
-    UIViewController *topVc = [_detailNavigationController topViewController];
-
-    if ([topVc respondsToSelector:@selector(willEnterForeground)]) {
-        [topVc performSelector:@selector(willEnterForeground)];
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"willEnterForeground" object:nil];
+    
+    /*
+     UIViewController *topVc = [_detailNavigationController topViewController];
+     
+     if ([topVc respondsToSelector:@selector(willEnterForeground)]) {
+     [topVc performSelector:@selector(willEnterForeground)];
+     }*/
 }
 
 - (void)checkPin
