@@ -45,6 +45,6 @@
 
 - (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController;
 - (void)detach;
-- (void)requestShowAd;
+- (BOOL)requestShowAd;
 
 @end

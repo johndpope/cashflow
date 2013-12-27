@@ -12,7 +12,7 @@
 #define AD_IS_TEST  NO
 
 // 広告リクエスト間隔 (画面遷移時のみ)
-#define AD_REQUEST_INTERVAL     45.0
+#define AD_REQUEST_INTERVAL     30.0
 
 @implementation AdMobView
 
@@ -117,9 +117,9 @@ static AdManager *theAdManager;
 /**
  * 広告を表示を要求する
  */
-- (void)requestShowAd
+- (BOOL)requestShowAd
 {
-    if (_delegate == nil) return; // デタッチ状態
+    if (_delegate == nil) return NO; // デタッチ状態
 
     if (_bannerView == nil) {
         [self _createAdView];
@@ -141,13 +141,13 @@ static AdManager *theAdManager;
         }
     }
     
-    [self _requestAd:forceRequest];
+    return [self _requestAd:forceRequest];
 }
 
 /**
  * 広告リクエストを発行する
  */
-- (void)_requestAd:(BOOL)forceRequest
+- (BOOL)_requestAd:(BOOL)forceRequest
 {
     // 一定時間経過していない場合、リクエストは発行しない
     if (!forceRequest) {
@@ -156,7 +156,7 @@ static AdManager *theAdManager;
             float diff = [now timeIntervalSinceDate:_lastAdRequestDate];
             if (diff < AD_REQUEST_INTERVAL) {
                 NSLog(@"requestAd: do not request ad (within ad interval)");
-                return;
+                return NO;
             }
         }
     }
@@ -171,6 +171,7 @@ static AdManager *theAdManager;
 
     // リクエスト時刻を保存
     _lastAdRequestDate = [NSDate date];
+    return YES;
 }
 
 #pragma mark - Internal
@@ -258,7 +259,11 @@ static AdManager *theAdManager;
 
     [self _releaseAdView];
 
-    _lastAdRequestDate = nil;
+    // 次の広告表示を開始
+    if (![self requestShowAd]) {
+        // 開始されなかった場合は、タイマだけリセットする
+        _lastAdRequestDate = nil;
+    }
 }
 
 @end
