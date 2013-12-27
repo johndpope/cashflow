@@ -1922,6 +1922,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/Dropbox",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
+					"$(SRCROOT)/Libraries",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1960,6 +1961,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/Dropbox",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
+					"$(SRCROOT)/Libraries",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
