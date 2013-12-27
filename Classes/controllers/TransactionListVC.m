@@ -40,9 +40,10 @@
     
 #if FREE_VERSION
     AdManager *_adManager;
+    BOOL _isAdShowing;
 #endif
     
-    BOOL _asDisplaying;
+    UIActionSheet *_actionSheet;
     UIPopoverController *_popoverController;
 }
 
@@ -106,9 +107,13 @@
     // TBD
     //self.navigationItem.leftBarButtonItem = [self editButtonItem];
 	
-    _asDisplaying = NO;
-
+    // Notifiction 受け取り手続き
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(willEnterForeground) name:@"willEnterForeground" object:nil];
+    [nc addObserver:self selector:@selector(willResignActive) name:@"willResignActive" object:nil];
+    
 #if FREE_VERSION
+    _isAdShowing = NO;
     _adManager = [AdManager sharedInstance];
     [_adManager attach:self rootViewController:self];
 #endif
@@ -129,6 +134,8 @@
 }
 
 - (void)dealloc {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
     
 #if FREE_VERSION
     [_adManager detach];
@@ -176,18 +183,49 @@
     
 #if FREE_VERSION
     // 表示開始
-    [_adManager showAd];
+    [_adManager requestShowAd];
+#endif
+}
+
+/**
+ * アプリが background に入るときの処理
+ */
+- (void)willResignActive
+{
+    if (_actionSheet != nil) {
+        [_actionSheet dismissWithClickedButtonIndex:0 animated:NO];
+        _actionSheet = nil;
+    }
+    //[self _dismissPopover];  // TODO: 効かない、、、
+}
+
+/**
+ * アプリが foreground になった時の処理。
+ * これは AppDelegate の applicationWillEnterForeground から呼び出される。
+ */
+- (void)willEnterForeground
+{
+#if FREE_VERSION
+    // 表示開始
+    [_adManager requestShowAd];
 #endif
 }
 
 #if FREE_VERSION
-/**
- * 広告セット(まだ表示はしない)
- */
-- (void)adManager:(AdManager *)adManager setAd:(UIView *)adView adSize:(CGSize)adSize
-{
-    CGRect frame = _tableView.bounds;
 
+/**
+ * 広告表示
+ */
+- (void)adManager:(AdManager *)adManager showAd:(AdMobView *)adView adSize:(CGSize)adSize
+{
+    if (_isAdShowing) {
+        NSLog(@"Ad is already showing!");
+        return;
+    }
+    _isAdShowing = YES;
+    
+    CGRect frame = _tableView.bounds;
+    
     // 広告の位置を画面外に設定
     CGRect aframe = frame;
     aframe.origin.x = (frame.size.width - adSize.width) / 2;
@@ -195,18 +233,9 @@
     aframe.size = adSize;
     
     adView.frame = aframe;
-    adView.hidden = YES;
     [self.view addSubview:adView];
     [self.view bringSubviewToFront:_toolbar];
-}
-
-/**
- * 広告表示
- */
-- (void)adManager:(AdManager *)adManager showAd:(UIView *)adView adSize:(CGSize)adSize
-{
-    CGRect frame = _tableView.bounds;
-
+    
     // 広告領域分だけ、tableView の下部をあける
     CGRect tframe = frame;
     tframe.origin.x = 0;
@@ -214,14 +243,13 @@
     tframe.size.height -= adSize.height;
     _tableView.frame = tframe;
 
-    // 広告の位置
-    CGRect aframe = frame;
+    // 表示位置
+    aframe = frame;
     aframe.origin.x = (frame.size.width - adSize.width) / 2;
     aframe.origin.y = frame.size.height - adSize.height;
     aframe.size = adSize;
     
     // 広告をアニメーション表示させる
-    adView.hidden = NO;
     [UIView beginAnimations:@"ShowAd" context:NULL];
     adView.frame = aframe;
     [UIView commitAnimations];
@@ -230,9 +258,13 @@
 /**
  * 広告を隠す
  */
-- (void)adManager:(AdManager *)adManager hideAd:(UIView *)adView adSize:(CGSize)adSize
+- (void)adManager:(AdManager *)adManager removeAd:(UIView *)adView adSize:(CGSize)adSize
 {
-    adView.hidden = YES;
+    if (!_isAdShowing) {
+        NSLog(@"Ad is already removed!");
+        return;
+    }
+    _isAdShowing = NO;
     
     CGRect frame = _tableView.bounds;
         
@@ -249,11 +281,11 @@
     aframe.size = adSize;
     
     // 広告をアニメーション表示させる
-    adView.hidden = NO;
     [UIView beginAnimations:@"HideAd" context:NULL];
     adView.frame = aframe;
     [UIView commitAnimations];
-    adView.hidden = YES;
+    
+    [adView removeFromSuperview];
 }
 
 #endif
@@ -515,10 +547,9 @@
 // action sheet
 - (void)doAction:(id)sender
 {
-    if (_asDisplaying) return;
-    _asDisplaying = YES;
+    if (_actionSheet != nil) return;
     
-    UIActionSheet *as = 
+    _actionSheet =
         [[UIActionSheet alloc]
          initWithTitle:nil
          delegate:self 
@@ -531,9 +562,9 @@
          _L(@"Info"),
          nil];
     if (IS_IPAD) {
-        [as showFromBarButtonItem:_barActionButton animated:YES];
+        [_actionSheet showFromBarButtonItem:_barActionButton animated:YES];
     } else {
-        [as showInView:[self view]];
+        [_actionSheet showInView:[self view]];
     }
 }
 
@@ -545,7 +576,7 @@
     UIViewController *vc;
     UIModalPresentationStyle modalPresentationStyle = UIModalPresentationFormSheet;
     
-    _asDisplaying = NO;
+    _actionSheet = nil;
     
     UINavigationController *nv = nil;
     switch (buttonIndex) {

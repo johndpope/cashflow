@@ -12,18 +12,20 @@
 #import "DataModel.h"
 #import "Transaction.h"
 #import "PinController.h"
-//#import "CrashReportSender.h"
 #import "GAI.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
 #import "UIDevice+Hardware.h"
-#import "Crittercism.h"
+//#import "Crittercism.h"
+#import <BugSense-iOS/BugSenseController.h>
 
 #import "DropboxSecret.h"
 
 @implementation AppDelegate
 {
     UIApplication *_application;
+
+    UINavigationController *_detailNavigationController;
 }
 
 //
@@ -48,13 +50,18 @@
     NSLog(@"application:didFinishLaunchingWithOptions");
     _application = application;
 
-    // Crittercism
+    // Crittercism or BugSense
 #if FREE_VERSION
-    [Crittercism enableWithAppID:@"50cdc6bb86ef114132000002"];
+#define CRITTERCISM_API_KEY @"50cdc6bb86ef114132000002"
+#define BUGSENSE_API_KEY @"70f8a5d3"
 #else
-    [Crittercism enableWithAppID:@"50cdc6697e69a342c7000005"];
+#define CRITTERCISM_API_KEY @"50cdc6697e69a342c7000005"
+#define BUGSENSE_API_KEY @"b64aaa9e"
 #endif
-    
+
+    //[Crittercism enableWithAppID:CRITTERCISM_API_KEY];
+    [BugSenseController sharedControllerWithBugSenseAPIKey:BUGSENSE_API_KEY];
+
     // Dropbox config
     DBSession *dbSession =
         [[DBSession alloc] initWithAppKey:DROPBOX_APP_KEY appSecret:DROPBOX_APP_SECRET root:kDBRootDropbox];
@@ -71,7 +78,7 @@
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         // iPhone 版 : Window 生成
-        self.navigationController = assetListNavigationController;
+        self.navigationController = _detailNavigationController = assetListNavigationController;
         self.window.rootViewController = self.navigationController;
     } else {
         // iPad 版 : Window 生成
@@ -79,14 +86,14 @@
         AssetListViewController *assetListViewController = (id)masterNavigationController.topViewController;
 
         TransactionListViewController *transactionListViewController = [TransactionListViewController instantiate];
-        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:transactionListViewController];
+        _detailNavigationController = [[UINavigationController alloc] initWithRootViewController:transactionListViewController];
     	
         assetListViewController.splitTransactionListViewController = transactionListViewController;
         transactionListViewController.splitAssetListViewController = assetListViewController;
     	
         self.splitViewController = [UISplitViewController new];
         self.splitViewController.delegate = transactionListViewController;
-        self.splitViewController.viewControllers = @[masterNavigationController, detailNavigationController];
+        self.splitViewController.viewControllers = @[masterNavigationController, _detailNavigationController];
         
         self.window.rootViewController = self.splitViewController;
     }
@@ -149,6 +156,11 @@
                                                            value:nil] build]];
 }
 
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"willResignActive" object:nil];
+}
+
 // Background に入る前の処理
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
@@ -160,7 +172,14 @@
 // Background から復帰するときの処理
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    //[self checkPin];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"willEnterForeground" object:nil];
+    
+    /*
+     UIViewController *topVc = [_detailNavigationController topViewController];
+     
+     if ([topVc respondsToSelector:@selector(willEnterForeground)]) {
+     [topVc performSelector:@selector(willEnterForeground)];
+     }*/
 }
 
 - (void)checkPin
@@ -206,19 +225,6 @@
         return YES;
     }
     return NO;
-}
-
-#pragma mark CrashReportSenderDelegate
-
--(void)connectionOpened
-{
-    _application.networkActivityIndicatorVisible = YES;
-}
-
-
--(void)connectionClosed
-{
-    _application.networkActivityIndicatorVisible = NO;
 }
 
 #pragma mark GoogleAnalytics

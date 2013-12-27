@@ -22,6 +22,7 @@
     IBOutlet UITableView *_tableView;
     IBOutlet UIBarButtonItem *_barActionButton;
     IBOutlet UIBarButtonItem *_barSumLabel;
+    IBOutlet UIToolbar *_toolbar;
     
     BOOL _isLoadDone;
     DBLoadingView *_loadingView;
@@ -78,6 +79,13 @@
         UIImage *icon = [UIImage imageWithContentsOfFile:imagePath];
         ASSERT(icon != nil);
         [_iconArray addObject:icon];
+    }
+    
+    if (IS_IPAD) {
+        // アクションボタンを出さない
+        NSMutableArray *items = [[NSMutableArray alloc] initWithArray:_toolbar.items];
+        [items removeObjectIdenticalTo:_barActionButton];
+        _toolbar.items = items;
     }
 
     if (IS_IPAD) {

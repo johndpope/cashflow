@@ -20,13 +20,18 @@
 
 @class AdManager;
 
+/**
+ *  AdMob 表示用ラッパクラス。GADBannerView を継承。
+ */
+@interface AdMobView : DFPBannerView <GADBannerViewDelegate>
+@end
+
 //
 // AdManager からの通知用インタフェース
 //
 @protocol AdManagerDelegate
-- (void)adManager:(AdManager*)adManager setAd:(UIView *)adView adSize:(CGSize)adSize;
-- (void)adManager:(AdManager*)adManager showAd:(UIView *)adView adSize:(CGSize)adSize;
-- (void)adManager:(AdManager*)adManager hideAd:(UIView *)adView adSize:(CGSize)adSize;
+- (void)adManager:(AdManager*)adManager showAd:(AdMobView *)adView adSize:(CGSize)adSize;
+- (void)adManager:(AdManager*)adManager removeAd:(AdMobView *)adView adSize:(CGSize)adSize;
 @end
 
 //
@@ -40,6 +45,6 @@
 
 - (void)attach:(id<AdManagerDelegate>)delegate rootViewController:(UIViewController *)rootViewController;
 - (void)detach;
-- (void)showAd;
+- (BOOL)requestShowAd;
 
 @end
