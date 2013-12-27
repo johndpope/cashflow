@@ -85,7 +85,7 @@
 /* "(Write an inquiry here.)" = ""; */
 "Yes" = "Yes";
 "No" = "No";
-"Ok" = "Ok";
+"OK" = "OK";
 /* "CrashDataFoundTitle" = ""; */
 /* "CrashDataFoundDescription" = ""; */
 "Always" = "Immer";

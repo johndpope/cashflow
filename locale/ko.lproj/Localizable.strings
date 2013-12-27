@@ -85,7 +85,7 @@
 "(Write an inquiry here.)" = "(여기에 문의 사항을 적어주세요)";
 "Yes" = "예";
 "No" = "아니오";
-"Ok" = "OK";
+"OK" = "OK";
 "CrashDataFoundTitle" = "오류 데이터를 발견했습니다";
 "CrashDataFoundDescription" = "프로그램에 오류가 발생했습니다. 오류 데이터를 익명으로 개발자에게 보내어 버그 수정에 도움을 주시겠습니까?";
 "Always" = "항상";

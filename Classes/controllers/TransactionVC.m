@@ -543,7 +543,7 @@
     UIAlertView *v = [[UIAlertView alloc]
                       initWithTitle:_L(@"Delete with all past transactions")
                       message:_L(@"You can not cancel this operation.")
-                      delegate:self cancelButtonTitle:_L(@"Cancel") otherButtonTitles:_L(@"Ok"),nil];
+                      delegate:self cancelButtonTitle:_L(@"Cancel") otherButtonTitles:_L(@"OK"),nil];
     [v show];
 }
 
