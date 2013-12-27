@@ -24,6 +24,8 @@
 @implementation AppDelegate
 {
     UIApplication *_application;
+
+    UINavigationController *_detailNavigationController;
 }
 
 //
@@ -76,7 +78,7 @@
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         // iPhone 版 : Window 生成
-        self.navigationController = assetListNavigationController;
+        self.navigationController = _detailNavigationController = assetListNavigationController;
         self.window.rootViewController = self.navigationController;
     } else {
         // iPad 版 : Window 生成
@@ -84,14 +86,14 @@
         AssetListViewController *assetListViewController = (id)masterNavigationController.topViewController;
 
         TransactionListViewController *transactionListViewController = [TransactionListViewController instantiate];
-        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:transactionListViewController];
+        _detailNavigationController = [[UINavigationController alloc] initWithRootViewController:transactionListViewController];
     	
         assetListViewController.splitTransactionListViewController = transactionListViewController;
         transactionListViewController.splitAssetListViewController = assetListViewController;
     	
         self.splitViewController = [UISplitViewController new];
         self.splitViewController.delegate = transactionListViewController;
-        self.splitViewController.viewControllers = @[masterNavigationController, detailNavigationController];
+        self.splitViewController.viewControllers = @[masterNavigationController, _detailNavigationController];
         
         self.window.rootViewController = self.splitViewController;
     }
@@ -165,7 +167,19 @@
 // Background から復帰するときの処理
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    //[self checkPin];
+    [self _notifyWillEnterForegroundForTopViewController];
+}
+
+/**
+ * 最上位 ViewController に foreground 通知を出す
+ */
+- (void)_notifyWillEnterForegroundForTopViewController
+{
+    UIViewController topVc = [_detailNavigationController topViewController];
+
+    if ([topVc respondsToSelector:@selector(willEnterForeground)]) {
+        [topvc performSelector:@selector(willEnterForeground)];
+    }
 }
 
 - (void)checkPin

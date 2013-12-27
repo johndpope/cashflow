@@ -1,3 +1,7 @@
+2013-12-27 : Takuya Murakami
+
+	* フォアグランド復帰時の更新処理を追加
+
 2013-12-25 : Takuya Murakami
 
 	* AdView 関連処理変更: ロード失敗時に AdView 破棄

@@ -182,6 +182,18 @@
 #endif
 }
 
+/**
+ * アプリが foreground になった時の処理。
+ * これは AppDelegate の applicationWillEnterForeground から呼び出される。
+ */
+- (void)willEnterForeground
+{
+#if FREE_VERSION
+    // 表示開始
+    [_adManager requestShowAd];
+#endif
+}
+
 #if FREE_VERSION
 
 /**
