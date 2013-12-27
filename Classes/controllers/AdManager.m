@@ -151,13 +151,9 @@ static AdManager *theAdManager;
 {
     // 一定時間経過していない場合、リクエストは発行しない
     if (!forceRequest) {
-        if (_lastAdRequestDate != nil) {
-            NSDate *now = [NSDate date];
-            float diff = [now timeIntervalSinceDate:_lastAdRequestDate];
-            if (diff < AD_REQUEST_INTERVAL) {
-                NSLog(@"requestAd: do not request ad (within ad interval)");
-                return NO;
-            }
+        if (![self isAdTimerTimeout]) {
+            NSLog(@"requestAd: do not request ad (within ad interval)");
+            return NO;
         }
     }
     
@@ -171,6 +167,18 @@ static AdManager *theAdManager;
 
     // リクエスト時刻を保存
     _lastAdRequestDate = [NSDate date];
+    return YES;
+}
+
+- (BOOL)isAdTimerTimeout
+{
+    if (_lastAdRequestDate != nil) {
+        NSDate *now = [NSDate date];
+        float diff = [now timeIntervalSinceDate:_lastAdRequestDate];
+        if (diff < AD_REQUEST_INTERVAL) {
+            return NO;
+        }
+    }
     return YES;
 }
 
@@ -259,10 +267,12 @@ static AdManager *theAdManager;
 
     [self _releaseAdView];
 
-    // 次の広告表示を開始
-    if (![self requestShowAd]) {
-        // 開始されなかった場合は、タイマだけリセットする
-        _lastAdRequestDate = nil;
+    if (_lastAdRequestDate != nil && [self isAdTimerTimeout]) {
+        // 再試行
+        [self requestShowAd];
+    } else {
+        // タイマリセット
+        //_lastAdRequestDate = nil;
     }
 }
 
