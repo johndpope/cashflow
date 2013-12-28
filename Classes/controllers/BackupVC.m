@@ -13,7 +13,12 @@
 @implementation BackupViewController
 {
     __weak id<BackupViewDelegate> _delegate;
-
+    
+    IBOutlet UILabel *_labelSync;
+    IBOutlet UILabel *_labelUpload;
+    IBOutlet UILabel *_labelDownload;
+    IBOutlet UILabel *_labelBackupRestore;
+    
     DBLoadingView *_loadingView;
     DropboxBackup *_dropboxBackup;
 }
@@ -27,17 +32,20 @@
 {
     [super viewDidLoad];
     //[AppDelegate trackPageview:@"/BackupViewController"];
+
+    [_labelSync setText:_L(@"Sync")];
+    [_labelUpload setText:_L(@"Upload")];
+    [_labelDownload setText:_L(@"Download")];
+    [_labelBackupRestore setText:_L(@"Backup / Restore")];
+    [_labelBackupRestore setText:[NSString stringWithFormat:@"%@ / %@",
+                           _L(@"Backup"),
+                           _L(@"Restore")]];
 }
 
 - (IBAction)doneAction:(id)sender
 {
     [self.navigationController dismissModalViewControllerAnimated:YES];
     [_delegate backupViewFinished:self];
-}
-
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
-    return 2;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -54,28 +62,19 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
+    NSString *title;
+    
     switch (section) {
         case 0:
-            return _L(@"The backup data will be stored as CashFlowBackup.sql in root folder of Dropbox.");
+            title = _L(@"The backup data will be stored as CashFlowBackup.sql in root folder of Dropbox.");
+            return title;
     }
     return nil;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            // dropbox : sync, backup and restore
-            return 3;
-            
-        case 1:
-            // internal web backup
-            return 1;
-    }
-    return 0;
-}
-
+/*
 // 行の内容
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *MyIdentifier = @"BackupViewCells";
 	
