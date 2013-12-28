@@ -111,6 +111,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="_labelBackupRestore" destination="2Ht-pN-1kg" id="VLC-Mh-cbb"/>
+                        <outlet property="_labelDownload" destination="iSE-aq-qxm" id="Ivx-R8-jcz"/>
+                        <outlet property="_labelSync" destination="ZQK-Sa-GDd" id="Nrs-ot-4kM"/>
+                        <outlet property="_labelUpload" destination="bQ2-Uz-ICM" id="tDP-AJ-Dkt"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDq-4G-MHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

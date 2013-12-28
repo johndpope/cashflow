@@ -138,3 +138,4 @@
 "buy_button" = "購入";
 "quit_button" = "終了";
 "You can not cancel this operation." = "この操作は取り消すことができませんがよろしいですか？";
+"The backup data will be stored as CashFlowBackup.sql in root folder of Dropbox." = "バックアップファイルは CashFlowBackup.sql という名前で Dropbox のルートフォルダに保存されます.";
