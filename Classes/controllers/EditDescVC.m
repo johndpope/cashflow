@@ -211,6 +211,13 @@
 
 #pragma mark - UISearchDisplayController Delegate
 
+// iOS7 バグ回避
+// see http://stackoverflow.com/questions/18924710/uisearchdisplaycontroller-overlapping-original-table-view
+- (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
+{
+    tableView.backgroundColor = [UIColor whiteColor];
+}
+
 // 検索開始 : サーチバーの文字列が変更されたときに呼び出される
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
