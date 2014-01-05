@@ -21,8 +21,6 @@
 
 @implementation EditDescViewController
 {
-    IBOutlet UITableView *_tableView;
-    
     UITextField *_textField;
 }
 
@@ -80,7 +78,7 @@
     // キーボードを消す ###
     [_textField resignFirstResponder];
 
-    [_tableView reloadData];
+    [self.tableView reloadData];
 }
 
 //- (void)viewWillDisappear:(BOOL)animated
