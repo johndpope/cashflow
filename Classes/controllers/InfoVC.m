@@ -36,9 +36,6 @@
 {
     [super viewDidLoad];
     //[AppDelegate trackPageview:@"/InfoViewController"];
-
-    // iOS7 hack
-    //if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.title = _L(@"Info");
     self.navigationItem.rightBarButtonItem =

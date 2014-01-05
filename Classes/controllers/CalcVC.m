@@ -89,9 +89,6 @@
 {
     [super viewDidLoad];
     
-    // iOS7 hack
-    //if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) self.edgesForExtendedLayout = UIRectEdgeNone;
-
     // iOS6 以前には Helvetica Neue Thin がない
     if ([self iosVersion] < 7) {
         UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Light" size:68.0];

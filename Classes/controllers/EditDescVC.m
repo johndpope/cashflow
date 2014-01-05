@@ -213,7 +213,7 @@
 
 #pragma mark - UISearchDisplayController Delegate
 
-// 検索開始
+// 検索開始 : サーチバーの文字列が変更されたときに呼び出される
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self updateFilteredDescArray:searchString];
@@ -229,7 +229,7 @@
 
 #pragma mark - 
 
-// テキスト変更時の処理
+// サーチテキスト変更時の処理：フィルタリングをし直す
 - (void)updateFilteredDescArray:(NSString *)searchString {
     if (searchString == nil || searchString.length == 0) {
         self.filteredDescArray = [self.descArray mutableCopy];

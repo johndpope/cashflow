@@ -47,7 +47,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gC2-qw-i8T"/>
-                                    <barButtonItem title="000" style="plain" id="HfJ-0C-yuf"/>
+                                    <barButtonItem title="-" style="plain" id="HfJ-0C-yuf"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="a2f-kv-3ON"/>
                                     <barButtonItem style="plain" systemItem="action" id="7LI-7S-WvY">
                                         <connections>
