@@ -66,7 +66,7 @@
                                     <constraint firstAttribute="width" constant="271" id="CkG-VZ-GZt"/>
                                     <constraint firstAttribute="height" constant="50" id="Vgh-Q7-0C8"/>
                                 </constraints>
-                                <string key="text">Copyright © 2008-2013
+                                <string key="text">Copyright © 2008-2014
 Takuya Murakami</string>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
