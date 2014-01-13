@@ -207,7 +207,7 @@
         // バックアップファイル名が変わってしまっている
         // ⇒ 同時バックアップのため衝突が発生
         NSLog(@"upload failed because of conflict");
-        [self _showResult:_L(@"upload_failed")];
+        [self _showResult:@"Conflict backup operations." withTitle:_L(@"upload_failed")];
     }
     [mDelegate dropboxBackupFinished];
 }
@@ -215,7 +215,8 @@
 // backup failed
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error
 {
-    [self _showResult:_L(@"upload_failed")];
+    NSString *msg = [error localizedDescription];
+    [self _showResult:msg withTitle:_L(@"upload_failed")];
     [mDelegate dropboxBackupFinished];
 }
 
@@ -229,7 +230,7 @@
     BOOL result = [dm restoreDatabaseFromSql:path];
     [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
     if (!result) {
-        [self _showResult:_L(@"download_failed")];
+        [self _showResult:@"Data restore error" withTitle:_L(@"download_failed")];
         [mDelegate dropboxBackupFinished];
         return;
     }
@@ -245,16 +246,22 @@
 // restore failed
 - (void)restClient:(DBRestClient*)client loadFileFailedWithError:(NSError*)error
 {
-    [self _showResult:_L(@"download_failed")];
+    NSString *msg = [error localizedDescription];
+    [self _showResult:msg withTitle:_L(@"download_failed")];
     [[DataModel instance] startLoad:self];
 }
 
 - (void)_showResult:(NSString *)message
 {
-    [[[UIAlertView alloc] 
-       initWithTitle:@"Dropbox" message:message
-       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]
-        show];
+    [self _showResult:message withTitle:@"Dropbox"];
+}
+
+- (void)_showResult:(NSString *)message withTitle:(NSString *)title
+{
+    [[[UIAlertView alloc]
+      initWithTitle:title message:message
+      delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]
+     show];
 }
 
 - (void)dataModelLoaded
