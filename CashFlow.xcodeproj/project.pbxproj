@@ -279,9 +279,6 @@
 		3ED30E741323B53E007E46DC /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED30E711323B53E007E46DC /* TransactionCell.xib */; };
 		3ED97C150F1A0D8D0063A578 /* WebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED97C140F1A0D8D0063A578 /* WebServer.m */; };
 		3ED97C280F1A0E8E0063A578 /* BackupServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED97C270F1A0E8E0063A578 /* BackupServer.m */; };
-		3EE5E70818A925FD00B23A99 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */; };
-		3EE5E70918A925FE00B23A99 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */; };
-		3EE5E70A18A925FF00B23A99 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */; };
 		3EE5E70B18A9260100B23A99 /* libAdapterNend.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2C01831495600070F72 /* libAdapterNend.a */; };
 		3EE5E70C18A9260200B23A99 /* libAdapterNend.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2C01831495600070F72 /* libAdapterNend.a */; };
 		3EE5E70D18A9260300B23A99 /* libAdapterNend.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2C01831495600070F72 /* libAdapterNend.a */; };
@@ -550,7 +547,6 @@
 		3E91B88B152F3335008120DC /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Hardware.m"; sourceTree = "<group>"; };
 		3E98A66711E8367B00B7F289 /* CurrencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyManager.h; sourceTree = "<group>"; };
 		3E98A66811E8368800B7F289 /* CurrencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyManager.m; sourceTree = "<group>"; };
-		3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterInMobi.a; sourceTree = "<group>"; };
 		3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenSelectListView.xib; sourceTree = "<group>"; };
 		3EB2FCDD0EC7314100F356A3 /* CategoryListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListView.xib; sourceTree = "<group>"; };
 		3EB554B3103B92D700BA13D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -632,7 +628,6 @@
 				3EE5E70E18A9260600B23A99 /* libNendAd.a in Frameworks */,
 				3E338213133211C500861610 /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				3EE5E70818A925FD00B23A99 /* libAdapterInMobi.a in Frameworks */,
 				3EB88E8517F6B5680045780D /* libz.dylib in Frameworks */,
 				3EE5E71418A9262500B23A99 /* imobileAds.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -670,7 +665,6 @@
 				3EE5E70F18A9260700B23A99 /* libNendAd.a in Frameworks */,
 				3E8B25B90F348C090007929E /* AudioToolbox.framework in Frameworks */,
 				3EB554B5103B92D700BA13D4 /* QuartzCore.framework in Frameworks */,
-				3EE5E70918A925FE00B23A99 /* libAdapterInMobi.a in Frameworks */,
 				3EB5552F103B930E00BA13D4 /* AddressBook.framework in Frameworks */,
 				3EE5E71518A9262500B23A99 /* imobileAds.framework in Frameworks */,
 				3EB88E8617F6B5680045780D /* libz.dylib in Frameworks */,
@@ -696,7 +690,6 @@
 				3E69E8F31616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3EFDC2DF18314D5500070F72 /* MobileCoreServices.framework in Frameworks */,
 				3EB88E8417F6B5590045780D /* libz.dylib in Frameworks */,
-				3EE5E70A18A925FF00B23A99 /* libAdapterInMobi.a in Frameworks */,
 				3E44CF6117F605EE00E54901 /* XCTest.framework in Frameworks */,
 				3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */,
 				3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */,
@@ -1126,20 +1119,11 @@
 			name = "Support files";
 			sourceTree = "<group>";
 		};
-		3EA3952A1556B4E00078DCA2 /* AdapterInMobi */ = {
-			isa = PBXGroup;
-			children = (
-				3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */,
-			);
-			path = AdapterInMobi;
-			sourceTree = "<group>";
-		};
 		3EAF41431340BCC000814FFA /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
 				3EFDC2CB18314B4800070F72 /* AdapterIMobile */,
 				3EFDC2BF1831490800070F72 /* AdapterNend */,
-				3EA3952A1556B4E00078DCA2 /* AdapterInMobi */,
 			);
 			path = AdMob;
 			sourceTree = "<group>";
