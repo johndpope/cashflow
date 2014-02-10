@@ -279,9 +279,6 @@
 		3ED30E741323B53E007E46DC /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED30E711323B53E007E46DC /* TransactionCell.xib */; };
 		3ED97C150F1A0D8D0063A578 /* WebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED97C140F1A0D8D0063A578 /* WebServer.m */; };
 		3ED97C280F1A0E8E0063A578 /* BackupServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED97C270F1A0E8E0063A578 /* BackupServer.m */; };
-		3EE5E70218A925DF00B23A99 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3953D1556BF0A0078DCA2 /* libAdapterIAd.a */; };
-		3EE5E70318A925E000B23A99 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3953D1556BF0A0078DCA2 /* libAdapterIAd.a */; };
-		3EE5E70418A925E000B23A99 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3953D1556BF0A0078DCA2 /* libAdapterIAd.a */; };
 		3EE5E70518A925F900B23A99 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869309185F40E6007F2979 /* libInMobi-4.0.4.a */; };
 		3EE5E70618A925F900B23A99 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869309185F40E6007F2979 /* libInMobi-4.0.4.a */; };
 		3EE5E70718A925FA00B23A99 /* libInMobi-4.0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869309185F40E6007F2979 /* libInMobi-4.0.4.a */; };
@@ -558,7 +555,6 @@
 		3E98A66711E8367B00B7F289 /* CurrencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyManager.h; sourceTree = "<group>"; };
 		3E98A66811E8368800B7F289 /* CurrencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyManager.m; sourceTree = "<group>"; };
 		3EA395331556BEF70078DCA2 /* libAdapterInMobi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterInMobi.a; sourceTree = "<group>"; };
-		3EA3953D1556BF0A0078DCA2 /* libAdapterIAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterIAd.a; sourceTree = "<group>"; };
 		3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenSelectListView.xib; sourceTree = "<group>"; };
 		3EB2FCDD0EC7314100F356A3 /* CategoryListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListView.xib; sourceTree = "<group>"; };
 		3EB554B3103B92D700BA13D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -626,7 +622,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E869306185F40C1007F2979 /* Social.framework in Frameworks */,
-				3EE5E70218A925DF00B23A99 /* libAdapterIAd.a in Frameworks */,
 				3EE5E70B18A9260100B23A99 /* libAdapterNend.a in Frameworks */,
 				3EFDC2DD18314BAC00070F72 /* MobileCoreServices.framework in Frameworks */,
 				3E69E8EC1616B3ED00FAD808 /* AdSupport.framework in Frameworks */,
@@ -666,7 +661,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EFDC2DE18314BB900070F72 /* MobileCoreServices.framework in Frameworks */,
-				3EE5E70318A925E000B23A99 /* libAdapterIAd.a in Frameworks */,
 				3EE5E70C18A9260200B23A99 /* libAdapterNend.a in Frameworks */,
 				3E69E8F21616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3ECD5A871347603800B499A6 /* iAd.framework in Frameworks */,
@@ -713,7 +707,6 @@
 				3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */,
 				3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */,
 				3EF1526B1462C37900C724E4 /* CFNetwork.framework in Frameworks */,
-				3EE5E70418A925E000B23A99 /* libAdapterIAd.a in Frameworks */,
 				3EF1526C1462C37D00C724E4 /* Security.framework in Frameworks */,
 				3EF1526E1462C38800C724E4 /* AVFoundation.framework in Frameworks */,
 				3EE5E71318A9262200B23A99 /* libAdapterIMobile.a in Frameworks */,
@@ -1149,22 +1142,12 @@
 			path = AdapterInMobi;
 			sourceTree = "<group>";
 		};
-		3EADFAF7154E87F500F62967 /* AdapterIAD */ = {
-			isa = PBXGroup;
-			children = (
-				3EA3953D1556BF0A0078DCA2 /* libAdapterIAd.a */,
-			);
-			name = AdapterIAD;
-			path = AdapterIAd;
-			sourceTree = "<group>";
-		};
 		3EAF41431340BCC000814FFA /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
 				3EFDC2CB18314B4800070F72 /* AdapterIMobile */,
 				3EFDC2BF1831490800070F72 /* AdapterNend */,
 				3EA3952A1556B4E00078DCA2 /* AdapterInMobi */,
-				3EADFAF7154E87F500F62967 /* AdapterIAD */,
 			);
 			path = AdMob;
 			sourceTree = "<group>";

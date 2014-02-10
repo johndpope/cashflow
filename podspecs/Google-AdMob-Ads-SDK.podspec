@@ -15,10 +15,20 @@ LICENSE
   s.source = { :http => "http://dl.google.com/googleadmobadssdk/googlemobileadssdkios.zip" }
   s.platform = :ios
 
-  s.source_files = 'GoogleAdMobAdsSdkiOS-6.8.0/**/*.h'
-  s.preserve_paths = 'GoogleAdMobAdsSdkiOS-6.8.0'
+  dirname = "GoogleAdMobAdsSdkiOS-#{s.version}"
+
+  s.source_files = "#{dirname}/*.h"
+  s.preserve_paths = dirname
 
   s.framework = %w{AVFoundation AudioToolbox CoreTelephony MessageUI SystemConfiguration CoreGraphics AdSupport}
   s.library = 'GoogleAdMobAds'
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-AdMob-Ads-SDK/GoogleAdMobAdsSdkiOS-6.8.0"' }
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => "\"$(PODS_ROOT)/Google-AdMob-Ads-SDK/#{dirname}\"" }
+
+  s.subspec 'Mediation' do |mediation|
+    mediation.source_files = "#{dirname}/Add-ons/Mediation/*.h"
+  end
+
+  s.subspec 'DoubleClick' do |dfp|
+    dfp.source_files = "#{dirname}/Add-ons/DoubleClick/*.h"
+  end
 end
