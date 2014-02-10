@@ -1,13 +1,15 @@
 platform :ios,'6.0'
+link_with ['CashFlow', 'CashFlowFree', 'UnitTests']
+
 pod 'Dropbox-iOS-SDK'
 pod 'BugSense'
-pod 'ASIHTTPRequest'
-pod 'JSONKit'
+pod 'CrittercismSDK'
+pod 'GoogleAnalytics-iOS-SDK'
 
 pod 'Google-AdMob-Ads-SDK'
 
-pod 'GoogleAnalytics-iOS-SDK'
-
-pod 'CrittercismSDK'
+# Adapter iMobile deps
+pod 'ASIHTTPRequest'
+pod 'JSONKit'
 
 
