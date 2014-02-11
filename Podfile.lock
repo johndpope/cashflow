@@ -1,0 +1,34 @@
+PODS:
+  - AdMobMediationAdapterIAd (6.6.0):
+    - Google-Mobile-Ads-SDK
+  - AdMobMediationAdapterInMobi (0.0.1):
+    - InMobiSDK
+  - BugSense (3.6)
+  - Dropbox-iOS-SDK (1.3.9)
+  - Google-Mobile-Ads-SDK (6.8.0)
+  - GoogleAnalytics-iOS-SDK (3.0.3)
+  - InMobiSDK (4.1.0)
+
+DEPENDENCIES:
+  - AdMobMediationAdapterIAd
+  - AdMobMediationAdapterInMobi (from `./podspecs/AdMobMediationAdapterInMobi.podspec`)
+  - BugSense
+  - Dropbox-iOS-SDK
+  - Google-Mobile-Ads-SDK
+  - GoogleAnalytics-iOS-SDK
+  - InMobiSDK
+
+EXTERNAL SOURCES:
+  AdMobMediationAdapterInMobi:
+    :podspec: ./podspecs/AdMobMediationAdapterInMobi.podspec
+
+SPEC CHECKSUMS:
+  AdMobMediationAdapterIAd: 7e1ad03a1f50d7d695e1f8078d3c588d65f4cd4e
+  AdMobMediationAdapterInMobi: e837c97f541ddf187d3c333e0f34d2d2c21dae75
+  BugSense: 03b6b614445b43a555763103b4944fd7a716f5b1
+  Dropbox-iOS-SDK: 1a8850056b1bd54bc023bd268e1e6f4d6ee9d7a5
+  Google-Mobile-Ads-SDK: 0046ccf75440cf7cac163430e7c2ae9613b79a0c
+  GoogleAnalytics-iOS-SDK: 7b0e55cfe5e70d60478a7b105f15ac71e8bc373e
+  InMobiSDK: 76be7076580fb67ca1818840e893b31ecd061ab1
+
+COCOAPODS: 0.29.0
