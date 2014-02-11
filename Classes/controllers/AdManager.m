@@ -14,7 +14,7 @@
 // 広告リクエスト間隔 (画面遷移時のみ)
 #define AD_REQUEST_INTERVAL     30.0
 
-@implementation AdMobView
+@implementation DFPView
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
@@ -47,7 +47,7 @@
     __weak UIViewController *_rootViewController;
     
     // 広告ビュー
-    AdMobView *_bannerView;
+    DFPView *_bannerView;
     
     // 広告サイズ
     CGSize _adSize;
@@ -202,7 +202,7 @@ static AdManager *theAdManager;
     }
     */
 
-    AdMobView *view = [[AdMobView alloc] initWithFrame:gadSize];
+    DFPView *view = [[DFPView alloc] initWithFrame:gadSize];
     view.delegate = self;
     
     NSLog(@"AdUnit = %@", ADUNIT_ID);
