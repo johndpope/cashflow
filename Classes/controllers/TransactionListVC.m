@@ -216,7 +216,7 @@
 /**
  * 広告表示
  */
-- (void)adManager:(AdManager *)adManager showAd:(AdMobView *)adView adSize:(CGSize)adSize
+- (void)adManager:(AdManager *)adManager showAd:(DFPView *)adView adSize:(CGSize)adSize
 {
     if (_isAdShowing) {
         NSLog(@"Ad is already showing!");
