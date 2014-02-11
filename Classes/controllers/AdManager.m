@@ -26,6 +26,7 @@
 - (void)dealloc {
     self.delegate = nil;
 }
+
 @end
 
 
@@ -232,9 +233,9 @@ static AdManager *theAdManager;
 
 #pragma mark - GADBannerViewDelegate
 
-- (void)adViewDidReceiveAd:(GADBannerView *)view
+- (void)adViewDidReceiveAd:(DFPBannerView *)view
 {
-    NSLog(@"Ad loaded");
+    NSLog(@"Ad loaded : class = %@", view.adNetworkClassName);
     _isAdLoaded = YES;
     
     if (_delegate != nil && !_isAdShowing) {
