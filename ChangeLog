@@ -1,3 +1,11 @@
+2014-08-24 : Takuya Murakami
+
+	* Update pods
+	* AdMob 6.8.0 -> 6.11.1
+	* InMobi 4.1.0 -> 4.4.11
+	* Analytics 3.0.3 -> 3.0.9
+	* Dropbox 1.3.9 -> 1.3.11
+
 2014-02-11 : Takuya Murakami
 
 	* CocoaPods 導入
