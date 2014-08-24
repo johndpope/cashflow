@@ -268,6 +268,9 @@
 		3EB691E219AA375C00C83C45 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB691E119AA375C00C83C45 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EB691E319AA378200C83C45 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB691E119AA375C00C83C45 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EB691E419AA378600C83C45 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB691E119AA375C00C83C45 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3EB691E619AA3B9800C83C45 /* ImobileSdkAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB691E519AA3B9800C83C45 /* ImobileSdkAds.framework */; };
+		3EB691E719AA3B9800C83C45 /* ImobileSdkAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB691E519AA3B9800C83C45 /* ImobileSdkAds.framework */; };
+		3EB691E819AA3B9800C83C45 /* ImobileSdkAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB691E519AA3B9800C83C45 /* ImobileSdkAds.framework */; };
 		3EB88E8417F6B5590045780D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8317F6B5590045780D /* libz.dylib */; };
 		3EB88E8517F6B5680045780D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8317F6B5590045780D /* libz.dylib */; };
 		3EB88E8617F6B5680045780D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8317F6B5590045780D /* libz.dylib */; };
@@ -291,15 +294,6 @@
 		3EE5E71118A9262100B23A99 /* libAdapterIMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */; };
 		3EE5E71218A9262200B23A99 /* libAdapterIMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */; };
 		3EE5E71318A9262200B23A99 /* libAdapterIMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */; };
-		3EE5E71418A9262500B23A99 /* imobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CD18314B6500070F72 /* imobileAds.framework */; };
-		3EE5E71518A9262500B23A99 /* imobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CD18314B6500070F72 /* imobileAds.framework */; };
-		3EE5E71618A9262600B23A99 /* imobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CD18314B6500070F72 /* imobileAds.framework */; };
-		3EE5E71718A9263200B23A99 /* ASIHTTPRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CC18314B6500070F72 /* ASIHTTPRequest.framework */; };
-		3EE5E71818A9263300B23A99 /* ASIHTTPRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CC18314B6500070F72 /* ASIHTTPRequest.framework */; };
-		3EE5E71918A9263300B23A99 /* ASIHTTPRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CC18314B6500070F72 /* ASIHTTPRequest.framework */; };
-		3EE5E71A18A9263700B23A99 /* JSONKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CE18314B6500070F72 /* JSONKit.framework */; };
-		3EE5E71B18A9263700B23A99 /* JSONKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CE18314B6500070F72 /* JSONKit.framework */; };
-		3EE5E71C18A9263800B23A99 /* JSONKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CE18314B6500070F72 /* JSONKit.framework */; };
 		3EE629EA10D7E8C500EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EE62A2B10D7EA0100EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -555,6 +549,7 @@
 		3EB554B3103B92D700BA13D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3EB5552D103B930D00BA13D4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		3EB691E119AA375C00C83C45 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImageIO.framework; sourceTree = "<group>"; };
+		3EB691E519AA3B9800C83C45 /* ImobileSdkAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImobileSdkAds.framework; sourceTree = "<group>"; };
 		3EB88E8317F6B5590045780D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		3EB88E8717F6FAE10045780D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CashFlow/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		3EB88E8B17F6FD370045780D /* CashFlowFree.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CashFlowFree.entitlements; sourceTree = "<group>"; };
@@ -602,9 +597,6 @@
 		3EFDC2C21831495600070F72 /* NADIconLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADIconLoader.h; sourceTree = "<group>"; };
 		3EFDC2C31831495600070F72 /* NADIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADIconView.h; sourceTree = "<group>"; };
 		3EFDC2C41831495600070F72 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
-		3EFDC2CC18314B6500070F72 /* ASIHTTPRequest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ASIHTTPRequest.framework; sourceTree = "<group>"; };
-		3EFDC2CD18314B6500070F72 /* imobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = imobileAds.framework; sourceTree = "<group>"; };
-		3EFDC2CE18314B6500070F72 /* JSONKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSONKit.framework; sourceTree = "<group>"; };
 		3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterIMobile.a; sourceTree = "<group>"; };
 		3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileCoreServices.framework; sourceTree = "<group>"; };
 		43C7E4C7EC864B49B8BF27F5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -623,18 +615,15 @@
 				3EFDC2DD18314BAC00070F72 /* MobileCoreServices.framework in Frameworks */,
 				3E69E8EC1616B3ED00FAD808 /* AdSupport.framework in Frameworks */,
 				3EB88E8D17F700B00045780D /* StoreKit.framework in Frameworks */,
-				3EE5E71718A9263200B23A99 /* ASIHTTPRequest.framework in Frameworks */,
 				3E347BB2169DC7B0002307AA /* CoreData.framework in Frameworks */,
 				3E44CF5D17F604E400E54901 /* DropboxSDK.framework in Frameworks */,
 				3E69E8EA1616B3D800FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */,
 				3E0AD010186AD97D003F7D17 /* BugSense-iOS.framework in Frameworks */,
-				3EE5E71A18A9263700B23A99 /* JSONKit.framework in Frameworks */,
 				3EE5E70E18A9260600B23A99 /* libNendAd.a in Frameworks */,
 				3E338213133211C500861610 /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				3EB88E8517F6B5680045780D /* libz.dylib in Frameworks */,
-				3EE5E71418A9262500B23A99 /* imobileAds.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				3E6F5D5F0EB8C30B0082F50A /* AudioToolbox.framework in Frameworks */,
@@ -644,6 +633,7 @@
 				3E2376C51107481F00E4C329 /* MessageUI.framework in Frameworks */,
 				3E197BF7121271D200105B20 /* SystemConfiguration.framework in Frameworks */,
 				3E33821A1332123200861610 /* AVFoundation.framework in Frameworks */,
+				3EB691E619AA3B9800C83C45 /* ImobileSdkAds.framework in Frameworks */,
 				3E4C6775134793A400DA87F6 /* iAd.framework in Frameworks */,
 				3EE5E71118A9262100B23A99 /* libAdapterIMobile.a in Frameworks */,
 				3E3F525014651654005CBD9A /* libsqlite3.dylib in Frameworks */,
@@ -660,19 +650,16 @@
 				3E69E8F21616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3ECD5A871347603800B499A6 /* iAd.framework in Frameworks */,
 				3EE62A2B10D7EA0100EB7399 /* MediaPlayer.framework in Frameworks */,
-				3EE5E71818A9263300B23A99 /* ASIHTTPRequest.framework in Frameworks */,
 				3E8B25B60F348C090007929E /* Foundation.framework in Frameworks */,
 				3EB691E319AA378200C83C45 /* ImageIO.framework in Frameworks */,
 				3E44CF5E17F604E400E54901 /* DropboxSDK.framework in Frameworks */,
 				3E8B25B70F348C090007929E /* UIKit.framework in Frameworks */,
 				3E8B25B80F348C090007929E /* CoreGraphics.framework in Frameworks */,
 				3E0AD011186AD97D003F7D17 /* BugSense-iOS.framework in Frameworks */,
-				3EE5E71B18A9263700B23A99 /* JSONKit.framework in Frameworks */,
 				3EE5E70F18A9260700B23A99 /* libNendAd.a in Frameworks */,
 				3E8B25B90F348C090007929E /* AudioToolbox.framework in Frameworks */,
 				3EB554B5103B92D700BA13D4 /* QuartzCore.framework in Frameworks */,
 				3EB5552F103B930E00BA13D4 /* AddressBook.framework in Frameworks */,
-				3EE5E71518A9262500B23A99 /* imobileAds.framework in Frameworks */,
 				3EB88E8617F6B5680045780D /* libz.dylib in Frameworks */,
 				3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */,
 				3E13EE59114007D600523938 /* AVFoundation.framework in Frameworks */,
@@ -682,6 +669,7 @@
 				3E0AC6AF13A786F7006F505C /* CFNetwork.framework in Frameworks */,
 				3E3F525114651654005CBD9A /* libsqlite3.dylib in Frameworks */,
 				3EB88E8E17F702170045780D /* StoreKit.framework in Frameworks */,
+				3EB691E719AA3B9800C83C45 /* ImobileSdkAds.framework in Frameworks */,
 				3E69E8F51616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3EE5E71218A9262200B23A99 /* libAdapterIMobile.a in Frameworks */,
 				3E347BB4169DC7CE002307AA /* CoreData.framework in Frameworks */,
@@ -705,6 +693,7 @@
 				3EF1526E1462C38800C724E4 /* AVFoundation.framework in Frameworks */,
 				3EE5E71318A9262200B23A99 /* libAdapterIMobile.a in Frameworks */,
 				3EF1526F1462C38800C724E4 /* AudioToolbox.framework in Frameworks */,
+				3EB691E819AA3B9800C83C45 /* ImobileSdkAds.framework in Frameworks */,
 				3E869308185F40CA007F2979 /* Social.framework in Frameworks */,
 				3EF152701462C38800C724E4 /* CoreGraphics.framework in Frameworks */,
 				3EF152711462C38800C724E4 /* QuartzCore.framework in Frameworks */,
@@ -719,12 +708,9 @@
 				3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */,
 				3E44CF5F17F604E500E54901 /* DropboxSDK.framework in Frameworks */,
 				3EE5E71018A9260700B23A99 /* libNendAd.a in Frameworks */,
-				3EE5E71918A9263300B23A99 /* ASIHTTPRequest.framework in Frameworks */,
-				3EE5E71618A9262600B23A99 /* imobileAds.framework in Frameworks */,
 				3E69E8F61616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E347BB5169DC7CF002307AA /* CoreData.framework in Frameworks */,
 				977AFB7F161A4A21B9DC734B /* libPods.a in Frameworks */,
-				3EE5E71C18A9263800B23A99 /* JSONKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1226,9 +1212,7 @@
 		3EFDC2CB18314B4800070F72 /* AdapterIMobile */ = {
 			isa = PBXGroup;
 			children = (
-				3EFDC2CC18314B6500070F72 /* ASIHTTPRequest.framework */,
-				3EFDC2CD18314B6500070F72 /* imobileAds.framework */,
-				3EFDC2CE18314B6500070F72 /* JSONKit.framework */,
+				3EB691E519AA3B9800C83C45 /* ImobileSdkAds.framework */,
 				3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */,
 			);
 			path = AdapterIMobile;
@@ -1790,6 +1774,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
+					"$(PROJECT_DIR)/Libraries/AdMob/AdapterIMobile",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -1818,6 +1803,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
+					"$(PROJECT_DIR)/Libraries/AdMob/AdapterIMobile",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -1847,6 +1833,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
+					"$(PROJECT_DIR)/Libraries/AdMob/AdapterIMobile",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -1880,6 +1867,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
+					"$(PROJECT_DIR)/Libraries/AdMob/AdapterIMobile",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -1912,6 +1900,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
+					"$(PROJECT_DIR)/Libraries/AdMob/AdapterIMobile",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1949,6 +1938,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
+					"$(PROJECT_DIR)/Libraries/AdMob/AdapterIMobile",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
