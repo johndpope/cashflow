@@ -4,8 +4,16 @@ CashFlow for iOS
 How to build
 ------------
 
-* Install cocoapods.
-* Install 'xcproj'.
-* Run 'pod install'.
-* Run 'open CashFlow.xcworkspace'.
-* Build with Xcode.
+1) Install cocoapods.
+
+    $ bundle install
+
+2) Install 'xcproj'.
+
+    $ brew install xcproj
+
+3) Run 'pod install'.
+
+4) Run 'open CashFlow.xcworkspace'.
+
+5) Build with Xcode.

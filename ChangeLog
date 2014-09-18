@@ -1,3 +1,7 @@
+2014-09-19 : Takuya Murakami
+
+	* Xcode6 : .description を .desc に変更
+
 2014-08-24 : Takuya Murakami
 
 	* Update pods
