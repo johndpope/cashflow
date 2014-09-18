@@ -168,7 +168,7 @@
 
         /* トランザクションの ID は日付と取引番号で生成 */
         [data appendFormat:@"     <FITID>%@</FITID>\n", [self _fitIdWithAssetEntry:e]];
-        [data appendFormat:@"     <NAME>%@</NAME>\n", [self _escapeXmlString:e.transaction.description]];
+        [data appendFormat:@"     <NAME>%@</NAME>\n", [self _escapeXmlString:e.transaction.desc]];
         if ([e.transaction.memo length] > 0) {
             [data appendFormat:@"     <MEMO>%@</MEMO>\n", [self _escapeXmlString:e.transaction.memo]];
         }

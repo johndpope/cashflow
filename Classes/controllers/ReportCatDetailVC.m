@@ -62,7 +62,7 @@
             value = -t.value;
         }
     }
-    [cell setDescriptionLabel:t.description];
+    [cell setDescriptionLabel:t.desc];
     [cell setDateLabel:t.date];
     [cell setValueLabel:value];
     [cell clearBalanceLabel];

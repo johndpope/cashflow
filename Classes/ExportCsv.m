@@ -63,7 +63,7 @@
                 [d appendFormat:@"%@,", [dateFormatter stringFromDate:e.transaction.date]];
                 [d appendFormat:@"%.2f,", e.value];
                 [d appendFormat:@"%.2f,", e.balance];
-                [d appendFormat:@"%@,", e.transaction.description];
+                [d appendFormat:@"%@,", e.transaction.desc];
                 [d appendFormat:@"%@,", [[DataModel instance].categories categoryStringWithKey:e.transaction.category]];
                 [d appendFormat:@"%@", e.transaction.memo];
                 [d appendString:@"\n"];

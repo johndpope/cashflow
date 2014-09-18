@@ -15,7 +15,7 @@
 @property(nonatomic,assign) int type;
 @property(nonatomic,assign) int category;
 @property(nonatomic,assign) double value;
-@property(nonatomic,strong) NSString* description;
+@property(nonatomic,strong) NSString* desc;
 @property(nonatomic,strong) NSString* memo;
 @property(nonatomic,strong) NSString* identifier;
 

@@ -24,7 +24,7 @@ create_table :Transactions, :class => :Transaction, :base_class => :TransactionB
   t.integer :type
   t.integer :category
   t.real :value
-  t.text :description
+  t.text :desc, :field_name => :description
   t.text :memo
   t.text :identifier
 end
@@ -35,7 +35,7 @@ create_table :Categories, :class => :TCategory, :base_class => :TCategoryBase do
 end
 
 create_table :DescLRUs, :class => :DescLRU do |t|
-  t.text :description
+  t.text :desc, :field_name => :description
   t.date :lastUse
   t.integer :category
 end

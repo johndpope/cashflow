@@ -41,7 +41,7 @@
 
 - (void)editDescViewChanged:(EditDescViewController*)v
 {
-    mDescription = v.description;
+    mDescription = v.desc;
 }
 
 #pragma mark -
@@ -61,7 +61,7 @@
     // erase all desc LRU data
     [DescLRU delete_cond:nil];
 
-    self.vc.description = @"TEST";
+    self.vc.desc = @"TEST";
     self.vc.category = 100;
     self.vc.delegate = self;
 

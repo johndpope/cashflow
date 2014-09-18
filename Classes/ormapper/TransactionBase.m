@@ -369,7 +369,7 @@
     self.type = [stmt colInt:4];
     self.category = [stmt colInt:5];
     self.value = [stmt colDouble:6];
-    self.description = [stmt colString:7];
+    self.desc = [stmt colString:7];
     self.memo = [stmt colString:8];
     self.identifier = [stmt colString:9];
 }
@@ -391,7 +391,7 @@
     [stmt bindInt:3 val:_type];
     [stmt bindInt:4 val:_category];
     [stmt bindDouble:5 val:_value];
-    [stmt bindString:6 val:_description];
+    [stmt bindString:6 val:_desc];
     [stmt bindString:7 val:_memo];
     [stmt bindString:8 val:_identifier];
     [stmt step];
@@ -429,7 +429,7 @@
     [stmt bindInt:3 val:_type];
     [stmt bindInt:4 val:_category];
     [stmt bindDouble:5 val:_value];
-    [stmt bindString:6 val:_description];
+    [stmt bindString:6 val:_desc];
     [stmt bindString:7 val:_memo];
     [stmt bindString:8 val:_identifier];
     [stmt bindInt:9 val:self.pid];
@@ -523,7 +523,7 @@
     [s appendString:@","];
     [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%f", _value]]];
     [s appendString:@","];
-    [s appendString:[self quoteSqlString:_description]];
+    [s appendString:[self quoteSqlString:_desc]];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:_memo]];
     [s appendString:@","];

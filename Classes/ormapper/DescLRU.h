@@ -9,7 +9,7 @@
 
 @interface DescLRU : ORRecord
 
-@property(nonatomic,strong) NSString* description;
+@property(nonatomic,strong) NSString* desc;
 @property(nonatomic,strong) NSDate* lastUse;
 @property(nonatomic,assign) int category;
 

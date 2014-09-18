@@ -24,7 +24,7 @@
     // okay, we need to migrate...
     ary = [Transaction find_all:@"ORDER BY date DESC LIMIT 100"];
     for (Transaction *t in ary) {
-        [self addDescLRU:t.description category:t.category date:t.date];
+        [self addDescLRU:t.desc category:t.category date:t.date];
     }
 }
 
@@ -34,17 +34,17 @@
     [self addDescLRU:description category:category date:now];
 }
 
-+ (void)addDescLRU:(NSString *)description category:(int)category date:(NSDate*)date
++ (void)addDescLRU:(NSString *)desc category:(int)category date:(NSDate*)date
 {
-    if ([description length] == 0) return;
+    if ([desc length] == 0) return;
 
     // find desc LRU from history
-    DescLRU *lru = [DescLRU find_by_description:description];
+    DescLRU *lru = [DescLRU find_by_description:desc];
 
     if (lru == nil) {
         // create new LRU
         lru = [DescLRU new];
-        lru.description = description;
+        lru.desc = desc;
     }
     lru.category = category;
     lru.lastUse = date;

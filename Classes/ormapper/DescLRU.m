@@ -213,7 +213,7 @@
 - (void)_loadRow:(dbstmt *)stmt
 {
     self.pid = [stmt colInt:0];
-    self.description = [stmt colString:1];
+    self.desc = [stmt colString:1];
     self.lastUse = [stmt colDate:2];
     self.category = [stmt colInt:3];
 }
@@ -229,7 +229,7 @@
     
     //[db beginTransaction];
     stmt = [db prepare:@"INSERT INTO DescLRUs VALUES(NULL,?,?,?);"];
-    [stmt bindString:0 val:_description];
+    [stmt bindString:0 val:_desc];
     [stmt bindDate:1 val:_lastUse];
     [stmt bindInt:2 val:_category];
     [stmt step];
@@ -255,7 +255,7 @@
         ",lastUse = ?"
         ",category = ?"
         " WHERE key = ?;"];
-    [stmt bindString:0 val:_description];
+    [stmt bindString:0 val:_desc];
     [stmt bindDate:1 val:_lastUse];
     [stmt bindInt:2 val:_category];
     [stmt bindInt:3 val:self.pid];
@@ -331,7 +331,7 @@
 {
     [s appendFormat:@"INSERT INTO DescLRUs VALUES(%d", self.pid];
     [s appendString:@","];
-    [s appendString:[self quoteSqlString:_description]];
+    [s appendString:[self quoteSqlString:_desc]];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:[[Database instance] stringFromDate:_lastUse]]];
     [s appendString:@","];

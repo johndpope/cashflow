@@ -33,7 +33,7 @@
 
 - (TransactionCell *)updateWithAssetEntry:(AssetEntry *)entry
 {
-    [self setDescriptionLabel:entry.transaction.description];
+    [self setDescriptionLabel:entry.transaction.desc];
     [self setDateLabel:entry.transaction.date];
     [self setValueLabel:entry.value];
     [self setBalanceLabel:entry.balance];

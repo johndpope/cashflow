@@ -69,7 +69,7 @@
 //  処理するトランザクションをロードしておく
 - (void)viewWillAppear:(BOOL)animated
 {
-    _textField.text = self.description;
+    _textField.text = self.desc;
     [super viewWillAppear:animated];
 
     self.descArray = [DescLRUManager getDescLRUs:_category];
@@ -88,7 +88,7 @@
 
 - (void)doneAction
 {
-    self.description = _textField.text;
+    self.desc = _textField.text;
     [_delegate editDescViewChanged:self];
 
     [self.navigationController popViewControllerAnimated:YES];
@@ -163,7 +163,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"descCell"];
     }
     DescLRU *lru = self.filteredDescArray[row];
-    cell.textLabel.text = lru.description;
+    cell.textLabel.text = lru.desc;
     return cell;
 }
 
@@ -178,7 +178,7 @@
 
     if (tv == self.searchDisplayController.searchResultsTableView || indexPath.section == 1) {
         DescLRU *lru = self.filteredDescArray[indexPath.row];
-        _textField.text = lru.description;
+        _textField.text = lru.desc;
         [self doneAction];
     }
 }
@@ -251,8 +251,8 @@
     NSUInteger searchOptions = NSCaseInsensitivePredicateOption | NSDiacriticInsensitiveSearch;
     for (int i = 0; i < count; i++) {
         DescLRU *lru = [self.descArray objectAtIndex:i];
-        NSRange range = NSMakeRange(0, lru.description.length);
-        NSRange foundRange = [lru.description rangeOfString:searchString options:searchOptions range:range];
+        NSRange range = NSMakeRange(0, lru.desc.length);
+        NSRange foundRange = [lru.desc rangeOfString:searchString options:searchOptions range:range];
         if (foundRange.length > 0) {
             [self.filteredDescArray addObject:lru];
         }

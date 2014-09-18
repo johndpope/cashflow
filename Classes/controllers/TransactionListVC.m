@@ -710,7 +710,7 @@
         }
         
         // 文字列マッチ
-        NSString *desc = e.transaction.description;
+        NSString *desc = e.transaction.desc;
         NSRange range = NSMakeRange(0, desc.length);
         NSRange foundRange = [desc rangeOfString:searchString options:searchOptions range:range];
         if (foundRange.length > 0) {
