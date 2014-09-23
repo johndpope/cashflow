@@ -176,7 +176,7 @@ static inline double radians(double deg)
 
    Hue の値を一定角度で回転する。
 */
-+ (UIColor *)getGraphColor:(int)index
++ (UIColor *)getGraphColor:(NSInteger)index
 {
     CGFloat hue = ((30 + index * 78) % 360) / 360.0;
     CGFloat satulation = 0.8;

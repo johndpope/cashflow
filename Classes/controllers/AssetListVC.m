@@ -31,7 +31,7 @@
 
     NSMutableArray *_iconArray;
 
-    int _selectedAssetIndex;
+    NSInteger _selectedAssetIndex;
     
     BOOL _asDisplaying;
     UIActionSheet *_asActionButton;
@@ -71,9 +71,9 @@
 	
     // icon image をロード
     _iconArray = [NSMutableArray new];
-    int n = [Asset numAssetTypes];
+    NSInteger n = [Asset numAssetTypes];
 
-    for (int i = 0; i < n; i++) {
+    for (NSInteger i = 0; i < n; i++) {
         NSString *iconName = [Asset iconNameWithType:i];
         NSString *imagePath = [[NSBundle mainBundle] pathForResource:iconName ofType:@"png"];
         UIImage *icon = [UIImage imageWithContentsOfFile:imagePath];
@@ -161,13 +161,13 @@
     //}
 }
 
-- (int)_firstShowAssetIndex
+- (NSInteger)_firstShowAssetIndex
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     return [defaults integerForKey:@"firstShowAssetIndex"];
 }
 
-- (void)_setFirstShowAssetIndex:(int)assetIndex
+- (void)_setFirstShowAssetIndex:(NSInteger)assetIndex
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setInteger:assetIndex forKey:@"firstShowAssetIndex"];
@@ -182,7 +182,7 @@
     Asset *asset = nil;
     
     // 前回選択資産を選択
-    int firstShowAssetIndex = [self _firstShowAssetIndex];
+    NSInteger firstShowAssetIndex = [self _firstShowAssetIndex];
     if (firstShowAssetIndex >= 0 && [_ledger assetCount] > firstShowAssetIndex) {
         asset = [_ledger assetAtIndex:firstShowAssetIndex];
     }
@@ -231,7 +231,7 @@
 
     // 合計欄
     double value = 0.0;
-    for (int i = 0; i < [_ledger assetCount]; i++) {
+    for (NSInteger i = 0; i < [_ledger assetCount]; i++) {
         value += [[_ledger assetAtIndex:i] lastBalance];
     }
     NSString *lbl = [NSString stringWithFormat:@"%@ %@", _L(@"Total"), [CurrencyManager formatCurrency:value]];
@@ -289,7 +289,7 @@
     return [_ledger assetCount];
 }
 
-- (int)_assetIndex:(NSIndexPath*)indexPath
+- (NSInteger)_assetIndex:(NSIndexPath*)indexPath
 {
     return indexPath.row;
 }
@@ -320,7 +320,7 @@
 
 
     // 資産タイプ範囲外対応
-    int type = asset.type;
+    NSInteger type = asset.type;
     if (type < 0 || [_iconArray count] <= type) {
         type = 0;
     }
@@ -352,7 +352,7 @@
 {
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 
-    int assetIndex = [self _assetIndex:indexPath];
+    NSInteger assetIndex = [self _assetIndex:indexPath];
     if (assetIndex < 0) return;
 
     // 最後に選択した asset を記憶
@@ -376,7 +376,7 @@
 // アクセサリボタンをタップしたときの処理 : アセット変更
 - (void)tableView:(UITableView *)tv accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    int assetIndex = [self _assetIndex:indexPath];
+    NSInteger assetIndex = [self _assetIndex:indexPath];
     if (assetIndex >= 0) {
         _selectedAssetIndex = indexPath.row;
         [self performSegueWithIdentifier:@"show" sender:self];
@@ -434,7 +434,7 @@
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)style forRowAtIndexPath:(NSIndexPath*)indexPath
 {
     if (style == UITableViewCellEditingStyleDelete) {
-        int assetIndex = [self _assetIndex:indexPath];
+        NSInteger assetIndex = [self _assetIndex:indexPath];
         _assetToBeDelete = [_ledger assetAtIndex:assetIndex];
 
         _asDelete =
@@ -457,7 +457,7 @@
         return; // cancelled;
     }
 	
-    int pid = _assetToBeDelete.pid;
+    NSInteger pid = _assetToBeDelete.pid;
     [_ledger deleteAsset:_assetToBeDelete];
     
     if (IS_IPAD) {
@@ -490,8 +490,8 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 
 - (void)tableView:(UITableView *)tv moveRowAtIndexPath:(NSIndexPath*)from toIndexPath:(NSIndexPath*)to
 {
-    int fromIndex = [self _assetIndex:from];
-    int toIndex = [self _assetIndex:to];
+    NSInteger fromIndex = [self _assetIndex:from];
+    NSInteger toIndex = [self _assetIndex:to];
     if (fromIndex < 0 || toIndex < 0) return;
 
     [[DataModel ledger] reorderAsset:fromIndex to:toIndex];

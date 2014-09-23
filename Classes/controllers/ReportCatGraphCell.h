@@ -14,7 +14,7 @@
 @interface ReportCatGraphCell : UITableViewCell
 
 + (CGFloat)cellHeight;
-+ (UIColor *)getGraphColor:(int)index;
++ (UIColor *)getGraphColor:(NSInteger)index;
 
 - (void)setReport:(ReportEntry *)reportEntry isOutgo:(BOOL)isOutgo;
 

@@ -51,8 +51,8 @@
 
 - (void)insertTransaction:(Transaction*)tr
 {
-    int i;
-    int max = [_entries count];
+    NSInteger i;
+    NSInteger max = [_entries count];
     Transaction *t = nil;
 
     // 挿入位置を探す
@@ -85,13 +85,13 @@
     // update DB
     [to save];
 
-    int idx = [_entries indexOfObject:from];
+    NSInteger idx = [_entries indexOfObject:from];
     _entries[idx] = to;
     [self _sortByDate];
 }
 
 // sort
-static int compareByDate(Transaction *t1, Transaction *t2, void *context)
+static NSInteger compareByDate(Transaction *t1, Transaction *t2, void *context)
 {
     return [t1.date compare:t2.date];
 }
@@ -148,9 +148,9 @@ static int compareByDate(Transaction *t1, Transaction *t2, void *context)
 - (void)deleteAllTransactionsWithAsset:(Asset *)asset
 {
     Transaction *t;
-    int max = [_entries count];
+    NSInteger max = [_entries count];
 
-    for (int i = 0; i < max; i++) {
+    for (NSInteger i = 0; i < max; i++) {
         t = _entries[i];
         if (t.asset != asset.pid && t.dstAsset != asset.pid) {
             continue;

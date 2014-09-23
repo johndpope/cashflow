@@ -11,15 +11,15 @@
 @class EditMemoViewController;
 
 @protocol EditMemoViewDelegate
-- (void)editMemoViewChanged:(EditMemoViewController *)vc identifier:(int)id;
+- (void)editMemoViewChanged:(EditMemoViewController *)vc identifier:(NSInteger)id;
 @end
 
 @interface EditMemoViewController : UIViewController <UITextViewDelegate>
 
 @property(nonatomic,unsafe_unretained) id<EditMemoViewDelegate> delegate;
-@property(nonatomic,assign) int identifier;
+@property(nonatomic,assign) NSInteger identifier;
 @property(nonatomic,strong) NSString *text;
 
-+ (EditMemoViewController *)editMemoViewController:(id<EditMemoViewDelegate>)delegate title:(NSString*)title identifier:(int)id;
++ (EditMemoViewController *)editMemoViewController:(id<EditMemoViewDelegate>)delegate title:(NSString*)title identifier:(NSInteger)id;
 
 @end

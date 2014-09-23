@@ -329,7 +329,7 @@
  */
 - (void)getInsertSql:(NSMutableString *)s
 {
-    [s appendFormat:@"INSERT INTO DescLRUs VALUES(%d", self.pid];
+    [s appendFormat:@"INSERT INTO DescLRUs VALUES(%ld", (long)self.pid];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:_desc]];
     [s appendString:@","];

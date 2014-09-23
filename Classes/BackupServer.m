@@ -16,7 +16,7 @@
 
 #define BACKUP_NAME @"CashFlowBackup.sql"
 
-- (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(int)bodylen
+- (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(NSInteger)bodylen
 {
     // Request to '/' url.
     if ([filereq isEqualToString:@"/"])
@@ -79,7 +79,7 @@
 
     char buf[1024];
     for (;;) {
-        int len = read(f, buf, sizeof(buf));
+        NSInteger len = read(f, buf, sizeof(buf));
         if (len == 0) break;
 
         write(s, buf, len);
@@ -90,7 +90,7 @@
 /**
    Restore from backup file
 */
-- (void)restore:(int)s body:(char *)body bodylen:(int)bodylen
+- (void)restore:(int)s body:(char *)body bodylen:(NSInteger)bodylen
 {
     NSLog(@"%s", body);
     // get mimepart delimiter
@@ -106,7 +106,7 @@
 
     // find data end pointer
     char *end = NULL;
-    int delimlen = strlen(delimiter);
+    long delimlen = strlen(delimiter);
     for (p = start; p < body + bodylen; p++) {
         if (strncmp(p, delimiter, delimlen) == 0) {
             end = p - 2; // previous new line
@@ -127,7 +127,7 @@
 
     p = start;
     while (p < end) {
-        int len = write(f, p, end - p);
+        long len = write(f, p, end - p);
         p += len;
     }
     close(f);

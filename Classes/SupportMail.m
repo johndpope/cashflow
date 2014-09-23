@@ -56,8 +56,8 @@ static SupportMail *theInstance;
     [info appendFormat:@"OS: %@\n", [device systemVersion]];
 
     DataModel *dm = [DataModel instance];
-    [info appendFormat:@"# Assets: %d\n", [dm.ledger assetCount]];
-    [info appendFormat:@"# Transactions: %d\n", [dm.journal.entries count]];
+    [info appendFormat:@"# Assets: %ld\n", (long)[dm.ledger assetCount]];
+    [info appendFormat:@"# Transactions: %lu\n", (unsigned long)[dm.journal.entries count]];
     
     NSMutableData *d = [NSMutableData dataWithLength:0];
     const char *p = [info UTF8String];

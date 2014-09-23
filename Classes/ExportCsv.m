@@ -42,10 +42,10 @@
         }
         [data appendString:@"Serial,Date,Value,Balance,Description,Category,Memo\n"];
     
-        int max = [asset entryCount];
+        NSInteger max = [asset entryCount];
 
         /* トランザクション */
-        int i = 0;
+        NSInteger i = 0;
         if (self.firstDate != nil) {
             i = [asset firstEntryByDate:self.firstDate];
         }
@@ -59,7 +59,7 @@
                 if (self.firstDate != nil && [e.transaction.date compare:self.firstDate] == NSOrderedAscending) continue;
             
                 NSMutableString *d = [NSMutableString new];
-                [d appendFormat:@"%d,", e.transaction.pid];
+                [d appendFormat:@"%ld,", (long)e.transaction.pid];
                 [d appendFormat:@"%@,", [dateFormatter stringFromDate:e.transaction.date]];
                 [d appendFormat:@"%.2f,", e.value];
                 [d appendFormat:@"%.2f,", e.balance];

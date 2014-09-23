@@ -13,16 +13,16 @@
 #define DateTimeModeWithTime 0  // 日＋時
 #define DateTimeModeWithTime5min 1  // 日＋時
 #define DateTimeModeDateOnly 2  // 日のみ
-@property(nonatomic,assign) int dateTimeMode;
+@property(nonatomic,assign) NSInteger dateTimeMode;
 
 // 週の開始日 : 日曜 - 0, 月曜 - 1
-@property(nonatomic,assign) int startOfWeek;
+@property(nonatomic,assign) NSInteger startOfWeek;
 
 // 締め日 (1～29)、月末を指定する場合は 0
-@property(nonatomic,assign) int cutoffDate;
+@property(nonatomic,assign) NSInteger cutoffDate;
 
 // 最後に選択されたレポート種別 (REPORT_DAILY/WEEKLY/MONTHLY/ANNUAL/...)
-@property(nonatomic,assign) int lastReportType;
+@property(nonatomic,assign) NSInteger lastReportType;
 
 + (Config *)instance;
 - (void)save;

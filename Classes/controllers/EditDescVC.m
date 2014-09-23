@@ -12,7 +12,7 @@
 
 @interface EditDescViewController()
 - (UITableViewCell *)_textFieldCell:(UITableView*)tv;
-- (UITableViewCell *)_descCell:(UITableView*)tv row:(int)row;
+- (UITableViewCell *)_descCell:(UITableView*)tv row:(NSInteger)row;
 
 @property (nonatomic) NSMutableArray *descArray;
 @property (nonatomic) NSMutableArray *filteredDescArray;
@@ -156,7 +156,7 @@
     return cell;
 }
 
-- (UITableViewCell *)_descCell:(UITableView *)tv row:(int)row
+- (UITableViewCell *)_descCell:(UITableView *)tv row:(NSInteger)row
 {   
     UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"descCell"];
     if (cell == nil) {
@@ -241,7 +241,7 @@
         return;
     }
     
-    int count = [self.descArray count];
+    NSInteger count = [self.descArray count];
     if (self.filteredDescArray == nil) {
         self.filteredDescArray = [[NSMutableArray alloc] initWithCapacity:count];
     } else {
@@ -249,7 +249,7 @@
     }
     
     NSUInteger searchOptions = NSCaseInsensitivePredicateOption | NSDiacriticInsensitiveSearch;
-    for (int i = 0; i < count; i++) {
+    for (NSInteger i = 0; i < count; i++) {
         DescLRU *lru = [self.descArray objectAtIndex:i];
         NSRange range = NSMakeRange(0, lru.desc.length);
         NSRange foundRange = [lru.desc rangeOfString:searchString options:searchOptions range:range];

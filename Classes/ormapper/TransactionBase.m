@@ -509,7 +509,7 @@
  */
 - (void)getInsertSql:(NSMutableString *)s
 {
-    [s appendFormat:@"INSERT INTO Transactions VALUES(%d", self.pid];
+    [s appendFormat:@"INSERT INTO Transactions VALUES(%ld", (long)self.pid];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%ld", (long)_asset]]];
     [s appendString:@","];

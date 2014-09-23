@@ -30,7 +30,7 @@
  @param type タイプ (REPORT_DAILY/WEEKLY/MONTHLY/ANNUAL)
  @param asset 対象資産 (nil の場合は全資産)
  */
-- (void)generate:(int)type asset:(Asset*)asset
+- (void)generate:(NSInteger)type asset:(Asset*)asset
 {
     self.type = type;
 	
@@ -39,7 +39,7 @@
     NSCalendar *greg = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	
     // レポートの開始日と終了日を取得
-    int assetKey;
+    NSInteger assetKey;
     if (asset == nil) {
         assetKey = -1;
     } else {
@@ -66,7 +66,7 @@
             nextStartDay = [greg dateFromComponents:dateComponents];
             
             // 日曜が 1, 土曜が 7
-            int weekday = [dateComponents weekday];
+            NSInteger weekday = [dateComponents weekday];
             
             // 前週の指定曜日に設定
             [steps setDay:- (weekday - 1) - 7+ [Config instance].startOfWeek];
@@ -79,15 +79,15 @@
             dateComponents = [greg components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:firstDate];
 
             // 締め日設定
-            int cutoffDate = [Config instance].cutoffDate;
+            NSInteger cutoffDate = [Config instance].cutoffDate;
             if (cutoffDate == 0) {
                 // 月末締め ⇒ 開始は同月1日から。
                 [dateComponents setDay:1];
             }
             else {
                 // 一つ前の月の締め日翌日から開始
-                int year = [dateComponents year];
-                int month = [dateComponents month];
+                NSInteger year = [dateComponents year];
+                NSInteger month = [dateComponents month];
                 month--;
                 if (month < 1) {
                     month = 12;
@@ -159,7 +159,7 @@
 /**
  指定された資産の最初の取引日を取得
  */
-- (NSDate*)firstDateOfAsset:(int)asset
+- (NSDate*)firstDateOfAsset:(NSInteger)asset
 {
     NSMutableArray *entries = [DataModel journal].entries;
     Transaction *t = nil;
@@ -177,11 +177,11 @@
 /**
  指定された資産の最後の取引日を取得
  */
-- (NSDate*)lastDateOfAsset:(int)asset
+- (NSDate*)lastDateOfAsset:(NSInteger)asset
 {
     NSMutableArray *entries = [DataModel journal].entries;
     Transaction *t = nil;
-    int i;
+    NSInteger i;
 
     for (i = [entries count] - 1; i >= 0; i--) {
         t = entries[i];

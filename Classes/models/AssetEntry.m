@@ -138,7 +138,7 @@
 
 // 種別変更
 //   type のほか、transaction の dst_asset, asset, value も調整する
-- (BOOL)changeType:(int)type assetKey:(int)as dstAssetKey:(int)das
+- (BOOL)changeType:(NSInteger)type assetKey:(NSInteger)as dstAssetKey:(NSInteger)das
 {
     if (type == TYPE_TRANSFER) {
         if (das == self.assetKey) {
@@ -161,7 +161,7 @@
 }
 
 // 転送先資産のキーを返す
-- (int)dstAsset
+- (NSInteger)dstAsset
 {
     if (_transaction.type != TYPE_TRANSFER) {
         ASSERT(NO);
@@ -175,7 +175,7 @@
     return _transaction.dstAsset;
 }
 
-- (void)setDstAsset:(int)as
+- (void)setDstAsset:(NSInteger)as
 {
     if (_transaction.type != TYPE_TRANSFER) {
         ASSERT(NO);

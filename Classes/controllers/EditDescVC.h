@@ -21,7 +21,7 @@
 
 @property(nonatomic,unsafe_unretained) id<EditDescViewDelegate> delegate;
 @property(nonatomic,strong) NSString *desc;
-@property(nonatomic,assign) int category;
+@property(nonatomic,assign) NSInteger category;
 
 //@property(nonatomic,readonly) UITableView *tableView;
 

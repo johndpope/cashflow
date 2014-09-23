@@ -28,13 +28,13 @@
     }
 }
 
-+ (void)addDescLRU:(NSString *)description category:(int)category
++ (void)addDescLRU:(NSString *)description category:(NSInteger)category
 {
     NSDate *now = [NSDate new];
     [self addDescLRU:description category:category date:now];
 }
 
-+ (void)addDescLRU:(NSString *)desc category:(int)category date:(NSDate*)date
++ (void)addDescLRU:(NSString *)desc category:(NSInteger)category date:(NSDate*)date
 {
     if ([desc length] == 0) return;
 
@@ -51,7 +51,7 @@
     [lru save];
 }
 
-+ (NSMutableArray *)getDescLRUs:(int)category
++ (NSMutableArray *)getDescLRUs:(NSInteger)category
 {
     NSMutableArray *ary;
 

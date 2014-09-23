@@ -18,7 +18,7 @@
 @interface EditTypeViewController : UITableViewController <GenSelectListViewDelegate>
 
 @property(nonatomic,unsafe_unretained) id<EditTypeViewDelegate> delegate;
-@property(nonatomic,assign) int type;
-@property(nonatomic,assign) int dstAsset;
+@property(nonatomic,assign) NSInteger type;
+@property(nonatomic,assign) NSInteger dstAsset;
 
 @end

@@ -21,7 +21,7 @@
     IBOutlet UILabel *_rememberDateLabel;
     IBOutlet UISwitch *_rememberDateSwitch;
 
-    int _transactionIndex;
+    NSInteger _transactionIndex;
 
     BOOL _isModified;
 
@@ -135,7 +135,7 @@
 }
 
 // 処理するトランザクションをロードしておく
-- (void)setTransactionIndex:(int)n
+- (void)setTransactionIndex:(NSInteger)n
 {
     _transactionIndex = n;
 
@@ -466,7 +466,7 @@
     [self dismissPopover];
 }
 
-- (void)editMemoViewChanged:(EditMemoViewController*)vc identifier:(int)id
+- (void)editMemoViewChanged:(EditMemoViewController*)vc identifier:(NSInteger)id
 {
     _isModified = YES;
 
@@ -606,7 +606,7 @@
     }
 }
 
-- (void)asCancelTransaction:(int)buttonIndex
+- (void)asCancelTransaction:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
     case 0:

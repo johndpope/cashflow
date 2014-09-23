@@ -19,7 +19,7 @@
     <GenEditTextViewDelegate>
 
 @property(nonatomic,assign) BOOL isSelectMode;
-@property(nonatomic,assign) int selectedIndex;
+@property(nonatomic,assign) NSInteger selectedIndex;
 @property(nonatomic,unsafe_unretained) id<CategoryListViewDelegate> delegate;
 
 @end

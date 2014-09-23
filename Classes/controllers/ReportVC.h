@@ -17,7 +17,7 @@
 
 + (ReportViewController *)instantiate;
 
-- (void)setAsset:(Asset*)asset type:(int)type;
+- (void)setAsset:(Asset*)asset type:(NSInteger)type;
 - (void)setAsset:(Asset*)asset;
 
 @end

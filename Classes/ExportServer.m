@@ -13,7 +13,7 @@
 
 #define BUFSZ   4096
 
-- (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(int)bodylen
+- (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(NSInteger)bodylen
 {
     const char *p;
     
@@ -38,7 +38,7 @@
     p = [content UTF8String];
     write(s, p, strlen(p));
 	
-    int clen = [_contentBody length];
+    NSInteger clen = [_contentBody length];
     if (clen > 0) {
         write(s, [_contentBody bytes], clen);
     }

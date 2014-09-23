@@ -13,19 +13,19 @@
 //
 @interface AssetEntry : NSObject
 
-@property(nonatomic,assign) int assetKey;
+@property(nonatomic,assign) NSInteger assetKey;
 @property(nonatomic,strong) Transaction *transaction;
 @property(nonatomic,assign) double value;
 @property(nonatomic,assign) double balance;
 @property(nonatomic,assign) double evalue;
 
 // for search filter (TransactionListViewController)
-@property(nonatomic) int originalIndex;
+@property(nonatomic) NSInteger originalIndex;
 
 - (id)initWithTransaction:(Transaction *)t withAsset:(Asset *)asset;
-- (BOOL)changeType:(int)type assetKey:(int)as dstAssetKey:(int)das;
-- (int)dstAsset;
-- (void)setDstAsset:(int)as;
+- (BOOL)changeType:(NSInteger)type assetKey:(NSInteger)as dstAssetKey:(NSInteger)das;
+- (NSInteger)dstAsset;
+- (void)setDstAsset:(NSInteger)as;
 - (BOOL)isDstAsset;
 
 @end
