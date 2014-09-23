@@ -52,7 +52,7 @@
   @param pid Primary key of the record
   @return record
 */
-+ (Transaction *)find:(int)pid
++ (Transaction *)find:(NSInteger)pid
 {
     Database *db = [Database instance];
 
@@ -69,7 +69,7 @@
   @param cond Conditions (ORDER BY etc)
   @note If you specify WHERE conditions, you must start cond with "AND" keyword.
 */
-+ (Transaction*)find_by_asset:(int)key cond:(NSString *)cond
++ (Transaction*)find_by_asset:(NSInteger)key cond:(NSString *)cond
 {
     if (cond == nil) {
         cond = @"WHERE asset = ? LIMIT 1";
@@ -81,7 +81,7 @@
     return [self find_first_stmt:stmt];
 }
 
-+ (Transaction*)find_by_asset:(int)key
++ (Transaction*)find_by_asset:(NSInteger)key
 {
     return [self find_by_asset:key cond:nil];
 }
@@ -93,7 +93,7 @@
   @param cond Conditions (ORDER BY etc)
   @note If you specify WHERE conditions, you must start cond with "AND" keyword.
 */
-+ (Transaction*)find_by_dst_asset:(int)key cond:(NSString *)cond
++ (Transaction*)find_by_dst_asset:(NSInteger)key cond:(NSString *)cond
 {
     if (cond == nil) {
         cond = @"WHERE dst_asset = ? LIMIT 1";
@@ -105,7 +105,7 @@
     return [self find_first_stmt:stmt];
 }
 
-+ (Transaction*)find_by_dst_asset:(int)key
++ (Transaction*)find_by_dst_asset:(NSInteger)key
 {
     return [self find_by_dst_asset:key cond:nil];
 }
@@ -141,7 +141,7 @@
   @param cond Conditions (ORDER BY etc)
   @note If you specify WHERE conditions, you must start cond with "AND" keyword.
 */
-+ (Transaction*)find_by_type:(int)key cond:(NSString *)cond
++ (Transaction*)find_by_type:(NSInteger)key cond:(NSString *)cond
 {
     if (cond == nil) {
         cond = @"WHERE type = ? LIMIT 1";
@@ -153,7 +153,7 @@
     return [self find_first_stmt:stmt];
 }
 
-+ (Transaction*)find_by_type:(int)key
++ (Transaction*)find_by_type:(NSInteger)key
 {
     return [self find_by_type:key cond:nil];
 }
@@ -165,7 +165,7 @@
   @param cond Conditions (ORDER BY etc)
   @note If you specify WHERE conditions, you must start cond with "AND" keyword.
 */
-+ (Transaction*)find_by_category:(int)key cond:(NSString *)cond
++ (Transaction*)find_by_category:(NSInteger)key cond:(NSString *)cond
 {
     if (cond == nil) {
         cond = @"WHERE category = ? LIMIT 1";
@@ -177,7 +177,7 @@
     return [self find_first_stmt:stmt];
 }
 
-+ (Transaction*)find_by_category:(int)key
++ (Transaction*)find_by_category:(NSInteger)key
 {
     return [self find_by_category:key cond:nil];
 }
@@ -511,15 +511,15 @@
 {
     [s appendFormat:@"INSERT INTO Transactions VALUES(%d", self.pid];
     [s appendString:@","];
-    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%d", _asset]]];
+    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%ld", (long)_asset]]];
     [s appendString:@","];
-    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%d", _dstAsset]]];
+    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%ld", (long)_dstAsset]]];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:[[Database instance] stringFromDate:_date]]];
     [s appendString:@","];
-    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%d", _type]]];
+    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%ld", (long)_type]]];
     [s appendString:@","];
-    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%d", _category]]];
+    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%ld", (long)_category]]];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%f", _value]]];
     [s appendString:@","];

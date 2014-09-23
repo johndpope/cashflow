@@ -46,7 +46,7 @@
   @param pid Primary key of the record
   @return record
 */
-+ (DescLRU *)find:(int)pid
++ (DescLRU *)find:(NSInteger)pid
 {
     Database *db = [Database instance];
 
@@ -111,7 +111,7 @@
   @param cond Conditions (ORDER BY etc)
   @note If you specify WHERE conditions, you must start cond with "AND" keyword.
 */
-+ (DescLRU*)find_by_category:(int)key cond:(NSString *)cond
++ (DescLRU*)find_by_category:(NSInteger)key cond:(NSString *)cond
 {
     if (cond == nil) {
         cond = @"WHERE category = ? LIMIT 1";
@@ -123,7 +123,7 @@
     return [self find_first_stmt:stmt];
 }
 
-+ (DescLRU*)find_by_category:(int)key
++ (DescLRU*)find_by_category:(NSInteger)key
 {
     return [self find_by_category:key cond:nil];
 }
@@ -335,7 +335,7 @@
     [s appendString:@","];
     [s appendString:[self quoteSqlString:[[Database instance] stringFromDate:_lastUse]]];
     [s appendString:@","];
-    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%d", _category]]];
+    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%ld", (long)_category]]];
     [s appendString:@");"];
 }
 

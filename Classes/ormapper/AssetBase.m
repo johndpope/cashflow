@@ -48,7 +48,7 @@
   @param pid Primary key of the record
   @return record
 */
-+ (Asset *)find:(int)pid
++ (Asset *)find:(NSInteger)pid
 {
     Database *db = [Database instance];
 
@@ -89,7 +89,7 @@
   @param cond Conditions (ORDER BY etc)
   @note If you specify WHERE conditions, you must start cond with "AND" keyword.
 */
-+ (Asset*)find_by_type:(int)key cond:(NSString *)cond
++ (Asset*)find_by_type:(NSInteger)key cond:(NSString *)cond
 {
     if (cond == nil) {
         cond = @"WHERE type = ? LIMIT 1";
@@ -101,7 +101,7 @@
     return [self find_first_stmt:stmt];
 }
 
-+ (Asset*)find_by_type:(int)key
++ (Asset*)find_by_type:(NSInteger)key
 {
     return [self find_by_type:key cond:nil];
 }
@@ -137,7 +137,7 @@
   @param cond Conditions (ORDER BY etc)
   @note If you specify WHERE conditions, you must start cond with "AND" keyword.
 */
-+ (Asset*)find_by_sorder:(int)key cond:(NSString *)cond
++ (Asset*)find_by_sorder:(NSInteger)key cond:(NSString *)cond
 {
     if (cond == nil) {
         cond = @"WHERE sorder = ? LIMIT 1";
@@ -149,7 +149,7 @@
     return [self find_first_stmt:stmt];
 }
 
-+ (Asset*)find_by_sorder:(int)key
++ (Asset*)find_by_sorder:(NSInteger)key
 {
     return [self find_by_sorder:key cond:nil];
 }
@@ -393,11 +393,11 @@
     [s appendString:@","];
     [s appendString:[self quoteSqlString:_name]];
     [s appendString:@","];
-    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%d", _type]]];
+    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%ld", (long)_type]]];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%f", _initialBalance]]];
     [s appendString:@","];
-    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%d", _sorder]]];
+    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%ld", (long)_sorder]]];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:_identifier]];
     [s appendString:@");"];

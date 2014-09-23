@@ -10,9 +10,9 @@
 @interface AssetBase : ORRecord
 
 @property(nonatomic,strong) NSString* name;
-@property(nonatomic,assign) int type;
+@property(nonatomic,assign) NSInteger type;
 @property(nonatomic,assign) double initialBalance;
-@property(nonatomic,assign) int sorder;
+@property(nonatomic,assign) NSInteger sorder;
 @property(nonatomic,strong) NSString* identifier;
 
 + (BOOL)migrate;
@@ -20,16 +20,16 @@
 // CRUD (Create/Read/Update/Delete) operations
 
 // Read operations (Finder)
-+ (Asset *)find:(int)pid;
++ (Asset *)find:(NSInteger)pid;
 
 + (Asset *)find_by_name:(NSString*)key cond:(NSString*)cond;
 + (Asset *)find_by_name:(NSString*)key;
-+ (Asset *)find_by_type:(int)key cond:(NSString*)cond;
-+ (Asset *)find_by_type:(int)key;
++ (Asset *)find_by_type:(NSInteger)key cond:(NSString*)cond;
++ (Asset *)find_by_type:(NSInteger)key;
 + (Asset *)find_by_initialBalance:(double)key cond:(NSString*)cond;
 + (Asset *)find_by_initialBalance:(double)key;
-+ (Asset *)find_by_sorder:(int)key cond:(NSString*)cond;
-+ (Asset *)find_by_sorder:(int)key;
++ (Asset *)find_by_sorder:(NSInteger)key cond:(NSString*)cond;
++ (Asset *)find_by_sorder:(NSInteger)key;
 + (Asset *)find_by_identifier:(NSString*)key cond:(NSString*)cond;
 + (Asset *)find_by_identifier:(NSString*)key;
 
