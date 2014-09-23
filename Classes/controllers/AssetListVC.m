@@ -75,8 +75,13 @@
 
     for (NSInteger i = 0; i < n; i++) {
         NSString *iconName = [Asset iconNameWithType:i];
+        
+        /* TODO: xsassets に対して以下の記法は使えなくなった模様。
         NSString *imagePath = [[NSBundle mainBundle] pathForResource:iconName ofType:@"png"];
         UIImage *icon = [UIImage imageWithContentsOfFile:imagePath];
+        */
+        UIImage *icon = [UIImage imageNamed:iconName];
+        
         ASSERT(icon != nil);
         [_iconArray addObject:icon];
     }
