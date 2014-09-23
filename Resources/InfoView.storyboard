@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="51" y="48"/>
         </scene>
-        <!--InfoVC-->
+        <!--Info View Controller-->
         <scene sceneID="PtB-5m-bEs">
             <objects>
-                <viewController storyboardIdentifier="InfoView" id="MK3-Mb-9mQ" customClass="InfoVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InfoView" id="MK3-Mb-9mQ" customClass="InfoViewController" customModule="CashFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tXw-Th-8BR"/>
                         <viewControllerLayoutGuide type="bottom" id="vWR-wS-exd"/>
@@ -96,7 +96,7 @@ Some icons: iStockPhoto.com/Lushik</string>
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="purchaseStandardVersion" destination="MK3-Mb-9mQ" eventType="touchUpInside" id="ti1-Be-2yP"/>
+                                    <action selector="purchaseStandardVerion" destination="MK3-Mb-9mQ" eventType="touchUpInside" id="sDH-GO-L4L"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjZ-sd-Nhx">
@@ -130,7 +130,7 @@ Some icons: iStockPhoto.com/Lushik</string>
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="facebookButtonTapped:" destination="MK3-Mb-9mQ" eventType="touchUpInside" id="b8z-pX-UVA"/>
+                                    <action selector="facebookButtonTapped" destination="MK3-Mb-9mQ" eventType="touchUpInside" id="d8Z-xO-fxL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ho-cq-eXG">

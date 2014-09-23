@@ -5,11 +5,12 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import "CashFlow-Swift.h"
+
 #import "TransactionListVC.h"
 #import "TransactionCell.h"
 #import "AppDelegate.h"
 #import "Transaction.h"
-#import "InfoVC.h"
 #import "CalcVC.h"
 #import "ReportVC.h"
 #import "ConfigViewController.h"
@@ -598,7 +599,7 @@
             break;
             
         case 4:
-            nv = [InfoVC instantiate];
+            nv = [InfoViewController instantiate];
             break;
             
         default:

@@ -52,7 +52,6 @@
 		3E0AD7301214169700CFDDAC /* ExportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F91214169700CFDDAC /* ExportVC.m */; };
 		3E0AD7311214169700CFDDAC /* GenEditTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6FB1214169700CFDDAC /* GenEditTextVC.m */; };
 		3E0AD7321214169700CFDDAC /* GenSelectListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6FD1214169700CFDDAC /* GenSelectListVC.m */; };
-		3E0AD7331214169700CFDDAC /* InfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6FF1214169700CFDDAC /* InfoVC.m */; };
 		3E0AD7341214169700CFDDAC /* PinController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7011214169700CFDDAC /* PinController.m */; };
 		3E0AD7351214169700CFDDAC /* PinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7031214169700CFDDAC /* PinVC.m */; };
 		3E0AD7361214169700CFDDAC /* ReportCatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7051214169700CFDDAC /* ReportCatCell.m */; };
@@ -73,7 +72,6 @@
 		3E0AD7461214169700CFDDAC /* ExportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6F91214169700CFDDAC /* ExportVC.m */; };
 		3E0AD7471214169700CFDDAC /* GenEditTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6FB1214169700CFDDAC /* GenEditTextVC.m */; };
 		3E0AD7481214169700CFDDAC /* GenSelectListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6FD1214169700CFDDAC /* GenSelectListVC.m */; };
-		3E0AD7491214169700CFDDAC /* InfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6FF1214169700CFDDAC /* InfoVC.m */; };
 		3E0AD74A1214169700CFDDAC /* PinController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7011214169700CFDDAC /* PinController.m */; };
 		3E0AD74B1214169700CFDDAC /* PinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7031214169700CFDDAC /* PinVC.m */; };
 		3E0AD74C1214169700CFDDAC /* ReportCatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7051214169700CFDDAC /* ReportCatCell.m */; };
@@ -417,8 +415,6 @@
 		3E0AD6FB1214169700CFDDAC /* GenEditTextVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenEditTextVC.m; sourceTree = "<group>"; };
 		3E0AD6FC1214169700CFDDAC /* GenSelectListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenSelectListVC.h; sourceTree = "<group>"; };
 		3E0AD6FD1214169700CFDDAC /* GenSelectListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenSelectListVC.m; sourceTree = "<group>"; };
-		3E0AD6FE1214169700CFDDAC /* InfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoVC.h; sourceTree = "<group>"; };
-		3E0AD6FF1214169700CFDDAC /* InfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoVC.m; sourceTree = "<group>"; };
 		3E0AD7001214169700CFDDAC /* PinController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinController.h; sourceTree = "<group>"; };
 		3E0AD7011214169700CFDDAC /* PinController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinController.m; sourceTree = "<group>"; };
 		3E0AD7021214169700CFDDAC /* PinVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinVC.h; sourceTree = "<group>"; };
@@ -1059,8 +1055,6 @@
 				3E0AD6FB1214169700CFDDAC /* GenEditTextVC.m */,
 				3E0AD6FC1214169700CFDDAC /* GenSelectListVC.h */,
 				3E0AD6FD1214169700CFDDAC /* GenSelectListVC.m */,
-				3E0AD6FE1214169700CFDDAC /* InfoVC.h */,
-				3E0AD6FF1214169700CFDDAC /* InfoVC.m */,
 				3E3382271332298400861610 /* BackupVC.h */,
 				3E3382281332298400861610 /* BackupVC.m */,
 			);
@@ -1606,7 +1600,6 @@
 				3E0AD7301214169700CFDDAC /* ExportVC.m in Sources */,
 				3E0AD7311214169700CFDDAC /* GenEditTextVC.m in Sources */,
 				3E0AD7321214169700CFDDAC /* GenSelectListVC.m in Sources */,
-				3E0AD7331214169700CFDDAC /* InfoVC.m in Sources */,
 				3E0AD7341214169700CFDDAC /* PinController.m in Sources */,
 				3E8AD9F619D16D6F0073B05A /* InfoViewController.swift in Sources */,
 				3E0AD7351214169700CFDDAC /* PinVC.m in Sources */,
@@ -1680,7 +1673,6 @@
 				3E0AD7461214169700CFDDAC /* ExportVC.m in Sources */,
 				3E0AD7471214169700CFDDAC /* GenEditTextVC.m in Sources */,
 				3E0AD7481214169700CFDDAC /* GenSelectListVC.m in Sources */,
-				3E0AD7491214169700CFDDAC /* InfoVC.m in Sources */,
 				3E0AD74A1214169700CFDDAC /* PinController.m in Sources */,
 				3E8AD9F719D16D6F0073B05A /* InfoViewController.swift in Sources */,
 				3E0AD74B1214169700CFDDAC /* PinVC.m in Sources */,
@@ -1989,6 +1981,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
@@ -2013,6 +2006,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

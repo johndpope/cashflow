@@ -5,6 +5,8 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import "CashFlow-Swift.h"
+
 #import "AppDelegate.h"
 #import "AssetListVC.h"
 #import "Asset.h"
@@ -12,7 +14,6 @@
 #import "TransactionListVC.h"
 //#import "CategoryListVC.h"
 #import "ReportVC.h"
-#import "InfoVC.h"
 #import "BackupVC.h"
 #import "PinController.h"
 #import "ConfigViewController.h"
@@ -574,7 +575,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
             break;
             
         case 3:
-            nv = [InfoVC instantiate];
+            nv = [InfoViewController instantiate];
             break;
             
         default:
