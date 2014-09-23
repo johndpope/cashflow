@@ -1,6 +1,12 @@
 *~
+*.pch
 *.pbxuser
 *.mode1v3
+*.xcsettings
+*.xcuserstate
+*.xcuserdatad/
+*.xccheckout
+*.xcworkspacedata
 build
 *.o
 .DS_Store

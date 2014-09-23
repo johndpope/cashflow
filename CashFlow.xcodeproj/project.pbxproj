@@ -235,6 +235,9 @@
 		3E869306185F40C1007F2979 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869305185F40C1007F2979 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E869307185F40C7007F2979 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869305185F40C1007F2979 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E869308185F40CA007F2979 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E869305185F40C1007F2979 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3E8AD9F619D16D6F0073B05A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AD9F519D16D6F0073B05A /* InfoViewController.swift */; };
+		3E8AD9F719D16D6F0073B05A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AD9F519D16D6F0073B05A /* InfoViewController.swift */; };
+		3E8AD9F819D16D6F0073B05A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AD9F519D16D6F0073B05A /* InfoViewController.swift */; };
 		3E8B25840F348C090007929E /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */; };
 		3E8B25890F348C090007929E /* GenEditTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */; };
 		3E8B258E0F348C090007929E /* CategoryListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2FCDD0EC7314100F356A3 /* CategoryListView.xib */; };
@@ -538,6 +541,8 @@
 		3E7BB135115399C5004B7D03 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		3E869305185F40C1007F2979 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Social.framework; sourceTree = "<group>"; };
 		3E8919F90F16194500FEB19C /* ko */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; fileEncoding = 4; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3E8AD9F419D16D5E0073B05A /* CashFlow-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CashFlow-Bridging-Header.h"; sourceTree = "<group>"; };
+		3E8AD9F519D16D6F0073B05A /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		3E8B25C20F348C090007929E /* CashFlowFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlowFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8C36150F1E0D82004AFFCA /* PinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinView.xib; sourceTree = "<group>"; };
 		3E91B88A152F3335008120DC /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
@@ -1039,6 +1044,7 @@
 		3E77402F18573C6E00DEE1BA /* other */ = {
 			isa = PBXGroup;
 			children = (
+				3E8AD9F519D16D6F0073B05A /* InfoViewController.swift */,
 				3E0AD6EA1214169700CFDDAC /* CategoryListVC.h */,
 				3E0AD6EB1214169700CFDDAC /* CategoryListVC.m */,
 				3E0AD6EC1214169700CFDDAC /* ConfigViewController.h */,
@@ -1080,6 +1086,7 @@
 		3E85A722132E54D6002C44DF /* Support files */ = {
 			isa = PBXGroup;
 			children = (
+				3E8AD9F419D16D5E0073B05A /* CashFlow-Bridging-Header.h */,
 				3E3382231332284000861610 /* DropboxSecret.h */,
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
@@ -1595,6 +1602,7 @@
 				3E0AD7321214169700CFDDAC /* GenSelectListVC.m in Sources */,
 				3E0AD7331214169700CFDDAC /* InfoVC.m in Sources */,
 				3E0AD7341214169700CFDDAC /* PinController.m in Sources */,
+				3E8AD9F619D16D6F0073B05A /* InfoViewController.swift in Sources */,
 				3E0AD7351214169700CFDDAC /* PinVC.m in Sources */,
 				3E0AD7361214169700CFDDAC /* ReportCatCell.m in Sources */,
 				3E0AD7371214169700CFDDAC /* ReportCatVC.m in Sources */,
@@ -1667,6 +1675,7 @@
 				3E0AD7481214169700CFDDAC /* GenSelectListVC.m in Sources */,
 				3E0AD7491214169700CFDDAC /* InfoVC.m in Sources */,
 				3E0AD74A1214169700CFDDAC /* PinController.m in Sources */,
+				3E8AD9F719D16D6F0073B05A /* InfoViewController.swift in Sources */,
 				3E0AD74B1214169700CFDDAC /* PinVC.m in Sources */,
 				3E0AD74C1214169700CFDDAC /* ReportCatCell.m in Sources */,
 				3E0AD74D1214169700CFDDAC /* ReportCatVC.m in Sources */,
@@ -1713,6 +1722,7 @@
 				3EF1528D1462CA8500C724E4 /* CurrencyManagerTests.m in Sources */,
 				3E38C6A217F6A47400A00CE0 /* PinControllerTests.m in Sources */,
 				3EF1528E1462CA8500C724E4 /* DataModelTests.m in Sources */,
+				3E8AD9F819D16D6F0073B05A /* InfoViewController.swift in Sources */,
 				3EF1528F1462CA8500C724E4 /* DescLRUManagerTests.m in Sources */,
 				3EF152901462CA8500C724E4 /* JournalTests.m in Sources */,
 				3E38C6A317F6A47400A00CE0 /* PinVCTests.m in Sources */,
