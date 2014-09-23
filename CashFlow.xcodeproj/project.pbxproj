@@ -1997,7 +1997,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
-				SWIFT_OBJC_BRIDGING_HEADER = "CashFlow-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/CashFlow-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2021,7 +2021,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
-				SWIFT_OBJC_BRIDGING_HEADER = "CashFlow-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/CashFlow-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

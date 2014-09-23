@@ -14,5 +14,5 @@ func isIpad() -> Bool {
 }
 
 func _L(key: String) -> String {
-    return NSLocalizedString(key: key, comment: "")
+    return NSLocalizedString(key, comment: "")
 }

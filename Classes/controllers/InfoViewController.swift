@@ -31,49 +31,49 @@ class InfoViewController : UIViewController {
         var version: String = AppDelegate.appVersion()
         _versionLabel.text = "Version \(version)"
         
-        _setButtonTitle(_purchaseButton, _L("Purchase Standard Version"))
-        _setButtonTitle(_helpButton, _L("Show help page"))
-        _setButtonTitle(_facebookButton, _L("Open facebook page"))
-        _setButtonTitle(_sendMailButton, _L("Send support mail"))
+        _setButtonTitle(_purchaseButton, title: _L("Purchase Standard Version"))
+        _setButtonTitle(_helpButton, title: _L("Show help page"))
+        _setButtonTitle(_facebookButton, title: _L("Open facebook page"))
+        _setButtonTitle(_sendMailButton, title: _L("Send support mail"))
     }
     
     func _setButtonTitle(button: UIButton, title: String) {
-        button.setTitle(title: title, forState: .Normal)
-        button.setTitle(title: title, forState: .Highlighted)
+        button.setTitle(title, forState: .Normal)
+        button.setTitle(title, forState: .Highlighted)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func doneAction(sender) {
-        self.navigationController?.dismissViewControllerAnimated(flag: true, completion: nil)
+    func doneAction(sender: AnyObject) {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func webButtonTapped() {
-        AppDelegate.trackEvent("help", action:"push", label:"help", value:nil)
-        var url = NSURL(NSLocalizedString("HelpURL", comment:""))
+        AppDelegate.trackEvent("help", action:"push", label:"help", value:0)
+        var url = NSURL(string: NSLocalizedString("HelpURL", comment:""))
         UIApplication.sharedApplication().openURL(url)
     }
     
     @IBAction func facebookButtonTapped() {
-        AppDelegate.trackEvent("help", action:"push", label:"facebook", value:nil)
-        var url = NSURL("http://facebook.com/CashFlowApp")
+        AppDelegate.trackEvent("help", action:"push", label:"facebook", value:0)
+        var url = NSURL(string: "http://facebook.com/CashFlowApp")
         UIApplication.sharedApplication().openURL(url)
     }
     
     @IBAction func purchaseStandardVerion() {
-        AppDelegate.trackEvent("help", action:"push", label:"purchase", value:nil)
-        var url = NSURL("http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=290776107&mt=8")
+        AppDelegate.trackEvent("help", action:"push", label:"purchase", value:0)
+        var url = NSURL(string: "http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=290776107&mt=8")
         UIApplication.sharedApplication().openURL(url)
     }
     
     @IBAction func sendSupportMail() {
-        AppDelegate.trackEvent("help", action:"push", label:"sendmail", value:nil)
+        AppDelegate.trackEvent("help", action:"push", label:"sendmail", value:0)
         
         var m = SupportMail.getInstance()
         if (!m.sendMail(self)) {
-            var v = UIAlertView(title: "Error", message: "Can't send mail", delegate: nil, cancelButtonTitle: "OK", otherButtonTitles: nil)
+            var v = UIAlertView(title: "Error", message: "Can't send mail", delegate: nil, cancelButtonTitle: "OK")
             v.show()
         }
     }
