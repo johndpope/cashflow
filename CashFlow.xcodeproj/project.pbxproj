@@ -238,6 +238,9 @@
 		3E8AD9F619D16D6F0073B05A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AD9F519D16D6F0073B05A /* InfoViewController.swift */; };
 		3E8AD9F719D16D6F0073B05A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AD9F519D16D6F0073B05A /* InfoViewController.swift */; };
 		3E8AD9F819D16D6F0073B05A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AD9F519D16D6F0073B05A /* InfoViewController.swift */; };
+		3E8AD9FA19D177C70073B05A /* SwiftUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AD9F919D177C70073B05A /* SwiftUtils.swift */; };
+		3E8AD9FB19D177C70073B05A /* SwiftUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AD9F919D177C70073B05A /* SwiftUtils.swift */; };
+		3E8AD9FC19D177C70073B05A /* SwiftUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8AD9F919D177C70073B05A /* SwiftUtils.swift */; };
 		3E8B25840F348C090007929E /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */; };
 		3E8B25890F348C090007929E /* GenEditTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B83AA0EC359590035AF05 /* GenEditTextView.xib */; };
 		3E8B258E0F348C090007929E /* CategoryListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2FCDD0EC7314100F356A3 /* CategoryListView.xib */; };
@@ -543,6 +546,7 @@
 		3E8919F90F16194500FEB19C /* ko */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; fileEncoding = 4; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3E8AD9F419D16D5E0073B05A /* CashFlow-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CashFlow-Bridging-Header.h"; sourceTree = "<group>"; };
 		3E8AD9F519D16D6F0073B05A /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		3E8AD9F919D177C70073B05A /* SwiftUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUtils.swift; sourceTree = "<group>"; };
 		3E8B25C20F348C090007929E /* CashFlowFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlowFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8C36150F1E0D82004AFFCA /* PinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinView.xib; sourceTree = "<group>"; };
 		3E91B88A152F3335008120DC /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
@@ -1116,6 +1120,7 @@
 				3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */,
 				3E91B88A152F3335008120DC /* UIDevice+Hardware.h */,
 				3E91B88B152F3335008120DC /* UIDevice+Hardware.m */,
+				3E8AD9F919D177C70073B05A /* SwiftUtils.swift */,
 			);
 			name = "Support files";
 			sourceTree = "<group>";
@@ -1582,6 +1587,7 @@
 				3E7109B8121108ED00C47539 /* SupportMail.m in Sources */,
 				3E0AD6BE121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6BF121415DE00CFDDAC /* AssetEntry.m in Sources */,
+				3E8AD9FA19D177C70073B05A /* SwiftUtils.swift in Sources */,
 				3E0AD6C0121415DE00CFDDAC /* Category.m in Sources */,
 				3E0AD6C1121415DE00CFDDAC /* DataModel.m in Sources */,
 				3E0AD6C2121415DE00CFDDAC /* Journal.m in Sources */,
@@ -1655,6 +1661,7 @@
 				3E7109B6121108ED00C47539 /* SupportMail.m in Sources */,
 				3E0AD6C6121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6C7121415DE00CFDDAC /* AssetEntry.m in Sources */,
+				3E8AD9FB19D177C70073B05A /* SwiftUtils.swift in Sources */,
 				3E0AD6C8121415DE00CFDDAC /* Category.m in Sources */,
 				3E0AD6C9121415DE00CFDDAC /* DataModel.m in Sources */,
 				3E0AD6CA121415DE00CFDDAC /* Journal.m in Sources */,
@@ -1719,6 +1726,7 @@
 				3EF1528B1462CA8500C724E4 /* AssetEntryTests.m in Sources */,
 				3E38C6A017F6A47400A00CE0 /* EditDescVCTests.m in Sources */,
 				3EF1528C1462CA8500C724E4 /* AssetTests.m in Sources */,
+				3E8AD9FC19D177C70073B05A /* SwiftUtils.swift in Sources */,
 				3EF1528D1462CA8500C724E4 /* CurrencyManagerTests.m in Sources */,
 				3E38C6A217F6A47400A00CE0 /* PinControllerTests.m in Sources */,
 				3EF1528E1462CA8500C724E4 /* DataModelTests.m in Sources */,
@@ -1989,6 +1997,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
+				SWIFT_OBJC_BRIDGING_HEADER = "CashFlow-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2012,6 +2021,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
+				SWIFT_OBJC_BRIDGING_HEADER = "CashFlow-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
