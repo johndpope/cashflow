@@ -12,7 +12,7 @@
 #import "DataModel.h"
 
 @interface Asset()
-- (void)_deleteEntryAt:(int)n;
+- (void)_deleteEntryAt:(NSInteger)n;
 @end
 
 @implementation Asset
@@ -21,7 +21,7 @@
     //double mLastBalance;
 }
 
-+ (int)numAssetTypes
++ (NSInteger)numAssetTypes
 {
     return NUM_ASSET_TYPES;
 }
@@ -42,7 +42,7 @@
     return typeNames;
 }
 
-+ (NSString*)typeNameWithType:(int)type
++ (NSString*)typeNameWithType:(NSInteger)type
 {
     NSArray *typeNames = [Asset typeNamesArray];
 
@@ -53,7 +53,7 @@
     return typeNames[type];
 }
 
-+ (NSString*)iconNameWithType:(int)type
++ (NSString*)iconNameWithType:(NSInteger)type
 {
     switch (type) {
         case ASSET_CASH:
@@ -137,12 +137,12 @@
 ////////////////////////////////////////////////////////////////////////////
 // AssetEntry operations
 
-- (int)entryCount
+- (NSInteger)entryCount
 {
     return _entries.count;
 }
 
-- (AssetEntry*)entryAt:(int)n
+- (AssetEntry*)entryAt:(NSInteger)n
 {
     return _entries[n];
 }
@@ -153,7 +153,7 @@
     [[DataModel ledger] rebuild];
 }
 
-- (void)replaceEntryAtIndex:(int)index withObject:(AssetEntry *)e
+- (void)replaceEntryAtIndex:(NSInteger)index withObject:(AssetEntry *)e
 {
     AssetEntry *orig = [self entryAt:index];
 
@@ -163,7 +163,7 @@
 
 // エントリ削除
 // 注：entries からは削除されない。journal から削除されるだけ
-- (void)_deleteEntryAt:(int)index
+- (void)_deleteEntryAt:(NSInteger)index
 {
     // 先頭エントリ削除の場合は、初期残高を変更する
     if (index == 0) {
@@ -177,7 +177,7 @@
 }
 
 // エントリ削除
-- (void)deleteEntryAt:(int)index
+- (void)deleteEntryAt:(NSInteger)index
 {
     [self _deleteEntryAt:index];
     
@@ -205,9 +205,9 @@
     [[DataModel ledger] rebuild];
 }
 
-- (int)firstEntryByDate:(NSDate*)date
+- (NSInteger)firstEntryByDate:(NSDate*)date
 {
-    for (int i = 0; i < _entries.count; i++) {
+    for (NSInteger i = 0; i < _entries.count; i++) {
         AssetEntry *e = _entries[i];
         if ([e.transaction.date compare:date] != NSOrderedAscending) {
             return i;
@@ -221,7 +221,7 @@
 
 - (double)lastBalance
 {
-    int max = [_entries count];
+    NSInteger max = [_entries count];
     if (max == 0) {
         return self.initialBalance;
     }

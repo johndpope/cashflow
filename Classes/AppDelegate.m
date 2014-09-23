@@ -236,7 +236,7 @@
 }
  */
 
-+ (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(int)value
++ (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSInteger)value
 {
     id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
     

@@ -12,7 +12,7 @@
 
 @implementation AssetViewController
 {
-    int _assetIndex;
+    NSInteger _assetIndex;
     Asset *_asset;
 
     UIButton *_delButton;
@@ -36,7 +36,7 @@
 
 
 // 処理するトランザクションをロードしておく
-- (void)setAssetIndex:(int)n
+- (void)setAssetIndex:(NSInteger)n
 {
     _assetIndex = n;
 
@@ -163,12 +163,12 @@
 }
 
 // delegate : 下位 ViewController からの変更通知
-- (void)genEditTextViewChanged:(GenEditTextViewController *)vc identifier:(int)id
+- (void)genEditTextViewChanged:(GenEditTextViewController *)vc identifier:(NSInteger)id
 {
     _asset.name = vc.text;
 }
 
-- (BOOL)genSelectListViewChanged:(GenSelectListViewController *)vc identifier:(int)id
+- (BOOL)genSelectListViewChanged:(GenSelectListViewController *)vc identifier:(NSInteger)id
 {
     _asset.type = vc.selectedIndex;
     return YES;

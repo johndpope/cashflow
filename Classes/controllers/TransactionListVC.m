@@ -35,8 +35,8 @@
     IBOutlet UIBarButtonItem *_barActionButton;
     IBOutlet UIToolbar *_toolbar;
     
-    int _assetKey;
-    int _tappedIndex;
+    NSInteger _assetKey;
+    NSInteger _tappedIndex;
     
 #if FREE_VERSION
     AdManager *_adManager;
@@ -328,7 +328,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.asset == nil) return 0;
 
-    int n;
+    NSInteger n;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         n = [self.searchResults count];
     } else {
@@ -343,9 +343,9 @@
 }
 
 // 指定セル位置に該当する entry Index を返す
-- (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
+- (NSInteger)entryIndexWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
 {
-    int idx;
+    NSInteger idx;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         idx = ([self.searchResults count] - 1) - indexPath.row;
     } else {
@@ -357,7 +357,7 @@
 // 指定セル位置の Entry を返す
 - (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
 {
-    int idx = [self entryIndexWithIndexPath:indexPath tableView:tableView];
+    NSInteger idx = [self entryIndexWithIndexPath:indexPath tableView:tableView];
 
     if (idx < 0) {
         return nil;  // initial balance
@@ -405,7 +405,7 @@
 {
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 	
-    int idx = [self entryIndexWithIndexPath:indexPath tableView:tv];
+    NSInteger idx = [self entryIndexWithIndexPath:indexPath tableView:tv];
     if (idx == -1) {
         // initial balance cell
         CalculatorViewController *v = [CalculatorViewController instantiate];
@@ -487,7 +487,7 @@
 // 編集スタイルを返す
 - (UITableViewCellEditingStyle)tableView:(UITableView*)tv editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
+    NSInteger entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
     if (entryIndex < 0) {
         return UITableViewCellEditingStyleNone;
     } 
@@ -497,7 +497,7 @@
 // 削除処理
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)style forRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    int entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
+    NSInteger entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
 
     if (entryIndex < 0) {
         // initial balance cell : do not delete!
@@ -691,7 +691,7 @@
         allMatch = TRUE;
     }
 
-    int count = [self.asset entryCount];
+    NSInteger count = [self.asset entryCount];
     if (self.searchResults == nil) {
         self.searchResults = [[NSMutableArray alloc] initWithCapacity:count];
     } else {

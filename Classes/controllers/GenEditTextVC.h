@@ -11,14 +11,14 @@
 @class GenEditTextViewController;
 
 @protocol GenEditTextViewDelegate
-- (void)genEditTextViewChanged:(GenEditTextViewController *)vc identifier:(int)id;
+- (void)genEditTextViewChanged:(GenEditTextViewController *)vc identifier:(NSInteger)id;
 @end
 
 @interface GenEditTextViewController : UIViewController
 
 @property(nonatomic,unsafe_unretained) id<GenEditTextViewDelegate> delegate;
-@property(nonatomic,assign) int identifier;
+@property(nonatomic,assign) NSInteger identifier;
 @property(nonatomic,strong) NSString *text;
 
-+ (GenEditTextViewController *)genEditTextViewController:(id<GenEditTextViewDelegate>)delegate title:(NSString*)title identifier:(int)id;
++ (GenEditTextViewController *)genEditTextViewController:(id<GenEditTextViewDelegate>)delegate title:(NSString*)title identifier:(NSInteger)id;
 @end

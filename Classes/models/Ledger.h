@@ -20,14 +20,14 @@
 // asset operation
 - (void)load;
 - (void)rebuild;
-- (int)assetCount;
-- (Asset *)assetAtIndex:(int)n;
-- (Asset*)assetWithKey:(int)key;
-- (int)assetIndexWithKey:(int)key;
+- (NSInteger)assetCount;
+- (Asset *)assetAtIndex:(NSInteger)n;
+- (Asset*)assetWithKey:(NSInteger)key;
+- (NSInteger)assetIndexWithKey:(NSInteger)key;
 
 - (void)addAsset:(Asset *)as;
 - (void)deleteAsset:(Asset *)as;
 - (void)updateAsset:(Asset*)asset;
-- (void)reorderAsset:(int)from to:(int)to;
+- (void)reorderAsset:(NSInteger)from to:(NSInteger)to;
 
 @end

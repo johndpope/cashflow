@@ -48,7 +48,7 @@
 // utility operation
 //+ (NSString*)currencyString:(double)x;
 
-- (int)categoryWithDescription:(NSString *)desc;
+- (NSInteger)categoryWithDescription:(NSString *)desc;
 
 // sql backup operation
 - (BOOL)backupDatabaseToSql:(NSString *)path;

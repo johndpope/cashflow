@@ -103,8 +103,8 @@
     NSDateComponents *comps = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] 
                                 components:(NSHourCalendarUnit | NSMinuteCalendarUnit) 
                                 fromDate:_datePicker.date];
-    int hour = [comps hour];
-    int min = [comps minute];
+    NSInteger hour = [comps hour];
+    NSInteger min = [comps minute];
     
     // カレンダーで指定した日時(0:00) に以前の時刻の値を加算する
     self.date = [aDate dateByAddingTimeInterval:(hour * 3600 + min * 60)];

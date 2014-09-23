@@ -15,7 +15,7 @@
 {
     IBOutlet UITableView *_tableView;
     
-    int _type;
+    NSInteger _type;
     Report *_reports;
     double _maxAbsValue;
     
@@ -36,7 +36,7 @@
     return self;
 }
 
-- (void)setAsset:(Asset*)asset type:(int)type
+- (void)setAsset:(Asset*)asset type:(NSInteger)type
 {
     self.designatedAsset = asset;
 
@@ -183,7 +183,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int count = [_reports.reportEntries count];
+    NSInteger count = [_reports.reportEntries count];
     ReportEntry *report = (_reports.reportEntries)[count - indexPath.row - 1];
 	
     ReportCell *cell = (ReportCell*)[tv dequeueReusableCellWithIdentifier:@"ReportCell"];
@@ -200,7 +200,7 @@
 {
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 	
-    int count = [_reports.reportEntries count];
+    NSInteger count = [_reports.reportEntries count];
     _showingReportEntry = (_reports.reportEntries)[count - indexPath.row - 1];
 
     [self performSegueWithIdentifier:@"show" sender:self];

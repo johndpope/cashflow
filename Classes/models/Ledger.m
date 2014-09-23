@@ -24,17 +24,17 @@
     }
 }
 
-- (int)assetCount
+- (NSInteger)assetCount
 {
     return [self.assets count];
 }
 
-- (Asset*)assetAtIndex:(int)n
+- (Asset*)assetAtIndex:(NSInteger)n
 {
     return self.assets[n];
 }
 
-- (Asset*)assetWithKey:(int)pid
+- (Asset*)assetWithKey:(NSInteger)pid
 {
     for (Asset *as in self.assets) {
         if (as.pid == pid) return as;
@@ -42,7 +42,7 @@
     return nil;
 }
 
-- (int)assetIndexWithKey:(int)pid
+- (NSInteger)assetIndexWithKey:(NSInteger)pid
 {
     int i;
     for (i = 0; i < [self.assets count]; i++) {
@@ -74,7 +74,7 @@
     [asset save];
 }
 
-- (void)reorderAsset:(int)from to:(int)to
+- (void)reorderAsset:(NSInteger)from to:(NSInteger)to
 {
     Asset *as = self.assets[from];
     [self.assets removeObjectAtIndex:from];
@@ -83,7 +83,7 @@
     // renumbering sorder
     Database *db = [Database instance];
     [db beginTransaction];
-    for (int i = 0; i < [self.assets count]; i++) {
+    for (NSInteger i = 0; i < [self.assets count]; i++) {
         as = self.assets[i];
         as.sorder = i;
         [as save];

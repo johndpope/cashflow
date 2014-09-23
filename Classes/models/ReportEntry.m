@@ -13,10 +13,10 @@
 @implementation ReportEntry
 {
     /** 資産キー */
-    int _assetKey;
+    NSInteger _assetKey;
 }
 
-static int sortCatReport(id x, id y, void *context);
+static NSInteger sortCatReport(id x, id y, void *context);
 
 /**
    イニシャライザ
@@ -25,7 +25,7 @@ static int sortCatReport(id x, id y, void *context);
    @param start 開始日
    @param end 終了日
  */
-- (id)initWithAsset:(int)assetKey start:(NSDate *)start end:(NSDate *)end
+- (id)initWithAsset:(NSInteger)assetKey start:(NSDate *)start end:(NSDate *)end
 {
     self = [super init];
     if (self == nil) return nil;
@@ -39,13 +39,13 @@ static int sortCatReport(id x, id y, void *context);
 
     // カテゴリ毎のレポート (CatReport) の生成
     Categories *categories = [DataModel instance].categories;
-    int numCategories = [categories count];
+    NSInteger numCategories = [categories count];
 
     _incomeCatReports = [[NSMutableArray alloc] initWithCapacity:numCategories + 1];
     _outgoCatReports  = [[NSMutableArray alloc] initWithCapacity:numCategories + 1];
 
-    for (int i = -1; i < numCategories; i++) {
-        int catkey;
+    for (NSInteger i = -1; i < numCategories; i++) {
+        NSInteger catkey;
         CatReport *cr;
 
         if (i == -1) {
@@ -141,8 +141,8 @@ static int sortCatReport(id x, id y, void *context);
 - (double)_sortAndTotalUp:(NSMutableArray *)ary
 {		
     // 金額が 0 のエントリを削除する
-    int count = [ary count];
-    for (int i = 0; i < count; i++) {
+    NSInteger count = [ary count];
+    for (NSInteger i = 0; i < count; i++) {
         CatReport *cr = ary[i];
         if (cr.sum == 0.0) {
             [ary removeObjectAtIndex:i];
@@ -165,7 +165,7 @@ static int sortCatReport(id x, id y, void *context);
 /**
    CatReport 比較用関数 : 絶対値降順でソート
 */
-static int sortCatReport(id x, id y, void *context)
+static NSInteger sortCatReport(id x, id y, void *context)
 {
     CatReport *xr = (CatReport *)x;
     CatReport *yr = (CatReport *)y;

@@ -14,6 +14,6 @@
 
 - (void)sendIndexHtml:(int)s;
 - (void)sendBackup:(int)s;
-- (void)restore:(int)s body:(char*)body bodylen:(int)bodylen;
+- (void)restore:(int)s body:(char*)body bodylen:(NSInteger)bodylen;
 
 @end

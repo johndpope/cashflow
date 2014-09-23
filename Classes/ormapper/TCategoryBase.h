@@ -10,19 +10,19 @@
 @interface TCategoryBase : ORRecord
 
 @property(nonatomic,strong) NSString* name;
-@property(nonatomic,assign) int sorder;
+@property(nonatomic,assign) NSInteger sorder;
 
 + (BOOL)migrate;
 
 // CRUD (Create/Read/Update/Delete) operations
 
 // Read operations (Finder)
-+ (TCategory *)find:(int)pid;
++ (TCategory *)find:(NSInteger)pid;
 
 + (TCategory *)find_by_name:(NSString*)key cond:(NSString*)cond;
 + (TCategory *)find_by_name:(NSString*)key;
-+ (TCategory *)find_by_sorder:(int)key cond:(NSString*)cond;
-+ (TCategory *)find_by_sorder:(int)key;
++ (TCategory *)find_by_sorder:(NSInteger)key cond:(NSString*)cond;
++ (TCategory *)find_by_sorder:(NSInteger)key;
 
 + (NSMutableArray *)find_all:(NSString *)cond;
 

@@ -13,7 +13,7 @@
     IBOutlet UITextView *_textView;
 }
 
-+ (EditMemoViewController *)editMemoViewController:(id<EditMemoViewDelegate>)delegate title:(NSString*)title identifier:(int)id
++ (EditMemoViewController *)editMemoViewController:(id<EditMemoViewDelegate>)delegate title:(NSString*)title identifier:(NSInteger)id
 {
     EditMemoViewController *vc = [[EditMemoViewController alloc]
                                       initWithNibName:@"EditMemoView"
