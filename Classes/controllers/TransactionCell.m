@@ -10,7 +10,6 @@
 #import "TransactionCell.h"
 #import "DataModel.h"
 #import "AppDelegate.h"
-#import "CurrencyManager.h"
 
 @implementation TransactionCell
 {

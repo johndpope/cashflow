@@ -11,7 +11,6 @@
 #import "DataModel.h"
 #import "AssetListVC.h"
 #import "TransactionListVC.h"
-#import "CurrencyManager.h"
 
 #define DBNAME  @"CashFlow.db"
 
