@@ -29,9 +29,9 @@
 - (void)viewDidLoad
 {
     if (IS_IPAD) {
-        CGSize s = self.contentSizeForViewInPopover;
+        CGSize s = self.preferredContentSize;
         s.height = 420;
-        self.contentSizeForViewInPopover = s;
+        self.preferredContentSize = s;
     }
     
     self.title = _L(@"Date");

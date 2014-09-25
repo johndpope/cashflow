@@ -162,12 +162,15 @@ static inline double radians(double deg)
     [color set];
     UIFont *font = [UIFont systemFontOfSize:9];
     
+    NSDictionary *attributes = @{NSFontAttributeName: font};
+    
     n = -1;
     for (CatReport *cr in _catReports) {
         n++;
 
         // 文字を描画
-        [[cr title] drawInRect:CGRectMake(width * 0.6 + LegendHeight, n * LegendHeight + 5, width * 0.6 - LegendHeight, LegendHeight) withFont:font];
+        [[cr title] drawInRect:CGRectMake(width * 0.6 + LegendHeight, n * LegendHeight + 5, width * 0.6 - LegendHeight, LegendHeight)
+                withAttributes:attributes];
     }
 }
 

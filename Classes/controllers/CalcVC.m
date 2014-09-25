@@ -107,9 +107,9 @@
     }
     
     if (IS_IPAD) {
-        CGSize s = self.contentSizeForViewInPopover;
+        CGSize s = self.preferredContentSize;
         s.height = 480;
-        self.contentSizeForViewInPopover = s;
+        self.preferredContentSize = s;
     }
     self.title = _L(@"Amount"); // 金額
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]

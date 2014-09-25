@@ -40,9 +40,9 @@
 - (void)viewDidLoad
 {
     if (IS_IPAD) {
-        CGSize s = self.contentSizeForViewInPopover;
+        CGSize s = self.preferredContentSize;
         s.height = 600;  // AdHoc : 480 にすると横画面の時に下に出てしまい、文字入力ができない
-        self.contentSizeForViewInPopover = s;
+        self.preferredContentSize = s;
     }
     
     self.title = _L(@"Name");

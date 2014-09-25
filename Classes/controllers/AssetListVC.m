@@ -95,9 +95,9 @@
     }
 
     if (IS_IPAD) {
-        CGSize s = self.contentSizeForViewInPopover;
+        CGSize s = self.preferredContentSize;
         s.height = 600;
-        self.contentSizeForViewInPopover = s;
+        self.preferredContentSize = s;
     }
     
     if (IS_IPAD) {
