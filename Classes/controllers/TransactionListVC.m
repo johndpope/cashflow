@@ -612,9 +612,12 @@
     if (IS_IPAD) {
         nv.modalPresentationStyle = modalPresentationStyle;
     }
-    
-    //[self.navigationController pushViewController:vc animated:YES];
-    [self.navigationController presentViewController:nv animated:YES completion:NULL];
+
+    // iPad: actionsheet から presentViewController を直接呼び出せなくなった
+    // http://stackoverflow.com/questions/24854802/presenting-a-view-controller-modally-from-an-action-sheets-delegate-in-ios8
+    dispatch_async(dispatch_get_main_queue(), ^ {
+        [self.navigationController presentViewController:nv animated:YES completion:NULL];
+    });
 }
 
 #pragma mark BackupViewDelegate
