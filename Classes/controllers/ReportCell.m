@@ -6,6 +6,8 @@
  */
 // ReportCell.m
 
+#import "CashFlow-Swift.h"
+
 #import "ReportCell.h"
 #import "DataModel.h"
 #import "AppDelegate.h"

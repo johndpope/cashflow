@@ -92,6 +92,9 @@
 		3E0AD79F1214173500CFDDAC /* DescLRU.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD7881214173500CFDDAC /* DescLRU.m */; };
 		3E0AD7A01214173500CFDDAC /* ORRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD78A1214173500CFDDAC /* ORRecord.m */; };
 		3E0AD7A11214173500CFDDAC /* TransactionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD78C1214173500CFDDAC /* TransactionBase.m */; };
+		3E0B626519D1E16E0042B652 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B626419D1E16E0042B652 /* CurrencyManager.swift */; };
+		3E0B626619D1E16E0042B652 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B626419D1E16E0042B652 /* CurrencyManager.swift */; };
+		3E0B626719D1E16E0042B652 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B626419D1E16E0042B652 /* CurrencyManager.swift */; };
 		3E0F16AE13A66A5C0091E6F8 /* TCategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F16AD13A66A5C0091E6F8 /* TCategoryBase.m */; };
 		3E0F16AF13A66A5C0091E6F8 /* TCategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F16AD13A66A5C0091E6F8 /* TCategoryBase.m */; };
 		3E13EE59114007D600523938 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E13EE58114007D600523938 /* AVFoundation.framework */; };
@@ -260,8 +263,6 @@
 		3E8C36160F1E0D82004AFFCA /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8C36150F1E0D82004AFFCA /* PinView.xib */; };
 		3E91B88C152F3335008120DC /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E91B88B152F3335008120DC /* UIDevice+Hardware.m */; };
 		3E91B88D152F3335008120DC /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E91B88B152F3335008120DC /* UIDevice+Hardware.m */; };
-		3E98A66911E8368800B7F289 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
-		3E98A66A11E8368800B7F289 /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A66811E8368800B7F289 /* CurrencyManager.m */; };
 		3EAEBC870F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */; };
 		3EAEBC880F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */; };
 		3EB2FCDE0EC7314100F356A3 /* CategoryListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2FCDD0EC7314100F356A3 /* CategoryListView.xib */; };
@@ -443,6 +444,7 @@
 		3E0AD78A1214173500CFDDAC /* ORRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRecord.m; sourceTree = "<group>"; };
 		3E0AD78B1214173500CFDDAC /* TransactionBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionBase.h; sourceTree = "<group>"; };
 		3E0AD78C1214173500CFDDAC /* TransactionBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionBase.m; sourceTree = "<group>"; };
+		3E0B626419D1E16E0042B652 /* CurrencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyManager.swift; sourceTree = "<group>"; };
 		3E0F16AC13A66A5C0091E6F8 /* TCategoryBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCategoryBase.h; sourceTree = "<group>"; };
 		3E0F16AD13A66A5C0091E6F8 /* TCategoryBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCategoryBase.m; sourceTree = "<group>"; };
 		3E13EE58114007D600523938 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -547,8 +549,6 @@
 		3E8C36150F1E0D82004AFFCA /* PinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinView.xib; sourceTree = "<group>"; };
 		3E91B88A152F3335008120DC /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
 		3E91B88B152F3335008120DC /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Hardware.m"; sourceTree = "<group>"; };
-		3E98A66711E8367B00B7F289 /* CurrencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyManager.h; sourceTree = "<group>"; };
-		3E98A66811E8368800B7F289 /* CurrencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyManager.m; sourceTree = "<group>"; };
 		3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenSelectListView.xib; sourceTree = "<group>"; };
 		3EB2FCDD0EC7314100F356A3 /* CategoryListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListView.xib; sourceTree = "<group>"; };
 		3EB554B3103B92D700BA13D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1084,12 +1084,12 @@
 		3E85A722132E54D6002C44DF /* Support files */ = {
 			isa = PBXGroup;
 			children = (
+				3E0B626419D1E16E0042B652 /* CurrencyManager.swift */,
+				3E8AD9F919D177C70073B05A /* SwiftUtils.swift */,
 				3E8AD9F419D16D5E0073B05A /* CashFlow-Bridging-Header.h */,
 				3E3382231332284000861610 /* DropboxSecret.h */,
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
-				3E98A66711E8367B00B7F289 /* CurrencyManager.h */,
-				3E98A66811E8368800B7F289 /* CurrencyManager.m */,
 				3E7BB134115399C5004B7D03 /* Config.h */,
 				3E7BB135115399C5004B7D03 /* Config.m */,
 				3E27103F0EAA196A00E57E51 /* ExportBase.h */,
@@ -1114,7 +1114,6 @@
 				3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */,
 				3E91B88A152F3335008120DC /* UIDevice+Hardware.h */,
 				3E91B88B152F3335008120DC /* UIDevice+Hardware.m */,
-				3E8AD9F919D177C70073B05A /* SwiftUtils.swift */,
 			);
 			name = "Support files";
 			sourceTree = "<group>";
@@ -1577,7 +1576,6 @@
 				3ED97C280F1A0E8E0063A578 /* BackupServer.m in Sources */,
 				3E7BB13A115399C5004B7D03 /* Config.m in Sources */,
 				3E35661B1189697E007DAF44 /* WebServerBackup.m in Sources */,
-				3E98A66A11E8368800B7F289 /* CurrencyManager.m in Sources */,
 				3E7109B8121108ED00C47539 /* SupportMail.m in Sources */,
 				3E0AD6BE121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6BF121415DE00CFDDAC /* AssetEntry.m in Sources */,
@@ -1586,6 +1584,7 @@
 				3E0AD6C1121415DE00CFDDAC /* DataModel.m in Sources */,
 				3E0AD6C2121415DE00CFDDAC /* Journal.m in Sources */,
 				3E0AD6C3121415DE00CFDDAC /* Ledger.m in Sources */,
+				3E0B626519D1E16E0042B652 /* CurrencyManager.swift in Sources */,
 				3E0AD6C4121415DE00CFDDAC /* Report.m in Sources */,
 				3E0AD6C5121415DE00CFDDAC /* Transaction.m in Sources */,
 				3E0AD7261214169700CFDDAC /* AssetListVC.m in Sources */,
@@ -1650,7 +1649,6 @@
 				3E8B25B20F348C090007929E /* BackupServer.m in Sources */,
 				3E7BB138115399C5004B7D03 /* Config.m in Sources */,
 				3E35661A1189697E007DAF44 /* WebServerBackup.m in Sources */,
-				3E98A66911E8368800B7F289 /* CurrencyManager.m in Sources */,
 				3E7109B6121108ED00C47539 /* SupportMail.m in Sources */,
 				3E0AD6C6121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6C7121415DE00CFDDAC /* AssetEntry.m in Sources */,
@@ -1659,6 +1657,7 @@
 				3E0AD6C9121415DE00CFDDAC /* DataModel.m in Sources */,
 				3E0AD6CA121415DE00CFDDAC /* Journal.m in Sources */,
 				3E0AD6CB121415DE00CFDDAC /* Ledger.m in Sources */,
+				3E0B626619D1E16E0042B652 /* CurrencyManager.swift in Sources */,
 				3E0AD6CC121415DE00CFDDAC /* Report.m in Sources */,
 				3E0AD6CD121415DE00CFDDAC /* Transaction.m in Sources */,
 				3E0AD73C1214169700CFDDAC /* AssetListVC.m in Sources */,
@@ -1713,6 +1712,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E0B626719D1E16E0042B652 /* CurrencyManager.swift in Sources */,
 				3E44CFC117F69BF700E54901 /* TestCommon.m in Sources */,
 				3E38C69D17F6A47400A00CE0 /* AssetListVCTests.m in Sources */,
 				3EF1528B1462CA8500C724E4 /* AssetEntryTests.m in Sources */,

@@ -5,6 +5,8 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import "CashFlow-Swift.h"
+
 #import "TransactionVC.h"
 #import "AppDelegate.h"
 #import "Config.h"
