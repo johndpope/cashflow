@@ -1791,8 +1791,6 @@
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Libraries/AdMob/AdapterIAd",
-					"$(SRCROOT)/Libraries/AdMob/AdapterInMobi",
 					"$(SRCROOT)/Libraries/AdMob/AdapterNend",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);
@@ -1817,8 +1815,6 @@
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Libraries/AdMob/AdapterIAd",
-					"$(SRCROOT)/Libraries/AdMob/AdapterInMobi",
 					"$(SRCROOT)/Libraries/AdMob/AdapterNend",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);
@@ -1851,8 +1847,6 @@
 				INFOPLIST_FILE = "Info-free.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Libraries/AdMob/AdapterIAd",
-					"$(SRCROOT)/Libraries/AdMob/AdapterInMobi",
 					"$(SRCROOT)/Libraries/AdMob/AdapterNend",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);
@@ -1882,8 +1876,6 @@
 				INFOPLIST_FILE = "Info-free.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Libraries/AdMob/AdapterIAd",
-					"$(SRCROOT)/Libraries/AdMob/AdapterInMobi",
 					"$(SRCROOT)/Libraries/AdMob/AdapterNend",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);

@@ -1,6 +1,0 @@
-AdMob:  6.5.1
-
-iAd Adapter: LibAdapterIAd-Oct42012
-
-InMobi Adapter: LibAdapterInMobi-Apr232012
-InMobi SDK: 370 (https://developers.google.com/mobile-ads-sdk/download から直接DL)
