@@ -1,20 +1,23 @@
-platform :ios,'6.0'
+#source 'https://github.com/CocoaPods/Specs.git'
+platform :ios,'8.0'
+
 link_with ['CashFlow', 'CashFlowFree', 'UnitTests']
 
 pod 'Dropbox-iOS-SDK'
+
 pod 'BugSense'
 #pod 'CrittercismSDK'
+
 pod 'GoogleAnalytics-iOS-SDK'
 
 pod 'Google-Mobile-Ads-SDK'
 
-#pod 'Google-AdMob-Ads-SDK', :podspec => './podspecs/Google-AdMob-Ads-SDK.podspec'
-#pod 'Google-AdMob-Ads-SDK', :podspec => 'https://gist.github.com/tmurakam/8918413/raw/97eff9c4bd8b2c53147a3bd8a912291f75abe209/Google-AdMob-Ads-SDK.podspec'
-
 pod 'AdMobMediationAdapterIAd'
 
-pod 'InMobiSDK'
-pod 'AdMobMediationAdapterInMobi', :podspec => './podspecs/AdMobMediationAdapterInMobi.podspec'
+### うまく動作しないため、一旦解除
+#pod 'InMobiSDK'
+#pod 'AdMobMediationAdapterInMobi', :podspec => './podspecs/AdMobMediationAdapterInMobi.podspec'
+#pod 'AdMobMediationAdapterInMobi'
 
 # Adapter iMobile deps
 #pod 'ASIHTTPRequest'
