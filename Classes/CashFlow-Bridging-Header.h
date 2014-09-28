@@ -4,4 +4,6 @@
 
 #import "AppDelegate.h"
 
+#import "DataModel.h"
+#import "Asset.h"
 #import "SupportMail.h"
