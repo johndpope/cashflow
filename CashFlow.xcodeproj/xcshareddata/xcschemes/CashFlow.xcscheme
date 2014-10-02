@@ -71,7 +71,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-NSShowNonLocalizedStrings YES"
+            argument = "-NSShowNonLocalizedStrings"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "YES"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

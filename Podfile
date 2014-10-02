@@ -23,4 +23,7 @@ pod 'AdMobMediationAdapterIAd'
 #pod 'ASIHTTPRequest'
 #pod 'JSONKit'
 
+pod 'RDVCalendarView', '~> 1.0.7'
+
+
 

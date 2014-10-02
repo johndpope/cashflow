@@ -10,7 +10,8 @@
 #import "TransactionVC.h"
 #import "AppDelegate.h"
 #import "Config.h"
-#import "CalendarViewController.h"
+//#import "CalendarViewController.h"
+#import "RDVCalendarViewController.h"
 
 // private methods
 @interface TransactionViewController()
@@ -283,9 +284,10 @@
     switch (indexPath.row) {
         case ROW_DATE:
             if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
-                CalendarViewController *calendarVc = [CalendarViewController new];
-                calendarVc.selectedDate = _editingEntry.transaction.date;
-                [calendarVc setCalendarViewControllerDelegate:self];
+                RDVCalendarViewController *calendarVc = [RDVCalendarViewController new];
+                calendarVc.calendarView.selectedDate = _editingEntry.transaction.date;
+                //calendarVc.selectedDate = _editingEntry.transaction.date;
+                //[calendarVc setCalendarViewControllerDelegate:self];
                 vc = calendarVc;
             } else {
                 EditDateViewController *editDateVC = [EditDateViewController instantiate];
