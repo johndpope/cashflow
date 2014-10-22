@@ -105,6 +105,6 @@ class CurrencyManager: NSObject {
     }
     
     private func _formatCurrency(value: Double) -> String {
-        return _numberFormatter.stringFromNumber(value)
+        return _numberFormatter.stringFromNumber(value)!
     }
 }
