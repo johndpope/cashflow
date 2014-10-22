@@ -21,9 +21,6 @@
 		3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
 		3E0AC6AF13A786F7006F505C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
-		3E0AD010186AD97D003F7D17 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AD00C186AD925003F7D17 /* BugSense-iOS.framework */; };
-		3E0AD011186AD97D003F7D17 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AD00C186AD925003F7D17 /* BugSense-iOS.framework */; };
-		3E0AD012186AD97E003F7D17 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AD00C186AD925003F7D17 /* BugSense-iOS.framework */; };
 		3E0AD6BE121415DE00CFDDAC /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6A7121415DD00CFDDAC /* Asset.m */; };
 		3E0AD6BF121415DE00CFDDAC /* AssetEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6A9121415DD00CFDDAC /* AssetEntry.m */; };
 		3E0AD6C0121415DE00CFDDAC /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0AD6AB121415DD00CFDDAC /* Category.m */; };
@@ -142,10 +139,6 @@
 		3E3F525114651654005CBD9A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
 		3E3F525214651654005CBD9A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
 		3E4344F117F70D7600B45E1F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; };
-		3E44CF5D17F604E400E54901 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44CF5C17F604E400E54901 /* DropboxSDK.framework */; };
-		3E44CF5E17F604E400E54901 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44CF5C17F604E400E54901 /* DropboxSDK.framework */; };
-		3E44CF5F17F604E500E54901 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44CF5C17F604E400E54901 /* DropboxSDK.framework */; };
-		3E44CF6117F605EE00E54901 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44CF4217F5FE3700E54901 /* XCTest.framework */; };
 		3E44CFC117F69BF700E54901 /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
 		3E4A7D25131FB94B0008C37D /* CashflowDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D22131FB94B0008C37D /* CashflowDatabase.m */; };
 		3E4A7D26131FB94B0008C37D /* DateFormatter2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D24131FB94B0008C37D /* DateFormatter2.m */; };
@@ -376,7 +369,6 @@
 		3E02EBF713226FDC0086F492 /* ReportCatDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportCatDetailVC.m; sourceTree = "<group>"; };
 		3E035E9A1182B6E000711865 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3E0AC6AD13A786E8006F505C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		3E0AD00C186AD925003F7D17 /* BugSense-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "BugSense-iOS.framework"; path = "Libraries/BugSense-iOS.framework"; sourceTree = SOURCE_ROOT; };
 		3E0AD6A6121415DD00CFDDAC /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
 		3E0AD6A7121415DD00CFDDAC /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
 		3E0AD6A8121415DD00CFDDAC /* AssetEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetEntry.h; sourceTree = "<group>"; };
@@ -486,8 +478,6 @@
 		3E38C69817F6A47400A00CE0 /* EditDescVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDescVCTests.m; sourceTree = "<group>"; };
 		3E38C69B17F6A47400A00CE0 /* PinControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinControllerTests.m; sourceTree = "<group>"; };
 		3E38C69C17F6A47400A00CE0 /* PinVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinVCTests.m; sourceTree = "<group>"; };
-		3E44CF4217F5FE3700E54901 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		3E44CF5C17F604E400E54901 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = Libraries/Dropbox/DropboxSDK.framework; sourceTree = SOURCE_ROOT; };
 		3E4A7D21131FB94B0008C37D /* CashflowDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashflowDatabase.h; sourceTree = "<group>"; };
 		3E4A7D22131FB94B0008C37D /* CashflowDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashflowDatabase.m; sourceTree = "<group>"; };
 		3E4A7D23131FB94B0008C37D /* DateFormatter2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateFormatter2.h; sourceTree = "<group>"; };
@@ -622,10 +612,8 @@
 				3E69E8EC1616B3ED00FAD808 /* AdSupport.framework in Frameworks */,
 				3EB88E8D17F700B00045780D /* StoreKit.framework in Frameworks */,
 				3E347BB2169DC7B0002307AA /* CoreData.framework in Frameworks */,
-				3E44CF5D17F604E400E54901 /* DropboxSDK.framework in Frameworks */,
 				3E69E8EA1616B3D800FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E0AC6AE13A786E8006F505C /* CFNetwork.framework in Frameworks */,
-				3E0AD010186AD97D003F7D17 /* BugSense-iOS.framework in Frameworks */,
 				3EE5E70E18A9260600B23A99 /* libNendAd.a in Frameworks */,
 				3E338213133211C500861610 /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -658,10 +646,8 @@
 				3EE62A2B10D7EA0100EB7399 /* MediaPlayer.framework in Frameworks */,
 				3E8B25B60F348C090007929E /* Foundation.framework in Frameworks */,
 				3EB691E319AA378200C83C45 /* ImageIO.framework in Frameworks */,
-				3E44CF5E17F604E400E54901 /* DropboxSDK.framework in Frameworks */,
 				3E8B25B70F348C090007929E /* UIKit.framework in Frameworks */,
 				3E8B25B80F348C090007929E /* CoreGraphics.framework in Frameworks */,
-				3E0AD011186AD97D003F7D17 /* BugSense-iOS.framework in Frameworks */,
 				3EE5E70F18A9260700B23A99 /* libNendAd.a in Frameworks */,
 				3E8B25B90F348C090007929E /* AudioToolbox.framework in Frameworks */,
 				3EB554B5103B92D700BA13D4 /* QuartzCore.framework in Frameworks */,
@@ -690,7 +676,6 @@
 				3E69E8F31616B40D00FAD808 /* AdSupport.framework in Frameworks */,
 				3EFDC2DF18314D5500070F72 /* MobileCoreServices.framework in Frameworks */,
 				3EB88E8417F6B5590045780D /* libz.dylib in Frameworks */,
-				3E44CF6117F605EE00E54901 /* XCTest.framework in Frameworks */,
 				3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */,
 				3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */,
 				3EF1526B1462C37900C724E4 /* CFNetwork.framework in Frameworks */,
@@ -710,9 +695,7 @@
 				3EF152761462C38800C724E4 /* SystemConfiguration.framework in Frameworks */,
 				3E4344F117F70D7600B45E1F /* StoreKit.framework in Frameworks */,
 				3E3F525214651654005CBD9A /* libsqlite3.dylib in Frameworks */,
-				3E0AD012186AD97E003F7D17 /* BugSense-iOS.framework in Frameworks */,
 				3E06D5E2157FA8EE00D9A454 /* iAd.framework in Frameworks */,
-				3E44CF5F17F604E500E54901 /* DropboxSDK.framework in Frameworks */,
 				3EE5E71018A9260700B23A99 /* libNendAd.a in Frameworks */,
 				3E69E8F61616B41A00FAD808 /* CoreTelephony.framework in Frameworks */,
 				3E347BB5169DC7CF002307AA /* CoreData.framework in Frameworks */,
@@ -795,13 +778,10 @@
 			isa = PBXGroup;
 			children = (
 				3EB691E119AA375C00C83C45 /* ImageIO.framework */,
-				3E0AD00C186AD925003F7D17 /* BugSense-iOS.framework */,
 				3E869305185F40C1007F2979 /* Social.framework */,
 				3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */,
 				3EB88E8C17F700B00045780D /* StoreKit.framework */,
 				3EB88E8317F6B5590045780D /* libz.dylib */,
-				3E44CF5C17F604E400E54901 /* DropboxSDK.framework */,
-				3E44CF4217F5FE3700E54901 /* XCTest.framework */,
 				3E347BB1169DC7B0002307AA /* CoreData.framework */,
 				3E69E8EB1616B3ED00FAD808 /* AdSupport.framework */,
 				3E69E8E91616B3D800FAD808 /* CoreTelephony.framework */,
@@ -1841,6 +1821,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconFree;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1861,6 +1843,7 @@
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);
 				PRODUCT_NAME = CashFlowFree;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1871,6 +1854,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconFree;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1890,6 +1875,7 @@
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);
 				PRODUCT_NAME = CashFlowFree;
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D6A59DF8-5CDB-4EA1-A2BB-0B134218AA5A";
 			};
 			name = Release;
@@ -1925,6 +1911,57 @@
 					"$(SRCROOT)/Libraries/AdMob/AdapterNend",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"AdapterIAd\"",
+					"-l\"GoogleAdMobAds\"",
+					"-l\"GoogleAnalyticsServices\"",
+					"-l\"Pods-AdMobMediationAdapterIAd\"",
+					"-l\"Pods-BugSense\"",
+					"-l\"Pods-Dropbox-iOS-SDK\"",
+					"-l\"Pods-Google-Mobile-Ads-SDK\"",
+					"-l\"Pods-GoogleAnalytics-iOS-SDK\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"BugSense-iOS\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"DropboxSDK\"",
+					"-framework",
+					"\"EventKit\"",
+					"-framework",
+					"\"EventKitUI\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1958,6 +1995,57 @@
 					"$(SRCROOT)/Libraries/AdMob/AdapterInMobi",
 					"$(SRCROOT)/Libraries/AdMob/AdapterNend",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"AdapterIAd\"",
+					"-l\"GoogleAdMobAds\"",
+					"-l\"GoogleAnalyticsServices\"",
+					"-l\"Pods-AdMobMediationAdapterIAd\"",
+					"-l\"Pods-BugSense\"",
+					"-l\"Pods-Dropbox-iOS-SDK\"",
+					"-l\"Pods-Google-Mobile-Ads-SDK\"",
+					"-l\"Pods-GoogleAnalytics-iOS-SDK\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"BugSense-iOS\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"DropboxSDK\"",
+					"-framework",
+					"\"EventKit\"",
+					"-framework",
+					"\"EventKitUI\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-framework",
+					XCTest,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
