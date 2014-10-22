@@ -62,11 +62,11 @@
     // この時点で、Pin チェック完了したため、PinController の singleton は削除されているはず
     
     PinController *new = [PinController pinController];
-    Assert(new != saved);
+    XCTAssert(new != saved);
     
     // modal view がでていないことを確認する
     //AssertNil(self.vc.modalViewController);
-    AssertNil(self.vc.presentedViewController);
+    XCTAssertNil(self.vc.presentedViewController);
 }
 
 - (void)testHasPin
@@ -78,13 +78,13 @@
 
     // Pin があるため、この時点ではまだ終了していないはず
     PinController *new = [PinController pinController];
-    Assert(new == saved);
+    XCTAssert(new == saved);
     
     // modal view が出ていることを確認する
     UINavigationController *nv = (UINavigationController *)self.vc.presentedViewController;
-    AssertNotNil(nv);
+    XCTAssertNotNil(nv);
     PinViewController *vc = (PinViewController *)(nv.viewControllers)[0];
-    AssertNotNil(vc);
+    XCTAssertNotNil(vc);
     
     /*
     [vc _onKeyIn:@"1"];

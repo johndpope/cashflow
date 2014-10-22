@@ -27,13 +27,13 @@
 - (void)testInitial
 {
     // 初期データチェック
-    Assert(dm != nil);
-    AssertEqualInt(0, [dm.journal.entries count]);
+    XCTAssert(dm != nil);
+    XCTAssertEqual(0, [dm.journal.entries count]);
 
     Asset *as = [dm.ledger.assets objectAtIndex:0];
-    AssertEqualObjects(NSLocalizedString(@"Cash", nil), as.name);
+    XCTAssertEqualObjects(NSLocalizedString(@"Cash", nil), as.name);
                   
-    AssertEqualInt(0, [dm.categories count]);
+    XCTAssertEqual(0, [dm.categories count]);
 }
 
 // データベースがあるときに、正常に読み込めること
@@ -42,9 +42,9 @@
     [TestCommon installDatabase:@"testdata1"];
     dm = [DataModel instance];
 
-    AssertEqual(6, (int)[dm.journal.entries count]);
-    AssertEqual(3, (int)[dm.ledger.assets count]);
-    AssertEqual(3, (int)[dm.categories count]);
+    XCTAssertEqual(6, (int)[dm.journal.entries count]);
+    XCTAssertEqual(3, (int)[dm.ledger.assets count]);
+    XCTAssertEqual(3, (int)[dm.categories count]);
 }
 
 @end

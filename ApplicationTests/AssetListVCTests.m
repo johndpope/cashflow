@@ -65,15 +65,15 @@
 
     [vc dataModelLoaded];
     
-    AssertEqualInt(1, [vc numberOfSectionsInTableView:vc.tableView]);
+    XCTAssertEqual(1, [vc numberOfSectionsInTableView:vc.tableView]);
 
     // test number of rows
-    AssertEqualInt(3, [vc tableView:vc.tableView numberOfRowsInSection:0]);
+    XCTAssertEqual(3, [vc tableView:vc.tableView numberOfRowsInSection:0]);
 
     // test cell
-    AssertEqualObjects(@"Cash : ￥9,000", [self cellText:0 section:0]);
-    AssertEqualObjects(@"Bank : ￥195,000", [self cellText:1 section:0]);
-    AssertEqualObjects(@"Card : -￥12,100", [self cellText:2 section:0]);
+    XCTAssertEqualObjects(@"Cash : ￥9,000", [self cellText:0 section:0]);
+    XCTAssertEqualObjects(@"Bank : ￥195,000", [self cellText:1 section:0]);
+    XCTAssertEqualObjects(@"Card : -￥12,100", [self cellText:2 section:0]);
 }
 
 @end

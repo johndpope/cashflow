@@ -28,13 +28,13 @@
 {
     [mReports generate:REPORT_MONTHLY asset:nil];
 
-    AssertEqualInt(1, [mReports.reportEntries count]);
+    XCTAssertEqual(1, [mReports.reportEntries count]);
     ReportEntry *report = [mReports.reportEntries objectAtIndex:0];
 
     //NSString *s = [TestCommon stringWithDate:report.date];
     //Assert([s isEqualToString:@"200901010000"]);
-    AssertEqualDouble(100000, report.totalIncome);
-    AssertEqualDouble(-3100, report.totalOutgo);
+    XCTAssertEqual(100000.0, report.totalIncome);
+    XCTAssertEqual(-3100.0, report.totalOutgo);
 }
 
 
