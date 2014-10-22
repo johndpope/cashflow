@@ -4,6 +4,8 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
+#import "CashFlow-Swift.h" // Bridge
+
 #import "ViewControllerTestCase.h"
 
 #import "Database.h"

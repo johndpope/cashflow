@@ -3,7 +3,6 @@
 #import "TestCommon.h"
 #import "DataModel.h"
 #import "Report.h"
-#import "CurrencyManager.h"
 
 @interface CurrencyManagerTests : XCTestCase {
     CurrencyManager *manager;
@@ -63,3 +62,4 @@
 }
 
 @end
+
