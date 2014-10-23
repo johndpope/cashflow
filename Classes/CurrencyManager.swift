@@ -63,6 +63,10 @@ class CurrencyManager: NSObject {
         return Static.instance
     }
     
+    class func getInstance() -> CurrencyManager {
+        return CurrencyManager.instance
+    }
+    
     private override init() {
         super.init()
         
@@ -92,8 +96,8 @@ class CurrencyManager: NSObject {
             if _baseCurrency != newValue {
                 _baseCurrency = newValue
             
-                if (currency != nil){
-                    _numberFormatter.currencyCode = currency!
+                if (_baseCurrency != nil){
+                    _numberFormatter.currencyCode = _baseCurrency!
                 } else {
                     _numberFormatter.currencyCode = CurrencyManager.systemCurrency()
                 }

@@ -21,7 +21,7 @@
 }
 
 - (void) testInit {
-    XCTAssertNil(manager);
+    XCTAssertNotNil(manager);
 }
 
 - (void)testSystem
