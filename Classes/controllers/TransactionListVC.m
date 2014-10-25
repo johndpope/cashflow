@@ -181,7 +181,12 @@
     [self reload];
     
     [[Database instance] updateModificationDate]; // TODO : ここでやるのは正しくないが、、、
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
 #if FREE_VERSION
     // 表示開始
     [_adManager requestShowAd];
@@ -223,9 +228,15 @@
         NSLog(@"Ad is already showing!");
         return;
     }
+    NSLog(@"showAd");
     _isAdShowing = YES;
     
+    CGRect adRect = adView.frame;
+    adSize = adRect.size;
+    //NSLog(@"adSize:%fx%f", adSize.width, adSize.height);
+    
     CGRect frame = _tableView.bounds;
+    //NSLog(@"tableView size:%fx%f", frame.size.width, frame.size.height);
     
     // 広告の位置を画面外に設定
     CGRect aframe = frame;
@@ -265,6 +276,7 @@
         NSLog(@"Ad is already removed!");
         return;
     }
+    NSLog(@"removeAd");
     _isAdShowing = NO;
     
     CGRect frame = _tableView.bounds;
@@ -290,13 +302,6 @@
 }
 
 #endif
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    //NSLog(@"TransactionListViewController:viewDidAppear");
-
-    [super viewDidAppear:animated];
-}
 
 - (void)updateBalance
 {

@@ -8,20 +8,27 @@
 #import "AdManager.h"
 #import "AppDelegate.h"
 
-// 広告テスト時に YES
-#define AD_IS_TEST  NO
-
 // 広告リクエスト間隔 (画面遷移時のみ)
 #define AD_REQUEST_INTERVAL     30.0
 
 @implementation DFPView
 
+- (id)init {
+    GADAdSize size = GADAdSizeFullWidthPortraitWithHeight(GAD_SIZE_320x50.height);
+    if ((self = [super initWithAdSize:size])) {
+        self.delegate = self;
+    }
+    return self;
+}
+
+/*
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         self.delegate = self;
     }
     return self;
 }
+*/
 
 - (void)dealloc {
     self.delegate = nil;
@@ -161,9 +168,11 @@ static AdManager *theAdManager;
     // 広告リクエストを開始する
     NSLog(@"requestAd: start request new ad.");
     GADRequest *req = [GADRequest request];
-    if (AD_IS_TEST) {
-        req.testing = YES;
-    }
+    req.testDevices = @[
+                        GAD_SIMULATOR_ID
+                        //,@"7f201a0d427175b074ea55a63a482388"
+                        ];
+
     [_bannerView loadRequest:req];
 
     // リクエスト時刻を保存
@@ -194,7 +203,7 @@ static AdManager *theAdManager;
     
     //GADAdSize gadSize = kGADAdSizeBanner;
     _adSize = GAD_SIZE_320x50;
-    CGRect gadSize = CGRectMake(0.0, 0.0, 320.0, 50.0);
+    //CGRect gadSize = CGRectMake(0.0, 0.0, 320.0, 50.0);
     
     /* Note: Mediation では標準サイズバナーのみ
     if (IS_IPAD) {
@@ -203,7 +212,8 @@ static AdManager *theAdManager;
     }
     */
 
-    DFPView *view = [[DFPView alloc] initWithFrame:gadSize];
+    //DFPView *view = [[DFPView alloc] initWithFrame:gadSize];
+    DFPView *view = [DFPView new];
     view.delegate = self;
     
     NSLog(@"AdUnit = %@", ADUNIT_ID);
@@ -237,6 +247,8 @@ static AdManager *theAdManager;
 {
     NSLog(@"Ad loaded : class = %@", view.adNetworkClassName);
     _isAdLoaded = YES;
+
+    _adSize = view.frame.size;
     
     if (_delegate != nil && !_isAdShowing) {
         _isAdShowing = YES;
