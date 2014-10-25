@@ -56,9 +56,10 @@
 - (void)setUp
 {
     [super setUp];
-    
+
+    [PinController _deleteSingleton];
     mPinController = [PinController pinController];
-    
+
     //[self.vc viewDidLoad]; // ###
     //[self.vc viewWillAppear:YES]; // ###
 }
