@@ -15,6 +15,17 @@
 
 @implementation EditDescViewControllerTest
 
+- (UIViewController *)createViewController
+{
+    // storyboard から生成
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"EditDescView" bundle:nil];
+    UIViewController *vc = [sb instantiateInitialViewController];
+
+    // 重要: loadView を実行する
+    [vc performSelectorOnMainThread:@selector(loadView) withObject:nil waitUntilDone:YES];
+    return vc;
+}
+
 - (EditDescViewController *)vc
 {
     return (EditDescViewController *)self.viewController;
