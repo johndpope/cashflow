@@ -106,6 +106,8 @@
 		3E2710450EAA196A00E57E51 /* ExportBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2710400EAA196A00E57E51 /* ExportBase.m */; };
 		3E2710460EAA196A00E57E51 /* ExportCsv.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2710420EAA196A00E57E51 /* ExportCsv.m */; };
 		3E2710470EAA196A00E57E51 /* ExportOfx.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2710440EAA196A00E57E51 /* ExportOfx.m */; };
+		3E2B3EB719FB75C100E8A4A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2B3EB619FB75C100E8A4A3 /* LaunchScreen.xib */; };
+		3E2B3EB819FB75C100E8A4A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2B3EB619FB75C100E8A4A3 /* LaunchScreen.xib */; };
 		3E2CBDA00F1615470025A682 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E2CBD9F0F1615470025A682 /* Localizable.strings */; };
 		3E2F020818609FA600CA6C36 /* InfoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F020718609FA600CA6C36 /* InfoView.storyboard */; };
 		3E2F020918609FA600CA6C36 /* InfoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F020718609FA600CA6C36 /* InfoView.storyboard */; };
@@ -451,6 +453,7 @@
 		3E2710420EAA196A00E57E51 /* ExportCsv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportCsv.m; sourceTree = "<group>"; };
 		3E2710430EAA196A00E57E51 /* ExportOfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportOfx.h; sourceTree = "<group>"; };
 		3E2710440EAA196A00E57E51 /* ExportOfx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportOfx.m; sourceTree = "<group>"; };
+		3E2B3EB619FB75C100E8A4A3 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		3E2CBDA20F16155D0025A682 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3E2CBDA30F16155F0025A682 /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3E2CBDA40F1615610025A682 /* fr */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; fileEncoding = 4; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -770,6 +773,7 @@
 				8D1107310486CEB800E47090 /* Info.plist */,
 				3E5A8D7E0EAE34B200118C3C /* Info-free.plist */,
 				3E2F020B1860A3D900CA6C36 /* PinView.storyboard */,
+				3E2B3EB619FB75C100E8A4A3 /* LaunchScreen.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1362,6 +1366,7 @@
 				3E6C5086157E40550086C20E /* CalendarBackground.png in Resources */,
 				3E6C508A157E40550086C20E /* CalendarBackground@2x.png in Resources */,
 				3E6C508E157E40550086C20E /* CalendarDaySelected.png in Resources */,
+				3E2B3EB719FB75C100E8A4A3 /* LaunchScreen.xib in Resources */,
 				3E6C5092157E40550086C20E /* CalendarDaySelected@2x.png in Resources */,
 				3E6C5096157E40550086C20E /* CalendarDayTile.png in Resources */,
 				3E5CD9A2185E0D0A0067A42B /* ConfigView.storyboard in Resources */,
@@ -1413,6 +1418,7 @@
 				3E6C5087157E40550086C20E /* CalendarBackground.png in Resources */,
 				3E6C508B157E40550086C20E /* CalendarBackground@2x.png in Resources */,
 				3E6C508F157E40550086C20E /* CalendarDaySelected.png in Resources */,
+				3E2B3EB819FB75C100E8A4A3 /* LaunchScreen.xib in Resources */,
 				3E6C5093157E40550086C20E /* CalendarDaySelected@2x.png in Resources */,
 				3E6C5097157E40550086C20E /* CalendarDayTile.png in Resources */,
 				3E5CD9A3185E0D0A0067A42B /* ConfigView.storyboard in Resources */,
