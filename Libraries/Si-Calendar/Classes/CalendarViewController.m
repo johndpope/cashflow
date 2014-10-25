@@ -129,6 +129,8 @@
 	self.rightButton = aRightButton;
 }
 - (void)viewDidUnload {
+    [super viewDidUnload];
+    
 	self.calendarLogic.calendarLogicDelegate = nil;
 	self.calendarLogic = nil;
 	

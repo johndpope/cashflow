@@ -706,6 +706,7 @@
 
     for (int i = 0; i < count; i++) {
         AssetEntry *e = [self.asset entryAt:i];
+        if (e == nil) continue; // nil になることはないはずだが念のため
         e.originalIndex = i;
         
         if (allMatch ) {

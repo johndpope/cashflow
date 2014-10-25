@@ -39,6 +39,8 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     if (IS_IPAD) {
         CGSize s = self.preferredContentSize;
         s.height = 600;  // AdHoc : 480 にすると横画面の時に下に出てしまい、文字入力ができない
