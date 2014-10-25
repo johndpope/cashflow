@@ -231,12 +231,17 @@
     NSLog(@"showAd");
     _isAdShowing = YES;
     
-    CGRect adRect = adView.frame;
-    adSize = adRect.size;
-    //NSLog(@"adSize:%fx%f", adSize.width, adSize.height);
+    NSLog(@"adSize:%fx%f", adSize.width, adSize.height);
     
     CGRect frame = _tableView.bounds;
-    //NSLog(@"tableView size:%fx%f", frame.size.width, frame.size.height);
+    NSLog(@"tableView size:%fx%f", frame.size.width, frame.size.height);
+
+    // TODO: 横幅制限。iPad landscape の場合、detail view の横幅は iPad portrait の横幅より
+    // 狭いので、制限する必要がある。
+    const float ad_width_max = 703;
+    if (adSize.width > ad_width_max) {
+        adSize.width = ad_width_max;
+    }
     
     // 広告の位置を画面外に設定
     CGRect aframe = frame;
