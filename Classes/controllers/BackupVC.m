@@ -44,7 +44,7 @@
 
 - (IBAction)doneAction:(id)sender
 {
-    [self.navigationController dismissModalViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
     [_delegate backupViewFinished:self];
 }
 

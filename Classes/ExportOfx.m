@@ -5,6 +5,8 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import "CashFlow-Swift.h"
+
 #import "ExportOfx.h"
 #import "AppDelegate.h"
 #import "ExportServer.h"
@@ -109,10 +111,10 @@
  */
 - (void)_statementTransactionResponse:(NSMutableString *)data asset:(Asset *)asset
 {
-    int max = [asset entryCount];
+    NSInteger max = [asset entryCount];
     if (max == 0) return; // no entries
     
-    int firstIndex = 0;
+    NSInteger firstIndex = 0;
     if (self.firstDate != nil) {
         firstIndex = [asset firstEntryByDate:self.firstDate];
         if (firstIndex < 0) {
@@ -143,7 +145,7 @@
     [data appendString:@"   <BANKACCTFROM>\n"];
     [data appendString:@"    <BANKID>CashFlow</BANKID>\n"];
     [data appendString:@"    <BRANCHID>000</BRANCHID>\n"];
-    [data appendFormat:@"    <ACCTID>%d</ACCTID>\n", asset.pid];
+    [data appendFormat:@"    <ACCTID>%ld</ACCTID>\n", (long)asset.pid];
     [data appendString:@"    <ACCTTYPE>SAVINGS</ACCTTYPE>\n"]; // ### Use asset.type?
     [data appendString:@"   </BANKACCTFROM>\n"];
 
@@ -157,7 +159,7 @@
     [data appendString:@"</DTEND>\n"];
     
     /* トランザクション */
-    int i;
+    NSInteger i;
     for (i = firstIndex; i < max; i++) {
         AssetEntry *e = [asset entryAt:i];
 		
@@ -168,7 +170,7 @@
 
         /* トランザクションの ID は日付と取引番号で生成 */
         [data appendFormat:@"     <FITID>%@</FITID>\n", [self _fitIdWithAssetEntry:e]];
-        [data appendFormat:@"     <NAME>%@</NAME>\n", [self _escapeXmlString:e.transaction.description]];
+        [data appendFormat:@"     <NAME>%@</NAME>\n", [self _escapeXmlString:e.transaction.desc]];
         if ([e.transaction.memo length] > 0) {
             [data appendFormat:@"     <MEMO>%@</MEMO>\n", [self _escapeXmlString:e.transaction.memo]];
         }
@@ -223,7 +225,8 @@
                                 fromDate:date];
 
     NSString *d = [NSString stringWithFormat:@"%04d%02d%02d%02d%02d%02d[%+d:%@]",
-                            [c year], [c month], [c day], [c hour], [c minute], [c second], [tz secondsFromGMT]/3600, [tz abbreviation]];
+                            (int)[c year], (int)[c month], (int)[c day], (int)[c hour], (int)[c minute], (int)[c second],
+                   (int)([tz secondsFromGMT]/3600), [tz abbreviation]];
     return d;
 }
 
@@ -233,7 +236,7 @@
 - (NSString*)_fitIdWithAssetEntry:(AssetEntry*)e
 {
     NSDateComponents *c = [mGregCalendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:e.transaction.date];
-    NSString *f = [NSString stringWithFormat:@"%04d%02d%02d%d", [c year], [c month], [c day], e.transaction.pid];
+    NSString *f = [NSString stringWithFormat:@"%04d%02d%02d%ld", (int)[c year], (int)[c month], (int)[c day], (long)e.transaction.pid];
     return f;
 }
 

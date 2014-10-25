@@ -54,9 +54,9 @@
 
     DescLRU *lru;
     lru = [ary objectAtIndex:0];
-    XCTAssertEqualObjects(@"test5", lru.description, @"first entry");
+    XCTAssertEqualObjects(@"test5", lru.desc, @"first entry");
     lru = [ary objectAtIndex:5];
-    XCTAssertEqualObjects(@"test0", lru.description, @"last entry");
+    XCTAssertEqualObjects(@"test0", lru.desc, @"last entry");
 }
 
 - (void)testCategory
@@ -69,9 +69,9 @@
 
     DescLRU *lru;
     lru = [ary objectAtIndex:0];
-    XCTAssertEqualObjects(@"test4", lru.description, @"first entry");
+    XCTAssertEqualObjects(@"test4", lru.desc, @"first entry");
     lru = [ary objectAtIndex:1];
-    XCTAssertEqualObjects(@"test1", lru.description, @"last entry");
+    XCTAssertEqualObjects(@"test1", lru.desc, @"last entry");
 }
 
 - (void)testUpdateSameCategory
@@ -86,9 +86,9 @@
 
     DescLRU *lru;
     lru = [ary objectAtIndex:0];
-    XCTAssertEqualObjects(@"test1", lru.description, @"first entry");
+    XCTAssertEqualObjects(@"test1", lru.desc, @"first entry");
     lru = [ary objectAtIndex:1];
-    XCTAssertEqualObjects(@"test4", lru.description, @"last entry");
+    XCTAssertEqualObjects(@"test4", lru.desc, @"last entry");
 }
 
 - (void)testUpdateOtherCategory
@@ -103,12 +103,12 @@
 
     DescLRU *lru;
     lru = [ary objectAtIndex:0];
-    XCTAssertEqualObjects(@"test4", lru.description, @"first entry");
+    XCTAssertEqualObjects(@"test4", lru.desc, @"first entry");
 
     ary = [DescLRUManager getDescLRUs:2];
     XCTAssertEqual(3, (int)[ary count], @"LRU count must be 3.");
     lru = [ary objectAtIndex:0];
-    XCTAssertEqualObjects(@"test1", lru.description, @"new entry");
+    XCTAssertEqualObjects(@"test1", lru.desc, @"new entry");
 }
 
 @end

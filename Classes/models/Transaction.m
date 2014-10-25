@@ -38,7 +38,7 @@
     }
     
     self.date = dt;
-    self.description = @"";
+    self.desc = @"";
     self.memo = @"";
     self.value = 0.0;
     self.type = 0;
@@ -55,7 +55,7 @@
     self.asset = -1;
     self.dstAsset = -1;
     self.date = dt;
-    self.description = desc;
+    self.desc = desc;
     self.memo = @"";
     self.value = v;
     self.type = 0;
@@ -72,7 +72,7 @@
     n.asset = self.asset;
     n.dstAsset = self.dstAsset;
     n.date = self.date;
-    n.description = self.description;
+    n.desc = self.desc;
     n.memo = self.memo;
     n.value = self.value;
     n.type = self.type;
@@ -85,13 +85,13 @@
 - (void)_insert
 {
     [super _insert];
-    [DescLRUManager addDescLRU:self.description category:self.category];
+    [DescLRUManager addDescLRU:self.desc category:self.category];
 }
 
 - (void)_update
 {
     [super _update];
-    [DescLRUManager addDescLRU:self.description category:self.category];
+    [DescLRUManager addDescLRU:self.desc category:self.category];
 }
 
 - (void)updateWithoutUpdateLRU

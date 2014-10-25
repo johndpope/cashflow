@@ -5,6 +5,8 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import "CashFlow-Swift.h"
+
 #import "AppDelegate.h"
 #import "DataModel.h"
 #import "ReportCatVC.h"
@@ -72,7 +74,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int rows = 0;
+    NSInteger rows = 0;
 
     switch (section) {
         case 0:

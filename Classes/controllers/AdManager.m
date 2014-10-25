@@ -8,24 +8,39 @@
 #import "AdManager.h"
 #import "AppDelegate.h"
 
-// 広告テスト時に YES
-#define AD_IS_TEST  NO
-
 // 広告リクエスト間隔 (画面遷移時のみ)
 #define AD_REQUEST_INTERVAL     30.0
 
-@implementation AdMobView
+@implementation DFPView
 
+- (id)init {
+    GADAdSize gadSize;
+    
+    if (IS_IPAD) {
+        // 320 x 50 固定。こうしないと在庫でない模様
+        gadSize = kGADAdSizeBanner;
+    } else {
+        // iPhone 6 横幅に自動で合わせる
+        gadSize = GADAdSizeFullWidthPortraitWithHeight(GAD_SIZE_320x50.height);
+    }
+    self = [super initWithAdSize:gadSize];
+    self.delegate = self;
+    return self;
+}
+
+/*
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         self.delegate = self;
     }
     return self;
 }
+*/
 
 - (void)dealloc {
     self.delegate = nil;
 }
+
 @end
 
 
@@ -47,7 +62,7 @@
     __weak UIViewController *_rootViewController;
     
     // 広告ビュー
-    AdMobView *_bannerView;
+    DFPView *_bannerView;
     
     // 広告サイズ
     CGSize _adSize;
@@ -160,9 +175,12 @@ static AdManager *theAdManager;
     // 広告リクエストを開始する
     NSLog(@"requestAd: start request new ad.");
     GADRequest *req = [GADRequest request];
-    if (AD_IS_TEST) {
-        req.testing = YES;
-    }
+    req.testDevices = @[
+                        //@"7f201a0d427175b074ea55a63a482388", // ip6
+                        //@"f887d54080341da8df23060f8146ba79", // ipm
+                        GAD_SIMULATOR_ID
+                        ];
+
     [_bannerView loadRequest:req];
 
     // リクエスト時刻を保存
@@ -193,7 +211,7 @@ static AdManager *theAdManager;
     
     //GADAdSize gadSize = kGADAdSizeBanner;
     _adSize = GAD_SIZE_320x50;
-    CGRect gadSize = CGRectMake(0.0, 0.0, 320.0, 50.0);
+    //CGRect gadSize = CGRectMake(0.0, 0.0, 320.0, 50.0);
     
     /* Note: Mediation では標準サイズバナーのみ
     if (IS_IPAD) {
@@ -202,7 +220,8 @@ static AdManager *theAdManager;
     }
     */
 
-    AdMobView *view = [[AdMobView alloc] initWithFrame:gadSize];
+    //DFPView *view = [[DFPView alloc] initWithFrame:gadSize];
+    DFPView *view = [DFPView new];
     view.delegate = self;
     
     NSLog(@"AdUnit = %@", ADUNIT_ID);
@@ -232,10 +251,12 @@ static AdManager *theAdManager;
 
 #pragma mark - GADBannerViewDelegate
 
-- (void)adViewDidReceiveAd:(GADBannerView *)view
+- (void)adViewDidReceiveAd:(DFPBannerView *)view
 {
-    NSLog(@"Ad loaded");
+    NSLog(@"Ad loaded : class = %@", view.adNetworkClassName);
     _isAdLoaded = YES;
+
+    _adSize = view.frame.size;
     
     if (_delegate != nil && !_isAdShowing) {
         _isAdShowing = YES;
@@ -255,7 +276,7 @@ static AdManager *theAdManager;
     } else {
         msg = @"Ad load failed";
     }
-    NSLog(@"%@ : %@", msg, [error localizedDescription]);
+    NSLog(@"%@ : <<%@>>", msg, [error localizedDescription]);
     
     /*
      AdMob SDK バグ対応。ネットワーク未接続状態で広告取得失敗した場合、

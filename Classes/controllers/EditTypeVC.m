@@ -35,9 +35,9 @@
     [super viewDidLoad];
 
     if (IS_IPAD) {
-        CGSize s = self.contentSizeForViewInPopover;
+        CGSize s = self.preferredContentSize;
         s.height = 300;
-        self.contentSizeForViewInPopover = s;
+        self.preferredContentSize = s;
     }
 }
     
@@ -107,7 +107,7 @@
 
     // 資産間移動
     Ledger *ledger = [DataModel ledger];
-    int assetCount = [ledger assetCount];
+    NSInteger assetCount = [ledger assetCount];
     NSMutableArray *assetNames = [[NSMutableArray alloc] initWithCapacity:assetCount];
     for (int i = 0; i < assetCount; i++) {
         Asset *asset = [ledger assetAtIndex:i];
@@ -125,7 +125,7 @@
 }
 
 // 資産選択
-- (BOOL)genSelectListViewChanged:(GenSelectListViewController*)vc identifier:(int)id
+- (BOOL)genSelectListViewChanged:(GenSelectListViewController*)vc identifier:(NSInteger)id
 {
     Asset *as = [[DataModel ledger] assetAtIndex:vc.selectedIndex];
     _dstAsset = as.pid;

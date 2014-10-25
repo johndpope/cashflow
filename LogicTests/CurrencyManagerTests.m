@@ -3,7 +3,6 @@
 #import "TestCommon.h"
 #import "DataModel.h"
 #import "Report.h"
-#import "CurrencyManager.h"
 
 @interface CurrencyManagerTests : XCTestCase {
     CurrencyManager *manager;
@@ -22,7 +21,7 @@
 }
 
 - (void) testInit {
-    XCTAssertTrue(manager != nil, @"");
+    XCTAssertNotNil(manager);
 }
 
 - (void)testSystem
@@ -30,14 +29,14 @@
     [manager setBaseCurrency:nil];
     NSString *s = [CurrencyManager formatCurrency:1234.56];
     //AssertEqualObjects(s, @"$1,234.56");
-    Assert([s isEqualToString:@"￥1,235"] || [s isEqualToString:@"$1,234.56"]);
+    XCTAssert([s isEqualToString:@"￥1,235"] || [s isEqualToString:@"$1,234.56"]);
 }
 
 - (void)testUSD
 {
     [manager setBaseCurrency:@"USD"];
     NSString *s = [CurrencyManager formatCurrency:1234.56];
-    AssertEqualObjects(@"$1,234.56", s);
+    XCTAssertEqualObjects(@"$1,234.56", s);
 }
 
 - (void)testJPY
@@ -45,21 +44,24 @@
     [manager setBaseCurrency:@"JPY"];
     NSString *s = [CurrencyManager formatCurrency:1234];
     //AssertEqualObjects(@"¥1,234", s);
-    AssertEqualObjects(@"￥1,234", s);
+    //XCTAssertEqualObjects(@"￥1,234", s);
+    XCTAssert([s isEqualToString:@"¥1,234"] ||
+            [s isEqualToString:@"￥1,234"]);
 }
 
 - (void)testEUR
 {
     [manager setBaseCurrency:@"EUR"];
     NSString *s = [CurrencyManager formatCurrency:1234.56];
-    AssertEqualObjects(@"€1,234.56", s);
+    XCTAssertEqualObjects(@"€1,234.56", s);
 }
 
 - (void)testOther
 {
     [manager setBaseCurrency:@"CAD"];
     NSString *s = [CurrencyManager formatCurrency:1234.56];
-    AssertEqualObjects(@"CA$1,234.56", s);
+    XCTAssertEqualObjects(@"CA$1,234.56", s);
 }
 
 @end
+

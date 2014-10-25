@@ -5,6 +5,8 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import "CashFlow-Swift.h"
+
 #import "AppDelegate.h"
 #import "ConfigViewController.h"
 #import "Config.h"
@@ -98,7 +100,7 @@
     if (config.cutoffDate == 0) {
         cutoffDateDescLabel.text = _L(@"End of month");
     } else {
-        cutoffDateDescLabel.text = [NSString stringWithFormat:@"%d", config.cutoffDate];
+        cutoffDateDescLabel.text = [NSString stringWithFormat:@"%ld", (long)config.cutoffDate];
     }
 
     currencyLabel.text = _L(@"Currency");
@@ -213,7 +215,7 @@
     }
 }
 
-- (BOOL)genSelectListViewChanged:(GenSelectListViewController *)vc identifier:(int)id
+- (BOOL)genSelectListViewChanged:(GenSelectListViewController *)vc identifier:(NSInteger)id
 {
     Config *config = [Config instance];
     NSString *currency = nil;

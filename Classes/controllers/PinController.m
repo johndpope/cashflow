@@ -30,6 +30,11 @@ static PinController *thePinController = nil;
     return thePinController;
 }
 
++ (void)_deleteSingleton
+{
+    thePinController = nil;
+}
+
 - (id)init
 {
     self = [super init];

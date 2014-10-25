@@ -183,7 +183,7 @@ static NSString *theDbName = DBNAME;
 //
 // note: 本メソッドは Asset ではなく DataModel についているべき
 //
-- (int)categoryWithDescription:(NSString *)desc
+- (NSInteger)categoryWithDescription:(NSString *)desc
 {
     Transaction *t = [Transaction find_by_description:desc cond:@"ORDER BY date DESC"];
 

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="IwR-Dx-fab">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="aCv-eU-2hK">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="IwR-Dx-fab" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0TS-Oq-2se">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="MK3-Mb-9mQ" kind="relationship" relationship="rootViewController" id="Hqv-J3-8Tg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mNy-BP-Vmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="51" y="48"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="PtB-5m-bEs">
+            <objects>
+                <viewController storyboardIdentifier="InfoView" id="MK3-Mb-9mQ" customClass="InfoViewController" customModule="CashFlow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tXw-Th-8BR"/>
+                        <viewControllerLayoutGuide type="bottom" id="vWR-wS-exd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cMV-E9-xDH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleAspectFill" image="artwork.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="d1c-Vg-p3W">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="CashFlow" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="77P-dl-CsX">
+                                <rect key="frame" x="13" y="74" width="287" height="46"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="cJq-KV-X6V"/>
+                                    <constraint firstAttribute="width" constant="287" id="kxR-9d-8D1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Version 1.1" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9g0-J4-Iw5">
+                                <rect key="frame" x="99" y="118" width="201" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="fFI-aC-Jcv"/>
+                                    <constraint firstAttribute="width" constant="201" id="fz7-Tj-185"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="8" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="271" translatesAutoresizingMaskIntoConstraints="NO" id="fYx-ou-1wo">
+                                <rect key="frame" x="29" y="177" width="271" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="271" id="CkG-VZ-GZt"/>
+                                    <constraint firstAttribute="height" constant="50" id="Vgh-Q7-0C8"/>
+                                </constraints>
+                                <string key="text">Copyright © 2008-2014
+Takuya Murakami</string>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="8" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="244" translatesAutoresizingMaskIntoConstraints="NO" id="Q0I-80-r9y">
+                                <rect key="frame" x="56" y="227" width="244" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="UAx-Y5-K9G"/>
+                                    <constraint firstAttribute="width" constant="244" id="qI1-H8-YHT"/>
+                                </constraints>
+                                <string key="text">Credits:
+Main icon / Artwork: CHARACTOY
+Some icons: iStockPhoto.com/Lushik</string>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="11"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efU-EB-nec">
+                                <rect key="frame" x="80" y="288" width="220" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="WEh-qw-QQ8"/>
+                                    <constraint firstAttribute="height" constant="37" id="xGP-2b-e7u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Purchase Standard Version"/>
+                                <state key="disabled" title="Purchase Standard Version"/>
+                                <state key="selected" title="Purchase Standard Version"/>
+                                <state key="highlighted" title="Purchase Standard Version">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="purchaseStandardVerion" destination="MK3-Mb-9mQ" eventType="touchUpInside" id="sDH-GO-L4L"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjZ-sd-Nhx">
+                                <rect key="frame" x="80" y="333" width="220" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="JLv-Sm-6yk"/>
+                                    <constraint firstAttribute="height" constant="37" id="UIR-8T-Bqb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Open support site"/>
+                                <state key="disabled" title="Go to support site"/>
+                                <state key="selected" title="Go to support site"/>
+                                <state key="highlighted" title="Go to support site">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="webButtonTapped" destination="MK3-Mb-9mQ" eventType="touchUpInside" id="kw7-qq-MM4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHl-sn-fes">
+                                <rect key="frame" x="80" y="378" width="220" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="bey-Ne-AGc"/>
+                                    <constraint firstAttribute="height" constant="37" id="kx8-ur-9HJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Open facebook page"/>
+                                <state key="disabled" title="Go to support site"/>
+                                <state key="selected" title="Go to support site"/>
+                                <state key="highlighted" title="Go to support site">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookButtonTapped" destination="MK3-Mb-9mQ" eventType="touchUpInside" id="d8Z-xO-fxL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ho-cq-eXG">
+                                <rect key="frame" x="80" y="423" width="220" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="NDy-cD-Drb"/>
+                                    <constraint firstAttribute="width" constant="220" id="Uty-6M-Kcp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Send support mail">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendSupportMail" destination="MK3-Mb-9mQ" eventType="touchUpInside" id="8uM-9S-vuR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="77P-dl-CsX" secondAttribute="trailing" constant="20" id="38A-z6-djs"/>
+                            <constraint firstItem="Q0I-80-r9y" firstAttribute="top" secondItem="fYx-ou-1wo" secondAttribute="bottom" id="3aF-kD-usH"/>
+                            <constraint firstAttribute="trailing" secondItem="2Ho-cq-eXG" secondAttribute="trailing" constant="20" id="66b-Zo-PyH"/>
+                            <constraint firstItem="2Ho-cq-eXG" firstAttribute="top" secondItem="aHl-sn-fes" secondAttribute="bottom" constant="8" id="7DO-Bp-Ebi"/>
+                            <constraint firstAttribute="trailing" secondItem="d1c-Vg-p3W" secondAttribute="trailing" id="AdM-Rj-wW2"/>
+                            <constraint firstItem="vWR-wS-exd" firstAttribute="top" secondItem="d1c-Vg-p3W" secondAttribute="bottom" id="I4r-Ix-8N3"/>
+                            <constraint firstItem="77P-dl-CsX" firstAttribute="top" secondItem="tXw-Th-8BR" secondAttribute="bottom" constant="10" id="LJd-pM-NDh"/>
+                            <constraint firstAttribute="trailing" secondItem="Q0I-80-r9y" secondAttribute="trailing" constant="20" id="MVc-v7-29W"/>
+                            <constraint firstItem="vWR-wS-exd" firstAttribute="top" secondItem="2Ho-cq-eXG" secondAttribute="bottom" constant="20" id="Nh8-cb-xvb"/>
+                            <constraint firstAttribute="trailing" secondItem="NjZ-sd-Nhx" secondAttribute="trailing" constant="20" id="PtC-6r-wIk"/>
+                            <constraint firstItem="vWR-wS-exd" firstAttribute="top" secondItem="Q0I-80-r9y" secondAttribute="bottom" constant="200" id="TWj-fJ-2zI"/>
+                            <constraint firstAttribute="trailing" secondItem="fYx-ou-1wo" secondAttribute="trailing" constant="20" id="YGJ-sB-eF8"/>
+                            <constraint firstItem="d1c-Vg-p3W" firstAttribute="top" secondItem="cMV-E9-xDH" secondAttribute="top" id="ZJI-VW-i1N"/>
+                            <constraint firstItem="aHl-sn-fes" firstAttribute="top" secondItem="NjZ-sd-Nhx" secondAttribute="bottom" constant="8" id="ZqU-zR-3Bv"/>
+                            <constraint firstItem="NjZ-sd-Nhx" firstAttribute="top" secondItem="efU-EB-nec" secondAttribute="bottom" constant="8" id="dBo-US-3UI"/>
+                            <constraint firstAttribute="trailing" secondItem="efU-EB-nec" secondAttribute="trailing" constant="20" id="k5l-qn-RbH"/>
+                            <constraint firstItem="d1c-Vg-p3W" firstAttribute="leading" secondItem="cMV-E9-xDH" secondAttribute="leading" id="kDp-Sx-g6T"/>
+                            <constraint firstItem="9g0-J4-Iw5" firstAttribute="top" secondItem="tXw-Th-8BR" secondAttribute="bottom" constant="54" id="qDn-0o-6Db"/>
+                            <constraint firstAttribute="trailing" secondItem="aHl-sn-fes" secondAttribute="trailing" constant="20" id="rsx-hN-uOQ"/>
+                            <constraint firstItem="9g0-J4-Iw5" firstAttribute="trailing" secondItem="77P-dl-CsX" secondAttribute="trailing" id="tjY-Qa-D2U"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="LZ5-KM-RbK"/>
+                    <connections>
+                        <outlet property="_facebookButton" destination="aHl-sn-fes" id="Tif-ff-3EQ"/>
+                        <outlet property="_helpButton" destination="NjZ-sd-Nhx" id="paZ-zw-KfN"/>
+                        <outlet property="_nameLabel" destination="77P-dl-CsX" id="mlc-yc-reb"/>
+                        <outlet property="_purchaseButton" destination="efU-EB-nec" id="I1b-eT-STF"/>
+                        <outlet property="_sendMailButton" destination="2Ho-cq-eXG" id="2fa-CP-dL2"/>
+                        <outlet property="_versionLabel" destination="9g0-J4-Iw5" id="muJ-hB-IeO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z4w-tM-cbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="527" y="53"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="artwork.jpg" width="512" height="512"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

@@ -11,7 +11,6 @@
 #import "DataModel.h"
 #import "AssetListVC.h"
 #import "TransactionListVC.h"
-#import "CurrencyManager.h"
 
 #define DBNAME  @"CashFlow.db"
 
@@ -25,7 +24,7 @@
 + (NSString *)appVersion;
 
 //+ (void)trackPageview:(NSString *)url;
-+ (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(int)value;
++ (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSInteger)value;
 
 // Utility
 #define _L(msg)  NSLocalizedString(msg, @"")

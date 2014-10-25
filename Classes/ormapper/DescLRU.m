@@ -46,7 +46,7 @@
   @param pid Primary key of the record
   @return record
 */
-+ (DescLRU *)find:(int)pid
++ (DescLRU *)find:(NSInteger)pid
 {
     Database *db = [Database instance];
 
@@ -111,7 +111,7 @@
   @param cond Conditions (ORDER BY etc)
   @note If you specify WHERE conditions, you must start cond with "AND" keyword.
 */
-+ (DescLRU*)find_by_category:(int)key cond:(NSString *)cond
++ (DescLRU*)find_by_category:(NSInteger)key cond:(NSString *)cond
 {
     if (cond == nil) {
         cond = @"WHERE category = ? LIMIT 1";
@@ -123,7 +123,7 @@
     return [self find_first_stmt:stmt];
 }
 
-+ (DescLRU*)find_by_category:(int)key
++ (DescLRU*)find_by_category:(NSInteger)key
 {
     return [self find_by_category:key cond:nil];
 }
@@ -213,7 +213,7 @@
 - (void)_loadRow:(dbstmt *)stmt
 {
     self.pid = [stmt colInt:0];
-    self.description = [stmt colString:1];
+    self.desc = [stmt colString:1];
     self.lastUse = [stmt colDate:2];
     self.category = [stmt colInt:3];
 }
@@ -229,7 +229,7 @@
     
     //[db beginTransaction];
     stmt = [db prepare:@"INSERT INTO DescLRUs VALUES(NULL,?,?,?);"];
-    [stmt bindString:0 val:_description];
+    [stmt bindString:0 val:_desc];
     [stmt bindDate:1 val:_lastUse];
     [stmt bindInt:2 val:_category];
     [stmt step];
@@ -255,7 +255,7 @@
         ",lastUse = ?"
         ",category = ?"
         " WHERE key = ?;"];
-    [stmt bindString:0 val:_description];
+    [stmt bindString:0 val:_desc];
     [stmt bindDate:1 val:_lastUse];
     [stmt bindInt:2 val:_category];
     [stmt bindInt:3 val:self.pid];
@@ -329,13 +329,13 @@
  */
 - (void)getInsertSql:(NSMutableString *)s
 {
-    [s appendFormat:@"INSERT INTO DescLRUs VALUES(%d", self.pid];
+    [s appendFormat:@"INSERT INTO DescLRUs VALUES(%ld", (long)self.pid];
     [s appendString:@","];
-    [s appendString:[self quoteSqlString:_description]];
+    [s appendString:[self quoteSqlString:_desc]];
     [s appendString:@","];
     [s appendString:[self quoteSqlString:[[Database instance] stringFromDate:_lastUse]]];
     [s appendString:@","];
-    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%d", _category]]];
+    [s appendString:[self quoteSqlString:[NSString stringWithFormat:@"%ld", (long)_category]]];
     [s appendString:@");"];
 }
 

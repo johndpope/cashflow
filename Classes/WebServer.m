@@ -153,12 +153,12 @@
 /**
    Read http header line
 */
-- (BOOL)readLine:(int)s line:(char *)line size:(int)size
+- (BOOL)readLine:(int)s line:(char *)line size:(NSInteger)size
 {
     char *p = line;
 
     while (p < line + size) {
-        int len = read(s, p, 1);
+        long len = read(s, p, 1);
         if (len <= 0) {
             return NO;
         }
@@ -174,10 +174,10 @@
 /**
    Recv http body
 */
-- (char *)readBody:(int)s contentLength:(int)contentLength
+- (char *)readBody:(int)s contentLength:(NSInteger)contentLength
 {
     char *buf, *p;
-    int len, remain;
+    NSInteger len, remain;
 
     if (contentLength < 0) {
         len = 1024*10; // ad hoc
@@ -190,7 +190,7 @@
     remain = len;
 
     while (remain > 0) {
-        int rlen = read(s, p, remain);
+        long rlen = read(s, p, remain);
         if (rlen < 0) {
             free(buf);
             return NULL;
@@ -257,7 +257,7 @@
 
    @note You need to override this method
 */
-- (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(int)bodylen
+- (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(NSInteger)bodylen
 {
     // must be override
 }

@@ -28,11 +28,11 @@
 @interface Report : NSObject
 
 /** レポート種別 (REPORT_XXX) */
-@property(nonatomic,assign) int type;
+@property(nonatomic,assign) NSInteger type;
 /** 期間毎の ReportEntry の配列 */
 @property(nonatomic,strong) NSMutableArray *reportEntries;
 
-- (void)generate:(int)type asset:(Asset *)asset;
+- (void)generate:(NSInteger)type asset:(Asset *)asset;
 - (double)getMaxAbsValue;
 
 @end
@@ -66,7 +66,7 @@
 /** カテゴリ毎の支出レポート */
 @property(nonatomic,strong,readonly) NSMutableArray *outgoCatReports;
 
-- (id)initWithAsset:(int)assetKey start:(NSDate *)start end:(NSDate *)end;
+- (id)initWithAsset:(NSInteger)assetKey start:(NSDate *)start end:(NSDate *)end;
 
 - (BOOL)addTransaction:(Transaction*)t;
 - (void)sortAndTotalUp;
@@ -81,10 +81,10 @@
 @interface CatReport : NSObject
 
 /** カテゴリ (-1 は未分類) */
-@property(nonatomic,readonly) int category;
+@property(nonatomic,readonly) NSInteger category;
 
 /** 資産キー (-1 の場合は指定なし) */
-@property(nonatomic,readonly) int assetKey;
+@property(nonatomic,readonly) NSInteger assetKey;
 
 /** 該当カテゴリ内の金額合計 */
 @property(nonatomic,readonly) double sum;
@@ -92,7 +92,7 @@
 /** 本カテゴリに含まれる Transaction 一覧 */
 @property(nonatomic,strong,readonly) NSMutableArray *transactions;
 
-- (id)initWithCategory:(int)category withAsset:(int)assetKey;
+- (id)initWithCategory:(NSInteger)category withAsset:(NSInteger)assetKey;
 - (void)addTransaction:(Transaction*)t;
 
 - (NSString *)title;

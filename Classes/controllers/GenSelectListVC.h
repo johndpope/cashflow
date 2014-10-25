@@ -11,16 +11,16 @@
 @class GenSelectListViewController;
 
 @protocol GenSelectListViewDelegate
-- (BOOL)genSelectListViewChanged:(GenSelectListViewController*)vc identifier:(int)id;
+- (BOOL)genSelectListViewChanged:(GenSelectListViewController*)vc identifier:(NSInteger)id;
 @end
 
 @interface GenSelectListViewController : UITableViewController
 
 @property(nonatomic,unsafe_unretained) id<GenSelectListViewDelegate> delegate;
-@property(nonatomic,assign) int identifier;
+@property(nonatomic,assign) NSInteger identifier;
 @property(nonatomic,strong) NSArray *items;
-@property(nonatomic,assign) int selectedIndex;
+@property(nonatomic,assign) NSInteger selectedIndex;
 
-+ (GenSelectListViewController *)genSelectListViewController:(id<GenSelectListViewDelegate>)delegate items:(NSArray*)ary title:(NSString*)title identifier:(int)id;
++ (GenSelectListViewController *)genSelectListViewController:(id<GenSelectListViewDelegate>)delegate items:(NSArray*)ary title:(NSString*)title identifier:(NSInteger)id;
 
 @end

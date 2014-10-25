@@ -5,10 +5,11 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import "CashFlow-Swift.h"
+
 #import "TransactionCell.h"
 #import "DataModel.h"
 #import "AppDelegate.h"
-#import "CurrencyManager.h"
 
 @implementation TransactionCell
 {
@@ -33,7 +34,7 @@
 
 - (TransactionCell *)updateWithAssetEntry:(AssetEntry *)entry
 {
-    [self setDescriptionLabel:entry.transaction.description];
+    [self setDescriptionLabel:entry.transaction.desc];
     [self setDateLabel:entry.transaction.date];
     [self setValueLabel:entry.value];
     [self setBalanceLabel:entry.balance];

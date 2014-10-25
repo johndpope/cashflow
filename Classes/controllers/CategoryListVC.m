@@ -27,9 +27,9 @@
     //[AppDelegate trackPageview:@"/CategoryListViewController"];
 
     if (IS_IPAD) {
-        CGSize s = self.contentSizeForViewInPopover;
+        CGSize s = self.preferredContentSize;
         s.height = 600;
-        self.contentSizeForViewInPopover = s;
+        self.preferredContentSize = s;
     }
 	
     // title 設定
@@ -54,12 +54,6 @@
     [super viewDidAppear:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-}
-
 #pragma mark - TableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -67,7 +61,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int count = [[DataModel instance].categories count];
+    NSInteger count = [[DataModel instance].categories count];
     if (self.editing) {
         count++;	// insert cell
     }
@@ -122,7 +116,7 @@
         return;
     }
 
-    int idx = indexPath.row;
+    NSInteger idx = indexPath.row;
     if (idx >= [[DataModel instance].categories count]) {
         idx = -1; // insert row
     }
@@ -138,7 +132,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)genEditTextViewChanged:(GenEditTextViewController *)vc identifier:(int)identifier
+- (void)genEditTextViewChanged:(GenEditTextViewController *)vc identifier:(NSInteger)identifier
 {
     if (identifier < 0) {
         // 新規追加
@@ -160,7 +154,7 @@
     [super setEditing:editing animated:animated];
 	
     // Insert ボタン用の行
-    int insButtonIndex = [[DataModel instance].categories count];
+    NSInteger insButtonIndex = [[DataModel instance].categories count];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:insButtonIndex inSection:0];
     NSArray *iary = @[indexPath];
 	

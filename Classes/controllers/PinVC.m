@@ -94,7 +94,7 @@
     }
     else if (sender == button_BS) {
         // バックスペース
-        int len = _value.length;
+        NSInteger len = _value.length;
         if (len > 0) {
             [_value deleteCharactersInRange:NSMakeRange(len-1, 1)];
         }
@@ -120,7 +120,7 @@
         [_value appendString:ch];
     }
 	
-    int len = _value.length;
+    NSInteger len = _value.length;
     NSMutableString *p = [[NSMutableString alloc] initWithCapacity:len];
     for (int i = 0; i < len; i++) {
         [p appendString:@"●"];

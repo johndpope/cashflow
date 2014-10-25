@@ -10,7 +10,7 @@
 
 @implementation CatReport
 
-- (id)initWithCategory:(int)category withAsset:(int)assetKey
+- (id)initWithCategory:(NSInteger)category withAsset:(NSInteger)assetKey
 {
     self = [super init];
     if (self != nil) {

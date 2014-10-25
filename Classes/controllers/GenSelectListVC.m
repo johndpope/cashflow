@@ -10,7 +10,7 @@
 
 @implementation GenSelectListViewController
 
-+ (GenSelectListViewController *)genSelectListViewController:(id<GenSelectListViewDelegate>)delegate items:(NSArray*)ary title:(NSString*)title identifier:(int)id
++ (GenSelectListViewController *)genSelectListViewController:(id<GenSelectListViewDelegate>)delegate items:(NSArray*)ary title:(NSString*)title identifier:(NSInteger)id
 {
     GenSelectListViewController *vc = [[GenSelectListViewController alloc]
                                          initWithNibName:@"GenSelectListView"
@@ -29,9 +29,9 @@
     [super viewDidLoad];
 
     if (IS_IPAD) {
-        CGSize s = self.contentSizeForViewInPopover;
+        CGSize s = self.preferredContentSize;
         s.height = 480;
-        self.contentSizeForViewInPopover = s;
+        self.preferredContentSize = s;
     }
 }
     

@@ -78,7 +78,7 @@
     return self;
 }
 
-- (int)iosVersion
+- (NSInteger)iosVersion
 {
     NSArray  *aOsVersions = [[[UIDevice currentDevice]systemVersion] componentsSeparatedByString:@"."];
     NSInteger iOsVersionMajor  = [[aOsVersions objectAtIndex:0] intValue];
@@ -89,9 +89,6 @@
 {
     [super viewDidLoad];
     
-    // iOS7 hack
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) self.edgesForExtendedLayout = UIRectEdgeNone;
-
     // iOS6 以前には Helvetica Neue Thin がない
     if ([self iosVersion] < 7) {
         UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Light" size:68.0];
@@ -110,9 +107,9 @@
     }
     
     if (IS_IPAD) {
-        CGSize s = self.contentSizeForViewInPopover;
+        CGSize s = self.preferredContentSize;
         s.height = 480;
-        self.contentSizeForViewInPopover = s;
+        self.preferredContentSize = s;
     }
     self.title = _L(@"Amount"); // 金額
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]

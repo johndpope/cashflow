@@ -2,8 +2,6 @@
 //  NADIconView.h
 //  NendAd
 //
-//  Ver 2.3.1
-//
 //  アイコン型広告ビュークラス
 
 #import <UIKit/UIKit.h>

@@ -13,7 +13,7 @@
     IBOutlet UITextView *_textView;
 }
 
-+ (EditMemoViewController *)editMemoViewController:(id<EditMemoViewDelegate>)delegate title:(NSString*)title identifier:(int)id
++ (EditMemoViewController *)editMemoViewController:(id<EditMemoViewDelegate>)delegate title:(NSString*)title identifier:(NSInteger)id
 {
     EditMemoViewController *vc = [[EditMemoViewController alloc]
                                       initWithNibName:@"EditMemoView"
@@ -30,9 +30,9 @@
     [super viewDidLoad];
 
     if (IS_IPAD) {
-        CGSize s = self.contentSizeForViewInPopover;
+        CGSize s = self.preferredContentSize;
         s.height = 480;
-        self.contentSizeForViewInPopover = s;
+        self.preferredContentSize = s;
     }
     
     //textView.placeholder = self.title;

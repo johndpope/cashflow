@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lg6-VT-1DK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lg6-VT-1DK">
     <dependencies>
-        <deployment version="1280" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -24,13 +24,16 @@
         <scene sceneID="Tnj-K4-BWw">
             <objects>
                 <viewController storyboardIdentifier="AssetListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vdb-PT-i2f" customClass="AssetListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sx5-zI-TjO"/>
+                        <viewControllerLayoutGuide type="bottom" id="f7c-pt-g0a"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Un0-Fx-aI9" customClass="AssetListViewCon">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Udy-Zd-Z8t">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Udy-Zd-Z8t">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="assetCell" textLabel="CSY-CQ-DQu" detailTextLabel="GDM-Xr-qvm" style="IBUITableViewCellStyleSubtitle" id="BZX-eg-bND">
@@ -63,9 +66,11 @@
                                     <outlet property="delegate" destination="Vdb-PT-i2f" id="lek-dM-qxD"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YXr-PA-ZRf">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXr-PA-ZRf">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="4vX-ey-zLX"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem image="report" style="plain" id="0jD-q6-gmW">
                                         <connections>
@@ -73,9 +78,9 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4eV-XY-SBr"/>
-                                    <barButtonItem title="000" style="plain" id="evo-CX-0Zk"/>
+                                    <barButtonItem title="     " style="plain" id="evo-CX-0Zk"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RwM-QF-XT4"/>
-                                    <barButtonItem title="Item" style="plain" systemItem="action" id="3dd-HN-aXn">
+                                    <barButtonItem style="plain" systemItem="action" id="3dd-HN-aXn">
                                         <connections>
                                             <action selector="doAction:" destination="Vdb-PT-i2f" id="Hnm-le-ilT"/>
                                         </connections>
@@ -84,13 +89,22 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Udy-Zd-Z8t" firstAttribute="top" secondItem="Un0-Fx-aI9" secondAttribute="top" id="0H3-xS-mIT"/>
+                            <constraint firstItem="Udy-Zd-Z8t" firstAttribute="leading" secondItem="Un0-Fx-aI9" secondAttribute="leading" id="0tD-xb-7zx"/>
+                            <constraint firstAttribute="trailing" secondItem="YXr-PA-ZRf" secondAttribute="trailing" id="9yN-MB-xUY"/>
+                            <constraint firstAttribute="trailing" secondItem="Udy-Zd-Z8t" secondAttribute="trailing" id="Qbi-hO-HuI"/>
+                            <constraint firstItem="YXr-PA-ZRf" firstAttribute="leading" secondItem="Un0-Fx-aI9" secondAttribute="leading" id="agE-DU-Vdj"/>
+                            <constraint firstItem="f7c-pt-g0a" firstAttribute="top" secondItem="YXr-PA-ZRf" secondAttribute="bottom" id="cgI-9q-QNy"/>
+                            <constraint firstItem="f7c-pt-g0a" firstAttribute="top" secondItem="Udy-Zd-Z8t" secondAttribute="bottom" id="ka8-Mh-rEg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Di4-NF-TxR"/>
                     <connections>
                         <outlet property="_barActionButton" destination="3dd-HN-aXn" id="AWY-Ae-Aea"/>
                         <outlet property="_barSumLabel" destination="evo-CX-0Zk" id="HHa-Ce-KpA"/>
                         <outlet property="_tableView" destination="Udy-Zd-Z8t" id="n4y-Fd-oje"/>
-                        <outlet property="_toolbar" destination="YXr-PA-ZRf" id="Oh8-cM-mR4"/>
+                        <outlet property="_toolbar" destination="YXr-PA-ZRf" id="jaj-p8-4dM"/>
                         <segue destination="Jb5-rH-b9t" kind="push" identifier="show" id="cmp-Kl-W5O"/>
                     </connections>
                 </viewController>
@@ -102,13 +116,13 @@
         <scene sceneID="RHw-4f-xyR">
             <objects>
                 <tableViewController id="Jb5-rH-b9t" customClass="AssetViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="icB-gx-hpz">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="icB-gx-hpz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="assetViewCell" textLabel="JDM-Qi-LQn" detailTextLabel="gsm-2b-13X" style="IBUITableViewCellStyleValue2" id="jOG-pJ-DI0">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jOG-pJ-DI0" id="gBP-11-OmI">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>

@@ -29,7 +29,7 @@
 >
 
 @property(nonatomic,strong) AssetListViewController *splitAssetListViewController;
-@property(nonatomic,assign) int assetKey;
+@property(nonatomic,assign) NSInteger assetKey;
 
 + (TransactionListViewController *)instantiate;
 - (void)reload;

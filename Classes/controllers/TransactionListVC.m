@@ -5,11 +5,12 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import "CashFlow-Swift.h"
+
 #import "TransactionListVC.h"
 #import "TransactionCell.h"
 #import "AppDelegate.h"
 #import "Transaction.h"
-#import "InfoVC.h"
 #import "CalcVC.h"
 #import "ReportVC.h"
 #import "ConfigViewController.h"
@@ -35,8 +36,8 @@
     IBOutlet UIBarButtonItem *_barActionButton;
     IBOutlet UIToolbar *_toolbar;
     
-    int _assetKey;
-    int _tappedIndex;
+    NSInteger _assetKey;
+    NSInteger _tappedIndex;
     
 #if FREE_VERSION
     AdManager *_adManager;
@@ -180,7 +181,12 @@
     [self reload];
     
     [[Database instance] updateModificationDate]; // TODO : ここでやるのは正しくないが、、、
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
 #if FREE_VERSION
     // 表示開始
     [_adManager requestShowAd];
@@ -216,15 +222,28 @@
 /**
  * 広告表示
  */
-- (void)adManager:(AdManager *)adManager showAd:(AdMobView *)adView adSize:(CGSize)adSize
+- (void)adManager:(AdManager *)adManager showAd:(DFPView *)adView adSize:(CGSize)adSize
 {
     if (_isAdShowing) {
         NSLog(@"Ad is already showing!");
         return;
     }
+    NSLog(@"showAd");
     _isAdShowing = YES;
+
+    //NSLog(@"adSize:%fx%f", adSize.width, adSize.height);
     
     CGRect frame = _tableView.bounds;
+    //NSLog(@"tableView size:%fx%f", frame.size.width, frame.size.height);
+
+    // TODO: 横幅制限。iPad landscape の場合、detail view の横幅は iPad portrait の横幅より
+    // 狭いので、制限する必要がある。
+    /*
+    const float ad_width_max = 703;
+    if (adSize.width > ad_width_max) {
+        adSize.width = ad_width_max;
+    }
+    */
     
     // 広告の位置を画面外に設定
     CGRect aframe = frame;
@@ -264,6 +283,7 @@
         NSLog(@"Ad is already removed!");
         return;
     }
+    NSLog(@"removeAd");
     _isAdShowing = NO;
     
     CGRect frame = _tableView.bounds;
@@ -289,13 +309,6 @@
 }
 
 #endif
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    //NSLog(@"TransactionListViewController:viewDidAppear");
-
-    [super viewDidAppear:animated];
-}
 
 - (void)updateBalance
 {
@@ -328,7 +341,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.asset == nil) return 0;
 
-    int n;
+    NSInteger n;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         n = [self.searchResults count];
     } else {
@@ -343,9 +356,9 @@
 }
 
 // 指定セル位置に該当する entry Index を返す
-- (int)entryIndexWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
+- (NSInteger)entryIndexWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
 {
-    int idx;
+    NSInteger idx;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         idx = ([self.searchResults count] - 1) - indexPath.row;
     } else {
@@ -357,7 +370,7 @@
 // 指定セル位置の Entry を返す
 - (AssetEntry *)entryWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
 {
-    int idx = [self entryIndexWithIndexPath:indexPath tableView:tableView];
+    NSInteger idx = [self entryIndexWithIndexPath:indexPath tableView:tableView];
 
     if (idx < 0) {
         return nil;  // initial balance
@@ -405,7 +418,7 @@
 {
     [tv deselectRowAtIndexPath:indexPath animated:NO];
 	
-    int idx = [self entryIndexWithIndexPath:indexPath tableView:tv];
+    NSInteger idx = [self entryIndexWithIndexPath:indexPath tableView:tv];
     if (idx == -1) {
         // initial balance cell
         CalculatorViewController *v = [CalculatorViewController instantiate];
@@ -487,7 +500,7 @@
 // 編集スタイルを返す
 - (UITableViewCellEditingStyle)tableView:(UITableView*)tv editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
+    NSInteger entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
     if (entryIndex < 0) {
         return UITableViewCellEditingStyleNone;
     } 
@@ -497,7 +510,7 @@
 // 削除処理
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)style forRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    int entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
+    NSInteger entryIndex = [self entryIndexWithIndexPath:indexPath tableView:tv];
 
     if (entryIndex < 0) {
         // initial balance cell : do not delete!
@@ -570,7 +583,6 @@
 
 - (void)actionSheet:(UIActionSheet*)as clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    InfoVC *infoVC;
     BackupViewController *backupVC;
     
     UIViewController *vc;
@@ -599,8 +611,7 @@
             break;
             
         case 4:
-            infoVC = [InfoVC new];
-            vc = infoVC;
+            nv = [InfoViewController instantiate];
             break;
             
         default:
@@ -613,25 +624,13 @@
     if (IS_IPAD) {
         nv.modalPresentationStyle = modalPresentationStyle;
     }
-    
-    //[self.navigationController pushViewController:vc animated:YES];
-    [self.navigationController presentViewController:nv animated:YES completion:NULL];
-}
 
-/*
-- (IBAction)showHelp:(id)sender
-{
-    InfoVC *v = [InfoVC new];
-    //[self.navigationController pushViewController:v animated:YES];
-
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:v];
-    if (IS_IPAD) {
-        nc.modalPresentationStyle = UIModalPresentationFormSheet;
-    }
-    [self presentModalViewController:nc animated:YES];
-    [nc release];
+    // iPad: actionsheet から presentViewController を直接呼び出せなくなった
+    // http://stackoverflow.com/questions/24854802/presenting-a-view-controller-modally-from-an-action-sheets-delegate-in-ios8
+    dispatch_async(dispatch_get_main_queue(), ^ {
+        [self.navigationController presentViewController:nv animated:YES completion:NULL];
+    });
 }
-*/
 
 #pragma mark BackupViewDelegate
 
@@ -708,7 +707,7 @@
         allMatch = TRUE;
     }
 
-    int count = [self.asset entryCount];
+    NSInteger count = [self.asset entryCount];
     if (self.searchResults == nil) {
         self.searchResults = [[NSMutableArray alloc] initWithCapacity:count];
     } else {
@@ -719,6 +718,7 @@
 
     for (int i = 0; i < count; i++) {
         AssetEntry *e = [self.asset entryAt:i];
+        if (e == nil) continue; // nil になることはないはずだが念のため
         e.originalIndex = i;
         
         if (allMatch ) {
@@ -727,7 +727,7 @@
         }
         
         // 文字列マッチ
-        NSString *desc = e.transaction.description;
+        NSString *desc = e.transaction.desc;
         NSRange range = NSMakeRange(0, desc.length);
         NSRange foundRange = [desc rangeOfString:searchString options:searchOptions range:range];
         if (foundRange.length > 0) {

@@ -21,10 +21,10 @@
 - (NSString*)serverUrl;
 - (void)threadMain:(id)dummy;
 
-- (BOOL)readLine:(int)s line:(char *)line size:(int)size;
-- (char *)readBody:(int)s contentLength:(int)contentLength;
+- (BOOL)readLine:(int)s line:(char *)line size:(NSInteger)size;
+- (char *)readBody:(int)s contentLength:(NSInteger)contentLength;
 - (void)handleHttpRequest:(int)s;
 - (void)send:(int)s string:(NSString *)string;
-- (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(int)bodylen;
+- (void)requestHandler:(int)s filereq:(NSString*)filereq body:(char *)body bodylen:(NSInteger)bodylen;
 
 @end

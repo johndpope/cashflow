@@ -5,6 +5,8 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#import "CashFlow-Swift.h"
+
 #import "TransactionVC.h"
 #import "AppDelegate.h"
 #import "Config.h"
@@ -21,7 +23,7 @@
     IBOutlet UILabel *_rememberDateLabel;
     IBOutlet UISwitch *_rememberDateSwitch;
 
-    int _transactionIndex;
+    NSInteger _transactionIndex;
 
     BOOL _isModified;
 
@@ -135,7 +137,7 @@
 }
 
 // 処理するトランザクションをロードしておく
-- (void)setTransactionIndex:(int)n
+- (void)setTransactionIndex:(NSInteger)n
 {
     _transactionIndex = n;
 
@@ -241,7 +243,7 @@
 		
     case ROW_DESC:
         name.text = _L(@"Name");
-        value.text = _editingEntry.transaction.description;
+        value.text = _editingEntry.transaction.desc;
         break;
 			
     case ROW_CATEGORY:
@@ -311,7 +313,7 @@
         case ROW_DESC:
             editDescVC = [EditDescViewController instantiate];
             editDescVC.delegate = self;
-            editDescVC.description = _editingEntry.transaction.description;
+            editDescVC.desc = _editingEntry.transaction.desc;
             editDescVC.category = _editingEntry.transaction.category;
             vc = editDescVC;
             break;
@@ -423,7 +425,7 @@
 
     switch (_editingEntry.transaction.type) {
     case TYPE_ADJ:
-        _editingEntry.transaction.description = _typeArray[_editingEntry.transaction.type];
+        _editingEntry.transaction.desc = _typeArray[_editingEntry.transaction.type];
         break;
 
     case TYPE_TRANSFER:
@@ -433,7 +435,7 @@
             from = [ledger assetWithKey:_editingEntry.transaction.asset];
             to = [ledger assetWithKey:_editingEntry.transaction.dstAsset];
 
-            _editingEntry.transaction.description = 
+            _editingEntry.transaction.desc =
                 [NSString stringWithFormat:@"%@/%@", from.name, to.name];
         }
         break;
@@ -457,16 +459,16 @@
 {
     _isModified = YES;
 
-    _editingEntry.transaction.description = vc.description;
+    _editingEntry.transaction.desc = vc.desc;
 
     if (_editingEntry.transaction.category < 0) {
         // set category from description
-        _editingEntry.transaction.category = [[DataModel instance] categoryWithDescription:_editingEntry.transaction.description];
+        _editingEntry.transaction.category = [[DataModel instance] categoryWithDescription:_editingEntry.transaction.desc];
     }
     [self dismissPopover];
 }
 
-- (void)editMemoViewChanged:(EditMemoViewController*)vc identifier:(int)id
+- (void)editMemoViewChanged:(EditMemoViewController*)vc identifier:(NSInteger)id
 {
     _isModified = YES;
 
@@ -606,7 +608,7 @@
     }
 }
 
-- (void)asCancelTransaction:(int)buttonIndex
+- (void)asCancelTransaction:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
     case 0:

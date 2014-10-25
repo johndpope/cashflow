@@ -30,20 +30,20 @@
 // 
 @interface Asset : AssetBase
 
-+ (int)numAssetTypes;
++ (NSInteger)numAssetTypes;
 + (NSArray*)typeNamesArray;
-+ (NSString*)typeNameWithType:(int)type;
-+ (NSString*)iconNameWithType:(int)type;
++ (NSString*)typeNameWithType:(NSInteger)type;
++ (NSString*)iconNameWithType:(NSInteger)type;
 
 - (void)rebuild;
 
-- (int)entryCount;
-- (AssetEntry *)entryAt:(int)n;
+- (NSInteger)entryCount;
+- (AssetEntry *)entryAt:(NSInteger)n;
 - (void)insertEntry:(AssetEntry *)tr;
-- (void)replaceEntryAtIndex:(int)index withObject:(AssetEntry *)t;
-- (void)deleteEntryAt:(int)n;
+- (void)replaceEntryAtIndex:(NSInteger)index withObject:(AssetEntry *)t;
+- (void)deleteEntryAt:(NSInteger)n;
 - (void)deleteOldEntriesBefore:(NSDate*)date;
-- (int)firstEntryByDate:(NSDate*)date;
+- (NSInteger)firstEntryByDate:(NSDate*)date;
 
 - (double)lastBalance;
 - (void)updateInitialBalance;

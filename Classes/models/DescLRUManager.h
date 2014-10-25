@@ -10,9 +10,9 @@
 @interface DescLRUManager : NSObject
 + (void)migrate;
 
-+ (void)addDescLRU:(NSString *)description category:(int)category;
-+ (void)addDescLRU:(NSString *)description category:(int)category date:(NSDate*)date;
-+ (NSMutableArray *)getDescLRUs:(int)category;
++ (void)addDescLRU:(NSString *)description category:(NSInteger)category;
++ (void)addDescLRU:(NSString *)desc category:(NSInteger)category date:(NSDate*)date;
++ (NSMutableArray *)getDescLRUs:(NSInteger)category;
 
 @end
 

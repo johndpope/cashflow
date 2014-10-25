@@ -30,20 +30,20 @@
     _categories = [TCategory find_all:@"ORDER BY sorder"];
 }
 
--(int)count
+-(NSInteger)count
 {
     return [_categories count];
 }
 
--(TCategory*)categoryAtIndex:(int)n
+-(TCategory*)categoryAtIndex:(NSInteger)n
 {
     ASSERT(mCategories != nil);
     return _categories[n];
 }
 
-- (int)categoryIndexWithKey:(int)key
+- (NSInteger)categoryIndexWithKey:(NSInteger)key
 {
-    int i, max = [_categories count];
+    NSInteger i, max = [_categories count];
     for (i = 0; i < max; i++) {
         TCategory *c = _categories[i];
         if (c.pid == key) {
@@ -53,9 +53,9 @@
     return -1;
 }
 
--(NSString*)categoryStringWithKey:(int)key
+-(NSString*)categoryStringWithKey:(NSInteger)key
 {
-    int idx = [self categoryIndexWithKey:key];
+    NSInteger idx = [self categoryIndexWithKey:key];
     if (idx < 0) {
         return @"";
     }
@@ -80,7 +80,7 @@
     [category save];
 }
 
--(void)deleteCategoryAtIndex:(int)index
+-(void)deleteCategoryAtIndex:(NSInteger)index
 {
     TCategory *c = _categories[index];
     [c delete];
@@ -88,7 +88,7 @@
     [_categories removeObjectAtIndex:index];
 }
 
-- (void)reorderCategory:(int)from to:(int)to
+- (void)reorderCategory:(NSInteger)from to:(NSInteger)to
 {
     TCategory *c = _categories[from];
     [_categories removeObjectAtIndex:from];
@@ -99,7 +99,7 @@
 
 -(void)renumber
 {
-    int i, max = [_categories count];
+    NSInteger i, max = [_categories count];
 
     for (i = 0; i < max; i++) {
         TCategory *c = _categories[i];

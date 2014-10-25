@@ -16,15 +16,14 @@
 - (void)editDescViewChanged:(EditDescViewController*)vc;
 @end
 
-@interface EditDescViewController : UIViewController
-  <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate,
-    UISearchDisplayDelegate>
+@interface EditDescViewController : UITableViewController
+  <UITextFieldDelegate, UISearchDisplayDelegate>
 
 @property(nonatomic,unsafe_unretained) id<EditDescViewDelegate> delegate;
-@property(nonatomic,strong) NSString *description;
-@property(nonatomic,assign) int category;
+@property(nonatomic,strong) NSString *desc;
+@property(nonatomic,assign) NSInteger category;
 
-@property(nonatomic,readonly) UITableView *tableView;
+//@property(nonatomic,readonly) UITableView *tableView;
 
 + (EditDescViewController *)instantiate;
 - (void)doneAction;

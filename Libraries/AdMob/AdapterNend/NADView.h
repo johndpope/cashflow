@@ -2,8 +2,6 @@
 //  NADView.h
 //  NendAd
 //
-//  Ver 2.3.1
-//
 //  広告枠ベースビュークラス
 
 #import <UIKit/UIKit.h>
@@ -11,7 +9,7 @@
 #define NAD_ADVIEW_SIZE_320x50  CGSizeMake(320,50)
 
 // エラー種別
-typedef enum {
+NS_ENUM(NSInteger, NADViewErrorCode) {
     // 広告サイズがディスプレイサイズよりも大きい
     NADVIEW_AD_SIZE_TOO_LARGE,
     // 不明な広告ビュータイプ
@@ -22,16 +20,16 @@ typedef enum {
     NADVIEW_FAILED_AD_DOWNLOAD,
     // リクエストしたサイズと取得したサイズが異なる
     NADVIEW_AD_SIZE_DIFFERENCES
-}NADViewErrorCode;
+};
 
 @class NADView;
 
 @protocol NADViewDelegate <NSObject>
 
+@optional
+
 #pragma mark - NADViewの広告ロードが初めて成功した際に通知されます
 - (void)nadViewDidFinishLoad:(NADView *)adView;
-
-@optional
 
 #pragma mark - 広告受信が成功した際に通知されます
 - (void)nadViewDidReceiveAd:(NADView *)adView;
@@ -61,6 +59,13 @@ typedef enum {
 
 #pragma mark - エラー内容出力
 @property (nonatomic, assign) NSError *error;
+
+#pragma apiKey
+@property (nonatomic,assign) NSString *nendApiKey;
+
+#pragma 広告枠ID
+@property (nonatomic,assign) NSString *nendSpotID;
+
 
 #pragma mark - 広告枠のapiKeyとspotIDをセット
 - (void)setNendID:(NSString *)apiKey spotID:(NSString *)spotID;

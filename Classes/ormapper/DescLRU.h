@@ -9,23 +9,23 @@
 
 @interface DescLRU : ORRecord
 
-@property(nonatomic,strong) NSString* description;
+@property(nonatomic,strong) NSString* desc;
 @property(nonatomic,strong) NSDate* lastUse;
-@property(nonatomic,assign) int category;
+@property(nonatomic,assign) NSInteger category;
 
 + (BOOL)migrate;
 
 // CRUD (Create/Read/Update/Delete) operations
 
 // Read operations (Finder)
-+ (DescLRU *)find:(int)pid;
++ (DescLRU *)find:(NSInteger)pid;
 
 + (DescLRU *)find_by_description:(NSString*)key cond:(NSString*)cond;
 + (DescLRU *)find_by_description:(NSString*)key;
 + (DescLRU *)find_by_lastUse:(NSDate*)key cond:(NSString*)cond;
 + (DescLRU *)find_by_lastUse:(NSDate*)key;
-+ (DescLRU *)find_by_category:(int)key cond:(NSString*)cond;
-+ (DescLRU *)find_by_category:(int)key;
++ (DescLRU *)find_by_category:(NSInteger)key cond:(NSString*)cond;
++ (DescLRU *)find_by_category:(NSInteger)key;
 
 + (NSMutableArray *)find_all:(NSString *)cond;
 

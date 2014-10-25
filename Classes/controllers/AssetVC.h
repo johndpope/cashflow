@@ -15,7 +15,7 @@
 @interface AssetViewController : UITableViewController 
     <GenEditTextViewDelegate, GenSelectListViewDelegate, UIActionSheetDelegate>
 
-- (void)setAssetIndex:(int)n;
+- (void)setAssetIndex:(NSInteger)n;
 - (void)saveAction;
 
 @end

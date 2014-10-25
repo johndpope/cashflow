@@ -15,15 +15,15 @@
 @interface Categories : NSObject
 
 - (void)reload;
-- (int)count;
-- (TCategory*)categoryAtIndex:(int)n;
-- (int)categoryIndexWithKey:(int)key;
-- (NSString*)categoryStringWithKey:(int)key;
+- (NSInteger)count;
+- (TCategory*)categoryAtIndex:(NSInteger)n;
+- (NSInteger)categoryIndexWithKey:(NSInteger)key;
+- (NSString*)categoryStringWithKey:(NSInteger)key;
 
 -(TCategory*)addCategory:(NSString *)name;
 -(void)updateCategory:(TCategory*)category;
--(void)deleteCategoryAtIndex:(int)index;
--(void)reorderCategory:(int)from to:(int)to;
+-(void)deleteCategoryAtIndex:(NSInteger)index;
+-(void)reorderCategory:(NSInteger)from to:(NSInteger)to;
 -(void)renumber;
 
 @end

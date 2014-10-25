@@ -12,7 +12,7 @@
 
 @interface EditDescViewController()
 - (UITableViewCell *)_textFieldCell:(UITableView*)tv;
-- (UITableViewCell *)_descCell:(UITableView*)tv row:(int)row;
+- (UITableViewCell *)_descCell:(UITableView*)tv row:(NSInteger)row;
 
 @property (nonatomic) NSMutableArray *descArray;
 @property (nonatomic) NSMutableArray *filteredDescArray;
@@ -21,8 +21,6 @@
 
 @implementation EditDescViewController
 {
-    IBOutlet UITableView *_tableView;
-    
     UITextField *_textField;
 }
 
@@ -41,10 +39,12 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     if (IS_IPAD) {
-        CGSize s = self.contentSizeForViewInPopover;
+        CGSize s = self.preferredContentSize;
         s.height = 600;  // AdHoc : 480 にすると横画面の時に下に出てしまい、文字入力ができない
-        self.contentSizeForViewInPopover = s;
+        self.preferredContentSize = s;
     }
     
     self.title = _L(@"Name");
@@ -71,7 +71,7 @@
 //  処理するトランザクションをロードしておく
 - (void)viewWillAppear:(BOOL)animated
 {
-    _textField.text = self.description;
+    _textField.text = self.desc;
     [super viewWillAppear:animated];
 
     self.descArray = [DescLRUManager getDescLRUs:_category];
@@ -80,7 +80,7 @@
     // キーボードを消す ###
     [_textField resignFirstResponder];
 
-    [_tableView reloadData];
+    [self.tableView reloadData];
 }
 
 //- (void)viewWillDisappear:(BOOL)animated
@@ -90,7 +90,7 @@
 
 - (void)doneAction
 {
-    self.description = _textField.text;
+    self.desc = _textField.text;
     [_delegate editDescViewChanged:self];
 
     [self.navigationController popViewControllerAnimated:YES];
@@ -158,14 +158,14 @@
     return cell;
 }
 
-- (UITableViewCell *)_descCell:(UITableView *)tv row:(int)row
+- (UITableViewCell *)_descCell:(UITableView *)tv row:(NSInteger)row
 {   
     UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"descCell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"descCell"];
     }
     DescLRU *lru = self.filteredDescArray[row];
-    cell.textLabel.text = lru.description;
+    cell.textLabel.text = lru.desc;
     return cell;
 }
 
@@ -180,7 +180,7 @@
 
     if (tv == self.searchDisplayController.searchResultsTableView || indexPath.section == 1) {
         DescLRU *lru = self.filteredDescArray[indexPath.row];
-        _textField.text = lru.description;
+        _textField.text = lru.desc;
         [self doneAction];
     }
 }
@@ -213,7 +213,14 @@
 
 #pragma mark - UISearchDisplayController Delegate
 
-// 検索開始
+// iOS7 バグ回避
+// see http://stackoverflow.com/questions/18924710/uisearchdisplaycontroller-overlapping-original-table-view
+- (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
+{
+    tableView.backgroundColor = [UIColor whiteColor];
+}
+
+// 検索開始 : サーチバーの文字列が変更されたときに呼び出される
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self updateFilteredDescArray:searchString];
@@ -229,14 +236,14 @@
 
 #pragma mark - 
 
-// テキスト変更時の処理
+// サーチテキスト変更時の処理：フィルタリングをし直す
 - (void)updateFilteredDescArray:(NSString *)searchString {
     if (searchString == nil || searchString.length == 0) {
         self.filteredDescArray = [self.descArray mutableCopy];
         return;
     }
     
-    int count = [self.descArray count];
+    NSInteger count = [self.descArray count];
     if (self.filteredDescArray == nil) {
         self.filteredDescArray = [[NSMutableArray alloc] initWithCapacity:count];
     } else {
@@ -244,10 +251,10 @@
     }
     
     NSUInteger searchOptions = NSCaseInsensitivePredicateOption | NSDiacriticInsensitiveSearch;
-    for (int i = 0; i < count; i++) {
+    for (NSInteger i = 0; i < count; i++) {
         DescLRU *lru = [self.descArray objectAtIndex:i];
-        NSRange range = NSMakeRange(0, lru.description.length);
-        NSRange foundRange = [lru.description rangeOfString:searchString options:searchOptions range:range];
+        NSRange range = NSMakeRange(0, lru.desc.length);
+        NSRange foundRange = [lru.desc rangeOfString:searchString options:searchOptions range:range];
         if (foundRange.length > 0) {
             [self.filteredDescArray addObject:lru];
         }

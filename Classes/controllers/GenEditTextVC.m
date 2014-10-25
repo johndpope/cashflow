@@ -13,7 +13,7 @@
     IBOutlet UITextField *_textField;
 }
 
-+ (GenEditTextViewController *)genEditTextViewController:(id<GenEditTextViewDelegate>)delegate title:(NSString*)title identifier:(int)id
++ (GenEditTextViewController *)genEditTextViewController:(id<GenEditTextViewDelegate>)delegate title:(NSString*)title identifier:(NSInteger)id
 {
     GenEditTextViewController *vc = [[GenEditTextViewController alloc]
                                          initWithNibName:@"GenEditTextView"
@@ -31,9 +31,9 @@
     [super viewDidLoad];
 
     if (IS_IPAD) {
-        CGSize s = self.contentSizeForViewInPopover;
+        CGSize s = self.preferredContentSize;
         s.height = 300;
-        self.contentSizeForViewInPopover = s;
+        self.preferredContentSize = s;
     }
     
     _textField.placeholder = self.title;

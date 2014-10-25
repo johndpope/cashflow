@@ -157,7 +157,7 @@
 				
 				
 				// Normal
-				[dayButton setTitle:[NSString stringWithFormat:@"%d", [dayComponents day]] 
+				[dayButton setTitle:[NSString stringWithFormat:@"%ld", (long)[dayComponents day]]
 						   forState:UIControlStateNormal];
 				
 				// Selected
