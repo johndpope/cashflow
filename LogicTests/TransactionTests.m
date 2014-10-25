@@ -22,6 +22,7 @@
 }
 
 // 日付のアップグレードテスト (ver 3.2.1 -> 3.3以降 へのアップグレード)
+/*
 - (void)testMigrateDate
 {
     Database *db = [Database instance];
@@ -46,6 +47,7 @@
         XCTAssertEqualObjects(@"20090101135600", s);
     } while ([stmt step] == SQLITE_ROW);
 }
+*/
 
 // 最終使用日のテスト
 - (void)testLastUsedDate

@@ -7,15 +7,31 @@
 @interface PinControllerTest : ViewControllerWithNavBarTestCase {
     PinController *mPinController;
 }
-@property(readonly) AssetListViewController *vc;
+
+// PinController は assetListViewController から呼び出されるため、必要
+@property AssetListViewController *vc;
 
 @end
 
 @implementation PinControllerTest
 
+- (UIViewController *)createViewController
+{
+    // AssetListView は storyboard から生成する
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"AssetListView" bundle:nil];
+
+    // 最上位は navigation controller なので、ここから AssetListViewController を取り出す
+    UINavigationController *nv = [sb instantiateInitialViewController];
+    UIViewController *av = [nv topViewController];
+
+    // 重要: loadView を実行する
+    [av performSelectorOnMainThread:@selector(loadView) withObject:nil waitUntilDone:YES];
+    return av;
+}
+
 - (AssetListViewController *)vc
 {
-    return (AssetListViewController *)self.viewController;
+    return self.viewController;
 }
 
 #pragma mark UIViewControllerTest methods
