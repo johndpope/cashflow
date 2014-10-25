@@ -6,7 +6,8 @@ import Foundation
 import UIKit
 
 class CurrencyManager: NSObject {
-    let currencies =
+    let currencies = NSLocale.ISOCurrencyCodes() as [String];
+    /*
     ["AED",
     "AUD",
     "BHD",
@@ -51,6 +52,7 @@ class CurrencyManager: NSObject {
     "TWD",
     "USD",
     "ZAR"]
+*/
     
     private let kBaseCurrency = "BaseCurrency"
     
@@ -74,6 +76,14 @@ class CurrencyManager: NSObject {
         _numberFormatter.locale = NSLocale.currentLocale()
         
         _baseCurrency = NSUserDefaults.standardUserDefaults().objectForKey(kBaseCurrency) as NSString?
+
+        // TEST : get currency code list
+        /*
+        var codes = NSLocale.ISOCurrencyCodes() as [String];
+        for code in codes {
+            NSLog(code);
+        }
+        */
     }
     
     /**
