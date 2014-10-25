@@ -12,8 +12,18 @@
 
 - (UIViewController *)createViewController
 {
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    vc = [[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:bundle];
+    //NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    //vc = [[AssetListViewController alloc] initWithNibName:@"AssetListView" bundle:bundle];
+
+    // AssetListView は storyboard から生成する
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"AssetListView" bundle:nil];
+
+    // 最上位は navigation controller なので、ここから AssetListViewController を取り出す
+    UINavigationController *nv = [sb instantiateInitialViewController];
+    vc = [nv topViewController];
+
+    // 重要: loadView を実行する
+    [vc performSelectorOnMainThread:@selector(loadView) withObject:nil waitUntilDone:YES];
     return vc;
 }
 
@@ -71,9 +81,9 @@
     XCTAssertEqual(3, [vc tableView:vc.tableView numberOfRowsInSection:0]);
 
     // test cell
-    XCTAssertEqualObjects(@"Cash : ￥9,000", [self cellText:0 section:0]);
-    XCTAssertEqualObjects(@"Bank : ￥195,000", [self cellText:1 section:0]);
-    XCTAssertEqualObjects(@"Card : -￥12,100", [self cellText:2 section:0]);
+    XCTAssertEqualObjects(@"Cash", [self cellText:0 section:0]);
+    XCTAssertEqualObjects(@"Bank", [self cellText:1 section:0]);
+    XCTAssertEqualObjects(@"Card", [self cellText:2 section:0]);
 }
 
 @end

@@ -311,19 +311,10 @@
 
     NSString *cellid = @"assetCell";
     cell = [tv dequeueReusableCellWithIdentifier:cellid];
-
-    /*if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
-        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		
-        cell.textLabel.font = [UIFont systemFontOfSize:16.0];
-        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-        cell.textLabel.font = [UIFont systemFontOfSize:16.0];
-     }*/
+    // prototype cell を使用するため、cell は常に自動生成される
 
     // 資産
     Asset *asset = [_ledger assetAtIndex:[self _assetIndex:indexPath]];
-
 
     // 資産タイプ範囲外対応
     NSInteger type = asset.type;
