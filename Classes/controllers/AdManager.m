@@ -14,10 +14,17 @@
 @implementation DFPView
 
 - (id)init {
-    GADAdSize size = GADAdSizeFullWidthPortraitWithHeight(GAD_SIZE_320x50.height);
-    if ((self = [super initWithAdSize:size])) {
-        self.delegate = self;
+    GADAdSize gadSize;
+    
+    if (IS_IPAD) {
+        // 320 x 50 固定。こうしないと在庫でない模様
+        gadSize = kGADAdSizeBanner;
+    } else {
+        // iPhone 6 横幅に自動で合わせる
+        gadSize = GADAdSizeFullWidthPortraitWithHeight(GAD_SIZE_320x50.height);
     }
+    self = [super initWithAdSize:gadSize];
+    self.delegate = self;
     return self;
 }
 
@@ -169,8 +176,9 @@ static AdManager *theAdManager;
     NSLog(@"requestAd: start request new ad.");
     GADRequest *req = [GADRequest request];
     req.testDevices = @[
+                        //@"7f201a0d427175b074ea55a63a482388", // ip6
+                        //@"f887d54080341da8df23060f8146ba79", // ipm
                         GAD_SIMULATOR_ID
-                        //,@"7f201a0d427175b074ea55a63a482388"
                         ];
 
     [_bannerView loadRequest:req];
@@ -268,7 +276,7 @@ static AdManager *theAdManager;
     } else {
         msg = @"Ad load failed";
     }
-    NSLog(@"%@ : %@", msg, [error localizedDescription]);
+    NSLog(@"%@ : <<%@>>", msg, [error localizedDescription]);
     
     /*
      AdMob SDK バグ対応。ネットワーク未接続状態で広告取得失敗した場合、
