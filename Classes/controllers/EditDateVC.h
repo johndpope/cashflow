@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Transaction.h"
 
-#import "CalendarViewController.h"
+//#import "CalendarViewController.h"
+#import "CFCalendarViewController.h"
 
 @class TransactionViewController;
 @class EditDateViewController;
@@ -18,7 +19,7 @@
 - (void)editDateViewChanged:(EditDateViewController*)vc;
 @end
 
-@interface EditDateViewController : UIViewController <CalendarViewControllerDelegate> 
+@interface EditDateViewController : UIViewController <CFCalendarViewControllerDelegate>
 
 @property(nonatomic,unsafe_unretained) id<EditDateViewDelegate> delegate;
 @property(nonatomic,strong) NSDate *date;

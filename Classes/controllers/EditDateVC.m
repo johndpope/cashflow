@@ -78,11 +78,14 @@
     [super viewWillDisappear:animated];
 }
 
+/**
+ * カレンダー表示処理
+ */
 - (IBAction)showCalendar:(id)sender {
-    CalendarViewController *vc = [CalendarViewController new];
+    CFCalendarViewController *vc = [CFCalendarViewController new];
     vc.selectedDate = _datePicker.date;
-    [vc setCalendarViewControllerDelegate:self];
-    
+    vc.delegate = self;
+
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -96,8 +99,8 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark CalendarViewControllerDelegate
-- (void)calendarViewController:(CalendarViewController *)aCalendarViewController dateDidChange:(NSDate *)aDate
+#pragma mark CFCalendarViewControllerDelegate
+- (void)cfcalendarViewController:(CFCalendarViewController *)aCalendarViewController didSelectDate:(NSDate *)aDate
 {
     if (aDate == nil) return; // do nothing (Clear button)
 
