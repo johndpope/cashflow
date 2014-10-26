@@ -4,6 +4,8 @@ Image size
 * iPhone
     * 3.5inch Retina -> 640x960
     * 4inch Retina   -> 640x1136
+    * 4.7inch        -> 750x1334
+    * 5.5inch        -> 1242x2208
 
 * iPad
     * Retina -> 2048x1536

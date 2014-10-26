@@ -53,19 +53,19 @@ class InfoViewController : UIViewController {
     @IBAction func webButtonTapped() {
         AppDelegate.trackEvent("help", action:"push", label:"help", value:0)
         var url = NSURL(string: NSLocalizedString("HelpURL", comment:""))
-        UIApplication.sharedApplication().openURL(url)
+        UIApplication.sharedApplication().openURL(url!)
     }
     
     @IBAction func facebookButtonTapped() {
         AppDelegate.trackEvent("help", action:"push", label:"facebook", value:0)
         var url = NSURL(string: "http://facebook.com/CashFlowApp")
-        UIApplication.sharedApplication().openURL(url)
+        UIApplication.sharedApplication().openURL(url!)
     }
     
     @IBAction func purchaseStandardVerion() {
         AppDelegate.trackEvent("help", action:"push", label:"purchase", value:0)
         var url = NSURL(string: "http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=290776107&mt=8")
-        UIApplication.sharedApplication().openURL(url)
+        UIApplication.sharedApplication().openURL(url!)
     }
     
     @IBAction func sendSupportMail() {

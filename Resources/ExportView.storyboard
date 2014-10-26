@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cJB-kX-sln">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cJB-kX-sln">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -32,8 +33,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="8iI-ib-cgf">
-                                <rect key="frame" x="20" y="212" width="280" height="29"/>
+                            <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="8iI-ib-cgf">
+                                <rect key="frame" x="20" y="227" width="280" height="29"/>
                                 <segments>
                                     <segment title="7 days"/>
                                     <segment title="30 days"/>
@@ -41,27 +42,27 @@
                                     <segment title="All"/>
                                 </segments>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="H9l-pS-SiR">
+                            <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="H9l-pS-SiR">
                                 <rect key="frame" x="20" y="119" width="280" height="29"/>
                                 <segments>
                                     <segment title="CSV"/>
                                     <segment title="OFX"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Export method:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="e5x-iA-iKS">
-                                <rect key="frame" x="20" y="275" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Export method:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="e5x-iA-iKS">
+                                <rect key="frame" x="20" y="305" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Data format:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qEt-o6-4bM">
-                                <rect key="frame" x="20" y="89" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Data format:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qEt-o6-4bM">
+                                <rect key="frame" x="20" y="89" width="96" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fj-8k-8Yr">
-                                <rect key="frame" x="20" y="402" width="280" height="37"/>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fj-8k-8Yr">
+                                <rect key="frame" x="136" y="435" width="48" height="30"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                 <state key="normal" title="Export"/>
                                 <state key="disabled" title="Export">
@@ -77,22 +78,44 @@
                                     <action selector="doExport" destination="Qe5-Y0-Ql3" eventType="touchUpInside" id="Ted-dI-Pvg"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hqr-fd-PUb">
-                                <rect key="frame" x="20" y="305" width="280" height="29"/>
+                            <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hqr-fd-PUb">
+                                <rect key="frame" x="20" y="335" width="280" height="29"/>
                                 <segments>
                                     <segment title="Mail"/>
                                     <segment title="Dropbox"/>
                                     <segment title="Web"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Export data within:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="X1z-cA-hOi">
-                                <rect key="frame" x="20" y="182" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Export data within:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="X1z-cA-hOi">
+                                <rect key="frame" x="20" y="198" width="140" height="20"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="X1z-cA-hOi" firstAttribute="leading" secondItem="8iI-ib-cgf" secondAttribute="leading" id="0qh-T4-ojv"/>
+                            <constraint firstAttribute="centerX" secondItem="8iI-ib-cgf" secondAttribute="centerX" id="404-wM-8SB"/>
+                            <constraint firstItem="hqr-fd-PUb" firstAttribute="top" secondItem="8iI-ib-cgf" secondAttribute="bottom" constant="80" id="4ge-0D-AAE"/>
+                            <constraint firstItem="6fj-8k-8Yr" firstAttribute="top" secondItem="hqr-fd-PUb" secondAttribute="bottom" constant="72" id="5av-im-IoX"/>
+                            <constraint firstItem="X1z-cA-hOi" firstAttribute="leading" secondItem="H9l-pS-SiR" secondAttribute="leading" id="7uI-Uq-jtY"/>
+                            <constraint firstItem="H9l-pS-SiR" firstAttribute="leading" secondItem="WkC-nb-3DI" secondAttribute="leadingMargin" constant="4" id="85U-wU-e4L"/>
+                            <constraint firstAttribute="centerX" secondItem="6fj-8k-8Yr" secondAttribute="centerX" id="FJ4-U0-EUf"/>
+                            <constraint firstItem="hqr-fd-PUb" firstAttribute="top" secondItem="e5x-iA-iKS" secondAttribute="bottom" constant="9" id="Gm3-2A-dCd"/>
+                            <constraint firstItem="8iI-ib-cgf" firstAttribute="width" secondItem="H9l-pS-SiR" secondAttribute="width" id="HG0-MP-z7P"/>
+                            <constraint firstItem="8iI-ib-cgf" firstAttribute="top" secondItem="H9l-pS-SiR" secondAttribute="bottom" constant="80" id="MMU-wZ-dPs"/>
+                            <constraint firstItem="H9l-pS-SiR" firstAttribute="top" secondItem="E4W-bL-pJ0" secondAttribute="bottom" constant="55" id="OBG-ni-Bp0"/>
+                            <constraint firstItem="8iI-ib-cgf" firstAttribute="width" secondItem="hqr-fd-PUb" secondAttribute="width" id="PlX-RC-EmS"/>
+                            <constraint firstItem="X1z-cA-hOi" firstAttribute="leading" secondItem="hqr-fd-PUb" secondAttribute="leading" id="Ykd-qZ-LkW"/>
+                            <constraint firstAttribute="centerX" secondItem="hqr-fd-PUb" secondAttribute="centerX" id="aWe-YU-HIw"/>
+                            <constraint firstItem="H9l-pS-SiR" firstAttribute="top" secondItem="qEt-o6-4bM" secondAttribute="bottom" constant="9" id="mwO-OB-yAh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H9l-pS-SiR" secondAttribute="trailing" constant="4" id="nWw-JP-0IM"/>
+                            <constraint firstItem="X1z-cA-hOi" firstAttribute="leading" secondItem="qEt-o6-4bM" secondAttribute="leading" id="o6S-3O-rqZ"/>
+                            <constraint firstAttribute="centerX" secondItem="H9l-pS-SiR" secondAttribute="centerX" id="pIt-XD-dya"/>
+                            <constraint firstItem="8iI-ib-cgf" firstAttribute="top" secondItem="X1z-cA-hOi" secondAttribute="bottom" constant="9" id="qbh-HJ-mbM"/>
+                            <constraint firstItem="X1z-cA-hOi" firstAttribute="leading" secondItem="e5x-iA-iKS" secondAttribute="leading" id="uUs-bY-Ase"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yav-k0-JCG">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="uY6-OI-eLj">

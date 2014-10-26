@@ -6,9 +6,8 @@ import Foundation
 import UIKit
 
 class CurrencyManager: NSObject {
-    var baseCurrency: NSString?
-    
-    let currencies =
+    let currencies = NSLocale.ISOCurrencyCodes() as [String];
+    /*
     ["AED",
     "AUD",
     "BHD",
@@ -53,6 +52,7 @@ class CurrencyManager: NSObject {
     "TWD",
     "USD",
     "ZAR"]
+*/
     
     private let kBaseCurrency = "BaseCurrency"
     
@@ -65,13 +65,25 @@ class CurrencyManager: NSObject {
         return Static.instance
     }
     
+    class func getInstance() -> CurrencyManager {
+        return CurrencyManager.instance
+    }
+    
     private override init() {
         super.init()
         
         _numberFormatter.numberStyle = .CurrencyStyle
         _numberFormatter.locale = NSLocale.currentLocale()
         
-        self.baseCurrency = NSUserDefaults.standardUserDefaults().objectForKey(kBaseCurrency) as NSString?
+        _baseCurrency = NSUserDefaults.standardUserDefaults().objectForKey(kBaseCurrency) as NSString?
+
+        // TEST : get currency code list
+        /*
+        var codes = NSLocale.ISOCurrencyCodes() as [String];
+        for code in codes {
+            NSLog(code);
+        }
+        */
     }
     
     /**
@@ -84,27 +96,34 @@ class CurrencyManager: NSObject {
     }
     
     /**
-     * ベース通貨コードを設定する
+     * ベース通貨コード
      */
-    func setBaseCurrency(currency: String?) {
-        if baseCurrency != currency {
-            baseCurrency = currency
+    var baseCurrency: String? {
+        get {
+            return _baseCurrency
+        }
+        set {
+            if _baseCurrency != newValue {
+                _baseCurrency = newValue
             
-            if (currency != nil){
-                _numberFormatter.currencyCode = currency!
-            } else {
-                _numberFormatter.currencyCode = CurrencyManager.systemCurrency()
+                if (_baseCurrency != nil){
+                    _numberFormatter.currencyCode = _baseCurrency!
+                } else {
+                    _numberFormatter.currencyCode = CurrencyManager.systemCurrency()
+                }
+            
+                NSUserDefaults.standardUserDefaults().setObject(_baseCurrency, forKey: kBaseCurrency)
             }
-            
-            NSUserDefaults.standardUserDefaults().setObject(baseCurrency, forKey: kBaseCurrency)
         }
     }
+    
+    private var _baseCurrency: NSString?
     
     class func formatCurrency(value: Double) -> String {
         return CurrencyManager.instance._formatCurrency(value)
     }
     
     private func _formatCurrency(value: Double) -> String {
-        return _numberFormatter.stringFromNumber(value)
+        return _numberFormatter.stringFromNumber(value)!
     }
 }

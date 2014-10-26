@@ -74,10 +74,10 @@
 
 - (void)testInitial
 {
-    AssertEqualObjects(@"", self.vc.value);
+    XCTAssertEqualObjects(@"", self.vc.value);
     
-    AssertNotNil(self.vc.navigationItem.rightBarButtonItem);
-    AssertNil(self.vc.navigationItem.leftBarButtonItem);
+    XCTAssertNotNil(self.vc.navigationItem.rightBarButtonItem);
+    XCTAssertNil(self.vc.navigationItem.leftBarButtonItem);
 }
 
 - (void)testCancellable
@@ -85,23 +85,23 @@
     self.vc.enableCancel = YES;
     [self.vc viewDidLoad];
     
-    AssertNotNil(self.vc.navigationItem.rightBarButtonItem);
-    AssertNotNil(self.vc.navigationItem.leftBarButtonItem);
+    XCTAssertNotNil(self.vc.navigationItem.rightBarButtonItem);
+    XCTAssertNotNil(self.vc.navigationItem.leftBarButtonItem);
 }
 
 
 - (void)testCancel
 {
     [self.vc cancelAction:nil];
-    Assert(mIsFinished);
-    Assert(mIsCanceled);
+    XCTAssert(mIsFinished);
+    XCTAssert(mIsCanceled);
 }
 
 - (void)testFinish
 {
     [self.vc doneAction:nil];
-    Assert(mIsFinished);
-    AssertFalse(mIsCanceled);
+    XCTAssert(mIsFinished);
+    XCTAssertFalse(mIsCanceled);
 }
 
 - (void)testAutoFinish
@@ -109,10 +109,10 @@
     [self.vc onKeyIn:@"1"];
     [self.vc onKeyIn:@"2"];
     [self.vc onKeyIn:@"3"];
-    AssertFalse(mIsFinished);
+    XCTAssertFalse(mIsFinished);
     [self.vc onKeyIn:@"4"];
-    Assert(mIsFinished);
-    AssertFalse(mIsCanceled);
+    XCTAssert(mIsFinished);
+    XCTAssertFalse(mIsCanceled);
 }
 
 @end

@@ -28,6 +28,8 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     if (IS_IPAD) {
         CGSize s = self.preferredContentSize;
         s.height = 420;

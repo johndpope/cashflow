@@ -15,6 +15,17 @@
 
 @implementation EditDescViewControllerTest
 
+- (UIViewController *)createViewController
+{
+    // storyboard から生成
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"EditDescView" bundle:nil];
+    UIViewController *vc = [sb instantiateInitialViewController];
+
+    // 重要: loadView を実行する
+    [vc performSelectorOnMainThread:@selector(loadView) withObject:nil waitUntilDone:YES];
+    return vc;
+}
+
 - (EditDescViewController *)vc
 {
     return (EditDescViewController *)self.viewController;
@@ -85,20 +96,20 @@
 
 - (void)testDescArea
 {
-    AssertEqualInt(2, [self.vc numberOfSectionsInTableView:self.vc.tableView]);
-    AssertEqualInt(1, [self.vc tableView:self.vc.tableView numberOfRowsInSection:0]);
+    XCTAssertEqual(2, [self.vc numberOfSectionsInTableView:self.vc.tableView]);
+    XCTAssertEqual(1, [self.vc tableView:self.vc.tableView numberOfRowsInSection:0]);
     
     UITableViewCell *cell = [self _cellForRow:0 section:0];
-    Assert(cell != nil);
+    XCTAssert(cell != nil);
 
     [self.vc doneAction];
-    AssertEqualObjects(@"TEST", mDescription);
+    XCTAssertEqualObjects(@"TEST", mDescription);
 }
 
 - (void)testEmptyLRU
 {
     int n = [self.vc tableView:self.vc.tableView numberOfRowsInSection:1];
-    AssertEqualInt(0, n);
+    XCTAssertEqual(0, n);
 }
 
 - (void)testAnyCategory
@@ -115,14 +126,14 @@
     [self.vc viewWillAppear:YES]; // reload descArray
 
     int n = [self.vc tableView:self.vc.tableView numberOfRowsInSection:1];
-    AssertEqualInt(6, n);
+    XCTAssertEqual(6, n);
     
     if (n == 6) {
         UITableViewCell *cell;
         cell = [self _cellForRow:0 section:1];
-        AssertEqualObjects(@"test5", cell.textLabel.text);
+        XCTAssertEqualObjects(@"test5", cell.textLabel.text);
         cell = [self _cellForRow:5 section:1];
-        AssertEqualObjects(@"test0", cell.textLabel.text);
+        XCTAssertEqualObjects(@"test0", cell.textLabel.text);
     }
 }
 
@@ -140,14 +151,14 @@
     [self.vc viewWillAppear:YES]; // reload descArray
 
     int n = [self.vc tableView:self.vc.tableView numberOfRowsInSection:1];
-    AssertEqualInt(2, n);
+    XCTAssertEqual(2, n);
 
     if (n == 2) {
         UITableViewCell *cell;
         cell = [self _cellForRow:0 section:1];
-        AssertEqualObjects(@"test4", cell.textLabel.text);
+        XCTAssertEqualObjects(@"test4", cell.textLabel.text);
         cell = [self _cellForRow:1 section:1];
-        AssertEqualObjects(@"test1", cell.textLabel.text);
+        XCTAssertEqualObjects(@"test1", cell.textLabel.text);
     }
 }
 
@@ -166,7 +177,7 @@
 
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
     [self.vc tableView:self.vc.tableView didSelectRowAtIndexPath:indexPath];
-    AssertEqualObjects(@"test4", mDescription);
+    XCTAssertEqualObjects(@"test4", mDescription);
 }
 
 @end

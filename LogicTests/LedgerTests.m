@@ -23,13 +23,13 @@
 - (void)testInitial
 {
     // 現金のみがあるはず
-    Assert([ledger.assets count] == 1);
+    XCTAssertEqual([ledger.assets count], 1);
     [ledger load];
     [ledger rebuild];
-    Assert([ledger.assets count] == 1);
+    XCTAssertEqual([ledger.assets count], 1);
 
     Asset *asset = [ledger assetAtIndex:0];
-    AssertEqualInt(0, [asset entryCount]);
+    XCTAssertEqual(0, [asset entryCount]);
 }
 
 - (void)testNormal
@@ -38,14 +38,14 @@
     ledger = [DataModel ledger];
     
     // 現金のみがあるはず
-    Assert([ledger.assets count] == 3);
+    XCTAssertEqual([ledger.assets count], 3);
     [ledger load];
     [ledger rebuild];
-    Assert([ledger.assets count] == 3);
+    XCTAssertEqual([ledger.assets count],3);
 
-    AssertEqualInt(4, [[ledger assetAtIndex:0] entryCount]);
-    AssertEqualInt(2, [[ledger assetAtIndex:1] entryCount]);
-    AssertEqualInt(1, [[ledger assetAtIndex:2] entryCount]);
+    XCTAssertEqual(4, [[ledger assetAtIndex:0] entryCount]);
+    XCTAssertEqual(2, [[ledger assetAtIndex:1] entryCount]);
+    XCTAssertEqual(1, [[ledger assetAtIndex:2] entryCount]);
 }
 
 @end

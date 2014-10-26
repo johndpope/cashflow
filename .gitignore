@@ -1,4 +1,5 @@
 *~
+#*
 *.pch
 *.pbxuser
 *.mode1v3
@@ -15,3 +16,4 @@ build
 .bundle/
 Gemfile.lock
 Pods/
+.idea/

@@ -181,7 +181,12 @@
     [self reload];
     
     [[Database instance] updateModificationDate]; // TODO : ここでやるのは正しくないが、、、
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
 #if FREE_VERSION
     // 表示開始
     [_adManager requestShowAd];
@@ -223,9 +228,22 @@
         NSLog(@"Ad is already showing!");
         return;
     }
+    NSLog(@"showAd");
     _isAdShowing = YES;
+
+    //NSLog(@"adSize:%fx%f", adSize.width, adSize.height);
     
     CGRect frame = _tableView.bounds;
+    //NSLog(@"tableView size:%fx%f", frame.size.width, frame.size.height);
+
+    // TODO: 横幅制限。iPad landscape の場合、detail view の横幅は iPad portrait の横幅より
+    // 狭いので、制限する必要がある。
+    /*
+    const float ad_width_max = 703;
+    if (adSize.width > ad_width_max) {
+        adSize.width = ad_width_max;
+    }
+    */
     
     // 広告の位置を画面外に設定
     CGRect aframe = frame;
@@ -265,6 +283,7 @@
         NSLog(@"Ad is already removed!");
         return;
     }
+    NSLog(@"removeAd");
     _isAdShowing = NO;
     
     CGRect frame = _tableView.bounds;
@@ -290,13 +309,6 @@
 }
 
 #endif
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    //NSLog(@"TransactionListViewController:viewDidAppear");
-
-    [super viewDidAppear:animated];
-}
 
 - (void)updateBalance
 {
@@ -706,6 +718,7 @@
 
     for (int i = 0; i < count; i++) {
         AssetEntry *e = [self.asset entryAt:i];
+        if (e == nil) continue; // nil になることはないはずだが念のため
         e.originalIndex = i;
         
         if (allMatch ) {

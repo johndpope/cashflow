@@ -22,6 +22,7 @@
 }
 
 // 日付のアップグレードテスト (ver 3.2.1 -> 3.3以降 へのアップグレード)
+/*
 - (void)testMigrateDate
 {
     Database *db = [Database instance];
@@ -43,22 +44,23 @@
     XCTAssertEqual(SQLITE_ROW, [stmt step]);
     do {
         NSString *s = [stmt colString:0];
-        AssertEqualObjects(@"20090101135600", s);
+        XCTAssertEqualObjects(@"20090101135600", s);
     } while ([stmt step] == SQLITE_ROW);
 }
+*/
 
 // 最終使用日のテスト
 - (void)testLastUsedDate
 {
     // 解除
     [Transaction setLastUsedDate:nil];
-    AssertFalse([Transaction hasLastUsedDate]);
+    XCTAssertFalse([Transaction hasLastUsedDate]);
 
     NSDate *t = [NSDate dateWithTimeIntervalSince1970:0];
     [Transaction setLastUsedDate:t];
-    Assert([Transaction hasLastUsedDate]);
+    XCTAssert([Transaction hasLastUsedDate]);
     NSDate *t2 = [Transaction lastUsedDate];
-    Assert([t2 isEqualToDate:t]);
+    XCTAssert([t2 isEqualToDate:t]);
 }
 
 @end

@@ -2,9 +2,7 @@
 //  NADInterstitial.h
 //  NendAd
 //
-//  Created by ADN division on 2014/05/12.
-//  Copyright (c) 2014年 F@N Communications, Inc. All rights reserved.
-//
+//  インタースティシャル広告クラス
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>

@@ -1,6 +1,14 @@
+2014-10-26 : Takuya Murakami
+
+	* ver 6.5.0 (70) : 69 は欠番
+	* iOS の全通貨コード対応
+	* LaunchScreen 追加
+	* Nend 2.5.1 -> 2.5.5
+
 2014-09-25 : Takuya Murakami
 
 	* iOS8 対応
+	* iOS6 サポート終了
 	* Swift 一部対応
 	* Google Mobiles Ads 6.11.1 -> 6.12.0
         * Dropbox 1.3.11 -> 1.3.13
