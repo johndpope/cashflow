@@ -10,7 +10,9 @@
 #import "TransactionVC.h"
 #import "AppDelegate.h"
 #import "Config.h"
-#import "CalendarViewController.h"
+//#import "CalendarViewController.h"
+#import "RDVCalendarViewController.h"
+#import "CFCalendarViewController.h"
 
 // private methods
 @interface TransactionViewController()
@@ -283,9 +285,11 @@
     switch (indexPath.row) {
         case ROW_DATE:
             if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
-                CalendarViewController *calendarVc = [CalendarViewController new];
+                CFCalendarViewController *calendarVc = [CFCalendarViewController new];
+                [calendarVc setDelegate:self];
                 calendarVc.selectedDate = _editingEntry.transaction.date;
-                [calendarVc setCalendarViewControllerDelegate:self];
+                //calendarVc.selectedDate = _editingEntry.transaction.date;
+                //[calendarVc setCalendarViewControllerDelegate:self];
                 vc = calendarVc;
             } else {
                 EditDateViewController *editDateVC = [EditDateViewController instantiate];
@@ -369,11 +373,11 @@
     }
 }
 
-#pragma mark EditView delegates
-
 // delegate : 下位 ViewController からの変更通知
 
-- (void)calendarViewController:(CalendarViewController *)aCalendarViewController dateDidChange:(NSDate *)aDate
+#pragma mark CFCalendarViewController delegates
+
+- (void)cfcalendarViewController:(CFCalendarViewController *)vc didSelectDate:(NSDate *)aDate
 {
     if (aDate == nil) return; // do nothing (Clear button)
     
@@ -384,9 +388,11 @@
     if (IS_IPAD) {
         [self dismissPopover];
     }
-    // Si-Calendar は、選択時に自動で View を閉じない仕様なので、ここで閉じる
-    [aCalendarViewController.navigationController popViewControllerAnimated:YES];
+    // 選択時に自動で View を閉じない仕様なので、ここで閉じる
+    [vc.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark EditView delegates
 
 - (void)editDateViewChanged:(EditDateViewController *)vc
 {

@@ -15,14 +15,15 @@
 #import "EditDateVC.h"
 #import "EditMemoVC.h"
 #import "CategoryListVC.h"
-#import "CalendarViewController.h"
+//#import "CalendarViewController.h"
+#import "CFCalendarViewController.h"
 
 @interface TransactionViewController : UIViewController 
     <UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,UIActionSheetDelegate,
     EditMemoViewDelegate, EditTypeViewDelegate,
     EditDateViewDelegate, CalculatorViewDelegate,
     EditDescViewDelegate, CategoryListViewDelegate,
-    CalendarViewControllerDelegate,
+    CFCalendarViewControllerDelegate,
     UIPopoverControllerDelegate>
 
 @property(nonatomic,strong) UITableView *tableView;

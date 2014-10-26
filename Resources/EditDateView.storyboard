@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <datePicker opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JRK-6X-Ygf">
-                                <rect key="frame" x="0.0" y="68" width="320" height="216"/>
+                            <datePicker opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JRK-6X-Ygf">
+                                <rect key="frame" x="0.0" y="68" width="320" height="162"/>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Oc-Wa-Bpe">
-                                <rect key="frame" x="51" y="362" width="219" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Oc-Wa-Bpe">
+                                <rect key="frame" x="111" y="318" width="100" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Current Time">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,8 +30,8 @@
                                     <action selector="setCurrentTime:" destination="ucB-RV-h1f" eventType="touchUpInside" id="2uT-wr-B4l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW0-v8-5M4">
-                                <rect key="frame" x="51" y="310" width="219" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW0-v8-5M4">
+                                <rect key="frame" x="126" y="270" width="70" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Calendar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,6 +42,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lW0-v8-5M4" firstAttribute="top" secondItem="JRK-6X-Ygf" secondAttribute="bottom" constant="40" id="7RA-EY-dH0"/>
+                            <constraint firstItem="JRK-6X-Ygf" firstAttribute="leading" secondItem="fE3-3c-QDi" secondAttribute="leading" id="9Ii-yG-VkN"/>
+                            <constraint firstAttribute="centerX" secondItem="lW0-v8-5M4" secondAttribute="centerX" id="PbU-K2-uyA"/>
+                            <constraint firstAttribute="centerX" secondItem="1Oc-Wa-Bpe" secondAttribute="centerX" id="SOk-Hg-G0t"/>
+                            <constraint firstAttribute="trailing" secondItem="JRK-6X-Ygf" secondAttribute="trailing" id="Vqv-Dl-XYl"/>
+                            <constraint firstItem="JRK-6X-Ygf" firstAttribute="top" secondItem="US7-jM-Wjm" secondAttribute="bottom" constant="48" id="uLD-7c-klg"/>
+                            <constraint firstItem="1Oc-Wa-Bpe" firstAttribute="top" secondItem="lW0-v8-5M4" secondAttribute="bottom" constant="15" id="vOK-yA-fUn"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="_calendarButton" destination="lW0-v8-5M4" id="wQN-2V-dcs"/>
