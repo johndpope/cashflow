@@ -5,7 +5,8 @@
 # settings ==========
  
 # src file name
-fileNamePrefix="ScreenShotFileNameFor5.5inch"
+#fileNamePrefix="ScreenShotFileNameFor5.5inch"
+fileNamePrefix="ss"
  
 # dest directory name
 destDir="./dest/"
