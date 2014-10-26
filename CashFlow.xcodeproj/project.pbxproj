@@ -258,6 +258,9 @@
 		3E8C36160F1E0D82004AFFCA /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8C36150F1E0D82004AFFCA /* PinView.xib */; };
 		3E91B88C152F3335008120DC /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E91B88B152F3335008120DC /* UIDevice+Hardware.m */; };
 		3E91B88D152F3335008120DC /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E91B88B152F3335008120DC /* UIDevice+Hardware.m */; };
+		3E9F45DD19FD3E7000DEA372 /* CFCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F45DC19FD3E7000DEA372 /* CFCalendarViewController.m */; };
+		3E9F45DE19FD3E7000DEA372 /* CFCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F45DC19FD3E7000DEA372 /* CFCalendarViewController.m */; };
+		3E9F45DF19FD3E7000DEA372 /* CFCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F45DC19FD3E7000DEA372 /* CFCalendarViewController.m */; };
 		3EAEBC870F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */; };
 		3EAEBC880F9DE0C700AD3D15 /* GenSelectListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */; };
 		3EB2FCDE0EC7314100F356A3 /* CategoryListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2FCDD0EC7314100F356A3 /* CategoryListView.xib */; };
@@ -543,6 +546,8 @@
 		3E8C36150F1E0D82004AFFCA /* PinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinView.xib; sourceTree = "<group>"; };
 		3E91B88A152F3335008120DC /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
 		3E91B88B152F3335008120DC /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Hardware.m"; sourceTree = "<group>"; };
+		3E9F45DB19FD3E7000DEA372 /* CFCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFCalendarViewController.h; sourceTree = "<group>"; };
+		3E9F45DC19FD3E7000DEA372 /* CFCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFCalendarViewController.m; sourceTree = "<group>"; };
 		3EAEBC860F9DE0C700AD3D15 /* GenSelectListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenSelectListView.xib; sourceTree = "<group>"; };
 		3EB2FCDD0EC7314100F356A3 /* CategoryListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListView.xib; sourceTree = "<group>"; };
 		3EB554B3103B92D700BA13D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -999,6 +1004,8 @@
 		3E77402D18573C2200DEE1BA /* transaction */ = {
 			isa = PBXGroup;
 			children = (
+				3E9F45DB19FD3E7000DEA372 /* CFCalendarViewController.h */,
+				3E9F45DC19FD3E7000DEA372 /* CFCalendarViewController.m */,
 				3E0AD70C1214169700CFDDAC /* TransactionListVC.h */,
 				3E0AD70D1214169700CFDDAC /* TransactionListVC.m */,
 				3E02EB9113226A600086F492 /* TransactionCell.h */,
@@ -1575,6 +1582,7 @@
 				3E7109B8121108ED00C47539 /* SupportMail.m in Sources */,
 				3E0AD6BE121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6BF121415DE00CFDDAC /* AssetEntry.m in Sources */,
+				3E9F45DD19FD3E7000DEA372 /* CFCalendarViewController.m in Sources */,
 				3E8AD9FA19D177C70073B05A /* SwiftUtils.swift in Sources */,
 				3E0AD6C0121415DE00CFDDAC /* Category.m in Sources */,
 				3E0AD6C1121415DE00CFDDAC /* DataModel.m in Sources */,
@@ -1648,6 +1656,7 @@
 				3E7109B6121108ED00C47539 /* SupportMail.m in Sources */,
 				3E0AD6C6121415DE00CFDDAC /* Asset.m in Sources */,
 				3E0AD6C7121415DE00CFDDAC /* AssetEntry.m in Sources */,
+				3E9F45DE19FD3E7000DEA372 /* CFCalendarViewController.m in Sources */,
 				3E8AD9FB19D177C70073B05A /* SwiftUtils.swift in Sources */,
 				3E0AD6C8121415DE00CFDDAC /* Category.m in Sources */,
 				3E0AD6C9121415DE00CFDDAC /* DataModel.m in Sources */,
@@ -1727,6 +1736,7 @@
 				3E38C69F17F6A47400A00CE0 /* ViewControllerTestCase.m in Sources */,
 				3EF152931462CA8500C724E4 /* TimeTests.m in Sources */,
 				3EF152941462CA8500C724E4 /* TransactionTests.m in Sources */,
+				3E9F45DF19FD3E7000DEA372 /* CFCalendarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
