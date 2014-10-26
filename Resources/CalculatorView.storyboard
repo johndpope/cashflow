@@ -13,11 +13,11 @@
                         <viewControllerLayoutGuide type="top" id="Hoo-GY-WyZ"/>
                         <viewControllerLayoutGuide type="bottom" id="rSM-m8-wip"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RSQ-Ah-hxs">
+                    <view key="view" contentMode="scaleToFill" id="RSQ-Ah-hxs" userLabel="Base">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-cL-skf">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-cL-skf" userLabel="NumberBase">
                                 <rect key="frame" x="0.0" y="20" width="320" height="198"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="123,456,789" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="U69-3i-Weu">
