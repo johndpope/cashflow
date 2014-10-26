@@ -1,6 +1,11 @@
+2014-10-27 : Takuya Murakami
+
+	* ver 6.5.0 (71)
+	* RDVCalendarView 導入、EditDateViewレイアウト修正
+
 2014-10-26 : Takuya Murakami
 
-	* ver 6.5.0 (70) : 69 は欠番
+	* ver 6.5.0 (70) beta : (69 は欠番)
 	* iOS の全通貨コード対応
 	* LaunchScreen 追加
 	* Nend 2.5.1 -> 2.5.5
