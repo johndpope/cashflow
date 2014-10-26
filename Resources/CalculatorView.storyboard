@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-cL-skf" userLabel="NumberBase">
-                                <rect key="frame" x="0.0" y="20" width="320" height="198"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-cL-skf" userLabel="NumberBase">
+                                <rect key="frame" x="0.0" y="20" width="320" height="197"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="123,456,789" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="U69-3i-Weu">
-                                        <rect key="frame" x="0.0" y="61" width="320" height="77"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="123,456,789" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="U69-3i-Weu">
+                                        <rect key="frame" x="0.0" y="60" width="320" height="77"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="64"/>
                                         <nil key="highlightedColor"/>
