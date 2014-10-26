@@ -14,4 +14,5 @@
 
 @interface CFCalendarViewController : RDVCalendarViewController
 @property(nonatomic,assign) id<CFCalendarViewControllerDelegate> delegate;
+@property(nonatomic,strong) NSDate *selectedDate;
 @end

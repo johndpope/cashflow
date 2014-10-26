@@ -287,7 +287,7 @@
             if ([Config instance].dateTimeMode == DateTimeModeDateOnly) {
                 CFCalendarViewController *calendarVc = [CFCalendarViewController new];
                 [calendarVc setDelegate:self];
-                calendarVc.calendarView.selectedDate = _editingEntry.transaction.date;
+                calendarVc.selectedDate = _editingEntry.transaction.date;
                 //calendarVc.selectedDate = _editingEntry.transaction.date;
                 //[calendarVc setCalendarViewControllerDelegate:self];
                 vc = calendarVc;
