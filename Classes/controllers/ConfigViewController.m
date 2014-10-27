@@ -133,11 +133,7 @@
         case 0:
             switch (indexPath.row) {
                 case ROW_DATE_TIME_MODE:
-                    typeArray = [[NSMutableArray alloc] initWithObjects:
-                                  _L(@"Date and time (1 min)"),
-                                  _L(@"Date and time (5 min)"),
-                                  _L(@"Date only"),
-                                  nil];
+                    typeArray = [@[_L(@"Date and time (1 min)"), _L(@"Date and time (5 min)"), _L(@"Date only")] mutableCopy];
                     gt = [GenSelectListViewController
                           genSelectListViewController:self
                           items:typeArray
@@ -147,10 +143,7 @@
                     break;
 
                 case ROW_START_OF_WEEK:
-                    typeArray = [[NSMutableArray alloc] initWithObjects:
-                                  _L(@"Sunday"),
-                                  _L(@"Monday"),
-                                  nil];
+                    typeArray = [@[_L(@"Sunday"), _L(@"Monday")] mutableCopy];
                     gt = [GenSelectListViewController
                           genSelectListViewController:self
                           items:typeArray

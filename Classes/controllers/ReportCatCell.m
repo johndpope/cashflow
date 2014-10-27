@@ -45,7 +45,7 @@
     
     _valueLabel.text = [NSString stringWithFormat:@"%@ (%.1f%%)",
                         [CurrencyManager formatCurrency:value],
-                        ratio * 100.0, nil];
+                        ratio * 100.0];
     if (value >= 0) {
         _valueLabel.textColor = [UIColor blackColor];
         _graphView.backgroundColor = [UIColor blueColor];

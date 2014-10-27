@@ -81,7 +81,7 @@
 - (NSInteger)iosVersion
 {
     NSArray  *aOsVersions = [[[UIDevice currentDevice]systemVersion] componentsSeparatedByString:@"."];
-    NSInteger iOsVersionMajor  = [[aOsVersions objectAtIndex:0] intValue];
+    NSInteger iOsVersionMajor  = [aOsVersions[0] intValue];
     return iOsVersionMajor;
 }
 

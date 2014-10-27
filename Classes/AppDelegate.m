@@ -240,7 +240,7 @@
 {
     id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
     
-    NSNumber *n = [NSNumber numberWithInteger:value];
+    NSNumber *n = @(value);
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
                                                           action:action
                                                            label:label

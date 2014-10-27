@@ -131,7 +131,7 @@
     if ([ary count] == 0) {
         return nil;
     }
-    return [ary objectAtIndex:0];
+    return ary[0];
 }
 
 /**
