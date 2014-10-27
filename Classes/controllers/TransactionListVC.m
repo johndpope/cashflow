@@ -45,7 +45,9 @@
 #endif
     
     UIActionSheet *_actionSheet;
-    UIPopoverController *_popoverController;
+
+    // Note: _popoverController は UIViewController で定義されているため使用不可
+    UIPopoverController *mPopoverController;
 }
 
 + (TransactionListViewController *)instantiate
@@ -161,17 +163,17 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    _popoverController = nil;
+    mPopoverController = nil;
 }
 
 - (void)_dismissPopover
 {
     if (IS_IPAD
-        && _popoverController != nil
-        && [_popoverController isPopoverVisible]
+        && mPopoverController != nil
+        && [mPopoverController isPopoverVisible]
         && _tableView != nil && _tableView.window != nil /* for crash problem */)
     {
-        [_popoverController dismissPopoverAnimated:YES];
+        [mPopoverController dismissPopoverAnimated:YES];
     }
 }
 
@@ -377,7 +379,7 @@
     }
     AssetEntry *e;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        e = [self.searchResults objectAtIndex:idx];
+        e = (self.searchResults)[idx];
     } else {
         e = [self.asset entryAt:idx];
     }
@@ -431,15 +433,15 @@
             [self presentViewController:nv animated:YES completion:NULL];
         } else {
             [self _dismissPopover];
-            _popoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
-            _popoverController.delegate = self;
-            [_popoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
-               permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            mPopoverController = [[UIPopoverController alloc] initWithContentViewController:nv];
+            mPopoverController.delegate = self;
+            [mPopoverController presentPopoverFromRect:[tv cellForRowAtIndexPath:indexPath].frame inView:tv
+                              permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
     } else if (idx >= 0) {
         // transaction view を表示
         if (tv == self.searchDisplayController.searchResultsTableView) {
-            AssetEntry *e = [self.searchResults objectAtIndex:idx];
+            AssetEntry *e = (self.searchResults)[idx];
             _tappedIndex = e.originalIndex;
         } else {
             _tappedIndex = idx;
@@ -519,7 +521,7 @@
 
     if (style == UITableViewCellEditingStyleDelete) {
         if (tv == self.searchDisplayController.searchResultsTableView) {
-            AssetEntry *e = [self.searchResults objectAtIndex:entryIndex];
+            AssetEntry *e = (self.searchResults)[entryIndex];
             [self.asset deleteEntryAt:e.originalIndex];
             
             // 検索結果一覧を更新する
@@ -657,8 +659,8 @@
     // 初期残高の popover が表示されている場合、ここで消さないと２つの Popover controller
     // が競合してしまう。
     [self _dismissPopover];
-    
-    _popoverController = pc;
+
+    mPopoverController = pc;
 }
 
 
