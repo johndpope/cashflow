@@ -491,12 +491,8 @@
 	
     // tableView に通知
     [_tableView setEditing:editing animated:animated];
-	
-    if (editing) {
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    } else {
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    }
+
+    self.navigationItem.rightBarButtonItem.enabled = !editing;
 }
 
 // 編集スタイルを返す
@@ -676,8 +672,7 @@
 #pragma mark Rotation
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    if (IS_IPAD) return YES;
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return IS_IPAD || interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 // iOS 6 later
 - (NSUInteger)supportedInterfaceOrientations
@@ -687,8 +682,7 @@
 }
 - (BOOL)shouldAutorotate
 {
-    if (IS_IPAD) return YES;
-    return NO;
+    return IS_IPAD;
 }
 
 #pragma mark - UISearchDisplayController Delegate

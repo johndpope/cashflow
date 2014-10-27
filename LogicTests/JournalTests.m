@@ -63,7 +63,7 @@
     
     [journal insertTransaction:t];
     XCTAssertEqual(7, [journal.entries count]);
-    Transaction *tt = [journal.entries objectAtIndex:2];
+    Transaction *tt = (journal.entries)[2];
     XCTAssertEqualObjects(t, tt);
     XCTAssertEqual(t.pid, tt.pid);
 }
@@ -81,13 +81,13 @@
     t.value = 100;
     t.date = [TestCommon dateWithString:@"20090201000000"]; // last
     
-    Transaction *orig = [journal.entries objectAtIndex:3];
+    Transaction *orig = (journal.entries)[3];
     XCTAssertEqual(4, orig.pid);
 
     [journal replaceTransaction:orig withObject:t];
 
     XCTAssertEqual(6, [journal.entries count]); // 数は変更なし
-    Transaction *tt = [journal.entries objectAtIndex:5];
+    Transaction *tt = (journal.entries)[5];
     //ASSERT_EQUAL(t, tt);
     XCTAssertEqual(t.pid, tt.pid);
 }
@@ -100,13 +100,13 @@
 
     // 資産間取引を削除 (pid == 4 の取引)
     asset.pid = 2;
-    Transaction *t = [journal.entries objectAtIndex:3];
+    Transaction *t = (journal.entries)[3];
     XCTAssert(![journal deleteTransaction:t withAsset:asset]);
     XCTAssertEqual(6, [journal.entries count]); // 置換されたので消えてないはず
     
-    t = [journal.entries objectAtIndex:2];
+    t = (journal.entries)[2];
     XCTAssertEqual(3, t.pid);
-    t = [journal.entries objectAtIndex:3];
+    t = (journal.entries)[3];
     XCTAssertEqual(4, t.pid); // まだ消えてない
     
     // 置換されていることを確認する
@@ -118,9 +118,9 @@
     asset.pid = 1;
     XCTAssert([journal deleteTransaction:t withAsset:asset]);
     
-    t = [journal.entries objectAtIndex:2];
+    t = (journal.entries)[2];
     XCTAssertEqual(3, t.pid);
-    t = [journal.entries objectAtIndex:3];
+    t = (journal.entries)[3];
     XCTAssertEqual(5, t.pid);
 }
 
@@ -132,7 +132,7 @@
     
     // 資産間取引を削除 (pid == 4 の取引)、ただし、testDeleteTransaction とは逆方向
     asset.pid = 1;
-    Transaction *t = [journal.entries objectAtIndex:3];
+    Transaction *t = (journal.entries)[3];
     XCTAssert(![journal deleteTransaction:t withAsset:asset]);
     
     // 置換されていることを確認する
@@ -144,9 +144,9 @@
     asset.pid = 2;
     XCTAssert([journal deleteTransaction:t withAsset:asset]);
     
-    t = [journal.entries objectAtIndex:2];
+    t = (journal.entries)[2];
     XCTAssertEqual(3, t.pid);
-    t = [journal.entries objectAtIndex:3];
+    t = (journal.entries)[3];
     XCTAssertEqual(5, t.pid);
 }
 

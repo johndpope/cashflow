@@ -107,7 +107,7 @@
     if (indexPath.row == 0) {
         /* graph cell */
         ReportCatGraphCell *cell = [tv dequeueReusableCellWithIdentifier:@"ReportCatGraphCell"];
-        [cell setReport:_reportEntry isOutgo:(indexPath.section == 0 ? YES : NO)];
+        [cell setReport:_reportEntry isOutgo:(indexPath.section == 0)];
         return cell;
     } else {
         ReportCatCell *cell = [tv dequeueReusableCellWithIdentifier:@"ReportCatCell"];
@@ -161,8 +161,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    if (IS_IPAD) return YES;
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return IS_IPAD || interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 @end

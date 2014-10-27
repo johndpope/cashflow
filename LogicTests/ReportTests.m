@@ -29,7 +29,7 @@
     [mReports generate:REPORT_MONTHLY asset:nil];
 
     XCTAssertEqual(1, [mReports.reportEntries count]);
-    ReportEntry *report = [mReports.reportEntries objectAtIndex:0];
+    ReportEntry *report = (mReports.reportEntries)[0];
 
     //NSString *s = [TestCommon stringWithDate:report.date];
     //Assert([s isEqualToString:@"200901010000"]);

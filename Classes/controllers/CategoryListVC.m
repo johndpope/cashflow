@@ -166,11 +166,7 @@
     }
     [self.tableView endUpdates];
 
-    if (editing) {
-        self.navigationItem.leftBarButtonItem.enabled = NO;
-    } else {
-        self.navigationItem.leftBarButtonItem.enabled = YES;
-    }
+    self.navigationItem.leftBarButtonItem.enabled = !editing;
 }
 
 // 編集スタイルを返す
@@ -228,8 +224,7 @@
 #pragma mark - Rotation
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    if (IS_IPAD) return YES;
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return IS_IPAD || interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 @end

@@ -393,12 +393,8 @@
 	
     // tableView に通知
     [self.tableView setEditing:editing animated:editing];
-	
-    if (editing) {
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    } else {
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    }
+
+    self.navigationItem.rightBarButtonItem.enabled = !editing;
 }
 
 - (BOOL)tableView:(UITableView*)tv canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -600,8 +596,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    if (IS_IPAD) return YES;
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return IS_IPAD || interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 // iOS 6 later
@@ -613,8 +608,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath
 }
 - (BOOL)shouldAutorotate
 {
-    if (IS_IPAD) return YES;
-    return NO;
+    return IS_IPAD;
 }
 
 @end

@@ -53,9 +53,9 @@
     XCTAssertEqual(6, (int)[ary count], @"LRU count must be 6.");
 
     DescLRU *lru;
-    lru = [ary objectAtIndex:0];
+    lru = ary[0];
     XCTAssertEqualObjects(@"test5", lru.desc, @"first entry");
-    lru = [ary objectAtIndex:5];
+    lru = ary[5];
     XCTAssertEqualObjects(@"test0", lru.desc, @"last entry");
 }
 
@@ -68,9 +68,9 @@
     XCTAssertEqual(2, (int)[ary count], @"LRU count must be 2.");
 
     DescLRU *lru;
-    lru = [ary objectAtIndex:0];
+    lru = ary[0];
     XCTAssertEqualObjects(@"test4", lru.desc, @"first entry");
-    lru = [ary objectAtIndex:1];
+    lru = ary[1];
     XCTAssertEqualObjects(@"test1", lru.desc, @"last entry");
 }
 
@@ -85,9 +85,9 @@
     XCTAssertEqual(2, (int)[ary count], @"LRU count must be 2.");
 
     DescLRU *lru;
-    lru = [ary objectAtIndex:0];
+    lru = ary[0];
     XCTAssertEqualObjects(@"test1", lru.desc, @"first entry");
-    lru = [ary objectAtIndex:1];
+    lru = ary[1];
     XCTAssertEqualObjects(@"test4", lru.desc, @"last entry");
 }
 
@@ -102,12 +102,12 @@
     XCTAssertEqual(1, (int)[ary count], @"LRU count must be 2.");
 
     DescLRU *lru;
-    lru = [ary objectAtIndex:0];
+    lru = ary[0];
     XCTAssertEqualObjects(@"test4", lru.desc, @"first entry");
 
     ary = [DescLRUManager getDescLRUs:2];
     XCTAssertEqual(3, (int)[ary count], @"LRU count must be 3.");
-    lru = [ary objectAtIndex:0];
+    lru = ary[0];
     XCTAssertEqualObjects(@"test1", lru.desc, @"new entry");
 }
 

@@ -70,8 +70,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    if (IS_IPAD) return YES;
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return IS_IPAD || interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 @end

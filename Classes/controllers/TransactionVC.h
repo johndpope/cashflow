@@ -34,4 +34,5 @@
 - (void)saveAction;
 - (void)cancelAction;
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
 @end

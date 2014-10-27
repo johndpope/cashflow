@@ -103,10 +103,7 @@
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDate *date = [defaults objectForKey:@"lastUsedDate"];
-    if (date == nil) {
-        return NO;
-    }
-    return YES;
+    return date != nil;
 }
 
 + (NSDate *)lastUsedDate
