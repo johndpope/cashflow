@@ -122,16 +122,6 @@
 #endif
 }
 
-- (void)viewDidUnload
-{
-    NSLog(@"TransactionListViewController:viewDidUnload");
-    [super viewDidUnload];
-
-#if FREE_VERSION
-    [_adManager detach];
-#endif
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

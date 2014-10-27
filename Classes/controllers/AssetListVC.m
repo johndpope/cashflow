@@ -121,16 +121,6 @@
     }
 }
 
-- (void)viewDidUnload {
-    NSLog(@"AssetLivewViewController:viewDidUnload");
-    _iconArray = nil;
-
-    _tableView = nil;
-    _barActionButton = nil;
-    _barSumLabel = nil;
-    [super viewDidUnload];
-}
-
 - (void)didReceiveMemoryWarning {
     NSLog(@"AssetListViewController:didReceiveMemoryWarning");
     [super didReceiveMemoryWarning];

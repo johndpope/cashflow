@@ -61,10 +61,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
 #pragma mark Table view methods
 
 #define ROW_DATE_TIME_MODE 0
