@@ -1,6 +1,11 @@
+2014-10-28 : Takuya Murakami
+
+	* ver 6.5.0 (72)
+	* BugSense -> Crashlytics 切り替え
+
 2014-10-27 : Takuya Murakami
 
-	* ver 6.5.0 (71)
+	* ver 6.5.0 (71) beta2
 	* RDVCalendarView 導入、EditDateViewレイアウト修正
 
 2014-10-26 : Takuya Murakami
