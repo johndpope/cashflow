@@ -252,7 +252,7 @@
     
     NSUInteger searchOptions = NSCaseInsensitivePredicateOption | NSDiacriticInsensitiveSearch;
     for (NSInteger i = 0; i < count; i++) {
-        DescLRU *lru = [self.descArray objectAtIndex:i];
+        DescLRU *lru = (self.descArray)[i];
         NSRange range = NSMakeRange(0, lru.desc.length);
         NSRange foundRange = [lru.desc rangeOfString:searchString options:searchOptions range:range];
         if (foundRange.length > 0) {
@@ -264,8 +264,7 @@
 #pragma mark -
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    if (IS_IPAD) return YES;
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return IS_IPAD || interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 @end

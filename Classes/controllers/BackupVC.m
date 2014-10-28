@@ -138,17 +138,17 @@
             }
             switch (indexPath.row) {
                 case 0: // sync
-                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"sync" value:nil];
+                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"sync" value:0];
                     [_dropboxBackup doSync:self];
                     break;
                     
                 case 1: // backup
-                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"backup" value:nil];
+                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"backup" value:0];
                     [_dropboxBackup doBackup:self];
                     break;
                     
                 case 2: //restore
-                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"restore" value:nil];
+                    [AppDelegate trackEvent:@"backup" action:@"dropbox" label:@"restore" value:0];
                     alertView = [[UIAlertView alloc] initWithTitle:_L(@"Warning")
                                                             message:_L(@"RestoreWarning")
                                                            delegate:self 
@@ -161,7 +161,7 @@
 
         case 1:
             // internal web server
-            [AppDelegate trackEvent:@"backup" action:@"web" label:@"start" value:nil];
+            [AppDelegate trackEvent:@"backup" action:@"web" label:@"start" value:0];
             webBackup = [WebServerBackup new];
             [webBackup execute];
             break;
@@ -245,8 +245,7 @@
 #pragma mark utils
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    if (IS_IPAD) return YES;
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return IS_IPAD || interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 @end

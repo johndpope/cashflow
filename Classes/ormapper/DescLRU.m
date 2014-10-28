@@ -187,7 +187,7 @@
     if ([stmt step] == SQLITE_ROW) {
         DescLRU *e = [[self class] new];
         [e _loadRow:stmt];
-        return (DescLRU *)e;
+        return e;
     }
     return nil;
 }

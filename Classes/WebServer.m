@@ -247,7 +247,7 @@
         body = [self readBody:s contentLength:contentLength];
     }
 
-    [self requestHandler:(int)s filereq:(NSString*)filereq body:body bodylen:contentLength];
+    [self requestHandler:s filereq:filereq body:body bodylen:contentLength];
 
     free(body);
 }

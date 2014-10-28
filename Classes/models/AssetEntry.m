@@ -53,11 +53,7 @@
 //
 - (BOOL)isDstAsset
 {
-    if (_transaction.type == TYPE_TRANSFER && self.assetKey == _transaction.dstAsset) {
-        return YES;
-    }
-
-    return NO;
+    return _transaction.type == TYPE_TRANSFER && self.assetKey == _transaction.dstAsset;
 }
 
 // property transaction : read 処理

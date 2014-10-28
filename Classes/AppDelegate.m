@@ -17,7 +17,8 @@
 #import "GAIDictionaryBuilder.h"
 #import "UIDevice+Hardware.h"
 //#import "Crittercism.h"
-#import <BugSense-iOS/BugSenseController.h>
+//#import <BugSense-iOS/BugSenseController.h>
+#import <Crashlytics/Crashlytics.h>
 
 #import "DropboxSecret.h"
 
@@ -58,9 +59,13 @@
 #define CRITTERCISM_API_KEY @"50cdc6697e69a342c7000005"
 #define BUGSENSE_API_KEY @"b64aaa9e"
 #endif
-
+    
     //[Crittercism enableWithAppID:CRITTERCISM_API_KEY];
-    [BugSenseController sharedControllerWithBugSenseAPIKey:BUGSENSE_API_KEY];
+    //[BugSenseController sharedControllerWithBugSenseAPIKey:BUGSENSE_API_KEY];
+
+    // Crashlytics
+    [Crashlytics startWithAPIKey:@"532ecad9ca165fccdfe2d04c731d6b7449375147"];
+
 
     // Dropbox config
     DBSession *dbSession =
@@ -240,7 +245,7 @@
 {
     id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
     
-    NSNumber *n = [NSNumber numberWithInteger:value];
+    NSNumber *n = @(value);
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
                                                           action:action
                                                            label:label

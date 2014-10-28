@@ -30,7 +30,7 @@
     XCTAssert(dm != nil);
     XCTAssertEqual(0, [dm.journal.entries count]);
 
-    Asset *as = [dm.ledger.assets objectAtIndex:0];
+    Asset *as = (dm.ledger.assets)[0];
     XCTAssertEqualObjects(NSLocalizedString(@"Cash", nil), as.name);
                   
     XCTAssertEqual(0, [dm.categories count]);
