@@ -5,7 +5,8 @@ link_with ['CashFlow', 'CashFlowFree', 'UnitTests']
 
 pod 'Dropbox-iOS-SDK'
 
-pod 'BugSense'
+pod 'CrashlyticsFramework'
+#pod 'BugSense'
 #pod 'CrittercismSDK'
 
 pod 'GoogleAnalytics-iOS-SDK'
