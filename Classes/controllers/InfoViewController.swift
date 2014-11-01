@@ -22,11 +22,12 @@ class InfoViewController : UIViewController {
         
         self.title = NSLocalizedString("Info", comment: "")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:.Done, target:self, action:"doneAction:")
-#if FREE_VERSION
-        _nameLabel.text = "CashFlow Free"
-#else
-        _purchaseButton.hidden = true
-#endif
+
+        if (AppDelegate.isFreeVersion()) {
+            _nameLabel.text = "CashFlow Free"
+        } else {
+            _purchaseButton.hidden = true
+        }
         
         var version: String = AppDelegate.appVersion()
         _versionLabel.text = "Version \(version)"

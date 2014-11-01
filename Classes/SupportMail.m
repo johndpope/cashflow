@@ -43,11 +43,11 @@ static SupportMail *theInstance;
     [vc setMessageBody:body isHTML:NO];
     
     NSMutableString *info = [NSMutableString stringWithString:@""];
-#ifdef FREE_VERSION
-    [info appendString:@"Version: CashFlow Free ver "];
-#else
-    [info appendString:@"Version: CashFlow Std. ver "];
-#endif
+    if ([AppDelegate isFreeVersion]) {
+        [info appendString:@"Version: CashFlow Free ver "];
+    } else {
+        [info appendString:@"Version: CashFlow Std. ver "];
+    }
     [info appendString:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"]];
     [info appendString:@"\n"];
 

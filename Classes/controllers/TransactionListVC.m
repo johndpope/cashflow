@@ -38,12 +38,11 @@
     
     NSInteger _assetKey;
     NSInteger _tappedIndex;
-    
-#if FREE_VERSION
+
+    // For Free version
     AdManager *_adManager;
     BOOL _isAdShowing;
-#endif
-    
+
     UIActionSheet *_actionSheet;
 
     // Note: _popoverController は UIViewController で定義されているため使用不可
@@ -117,11 +116,11 @@
     [nc addObserver:self selector:@selector(willEnterForeground) name:@"willEnterForeground" object:nil];
     [nc addObserver:self selector:@selector(willResignActive) name:@"willResignActive" object:nil];
     
-#if FREE_VERSION
-    _isAdShowing = NO;
-    _adManager = [AdManager sharedInstance];
-    [_adManager attach:self rootViewController:self];
-#endif
+    if ([AppDelegate isFreeVersion]) {
+        _isAdShowing = NO;
+        _adManager = [AdManager sharedInstance];
+        [_adManager attach:self rootViewController:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -132,10 +131,9 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc removeObserver:self];
     
-#if FREE_VERSION
-    [_adManager detach];
-#endif
-    
+    if ([AppDelegate isFreeVersion]) {
+        [_adManager detach];
+    }
 }
 
 - (void)reload
@@ -181,10 +179,10 @@
 {
     [super viewDidAppear:animated];
 
-#if FREE_VERSION
-    // 表示開始
-    [_adManager requestShowAd];
-#endif
+    if ([AppDelegate isFreeVersion]) {
+        // 表示開始
+        [_adManager requestShowAd];
+    }
 }
 
 /**
@@ -205,13 +203,11 @@
  */
 - (void)willEnterForeground
 {
-#if FREE_VERSION
-    // 表示開始
-    [_adManager requestShowAd];
-#endif
+    if ([AppDelegate isFreeVersion]) {
+        // 表示開始
+        [_adManager requestShowAd];
+    }
 }
-
-#if FREE_VERSION
 
 /**
  * 広告表示
@@ -325,8 +321,6 @@
     
     [adView removeFromSuperview];
 }
-
-#endif
 
 - (void)updateBalance
 {
