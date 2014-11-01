@@ -48,6 +48,8 @@
 
     // Note: _popoverController は UIViewController で定義されているため使用不可
     UIPopoverController *mPopoverController;
+    
+    UIEdgeInsets _tableViewInsetSave;
 }
 
 + (TransactionListViewController *)instantiate
@@ -225,7 +227,7 @@
 
     //NSLog(@"adSize:%fx%f", adSize.width, adSize.height);
     
-    CGRect frame = _tableView.bounds;
+    CGRect frame = _tableView.frame;
     //NSLog(@"tableView size:%fx%f", frame.size.width, frame.size.height);
 
     // TODO: 横幅制限。iPad landscape の場合、detail view の横幅は iPad portrait の横幅より
@@ -247,12 +249,33 @@
     [self.view addSubview:adView];
     [self.view bringSubviewToFront:_toolbar];
     
-    // 広告領域分だけ、tableView の下部をあける
-    CGRect tframe = frame;
+    /*
+     * 広告領域分だけ、tableView の下部をあける
+     */
+    // 以下の方法は autolayout では動作しない
+    /*CGRect tframe = frame;
     tframe.origin.x = 0;
     tframe.origin.y = 0;
     tframe.size.height -= adSize.height;
-    _tableView.frame = tframe;
+    _tableView.frame = tframe;*/
+
+    // autolayout を使う方法。inset を使うほうが良いので、修正。
+    /*
+    NSLayoutConstraint *c = [NSLayoutConstraint
+                             constraintWithItem:_toolbar
+                             attribute:NSLayoutAttributeTop
+                             relatedBy:NSLayoutRelationEqual
+                             toItem:_tableView
+                             attribute:NSLayoutAttributeBottom
+                             multiplier:1
+                             constant:adSize.height];
+    [self.view addConstraint:c];
+    */
+    
+    // inset を調整する方法
+    UIEdgeInsets inset = _tableView.contentInset;
+    inset.bottom += adSize.height;
+    _tableView.contentInset = inset;
 
     // 表示位置
     aframe = frame;
@@ -281,10 +304,13 @@
     CGRect frame = _tableView.bounds;
         
     // tableView のサイズをもとに戻す
+    /*
     frame.origin.x = 0;
     frame.origin.y = 0;
     frame.size.height += adSize.height;
     _tableView.frame = frame;
+     */
+    _tableView.contentInset = _tableViewInsetSave;
     
     // 広告の位置
     CGRect aframe = frame;
