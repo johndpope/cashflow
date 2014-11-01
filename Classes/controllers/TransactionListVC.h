@@ -12,20 +12,15 @@
 #import "CalcVC.h"
 #import "BackupVC.h"
 
-#if FREE_VERSION
 #import <iAd/iAd.h>
 #import "GADBannerView.h"
 #import "AdManager.h"
-#endif
 
 @class AssetListViewController;
 
 @interface TransactionListViewController : UIViewController 
     <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, CalculatorViewDelegate, UISplitViewControllerDelegate, BackupViewDelegate, UIPopoverControllerDelegate,
-        UISearchDisplayDelegate, UISearchBarDelegate
-#if FREE_VERSION
-    , AdManagerDelegate
-#endif
+        UISearchDisplayDelegate, UISearchBarDelegate, AdManagerDelegate
 >
 
 @property(nonatomic,strong) AssetListViewController *splitAssetListViewController;

@@ -23,6 +23,8 @@
 - (void)checkPin;
 + (NSString *)appVersion;
 
++ (BOOL)isFreeVersion;
+
 //+ (void)trackPageview:(NSString *)url;
 + (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSInteger)value;
 

@@ -38,6 +38,15 @@
     return version;
 }
 
++ (BOOL)isFreeVersion
+{
+#if FREE_VERSION
+    return YES;
+#else
+    return NO;
+#endif
+}
+
 - (id)init {
     self = [super init];
     return self;
