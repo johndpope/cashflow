@@ -74,9 +74,9 @@ class CurrencyManager: NSObject {
         
         _numberFormatter.numberStyle = .CurrencyStyle
         _numberFormatter.locale = NSLocale.currentLocale()
-        
-        _baseCurrency = NSUserDefaults.standardUserDefaults().objectForKey(kBaseCurrency) as NSString?
 
+        self.baseCurrency = NSUserDefaults.standardUserDefaults().objectForKey(kBaseCurrency) as NSString?
+        
         // TEST : get currency code list
         /*
         var codes = NSLocale.ISOCurrencyCodes() as [String];
