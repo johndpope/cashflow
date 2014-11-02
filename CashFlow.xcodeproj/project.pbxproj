@@ -1645,8 +1645,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
-					"$(PROJECT_DIR)/Libraries/AdMob/AdapterIMobile",
-					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -1672,8 +1670,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
-					"$(PROJECT_DIR)/Libraries/AdMob/AdapterIMobile",
-					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
@@ -1766,11 +1762,7 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CashFlow.app/CashFlow";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
-					"$(PROJECT_DIR)/Libraries/AdMob/AdapterIMobile",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1784,59 +1776,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Libraries/AdMob/AdapterIAd",
-					"$(SRCROOT)/Libraries/AdMob/AdapterInMobi",
 					"$(SRCROOT)/Libraries/AdMob/AdapterNend",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);
 				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"AdapterIAd\"",
-					"-l\"GoogleAdMobAds\"",
-					"-l\"GoogleAnalyticsServices\"",
-					"-l\"Pods-AdMobMediationAdapterIAd\"",
-					"-l\"Pods-BugSense\"",
-					"-l\"Pods-Dropbox-iOS-SDK\"",
-					"-l\"Pods-Google-Mobile-Ads-SDK\"",
-					"-l\"Pods-GoogleAnalytics-iOS-SDK\"",
-					"-l\"sqlite3\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AVFoundation\"",
-					"-framework",
-					"\"AudioToolbox\"",
-					"-framework",
-					"\"BugSense-iOS\"",
-					"-framework",
-					"\"CFNetwork\"",
-					"-framework",
-					"\"CoreData\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreTelephony\"",
-					"-framework",
-					"\"DropboxSDK\"",
-					"-framework",
-					"\"EventKit\"",
-					"-framework",
-					"\"EventKitUI\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"MessageUI\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"StoreKit\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"",
-					"-weak_framework",
-					"\"AdSupport\"",
+					"$(inherited)",
 					"-framework",
 					XCTest,
 				);
@@ -1855,11 +1799,7 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
-					"$(PROJECT_DIR)/Libraries/AdMob/AdapterIMobile",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1869,59 +1809,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Libraries/AdMob/AdapterIAd",
-					"$(SRCROOT)/Libraries/AdMob/AdapterInMobi",
 					"$(SRCROOT)/Libraries/AdMob/AdapterNend",
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);
 				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"AdapterIAd\"",
-					"-l\"GoogleAdMobAds\"",
-					"-l\"GoogleAnalyticsServices\"",
-					"-l\"Pods-AdMobMediationAdapterIAd\"",
-					"-l\"Pods-BugSense\"",
-					"-l\"Pods-Dropbox-iOS-SDK\"",
-					"-l\"Pods-Google-Mobile-Ads-SDK\"",
-					"-l\"Pods-GoogleAnalytics-iOS-SDK\"",
-					"-l\"sqlite3\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AVFoundation\"",
-					"-framework",
-					"\"AudioToolbox\"",
-					"-framework",
-					"\"BugSense-iOS\"",
-					"-framework",
-					"\"CFNetwork\"",
-					"-framework",
-					"\"CoreData\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreTelephony\"",
-					"-framework",
-					"\"DropboxSDK\"",
-					"-framework",
-					"\"EventKit\"",
-					"-framework",
-					"\"EventKitUI\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"MessageUI\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"StoreKit\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"",
-					"-weak_framework",
-					"\"AdSupport\"",
+					"$(inherited)",
 					"-framework",
 					XCTest,
 				);
