@@ -410,7 +410,7 @@
         NSInteger assetIndex = [self _assetIndex:indexPath];
         _assetToBeDelete = [_ledger assetAtIndex:assetIndex];
 
-        if (NSClassFromString(@"UIAlertController")) {
+        if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
             // iOS8 : UIAlertController を使う
             UIAlertController *alert = nil;
             alert = [UIAlertController
@@ -424,7 +424,7 @@
                 [UIAlertAction actionWithTitle:_L(@"Delete Asset")
                                          style:UIAlertActionStyleDestructive
                                        handler:^(UIAlertAction *action) {
-                                           [self _actionDelete:1];
+                                           [self _actionDelete:0];
                                        }];
             [alert addAction:cancel];
             [alert addAction:ok];
