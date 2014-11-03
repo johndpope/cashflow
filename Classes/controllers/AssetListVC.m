@@ -410,17 +410,39 @@
         NSInteger assetIndex = [self _assetIndex:indexPath];
         _assetToBeDelete = [_ledger assetAtIndex:assetIndex];
 
-        _asDelete =
-            [[UIActionSheet alloc]
-                initWithTitle:_L(@"ReallyDeleteAsset")
-                delegate:self
-                cancelButtonTitle:@"Cancel"
-                destructiveButtonTitle:_L(@"Delete Asset")
-                otherButtonTitles:nil];
-        _asDelete.actionSheetStyle = UIActionSheetStyleDefault;
+        if (NSClassFromString(@"UIAlertController")) {
+            // iOS8 : UIAlertController を使う
+            UIAlertController *alert = nil;
+            alert = [UIAlertController
+                     alertControllerWithTitle:@"Warning"
+                     message:_L(@"ReallyDeleteAsset")
+                     preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel"
+                                                             style:UIAlertActionStyleCancel
+                                                           handler:nil];
+            UIAlertAction *ok =
+                [UIAlertAction actionWithTitle:_L(@"Delete Asset")
+                                         style:UIAlertActionStyleDestructive
+                                       handler:^(UIAlertAction *action) {
+                                           [self _actionDelete:1];
+                                       }];
+            [alert addAction:cancel];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            // iOS7 : UIActionSheet (deprecated) を使う
+            _asDelete =
+                [[UIActionSheet alloc]
+                 initWithTitle:_L(@"ReallyDeleteAsset")
+                 delegate:self
+                 cancelButtonTitle:@"Cancel"
+                 destructiveButtonTitle:_L(@"Delete Asset")
+                 otherButtonTitles:nil];
+            _asDelete.actionSheetStyle = UIActionSheetStyleDefault;
         
-        // 注意: self.view から showInView すると、iPad縦画面でクラッシュする。self.view.window にすれば OK。
-        [_asDelete showInView:self.view.window];
+            // 注意: self.view から showInView すると、iPad縦画面でクラッシュする。self.view.window にすれば OK。
+            [_asDelete showInView:self.view.window];
+        }
     }
 }
 
