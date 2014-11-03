@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Udy-Zd-Z8t">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="assetCell" textLabel="CSY-CQ-DQu" detailTextLabel="GDM-Xr-qvm" style="IBUITableViewCellStyleSubtitle" id="BZX-eg-bND">
@@ -93,10 +93,10 @@
                             <constraint firstItem="Udy-Zd-Z8t" firstAttribute="top" secondItem="Un0-Fx-aI9" secondAttribute="top" id="0H3-xS-mIT"/>
                             <constraint firstItem="Udy-Zd-Z8t" firstAttribute="leading" secondItem="Un0-Fx-aI9" secondAttribute="leading" id="0tD-xb-7zx"/>
                             <constraint firstAttribute="trailing" secondItem="YXr-PA-ZRf" secondAttribute="trailing" id="9yN-MB-xUY"/>
+                            <constraint firstItem="YXr-PA-ZRf" firstAttribute="top" secondItem="Udy-Zd-Z8t" secondAttribute="bottom" id="Nng-dH-XzY"/>
                             <constraint firstAttribute="trailing" secondItem="Udy-Zd-Z8t" secondAttribute="trailing" id="Qbi-hO-HuI"/>
                             <constraint firstItem="YXr-PA-ZRf" firstAttribute="leading" secondItem="Un0-Fx-aI9" secondAttribute="leading" id="agE-DU-Vdj"/>
                             <constraint firstItem="f7c-pt-g0a" firstAttribute="top" secondItem="YXr-PA-ZRf" secondAttribute="bottom" id="cgI-9q-QNy"/>
-                            <constraint firstItem="f7c-pt-g0a" firstAttribute="top" secondItem="Udy-Zd-Z8t" secondAttribute="bottom" id="ka8-Mh-rEg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Di4-NF-TxR"/>
