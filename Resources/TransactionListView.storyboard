@@ -131,7 +131,7 @@
                                             <constraint firstAttribute="width" constant="178" id="FSp-wX-vhY"/>
                                             <constraint firstAttribute="height" constant="21" id="ugN-1Z-El0"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -156,6 +156,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6DC-ui-CRJ"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="DELETE TRANSACTION"/>
                                 <connections>
                                     <action selector="delButtonTapped:" destination="ap8-oF-I49" eventType="touchUpInside" id="LdB-Le-ghD"/>
