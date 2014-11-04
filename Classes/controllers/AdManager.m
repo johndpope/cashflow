@@ -11,7 +11,7 @@
 // 広告リクエスト間隔 (画面遷移時のみ)
 #define AD_REQUEST_INTERVAL     30.0
 
-@implementation DFPView
+@implementation AdView
 
 - (id)init {
     GADAdSize gadSize;
@@ -20,8 +20,9 @@
         // 320 x 50 固定。こうしないと在庫でない模様
         gadSize = kGADAdSizeBanner;
     } else {
-        // iPhone 6 横幅に自動で合わせる
-        gadSize = GADAdSizeFullWidthPortraitWithHeight(GAD_SIZE_320x50.height);
+        gadSize = kGADAdSizeBanner;
+        //以下のようにiPhone 6 横幅に自動で合わせたいが、これをやると Nend の広告がでない！
+        //gadSize = GADAdSizeFullWidthPortraitWithHeight(GAD_SIZE_320x50.height);
     }
     self = [super initWithAdSize:gadSize];
     self.delegate = self;
@@ -62,7 +63,7 @@
     __weak UIViewController *_rootViewController;
     
     // 広告ビュー
-    DFPView *_bannerView;
+    AdView *_bannerView;
     
     // 広告サイズ
     CGSize _adSize;
@@ -220,8 +221,7 @@ static AdManager *theAdManager;
     }
     */
 
-    //DFPView *view = [[DFPView alloc] initWithFrame:gadSize];
-    DFPView *view = [DFPView new];
+    AdView *view = [AdView new];
     view.delegate = self;
     
     NSLog(@"AdUnit = %@", ADUNIT_ID);
