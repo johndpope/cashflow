@@ -179,7 +179,7 @@ static AdManager *theAdManager;
     req.testDevices = @[
                         //@"7f201a0d427175b074ea55a63a482388", // ip6
                         //@"f887d54080341da8df23060f8146ba79", // ipm
-                        GAD_SIMULATOR_ID
+                        //GAD_SIMULATOR_ID
                         ];
 
     [_bannerView loadRequest:req];
