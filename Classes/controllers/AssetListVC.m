@@ -49,8 +49,15 @@
     [super viewDidLoad];
     
     //[AppDelegate trackPageview:@"/AssetListViewController"];
-     
-    _tableView.rowHeight = 48;
+
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+        // 行高さ自動調整 (iOS8以降)
+        _tableView.estimatedRowHeight = 48;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
+    } else {
+        _tableView.rowHeight = 48;
+    }
+    
     _pinChecked = NO;
     _asDisplaying = NO;
     

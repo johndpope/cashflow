@@ -89,6 +89,14 @@
 
     [super viewDidLoad];
     
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+        // iOS8 以降: 行高さ自動調整
+        self.tableView.estimatedRowHeight = 44.0;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+    } else {
+        self.tableView.rowHeight = 44.0;
+    }
+    
     //[AppDelegate trackPageview:@"/TransactionListViewController"];
 	
     // title 設定
