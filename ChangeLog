@@ -1,5 +1,8 @@
 2014-11-05 : Takuya Murakami
 
+	* ver 6.5.2 (77) RC1
+	* Nend バナー出ない問題修正。DFPBannerView サイズを
+	  320x50 きっちりに合わせなければならない。
 	* Dynamic Type 対応
 
 2014-11-03 : Takuya Murakami
