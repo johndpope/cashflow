@@ -7,3 +7,10 @@
 #import "DataModel.h"
 #import "Asset.h"
 #import "SupportMail.h"
+#import "PinController.h"
+
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
+#import "UIDevice+Hardware.h"
+
