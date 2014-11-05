@@ -9,13 +9,14 @@ import UIKit
 
 import Crashlytics
 
-class AppDelegate : NSObject, UIApplicationDelegate {
-    var window : UIWindow
+@UIApplicationMain
+class AppDelegate : UIResponder, UIApplicationDelegate {
+    var window : UIWindow?
     var navigationController : UINavigationController?
     var splitViewController : UISplitViewController?
     
-    private var _application : UIApplication
-    private var _detailNavigationController : UINavigationController
+    //private var _application : UIApplication?
+    private var _detailNavigationController : UINavigationController?
 
     //
     // バージョン番号文字列を返す
@@ -33,6 +34,10 @@ class AppDelegate : NSObject, UIApplicationDelegate {
 #endif
     }
     
+    class func isIpad() -> Bool {
+        return UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad
+    }
+    
     override init() {
         super.init()
     }
@@ -42,7 +47,7 @@ class AppDelegate : NSObject, UIApplicationDelegate {
     //
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         println("application:didFinishLaunchingWithOptions")
-        _application = application;
+        //_application = application;
 
         // Crittercism or BugSense
 #if FREE_VERSION
@@ -75,7 +80,7 @@ class AppDelegate : NSObject, UIApplicationDelegate {
             // iPhone 版 : Window 生成
             _detailNavigationController = assetListNavigationController
             self.navigationController = assetListNavigationController
-            self.window.rootViewController = self.navigationController
+            self.window!.rootViewController = self.navigationController
         } else {
             // iPad 版 : Window 生成
             var masterNavigationController = assetListNavigationController
@@ -89,11 +94,11 @@ class AppDelegate : NSObject, UIApplicationDelegate {
     	
             self.splitViewController = UISplitViewController()
             self.splitViewController!.delegate = transactionListViewController
-            self.splitViewController!.viewControllers = [masterNavigationController, _detailNavigationController]
+            self.splitViewController!.viewControllers = [masterNavigationController, _detailNavigationController!]
             
-            self.window.rootViewController = self.splitViewController
+            self.window!.rootViewController = self.splitViewController
         }
-        self.window.makeKeyAndVisible()
+        self.window!.makeKeyAndVisible()
     
         // PIN チェック
         self.checkPin()
@@ -102,7 +107,7 @@ class AppDelegate : NSObject, UIApplicationDelegate {
         //srand([[NSDate date] timeIntervalSinceReferenceDate]);
     
         // 遅延実行
-        NSTimer.scheduledTimerWithTimeInterval(1.0f, target: self, selector: "delayedLaunchProcess:", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "delayedLaunchProcess:", userInfo: nil, repeats: false)
 
         println("application:didFinishLaunchingWithOptions: done")
         return true
@@ -132,7 +137,7 @@ class AppDelegate : NSObject, UIApplicationDelegate {
 
         var dev = UIDevice.currentDevice()
         //var model = dev.model
-        var platform = dev.platform
+        var platform = dev.platform()
         var systemVersion = dev.systemVersion
     
         tracker.set(GAIFields.customDimensionForIndex(3), value:systemVersion)
@@ -172,10 +177,10 @@ class AppDelegate : NSObject, UIApplicationDelegate {
     }
 
     private func checkPin() {
-        var pinController : PinController? = PinController.pinController()
+        var pinController = PinController.sharedController()
 
         if (pinController != nil) {
-            if (IS_IPAD) {
+            if (isIpad()) {
                 pinController!.firstPinCheck(self.splitViewController)
             } else {
                 pinController!.firstPinCheck(self.navigationController)
@@ -188,7 +193,7 @@ class AppDelegate : NSObject, UIApplicationDelegate {
     //
     func applicationWillTerminate(application: UIApplication) {
         DataModel.finalize()
-        DataModel.shutdown()
+        Database.shutdown()
     }
 
     //

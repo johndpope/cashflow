@@ -92,6 +92,12 @@
 		3E0B626519D1E16E0042B652 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B626419D1E16E0042B652 /* CurrencyManager.swift */; };
 		3E0B626619D1E16E0042B652 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B626419D1E16E0042B652 /* CurrencyManager.swift */; };
 		3E0B626719D1E16E0042B652 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B626419D1E16E0042B652 /* CurrencyManager.swift */; };
+		3E0E34021A0A50E400E05ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0E34011A0A50E400E05ADF /* AppDelegate.swift */; };
+		3E0E34031A0A50E400E05ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0E34011A0A50E400E05ADF /* AppDelegate.swift */; };
+		3E0E34041A0A50E400E05ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0E34011A0A50E400E05ADF /* AppDelegate.swift */; };
+		3E0E34061A0A5F8300E05ADF /* DropboxSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0E34051A0A5F8300E05ADF /* DropboxSecret.swift */; };
+		3E0E34071A0A5F8300E05ADF /* DropboxSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0E34051A0A5F8300E05ADF /* DropboxSecret.swift */; };
+		3E0E34081A0A5F8300E05ADF /* DropboxSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0E34051A0A5F8300E05ADF /* DropboxSecret.swift */; };
 		3E0F16AE13A66A5C0091E6F8 /* TCategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F16AD13A66A5C0091E6F8 /* TCategoryBase.m */; };
 		3E0F16AF13A66A5C0091E6F8 /* TCategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0F16AD13A66A5C0091E6F8 /* TCategoryBase.m */; };
 		3E13EE59114007D600523938 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E13EE58114007D600523938 /* AVFoundation.framework */; };
@@ -397,6 +403,8 @@
 		3E0AD78B1214173500CFDDAC /* TransactionBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionBase.h; sourceTree = "<group>"; };
 		3E0AD78C1214173500CFDDAC /* TransactionBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionBase.m; sourceTree = "<group>"; };
 		3E0B626419D1E16E0042B652 /* CurrencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyManager.swift; sourceTree = "<group>"; };
+		3E0E34011A0A50E400E05ADF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3E0E34051A0A5F8300E05ADF /* DropboxSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropboxSecret.swift; sourceTree = "<group>"; };
 		3E0F16AC13A66A5C0091E6F8 /* TCategoryBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCategoryBase.h; sourceTree = "<group>"; };
 		3E0F16AD13A66A5C0091E6F8 /* TCategoryBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCategoryBase.m; sourceTree = "<group>"; };
 		3E13EE58114007D600523938 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -950,9 +958,11 @@
 		3E85A722132E54D6002C44DF /* Support files */ = {
 			isa = PBXGroup;
 			children = (
+				3E0E34011A0A50E400E05ADF /* AppDelegate.swift */,
 				3E0B626419D1E16E0042B652 /* CurrencyManager.swift */,
 				3E8AD9F919D177C70073B05A /* SwiftUtils.swift */,
 				3E8AD9F419D16D5E0073B05A /* CashFlow-Bridging-Header.h */,
+				3E0E34051A0A5F8300E05ADF /* DropboxSecret.swift */,
 				3E3382231332284000861610 /* DropboxSecret.h */,
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
@@ -1437,8 +1447,10 @@
 				3E2710460EAA196A00E57E51 /* ExportCsv.m in Sources */,
 				3E2710470EAA196A00E57E51 /* ExportOfx.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
+				3E0E34061A0A5F8300E05ADF /* DropboxSecret.swift in Sources */,
 				3ED97C150F1A0D8D0063A578 /* WebServer.m in Sources */,
 				3ED97C280F1A0E8E0063A578 /* BackupServer.m in Sources */,
+				3E0E34021A0A50E400E05ADF /* AppDelegate.swift in Sources */,
 				3E7BB13A115399C5004B7D03 /* Config.m in Sources */,
 				3E35661B1189697E007DAF44 /* WebServerBackup.m in Sources */,
 				3E7109B8121108ED00C47539 /* SupportMail.m in Sources */,
@@ -1508,8 +1520,10 @@
 				3E8B25A00F348C090007929E /* ExportBase.m in Sources */,
 				3E8B25A10F348C090007929E /* ExportCsv.m in Sources */,
 				3E8B25A20F348C090007929E /* ExportOfx.m in Sources */,
+				3E0E34071A0A5F8300E05ADF /* DropboxSecret.swift in Sources */,
 				3E8B25B10F348C090007929E /* WebServer.m in Sources */,
 				3E8B25B20F348C090007929E /* BackupServer.m in Sources */,
+				3E0E34031A0A50E400E05ADF /* AppDelegate.swift in Sources */,
 				3E7BB138115399C5004B7D03 /* Config.m in Sources */,
 				3E35661A1189697E007DAF44 /* WebServerBackup.m in Sources */,
 				3E7109B6121108ED00C47539 /* SupportMail.m in Sources */,
@@ -1579,6 +1593,7 @@
 				3EF1528B1462CA8500C724E4 /* AssetEntryTests.m in Sources */,
 				3E38C6A017F6A47400A00CE0 /* EditDescVCTests.m in Sources */,
 				3EF1528C1462CA8500C724E4 /* AssetTests.m in Sources */,
+				3E0E34081A0A5F8300E05ADF /* DropboxSecret.swift in Sources */,
 				3E8AD9FC19D177C70073B05A /* SwiftUtils.swift in Sources */,
 				3EF1528D1462CA8500C724E4 /* CurrencyManagerTests.m in Sources */,
 				3E38C6A217F6A47400A00CE0 /* PinControllerTests.m in Sources */,
@@ -1591,6 +1606,7 @@
 				3EF152921462CA8500C724E4 /* ReportTests.m in Sources */,
 				3E38C69F17F6A47400A00CE0 /* ViewControllerTestCase.m in Sources */,
 				3EF152931462CA8500C724E4 /* TimeTests.m in Sources */,
+				3E0E34041A0A50E400E05ADF /* AppDelegate.swift in Sources */,
 				3EF152941462CA8500C724E4 /* TransactionTests.m in Sources */,
 				3E9F45DF19FD3E7000DEA372 /* CFCalendarViewController.m in Sources */,
 			);
