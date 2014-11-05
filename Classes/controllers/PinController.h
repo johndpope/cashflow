@@ -16,7 +16,7 @@
 @property(strong) NSString *pin;
 @property(strong) NSString *pinNew;
 
-+ (PinController *)pinController;
++ (PinController *)sharedController;
 
 - (void)firstPinCheck:(UIViewController *)currentVc;
 - (void)modifyPin:(UIViewController *)currentVc;
