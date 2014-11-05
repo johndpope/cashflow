@@ -49,8 +49,15 @@
     [super viewDidLoad];
     
     //[AppDelegate trackPageview:@"/AssetListViewController"];
-     
-    _tableView.rowHeight = 48;
+
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+        // 行高さ自動調整 (iOS8以降)
+        _tableView.estimatedRowHeight = 48;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
+    } else {
+        _tableView.rowHeight = 48;
+    }
+    
     _pinChecked = NO;
     _asDisplaying = NO;
     
@@ -410,17 +417,39 @@
         NSInteger assetIndex = [self _assetIndex:indexPath];
         _assetToBeDelete = [_ledger assetAtIndex:assetIndex];
 
-        _asDelete =
-            [[UIActionSheet alloc]
-                initWithTitle:_L(@"ReallyDeleteAsset")
-                delegate:self
-                cancelButtonTitle:@"Cancel"
-                destructiveButtonTitle:_L(@"Delete Asset")
-                otherButtonTitles:nil];
-        _asDelete.actionSheetStyle = UIActionSheetStyleDefault;
+        if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+            // iOS8 : UIAlertController を使う
+            UIAlertController *alert = nil;
+            alert = [UIAlertController
+                     alertControllerWithTitle:@"Warning"
+                     message:_L(@"ReallyDeleteAsset")
+                     preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel"
+                                                             style:UIAlertActionStyleCancel
+                                                           handler:nil];
+            UIAlertAction *ok =
+                [UIAlertAction actionWithTitle:_L(@"Delete Asset")
+                                         style:UIAlertActionStyleDestructive
+                                       handler:^(UIAlertAction *action) {
+                                           [self _actionDelete:0];
+                                       }];
+            [alert addAction:cancel];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            // iOS7 : UIActionSheet (deprecated) を使う
+            _asDelete =
+                [[UIActionSheet alloc]
+                 initWithTitle:_L(@"ReallyDeleteAsset")
+                 delegate:self
+                 cancelButtonTitle:@"Cancel"
+                 destructiveButtonTitle:_L(@"Delete Asset")
+                 otherButtonTitles:nil];
+            _asDelete.actionSheetStyle = UIActionSheetStyleDefault;
         
-        // 注意: self.view から showInView すると、iPad縦画面でクラッシュする。self.view.window にすれば OK。
-        [_asDelete showInView:self.view.window];
+            // 注意: self.view から showInView すると、iPad縦画面でクラッシュする。self.view.window にすれば OK。
+            [_asDelete showInView:self.view.window];
+        }
     }
 }
 

@@ -10,28 +10,30 @@
 #import "DFPBannerView.h"
 
 //#define ADMOB_PUBLISHER_ID  @"a14a8b599ca8e92"  // CashFlow Free
-//#define ADMOB_MEDIATION_ID @"ee06b031bb1847d4"
-#define DFP_ADUNIT_ID @"/86480491/CashFlowFree_iOS_320x50"
-//#define DFP_TEST_ID @"/86480491/TestUnit_iOS_320x50"
-
+//#define ADMOB_MEDIATION_ID @"ca-app-pub-4621925249922081/9133593505"
 //#define ADUNIT_ID   ADMOB_MEDIATION_ID
+
+#define DFP_ADUNIT_ID @"/86480491/CashFlowFree_iOS_320x50"
 #define ADUNIT_ID     DFP_ADUNIT_ID
+
+//#define DFP_TEST_ID @"/86480491/TestUnit_iOS_320x50"
 //#define ADUNIT_ID     DFP_TEST_ID
 
 @class AdManager;
 
 /**
- *  AdMob 表示用ラッパクラス。GADBannerView を継承。
+ *  AdMob 表示用ラッパクラス。xxxBannerView を継承。
  */
-@interface DFPView : DFPBannerView <GADBannerViewDelegate>
+@interface AdView : DFPBannerView <GADBannerViewDelegate>
+//@interface AdView : GADBannerView <GADBannerViewDelegate>
 @end
 
 //
 // AdManager からの通知用インタフェース
 //
 @protocol AdManagerDelegate
-- (void)adManager:(AdManager*)adManager showAd:(DFPView *)adView adSize:(CGSize)adSize;
-- (void)adManager:(AdManager*)adManager removeAd:(DFPView *)adView adSize:(CGSize)adSize;
+- (void)adManager:(AdManager*)adManager showAd:(AdView *)adView adSize:(CGSize)adSize;
+- (void)adManager:(AdManager*)adManager removeAd:(AdView *)adView adSize:(CGSize)adSize;
 @end
 
 //

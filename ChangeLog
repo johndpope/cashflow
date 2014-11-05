@@ -1,3 +1,20 @@
+2014-11-05 : Takuya Murakami
+
+	* ver 6.5.1 (77)
+	* Nend バナー出ない問題修正。DFPBannerView サイズを
+	  320x50 きっちりに合わせなければならない。
+	* Dynamic Type 対応
+
+2014-11-03 : Takuya Murakami
+
+	* ver 6.5.1 (76)
+	* iPadで資産削除できない(ActionSheet)問題修正
+
+2014-11-02 : Takuya Murakami
+
+	* ver 6.5.1 (75)
+	* 資産最下部がツールバーに隠れるバグを修正
+
 2014-11-02 : Takuya Murakami
 
 	* ver 6.5.1 (74)

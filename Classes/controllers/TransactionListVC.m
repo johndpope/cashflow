@@ -89,6 +89,14 @@
 
     [super viewDidLoad];
     
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+        // iOS8 以降: 行高さ自動調整
+        self.tableView.estimatedRowHeight = 48.0;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+    } else {
+        self.tableView.rowHeight = 48.0;
+    }
+    
     //[AppDelegate trackPageview:@"/TransactionListViewController"];
 	
     // title 設定
@@ -212,7 +220,7 @@
 /**
  * 広告表示
  */
-- (void)adManager:(AdManager *)adManager showAd:(DFPView *)adView adSize:(CGSize)adSize
+- (void)adManager:(AdManager *)adManager showAd:(AdView *)adView adSize:(CGSize)adSize
 {
     if (_isAdShowing) {
         NSLog(@"Ad is already showing!");
