@@ -348,7 +348,7 @@
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         CGRect rect = cell.frame;
-        [_currentPopoverController presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        [_currentPopoverController presentPopoverFromRect:rect inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     } else {
         [nc pushViewController:vc animated:YES];
     }

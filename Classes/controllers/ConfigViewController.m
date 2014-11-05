@@ -193,7 +193,7 @@
             break;
             
         case 2:
-            pinController = [PinController pinController];
+            pinController = [PinController sharedController];
             [pinController modifyPin:self];
             break;
             
