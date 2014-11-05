@@ -6,6 +6,8 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "CashFlow-Swift.h"
+
 #import "DataModel.h"
 #import "AppDelegate.h"
 #import "SupportMail.h"

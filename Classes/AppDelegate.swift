@@ -69,6 +69,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         //dbSession.delegate = self;
         DBSession.setSharedSession(dbSession)
     
+        // Google Analytics
         self.setupGoogleAnalytics()
 
         // Configure and show the window
@@ -121,14 +122,15 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         gai.trackUncaughtExceptions = true
 
         // デバッグログ
-        //gai.logger.logLevel = kGAILogLevelVerbose
-    
-        var tracker = gai.trackerWithTrackingId("UA-413697-25")
+        gai.logger.logLevel = GAILogLevel.Info
+        gai.trackerWithTrackingId("UA-413697-25")
+        
+        var tracker = gai.defaultTracker
     
 #if FREE_VERSION
         tracker.set(GAIFields.customDimensionForIndex(1), value:"ios-free")
 #else
-    tracker.set(GAIFields.customDimensionForIndex(1), value:"ios-std")
+        tracker.set(GAIFields.customDimensionForIndex(1), value:"ios-std")
 #endif
     
         // set custom dimensions
@@ -145,7 +147,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     }
 
     // 起動時の遅延実行処理
-    private func delayedLaunchProcess(timer: NSTimer) {
+    func delayedLaunchProcess(timer: NSTimer) {
         println("delayedLaunchProcess");
     
         var tracker = GAI.sharedInstance().defaultTracker

@@ -14,20 +14,6 @@
 
 #define DBNAME  @"CashFlow.db"
 
-@interface AppDelegate : NSObject <UIApplicationDelegate>
-
-@property (nonatomic,strong) UIWindow *window;
-@property (nonatomic,strong) UINavigationController *navigationController;
-@property (nonatomic,strong) UISplitViewController *splitViewController;
-
-- (void)checkPin;
-+ (NSString *)appVersion;
-
-+ (BOOL)isFreeVersion;
-
-//+ (void)trackPageview:(NSString *)url;
-+ (void)trackEvent:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSInteger)value;
-
 // Utility
 #define _L(msg)  NSLocalizedString(msg, @"")
 
@@ -43,6 +29,4 @@ void AssertFailed(const char *filename, int lineno);
 #else
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #endif
-
-@end
 
