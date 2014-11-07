@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description XXXX" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5">
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description XXXX" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5">
                         <rect key="frame" x="8" y="2" width="127" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -23,8 +23,11 @@
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="¥ 999,999,999" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6">
-                        <rect key="frame" x="208" y="2" width="104" height="20"/>
+                        <rect key="frame" x="204" y="2" width="108" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="108" id="SPm-iQ-JgY"/>
+                        </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,6 +53,7 @@
                 <constraints>
                     <constraint firstItem="7" firstAttribute="leading" secondItem="Ti1-8Y-G6G" secondAttribute="leading" constant="8" id="21f-kQ-lyY"/>
                     <constraint firstItem="8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6" secondAttribute="bottom" constant="2" id="3j0-7T-QWX"/>
+                    <constraint firstItem="6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5" secondAttribute="trailing" constant="8" id="51c-ck-lqz"/>
                     <constraint firstAttribute="trailing" secondItem="8" secondAttribute="trailing" constant="8" id="85F-qf-e6S"/>
                     <constraint firstItem="8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7" secondAttribute="trailing" constant="8" id="CtQ-NS-Jze"/>
                     <constraint firstAttribute="bottom" secondItem="7" secondAttribute="bottom" constant="2" id="TXa-28-5Yi"/>
