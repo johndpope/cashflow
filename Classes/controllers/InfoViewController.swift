@@ -65,7 +65,8 @@ class InfoViewController : UIViewController {
     
     @IBAction func purchaseStandardVerion() {
         AppDelegate.trackEvent("help", action:"push", label:"purchase", value:0)
-        var url = NSURL(string: "http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=290776107&mt=8")
+        var url = NSURL(string: "https://itunes.apple.com/jp/app/cashflow/id290776107?mt=8&uo=4")
+        //var url = NSURL(string: "http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=290776107&mt=8")
         UIApplication.sharedApplication().openURL(url!)
     }
     
