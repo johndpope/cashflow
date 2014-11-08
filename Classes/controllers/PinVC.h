@@ -14,6 +14,7 @@
 @protocol PinViewDelegate
 - (void)pinViewFinished:(PinViewController *)vc isCancel:(BOOL)isCancel;
 - (BOOL)pinViewCheckPin:(PinViewController *)vc;
+- (void)pinViewTouchIdFinished:(PinViewController *)vc;
 @end
 
 @interface PinViewController : UIViewController 

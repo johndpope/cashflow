@@ -193,6 +193,15 @@ static PinController *thePinController = nil;
     }
 }
 
+/**
+ * TouchID 認証完了
+ */
+- (void)pinViewTouchIdFinished:(PinViewController *)vc {
+    if (_state == FIRST_PIN_CHECK) {
+        [self _allDone:vc];
+    }
+}
+
 - (PinViewController *)_getPinViewController
 {
     PinViewController *vc = [PinViewController new];
