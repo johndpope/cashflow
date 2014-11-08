@@ -28,6 +28,7 @@
     __weak IBOutlet UILabel *editCategoryLabel;
     __weak IBOutlet UILabel *passcodeLabel;
     __weak IBOutlet UILabel *resetDropboxLabel;
+    __weak IBOutlet UISwitch *touchIdSwitch;
 }
 
 - (void)viewDidLoad
@@ -50,6 +51,12 @@
 - (IBAction)doneAction:(id)sender
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)touchIdSwitchChanged:(id)sender {
+    Config *config = [Config instance];
+    config.useTouchId = touchIdSwitch.on;
+    [config save];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -111,6 +118,8 @@
     passcodeLabel.text = _L(@"Set PIN Code");
     
     resetDropboxLabel.text = _L(@"Unlink dropbox account");
+
+    touchIdSwitch.on = config.useTouchId;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

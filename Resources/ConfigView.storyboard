@@ -154,6 +154,34 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4Wl-tF-2GU">
+                                        <rect key="frame" x="0.0" y="359" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Wl-tF-2GU" id="qrz-Ny-8C2">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ovr-ca-gMy">
+                                                    <rect key="frame" x="255" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="touchIdSwitchChanged:" destination="nyN-pl-EoN" eventType="valueChanged" id="eae-JU-Ctr"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyg-UY-1rg">
+                                                    <rect key="frame" x="16" y="11" width="68" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Iyg-UY-1rg" firstAttribute="leading" secondItem="qrz-Ny-8C2" secondAttribute="leading" constant="16" id="9oU-gM-3dH"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ovr-ca-gMy" secondAttribute="trailing" constant="16" id="DPK-ix-7mh"/>
+                                                <constraint firstAttribute="centerY" secondItem="Ovr-ca-gMy" secondAttribute="centerY" id="NWu-Le-8Ax"/>
+                                                <constraint firstAttribute="centerY" secondItem="Iyg-UY-1rg" secondAttribute="centerY" id="xhX-xO-Gw3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection footerTitle=" " id="Dbf-sv-9ql">
@@ -200,6 +228,7 @@
                         <outlet property="editCategoryLabel" destination="sCC-6j-Izq" id="X5P-YY-Daw"/>
                         <outlet property="passcodeLabel" destination="Fsa-r2-heV" id="kcT-sI-fdN"/>
                         <outlet property="resetDropboxLabel" destination="byd-h1-fkB" id="amo-zt-Nl0"/>
+                        <outlet property="touchIdSwitch" destination="Ovr-ca-gMy" id="uDd-fi-iEw"/>
                         <outlet property="weekStartDescLabel" destination="rU8-7L-rRS" id="Y1q-QI-gBb"/>
                         <outlet property="weekStartLabel" destination="UKT-dk-gjn" id="brr-dj-pE4"/>
                     </connections>
