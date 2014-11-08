@@ -10,6 +10,7 @@
 
 #import "PinVC.h"
 #import "AppDelegate.h"
+#import "Config.h"
 
 @interface PinViewController ()
 {
@@ -160,6 +161,7 @@
 
 /**
  * アプリが foreground になった時の処理。
+ * TouchID 関連処理。
  * これは AppDelegate の applicationWillEnterForeground から呼び出される。
  */
 - (void)willEnterForeground
@@ -168,6 +170,10 @@
 
     if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1) {
         return; // iOS7以下はTouchID未対応
+    }
+
+    if (![Config instance].useTouchId) {
+        return; // TouchID 使用しない
     }
 
     // Touch ID
