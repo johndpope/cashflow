@@ -23,6 +23,8 @@
 @property(nonatomic,strong) NSMutableString *value;
 @property(nonatomic,assign) BOOL enableCancel;
 
+- (void)tryTouchId;
+
 // private, but called from test.
 - (void)doneAction:(id)sender;
 - (void)cancelAction:(id)sender;

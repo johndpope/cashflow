@@ -161,13 +161,18 @@
 
 /**
  * アプリが foreground になった時の処理。
- * TouchID 関連処理。
  * これは AppDelegate の applicationWillEnterForeground から呼び出される。
  */
 - (void)willEnterForeground
 {
     NSLog(@"PinViewController : willEnterForeground");
+    [self tryTouchId];
+}
 
+/**
+ * TouchID認証
+ */
+- (void)tryTouchId {
     if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1) {
         return; // iOS7以下はTouchID未対応
     }

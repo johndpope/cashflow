@@ -96,6 +96,8 @@ static PinController *thePinController = nil;
     // show PinViewController
     _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     [currentVc presentViewController:_navigationController animated:NO completion:NULL];
+    
+    [vc tryTouchId];
 }
 
 - (void)modifyPin:(UIViewController *)currentVc
