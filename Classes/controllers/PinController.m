@@ -22,7 +22,7 @@
 
 static PinController *thePinController = nil;
 
-+ (PinController *)pinController
++ (PinController *)sharedController
 {
     if (thePinController == nil) {
         thePinController = [PinController new];

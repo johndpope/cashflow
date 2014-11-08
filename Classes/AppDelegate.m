@@ -198,7 +198,7 @@
 
 - (void)checkPin
 {
-    PinController *pinController = [PinController pinController];
+    PinController *pinController = [PinController sharedController];
     if (pinController != nil) {
         if (IS_IPAD) {
             [pinController firstPinCheck:self.splitViewController];
