@@ -21,6 +21,7 @@
 #import <Crashlytics/Crashlytics.h>
 
 #import "DropboxSecret.h"
+#import "Config.h"
 
 @implementation AppDelegate
 {
@@ -181,6 +182,14 @@
     // Background に入るまえに PIN コード表示を行っておく
     // 復帰時だと、前の画面が一瞬表示されたあとで PIN 画面がでてしまうので遅い
     [self checkPin];
+
+    if ([PinController sharedController].pin != nil) {
+        // snapshot 保存しない (うまく動作しないようだが、一応)
+        [[UIApplication sharedApplication] ignoreSnapshotOnNextApplicationLaunch];
+
+        // 画面を隠しておく
+        self.window.hidden = YES;
+    }
 }
 
 // Background から復帰するときの処理
@@ -194,6 +203,12 @@
      if ([topVc respondsToSelector:@selector(willEnterForeground)]) {
      [topVc performSelector:@selector(willEnterForeground)];
      }*/
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    // 画面表示
+    self.window.hidden = NO;
 }
 
 - (void)checkPin
