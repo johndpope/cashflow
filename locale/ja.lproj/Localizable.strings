@@ -53,7 +53,7 @@
 "Delete with all past transactions" = "これ以前の取引を一括削除";
 "Dismiss" = "閉じる";
 "Cancel" = "キャンセル";
-"Set passcode" = "パスコード設定";
+"Passcode Lock" = "パスコードロック";
 "Enter passcode" = "パスコード入力";
 "Enter new passcode" = "新パスコード";
 "Retype new passcode" = "新パスコード(確認)";

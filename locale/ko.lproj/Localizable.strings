@@ -53,7 +53,7 @@
 "Delete with all past transactions" = "이 내역 이전의 모든 내역을 제거";
 "Dismiss" = "닫기";
 "Cancel" = "취소";
-"Set passcode" = "Passcode 설정";
+"Passcode Lock" = "Passcode Lock";
 "Enter passcode" = "Passcode 입력";
 "Enter new passcode" = "새로운 Passcode";
 "Retype new passcode" = "새로운 Passcode(재입력)";

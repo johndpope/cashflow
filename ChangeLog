@@ -1,3 +1,8 @@
+2014-11-10 : Takuya Murakami
+
+	* PIN -> パスコードに呼称変更
+	* パスコードロジック変更: スイッチ方式
+
 2014-11-08 : Takuya Murakami
 
 	* ver 6.5.3 (79) beta

@@ -134,7 +134,7 @@
 
     editCategoryLabel.text = _L(@"Edit Categories");
 
-    passcodeLabel.text = _L(@"Set passcode");
+    passcodeLabel.text = _L(@"Passcode Lock");
     
     resetDropboxLabel.text = _L(@"Unlink dropbox account");
 
