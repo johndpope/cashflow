@@ -53,7 +53,19 @@ static PinController *thePinController = nil;
     return self;
 }
 
-    
+- (void)deletePin
+{
+    self.pin = nil;
+    [self _savePin:nil];
+}
+
+- (void)_savePin:(NSString *)pin
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:pin forKey:@"PinCode"];
+    [defaults synchronize];
+}
+
 - (void)_allDone:(PinViewController *)pinViewController;
 {
     if (pinViewController != nil) {
@@ -164,9 +176,7 @@ static PinController *thePinController = nil;
         NSLog(@"%@", _pinNew);
         if ([vc.value isEqualToString:_pinNew]) {
             // set new pin
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:_pinNew forKey:@"PinCode"];
-            [defaults synchronize];
+            [self _savePin:_pinNew];
         } else {
             isBadPin = YES;
         }

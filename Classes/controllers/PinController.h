@@ -21,6 +21,8 @@
 - (void)firstPinCheck:(UIViewController *)currentVc;
 - (void)modifyPin:(UIViewController *)currentVc;
 
+- (void)deletePin;
+
 // for debug / test
 + (void)_deleteSingleton;
 

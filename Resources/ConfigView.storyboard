@@ -137,21 +137,32 @@
                             </tableViewSection>
                             <tableViewSection id="uy7-dL-klX">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Fsa-r2-heV" style="IBUITableViewCellStyleDefault" id="6yu-4a-Hkp">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6yu-4a-Hkp">
                                         <rect key="frame" x="0.0" y="359" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6yu-4a-Hkp" id="3Xd-pw-FHl">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="パスコード設定" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fsa-r2-heV">
-                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスコード設定" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLR-Po-c7C">
+                                                    <rect key="frame" x="16" y="11" width="119" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h87-q5-Rwv">
+                                                    <rect key="frame" x="255" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="passcodeSwitchChanged:" destination="nyN-pl-EoN" eventType="valueChanged" id="T7A-Mz-H0h"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="gLR-Po-c7C" secondAttribute="centerY" id="03g-lB-EHb"/>
+                                                <constraint firstAttribute="trailing" secondItem="h87-q5-Rwv" secondAttribute="trailing" constant="16" id="0oR-au-Y0l"/>
+                                                <constraint firstAttribute="centerY" secondItem="h87-q5-Rwv" secondAttribute="centerY" id="3cm-Ds-y5d"/>
+                                                <constraint firstItem="gLR-Po-c7C" firstAttribute="leading" secondItem="3Xd-pw-FHl" secondAttribute="leading" constant="16" id="Lrd-TX-eF8"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4Wl-tF-2GU">
@@ -226,7 +237,8 @@
                         <outlet property="dateFormatDescLabel" destination="w1J-af-9ST" id="0Lf-aW-Gm6"/>
                         <outlet property="dateFormatLabel" destination="T2g-KF-hys" id="ps9-YX-q85"/>
                         <outlet property="editCategoryLabel" destination="sCC-6j-Izq" id="X5P-YY-Daw"/>
-                        <outlet property="passcodeLabel" destination="Fsa-r2-heV" id="kcT-sI-fdN"/>
+                        <outlet property="passcodeLabel" destination="gLR-Po-c7C" id="e7X-d3-eVf"/>
+                        <outlet property="passcodeSwitch" destination="h87-q5-Rwv" id="waq-6d-Fd6"/>
                         <outlet property="resetDropboxLabel" destination="byd-h1-fkB" id="amo-zt-Nl0"/>
                         <outlet property="touchIdSwitch" destination="Ovr-ca-gMy" id="uDd-fi-iEw"/>
                         <outlet property="weekStartDescLabel" destination="rU8-7L-rRS" id="Y1q-QI-gBb"/>

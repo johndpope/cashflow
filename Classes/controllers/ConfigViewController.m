@@ -28,6 +28,8 @@
     __weak IBOutlet UILabel *editCategoryLabel;
     __weak IBOutlet UILabel *passcodeLabel;
     __weak IBOutlet UILabel *resetDropboxLabel;
+    
+    __weak IBOutlet UISwitch *passcodeSwitch;
     __weak IBOutlet UISwitch *touchIdSwitch;
 }
 
@@ -51,6 +53,22 @@
 - (IBAction)doneAction:(id)sender
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+/**
+ * パスコード設定スイッチ変更
+ */
+- (IBAction)passcodeSwitchChanged:(id)sender {
+    PinController *pinController = [PinController sharedController];
+
+    if (passcodeSwitch.on) {
+        // パスコード設定
+        pinController = [PinController sharedController];
+        [pinController modifyPin:self];
+    } else {
+        // パスコード解除
+        [pinController deletePin];
+    }
 }
 
 - (IBAction)touchIdSwitchChanged:(id)sender {
@@ -78,6 +96,7 @@
 - (void)setupLabels
 {
     Config *config = [Config instance];
+    PinController *pinController = [PinController sharedController];
     
     dateFormatLabel.text = _L(@"Date style");
     switch (config.dateTimeMode) {
@@ -119,6 +138,7 @@
     
     resetDropboxLabel.text = _L(@"Unlink dropbox account");
 
+    passcodeSwitch.on = pinController.pin != nil;
     touchIdSwitch.on = config.useTouchId;
 }
 
@@ -202,8 +222,8 @@
             break;
             
         case 2:
-            pinController = [PinController sharedController];
-            [pinController modifyPin:self];
+            //pinController = [PinController sharedController];
+            //[pinController modifyPin:self];
             break;
             
         case 3:
