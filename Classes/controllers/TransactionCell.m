@@ -74,7 +74,7 @@
 
 - (void)setBalanceLabel:(double)balance
 {
-    _balanceLabel.text = [NSString stringWithFormat:@"%@ %@", _L(@"Balance"), 
+    _balanceLabel.text = [NSString stringWithFormat:@"%@ %@", _L(@"Bal."),
                           [CurrencyManager formatCurrency:balance]];
 }
 
