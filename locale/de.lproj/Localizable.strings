@@ -44,7 +44,7 @@
 "BackupNotation" = "Folge folgender URL mit deinem Browser auf deinem Mac oder PC:\n%@\nNach dem Download der Datei, druecke den Ablehnen Button.";
 "Network is unreachable." = "Network is unreachable.";
 "Cannot start web server." = "Webserver kann nicht gestartet werden";
-"OFXHeadString" = "Schneide und füge texte zwischen Anfang und Ende mithilfe des Texteditors ein und speichere als UTF-8 text dokument mit .ofx Ergänzung.";
+/*"OFXHeadString" = "Schneide und füge texte zwischen Anfang und Ende mithilfe des Texteditors ein und speichere als UTF-8 text dokument mit .ofx Ergänzung.";*/
 "No data" = "Keine Daten";
 "No data to be exported." = "Keine Daten zum exportieren.";
 "Delete Asset" = "Anlage Löschen";
@@ -63,6 +63,7 @@
 "Bank Account" = "Bankkonto";
 "Credit Card" = "Kreditkarte";
 "Investment Account" = "Anlagekonto";
+"Electric Money" = "Electric Money";
 "Data format" = "Datenformat";
 "OFX" = "OFX";
 "Export data within" = "Daten exportieren innerhalb:";
@@ -83,7 +84,7 @@
 "Cutoff date" = "Cutoff date";
 "End of month" = "Ende des Monats";
 "Currency" = "Währung";
-/* "(Write an inquiry here.)" = ""; */
+"(Write an inquiry here.)" = "(Write an inquiry here.)";
 "Yes" = "Yes";
 "No" = "No";
 "OK" = "OK";

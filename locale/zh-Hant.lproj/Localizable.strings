@@ -44,7 +44,7 @@
 "BackupNotation" = "在PC上的瀏覽器中輸入下列的網址：\n%@\n下載檔案後，點一下關閉按鈕。";
 "Network is unreachable." = "Network is unreachable.";
 "Cannot start web server." = "Web 伺服器無法啟動。";
-"OFXHeadString" = "剪下並貼上從文字編輯器開頭到結尾所有文字，另存成副檔名為 .ofx 的 'UTF-8' 文字檔。";
+//"OFXHeadString" = "剪下並貼上從文字編輯器開頭到結尾所有文字，另存成副檔名為 .ofx 的 'UTF-8' 文字檔。";
 "No data" = "沒有資料";
 "No data to be exported." = "沒有資料可以匯出";
 "Delete Asset" = "刪除此資產";
@@ -63,6 +63,7 @@
 "Bank Account" = "銀行帳戶";
 "Credit Card" = "信用卡";
 "Investment Account" = "投資帳戶";
+"Electric Money" = "Electric Money";
 "Data format" = "資料格式";
 "OFX" = "OFX";
 "Export data within" = "輸出資料於";

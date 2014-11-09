@@ -44,7 +44,7 @@
 "BackupNotation" = "以下の URL に PC のブラウザからアクセスしてください:\n%@\n完了したら閉じるボタンをタップしてください。";
 "Network is unreachable." = "ネットワークに接続されていません。";
 "Cannot start web server." = "Webサーバを起動できません。";
-"OFXHeadString" = "BEGIN と END に挟まれた部分のテキストをテキストエディタ(メモ帳など)にカット＆ペーストし、ファイルとして保存してください。このとき、漢字コードを必ず 'UTF-8' とし、拡張子は .ofx としてください。";
+// "OFXHeadString" = "BEGIN と END に挟まれた部分のテキストをテキストエディタ(メモ帳など)にカット＆ペーストし、ファイルとして保存してください。このとき、漢字コードを必ず 'UTF-8' とし、拡張子は .ofx としてください。";
 "No data" = "No data";
 "No data to be exported." = "エクスポートする対象データがありません";
 "Delete Asset" = "資産を削除";

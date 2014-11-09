@@ -44,7 +44,7 @@
 "BackupNotation" = "Access following URL with browser of your PC:\n%@\nAfter download the file, tap Dismiss button.";
 "Network is unreachable." = "Network is unreachable.";
 "Cannot start web server." = "Cannot start web server.";
-"OFXHeadString" = "Cut & paste text between BEGIN and END lines with text editor, and save as UTF-8 text file with .ofx extension.";
+// "OFXHeadString" = "Cut & paste text between BEGIN and END lines with text editor, and save as UTF-8 text file with .ofx extension.";
 "No data" = "No data";
 "No data to be exported." = "No data to be exported.";
 "Delete Asset" = "Delete Asset";

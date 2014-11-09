@@ -44,7 +44,7 @@
 "BackupNotation" = "Immetti il seguente URL sul tuo PC:\n%@\nDopo aver scaricato il file, clicka su escludi.";
 "Network is unreachable." = "Network is unreachable.";
 "Cannot start web server." = "Il browser non funziona.";
-"OFXHeadString" = "Copia e incolla il testo tra INIZIO e FINE con un editor di testo e salvalo come file di testo con estenzione .ofx.";
+//"OFXHeadString" = "Copia e incolla il testo tra INIZIO e FINE con un editor di testo e salvalo come file di testo con estenzione .ofx.";
 "No data" = "Nessun dato";
 "No data to be exported." = "Nessun dato sarà esportato.";
 "Delete Asset" = "Cancella Assetto";
@@ -63,6 +63,7 @@
 "Bank Account" = "Account Banca";
 "Credit Card" = "Carta di Credito";
 "Investment Account" = "Conto d'investimento";
+"Electric Money" = "Electric Money";
 "Data format" = "Formato File";
 "OFX" = "OFX";
 "Export data within" = "Esporta dati di";

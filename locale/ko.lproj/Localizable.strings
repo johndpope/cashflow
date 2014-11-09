@@ -44,7 +44,7 @@
 "BackupNotation" = "아래의 URL로 PC의 브라우저로 접속해주세요:\n%@\n다운로드가 완료되면 닫기 버튼을 누르세요.";
 "Network is unreachable." = "네트워크에 접속되어있지 않습니다.";
 "Cannot start web server." = "웹 서버를 기동할 수 없습니다.";
-"OFXHeadString" = "BEGIN 과 END 에 사이의 텍스트를 메모장등의 프로그램으로 복사&붙여넣기하여 파일로 저장하세요. 이 때 인코딩을 반드시 'UTF-8' 로 하고 확장자는 .ofx 로 하세요.";
+//"OFXHeadString" = "BEGIN 과 END 에 사이의 텍스트를 메모장등의 프로그램으로 복사&붙여넣기하여 파일로 저장하세요. 이 때 인코딩을 반드시 'UTF-8' 로 하고 확장자는 .ofx 로 하세요.";
 "No data" = "데이타 없음";
 "No data to be exported." = "내보내기할 데이터가 없습니다";
 "Delete Asset" = "자산 제거";
@@ -63,6 +63,7 @@
 "Bank Account" = "은행 계좌";
 "Credit Card" = "신용카드";
 "Investment Account" = "투자 계정";
+"Electric Money" = "Electric Money";
 "Data format" = "데이터 포맷";
 "OFX" = "OFX";
 "Export data within" = "내보내기 기한";
