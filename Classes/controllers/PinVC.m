@@ -188,7 +188,7 @@
     if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
         [context
          evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-         localizedReason:@"Unlock"
+         localizedReason:@"Unlock CashFlow"
          reply:^(BOOL success, NSError *error){
              if (success) {
                  [_delegate pinViewTouchIdFinished:self];
