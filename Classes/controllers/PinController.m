@@ -88,7 +88,7 @@ static PinController *thePinController = nil;
 
     // create PinViewController
     PinViewController *vc = [self _getPinViewController];
-    vc.title = _L(@"Enter PIN");
+    vc.title = _L(@"Enter passcode");
     vc.enableCancel = NO;
 
     _state = FIRST_PIN_CHECK;
@@ -109,11 +109,11 @@ static PinController *thePinController = nil;
     if (_pin != nil) {
         // check current pin
         _state = ENTER_CURRENT_PIN;
-        vc.title = _L(@"Enter PIN");
+        vc.title = _L(@"Enter passcode");
     } else {
         // enter 1st pin
         _state = ENTER_NEW_PIN1;
-        vc.title = _L(@"Enter new PIN");
+        vc.title = _L(@"Enter new passcode");
     }
         
     _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -149,7 +149,7 @@ static PinController *thePinController = nil;
         else if (_state == ENTER_CURRENT_PIN) {
             _state = ENTER_NEW_PIN1;
             newvc = [self _getPinViewController];        
-            newvc.title = _L(@"Enter new PIN");
+            newvc.title = _L(@"Enter new passcode");
         }
         break;
 
@@ -157,7 +157,7 @@ static PinController *thePinController = nil;
         self.pinNew = [NSString stringWithString:vc.value]; // TBD
         _state = ENTER_NEW_PIN2;
         newvc = [self _getPinViewController];        
-        newvc.title = _L(@"Retype new PIN");
+        newvc.title = _L(@"Retype new passcode");
         break;
 
     case ENTER_NEW_PIN2:
@@ -176,8 +176,8 @@ static PinController *thePinController = nil;
     // invalid pin
     if (isBadPin) {
         UIAlertView *v = [[UIAlertView alloc]
-                             initWithTitle:_L(@"Invalid PIN")
-                             message:_L(@"PIN code does not match.")
+                             initWithTitle:_L(@"Invalid passcode")
+                             message:_L(@"Passcode does not match.")
                              delegate:nil
                              cancelButtonTitle:@"Close"
                              otherButtonTitles:nil];
