@@ -31,12 +31,16 @@
     
     __weak IBOutlet UISwitch *passcodeSwitch;
     __weak IBOutlet UISwitch *touchIdSwitch;
+    
+    PinController *_pinController;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    _pinController = [PinController sharedController];
+    
     //[AppDelegate trackPageview:@"/ConfigViewController"];
     
     self.navigationItem.title = _L(@"Config");
@@ -47,7 +51,12 @@
              target:self
              action:@selector(doneAction:)];
     
-    [self setupLabels];
+    [self updateViews];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateViews];
 }
 
 - (IBAction)doneAction:(id)sender
@@ -59,15 +68,15 @@
  * パスコード設定スイッチ変更
  */
 - (IBAction)passcodeSwitchChanged:(id)sender {
-    PinController *pinController = [PinController sharedController];
-
     if (passcodeSwitch.on) {
         // パスコード設定
-        pinController = [PinController sharedController];
-        [pinController modifyPin:self];
+        [_pinController modifyPin:self];
     } else {
         // パスコード解除
-        [pinController deletePin];
+        [_pinController deletePin];
+        
+        // TableView 更新
+        [self.tableView reloadData];
     }
 }
 
@@ -75,11 +84,6 @@
     Config *config = [Config instance];
     config.useTouchId = touchIdSwitch.on;
     [config save];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self setupLabels];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,10 +97,12 @@
 #define ROW_CUTOFF_DATE 2
 #define ROW_CURRENCY 3
 
-- (void)setupLabels
+/**
+ * View 全更新
+ */
+- (void)updateViews
 {
     Config *config = [Config instance];
-    PinController *pinController = [PinController sharedController];
     
     dateFormatLabel.text = _L(@"Date style");
     switch (config.dateTimeMode) {
@@ -138,10 +144,45 @@
     
     resetDropboxLabel.text = _L(@"Unlink dropbox account");
 
-    passcodeSwitch.on = pinController.pin != nil;
+    passcodeSwitch.on = _pinController.pin != nil;
     touchIdSwitch.on = config.useTouchId;
+    
+    [self.tableView reloadData];
 }
 
+/**
+ * Touch ID セル表示切り替え
+ */
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Touch ID セルの表示切り替え
+    if ([self isTouchIdCell:indexPath]) {
+        cell.hidden = ![_pinController hasPin];
+    }
+}
+
+/**
+ * Touch ID セル高さ切り替え
+ */
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self isTouchIdCell:indexPath] && ![_pinController hasPin]) {
+        return 0;
+    }
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+/**
+ * Touch ID Cell 識別
+ */
+- (BOOL)isTouchIdCell:(NSIndexPath *)indexPath
+{
+    return indexPath.section == 2 && indexPath.row == 1;
+}
+
+/**
+ * セル選択時の処理
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Config *config = [Config instance];
@@ -149,7 +190,6 @@
     GenSelectListViewController *gt = nil;
     NSMutableArray *typeArray;
     CategoryListViewController *categoryVC;
-    PinController *pinController;
     DropboxBackup *dbb;
 
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -233,6 +273,9 @@
     }
 }
 
+/**
+ * 選択リスト決定時の処理
+ */
 - (BOOL)genSelectListViewChanged:(GenSelectListViewController *)vc identifier:(NSInteger)id
 {
     Config *config = [Config instance];

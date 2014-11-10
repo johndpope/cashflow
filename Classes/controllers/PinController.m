@@ -53,6 +53,11 @@ static PinController *thePinController = nil;
     return self;
 }
 
+- (BOOL)hasPin
+{
+    return self.pin != nil;
+}
+
 - (void)deletePin
 {
     self.pin = nil;
@@ -61,6 +66,8 @@ static PinController *thePinController = nil;
 
 - (void)_savePin:(NSString *)pin
 {
+    self.pin = pin;
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:pin forKey:@"PinCode"];
     [defaults synchronize];

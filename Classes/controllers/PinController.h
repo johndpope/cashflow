@@ -21,6 +21,7 @@
 - (void)firstPinCheck:(UIViewController *)currentVc;
 - (void)modifyPin:(UIViewController *)currentVc;
 
+- (BOOL)hasPin;
 - (void)deletePin;
 
 // for debug / test

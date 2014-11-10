@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "GenSelectListVC.h"
 
-@interface ConfigViewController : UITableViewController <GenSelectListViewDelegate>
+@interface ConfigViewController : UITableViewController <UITableViewDelegate, GenSelectListViewDelegate>
 
 - (IBAction)doneAction:(id)sender;
 
