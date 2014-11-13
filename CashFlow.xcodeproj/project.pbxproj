@@ -132,16 +132,10 @@
 		3E347BB5169DC7CF002307AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E347BB1169DC7B0002307AA /* CoreData.framework */; };
 		3E35661A1189697E007DAF44 /* WebServerBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3566191189697E007DAF44 /* WebServerBackup.m */; };
 		3E35661B1189697E007DAF44 /* WebServerBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3566191189697E007DAF44 /* WebServerBackup.m */; };
-		3E38C69D17F6A47400A00CE0 /* AssetListVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E38C69217F6A47400A00CE0 /* AssetListVCTests.m */; };
-		3E38C69F17F6A47400A00CE0 /* ViewControllerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E38C69717F6A47400A00CE0 /* ViewControllerTestCase.m */; };
-		3E38C6A017F6A47400A00CE0 /* EditDescVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E38C69817F6A47400A00CE0 /* EditDescVCTests.m */; };
-		3E38C6A217F6A47400A00CE0 /* PinControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E38C69B17F6A47400A00CE0 /* PinControllerTests.m */; };
-		3E38C6A317F6A47400A00CE0 /* PinVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E38C69C17F6A47400A00CE0 /* PinVCTests.m */; };
 		3E3F525014651654005CBD9A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
 		3E3F525114651654005CBD9A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
 		3E3F525214651654005CBD9A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF966FD1464FD3900A24626 /* libsqlite3.dylib */; };
 		3E4344F117F70D7600B45E1F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; };
-		3E44CFC117F69BF700E54901 /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED9131132A236D009DE68B /* TestCommon.m */; };
 		3E4A7D25131FB94B0008C37D /* CashflowDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D22131FB94B0008C37D /* CashflowDatabase.m */; };
 		3E4A7D26131FB94B0008C37D /* DateFormatter2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D24131FB94B0008C37D /* DateFormatter2.m */; };
 		3E4A7D27131FB94B0008C37D /* CashflowDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A7D22131FB94B0008C37D /* CashflowDatabase.m */; };
@@ -255,7 +249,6 @@
 		3EE62A2B10D7EA0100EB7399 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EF1523F1462C2B300C724E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF152401462C2B300C724E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EF152441462C2B300C724E4 /* InfoPlist.strings */; };
 		3EF1526B1462C37900C724E4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0AC6AD13A786E8006F505C /* CFNetwork.framework */; };
 		3EF1526C1462C37D00C724E4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E338212133211C500861610 /* Security.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3EF1526E1462C38800C724E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E13EE58114007D600523938 /* AVFoundation.framework */; };
@@ -266,17 +259,6 @@
 		3EF152741462C38800C724E4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */; };
 		3EF152751462C38800C724E4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3EF152761462C38800C724E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E035E9A1182B6E000711865 /* SystemConfiguration.framework */; };
-		3EF1528B1462CA8500C724E4 /* AssetEntryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152811462CA8500C724E4 /* AssetEntryTests.m */; };
-		3EF1528C1462CA8500C724E4 /* AssetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152821462CA8500C724E4 /* AssetTests.m */; };
-		3EF1528D1462CA8500C724E4 /* CurrencyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152831462CA8500C724E4 /* CurrencyManagerTests.m */; };
-		3EF1528E1462CA8500C724E4 /* DataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152841462CA8500C724E4 /* DataModelTests.m */; };
-		3EF1528F1462CA8500C724E4 /* DescLRUManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152851462CA8500C724E4 /* DescLRUManagerTests.m */; };
-		3EF152901462CA8500C724E4 /* JournalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152861462CA8500C724E4 /* JournalTests.m */; };
-		3EF152911462CA8500C724E4 /* LedgerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152871462CA8500C724E4 /* LedgerTests.m */; };
-		3EF152921462CA8500C724E4 /* ReportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152881462CA8500C724E4 /* ReportTests.m */; };
-		3EF152931462CA8500C724E4 /* TimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF152891462CA8500C724E4 /* TimeTests.m */; };
-		3EF152941462CA8500C724E4 /* TransactionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1528A1462CA8500C724E4 /* TransactionTests.m */; };
-		3EF1529F1462CCDD00C724E4 /* testdata1.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1529D1462CCDA00C724E4 /* testdata1.sql */; };
 		3EF1716F133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF17170133A2528002C818E /* artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF1716E133A2528002C818E /* artwork.jpg */; };
 		3EF5F4FF145AEB78006C3F3A /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */; };
@@ -298,8 +280,26 @@
 		3EFDC2DD18314BAC00070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFDC2DE18314BB900070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
 		3EFDC2DF18314D5500070F72 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */; };
+		662AB12482FD2CE7593FD54C /* PinControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB4FA3A3D31822B02B065 /* PinControllerTests.m */; };
 		662AB1336AD22E95E3570DB5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662AB9ED9DFCC8F292D57BA8 /* LocalAuthentication.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		662AB259CBAA4A4D686B8FE7 /* ViewControllerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB4A2307B1C969DF62F57 /* ViewControllerTestCase.m */; };
+		662AB3EEBE8359B2C44F885F /* TestCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB001A9958896013FA894 /* TestCommon.m */; };
+		662AB3F4E233DAFD6A216A9B /* PinVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABF4EAE053DFFBB925491 /* PinVCTests.m */; };
+		662AB42368874E330C5451F2 /* DataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB79B95B87D749EA03CBF /* DataModelTests.m */; };
+		662AB5290BA65A5E254DA9CA /* TimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB119875202C3CFD13515 /* TimeTests.m */; };
+		662AB5D51A8462384571543A /* CurrencyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABCA4032D8C12FC18DEA9 /* CurrencyManagerTests.m */; };
+		662AB6C912BE7D6B0D43E3CF /* ReportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB114258914291C3316FE /* ReportTests.m */; };
+		662AB964EC29A3CDA1E8E4D7 /* testdata1.sql in Resources */ = {isa = PBXBuildFile; fileRef = 662ABA6118F7DA3277EB8407 /* testdata1.sql */; };
+		662AB9FDF77C72C3E37BF9C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 662ABAC3CE5F4C8B308C5A02 /* InfoPlist.strings */; };
+		662ABA395B0AF6A61160E653 /* TransactionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB1C7750C5BC665D2901D /* TransactionTests.m */; };
+		662ABACE6F699F4A130E8870 /* AssetEntryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB5B6F770639E277F6FC4 /* AssetEntryTests.m */; };
+		662ABB6F3508462E039D9ABC /* DescLRUManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB18470F16EC138A8E42C /* DescLRUManagerTests.m */; };
+		662ABBE44572B63DD363A17A /* AssetListVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB65EEB4F00F6B04073C7 /* AssetListVCTests.m */; };
+		662ABC0FDA8B6AF845871609 /* LedgerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB263111447B37A3E9A60 /* LedgerTests.m */; };
+		662ABC6837E8C5709A5DE594 /* JournalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABC7E3FEE6245876F1B50 /* JournalTests.m */; };
 		662ABCBBE88473E97FB17DAB /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662AB9ED9DFCC8F292D57BA8 /* LocalAuthentication.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		662ABD51B132C111EDBDD3C0 /* EditDescVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB8BF186568524BD6F97B /* EditDescVCTests.m */; };
+		662ABD5E00E8804F981EE235 /* AssetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABC0BBC45BD44C15D714B /* AssetTests.m */; };
 		662ABF042574B1352DA5F9B1 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662AB9ED9DFCC8F292D57BA8 /* LocalAuthentication.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		977AFB7F161A4A21B9DC734B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 914D96536A094E7EAB063096 /* libPods.a */; };
 		CC9BF0CD63904CB28D3CCC88 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 914D96536A094E7EAB063096 /* libPods.a */; };
@@ -435,12 +435,6 @@
 		3E347BB1169DC7B0002307AA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3E3566181189697E007DAF44 /* WebServerBackup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServerBackup.h; sourceTree = "<group>"; };
 		3E3566191189697E007DAF44 /* WebServerBackup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServerBackup.m; sourceTree = "<group>"; };
-		3E38C69217F6A47400A00CE0 /* AssetListVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetListVCTests.m; sourceTree = "<group>"; };
-		3E38C69617F6A47400A00CE0 /* ViewControllerTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTestCase.h; sourceTree = "<group>"; };
-		3E38C69717F6A47400A00CE0 /* ViewControllerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTestCase.m; sourceTree = "<group>"; };
-		3E38C69817F6A47400A00CE0 /* EditDescVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDescVCTests.m; sourceTree = "<group>"; };
-		3E38C69B17F6A47400A00CE0 /* PinControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinControllerTests.m; sourceTree = "<group>"; };
-		3E38C69C17F6A47400A00CE0 /* PinVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinVCTests.m; sourceTree = "<group>"; };
 		3E4A7D21131FB94B0008C37D /* CashflowDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashflowDatabase.h; sourceTree = "<group>"; };
 		3E4A7D22131FB94B0008C37D /* CashflowDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashflowDatabase.m; sourceTree = "<group>"; };
 		3E4A7D23131FB94B0008C37D /* DateFormatter2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateFormatter2.h; sourceTree = "<group>"; };
@@ -497,25 +491,9 @@
 		3ED97C260F1A0E8E0063A578 /* BackupServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupServer.h; sourceTree = "<group>"; };
 		3ED97C270F1A0E8E0063A578 /* BackupServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupServer.m; sourceTree = "<group>"; };
 		3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		3EED9130132A236D009DE68B /* TestCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCommon.h; sourceTree = "<group>"; };
-		3EED9131132A236D009DE68B /* TestCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCommon.m; sourceTree = "<group>"; };
 		3EEED4E112F59C1200C67F4C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EEED4E212F59C2E00C67F4C /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EF1523D1462C2B300C724E4 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3EF152431462C2B300C724E4 /* LogicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LogicTests-Info.plist"; sourceTree = "<group>"; };
-		3EF152451462C2B300C724E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3EF1524A1462C2B300C724E4 /* LogicTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogicTests-Prefix.pch"; sourceTree = "<group>"; };
-		3EF152811462CA8500C724E4 /* AssetEntryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetEntryTests.m; sourceTree = "<group>"; };
-		3EF152821462CA8500C724E4 /* AssetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetTests.m; sourceTree = "<group>"; };
-		3EF152831462CA8500C724E4 /* CurrencyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyManagerTests.m; sourceTree = "<group>"; };
-		3EF152841462CA8500C724E4 /* DataModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelTests.m; sourceTree = "<group>"; };
-		3EF152851462CA8500C724E4 /* DescLRUManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescLRUManagerTests.m; sourceTree = "<group>"; };
-		3EF152861462CA8500C724E4 /* JournalTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JournalTests.m; sourceTree = "<group>"; };
-		3EF152871462CA8500C724E4 /* LedgerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerTests.m; sourceTree = "<group>"; };
-		3EF152881462CA8500C724E4 /* ReportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportTests.m; sourceTree = "<group>"; };
-		3EF152891462CA8500C724E4 /* TimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTests.m; sourceTree = "<group>"; };
-		3EF1528A1462CA8500C724E4 /* TransactionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTests.m; sourceTree = "<group>"; };
-		3EF1529D1462CCDA00C724E4 /* testdata1.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testdata1.sql; path = testdata/testdata1.sql; sourceTree = "<group>"; };
 		3EF1716E133A2528002C818E /* artwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = artwork.jpg; sourceTree = "<group>"; };
 		3EF5F4FD145AEB78006C3F3A /* DBLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLoadingView.h; sourceTree = "<group>"; };
 		3EF5F4FE145AEB78006C3F3A /* DBLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLoadingView.m; sourceTree = "<group>"; };
@@ -532,7 +510,29 @@
 		3EFDC2C41831495600070F72 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
 		3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterIMobile.a; sourceTree = "<group>"; };
 		3EFDC2DC18314BAC00070F72 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileCoreServices.framework; sourceTree = "<group>"; };
+		662AB001A9958896013FA894 /* TestCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCommon.m; sourceTree = "<group>"; };
+		662AB114258914291C3316FE /* ReportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportTests.m; sourceTree = "<group>"; };
+		662AB119875202C3CFD13515 /* TimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTests.m; sourceTree = "<group>"; };
+		662AB18470F16EC138A8E42C /* DescLRUManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescLRUManagerTests.m; sourceTree = "<group>"; };
+		662AB1B4CEC8AFE20AE85E01 /* LogicTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LogicTests-Prefix.pch"; sourceTree = "<group>"; };
+		662AB1C7750C5BC665D2901D /* TransactionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTests.m; sourceTree = "<group>"; };
+		662AB263111447B37A3E9A60 /* LedgerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LedgerTests.m; sourceTree = "<group>"; };
+		662AB4A2307B1C969DF62F57 /* ViewControllerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTestCase.m; sourceTree = "<group>"; };
+		662AB4FA3A3D31822B02B065 /* PinControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinControllerTests.m; sourceTree = "<group>"; };
+		662AB5B6F770639E277F6FC4 /* AssetEntryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetEntryTests.m; sourceTree = "<group>"; };
+		662AB65EEB4F00F6B04073C7 /* AssetListVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetListVCTests.m; sourceTree = "<group>"; };
+		662AB67AFDF6279282F327C1 /* TestCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCommon.h; sourceTree = "<group>"; };
+		662AB71363CDB3F1D9806E65 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		662AB79B95B87D749EA03CBF /* DataModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelTests.m; sourceTree = "<group>"; };
+		662AB8BF186568524BD6F97B /* EditDescVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDescVCTests.m; sourceTree = "<group>"; };
 		662AB9ED9DFCC8F292D57BA8 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		662ABA6118F7DA3277EB8407 /* testdata1.sql */ = {isa = PBXFileReference; lastKnownFileType = file.sql; name = testdata1.sql; path = testdata/testdata1.sql; sourceTree = "<group>"; };
+		662ABC0BBC45BD44C15D714B /* AssetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetTests.m; sourceTree = "<group>"; };
+		662ABC6E2E2273E1CE77A5B3 /* ViewControllerTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTestCase.h; sourceTree = "<group>"; };
+		662ABC7E3FEE6245876F1B50 /* JournalTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JournalTests.m; sourceTree = "<group>"; };
+		662ABCA4032D8C12FC18DEA9 /* CurrencyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyManagerTests.m; sourceTree = "<group>"; };
+		662ABCCD3B0BAF2E82DBEBD0 /* LogicTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "LogicTests-Info.plist"; sourceTree = "<group>"; };
+		662ABF4EAE053DFFBB925491 /* PinVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinVCTests.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		914D96536A094E7EAB063096 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDCD330507C283D40CC835A0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -666,9 +666,8 @@
 				3EF054671182D9CC00411C71 /* Resources-iPad */,
 				3E2CBD9B0F1614E90025A682 /* locale */,
 				3EB5406B0E8E907B00608B77 /* images */,
+				662AB06234EC43452C2CD32C /* CashFlowTests */,
 				3E6C501A157E3F0C0086C20E /* Libraries */,
-				3EF152411462C2B300C724E4 /* LogicTests */,
-				3E38C69117F6A47400A00CE0 /* ApplicationTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				3E4DA8B20EAB6DE4001FBB70 /* Entitlements.plist */,
@@ -822,27 +821,6 @@
 				3E2CBD9F0F1615470025A682 /* Localizable.strings */,
 			);
 			path = locale;
-			sourceTree = "<group>";
-		};
-		3E38C69117F6A47400A00CE0 /* ApplicationTests */ = {
-			isa = PBXGroup;
-			children = (
-				3E38C69217F6A47400A00CE0 /* AssetListVCTests.m */,
-				3E38C69817F6A47400A00CE0 /* EditDescVCTests.m */,
-				3E38C69B17F6A47400A00CE0 /* PinControllerTests.m */,
-				3E38C69C17F6A47400A00CE0 /* PinVCTests.m */,
-				3E38C69517F6A47400A00CE0 /* Common */,
-			);
-			path = ApplicationTests;
-			sourceTree = "<group>";
-		};
-		3E38C69517F6A47400A00CE0 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				3E38C69617F6A47400A00CE0 /* ViewControllerTestCase.h */,
-				3E38C69717F6A47400A00CE0 /* ViewControllerTestCase.m */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		3E6C501A157E3F0C0086C20E /* Libraries */ = {
@@ -1029,53 +1007,6 @@
 			path = "Resources-iPad";
 			sourceTree = "<group>";
 		};
-		3EF152411462C2B300C724E4 /* LogicTests */ = {
-			isa = PBXGroup;
-			children = (
-				3EF152811462CA8500C724E4 /* AssetEntryTests.m */,
-				3EF152821462CA8500C724E4 /* AssetTests.m */,
-				3EF152831462CA8500C724E4 /* CurrencyManagerTests.m */,
-				3EF152841462CA8500C724E4 /* DataModelTests.m */,
-				3EF152851462CA8500C724E4 /* DescLRUManagerTests.m */,
-				3EF152861462CA8500C724E4 /* JournalTests.m */,
-				3EF152871462CA8500C724E4 /* LedgerTests.m */,
-				3EF152881462CA8500C724E4 /* ReportTests.m */,
-				3EF152891462CA8500C724E4 /* TimeTests.m */,
-				3EF1528A1462CA8500C724E4 /* TransactionTests.m */,
-				3EF152971462CBE300C724E4 /* Common */,
-				3EF152421462C2B300C724E4 /* Supporting Files */,
-				3EF1529C1462CCBC00C724E4 /* testdata */,
-			);
-			path = LogicTests;
-			sourceTree = "<group>";
-		};
-		3EF152421462C2B300C724E4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3EF152431462C2B300C724E4 /* LogicTests-Info.plist */,
-				3EF152441462C2B300C724E4 /* InfoPlist.strings */,
-				3EF1524A1462C2B300C724E4 /* LogicTests-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3EF152971462CBE300C724E4 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				3EED9130132A236D009DE68B /* TestCommon.h */,
-				3EED9131132A236D009DE68B /* TestCommon.m */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		3EF1529C1462CCBC00C724E4 /* testdata */ = {
-			isa = PBXGroup;
-			children = (
-				3EF1529D1462CCDA00C724E4 /* testdata1.sql */,
-			);
-			name = testdata;
-			sourceTree = "<group>";
-		};
 		3EFDC2BF1831490800070F72 /* AdapterNend */ = {
 			isa = PBXGroup;
 			children = (
@@ -1095,6 +1026,83 @@
 				3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */,
 			);
 			path = AdapterIMobile;
+			sourceTree = "<group>";
+		};
+		662AB06234EC43452C2CD32C /* CashFlowTests */ = {
+			isa = PBXGroup;
+			children = (
+				662AB7140300035003CEB414 /* ApplicationTests */,
+				662ABFBD65BC3B2EB91EADCD /* LogicTests */,
+			);
+			path = CashFlowTests;
+			sourceTree = "<group>";
+		};
+		662AB2BFAF067C2DB443613D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				662ABC6E2E2273E1CE77A5B3 /* ViewControllerTestCase.h */,
+				662AB4A2307B1C969DF62F57 /* ViewControllerTestCase.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		662AB6289EDF57F52B01FB0E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				662AB67AFDF6279282F327C1 /* TestCommon.h */,
+				662AB001A9958896013FA894 /* TestCommon.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		662AB7140300035003CEB414 /* ApplicationTests */ = {
+			isa = PBXGroup;
+			children = (
+				662AB65EEB4F00F6B04073C7 /* AssetListVCTests.m */,
+				662AB8BF186568524BD6F97B /* EditDescVCTests.m */,
+				662AB4FA3A3D31822B02B065 /* PinControllerTests.m */,
+				662ABF4EAE053DFFBB925491 /* PinVCTests.m */,
+				662AB2BFAF067C2DB443613D /* Common */,
+			);
+			path = ApplicationTests;
+			sourceTree = "<group>";
+		};
+		662AB9C58D97809F43D54127 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				662ABCCD3B0BAF2E82DBEBD0 /* LogicTests-Info.plist */,
+				662ABAC3CE5F4C8B308C5A02 /* InfoPlist.strings */,
+				662AB1B4CEC8AFE20AE85E01 /* LogicTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		662ABF37CBC04DDC23015463 /* testdata */ = {
+			isa = PBXGroup;
+			children = (
+				662ABA6118F7DA3277EB8407 /* testdata1.sql */,
+			);
+			name = testdata;
+			sourceTree = "<group>";
+		};
+		662ABFBD65BC3B2EB91EADCD /* LogicTests */ = {
+			isa = PBXGroup;
+			children = (
+				662AB5B6F770639E277F6FC4 /* AssetEntryTests.m */,
+				662ABC0BBC45BD44C15D714B /* AssetTests.m */,
+				662ABCA4032D8C12FC18DEA9 /* CurrencyManagerTests.m */,
+				662AB79B95B87D749EA03CBF /* DataModelTests.m */,
+				662AB18470F16EC138A8E42C /* DescLRUManagerTests.m */,
+				662ABC7E3FEE6245876F1B50 /* JournalTests.m */,
+				662AB263111447B37A3E9A60 /* LedgerTests.m */,
+				662AB114258914291C3316FE /* ReportTests.m */,
+				662AB119875202C3CFD13515 /* TimeTests.m */,
+				662AB1C7750C5BC665D2901D /* TransactionTests.m */,
+				662AB6289EDF57F52B01FB0E /* Common */,
+				662AB9C58D97809F43D54127 /* Supporting Files */,
+				662ABF37CBC04DDC23015463 /* testdata */,
+			);
+			path = LogicTests;
 			sourceTree = "<group>";
 		};
 		FE28B2A2BF7496AB709D49A0 /* Pods */ = {
@@ -1299,7 +1307,6 @@
 				3EFC6665185F28ED00216FD3 /* EditDescView.storyboard in Resources */,
 				3E3359451857283D004C722D /* images.xcassets in Resources */,
 				3EFC665D185E2E0C00216FD3 /* BackupView.storyboard in Resources */,
-				3EF152461462C2B300C724E4 /* InfoPlist.strings in Resources */,
 				3E5CD994185DD6BB0067A42B /* AssetListView.storyboard in Resources */,
 				3EFC666D185F311100216FD3 /* ExportView.storyboard in Resources */,
 				3EFC6669185F2F8D00216FD3 /* EditDateView.storyboard in Resources */,
@@ -1309,7 +1316,8 @@
 				3E2F020A18609FA600CA6C36 /* InfoView.storyboard in Resources */,
 				3E5CD9A4185E0D0A0067A42B /* ConfigView.storyboard in Resources */,
 				3E5CD9A0185DFFEA0067A42B /* ReportView.storyboard in Resources */,
-				3EF1529F1462CCDD00C724E4 /* testdata1.sql in Resources */,
+				662AB9FDF77C72C3E37BF9C5 /* InfoPlist.strings in Resources */,
+				662AB964EC29A3CDA1E8E4D7 /* testdata1.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1582,25 +1590,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E0B626719D1E16E0042B652 /* CurrencyManager.swift in Sources */,
-				3E44CFC117F69BF700E54901 /* TestCommon.m in Sources */,
-				3E38C69D17F6A47400A00CE0 /* AssetListVCTests.m in Sources */,
-				3EF1528B1462CA8500C724E4 /* AssetEntryTests.m in Sources */,
-				3E38C6A017F6A47400A00CE0 /* EditDescVCTests.m in Sources */,
-				3EF1528C1462CA8500C724E4 /* AssetTests.m in Sources */,
 				3E8AD9FC19D177C70073B05A /* SwiftUtils.swift in Sources */,
-				3EF1528D1462CA8500C724E4 /* CurrencyManagerTests.m in Sources */,
-				3E38C6A217F6A47400A00CE0 /* PinControllerTests.m in Sources */,
-				3EF1528E1462CA8500C724E4 /* DataModelTests.m in Sources */,
 				3E8AD9F819D16D6F0073B05A /* InfoViewController.swift in Sources */,
-				3EF1528F1462CA8500C724E4 /* DescLRUManagerTests.m in Sources */,
-				3EF152901462CA8500C724E4 /* JournalTests.m in Sources */,
-				3E38C6A317F6A47400A00CE0 /* PinVCTests.m in Sources */,
-				3EF152911462CA8500C724E4 /* LedgerTests.m in Sources */,
-				3EF152921462CA8500C724E4 /* ReportTests.m in Sources */,
-				3E38C69F17F6A47400A00CE0 /* ViewControllerTestCase.m in Sources */,
-				3EF152931462CA8500C724E4 /* TimeTests.m in Sources */,
-				3EF152941462CA8500C724E4 /* TransactionTests.m in Sources */,
 				3E9F45DF19FD3E7000DEA372 /* CFCalendarViewController.m in Sources */,
+				662ABBE44572B63DD363A17A /* AssetListVCTests.m in Sources */,
+				662ABD51B132C111EDBDD3C0 /* EditDescVCTests.m in Sources */,
+				662AB12482FD2CE7593FD54C /* PinControllerTests.m in Sources */,
+				662AB3F4E233DAFD6A216A9B /* PinVCTests.m in Sources */,
+				662AB259CBAA4A4D686B8FE7 /* ViewControllerTestCase.m in Sources */,
+				662ABACE6F699F4A130E8870 /* AssetEntryTests.m in Sources */,
+				662ABD5E00E8804F981EE235 /* AssetTests.m in Sources */,
+				662AB5D51A8462384571543A /* CurrencyManagerTests.m in Sources */,
+				662AB42368874E330C5451F2 /* DataModelTests.m in Sources */,
+				662ABB6F3508462E039D9ABC /* DescLRUManagerTests.m in Sources */,
+				662ABC6837E8C5709A5DE594 /* JournalTests.m in Sources */,
+				662ABC0FDA8B6AF845871609 /* LedgerTests.m in Sources */,
+				662AB6C912BE7D6B0D43E3CF /* ReportTests.m in Sources */,
+				662AB5290BA65A5E254DA9CA /* TimeTests.m in Sources */,
+				662ABA395B0AF6A61160E653 /* TransactionTests.m in Sources */,
+				662AB3EEBE8359B2C44F885F /* TestCommon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1632,10 +1640,10 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		3EF152441462C2B300C724E4 /* InfoPlist.strings */ = {
+		662ABAC3CE5F4C8B308C5A02 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3EF152451462C2B300C724E4 /* en */,
+				662AB71363CDB3F1D9806E65 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1773,13 +1781,13 @@
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LogicTests/LogicTests-Prefix.pch";
+				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				INFOPLIST_FILE = "LogicTests/LogicTests-Info.plist";
+				INFOPLIST_FILE = "CashFlowTests/CashFlowTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1809,9 +1817,9 @@
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LogicTests/LogicTests-Prefix.pch";
+				GCC_PREFIX_HEADER = CashFlow_Prefix.pch;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				INFOPLIST_FILE = "LogicTests/LogicTests-Info.plist";
+				INFOPLIST_FILE = "CashFlowTests/CashFlowTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
