@@ -58,7 +58,7 @@
     [super setUp];
 
     [PinController _deleteSingleton];
-    mPinController = [PinController pinController];
+    mPinController = [PinController sharedController];
 
     //[self.vc viewDidLoad]; // ###
     //[self.vc viewWillAppear:YES]; // ###
@@ -78,7 +78,7 @@
     [mPinController firstPinCheck:self.vc];
     // この時点で、Pin チェック完了したため、PinController の singleton は削除されているはず
     
-    PinController *new = [PinController pinController];
+    PinController *new = [PinController sharedController];
     XCTAssert(new != saved);
     
     // modal view がでていないことを確認する
@@ -94,7 +94,7 @@
     [mPinController firstPinCheck:self.vc];
 
     // Pin があるため、この時点ではまだ終了していないはず
-    PinController *new = [PinController pinController];
+    PinController *new = [PinController sharedController];
     XCTAssert(new == saved);
     
     // modal view が出ていることを確認する
