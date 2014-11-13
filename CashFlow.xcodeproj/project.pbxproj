@@ -60,8 +60,6 @@
 		3EB88E8417F6B5590045780D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8317F6B5590045780D /* libz.dylib */; };
 		3EB88E8517F6B5680045780D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8317F6B5590045780D /* libz.dylib */; };
 		3EB88E8617F6B5680045780D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8317F6B5590045780D /* libz.dylib */; };
-		3EB88E8817F6FAE10045780D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EB88E8717F6FAE10045780D /* Images.xcassets */; };
-		3EB88E8917F6FC970045780D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EB88E8717F6FAE10045780D /* Images.xcassets */; };
 		3EB88E8D17F700B00045780D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3EB88E8E17F702170045780D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; };
 		3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -346,7 +344,6 @@
 		3EB691E119AA375C00C83C45 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImageIO.framework; sourceTree = "<group>"; };
 		3EB691E519AA3B9800C83C45 /* ImobileSdkAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImobileSdkAds.framework; sourceTree = "<group>"; };
 		3EB88E8317F6B5590045780D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		3EB88E8717F6FAE10045780D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CashFlow/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		3EB88E8B17F6FD370045780D /* CashFlowFree.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CashFlowFree.entitlements; sourceTree = "<group>"; };
 		3EB88E8C17F700B00045780D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StoreKit.framework; sourceTree = "<group>"; };
 		3EC572D61107451F00A551D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -829,13 +826,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		662AB2D9FCE89AFB4A83B990 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = iPad;
-			sourceTree = "<group>";
-		};
 		662AB3B76045EC38F7350A95 /* Asset */ = {
 			isa = PBXGroup;
 			children = (
@@ -890,8 +880,6 @@
 		662AB653E7D74F9EA0577835 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3EB88E8717F6FAE10045780D /* Images.xcassets */,
-				662AB2D9FCE89AFB4A83B990 /* iPad */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1258,7 +1246,6 @@
 			files = (
 				3E4DA8B30EAB6DE4001FBB70 /* Entitlements.plist in Resources */,
 				3E2CBDA00F1615470025A682 /* Localizable.strings in Resources */,
-				3EB88E8817F6FAE10045780D /* Images.xcassets in Resources */,
 				3EF1716F133A2528002C818E /* artwork.jpg in Resources */,
 				662ABA16D73263CBA361C8B5 /* ConfigView.storyboard in Resources */,
 				662AB240A402D571C6A9123B /* EditMemoView.xib in Resources */,
@@ -1290,7 +1277,6 @@
 			files = (
 				3E8B25840F348C090007929E /* Entitlements.plist in Resources */,
 				3E8B25910F348C090007929E /* Localizable.strings in Resources */,
-				3EB88E8917F6FC970045780D /* Images.xcassets in Resources */,
 				3EF17170133A2528002C818E /* artwork.jpg in Resources */,
 				662AB1FBA94D123DE73E8732 /* ConfigView.storyboard in Resources */,
 				662AB292B6820E4ADC26E601 /* EditMemoView.xib in Resources */,
