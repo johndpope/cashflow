@@ -6,6 +6,7 @@
 "Deposit" = "Deposit";
 "Info" = "Info";
 "Name" = "Name";
+"Description" = "Description";
 "Memo" = "Memo";
 "Payment" = "Payment";
 "History" = "History";

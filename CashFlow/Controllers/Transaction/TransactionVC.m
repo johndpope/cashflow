@@ -348,7 +348,11 @@
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         CGRect rect = cell.frame;
-        [_currentPopoverController presentPopoverFromRect:rect inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+
+        // iOS8バグワークアラウンド。dispatch_asyncしないと遅い上に挙動がおかしい。
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_currentPopoverController presentPopoverFromRect:rect inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        });
     } else {
         [nc pushViewController:vc animated:YES];
     }
