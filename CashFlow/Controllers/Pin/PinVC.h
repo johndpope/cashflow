@@ -22,6 +22,7 @@
 @property(nonatomic,unsafe_unretained) id<PinViewDelegate> delegate;
 @property(nonatomic,strong) NSMutableString *value;
 @property(nonatomic,assign) BOOL enableCancel;
+@property(nonatomic,assign) BOOL doTouchIdAuth;
 
 - (void)tryTouchId;
 

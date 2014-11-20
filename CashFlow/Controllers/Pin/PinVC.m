@@ -32,6 +32,8 @@
     NSMutableString *_value;
     BOOL _enableCancel;
     id<PinViewDelegate> __unsafe_unretained _delegate;
+    
+    BOOL _touchIdAuthenticating;
 }
 @end
 
@@ -49,6 +51,7 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"viewDidLoad");
     [super viewDidLoad];
     
     // iOS7 hack
@@ -79,11 +82,32 @@
     [nc addObserver:self selector:@selector(willEnterForeground) name:@"willEnterForeground" object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"viewWillAppear");
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"viewDidAppear");
+    [super viewDidAppear:animated];
+    
+    // 通常起動時用
+    if (self.doTouchIdAuth) {
+        [self tryTouchId];
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (IBAction)onNumButtonDown:(id)sender
 {
@@ -166,7 +190,7 @@
 - (void)willEnterForeground
 {
     NSLog(@"PinViewController : willEnterForeground");
-    [self tryTouchId];
+    //[self tryTouchId];
 }
 
 /**
@@ -180,6 +204,34 @@
     if (![Config instance].useTouchId) {
         return; // TouchID 使用しない
     }
+    
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {
+        [self _doTouchId];
+    } else {
+        // アプリケーションがまだ　active になっていないので、active になるまで待つ。
+        //NSLog(@"Not active!");
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(applicationDidBecomeActive:)
+         name:UIApplicationDidBecomeActiveNotification
+         object:nil];
+    }
+}
+
+- (void)applicationDidBecomeActive:(NSNotification *)notif
+{
+    NSLog(@"didBecomeActive");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self _doTouchId];
+}
+
+- (void)_doTouchId {
+    if (_touchIdAuthenticating) {
+        return; // 二重起動防止
+    }
+    _touchIdAuthenticating = YES;
+    
+    NSLog(@"tryTouchId");
 
     // Touch ID
     LAContext *context = [LAContext new];
@@ -191,7 +243,12 @@
          localizedReason:@"Unlock CashFlow"
          reply:^(BOOL success, NSError *error){
              if (success) {
-                 [_delegate pinViewTouchIdFinished:self];
+                 NSLog(@"tryToudhId ok");
+                 dispatch_async(dispatch_get_main_queue(), ^ {
+                     [_delegate pinViewTouchIdFinished:self];
+                 });
+             } else {
+                 NSLog(@"tryTouchId error: %@", error);
              }
          }];
     }
