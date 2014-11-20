@@ -6,9 +6,11 @@
  */
 
 #import <AudioToolbox/AudioToolbox.h>
+#import <LocalAuthentication/LocalAuthentication.h>
 
 #import "PinVC.h"
 #import "AppDelegate.h"
+#import "Config.h"
 
 @interface PinViewController ()
 {
@@ -71,6 +73,10 @@
                  target:self
                  action:@selector(cancelAction:)];
     }
+
+    // Notifiction 受け取り手続き : アプリが foreground に回ったときに通知を受ける
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(willEnterForeground) name:@"willEnterForeground" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -150,6 +156,45 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return IS_IPAD ? YES : interfaceOrientation == UIInterfaceOrientationPortrait;
+}
+
+
+/**
+ * アプリが foreground になった時の処理。
+ * これは AppDelegate の applicationWillEnterForeground から呼び出される。
+ */
+- (void)willEnterForeground
+{
+    NSLog(@"PinViewController : willEnterForeground");
+    [self tryTouchId];
+}
+
+/**
+ * TouchID認証
+ */
+- (void)tryTouchId {
+    if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1) {
+        return; // iOS7以下はTouchID未対応
+    }
+
+    if (![Config instance].useTouchId) {
+        return; // TouchID 使用しない
+    }
+
+    // Touch ID
+    LAContext *context = [LAContext new];
+    NSError *error = nil;
+    
+    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+        [context
+         evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+         localizedReason:@"Unlock CashFlow"
+         reply:^(BOOL success, NSError *error){
+             if (success) {
+                 [_delegate pinViewTouchIdFinished:self];
+             }
+         }];
+    }
 }
 
 @end

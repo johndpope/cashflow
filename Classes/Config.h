@@ -24,6 +24,9 @@
 // 最後に選択されたレポート種別 (REPORT_DAILY/WEEKLY/MONTHLY/ANNUAL/...)
 @property(nonatomic,assign) NSInteger lastReportType;
 
+// TouchID の使用
+@property(nonatomic,assign) BOOL useTouchId;
+
 + (Config *)instance;
 - (void)save;
 

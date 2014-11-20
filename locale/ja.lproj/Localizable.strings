@@ -1,6 +1,7 @@
 "Adjustment" = "残高調整";
 "Amount" = "金額";
 "Balance" = "残高";
+"Bal." = "残高";
 "Date" = "日付";
 "Deposit" = "入金";
 "Info" = "情報";
@@ -43,7 +44,7 @@
 "BackupNotation" = "以下の URL に PC のブラウザからアクセスしてください:\n%@\n完了したら閉じるボタンをタップしてください。";
 "Network is unreachable." = "ネットワークに接続されていません。";
 "Cannot start web server." = "Webサーバを起動できません。";
-"OFXHeadString" = "BEGIN と END に挟まれた部分のテキストをテキストエディタ(メモ帳など)にカット＆ペーストし、ファイルとして保存してください。このとき、漢字コードを必ず 'UTF-8' とし、拡張子は .ofx としてください。";
+// "OFXHeadString" = "BEGIN と END に挟まれた部分のテキストをテキストエディタ(メモ帳など)にカット＆ペーストし、ファイルとして保存してください。このとき、漢字コードを必ず 'UTF-8' とし、拡張子は .ofx としてください。";
 "No data" = "No data";
 "No data to be exported." = "エクスポートする対象データがありません";
 "Delete Asset" = "資産を削除";
@@ -52,12 +53,12 @@
 "Delete with all past transactions" = "これ以前の取引を一括削除";
 "Dismiss" = "閉じる";
 "Cancel" = "キャンセル";
-"Set PIN Code" = "PIN設定";
-"Enter PIN" = "PIN入力";
-"Enter new PIN" = "新PIN";
-"Retype new PIN" = "新PIN(確認)";
-"Invalid PIN" = "PIN不正";
-"PIN code does not match." = "PINが一致しません。";
+"Passcode Lock" = "パスコードロック";
+"Enter passcode" = "パスコード入力";
+"Enter new passcode" = "新パスコード";
+"Retype new passcode" = "新パスコード(確認)";
+"Invalid passcode" = "パスコード不正";
+"Passcode does not match." = "パスコードが一致しません。";
 "Cash" = "現金";
 "Bank Account" = "銀行口座";
 "Credit Card" = "クレジットカード";

@@ -14,6 +14,7 @@
 @protocol PinViewDelegate
 - (void)pinViewFinished:(PinViewController *)vc isCancel:(BOOL)isCancel;
 - (BOOL)pinViewCheckPin:(PinViewController *)vc;
+- (void)pinViewTouchIdFinished:(PinViewController *)vc;
 @end
 
 @interface PinViewController : UIViewController 
@@ -21,6 +22,8 @@
 @property(nonatomic,unsafe_unretained) id<PinViewDelegate> delegate;
 @property(nonatomic,strong) NSMutableString *value;
 @property(nonatomic,assign) BOOL enableCancel;
+
+- (void)tryTouchId;
 
 // private, but called from test.
 - (void)doneAction:(id)sender;

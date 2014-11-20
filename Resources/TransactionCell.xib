@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIViewController"/>
@@ -15,14 +14,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description XXXX" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5">
-                        <rect key="frame" x="8" y="2" width="127" height="20"/>
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description XXXX" lineBreakMode="tailTruncation" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="5">
+                        <rect key="frame" x="8" y="2" width="128" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="Xsy-an-Tkc"/>
+                        </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="¥ 999,999,999" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="¥ 999,999,999" textAlignment="right" lineBreakMode="tailTruncation" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="6">
                         <rect key="frame" x="204" y="2" width="108" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -32,15 +34,18 @@
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7">
-                        <rect key="frame" x="8" y="28" width="173" height="17"/>
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sun, Jan 31, 2014, 12:00 AM" lineBreakMode="tailTruncation" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="7">
+                        <rect key="frame" x="8" y="28" width="160" height="17"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="leY-lA-YEn"/>
+                        </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="¥999,999,999" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="8">
-                        <rect key="frame" x="189" y="28" width="123" height="17"/>
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="Balance ¥999,999,999" textAlignment="right" lineBreakMode="tailTruncation" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="8">
+                        <rect key="frame" x="176" y="28" width="136" height="17"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,12 +57,11 @@
                     <constraint firstItem="8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6" secondAttribute="bottom" constant="2" id="3j0-7T-QWX"/>
                     <constraint firstItem="6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5" secondAttribute="trailing" constant="8" id="51c-ck-lqz"/>
                     <constraint firstAttribute="trailing" secondItem="8" secondAttribute="trailing" constant="8" id="85F-qf-e6S"/>
-                    <constraint firstItem="8" firstAttribute="leading" secondItem="7" secondAttribute="trailing" constant="8" id="CtQ-NS-Jze"/>
+                    <constraint firstItem="8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7" secondAttribute="trailing" constant="8" id="CtQ-NS-Jze"/>
                     <constraint firstAttribute="bottom" secondItem="7" secondAttribute="bottom" constant="2" id="TXa-28-5Yi"/>
                     <constraint firstAttribute="bottom" secondItem="8" secondAttribute="bottom" constant="2" id="VHG-Te-EQp"/>
                     <constraint firstAttribute="trailing" secondItem="6" secondAttribute="trailing" constant="8" id="aqi-53-h49"/>
                     <constraint firstItem="6" firstAttribute="top" secondItem="Ti1-8Y-G6G" secondAttribute="top" constant="2" id="c3e-k3-Ksd"/>
-                    <constraint firstItem="7" firstAttribute="width" secondItem="8" secondAttribute="width" multiplier="1.4" id="h5I-pb-96U"/>
                     <constraint firstItem="5" firstAttribute="leading" secondItem="Ti1-8Y-G6G" secondAttribute="leading" constant="8" id="i1J-ih-67k"/>
                     <constraint firstItem="7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5" secondAttribute="bottom" constant="2" id="odJ-c5-JdX"/>
                     <constraint firstItem="5" firstAttribute="top" secondItem="Ti1-8Y-G6G" secondAttribute="top" constant="2" id="wTg-bU-YzL"/>

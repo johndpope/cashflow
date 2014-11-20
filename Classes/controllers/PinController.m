@@ -53,7 +53,26 @@ static PinController *thePinController = nil;
     return self;
 }
 
+- (BOOL)hasPin
+{
+    return self.pin != nil;
+}
+
+- (void)deletePin
+{
+    self.pin = nil;
+    [self _savePin:nil];
+}
+
+- (void)_savePin:(NSString *)pin
+{
+    self.pin = pin;
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:pin forKey:@"PinCode"];
+    [defaults synchronize];
+}
+
 - (void)_allDone:(PinViewController *)pinViewController;
 {
     if (pinViewController != nil) {
@@ -88,7 +107,7 @@ static PinController *thePinController = nil;
 
     // create PinViewController
     PinViewController *vc = [self _getPinViewController];
-    vc.title = _L(@"Enter PIN");
+    vc.title = _L(@"Enter passcode");
     vc.enableCancel = NO;
 
     _state = FIRST_PIN_CHECK;
@@ -96,6 +115,8 @@ static PinController *thePinController = nil;
     // show PinViewController
     _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     [currentVc presentViewController:_navigationController animated:NO completion:NULL];
+    
+    [vc tryTouchId];
 }
 
 - (void)modifyPin:(UIViewController *)currentVc
@@ -107,11 +128,11 @@ static PinController *thePinController = nil;
     if (_pin != nil) {
         // check current pin
         _state = ENTER_CURRENT_PIN;
-        vc.title = _L(@"Enter PIN");
+        vc.title = _L(@"Enter passcode");
     } else {
         // enter 1st pin
         _state = ENTER_NEW_PIN1;
-        vc.title = _L(@"Enter new PIN");
+        vc.title = _L(@"Enter new passcode");
     }
         
     _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -147,7 +168,7 @@ static PinController *thePinController = nil;
         else if (_state == ENTER_CURRENT_PIN) {
             _state = ENTER_NEW_PIN1;
             newvc = [self _getPinViewController];        
-            newvc.title = _L(@"Enter new PIN");
+            newvc.title = _L(@"Enter new passcode");
         }
         break;
 
@@ -155,16 +176,14 @@ static PinController *thePinController = nil;
         self.pinNew = [NSString stringWithString:vc.value]; // TBD
         _state = ENTER_NEW_PIN2;
         newvc = [self _getPinViewController];        
-        newvc.title = _L(@"Retype new PIN");
+        newvc.title = _L(@"Retype new passcode");
         break;
 
     case ENTER_NEW_PIN2:
         NSLog(@"%@", _pinNew);
         if ([vc.value isEqualToString:_pinNew]) {
             // set new pin
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:_pinNew forKey:@"PinCode"];
-            [defaults synchronize];
+            [self _savePin:_pinNew];
         } else {
             isBadPin = YES;
         }
@@ -174,8 +193,8 @@ static PinController *thePinController = nil;
     // invalid pin
     if (isBadPin) {
         UIAlertView *v = [[UIAlertView alloc]
-                             initWithTitle:_L(@"Invalid PIN")
-                             message:_L(@"PIN code does not match.")
+                             initWithTitle:_L(@"Invalid passcode")
+                             message:_L(@"Passcode does not match.")
                              delegate:nil
                              cancelButtonTitle:@"Close"
                              otherButtonTitles:nil];
@@ -189,6 +208,15 @@ static PinController *thePinController = nil;
     if (newvc) {
         [_navigationController pushViewController:newvc animated:YES];
     } else {
+        [self _allDone:vc];
+    }
+}
+
+/**
+ * TouchID 認証完了
+ */
+- (void)pinViewTouchIdFinished:(PinViewController *)vc {
+    if (_state == FIRST_PIN_CHECK) {
         [self _allDone:vc];
     }
 }

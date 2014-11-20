@@ -21,12 +21,15 @@
 #import <Crashlytics/Crashlytics.h>
 
 #import "DropboxSecret.h"
+#import "Config.h"
 
 @implementation AppDelegate
 {
     UIApplication *_application;
 
     UINavigationController *_detailNavigationController;
+    
+    UIView *_privacyView;
 }
 
 //
@@ -158,6 +161,26 @@
     [tracker set:[GAIFields customDimensionForIndex:4] value:platform];
 }
 
+// プライバシービュー関連処理
+- (UIView *)privacyView
+{
+    if (_privacyView == nil) {
+        _privacyView = [[UIView alloc] initWithFrame:self.window.frame];
+        _privacyView.backgroundColor = [UIColor whiteColor];
+    }
+    return _privacyView;
+}
+
+- (void)showPrivacyView
+{
+    [self.window addSubview:[self privacyView]];
+}
+
+- (void)hidePrivacyView
+{
+    [[self privacyView] removeFromSuperview];
+}
+
 // 起動時の遅延実行処理
 - (void)delayedLaunchProcess:(NSTimer *)timer
 {
@@ -181,19 +204,28 @@
     // Background に入るまえに PIN コード表示を行っておく
     // 復帰時だと、前の画面が一瞬表示されたあとで PIN 画面がでてしまうので遅い
     [self checkPin];
+
+    if ([PinController sharedController].pin != nil) {
+        // snapshot 保存しない (うまく動作しないようだが、一応)
+        [[UIApplication sharedApplication] ignoreSnapshotOnNextApplicationLaunch];
+
+        // 画面を隠しておく
+        //self.window.hidden = YES;
+        [self showPrivacyView];
+    }
 }
 
 // Background から復帰するときの処理
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"willEnterForeground" object:nil];
-    
-    /*
-     UIViewController *topVc = [_detailNavigationController topViewController];
-     
-     if ([topVc respondsToSelector:@selector(willEnterForeground)]) {
-     [topVc performSelector:@selector(willEnterForeground)];
-     }*/
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    // 画面表示
+    //self.window.hidden = NO;
+    [self hidePrivacyView];
 }
 
 - (void)checkPin
