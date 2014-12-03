@@ -40,8 +40,10 @@
     NSInteger _tappedIndex;
 
     // For Free version
+#if FREE_VERSION
     AdManager *_adManager;
     BOOL _isAdShowing;
+#endif
 
     UIActionSheet *_actionSheet;
 
@@ -123,12 +125,12 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(willEnterForeground) name:@"willEnterForeground" object:nil];
     [nc addObserver:self selector:@selector(willResignActive) name:@"willResignActive" object:nil];
-    
-    if ([AppDelegate isFreeVersion]) {
-        _isAdShowing = NO;
-        _adManager = [AdManager sharedInstance];
-        [_adManager attach:self rootViewController:self];
-    }
+
+#if FREE_VERSION
+    _isAdShowing = NO;
+    _adManager = [AdManager sharedInstance];
+    [_adManager attach:self rootViewController:self];
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,9 +141,9 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc removeObserver:self];
     
-    if ([AppDelegate isFreeVersion]) {
-        [_adManager detach];
-    }
+#if FREE_VERSION
+    [_adManager detach];
+#endif
 }
 
 - (void)reload
@@ -187,10 +189,10 @@
 {
     [super viewDidAppear:animated];
 
-    if ([AppDelegate isFreeVersion]) {
-        // 表示開始
-        [_adManager requestShowAd];
-    }
+#if FREE_VERSION
+    // 表示開始
+    [_adManager requestShowAd];
+#endif
 }
 
 /**
@@ -211,15 +213,16 @@
  */
 - (void)willEnterForeground
 {
-    if ([AppDelegate isFreeVersion]) {
-        // 表示開始
-        [_adManager requestShowAd];
-    }
+#if FREE_VERSION
+    // 表示開始
+    [_adManager requestShowAd];
+#endif
 }
 
 /**
  * 広告表示
  */
+#if FREE_VERSION
 - (void)adManager:(AdManager *)adManager showAd:(AdView *)adView adSize:(CGSize)adSize
 {
     if (_isAdShowing) {
@@ -329,6 +332,7 @@
     
     [adView removeFromSuperview];
 }
+#endif // FREE_VERSION
 
 - (void)updateBalance
 {

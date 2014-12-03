@@ -6,6 +6,8 @@
  */
 
 #import <UIKit/UIKit.h>
+
+#if FREE_VERSION
 #import "GADBannerView.h"
 #import "DFPBannerView.h"
 
@@ -50,3 +52,6 @@
 - (BOOL)requestShowAd;
 
 @end
+
+#endif // FREE_VERSION
+

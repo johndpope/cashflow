@@ -5,6 +5,8 @@
  * For conditions of distribution and use, see LICENSE file.
  */
 
+#if FREE_VERSION
+
 #import "AdManager.h"
 #import "AppDelegate.h"
 
@@ -298,3 +300,6 @@ static AdManager *theAdManager;
 }
 
 @end
+
+#endif // FREE_VERSION
+
