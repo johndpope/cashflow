@@ -11,7 +11,8 @@
 
 @interface TransactionCell : UITableViewCell
 
-+ (TransactionCell *)transactionCell:(UITableView *)tableView;
++ (void)registerCell:(UITableView *)tableView;
++ (TransactionCell *)transactionCell:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath;
 
 //- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)identifier;
 - (TransactionCell *)updateWithAssetEntry:(AssetEntry *)entry;

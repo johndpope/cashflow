@@ -91,6 +91,9 @@
 
     [super viewDidLoad];
     
+    // TransactionCell を register する
+    [TransactionCell registerCell:self.tableView];
+    
     if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
         // iOS8 以降: 行高さ自動調整
         self.tableView.estimatedRowHeight = 48.0;
@@ -424,10 +427,10 @@
     
     e = [self entryWithIndexPath:indexPath tableView:tv];
     if (e) {
-        cell = [[TransactionCell transactionCell:tv] updateWithAssetEntry:e];
+        cell = [[TransactionCell transactionCell:tv forIndexPath:indexPath] updateWithAssetEntry:e];
     }
     else {
-        cell = [[TransactionCell transactionCell:tv] updateAsInitialBalance:self.asset.initialBalance];
+        cell = [[TransactionCell transactionCell:tv forIndexPath:indexPath] updateAsInitialBalance:self.asset.initialBalance];
     }
 
     return cell;

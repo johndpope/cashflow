@@ -953,7 +953,10 @@
 		662ABC1C6F78DD1DE0D1BD6C /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				662AB0BA51A0243F4A2A98E3 /* TransactionListVC.h */,
 				662ABF23945AB924DD3F8BB7 /* TransactionListVC.m */,
+				662AB0FB528C501A04668172 /* TransactionCell.h */,
+				662ABA34C992D7C86B93C578 /* TransactionCell.m */,
 				662AB8E7413740C6A594F849 /* EditMemoVC.m */,
 				662ABA862A8F2CA51C3D3BC6 /* TransactionVC.m */,
 				662AB14DDD3F0ABF1D8365B0 /* TransactionVC.h */,
@@ -961,14 +964,11 @@
 				662AB69944CC356EEE70DA28 /* EditDateVC.h */,
 				662AB4B7D61A7D31D021F92C /* EditDescVC.h */,
 				662AB93A469BA46121E9E6BF /* EditTypeVC.m */,
-				662AB0BA51A0243F4A2A98E3 /* TransactionListVC.h */,
 				662AB0FB7BC05AC8974EF01D /* EditTypeVC.h */,
 				662AB3934BFDD4D620AF647B /* EditMemoVC.h */,
 				662ABD14E5481392EFB97B79 /* EditDescVC.m */,
-				662AB0FB528C501A04668172 /* TransactionCell.h */,
 				662ABB5C2CC80A847C5DB12C /* CFCalendarViewController.h */,
 				662AB26BA59401CD8FCDE181 /* EditDateVC.m */,
-				662ABA34C992D7C86B93C578 /* TransactionCell.m */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";

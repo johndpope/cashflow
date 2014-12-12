@@ -1,3 +1,7 @@
+2014-12-03 : Takuya Murakami
+
+	* Std 版で広告ライブラリを分離。(IDFA問題)
+	
 2014-11-21 : Takuya Murakami
 
 	* Touch ID でフリーズする問題修正。
