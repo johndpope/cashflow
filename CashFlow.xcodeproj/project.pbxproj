@@ -143,7 +143,6 @@
 		662AB3F4E233DAFD6A216A9B /* PinVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABF4EAE053DFFBB925491 /* PinVCTests.m */; };
 		662AB42368874E330C5451F2 /* DataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB79B95B87D749EA03CBF /* DataModelTests.m */; };
 		662AB44A22AE94B0BA8720E1 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 662AB8D90BC1E43B40E0750D /* TransactionCell.xib */; };
-		662AB467193CFFF8F8741D8B /* PinView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 662ABF873ADC91C78231E8C0 /* PinView.storyboard */; };
 		662AB4B2F4FF8E013FC96291 /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB5E6EBADB4068083DCBC /* UIDevice+Hardware.m */; };
 		662AB4B65DB2951A0D24A841 /* SupportMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB9D9EC684EED6E3555C2 /* SupportMail.m */; };
 		662AB4D633989C2F96647019 /* PinView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 662AB102FEA9549692A14BA3 /* PinView-ipad.xib */; };
@@ -268,7 +267,6 @@
 		662ABE00B7A13F4DAD0197A4 /* ReportEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABCA9533585AD703DE3F9 /* ReportEntry.m */; };
 		662ABE3BD08184BEDBF9E738 /* EditDateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB26BA59401CD8FCDE181 /* EditDateVC.m */; };
 		662ABE4D69C52BF40194AC12 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB809E5CDE381FBCA3763 /* Transaction.m */; };
-		662ABE59F4A6A51C3666880E /* PinView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 662ABF873ADC91C78231E8C0 /* PinView.storyboard */; };
 		662ABE6A5505E7FDB1A9237E /* PinController.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABBECC87A505590735192 /* PinController.m */; };
 		662ABE762C06BF9834447C61 /* DBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB551FD151CEF1F579143 /* DBLoadingView.m */; };
 		662ABE7E031772A367626D2E /* ExportOfx.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABF6D0B758426D5919D5B /* ExportOfx.m */; };
@@ -282,7 +280,6 @@
 		662ABF2D9D776C71A48B41E2 /* DescLRUManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABCD7D7693C8A2740B9F5 /* DescLRUManager.m */; };
 		662ABF335EA49B37BA41A987 /* AssetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 662AB77DF9FA9C3A5060A9B5 /* AssetVC.m */; };
 		662ABF4E80595B30B2F88BE8 /* ReportCatGraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABC3216C27E47D21B4F68 /* ReportCatGraphCell.m */; };
-		662ABF55595D0D1BB615BEA8 /* PinView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 662ABF873ADC91C78231E8C0 /* PinView.storyboard */; };
 		662ABF5D53690328D77C3E34 /* ExportView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 662ABCB53174869FC778FDA9 /* ExportView.storyboard */; };
 		662ABF978C506C23FCD55017 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ABAB142EB1301EB4C50AA /* InfoViewController.swift */; };
 		662ABFCAA4B9071523BB0321 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABC11E63DF5F296E47AC9 /* Report.m */; };
@@ -521,7 +518,6 @@
 		662ABF4EAE053DFFBB925491 /* PinVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinVCTests.m; sourceTree = "<group>"; };
 		662ABF6D0B758426D5919D5B /* ExportOfx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportOfx.m; sourceTree = "<group>"; };
 		662ABF7CC9A344DB7C9AA61F /* DropboxSecret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropboxSecret.h; sourceTree = "<group>"; };
-		662ABF873ADC91C78231E8C0 /* PinView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PinView.storyboard; sourceTree = "<group>"; };
 		662ABFD92A03C72D8D61AE38 /* CategoryListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListView.xib; sourceTree = "<group>"; };
 		662ABFDE9FB219156C818CF4 /* ReportCatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCatVC.h; sourceTree = "<group>"; };
 		72E34B0C044E0FF376596D37 /* libPods-lite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lite.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1006,7 +1002,6 @@
 				662AB7F1C8388EF9E38A4D79 /* GenEditTextView.xib */,
 				662AB45ECA675DB52757BD7D /* BackupView.storyboard */,
 				662AB0D857F2C229E01A0A86 /* InfoView.storyboard */,
-				662ABF873ADC91C78231E8C0 /* PinView.storyboard */,
 				662AB943BAFEE09051FD3803 /* ReportView.storyboard */,
 				662AB5FC768CAE796CDDEC2A /* TransactionListView.storyboard */,
 				662AB8D90BC1E43B40E0750D /* TransactionCell.xib */,
@@ -1230,7 +1225,6 @@
 				662AB38D91112AB8DB431A49 /* BackupView.storyboard in Resources */,
 				3E50B5F91A14FBF400F5D034 /* Localizable.strings in Resources */,
 				662ABA3E5879DCBD1529CAC3 /* InfoView.storyboard in Resources */,
-				662AB467193CFFF8F8741D8B /* PinView.storyboard in Resources */,
 				662AB8952EE964FF13B0C7D5 /* ReportView.storyboard in Resources */,
 				662AB17945843BC0B3F2D1E7 /* TransactionListView.storyboard in Resources */,
 				662AB594A96D2933D66D8545 /* TransactionCell.xib in Resources */,
@@ -1261,7 +1255,6 @@
 				662AB616F39947A6EFFED9C8 /* BackupView.storyboard in Resources */,
 				3E50B5FA1A14FBF400F5D034 /* Localizable.strings in Resources */,
 				662AB90F8F404D10EC87D6F8 /* InfoView.storyboard in Resources */,
-				662ABF55595D0D1BB615BEA8 /* PinView.storyboard in Resources */,
 				662AB3B22938BFFC206F3C13 /* ReportView.storyboard in Resources */,
 				662AB5443A91C480DD9BD947 /* TransactionListView.storyboard in Resources */,
 				662AB44A22AE94B0BA8720E1 /* TransactionCell.xib in Resources */,
@@ -1288,7 +1281,6 @@
 				662AB041782B0030FA8DAE23 /* CalculatorView.storyboard in Resources */,
 				662AB5F32BF882F46478F771 /* BackupView.storyboard in Resources */,
 				662AB32ED8E8B6CDD90C4E92 /* InfoView.storyboard in Resources */,
-				662ABE59F4A6A51C3666880E /* PinView.storyboard in Resources */,
 				662AB0577515FDD38550D9BF /* ReportView.storyboard in Resources */,
 				662AB1EA7ACDD881B671111F /* TransactionListView.storyboard in Resources */,
 				662AB9DAD03F130F59854566 /* images.xcassets in Resources */,
