@@ -58,6 +58,8 @@
 		3EB88E8E17F702170045780D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB88E8C17F700B00045780D /* StoreKit.framework */; };
 		3EC572D71107451F00A551D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC572D61107451F00A551D5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3ECD5A871347603800B499A6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD5A861347603800B499A6 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3ED414E71A58428A00B1AEB8 /* Pods-free.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3ED414E51A58428A00B1AEB8 /* Pods-free.debug.xcconfig */; };
+		3ED414E81A58428A00B1AEB8 /* Pods-free.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3ED414E61A58428A00B1AEB8 /* Pods-free.release.xcconfig */; };
 		3EE5E70C18A9260200B23A99 /* libAdapterNend.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2C01831495600070F72 /* libAdapterNend.a */; };
 		3EE5E70F18A9260700B23A99 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2C11831495600070F72 /* libNendAd.a */; };
 		3EE5E71218A9262200B23A99 /* libAdapterIMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFDC2CF18314B6500070F72 /* libAdapterIMobile.a */; };
@@ -287,6 +289,7 @@
 		662ABFECFCD6CEEC48222E25 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABAB719DFAE01D69A82BB /* DataModel.m */; };
 		662ABFEFB6047DFEDF362BF7 /* DateFormatter2.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ABC41E0B08C545BD4EEA6 /* DateFormatter2.m */; };
 		662ABFFDEF707D176344864A /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 662AB4529F18D3B7927856D5 /* images.xcassets */; };
+		6DC479B50FD8848B02F31844 /* libPods-free.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 357DFF059FE4B2E114DFCF57 /* libPods-free.a */; };
 		977AFB7F161A4A21B9DC734B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 914D96536A094E7EAB063096 /* libPods.a */; };
 		B4C8296B4419629DCE146430 /* libPods-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E34B0C044E0FF376596D37 /* libPods-lite.a */; };
 		CC9BF0CD63904CB28D3CCC88 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 914D96536A094E7EAB063096 /* libPods.a */; };
@@ -308,6 +311,7 @@
 		1D6058910D05DD3D006BFB54 /* CashFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		357DFF059FE4B2E114DFCF57 /* libPods-free.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-free.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E035E9A1182B6E000711865 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3E0AC6AD13A786E8006F505C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3E13EE58114007D600523938 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -336,6 +340,8 @@
 		3EB88E8C17F700B00045780D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StoreKit.framework; sourceTree = "<group>"; };
 		3EC572D61107451F00A551D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3ECD5A861347603800B499A6 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		3ED414E51A58428A00B1AEB8 /* Pods-free.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-free.debug.xcconfig"; path = "Pods/Target Support Files/Pods-free/Pods-free.debug.xcconfig"; sourceTree = "<group>"; };
+		3ED414E61A58428A00B1AEB8 /* Pods-free.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-free.release.xcconfig"; path = "Pods/Target Support Files/Pods-free/Pods-free.release.xcconfig"; sourceTree = "<group>"; };
 		3EE629E910D7E8C500EB7399 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		3EF1523D1462C2B300C724E4 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF966FD1464FD3900A24626 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -587,6 +593,7 @@
 				265FAB39679D451185D48518 /* libPods.a in Frameworks */,
 				662ABF042574B1352DA5F9B1 /* LocalAuthentication.framework in Frameworks */,
 				B4C8296B4419629DCE146430 /* libPods-lite.a in Frameworks */,
+				6DC479B50FD8848B02F31844 /* libPods-free.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,6 +681,7 @@
 				914D96536A094E7EAB063096 /* libPods.a */,
 				662AB9ED9DFCC8F292D57BA8 /* LocalAuthentication.framework */,
 				72E34B0C044E0FF376596D37 /* libPods-lite.a */,
+				357DFF059FE4B2E114DFCF57 /* libPods-free.a */,
 			);
 			name = Frameworks;
 			path = System/Library/Frameworks;
@@ -1076,6 +1084,8 @@
 			children = (
 				EDCD330507C283D40CC835A0 /* Pods.debug.xcconfig */,
 				0928AD807485D38FAB572C0F /* Pods.release.xcconfig */,
+				3ED414E51A58428A00B1AEB8 /* Pods-free.debug.xcconfig */,
+				3ED414E61A58428A00B1AEB8 /* Pods-free.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1237,6 +1247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				662AB1FBA94D123DE73E8732 /* ConfigView.storyboard in Resources */,
+				3ED414E71A58428A00B1AEB8 /* Pods-free.debug.xcconfig in Resources */,
 				662AB292B6820E4ADC26E601 /* EditMemoView.xib in Resources */,
 				662ABBF51EAB1CD7FF1E530F /* CategoryListView.xib in Resources */,
 				662AB3ECDBD28A5D2C89DA56 /* AssetListView.storyboard in Resources */,
@@ -1259,6 +1270,7 @@
 				662AB96A640F061268F769F1 /* PinView-ipad.xib in Resources */,
 				662ABFFDEF707D176344864A /* images.xcassets in Resources */,
 				662ABB91B652141D39C26383 /* artwork.jpg in Resources */,
+				3ED414E81A58428A00B1AEB8 /* Pods-free.release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1354,7 +1366,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lite/Pods-lite-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-free/Pods-free-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		75402BA0404F4BE5A1257565 /* Copy Pods Resources */ = {
@@ -1664,7 +1676,7 @@
 		};
 		3E8B25BC0F348C090007929E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EDCD330507C283D40CC835A0 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 3ED414E51A58428A00B1AEB8 /* Pods-free.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconFree;
@@ -1697,7 +1709,7 @@
 		};
 		3E8B25BE0F348C090007929E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0928AD807485D38FAB572C0F /* Pods.release.xcconfig */;
+			baseConfigurationReference = 3ED414E61A58428A00B1AEB8 /* Pods-free.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconFree;

@@ -13,7 +13,7 @@ pod 'GoogleAnalytics-iOS-SDK'
 
 pod 'RDVCalendarView', '~> 1.0.7'
 
-target :lite do
+target :free do
   link_with 'CashFlowFree'
 
   pod 'Google-Mobile-Ads-SDK'
