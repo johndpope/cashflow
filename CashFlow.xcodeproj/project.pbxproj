@@ -288,7 +288,6 @@
 		662ABFFDEF707D176344864A /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 662AB4529F18D3B7927856D5 /* images.xcassets */; };
 		6DC479B50FD8848B02F31844 /* libPods-free.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 357DFF059FE4B2E114DFCF57 /* libPods-free.a */; };
 		977AFB7F161A4A21B9DC734B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 914D96536A094E7EAB063096 /* libPods.a */; };
-		B4C8296B4419629DCE146430 /* libPods-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E34B0C044E0FF376596D37 /* libPods-lite.a */; };
 		CC9BF0CD63904CB28D3CCC88 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 914D96536A094E7EAB063096 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -520,7 +519,6 @@
 		662ABF7CC9A344DB7C9AA61F /* DropboxSecret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropboxSecret.h; sourceTree = "<group>"; };
 		662ABFD92A03C72D8D61AE38 /* CategoryListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListView.xib; sourceTree = "<group>"; };
 		662ABFDE9FB219156C818CF4 /* ReportCatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCatVC.h; sourceTree = "<group>"; };
-		72E34B0C044E0FF376596D37 /* libPods-lite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lite.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		914D96536A094E7EAB063096 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDCD330507C283D40CC835A0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -588,7 +586,6 @@
 				3E347BB4169DC7CE002307AA /* CoreData.framework in Frameworks */,
 				265FAB39679D451185D48518 /* libPods.a in Frameworks */,
 				662ABF042574B1352DA5F9B1 /* LocalAuthentication.framework in Frameworks */,
-				B4C8296B4419629DCE146430 /* libPods-lite.a in Frameworks */,
 				6DC479B50FD8848B02F31844 /* libPods-free.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -676,7 +673,6 @@
 				3E035E9A1182B6E000711865 /* SystemConfiguration.framework */,
 				914D96536A094E7EAB063096 /* libPods.a */,
 				662AB9ED9DFCC8F292D57BA8 /* LocalAuthentication.framework */,
-				72E34B0C044E0FF376596D37 /* libPods-lite.a */,
 				357DFF059FE4B2E114DFCF57 /* libPods-free.a */,
 			);
 			name = Frameworks;
@@ -1660,7 +1656,7 @@
 					"$(SRCROOT)/Libraries/AdMob/AdapterIMobile",
 				);
 				PRODUCT_NAME = CashFlow;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "960CFEFC-F451-4B1B-AA64-AE0A2BACF92E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7bf73d0f-2a24-4a77-a907-ea42930d8b68";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1728,7 +1724,7 @@
 				);
 				PRODUCT_NAME = CashFlowFree;
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D6A59DF8-5CDB-4EA1-A2BB-0B134218AA5A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3196f994-8a42-4aea-9841-addd8fbda8cc";
 			};
 			name = Release;
 		};
