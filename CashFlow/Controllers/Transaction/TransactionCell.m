@@ -19,16 +19,25 @@
     IBOutlet UILabel *_balanceLabel;
 }
 
-+ (TransactionCell *)transactionCell:(UITableView *)tableView
++ (void)registerCell:(UITableView *)tableView
+{
+    UINib *nib = [UINib nibWithNibName:@"TransactionCell" bundle:nil];
+    [tableView registerNib:nib forCellReuseIdentifier:@"TransactionCell"];
+}
+
++ (TransactionCell *)transactionCell:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"TransactionCell";
 
+    return [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    /*
     TransactionCell *cell = (TransactionCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         NSArray *ary = [[NSBundle mainBundle] loadNibNamed:@"TransactionCell" owner:nil options:nil];
         cell = (TransactionCell *)ary[0];
     }
     return cell;
+    */
 }
 
 

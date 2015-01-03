@@ -109,14 +109,13 @@ static PinController *thePinController = nil;
     PinViewController *vc = [self _getPinViewController];
     vc.title = _L(@"Enter passcode");
     vc.enableCancel = NO;
-
+    vc.doTouchIdAuth = YES;
+    
     _state = FIRST_PIN_CHECK;
 
     // show PinViewController
     _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     [currentVc presentViewController:_navigationController animated:NO completion:NULL];
-    
-    [vc tryTouchId];
 }
 
 - (void)modifyPin:(UIViewController *)currentVc

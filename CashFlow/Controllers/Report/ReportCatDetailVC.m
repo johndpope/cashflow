@@ -16,6 +16,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [TransactionCell registerCell:self.tableView];
+    
     //[AppDelegate trackPageview:@"/ReportCatDetailViewController"];
     
     self.navigationItem.rightBarButtonItem =
@@ -47,7 +50,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TransactionCell *cell = [TransactionCell transactionCell:tv];
+    TransactionCell *cell = [TransactionCell transactionCell:tv forIndexPath:indexPath];
     
     Transaction *t = (_catReport.transactions)[[_catReport.transactions count] - 1 - indexPath.row];
     double value;

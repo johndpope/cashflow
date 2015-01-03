@@ -11,11 +11,15 @@
 #import "GenEditTextVC.h"
 
 @implementation CategoryListViewController
+{
+    BOOL _isAddCategoryRowDisplayed;
+}
 
 - (id)init
 {
     self = [super initWithNibName:@"CategoryListView" bundle:nil];
     if (self) {
+        _isAddCategoryRowDisplayed = NO;
     }
     return self;
 }
@@ -153,16 +157,21 @@
 {
     [super setEditing:editing animated:animated];
 	
-    // Insert ボタン用の行
+    // "Add Category" 用の行を追加・削除する
+    // Edit ボタンを押したのではなく swipe した場合もこれが呼ばれるので注意すること。
+    // なお、その場合、setEditing は１回ずつではなく２回呼ばれる場合があるので、
+    // 二重処理にならないようにする必要がある。
     NSInteger insButtonIndex = [[DataModel instance].categories count];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:insButtonIndex inSection:0];
     NSArray *iary = @[indexPath];
 	
     [self.tableView beginUpdates];
-    if (editing) {
+    if (editing && !_isAddCategoryRowDisplayed) {
         [self.tableView insertRowsAtIndexPaths:iary withRowAnimation:UITableViewRowAnimationTop];
-    } else {
+        _isAddCategoryRowDisplayed = YES;
+    } else if (!editing && _isAddCategoryRowDisplayed) {
         [self.tableView deleteRowsAtIndexPaths:iary withRowAnimation:UITableViewRowAnimationTop];
+        _isAddCategoryRowDisplayed = NO;
     }
     [self.tableView endUpdates];
 

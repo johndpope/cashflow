@@ -1,3 +1,25 @@
+2014-01-04 : Takuya Murakami
+
+	* ver 6.5.5 (82)
+	* ビルドが通らない問題修正 (xcconfig/free)
+	* Nend 2.5.5 -> 2.5.6
+
+2014-12-13 : Takuya Murakami
+
+	* UITableViewCell の生成方法を modern な方法に合わせた
+
+2014-12-03 : Takuya Murakami
+
+	* Std 版で広告ライブラリを分離。(IDFA問題)
+
+2014-11-21 : Takuya Murakami
+
+	* Touch ID でフリーズする問題修正。
+
+2014-11-14 : Takuya Murakami
+
+	* ver 6.5.4 (81)
+
 2014-11-13 : Takuya Murakami
 
 	* ディレクトリ構成再編

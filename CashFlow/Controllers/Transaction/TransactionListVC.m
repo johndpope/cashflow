@@ -40,8 +40,10 @@
     NSInteger _tappedIndex;
 
     // For Free version
+#if FREE_VERSION
     AdManager *_adManager;
     BOOL _isAdShowing;
+#endif
 
     UIActionSheet *_actionSheet;
 
@@ -89,6 +91,9 @@
 
     [super viewDidLoad];
     
+    // TransactionCell を register する
+    [TransactionCell registerCell:self.tableView];
+    
     if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
         // iOS8 以降: 行高さ自動調整
         self.tableView.estimatedRowHeight = 48.0;
@@ -123,12 +128,12 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(willEnterForeground) name:@"willEnterForeground" object:nil];
     [nc addObserver:self selector:@selector(willResignActive) name:@"willResignActive" object:nil];
-    
-    if ([AppDelegate isFreeVersion]) {
-        _isAdShowing = NO;
-        _adManager = [AdManager sharedInstance];
-        [_adManager attach:self rootViewController:self];
-    }
+
+#if FREE_VERSION
+    _isAdShowing = NO;
+    _adManager = [AdManager sharedInstance];
+    [_adManager attach:self rootViewController:self];
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,9 +144,9 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc removeObserver:self];
     
-    if ([AppDelegate isFreeVersion]) {
-        [_adManager detach];
-    }
+#if FREE_VERSION
+    [_adManager detach];
+#endif
 }
 
 - (void)reload
@@ -187,10 +192,10 @@
 {
     [super viewDidAppear:animated];
 
-    if ([AppDelegate isFreeVersion]) {
-        // 表示開始
-        [_adManager requestShowAd];
-    }
+#if FREE_VERSION
+    // 表示開始
+    [_adManager requestShowAd];
+#endif
 }
 
 /**
@@ -211,15 +216,16 @@
  */
 - (void)willEnterForeground
 {
-    if ([AppDelegate isFreeVersion]) {
-        // 表示開始
-        [_adManager requestShowAd];
-    }
+#if FREE_VERSION
+    // 表示開始
+    [_adManager requestShowAd];
+#endif
 }
 
 /**
  * 広告表示
  */
+#if FREE_VERSION
 - (void)adManager:(AdManager *)adManager showAd:(AdView *)adView adSize:(CGSize)adSize
 {
     if (_isAdShowing) {
@@ -329,6 +335,7 @@
     
     [adView removeFromSuperview];
 }
+#endif // FREE_VERSION
 
 - (void)updateBalance
 {
@@ -420,10 +427,10 @@
     
     e = [self entryWithIndexPath:indexPath tableView:tv];
     if (e) {
-        cell = [[TransactionCell transactionCell:tv] updateWithAssetEntry:e];
+        cell = [[TransactionCell transactionCell:tv forIndexPath:indexPath] updateWithAssetEntry:e];
     }
     else {
-        cell = [[TransactionCell transactionCell:tv] updateAsInitialBalance:self.asset.initialBalance];
+        cell = [[TransactionCell transactionCell:tv forIndexPath:indexPath] updateAsInitialBalance:self.asset.initialBalance];
     }
 
     return cell;
